@@ -10,7 +10,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 1,
-      "base_title": "august"
+      "base_title": "august",
+      "album": "folklore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "august",
+      "song_family": "august",
+      "version_tag": "standalone"
     },
     {
       "title": "august - the long pond studio sessions",
@@ -19,7 +28,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 2,
-      "base_title": "august - the long pond studio sessions"
+      "base_title": "august - the long pond studio sessions",
+      "album": "folklore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "august - the long pond studio sessions",
+      "song_family": "august_the_long_pond_studio_sessions",
+      "version_tag": "standalone"
     },
     {
       "title": "betty - the long pond studio sessions",
@@ -28,7 +46,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 3,
-      "base_title": "betty - the long pond studio sessions"
+      "base_title": "betty - the long pond studio sessions",
+      "album": "folklore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "betty - the long pond studio sessions",
+      "song_family": "betty_the_long_pond_studio_sessions",
+      "version_tag": "standalone"
     },
     {
       "title": "cardigan",
@@ -37,7 +64,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 4,
-      "base_title": "cardigan"
+      "base_title": "cardigan",
+      "album": "folklore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "cardigan",
+      "song_family": "cardigan",
+      "version_tag": "standalone"
     },
     {
       "title": "epiphany - the long pond studio sessions",
@@ -46,7 +82,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 5,
-      "base_title": "epiphany - the long pond studio sessions"
+      "base_title": "epiphany - the long pond studio sessions",
+      "album": "folklore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "epiphany - the long pond studio sessions",
+      "song_family": "epiphany_the_long_pond_studio_sessions",
+      "version_tag": "standalone"
     },
     {
       "title": "exile (feat. Bon Iver)",
@@ -55,7 +100,19 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 6,
-      "base_title": "exile (feat. Bon Iver)"
+      "base_title": "exile (feat. Bon Iver)",
+      "album": "folklore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [
+        "Bon Iver"
+      ],
+      "artists": [
+        "Taylor Swift",
+        "Bon Iver"
+      ],
+      "title_clean": "exile",
+      "song_family": "exile",
+      "version_tag": "featured__feature"
     },
     {
       "title": "hoax - the long pond studio sessions",
@@ -64,7 +121,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 7,
-      "base_title": "hoax - the long pond studio sessions"
+      "base_title": "hoax - the long pond studio sessions",
+      "album": "folklore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "hoax - the long pond studio sessions",
+      "song_family": "hoax_the_long_pond_studio_sessions",
+      "version_tag": "standalone"
     },
     {
       "title": "illicit affairs - the long pond studio sessions",
@@ -73,7 +139,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 8,
-      "base_title": "illicit affairs - the long pond studio sessions"
+      "base_title": "illicit affairs - the long pond studio sessions",
+      "album": "folklore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "illicit affairs - the long pond studio sessions",
+      "song_family": "illicit_affairs_the_long_pond_studio_sessions",
+      "version_tag": "standalone"
     },
     {
       "title": "invisible string - the long pond studio sessions",
@@ -82,7 +157,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 9,
-      "base_title": "invisible string - the long pond studio sessions"
+      "base_title": "invisible string - the long pond studio sessions",
+      "album": "folklore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "invisible string - the long pond studio sessions",
+      "song_family": "invisible_string_the_long_pond_studio_sessions",
+      "version_tag": "standalone"
     },
     {
       "title": "mad woman - the long pond studio sessions",
@@ -91,7 +175,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 10,
-      "base_title": "mad woman - the long pond studio sessions"
+      "base_title": "mad woman - the long pond studio sessions",
+      "album": "folklore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "mad woman - the long pond studio sessions",
+      "song_family": "mad_woman_the_long_pond_studio_sessions",
+      "version_tag": "standalone"
     },
     {
       "title": "mirrorball",
@@ -100,7 +193,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 11,
-      "base_title": "mirrorball"
+      "base_title": "mirrorball",
+      "album": "folklore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "mirrorball",
+      "song_family": "mirrorball",
+      "version_tag": "standalone"
     },
     {
       "title": "mirrorball - the long pond studio sessions",
@@ -109,7 +211,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 12,
-      "base_title": "mirrorball - the long pond studio sessions"
+      "base_title": "mirrorball - the long pond studio sessions",
+      "album": "folklore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "mirrorball - the long pond studio sessions",
+      "song_family": "mirrorball_the_long_pond_studio_sessions",
+      "version_tag": "standalone"
     },
     {
       "title": "my tears ricochet",
@@ -118,7 +229,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 13,
-      "base_title": "my tears ricochet"
+      "base_title": "my tears ricochet",
+      "album": "folklore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "my tears ricochet",
+      "song_family": "my_tears_ricochet",
+      "version_tag": "standalone"
     },
     {
       "title": "my tears ricochet - the long pond studio sessions",
@@ -127,7 +247,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 14,
-      "base_title": "my tears ricochet - the long pond studio sessions"
+      "base_title": "my tears ricochet - the long pond studio sessions",
+      "album": "folklore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "my tears ricochet - the long pond studio sessions",
+      "song_family": "my_tears_ricochet_the_long_pond_studio_sessions",
+      "version_tag": "standalone"
     },
     {
       "title": "peace - the long pond studio sessions",
@@ -136,7 +265,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 15,
-      "base_title": "peace - the long pond studio sessions"
+      "base_title": "peace - the long pond studio sessions",
+      "album": "folklore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "peace - the long pond studio sessions",
+      "song_family": "peace_the_long_pond_studio_sessions",
+      "version_tag": "standalone"
     },
     {
       "title": "seven",
@@ -145,7 +283,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 16,
-      "base_title": "seven"
+      "base_title": "seven",
+      "album": "folklore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "seven",
+      "song_family": "seven",
+      "version_tag": "standalone"
     },
     {
       "title": "seven - the long pond studio sessions",
@@ -154,7 +301,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 17,
-      "base_title": "seven - the long pond studio sessions"
+      "base_title": "seven - the long pond studio sessions",
+      "album": "folklore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "seven - the long pond studio sessions",
+      "song_family": "seven_the_long_pond_studio_sessions",
+      "version_tag": "standalone"
     },
     {
       "title": "the 1",
@@ -163,7 +319,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 18,
-      "base_title": "the 1"
+      "base_title": "the 1",
+      "album": "folklore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "the 1",
+      "song_family": "the_1",
+      "version_tag": "standalone"
     },
     {
       "title": "the lakes - the long pond studio sessions",
@@ -172,7 +337,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 19,
-      "base_title": "the lakes - the long pond studio sessions"
+      "base_title": "the lakes - the long pond studio sessions",
+      "album": "folklore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "the lakes - the long pond studio sessions",
+      "song_family": "the_lakes_the_long_pond_studio_sessions",
+      "version_tag": "standalone"
     },
     {
       "title": "the last great american dynasty",
@@ -181,7 +355,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 20,
-      "base_title": "the last great american dynasty"
+      "base_title": "the last great american dynasty",
+      "album": "folklore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "the last great american dynasty",
+      "song_family": "the_last_great_american_dynasty",
+      "version_tag": "standalone"
     },
     {
       "title": "this is me trying - the long pond studio sessions",
@@ -190,7 +373,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 21,
-      "base_title": "this is me trying - the long pond studio sessions"
+      "base_title": "this is me trying - the long pond studio sessions",
+      "album": "folklore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "this is me trying - the long pond studio sessions",
+      "song_family": "this_is_me_trying_the_long_pond_studio_sessions",
+      "version_tag": "standalone"
     }
   ]
 }

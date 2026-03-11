@@ -10,7 +10,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 1,
-      "base_title": "All Too Well (10 Minute Version) (Taylor's Version) (From The Vault)"
+      "base_title": "All Too Well (10 Minute Version) (Taylor's Version) (From The Vault)",
+      "album": "Red (Taylor's Version)",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "All Too Well (10 Minute Version) (Taylor's Version) (From The Vault)",
+      "song_family": "all_too_well_10_minute_version_taylor_s_version_from_the_vault",
+      "version_tag": "vault__taylors_version__standalone"
     },
     {
       "title": "Babe (Taylor's Version) (From The Vault)",
@@ -19,7 +28,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 2,
-      "base_title": "Babe (Taylor's Version) (From The Vault)"
+      "base_title": "Babe (Taylor's Version) (From The Vault)",
+      "album": "Red (Taylor's Version)",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Babe (Taylor's Version) (From The Vault)",
+      "song_family": "babe_taylor_s_version_from_the_vault",
+      "version_tag": "vault__taylors_version__standalone"
     },
     {
       "title": "Better Man (Taylor's Version) (From The Vault)",
@@ -28,7 +46,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 3,
-      "base_title": "Better Man (Taylor's Version) (From The Vault)"
+      "base_title": "Better Man (Taylor's Version) (From The Vault)",
+      "album": "Red (Taylor's Version)",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Better Man (Taylor's Version) (From The Vault)",
+      "song_family": "better_man_taylor_s_version_from_the_vault",
+      "version_tag": "vault__taylors_version__standalone"
     },
     {
       "title": "Forever Winter (Taylor's Version) (From The Vault)",
@@ -37,7 +64,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 4,
-      "base_title": "Forever Winter (Taylor's Version) (From The Vault)"
+      "base_title": "Forever Winter (Taylor's Version) (From The Vault)",
+      "album": "Red (Taylor's Version)",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Forever Winter (Taylor's Version) (From The Vault)",
+      "song_family": "forever_winter_taylor_s_version_from_the_vault",
+      "version_tag": "vault__taylors_version__standalone"
     },
     {
       "title": "I Bet You Think About Me (feat. Chris Stapleton) (Taylor's Version) (From The Vault)",
@@ -46,7 +82,19 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 5,
-      "base_title": "I Bet You Think About Me (feat. Chris Stapleton) (Taylor's Version) (From The Vault)"
+      "base_title": "I Bet You Think About Me (feat. Chris Stapleton) (Taylor's Version) (From The Vault)",
+      "album": "Red (Taylor's Version)",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [
+        "Chris Stapleton"
+      ],
+      "artists": [
+        "Taylor Swift",
+        "Chris Stapleton"
+      ],
+      "title_clean": "I Bet You Think About Me (Taylor's Version) (From The Vault)",
+      "song_family": "i_bet_you_think_about_me_taylor_s_version_from_the_vault",
+      "version_tag": "featured__vault__taylors_version__feature"
     },
     {
       "title": "Message In A Bottle (Taylor's Version) (From The Vault)",
@@ -55,7 +103,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 6,
-      "base_title": "Message In A Bottle (Taylor's Version) (From The Vault)"
+      "base_title": "Message In A Bottle (Taylor's Version) (From The Vault)",
+      "album": "Red (Taylor's Version)",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Message In A Bottle (Taylor's Version) (From The Vault)",
+      "song_family": "message_in_a_bottle_taylor_s_version_from_the_vault",
+      "version_tag": "vault__taylors_version__standalone"
     },
     {
       "title": "Nothing New (feat. Phoebe Bridgers) (Taylor's Version) (From The Vault)",
@@ -64,7 +121,19 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 7,
-      "base_title": "Nothing New (feat. Phoebe Bridgers) (Taylor's Version) (From The Vault)"
+      "base_title": "Nothing New (feat. Phoebe Bridgers) (Taylor's Version) (From The Vault)",
+      "album": "Red (Taylor's Version)",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [
+        "Phoebe Bridgers"
+      ],
+      "artists": [
+        "Taylor Swift",
+        "Phoebe Bridgers"
+      ],
+      "title_clean": "Nothing New (Taylor's Version) (From The Vault)",
+      "song_family": "nothing_new_taylor_s_version_from_the_vault",
+      "version_tag": "featured__vault__taylors_version__feature"
     },
     {
       "title": "Run (feat. Ed Sheeran) (Taylor's Version) (From The Vault)",
@@ -73,7 +142,19 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 8,
-      "base_title": "Run (feat. Ed Sheeran) (Taylor's Version) (From The Vault)"
+      "base_title": "Run (feat. Ed Sheeran) (Taylor's Version) (From The Vault)",
+      "album": "Red (Taylor's Version)",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [
+        "Ed Sheeran"
+      ],
+      "artists": [
+        "Taylor Swift",
+        "Ed Sheeran"
+      ],
+      "title_clean": "Run (Taylor's Version) (From The Vault)",
+      "song_family": "run_taylor_s_version_from_the_vault",
+      "version_tag": "featured__vault__taylors_version__feature"
     },
     {
       "title": "The Very First Night (Taylor's Version) (From The Vault)",
@@ -82,7 +163,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 9,
-      "base_title": "The Very First Night (Taylor's Version) (From The Vault)"
+      "base_title": "The Very First Night (Taylor's Version) (From The Vault)",
+      "album": "Red (Taylor's Version)",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "The Very First Night (Taylor's Version) (From The Vault)",
+      "song_family": "the_very_first_night_taylor_s_version_from_the_vault",
+      "version_tag": "vault__taylors_version__standalone"
     },
     {
       "title": "State Of Grace (Acoustic Version) (Taylor's Version)",
@@ -91,7 +181,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 10,
-      "base_title": "State Of Grace (Acoustic Version)"
+      "base_title": "State Of Grace (Acoustic Version)",
+      "album": "Red (Taylor's Version)",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "State Of Grace (Acoustic Version) (Taylor's Version)",
+      "song_family": "state_of_grace_acoustic_version_taylor_s_version",
+      "version_tag": "acoustic__taylors_version__standalone"
     }
   ]
 }

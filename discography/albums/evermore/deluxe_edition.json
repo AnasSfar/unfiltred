@@ -10,7 +10,16 @@
       "edition": "deluxe",
       "display_section": "deluxe edition",
       "display_order": 1,
-      "base_title": "right where you left me - bonus track"
+      "base_title": "right where you left me - bonus track",
+      "album": "evermore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "right where you left me - bonus track",
+      "song_family": "right_where_you_left_me_bonus_track",
+      "version_tag": "deluxe__alternate_version"
     },
     {
       "title": "it's time to go - bonus track",
@@ -19,7 +28,16 @@
       "edition": "deluxe",
       "display_section": "deluxe edition",
       "display_order": 2,
-      "base_title": "it's time to go - bonus track"
+      "base_title": "it's time to go - bonus track",
+      "album": "evermore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "it's time to go - bonus track",
+      "song_family": "it_s_time_to_go_bonus_track",
+      "version_tag": "deluxe__alternate_version"
     }
   ]
 }

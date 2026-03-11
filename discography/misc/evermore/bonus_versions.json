@@ -10,7 +10,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 1,
-      "base_title": "willow"
+      "base_title": "willow",
+      "album": "evermore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "willow - lonely witch version",
+      "song_family": "willow_lonely_witch_version",
+      "version_tag": "standalone"
     },
     {
       "title": "willow - moonlit witch version",
@@ -19,7 +28,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 2,
-      "base_title": "willow"
+      "base_title": "willow",
+      "album": "evermore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "willow - moonlit witch version",
+      "song_family": "willow_moonlit_witch_version",
+      "version_tag": "standalone"
     }
   ]
 }

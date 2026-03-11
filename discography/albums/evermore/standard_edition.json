@@ -10,7 +10,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 1,
-      "base_title": "willow"
+      "base_title": "willow",
+      "album": "evermore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "willow",
+      "song_family": "willow",
+      "version_tag": "standard"
     },
     {
       "title": "champagne problems",
@@ -19,7 +28,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 2,
-      "base_title": "champagne problems"
+      "base_title": "champagne problems",
+      "album": "evermore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "champagne problems",
+      "song_family": "champagne_problems",
+      "version_tag": "standard"
     },
     {
       "title": "gold rush",
@@ -28,7 +46,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 3,
-      "base_title": "gold rush"
+      "base_title": "gold rush",
+      "album": "evermore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "gold rush",
+      "song_family": "gold_rush",
+      "version_tag": "standard"
     },
     {
       "title": "tolerate it",
@@ -37,7 +64,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 4,
-      "base_title": "tolerate it"
+      "base_title": "tolerate it",
+      "album": "evermore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "tolerate it",
+      "song_family": "tolerate_it",
+      "version_tag": "standard"
     },
     {
       "title": "no body, no crime (feat. HAIM)",
@@ -46,7 +82,19 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 5,
-      "base_title": "no body, no crime (feat. HAIM)"
+      "base_title": "no body, no crime (feat. HAIM)",
+      "album": "evermore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [
+        "HAIM"
+      ],
+      "artists": [
+        "Taylor Swift",
+        "HAIM"
+      ],
+      "title_clean": "no body, no crime",
+      "song_family": "no_body_no_crime",
+      "version_tag": "featured__feature"
     },
     {
       "title": "happiness",
@@ -55,7 +103,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 6,
-      "base_title": "happiness"
+      "base_title": "happiness",
+      "album": "evermore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "happiness",
+      "song_family": "happiness",
+      "version_tag": "standard"
     },
     {
       "title": "dorothea",
@@ -64,7 +121,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 7,
-      "base_title": "dorothea"
+      "base_title": "dorothea",
+      "album": "evermore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "dorothea",
+      "song_family": "dorothea",
+      "version_tag": "standard"
     },
     {
       "title": "coney island (feat. The National)",
@@ -73,7 +139,19 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 8,
-      "base_title": "coney island (feat. The National)"
+      "base_title": "coney island (feat. The National)",
+      "album": "evermore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [
+        "The National"
+      ],
+      "artists": [
+        "Taylor Swift",
+        "The National"
+      ],
+      "title_clean": "coney island",
+      "song_family": "coney_island",
+      "version_tag": "featured__feature"
     },
     {
       "title": "ivy",
@@ -82,7 +160,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 9,
-      "base_title": "ivy"
+      "base_title": "ivy",
+      "album": "evermore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "ivy",
+      "song_family": "ivy",
+      "version_tag": "standard"
     },
     {
       "title": "cowboy like me",
@@ -91,7 +178,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 10,
-      "base_title": "cowboy like me"
+      "base_title": "cowboy like me",
+      "album": "evermore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "cowboy like me",
+      "song_family": "cowboy_like_me",
+      "version_tag": "standard"
     },
     {
       "title": "long story short",
@@ -100,7 +196,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 11,
-      "base_title": "long story short"
+      "base_title": "long story short",
+      "album": "evermore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "long story short",
+      "song_family": "long_story_short",
+      "version_tag": "standard"
     },
     {
       "title": "marjorie",
@@ -109,7 +214,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 12,
-      "base_title": "marjorie"
+      "base_title": "marjorie",
+      "album": "evermore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "marjorie",
+      "song_family": "marjorie",
+      "version_tag": "standard"
     },
     {
       "title": "closure",
@@ -118,7 +232,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 13,
-      "base_title": "closure"
+      "base_title": "closure",
+      "album": "evermore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "closure",
+      "song_family": "closure",
+      "version_tag": "standard"
     },
     {
       "title": "evermore (feat. Bon Iver)",
@@ -127,7 +250,19 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 14,
-      "base_title": "evermore (feat. Bon Iver)"
+      "base_title": "evermore (feat. Bon Iver)",
+      "album": "evermore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [
+        "Bon Iver"
+      ],
+      "artists": [
+        "Taylor Swift",
+        "Bon Iver"
+      ],
+      "title_clean": "evermore",
+      "song_family": "evermore",
+      "version_tag": "featured__feature"
     },
     {
       "title": "'tis the damn season",
@@ -136,7 +271,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 15,
-      "base_title": "'tis the damn season"
+      "base_title": "'tis the damn season",
+      "album": "evermore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "'tis the damn season",
+      "song_family": "tis_the_damn_season",
+      "version_tag": "standard"
     }
   ]
 }

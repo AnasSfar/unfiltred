@@ -10,7 +10,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 1,
-      "base_title": "Lover (Remix) [feat. Shawn Mendes]"
+      "base_title": "Lover (Remix) [feat. Shawn Mendes]",
+      "album": "Lover",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Lover (Remix) [feat. Shawn Mendes]",
+      "song_family": "lover_remix_feat_shawn_mendes",
+      "version_tag": "remix"
     },
     {
       "title": "Lover - First Dance Remix",
@@ -19,7 +28,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 2,
-      "base_title": "Lover"
+      "base_title": "Lover",
+      "album": "Lover",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Lover - First Dance Remix",
+      "song_family": "lover_first_dance_remix",
+      "version_tag": "remix"
     },
     {
       "title": "Lover - Live From Paris",
@@ -28,7 +46,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 3,
-      "base_title": "Lover"
+      "base_title": "Lover",
+      "album": "Lover",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Lover - Live From Paris",
+      "song_family": "lover_live_from_paris",
+      "version_tag": "live__standalone"
     },
     {
       "title": "You Need To Calm Down - Clean Bandit Remix",
@@ -37,7 +64,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 4,
-      "base_title": "You Need To Calm Down"
+      "base_title": "You Need To Calm Down",
+      "album": "Lover",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "You Need To Calm Down - Clean Bandit Remix",
+      "song_family": "you_need_to_calm_down_clean_bandit_remix",
+      "version_tag": "remix"
     },
     {
       "title": "You Need To Calm Down - Live From Paris",
@@ -46,7 +82,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 5,
-      "base_title": "You Need To Calm Down"
+      "base_title": "You Need To Calm Down",
+      "album": "Lover",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "You Need To Calm Down - Live From Paris",
+      "song_family": "you_need_to_calm_down_live_from_paris",
+      "version_tag": "live__standalone"
     },
     {
       "title": "Cornelia Street - Live From Paris",
@@ -55,7 +100,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 6,
-      "base_title": "Cornelia Street"
+      "base_title": "Cornelia Street",
+      "album": "Lover",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Cornelia Street - Live From Paris",
+      "song_family": "cornelia_street_live_from_paris",
+      "version_tag": "live__standalone"
     },
     {
       "title": "Daylight - Live From Paris",
@@ -64,7 +118,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 7,
-      "base_title": "Daylight"
+      "base_title": "Daylight",
+      "album": "Lover",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Daylight - Live From Paris",
+      "song_family": "daylight_live_from_paris",
+      "version_tag": "live__standalone"
     },
     {
       "title": "Death By A Thousand Cuts - Live From Paris",
@@ -73,7 +136,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 8,
-      "base_title": "Death By A Thousand Cuts"
+      "base_title": "Death By A Thousand Cuts",
+      "album": "Lover",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Death By A Thousand Cuts - Live From Paris",
+      "song_family": "death_by_a_thousand_cuts_live_from_paris",
+      "version_tag": "live__standalone"
     },
     {
       "title": "The Archer - Live From Paris",
@@ -82,7 +154,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 9,
-      "base_title": "The Archer"
+      "base_title": "The Archer",
+      "album": "Lover",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "The Archer - Live From Paris",
+      "song_family": "the_archer_live_from_paris",
+      "version_tag": "live__standalone"
     },
     {
       "title": "The Man - Live From Paris",
@@ -91,7 +172,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 10,
-      "base_title": "The Man"
+      "base_title": "The Man",
+      "album": "Lover",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "The Man - Live From Paris",
+      "song_family": "the_man_live_from_paris",
+      "version_tag": "live__standalone"
     },
     {
       "title": "ME! - Live From Paris",
@@ -100,7 +190,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 11,
-      "base_title": "ME!"
+      "base_title": "ME!",
+      "album": "Lover",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "ME! - Live From Paris",
+      "song_family": "me_live_from_paris",
+      "version_tag": "live__standalone"
     }
   ]
 }

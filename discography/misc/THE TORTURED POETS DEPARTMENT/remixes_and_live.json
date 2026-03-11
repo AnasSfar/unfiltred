@@ -10,7 +10,19 @@
       "edition": "live",
       "display_section": "Extras",
       "display_order": 1,
-      "base_title": "Fortnight (feat. Post Malone)"
+      "base_title": "Fortnight (feat. Post Malone)",
+      "album": "THE TORTURED POETS DEPARTMENT",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [
+        "Post Malone"
+      ],
+      "artists": [
+        "Taylor Swift",
+        "Post Malone"
+      ],
+      "title_clean": "Fortnight - BLOND:ISH Remix",
+      "song_family": "fortnight_blond_ish_remix",
+      "version_tag": "featured__remix"
     },
     {
       "title": "I Can Do It With a Broken Heart - Dombresky Remix",
@@ -19,7 +31,16 @@
       "edition": "live",
       "display_section": "Extras",
       "display_order": 2,
-      "base_title": "I Can Do It With a Broken Heart"
+      "base_title": "I Can Do It With a Broken Heart",
+      "album": "THE TORTURED POETS DEPARTMENT",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "I Can Do It With a Broken Heart - Dombresky Remix",
+      "song_family": "i_can_do_it_with_a_broken_heart_dombresky_remix",
+      "version_tag": "remix"
     },
     {
       "title": "I Can Do It With a Broken Heart - Instrumental",
@@ -28,7 +49,16 @@
       "edition": "live",
       "display_section": "Other Editions",
       "display_order": 3,
-      "base_title": "I Can Do It With a Broken Heart"
+      "base_title": "I Can Do It With a Broken Heart",
+      "album": "THE TORTURED POETS DEPARTMENT",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "I Can Do It With a Broken Heart - Instrumental",
+      "song_family": "i_can_do_it_with_a_broken_heart_instrumental",
+      "version_tag": "alternate_version"
     },
     {
       "title": "Fortnight (feat. Post Malone) - Acoustic Version",
@@ -37,7 +67,19 @@
       "edition": "live",
       "display_section": "Other Editions",
       "display_order": 4,
-      "base_title": "Fortnight (feat. Post Malone)"
+      "base_title": "Fortnight (feat. Post Malone)",
+      "album": "THE TORTURED POETS DEPARTMENT",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [
+        "Post Malone"
+      ],
+      "artists": [
+        "Taylor Swift",
+        "Post Malone"
+      ],
+      "title_clean": "Fortnight - Acoustic Version",
+      "song_family": "fortnight_acoustic_version",
+      "version_tag": "featured__acoustic__alternate_version"
     },
     {
       "title": "Fortnight (feat. Post Malone) - Cults Remix",
@@ -46,7 +88,19 @@
       "edition": "live",
       "display_section": "Extras",
       "display_order": 5,
-      "base_title": "Fortnight (feat. Post Malone)"
+      "base_title": "Fortnight (feat. Post Malone)",
+      "album": "THE TORTURED POETS DEPARTMENT",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [
+        "Post Malone"
+      ],
+      "artists": [
+        "Taylor Swift",
+        "Post Malone"
+      ],
+      "title_clean": "Fortnight - Cults Remix",
+      "song_family": "fortnight_cults_remix",
+      "version_tag": "featured__remix"
     }
   ]
 }

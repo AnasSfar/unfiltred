@@ -10,7 +10,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 1,
-      "base_title": "Elizabeth Taylor - Track by Track"
+      "base_title": "Elizabeth Taylor - Track by Track",
+      "album": "The Life of a Showgirl",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Elizabeth Taylor - Track by Track",
+      "song_family": "elizabeth_taylor_track_by_track",
+      "version_tag": "standalone"
     },
     {
       "title": "Father Figure - Track by Track",
@@ -19,7 +28,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 2,
-      "base_title": "Father Figure - Track by Track"
+      "base_title": "Father Figure - Track by Track",
+      "album": "The Life of a Showgirl",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Father Figure - Track by Track",
+      "song_family": "father_figure_track_by_track",
+      "version_tag": "standalone"
     },
     {
       "title": "Opalite - Track by Track",
@@ -28,7 +46,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 3,
-      "base_title": "Opalite - Track by Track"
+      "base_title": "Opalite - Track by Track",
+      "album": "The Life of a Showgirl",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Opalite - Track by Track",
+      "song_family": "opalite_track_by_track",
+      "version_tag": "standalone"
     },
     {
       "title": "The Fate of Ophelia - Track by Track",
@@ -37,7 +64,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 4,
-      "base_title": "The Fate of Ophelia - Track by Track"
+      "base_title": "The Fate of Ophelia - Track by Track",
+      "album": "The Life of a Showgirl",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "The Fate of Ophelia - Track by Track",
+      "song_family": "the_fate_of_ophelia_track_by_track",
+      "version_tag": "standalone"
     },
     {
       "title": "The Life of a Showgirl - Track by Track",
@@ -46,7 +82,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 5,
-      "base_title": "The Life of a Showgirl - Track by Track"
+      "base_title": "The Life of a Showgirl - Track by Track",
+      "album": "The Life of a Showgirl",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "The Life of a Showgirl - Track by Track",
+      "song_family": "the_life_of_a_showgirl_track_by_track",
+      "version_tag": "standalone"
     }
   ]
 }

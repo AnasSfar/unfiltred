@@ -10,7 +10,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 1,
-      "base_title": "All Of The Girls You Loved Before"
+      "base_title": "All Of The Girls You Loved Before",
+      "album": "Lover",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "All Of The Girls You Loved Before",
+      "song_family": "all_of_the_girls_you_loved_before",
+      "version_tag": "standalone"
     }
   ]
 }

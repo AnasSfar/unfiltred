@@ -10,7 +10,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 1,
-      "base_title": "Back To December"
+      "base_title": "Back To December",
+      "album": "Speak Now",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Back To December",
+      "song_family": "back_to_december",
+      "version_tag": "standard"
     },
     {
       "title": "Better Than Revenge",
@@ -19,7 +28,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 2,
-      "base_title": "Better Than Revenge"
+      "base_title": "Better Than Revenge",
+      "album": "Speak Now",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Better Than Revenge",
+      "song_family": "better_than_revenge",
+      "version_tag": "standard"
     },
     {
       "title": "Dear John",
@@ -28,7 +46,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 3,
-      "base_title": "Dear John"
+      "base_title": "Dear John",
+      "album": "Speak Now",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Dear John",
+      "song_family": "dear_john",
+      "version_tag": "standard"
     },
     {
       "title": "Enchanted",
@@ -37,7 +64,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 4,
-      "base_title": "Enchanted"
+      "base_title": "Enchanted",
+      "album": "Speak Now",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Enchanted",
+      "song_family": "enchanted",
+      "version_tag": "standard"
     },
     {
       "title": "Haunted",
@@ -46,7 +82,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 5,
-      "base_title": "Haunted"
+      "base_title": "Haunted",
+      "album": "Speak Now",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Haunted",
+      "song_family": "haunted",
+      "version_tag": "standard"
     },
     {
       "title": "If This Was A Movie",
@@ -55,7 +100,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 6,
-      "base_title": "If This Was A Movie"
+      "base_title": "If This Was A Movie",
+      "album": "Speak Now",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "If This Was A Movie",
+      "song_family": "if_this_was_a_movie",
+      "version_tag": "standard"
     },
     {
       "title": "Innocent",
@@ -64,7 +118,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 7,
-      "base_title": "Innocent"
+      "base_title": "Innocent",
+      "album": "Speak Now",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Innocent",
+      "song_family": "innocent",
+      "version_tag": "standard"
     },
     {
       "title": "Last Kiss",
@@ -73,7 +136,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 8,
-      "base_title": "Last Kiss"
+      "base_title": "Last Kiss",
+      "album": "Speak Now",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Last Kiss",
+      "song_family": "last_kiss",
+      "version_tag": "standard"
     },
     {
       "title": "Mean",
@@ -82,7 +154,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 9,
-      "base_title": "Mean"
+      "base_title": "Mean",
+      "album": "Speak Now",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Mean",
+      "song_family": "mean",
+      "version_tag": "standard"
     },
     {
       "title": "Mine",
@@ -91,7 +172,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 10,
-      "base_title": "Mine"
+      "base_title": "Mine",
+      "album": "Speak Now",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Mine",
+      "song_family": "mine",
+      "version_tag": "standard"
     },
     {
       "title": "Never Grow Up",
@@ -100,7 +190,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 11,
-      "base_title": "Never Grow Up"
+      "base_title": "Never Grow Up",
+      "album": "Speak Now",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Never Grow Up",
+      "song_family": "never_grow_up",
+      "version_tag": "standard"
     },
     {
       "title": "Ours",
@@ -109,7 +208,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 12,
-      "base_title": "Ours"
+      "base_title": "Ours",
+      "album": "Speak Now",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Ours",
+      "song_family": "ours",
+      "version_tag": "standard"
     },
     {
       "title": "Sparks Fly",
@@ -118,7 +226,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 13,
-      "base_title": "Sparks Fly"
+      "base_title": "Sparks Fly",
+      "album": "Speak Now",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Sparks Fly",
+      "song_family": "sparks_fly",
+      "version_tag": "standard"
     },
     {
       "title": "Speak Now",
@@ -127,7 +244,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 14,
-      "base_title": "Speak Now"
+      "base_title": "Speak Now",
+      "album": "Speak Now",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Speak Now",
+      "song_family": "speak_now",
+      "version_tag": "standard"
     },
     {
       "title": "Superman",
@@ -136,7 +262,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 15,
-      "base_title": "Superman"
+      "base_title": "Superman",
+      "album": "Speak Now",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Superman",
+      "song_family": "superman",
+      "version_tag": "standard"
     },
     {
       "title": "The Story Of Us",
@@ -145,7 +280,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 16,
-      "base_title": "The Story Of Us"
+      "base_title": "The Story Of Us",
+      "album": "Speak Now",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "The Story Of Us",
+      "song_family": "the_story_of_us",
+      "version_tag": "standard"
     },
     {
       "title": "Long Live",
@@ -154,7 +298,16 @@
       "edition": "standard",
       "display_section": "Other Editions",
       "display_order": 17,
-      "base_title": "Long Live"
+      "base_title": "Long Live",
+      "album": "Speak Now",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Long Live",
+      "song_family": "long_live",
+      "version_tag": "live__alternate_version"
     }
   ]
 }

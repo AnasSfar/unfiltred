@@ -10,7 +10,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 1,
-      "base_title": "Birch"
+      "base_title": "Birch",
+      "album": "Standalone & Extras",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Birch",
+      "song_family": "birch",
+      "version_tag": "standalone"
     },
     {
       "title": "Ronan",
@@ -19,7 +28,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 2,
-      "base_title": "Ronan"
+      "base_title": "Ronan",
+      "album": "Standalone & Extras",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Ronan",
+      "song_family": "ronan",
+      "version_tag": "standalone"
     },
     {
       "title": "Today Was A Fairytale",
@@ -28,7 +46,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 3,
-      "base_title": "Today Was A Fairytale"
+      "base_title": "Today Was A Fairytale",
+      "album": "Standalone & Extras",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Today Was A Fairytale",
+      "song_family": "today_was_a_fairytale",
+      "version_tag": "standalone"
     },
     {
       "title": "Back To December/Apologize/You're Not Sorry - Live/2011/Medley",
@@ -37,7 +64,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 4,
-      "base_title": "Back To December/Apologize/You're Not Sorry"
+      "base_title": "Back To December/Apologize/You're Not Sorry",
+      "album": "Standalone & Extras",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Back To December/Apologize/You're Not Sorry - Live/2011/Medley",
+      "song_family": "back_to_december_apologize_you_re_not_sorry_live_2011_medley",
+      "version_tag": "live__standalone"
     }
   ]
 }

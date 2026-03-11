@@ -10,7 +10,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 1,
-      "base_title": "Anti-Hero"
+      "base_title": "Anti-Hero",
+      "album": "Midnights",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Anti-Hero",
+      "song_family": "anti_hero",
+      "version_tag": "standalone"
     },
     {
       "title": "Anti-Hero (feat. Bleachers)",
@@ -19,7 +28,19 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 2,
-      "base_title": "Anti-Hero (feat. Bleachers)"
+      "base_title": "Anti-Hero (feat. Bleachers)",
+      "album": "Midnights",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [
+        "Bleachers"
+      ],
+      "artists": [
+        "Taylor Swift",
+        "Bleachers"
+      ],
+      "title_clean": "Anti-Hero",
+      "song_family": "anti_hero",
+      "version_tag": "featured__feature"
     },
     {
       "title": "Anti-Hero - ILLENIUM Remix",
@@ -28,7 +49,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 3,
-      "base_title": "Anti-Hero"
+      "base_title": "Anti-Hero",
+      "album": "Midnights",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Anti-Hero - ILLENIUM Remix",
+      "song_family": "anti_hero_illenium_remix",
+      "version_tag": "remix"
     },
     {
       "title": "Anti-Hero - Jayda G Remix",
@@ -37,7 +67,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 4,
-      "base_title": "Anti-Hero"
+      "base_title": "Anti-Hero",
+      "album": "Midnights",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Anti-Hero - Jayda G Remix",
+      "song_family": "anti_hero_jayda_g_remix",
+      "version_tag": "remix"
     },
     {
       "title": "Anti-Hero - Kungs Remix",
@@ -46,7 +85,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 5,
-      "base_title": "Anti-Hero"
+      "base_title": "Anti-Hero",
+      "album": "Midnights",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Anti-Hero - Kungs Remix",
+      "song_family": "anti_hero_kungs_remix",
+      "version_tag": "remix"
     },
     {
       "title": "Anti-Hero - Roosevelt Remix",
@@ -55,7 +103,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 6,
-      "base_title": "Anti-Hero"
+      "base_title": "Anti-Hero",
+      "album": "Midnights",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Anti-Hero - Roosevelt Remix",
+      "song_family": "anti_hero_roosevelt_remix",
+      "version_tag": "remix"
     },
     {
       "title": "Anti-Hero - Acoustic Version",
@@ -64,7 +121,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 7,
-      "base_title": "Anti-Hero"
+      "base_title": "Anti-Hero",
+      "album": "Midnights",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Anti-Hero - Acoustic Version",
+      "song_family": "anti_hero_acoustic_version",
+      "version_tag": "acoustic__standalone"
     },
     {
       "title": "Anti-Hero (feat. Bleachers)",
@@ -73,7 +139,19 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 8,
-      "base_title": "Anti-Hero (feat. Bleachers)"
+      "base_title": "Anti-Hero (feat. Bleachers)",
+      "album": "Midnights",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [
+        "Bleachers"
+      ],
+      "artists": [
+        "Taylor Swift",
+        "Bleachers"
+      ],
+      "title_clean": "Anti-Hero",
+      "song_family": "anti_hero",
+      "version_tag": "featured__feature"
     },
     {
       "title": "Lavender Haze",
@@ -82,7 +160,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 9,
-      "base_title": "Lavender Haze"
+      "base_title": "Lavender Haze",
+      "album": "Midnights",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Lavender Haze",
+      "song_family": "lavender_haze",
+      "version_tag": "standalone"
     },
     {
       "title": "Lavender Haze - Felix Jaehn Remix",
@@ -91,7 +178,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 10,
-      "base_title": "Lavender Haze"
+      "base_title": "Lavender Haze",
+      "album": "Midnights",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Lavender Haze - Felix Jaehn Remix",
+      "song_family": "lavender_haze_felix_jaehn_remix",
+      "version_tag": "remix"
     },
     {
       "title": "Lavender Haze - Jungle Remix",
@@ -100,7 +196,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 11,
-      "base_title": "Lavender Haze"
+      "base_title": "Lavender Haze",
+      "album": "Midnights",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Lavender Haze - Jungle Remix",
+      "song_family": "lavender_haze_jungle_remix",
+      "version_tag": "remix"
     },
     {
       "title": "Lavender Haze - Snakehips Remix",
@@ -109,7 +214,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 12,
-      "base_title": "Lavender Haze"
+      "base_title": "Lavender Haze",
+      "album": "Midnights",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Lavender Haze - Snakehips Remix",
+      "song_family": "lavender_haze_snakehips_remix",
+      "version_tag": "remix"
     },
     {
       "title": "Lavender Haze - Tensnake Remix",
@@ -118,7 +232,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 13,
-      "base_title": "Lavender Haze"
+      "base_title": "Lavender Haze",
+      "album": "Midnights",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Lavender Haze - Tensnake Remix",
+      "song_family": "lavender_haze_tensnake_remix",
+      "version_tag": "remix"
     }
   ]
 }

@@ -10,7 +10,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 1,
-      "base_title": "The Great War"
+      "base_title": "The Great War",
+      "album": "Midnights",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "The Great War",
+      "song_family": "the_great_war",
+      "version_tag": "standalone"
     },
     {
       "title": "Bigger Than The Whole Sky",
@@ -19,7 +28,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 2,
-      "base_title": "Bigger Than The Whole Sky"
+      "base_title": "Bigger Than The Whole Sky",
+      "album": "Midnights",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Bigger Than The Whole Sky",
+      "song_family": "bigger_than_the_whole_sky",
+      "version_tag": "standalone"
     },
     {
       "title": "Paris",
@@ -28,7 +46,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 3,
-      "base_title": "Paris"
+      "base_title": "Paris",
+      "album": "Midnights",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Paris",
+      "song_family": "paris",
+      "version_tag": "standalone"
     },
     {
       "title": "High Infidelity",
@@ -37,7 +64,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 4,
-      "base_title": "High Infidelity"
+      "base_title": "High Infidelity",
+      "album": "Midnights",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "High Infidelity",
+      "song_family": "high_infidelity",
+      "version_tag": "standalone"
     },
     {
       "title": "Glitch",
@@ -46,7 +82,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 5,
-      "base_title": "Glitch"
+      "base_title": "Glitch",
+      "album": "Midnights",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Glitch",
+      "song_family": "glitch",
+      "version_tag": "standalone"
     },
     {
       "title": "Would've, Could've, Should've",
@@ -55,7 +100,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 6,
-      "base_title": "Would've, Could've, Should've"
+      "base_title": "Would've, Could've, Should've",
+      "album": "Midnights",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Would've, Could've, Should've",
+      "song_family": "would_ve_could_ve_should_ve",
+      "version_tag": "standalone"
     },
     {
       "title": "Dear Reader",
@@ -64,7 +118,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 7,
-      "base_title": "Dear Reader"
+      "base_title": "Dear Reader",
+      "album": "Midnights",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Dear Reader",
+      "song_family": "dear_reader",
+      "version_tag": "standalone"
     }
   ]
 }

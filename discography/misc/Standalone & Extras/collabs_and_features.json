@@ -10,7 +10,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 1,
-      "base_title": "Renegade"
+      "base_title": "Renegade",
+      "album": "Standalone & Extras",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Renegade",
+      "song_family": "renegade",
+      "version_tag": "standalone"
     },
     {
       "title": "Renegade - Pop Version",
@@ -19,7 +28,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 2,
-      "base_title": "Renegade"
+      "base_title": "Renegade",
+      "album": "Standalone & Extras",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Renegade - Pop Version",
+      "song_family": "renegade_pop_version",
+      "version_tag": "standalone"
     },
     {
       "title": "The Joker And The Queen (feat. Taylor Swift)",
@@ -28,7 +46,19 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 3,
-      "base_title": "The Joker And The Queen (feat. Taylor Swift)"
+      "base_title": "The Joker And The Queen (feat. Taylor Swift)",
+      "album": "Standalone & Extras",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [
+        "Taylor Swift"
+      ],
+      "artists": [
+        "Taylor Swift",
+        "Taylor Swift"
+      ],
+      "title_clean": "The Joker And The Queen",
+      "song_family": "the_joker_and_the_queen",
+      "version_tag": "featured__feature"
     },
     {
       "title": "Gasoline (feat. Taylor Swift)",
@@ -37,7 +67,19 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 4,
-      "base_title": "Gasoline (feat. Taylor Swift)"
+      "base_title": "Gasoline (feat. Taylor Swift)",
+      "album": "Standalone & Extras",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [
+        "Taylor Swift"
+      ],
+      "artists": [
+        "Taylor Swift",
+        "Taylor Swift"
+      ],
+      "title_clean": "Gasoline",
+      "song_family": "gasoline",
+      "version_tag": "featured__feature"
     },
     {
       "title": "Both of Us (feat. Taylor Swift)",
@@ -46,7 +88,19 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 5,
-      "base_title": "Both of Us (feat. Taylor Swift)"
+      "base_title": "Both of Us (feat. Taylor Swift)",
+      "album": "Standalone & Extras",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [
+        "Taylor Swift"
+      ],
+      "artists": [
+        "Taylor Swift",
+        "Taylor Swift"
+      ],
+      "title_clean": "Both of Us",
+      "song_family": "both_of_us",
+      "version_tag": "featured__feature"
     },
     {
       "title": "Two Is Better Than One (feat. Taylor Swift)",
@@ -55,7 +109,19 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 6,
-      "base_title": "Two Is Better Than One (feat. Taylor Swift)"
+      "base_title": "Two Is Better Than One (feat. Taylor Swift)",
+      "album": "Standalone & Extras",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [
+        "Taylor Swift"
+      ],
+      "artists": [
+        "Taylor Swift",
+        "Taylor Swift"
+      ],
+      "title_clean": "Two Is Better Than One",
+      "song_family": "two_is_better_than_one",
+      "version_tag": "featured__feature"
     },
     {
       "title": "Highway Don't Care",
@@ -64,7 +130,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 7,
-      "base_title": "Highway Don't Care"
+      "base_title": "Highway Don't Care",
+      "album": "Standalone & Extras",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Highway Don't Care",
+      "song_family": "highway_don_t_care",
+      "version_tag": "standalone"
     },
     {
       "title": "Babe (feat. Taylor Swift)",
@@ -73,7 +148,19 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 8,
-      "base_title": "Babe (feat. Taylor Swift)"
+      "base_title": "Babe (feat. Taylor Swift)",
+      "album": "Standalone & Extras",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [
+        "Taylor Swift"
+      ],
+      "artists": [
+        "Taylor Swift",
+        "Taylor Swift"
+      ],
+      "title_clean": "Babe",
+      "song_family": "babe",
+      "version_tag": "featured__feature"
     },
     {
       "title": "The Alcott (feat. Taylor Swift)",
@@ -82,7 +169,19 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 9,
-      "base_title": "The Alcott (feat. Taylor Swift)"
+      "base_title": "The Alcott (feat. Taylor Swift)",
+      "album": "Standalone & Extras",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [
+        "Taylor Swift"
+      ],
+      "artists": [
+        "Taylor Swift",
+        "Taylor Swift"
+      ],
+      "title_clean": "The Alcott",
+      "song_family": "the_alcott",
+      "version_tag": "featured__feature"
     },
     {
       "title": "us. (feat. Taylor Swift)",
@@ -91,7 +190,19 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 10,
-      "base_title": "us. (feat. Taylor Swift)"
+      "base_title": "us. (feat. Taylor Swift)",
+      "album": "Standalone & Extras",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [
+        "Taylor Swift"
+      ],
+      "artists": [
+        "Taylor Swift",
+        "Taylor Swift"
+      ],
+      "title_clean": "us.",
+      "song_family": "us",
+      "version_tag": "featured__feature"
     }
   ]
 }

@@ -10,7 +10,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 1,
-      "base_title": "Crazier"
+      "base_title": "Crazier",
+      "album": "Taylor Swift",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Crazier",
+      "song_family": "crazier",
+      "version_tag": "standalone"
     }
   ]
 }

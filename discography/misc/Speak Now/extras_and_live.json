@@ -10,7 +10,16 @@
       "edition": "live",
       "display_section": "Other Editions",
       "display_order": 1,
-      "base_title": "Mine - POP Mix"
+      "base_title": "Mine - POP Mix",
+      "album": "Speak Now",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Mine - POP Mix",
+      "song_family": "mine_pop_mix",
+      "version_tag": "alternate_version"
     },
     {
       "title": "Back To December - Acoustic",
@@ -19,7 +28,16 @@
       "edition": "live",
       "display_section": "Other Editions",
       "display_order": 2,
-      "base_title": "Back To December"
+      "base_title": "Back To December",
+      "album": "Speak Now",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Back To December - Acoustic",
+      "song_family": "back_to_december_acoustic",
+      "version_tag": "acoustic__alternate_version"
     },
     {
       "title": "Haunted - Acoustic Version",
@@ -28,7 +46,16 @@
       "edition": "live",
       "display_section": "Other Editions",
       "display_order": 3,
-      "base_title": "Haunted"
+      "base_title": "Haunted",
+      "album": "Speak Now",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Haunted - Acoustic Version",
+      "song_family": "haunted_acoustic_version",
+      "version_tag": "acoustic__alternate_version"
     },
     {
       "title": "Better Than Revenge - Live/2011",
@@ -37,7 +64,16 @@
       "edition": "live",
       "display_section": "Other Editions",
       "display_order": 4,
-      "base_title": "Better Than Revenge"
+      "base_title": "Better Than Revenge",
+      "album": "Speak Now",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Better Than Revenge - Live/2011",
+      "song_family": "better_than_revenge_live_2011",
+      "version_tag": "live__alternate_version"
     },
     {
       "title": "Last Kiss - Live/2011",
@@ -46,7 +82,16 @@
       "edition": "live",
       "display_section": "Other Editions",
       "display_order": 5,
-      "base_title": "Last Kiss"
+      "base_title": "Last Kiss",
+      "album": "Speak Now",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Last Kiss - Live/2011",
+      "song_family": "last_kiss_live_2011",
+      "version_tag": "live__alternate_version"
     },
     {
       "title": "Mean - Live/2011",
@@ -55,7 +100,16 @@
       "edition": "live",
       "display_section": "Other Editions",
       "display_order": 6,
-      "base_title": "Mean"
+      "base_title": "Mean",
+      "album": "Speak Now",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Mean - Live/2011",
+      "song_family": "mean_live_2011",
+      "version_tag": "live__alternate_version"
     },
     {
       "title": "Mine - Live/2011",
@@ -64,7 +118,16 @@
       "edition": "live",
       "display_section": "Other Editions",
       "display_order": 7,
-      "base_title": "Mine"
+      "base_title": "Mine",
+      "album": "Speak Now",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Mine - Live/2011",
+      "song_family": "mine_live_2011",
+      "version_tag": "live__alternate_version"
     },
     {
       "title": "Ours - Live/2011",
@@ -73,7 +136,16 @@
       "edition": "live",
       "display_section": "Other Editions",
       "display_order": 8,
-      "base_title": "Ours"
+      "base_title": "Ours",
+      "album": "Speak Now",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Ours - Live/2011",
+      "song_family": "ours_live_2011",
+      "version_tag": "live__alternate_version"
     },
     {
       "title": "Sparks Fly - Live/2011",
@@ -82,7 +154,16 @@
       "edition": "live",
       "display_section": "Other Editions",
       "display_order": 9,
-      "base_title": "Sparks Fly"
+      "base_title": "Sparks Fly",
+      "album": "Speak Now",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Sparks Fly - Live/2011",
+      "song_family": "sparks_fly_live_2011",
+      "version_tag": "live__alternate_version"
     },
     {
       "title": "Speak Now - Live/2011",
@@ -91,7 +172,16 @@
       "edition": "live",
       "display_section": "Other Editions",
       "display_order": 10,
-      "base_title": "Speak Now"
+      "base_title": "Speak Now",
+      "album": "Speak Now",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Speak Now - Live/2011",
+      "song_family": "speak_now_live_2011",
+      "version_tag": "live__alternate_version"
     },
     {
       "title": "The Story Of Us - Live",
@@ -100,7 +190,16 @@
       "edition": "live",
       "display_section": "Other Editions",
       "display_order": 11,
-      "base_title": "The Story Of Us"
+      "base_title": "The Story Of Us",
+      "album": "Speak Now",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "The Story Of Us - Live",
+      "song_family": "the_story_of_us_live",
+      "version_tag": "live__alternate_version"
     }
   ]
 }

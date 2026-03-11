@@ -10,7 +10,16 @@
       "edition": "acoustic",
       "display_section": "Other Editions",
       "display_order": 1,
-      "base_title": "The Fate of Ophelia"
+      "base_title": "The Fate of Ophelia",
+      "album": "The Life of a Showgirl",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "The Fate of Ophelia - Alone In My Tower Acoustic Version",
+      "song_family": "the_fate_of_ophelia_alone_in_my_tower_acoustic_version",
+      "version_tag": "acoustic__alternate_version"
     },
     {
       "title": "Opalite - Life Is A Song Acoustic Version",
@@ -19,7 +28,16 @@
       "edition": "acoustic",
       "display_section": "Other Editions",
       "display_order": 2,
-      "base_title": "Opalite"
+      "base_title": "Opalite",
+      "album": "The Life of a Showgirl",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Opalite - Life Is A Song Acoustic Version",
+      "song_family": "opalite_life_is_a_song_acoustic_version",
+      "version_tag": "acoustic__alternate_version"
     },
     {
       "title": "Wi$h Li$t - Settled Down Acoustic Version",
@@ -28,7 +46,16 @@
       "edition": "acoustic",
       "display_section": "Other Editions",
       "display_order": 3,
-      "base_title": "Wi$h Li$t"
+      "base_title": "Wi$h Li$t",
+      "album": "The Life of a Showgirl",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Wi$h Li$t - Settled Down Acoustic Version",
+      "song_family": "wi_h_li_t_settled_down_acoustic_version",
+      "version_tag": "acoustic__alternate_version"
     },
     {
       "title": "Ruin The Friendship - My Advice Version",
@@ -37,7 +64,16 @@
       "edition": "acoustic",
       "display_section": "Other Editions",
       "display_order": 4,
-      "base_title": "Ruin The Friendship"
+      "base_title": "Ruin The Friendship",
+      "album": "The Life of a Showgirl",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Ruin The Friendship - My Advice Version",
+      "song_family": "ruin_the_friendship_my_advice_version",
+      "version_tag": "alternate_version"
     },
     {
       "title": "Eldest Daughter - Now You're Home Acoustic Version",
@@ -46,7 +82,16 @@
       "edition": "acoustic",
       "display_section": "Other Editions",
       "display_order": 5,
-      "base_title": "Eldest Daughter"
+      "base_title": "Eldest Daughter",
+      "album": "The Life of a Showgirl",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Eldest Daughter - Now You're Home Acoustic Version",
+      "song_family": "eldest_daughter_now_you_re_home_acoustic_version",
+      "version_tag": "acoustic__alternate_version"
     },
     {
       "title": "Elizabeth Taylor - So Glamorous Cabaret Version",
@@ -55,7 +100,16 @@
       "edition": "acoustic",
       "display_section": "Other Editions",
       "display_order": 6,
-      "base_title": "Elizabeth Taylor"
+      "base_title": "Elizabeth Taylor",
+      "album": "The Life of a Showgirl",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Elizabeth Taylor - So Glamorous Cabaret Version",
+      "song_family": "elizabeth_taylor_so_glamorous_cabaret_version",
+      "version_tag": "alternate_version"
     },
     {
       "title": "The Life of a Showgirl (feat. Sabrina Carpenter) - Dressing Room Rehearsal Version",
@@ -64,7 +118,19 @@
       "edition": "acoustic",
       "display_section": "Other Editions",
       "display_order": 7,
-      "base_title": "The Life of a Showgirl (feat. Sabrina Carpenter)"
+      "base_title": "The Life of a Showgirl (feat. Sabrina Carpenter)",
+      "album": "The Life of a Showgirl",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [
+        "Sabrina Carpenter"
+      ],
+      "artists": [
+        "Taylor Swift",
+        "Sabrina Carpenter"
+      ],
+      "title_clean": "The Life of a Showgirl - Dressing Room Rehearsal Version",
+      "song_family": "the_life_of_a_showgirl_dressing_room_rehearsal_version",
+      "version_tag": "featured__alternate_version"
     }
   ]
 }

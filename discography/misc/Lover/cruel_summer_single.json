@@ -10,7 +10,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 1,
-      "base_title": "Cruel Summer"
+      "base_title": "Cruel Summer",
+      "album": "Lover",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Cruel Summer",
+      "song_family": "cruel_summer",
+      "version_tag": "standalone"
     },
     {
       "title": "Cruel Summer - Live from TS",
@@ -19,7 +28,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 2,
-      "base_title": "Cruel Summer"
+      "base_title": "Cruel Summer",
+      "album": "Lover",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Cruel Summer - Live from TS",
+      "song_family": "cruel_summer_live_from_ts",
+      "version_tag": "live__standalone"
     },
     {
       "title": "Cruel Summer - LP Giobbi Remix",
@@ -28,7 +46,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 3,
-      "base_title": "Cruel Summer"
+      "base_title": "Cruel Summer",
+      "album": "Lover",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Cruel Summer - LP Giobbi Remix",
+      "song_family": "cruel_summer_lp_giobbi_remix",
+      "version_tag": "remix"
     },
     {
       "title": "Cruel Summer - LP Giobbi Remix - Extended Version",
@@ -37,7 +64,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 4,
-      "base_title": "Cruel Summer"
+      "base_title": "Cruel Summer",
+      "album": "Lover",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Cruel Summer - LP Giobbi Remix - Extended Version",
+      "song_family": "cruel_summer_lp_giobbi_remix_extended_version",
+      "version_tag": "remix"
     }
   ]
 }

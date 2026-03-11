@@ -10,7 +10,16 @@
       "edition": "karaoke",
       "display_section": "Other Editions",
       "display_order": 1,
-      "base_title": "...Ready For It?"
+      "base_title": "...Ready For It?",
+      "album": "reputation",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "...Ready For It? - Karaoke Version",
+      "song_family": "ready_for_it_karaoke_version",
+      "version_tag": "alternate_version"
     },
     {
       "title": "Call It What You Want - Karaoke Version",
@@ -19,7 +28,16 @@
       "edition": "karaoke",
       "display_section": "Other Editions",
       "display_order": 2,
-      "base_title": "Call It What You Want"
+      "base_title": "Call It What You Want",
+      "album": "reputation",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Call It What You Want - Karaoke Version",
+      "song_family": "call_it_what_you_want_karaoke_version",
+      "version_tag": "alternate_version"
     },
     {
       "title": "Dancing With Our Hands Tied - Karaoke Version",
@@ -28,7 +46,16 @@
       "edition": "karaoke",
       "display_section": "Other Editions",
       "display_order": 3,
-      "base_title": "Dancing With Our Hands Tied"
+      "base_title": "Dancing With Our Hands Tied",
+      "album": "reputation",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Dancing With Our Hands Tied - Karaoke Version",
+      "song_family": "dancing_with_our_hands_tied_karaoke_version",
+      "version_tag": "alternate_version"
     },
     {
       "title": "Delicate - Karaoke Version",
@@ -37,7 +64,16 @@
       "edition": "karaoke",
       "display_section": "Other Editions",
       "display_order": 4,
-      "base_title": "Delicate"
+      "base_title": "Delicate",
+      "album": "reputation",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Delicate - Karaoke Version",
+      "song_family": "delicate_karaoke_version",
+      "version_tag": "alternate_version"
     },
     {
       "title": "Don't Blame Me - Karaoke Version",
@@ -46,7 +82,16 @@
       "edition": "karaoke",
       "display_section": "Other Editions",
       "display_order": 5,
-      "base_title": "Don't Blame Me"
+      "base_title": "Don't Blame Me",
+      "album": "reputation",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Don't Blame Me - Karaoke Version",
+      "song_family": "don_t_blame_me_karaoke_version",
+      "version_tag": "alternate_version"
     },
     {
       "title": "Dress - Karaoke Version",
@@ -55,7 +100,16 @@
       "edition": "karaoke",
       "display_section": "Other Editions",
       "display_order": 6,
-      "base_title": "Dress"
+      "base_title": "Dress",
+      "album": "reputation",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Dress - Karaoke Version",
+      "song_family": "dress_karaoke_version",
+      "version_tag": "alternate_version"
     },
     {
       "title": "End Game - Karaoke Version",
@@ -64,7 +118,16 @@
       "edition": "karaoke",
       "display_section": "Other Editions",
       "display_order": 7,
-      "base_title": "End Game"
+      "base_title": "End Game",
+      "album": "reputation",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "End Game - Karaoke Version",
+      "song_family": "end_game_karaoke_version",
+      "version_tag": "alternate_version"
     },
     {
       "title": "Getaway Car - Karaoke Version",
@@ -73,7 +136,16 @@
       "edition": "karaoke",
       "display_section": "Other Editions",
       "display_order": 8,
-      "base_title": "Getaway Car"
+      "base_title": "Getaway Car",
+      "album": "reputation",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Getaway Car - Karaoke Version",
+      "song_family": "getaway_car_karaoke_version",
+      "version_tag": "alternate_version"
     },
     {
       "title": "Gorgeous - Karaoke Version",
@@ -82,7 +154,16 @@
       "edition": "karaoke",
       "display_section": "Other Editions",
       "display_order": 9,
-      "base_title": "Gorgeous"
+      "base_title": "Gorgeous",
+      "album": "reputation",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Gorgeous - Karaoke Version",
+      "song_family": "gorgeous_karaoke_version",
+      "version_tag": "alternate_version"
     },
     {
       "title": "I Did Something Bad - Karaoke Version",
@@ -91,7 +172,16 @@
       "edition": "karaoke",
       "display_section": "Other Editions",
       "display_order": 10,
-      "base_title": "I Did Something Bad"
+      "base_title": "I Did Something Bad",
+      "album": "reputation",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "I Did Something Bad - Karaoke Version",
+      "song_family": "i_did_something_bad_karaoke_version",
+      "version_tag": "alternate_version"
     },
     {
       "title": "King Of My Heart - Karaoke Version",
@@ -100,7 +190,16 @@
       "edition": "karaoke",
       "display_section": "Other Editions",
       "display_order": 11,
-      "base_title": "King Of My Heart"
+      "base_title": "King Of My Heart",
+      "album": "reputation",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "King Of My Heart - Karaoke Version",
+      "song_family": "king_of_my_heart_karaoke_version",
+      "version_tag": "alternate_version"
     },
     {
       "title": "Look What You Made Me Do - Karaoke Version",
@@ -109,7 +208,16 @@
       "edition": "karaoke",
       "display_section": "Other Editions",
       "display_order": 12,
-      "base_title": "Look What You Made Me Do"
+      "base_title": "Look What You Made Me Do",
+      "album": "reputation",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Look What You Made Me Do - Karaoke Version",
+      "song_family": "look_what_you_made_me_do_karaoke_version",
+      "version_tag": "alternate_version"
     },
     {
       "title": "New Year's Day - Karaoke Version",
@@ -118,7 +226,16 @@
       "edition": "karaoke",
       "display_section": "Other Editions",
       "display_order": 13,
-      "base_title": "New Year's Day"
+      "base_title": "New Year's Day",
+      "album": "reputation",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "New Year's Day - Karaoke Version",
+      "song_family": "new_year_s_day_karaoke_version",
+      "version_tag": "alternate_version"
     },
     {
       "title": "So It Goes... - Karaoke Version",
@@ -127,7 +244,16 @@
       "edition": "karaoke",
       "display_section": "Other Editions",
       "display_order": 14,
-      "base_title": "So It Goes..."
+      "base_title": "So It Goes...",
+      "album": "reputation",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "So It Goes... - Karaoke Version",
+      "song_family": "so_it_goes_karaoke_version",
+      "version_tag": "alternate_version"
     },
     {
       "title": "This Is Why We Can't Have Nice Things - Karaoke Version",
@@ -136,7 +262,16 @@
       "edition": "karaoke",
       "display_section": "Other Editions",
       "display_order": 15,
-      "base_title": "This Is Why We Can't Have Nice Things"
+      "base_title": "This Is Why We Can't Have Nice Things",
+      "album": "reputation",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "This Is Why We Can't Have Nice Things - Karaoke Version",
+      "song_family": "this_is_why_we_can_t_have_nice_things_karaoke_version",
+      "version_tag": "alternate_version"
     }
   ]
 }

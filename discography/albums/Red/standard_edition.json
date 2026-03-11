@@ -10,7 +10,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 1,
-      "base_title": "State Of Grace"
+      "base_title": "State Of Grace",
+      "album": "Red",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "State Of Grace",
+      "song_family": "state_of_grace",
+      "version_tag": "standard"
     },
     {
       "title": "Red",
@@ -19,7 +28,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 2,
-      "base_title": "Red"
+      "base_title": "Red",
+      "album": "Red",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Red",
+      "song_family": "red",
+      "version_tag": "standard"
     },
     {
       "title": "Treacherous",
@@ -28,7 +46,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 3,
-      "base_title": "Treacherous"
+      "base_title": "Treacherous",
+      "album": "Red",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Treacherous",
+      "song_family": "treacherous",
+      "version_tag": "standard"
     },
     {
       "title": "I Knew You Were Trouble.",
@@ -37,7 +64,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 4,
-      "base_title": "I Knew You Were Trouble."
+      "base_title": "I Knew You Were Trouble.",
+      "album": "Red",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "I Knew You Were Trouble.",
+      "song_family": "i_knew_you_were_trouble",
+      "version_tag": "standard"
     },
     {
       "title": "All Too Well",
@@ -46,7 +82,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 5,
-      "base_title": "All Too Well"
+      "base_title": "All Too Well",
+      "album": "Red",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "All Too Well",
+      "song_family": "all_too_well",
+      "version_tag": "standard"
     },
     {
       "title": "22",
@@ -55,7 +100,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 6,
-      "base_title": "22"
+      "base_title": "22",
+      "album": "Red",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "22",
+      "song_family": "22",
+      "version_tag": "standard"
     },
     {
       "title": "I Almost Do",
@@ -64,7 +118,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 7,
-      "base_title": "I Almost Do"
+      "base_title": "I Almost Do",
+      "album": "Red",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "I Almost Do",
+      "song_family": "i_almost_do",
+      "version_tag": "standard"
     },
     {
       "title": "We Are Never Ever Getting Back Together",
@@ -73,7 +136,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 8,
-      "base_title": "We Are Never Ever Getting Back Together"
+      "base_title": "We Are Never Ever Getting Back Together",
+      "album": "Red",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "We Are Never Ever Getting Back Together",
+      "song_family": "we_are_never_ever_getting_back_together",
+      "version_tag": "standard"
     },
     {
       "title": "Stay Stay Stay",
@@ -82,7 +154,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 9,
-      "base_title": "Stay Stay Stay"
+      "base_title": "Stay Stay Stay",
+      "album": "Red",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Stay Stay Stay",
+      "song_family": "stay_stay_stay",
+      "version_tag": "standard"
     },
     {
       "title": "The Last Time",
@@ -91,7 +172,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 10,
-      "base_title": "The Last Time"
+      "base_title": "The Last Time",
+      "album": "Red",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "The Last Time",
+      "song_family": "the_last_time",
+      "version_tag": "standard"
     },
     {
       "title": "Holy Ground",
@@ -100,7 +190,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 11,
-      "base_title": "Holy Ground"
+      "base_title": "Holy Ground",
+      "album": "Red",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Holy Ground",
+      "song_family": "holy_ground",
+      "version_tag": "standard"
     },
     {
       "title": "Sad Beautiful Tragic",
@@ -109,7 +208,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 12,
-      "base_title": "Sad Beautiful Tragic"
+      "base_title": "Sad Beautiful Tragic",
+      "album": "Red",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Sad Beautiful Tragic",
+      "song_family": "sad_beautiful_tragic",
+      "version_tag": "standard"
     },
     {
       "title": "The Lucky One",
@@ -118,7 +226,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 13,
-      "base_title": "The Lucky One"
+      "base_title": "The Lucky One",
+      "album": "Red",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "The Lucky One",
+      "song_family": "the_lucky_one",
+      "version_tag": "standard"
     },
     {
       "title": "Everything Has Changed",
@@ -127,7 +244,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 14,
-      "base_title": "Everything Has Changed"
+      "base_title": "Everything Has Changed",
+      "album": "Red",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Everything Has Changed",
+      "song_family": "everything_has_changed",
+      "version_tag": "standard"
     },
     {
       "title": "Starlight",
@@ -136,7 +262,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 15,
-      "base_title": "Starlight"
+      "base_title": "Starlight",
+      "album": "Red",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Starlight",
+      "song_family": "starlight",
+      "version_tag": "standard"
     },
     {
       "title": "Begin Again",
@@ -145,7 +280,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 16,
-      "base_title": "Begin Again"
+      "base_title": "Begin Again",
+      "album": "Red",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Begin Again",
+      "song_family": "begin_again",
+      "version_tag": "standard"
     },
     {
       "title": "Come Back...Be Here",
@@ -154,7 +298,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 17,
-      "base_title": "Come Back...Be Here"
+      "base_title": "Come Back...Be Here",
+      "album": "Red",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Come Back...Be Here",
+      "song_family": "come_back_be_here",
+      "version_tag": "standard"
     },
     {
       "title": "Girl At Home",
@@ -163,7 +316,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 18,
-      "base_title": "Girl At Home"
+      "base_title": "Girl At Home",
+      "album": "Red",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Girl At Home",
+      "song_family": "girl_at_home",
+      "version_tag": "standard"
     }
   ]
 }

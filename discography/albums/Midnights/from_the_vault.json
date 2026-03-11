@@ -10,7 +10,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 1,
-      "base_title": "You're Losing Me (From The Vault)"
+      "base_title": "You're Losing Me (From The Vault)",
+      "album": "Midnights",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "You're Losing Me (From The Vault)",
+      "song_family": "you_re_losing_me_from_the_vault",
+      "version_tag": "vault__standalone"
     }
   ]
 }

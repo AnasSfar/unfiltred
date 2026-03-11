@@ -10,7 +10,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 1,
-      "base_title": "Opalite"
+      "base_title": "Opalite",
+      "album": "The Life of a Showgirl",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Opalite - BUNT. Remix",
+      "song_family": "opalite_bunt_remix",
+      "version_tag": "remix"
     },
     {
       "title": "Opalite - Chris Lake Remix",
@@ -19,7 +28,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 2,
-      "base_title": "Opalite"
+      "base_title": "Opalite",
+      "album": "The Life of a Showgirl",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Opalite - Chris Lake Remix",
+      "song_family": "opalite_chris_lake_remix",
+      "version_tag": "remix"
     },
     {
       "title": "Opalite - Ely Oaks Remix",
@@ -28,7 +46,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 3,
-      "base_title": "Opalite"
+      "base_title": "Opalite",
+      "album": "The Life of a Showgirl",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Opalite - Ely Oaks Remix",
+      "song_family": "opalite_ely_oaks_remix",
+      "version_tag": "remix"
     },
     {
       "title": "Opalite - Skream Remix",
@@ -37,7 +64,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 4,
-      "base_title": "Opalite"
+      "base_title": "Opalite",
+      "album": "The Life of a Showgirl",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Opalite - Skream Remix",
+      "song_family": "opalite_skream_remix",
+      "version_tag": "remix"
     },
     {
       "title": "The Fate of Ophelia",
@@ -46,7 +82,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 5,
-      "base_title": "The Fate of Ophelia"
+      "base_title": "The Fate of Ophelia",
+      "album": "The Life of a Showgirl",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "The Fate of Ophelia",
+      "song_family": "the_fate_of_ophelia",
+      "version_tag": "standalone"
     },
     {
       "title": "The Fate of Ophelia - Loud Luxury Remix",
@@ -55,7 +100,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 6,
-      "base_title": "The Fate of Ophelia"
+      "base_title": "The Fate of Ophelia",
+      "album": "The Life of a Showgirl",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "The Fate of Ophelia - Loud Luxury Remix",
+      "song_family": "the_fate_of_ophelia_loud_luxury_remix",
+      "version_tag": "remix"
     },
     {
       "title": "The Fate of Ophelia - The Chainsmokers Remix",
@@ -64,7 +118,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 7,
-      "base_title": "The Fate of Ophelia"
+      "base_title": "The Fate of Ophelia",
+      "album": "The Life of a Showgirl",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "The Fate of Ophelia - The Chainsmokers Remix",
+      "song_family": "the_fate_of_ophelia_the_chainsmokers_remix",
+      "version_tag": "remix"
     }
   ]
 }

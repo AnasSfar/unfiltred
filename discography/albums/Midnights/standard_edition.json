@@ -10,7 +10,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 1,
-      "base_title": "Lavender Haze"
+      "base_title": "Lavender Haze",
+      "album": "Midnights",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Lavender Haze",
+      "song_family": "lavender_haze",
+      "version_tag": "standard"
     },
     {
       "title": "Maroon",
@@ -19,7 +28,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 2,
-      "base_title": "Maroon"
+      "base_title": "Maroon",
+      "album": "Midnights",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Maroon",
+      "song_family": "maroon",
+      "version_tag": "standard"
     },
     {
       "title": "Anti-Hero",
@@ -28,7 +46,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 3,
-      "base_title": "Anti-Hero"
+      "base_title": "Anti-Hero",
+      "album": "Midnights",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Anti-Hero",
+      "song_family": "anti_hero",
+      "version_tag": "standard"
     },
     {
       "title": "Snow On The Beach (feat. Lana Del Rey)",
@@ -37,7 +64,19 @@
       "edition": "standard",
       "display_section": "Extras",
       "display_order": 4,
-      "base_title": "Snow On The Beach (feat. Lana Del Rey)"
+      "base_title": "Snow On The Beach (feat. Lana Del Rey)",
+      "album": "Midnights",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [
+        "Lana Del Rey"
+      ],
+      "artists": [
+        "Taylor Swift",
+        "Lana Del Rey"
+      ],
+      "title_clean": "Snow On The Beach",
+      "song_family": "snow_on_the_beach",
+      "version_tag": "featured__feature"
     },
     {
       "title": "You're On Your Own, Kid",
@@ -46,7 +85,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 5,
-      "base_title": "You're On Your Own, Kid"
+      "base_title": "You're On Your Own, Kid",
+      "album": "Midnights",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "You're On Your Own, Kid",
+      "song_family": "you_re_on_your_own_kid",
+      "version_tag": "standard"
     },
     {
       "title": "Midnight Rain",
@@ -55,7 +103,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 6,
-      "base_title": "Midnight Rain"
+      "base_title": "Midnight Rain",
+      "album": "Midnights",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Midnight Rain",
+      "song_family": "midnight_rain",
+      "version_tag": "standard"
     },
     {
       "title": "Question...?",
@@ -64,7 +121,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 7,
-      "base_title": "Question...?"
+      "base_title": "Question...?",
+      "album": "Midnights",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Question...?",
+      "song_family": "question",
+      "version_tag": "standard"
     },
     {
       "title": "Vigilante Shit",
@@ -73,7 +139,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 8,
-      "base_title": "Vigilante Shit"
+      "base_title": "Vigilante Shit",
+      "album": "Midnights",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Vigilante Shit",
+      "song_family": "vigilante_shit",
+      "version_tag": "standard"
     },
     {
       "title": "Bejeweled",
@@ -82,7 +157,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 9,
-      "base_title": "Bejeweled"
+      "base_title": "Bejeweled",
+      "album": "Midnights",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Bejeweled",
+      "song_family": "bejeweled",
+      "version_tag": "standard"
     },
     {
       "title": "Labyrinth",
@@ -91,7 +175,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 10,
-      "base_title": "Labyrinth"
+      "base_title": "Labyrinth",
+      "album": "Midnights",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Labyrinth",
+      "song_family": "labyrinth",
+      "version_tag": "standard"
     },
     {
       "title": "Karma",
@@ -100,7 +193,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 11,
-      "base_title": "Karma"
+      "base_title": "Karma",
+      "album": "Midnights",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Karma",
+      "song_family": "karma",
+      "version_tag": "standard"
     },
     {
       "title": "Sweet Nothing",
@@ -109,7 +211,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 12,
-      "base_title": "Sweet Nothing"
+      "base_title": "Sweet Nothing",
+      "album": "Midnights",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Sweet Nothing",
+      "song_family": "sweet_nothing",
+      "version_tag": "standard"
     },
     {
       "title": "Mastermind",
@@ -118,7 +229,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 13,
-      "base_title": "Mastermind"
+      "base_title": "Mastermind",
+      "album": "Midnights",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Mastermind",
+      "song_family": "mastermind",
+      "version_tag": "standard"
     }
   ]
 }

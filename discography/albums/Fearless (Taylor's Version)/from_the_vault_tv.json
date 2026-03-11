@@ -10,7 +10,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 1,
-      "base_title": "Bye Bye Baby (Taylor's Version) (From The Vault)"
+      "base_title": "Bye Bye Baby (Taylor's Version) (From The Vault)",
+      "album": "Fearless (Taylor's Version)",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Bye Bye Baby (Taylor's Version) (From The Vault)",
+      "song_family": "bye_bye_baby_taylor_s_version_from_the_vault",
+      "version_tag": "vault__taylors_version__standalone"
     },
     {
       "title": "Don't You (Taylor's Version) (From The Vault)",
@@ -19,7 +28,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 2,
-      "base_title": "Don't You (Taylor's Version) (From The Vault)"
+      "base_title": "Don't You (Taylor's Version) (From The Vault)",
+      "album": "Fearless (Taylor's Version)",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Don't You (Taylor's Version) (From The Vault)",
+      "song_family": "don_t_you_taylor_s_version_from_the_vault",
+      "version_tag": "vault__taylors_version__standalone"
     },
     {
       "title": "Mr. Perfectly Fine (Taylor's Version) (From The Vault)",
@@ -28,7 +46,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 3,
-      "base_title": "Mr. Perfectly Fine (Taylor's Version) (From The Vault)"
+      "base_title": "Mr. Perfectly Fine (Taylor's Version) (From The Vault)",
+      "album": "Fearless (Taylor's Version)",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Mr. Perfectly Fine (Taylor's Version) (From The Vault)",
+      "song_family": "mr_perfectly_fine_taylor_s_version_from_the_vault",
+      "version_tag": "vault__taylors_version__standalone"
     },
     {
       "title": "That's When (feat. Keith Urban) (Taylor's Version) (From The Vault)",
@@ -37,7 +64,19 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 4,
-      "base_title": "That's When (feat. Keith Urban) (Taylor's Version) (From The Vault)"
+      "base_title": "That's When (feat. Keith Urban) (Taylor's Version) (From The Vault)",
+      "album": "Fearless (Taylor's Version)",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [
+        "Keith Urban"
+      ],
+      "artists": [
+        "Taylor Swift",
+        "Keith Urban"
+      ],
+      "title_clean": "That's When (Taylor's Version) (From The Vault)",
+      "song_family": "that_s_when_taylor_s_version_from_the_vault",
+      "version_tag": "featured__vault__taylors_version__feature"
     },
     {
       "title": "We Were Happy (Taylor's Version) (From The Vault)",
@@ -46,7 +85,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 5,
-      "base_title": "We Were Happy (Taylor's Version) (From The Vault)"
+      "base_title": "We Were Happy (Taylor's Version) (From The Vault)",
+      "album": "Fearless (Taylor's Version)",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "We Were Happy (Taylor's Version) (From The Vault)",
+      "song_family": "we_were_happy_taylor_s_version_from_the_vault",
+      "version_tag": "vault__taylors_version__standalone"
     },
     {
       "title": "You All Over Me (feat. Maren Morris) (Taylor's Version) (From The Vault)",
@@ -55,7 +103,19 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 6,
-      "base_title": "You All Over Me (feat. Maren Morris) (Taylor's Version) (From The Vault)"
+      "base_title": "You All Over Me (feat. Maren Morris) (Taylor's Version) (From The Vault)",
+      "album": "Fearless (Taylor's Version)",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [
+        "Maren Morris"
+      ],
+      "artists": [
+        "Taylor Swift",
+        "Maren Morris"
+      ],
+      "title_clean": "You All Over Me (Taylor's Version) (From The Vault)",
+      "song_family": "you_all_over_me_taylor_s_version_from_the_vault",
+      "version_tag": "featured__vault__taylors_version__feature"
     },
     {
       "title": "Forever & Always (Piano Version) (Taylor's Version)",
@@ -64,7 +124,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 7,
-      "base_title": "Forever & Always (Piano Version)"
+      "base_title": "Forever & Always (Piano Version)",
+      "album": "Fearless (Taylor's Version)",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Forever & Always (Piano Version) (Taylor's Version)",
+      "song_family": "forever_always_piano_version_taylor_s_version",
+      "version_tag": "taylors_version__standalone"
     }
   ]
 }

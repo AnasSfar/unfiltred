@@ -10,7 +10,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 1,
-      "base_title": "...Ready For It?"
+      "base_title": "...Ready For It?",
+      "album": "reputation",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "...Ready For It? - BloodPop® Remix",
+      "song_family": "ready_for_it_bloodpop_remix",
+      "version_tag": "remix"
     },
     {
       "title": "Delicate - Seeb Remix",
@@ -19,7 +28,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 2,
-      "base_title": "Delicate"
+      "base_title": "Delicate",
+      "album": "reputation",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Delicate - Seeb Remix",
+      "song_family": "delicate_seeb_remix",
+      "version_tag": "remix"
     },
     {
       "title": "Delicate - Recorded at The Tracking Room Nashville",
@@ -28,7 +46,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 3,
-      "base_title": "Delicate - Recorded at The Tracking Room Nashville"
+      "base_title": "Delicate - Recorded at The Tracking Room Nashville",
+      "album": "reputation",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Delicate - Recorded at The Tracking Room Nashville",
+      "song_family": "delicate_recorded_at_the_tracking_room_nashville",
+      "version_tag": "standalone"
     },
     {
       "title": "Delicate - Sawyr And Ryan Tedder Mix",
@@ -37,7 +64,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 4,
-      "base_title": "Delicate - Sawyr And Ryan Tedder Mix"
+      "base_title": "Delicate - Sawyr And Ryan Tedder Mix",
+      "album": "reputation",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Delicate - Sawyr And Ryan Tedder Mix",
+      "song_family": "delicate_sawyr_and_ryan_tedder_mix",
+      "version_tag": "standalone"
     }
   ]
 }

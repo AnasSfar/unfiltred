@@ -10,7 +10,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 1,
-      "base_title": "Blank Space - Voice Memo"
+      "base_title": "Blank Space - Voice Memo",
+      "album": "1989",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Blank Space - Voice Memo",
+      "song_family": "blank_space_voice_memo",
+      "version_tag": "standalone"
     },
     {
       "title": "I Know Places - Voice Memo",
@@ -19,7 +28,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 2,
-      "base_title": "I Know Places - Voice Memo"
+      "base_title": "I Know Places - Voice Memo",
+      "album": "1989",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "I Know Places - Voice Memo",
+      "song_family": "i_know_places_voice_memo",
+      "version_tag": "standalone"
     },
     {
       "title": "I Wish You Would - Voice Memo",
@@ -28,7 +46,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 3,
-      "base_title": "I Wish You Would - Voice Memo"
+      "base_title": "I Wish You Would - Voice Memo",
+      "album": "1989",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "I Wish You Would - Voice Memo",
+      "song_family": "i_wish_you_would_voice_memo",
+      "version_tag": "standalone"
     }
   ]
 }

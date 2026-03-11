@@ -10,7 +10,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 1,
-      "base_title": "Christmas Must Be Something More"
+      "base_title": "Christmas Must Be Something More",
+      "album": "The Taylor Swift Holiday Collection",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Christmas Must Be Something More",
+      "song_family": "christmas_must_be_something_more",
+      "version_tag": "standard"
     },
     {
       "title": "Christmases When You Were Mine",
@@ -19,7 +28,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 2,
-      "base_title": "Christmases When You Were Mine"
+      "base_title": "Christmases When You Were Mine",
+      "album": "The Taylor Swift Holiday Collection",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Christmases When You Were Mine",
+      "song_family": "christmases_when_you_were_mine",
+      "version_tag": "standard"
     },
     {
       "title": "Last Christmas",
@@ -28,7 +46,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 3,
-      "base_title": "Last Christmas"
+      "base_title": "Last Christmas",
+      "album": "The Taylor Swift Holiday Collection",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Last Christmas",
+      "song_family": "last_christmas",
+      "version_tag": "standard"
     },
     {
       "title": "Santa Baby",
@@ -37,7 +64,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 4,
-      "base_title": "Santa Baby"
+      "base_title": "Santa Baby",
+      "album": "The Taylor Swift Holiday Collection",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Santa Baby",
+      "song_family": "santa_baby",
+      "version_tag": "standard"
     },
     {
       "title": "Silent Night",
@@ -46,7 +82,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 5,
-      "base_title": "Silent Night"
+      "base_title": "Silent Night",
+      "album": "The Taylor Swift Holiday Collection",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Silent Night",
+      "song_family": "silent_night",
+      "version_tag": "standard"
     },
     {
       "title": "White Christmas",
@@ -55,16 +100,34 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 6,
-      "base_title": "White Christmas"
+      "base_title": "White Christmas",
+      "album": "The Taylor Swift Holiday Collection",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "White Christmas",
+      "song_family": "white_christmas",
+      "version_tag": "standard"
     },
-        {
+    {
       "title": "Christmas Tree Farm",
       "url": "https://open.spotify.com/intl-fr/track/4mKye6Z1kXuKolzMkJoKFA",
       "type": "standalone",
       "edition": "standard edition",
       "display_section": "Standard Edition",
       "display_order": 1,
-      "base_title": "Christmas Tree Farm"
+      "base_title": "Christmas Tree Farm",
+      "album": "The Taylor Swift Holiday Collection",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Christmas Tree Farm",
+      "song_family": "christmas_tree_farm",
+      "version_tag": "standalone"
     },
     {
       "title": "Christmas Tree Farm - Old Timey Version",
@@ -73,7 +136,16 @@
       "edition": "standard edition",
       "display_section": "Standard Edition",
       "display_order": 2,
-      "base_title": "Christmas Tree Farm"
+      "base_title": "Christmas Tree Farm",
+      "album": "The Taylor Swift Holiday Collection",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Christmas Tree Farm - Old Timey Version",
+      "song_family": "christmas_tree_farm_old_timey_version",
+      "version_tag": "standalone"
     },
     {
       "title": "Christmas Tree Farm - Recorded Live at the 2019 iHeartRadio Jingle Ball",
@@ -82,7 +154,16 @@
       "edition": "standard edition",
       "display_section": "Standard Edition",
       "display_order": 3,
-      "base_title": "Christmas Tree Farm"
+      "base_title": "Christmas Tree Farm",
+      "album": "The Taylor Swift Holiday Collection",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Christmas Tree Farm - Recorded Live at the 2019 iHeartRadio Jingle Ball",
+      "song_family": "christmas_tree_farm_recorded_live_at_the_2019_iheartradio_jingle_ball",
+      "version_tag": "live__standalone"
     }
   ]
 }

@@ -10,7 +10,16 @@
       "edition": "standard",
       "display_section": "Other Editions",
       "display_order": 1,
-      "base_title": "State Of Grace"
+      "base_title": "State Of Grace",
+      "album": "Red (Taylor's Version)",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "State Of Grace (Taylor's Version)",
+      "song_family": "state_of_grace_taylor_s_version",
+      "version_tag": "taylors_version__alternate_version"
     },
     {
       "title": "Red (Taylor's Version)",
@@ -19,7 +28,16 @@
       "edition": "standard",
       "display_section": "Other Editions",
       "display_order": 2,
-      "base_title": "Red"
+      "base_title": "Red",
+      "album": "Red (Taylor's Version)",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Red (Taylor's Version)",
+      "song_family": "red_taylor_s_version",
+      "version_tag": "taylors_version__alternate_version"
     },
     {
       "title": "Treacherous (Taylor's Version)",
@@ -28,7 +46,16 @@
       "edition": "standard",
       "display_section": "Other Editions",
       "display_order": 3,
-      "base_title": "Treacherous"
+      "base_title": "Treacherous",
+      "album": "Red (Taylor's Version)",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Treacherous (Taylor's Version)",
+      "song_family": "treacherous_taylor_s_version",
+      "version_tag": "taylors_version__alternate_version"
     },
     {
       "title": "I Knew You Were Trouble (Taylor's Version)",
@@ -37,7 +64,16 @@
       "edition": "standard",
       "display_section": "Other Editions",
       "display_order": 4,
-      "base_title": "I Knew You Were Trouble"
+      "base_title": "I Knew You Were Trouble",
+      "album": "Red (Taylor's Version)",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "I Knew You Were Trouble (Taylor's Version)",
+      "song_family": "i_knew_you_were_trouble_taylor_s_version",
+      "version_tag": "taylors_version__alternate_version"
     },
     {
       "title": "All Too Well (Taylor's Version)",
@@ -46,7 +82,16 @@
       "edition": "standard",
       "display_section": "Other Editions",
       "display_order": 5,
-      "base_title": "All Too Well"
+      "base_title": "All Too Well",
+      "album": "Red (Taylor's Version)",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "All Too Well (Taylor's Version)",
+      "song_family": "all_too_well_taylor_s_version",
+      "version_tag": "taylors_version__alternate_version"
     },
     {
       "title": "22 (Taylor's Version)",
@@ -55,7 +100,16 @@
       "edition": "standard",
       "display_section": "Other Editions",
       "display_order": 6,
-      "base_title": "22"
+      "base_title": "22",
+      "album": "Red (Taylor's Version)",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "22 (Taylor's Version)",
+      "song_family": "22_taylor_s_version",
+      "version_tag": "taylors_version__alternate_version"
     },
     {
       "title": "I Almost Do (Taylor's Version)",
@@ -64,7 +118,16 @@
       "edition": "standard",
       "display_section": "Other Editions",
       "display_order": 7,
-      "base_title": "I Almost Do"
+      "base_title": "I Almost Do",
+      "album": "Red (Taylor's Version)",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "I Almost Do (Taylor's Version)",
+      "song_family": "i_almost_do_taylor_s_version",
+      "version_tag": "taylors_version__alternate_version"
     },
     {
       "title": "We Are Never Ever Getting Back Together (Taylor's Version)",
@@ -73,7 +136,16 @@
       "edition": "standard",
       "display_section": "Other Editions",
       "display_order": 8,
-      "base_title": "We Are Never Ever Getting Back Together"
+      "base_title": "We Are Never Ever Getting Back Together",
+      "album": "Red (Taylor's Version)",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "We Are Never Ever Getting Back Together (Taylor's Version)",
+      "song_family": "we_are_never_ever_getting_back_together_taylor_s_version",
+      "version_tag": "taylors_version__alternate_version"
     },
     {
       "title": "Stay Stay Stay (Taylor's Version)",
@@ -82,7 +154,16 @@
       "edition": "standard",
       "display_section": "Other Editions",
       "display_order": 9,
-      "base_title": "Stay Stay Stay"
+      "base_title": "Stay Stay Stay",
+      "album": "Red (Taylor's Version)",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Stay Stay Stay (Taylor's Version)",
+      "song_family": "stay_stay_stay_taylor_s_version",
+      "version_tag": "taylors_version__alternate_version"
     },
     {
       "title": "The Last Time (feat. Gary Lightbody of Snow Patrol) (Taylor's Version)",
@@ -91,7 +172,19 @@
       "edition": "standard",
       "display_section": "Extras",
       "display_order": 10,
-      "base_title": "The Last Time (feat. Gary Lightbody of Snow Patrol)"
+      "base_title": "The Last Time (feat. Gary Lightbody of Snow Patrol)",
+      "album": "Red (Taylor's Version)",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [
+        "Gary Lightbody of Snow Patrol"
+      ],
+      "artists": [
+        "Taylor Swift",
+        "Gary Lightbody of Snow Patrol"
+      ],
+      "title_clean": "The Last Time (Taylor's Version)",
+      "song_family": "the_last_time_taylor_s_version",
+      "version_tag": "featured__taylors_version__feature"
     },
     {
       "title": "Holy Ground (Taylor's Version)",
@@ -100,7 +193,16 @@
       "edition": "standard",
       "display_section": "Other Editions",
       "display_order": 11,
-      "base_title": "Holy Ground"
+      "base_title": "Holy Ground",
+      "album": "Red (Taylor's Version)",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Holy Ground (Taylor's Version)",
+      "song_family": "holy_ground_taylor_s_version",
+      "version_tag": "taylors_version__alternate_version"
     },
     {
       "title": "Sad Beautiful Tragic (Taylor's Version)",
@@ -109,7 +211,16 @@
       "edition": "standard",
       "display_section": "Other Editions",
       "display_order": 12,
-      "base_title": "Sad Beautiful Tragic"
+      "base_title": "Sad Beautiful Tragic",
+      "album": "Red (Taylor's Version)",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Sad Beautiful Tragic (Taylor's Version)",
+      "song_family": "sad_beautiful_tragic_taylor_s_version",
+      "version_tag": "taylors_version__alternate_version"
     },
     {
       "title": "The Lucky One (Taylor's Version)",
@@ -118,7 +229,16 @@
       "edition": "standard",
       "display_section": "Other Editions",
       "display_order": 13,
-      "base_title": "The Lucky One"
+      "base_title": "The Lucky One",
+      "album": "Red (Taylor's Version)",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "The Lucky One (Taylor's Version)",
+      "song_family": "the_lucky_one_taylor_s_version",
+      "version_tag": "taylors_version__alternate_version"
     },
     {
       "title": "Everything Has Changed (feat. Ed Sheeran) (Taylor's Version)",
@@ -127,7 +247,19 @@
       "edition": "standard",
       "display_section": "Extras",
       "display_order": 14,
-      "base_title": "Everything Has Changed (feat. Ed Sheeran)"
+      "base_title": "Everything Has Changed (feat. Ed Sheeran)",
+      "album": "Red (Taylor's Version)",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [
+        "Ed Sheeran"
+      ],
+      "artists": [
+        "Taylor Swift",
+        "Ed Sheeran"
+      ],
+      "title_clean": "Everything Has Changed (Taylor's Version)",
+      "song_family": "everything_has_changed_taylor_s_version",
+      "version_tag": "featured__taylors_version__feature"
     },
     {
       "title": "Starlight (Taylor's Version)",
@@ -136,7 +268,16 @@
       "edition": "standard",
       "display_section": "Other Editions",
       "display_order": 15,
-      "base_title": "Starlight"
+      "base_title": "Starlight",
+      "album": "Red (Taylor's Version)",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Starlight (Taylor's Version)",
+      "song_family": "starlight_taylor_s_version",
+      "version_tag": "taylors_version__alternate_version"
     },
     {
       "title": "Begin Again (Taylor's Version)",
@@ -145,7 +286,16 @@
       "edition": "standard",
       "display_section": "Other Editions",
       "display_order": 16,
-      "base_title": "Begin Again"
+      "base_title": "Begin Again",
+      "album": "Red (Taylor's Version)",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Begin Again (Taylor's Version)",
+      "song_family": "begin_again_taylor_s_version",
+      "version_tag": "taylors_version__alternate_version"
     },
     {
       "title": "Girl At Home (Taylor's Version)",
@@ -154,7 +304,16 @@
       "edition": "standard",
       "display_section": "Other Editions",
       "display_order": 17,
-      "base_title": "Girl At Home"
+      "base_title": "Girl At Home",
+      "album": "Red (Taylor's Version)",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Girl At Home (Taylor's Version)",
+      "song_family": "girl_at_home_taylor_s_version",
+      "version_tag": "taylors_version__alternate_version"
     },
     {
       "title": "Ronan (Taylor's Version)",
@@ -163,7 +322,16 @@
       "edition": "standard",
       "display_section": "Other Editions",
       "display_order": 18,
-      "base_title": "Ronan"
+      "base_title": "Ronan",
+      "album": "Red (Taylor's Version)",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Ronan (Taylor's Version)",
+      "song_family": "ronan_taylor_s_version",
+      "version_tag": "taylors_version__alternate_version"
     },
     {
       "title": "Come Back...Be Here (Taylor's Version)",
@@ -172,7 +340,16 @@
       "edition": "standard",
       "display_section": "Other Editions",
       "display_order": 19,
-      "base_title": "Come Back...Be Here"
+      "base_title": "Come Back...Be Here",
+      "album": "Red (Taylor's Version)",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Come Back...Be Here (Taylor's Version)",
+      "song_family": "come_back_be_here_taylor_s_version",
+      "version_tag": "taylors_version__alternate_version"
     },
     {
       "title": "The Moment I Knew (Taylor's Version)",
@@ -181,7 +358,16 @@
       "edition": "standard",
       "display_section": "Other Editions",
       "display_order": 20,
-      "base_title": "The Moment I Knew"
+      "base_title": "The Moment I Knew",
+      "album": "Red (Taylor's Version)",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "The Moment I Knew (Taylor's Version)",
+      "song_family": "the_moment_i_knew_taylor_s_version",
+      "version_tag": "taylors_version__alternate_version"
     }
   ]
 }

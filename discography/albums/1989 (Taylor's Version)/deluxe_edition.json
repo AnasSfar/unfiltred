@@ -10,7 +10,19 @@
       "edition": "deluxe",
       "display_section": "deluxe edition",
       "display_order": 1,
-      "base_title": "Bad Blood (feat. Kendrick Lamar)"
+      "base_title": "Bad Blood (feat. Kendrick Lamar)",
+      "album": "1989",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [
+        "Kendrick Lamar"
+      ],
+      "artists": [
+        "Taylor Swift",
+        "Kendrick Lamar"
+      ],
+      "title_clean": "Bad Blood (Taylor's Version)",
+      "song_family": "bad_blood_taylor_s_version",
+      "version_tag": "featured__deluxe__taylors_version__alternate_version"
     }
   ]
 }

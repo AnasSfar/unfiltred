@@ -10,7 +10,16 @@
       "edition": "standard",
       "display_section": "standard edition",
       "display_order": 1,
-      "base_title": "thanK you aIMee"
+      "base_title": "thanK you aIMee",
+      "album": "THE TORTURED POETS DEPARTMENT",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "thanK you aIMee",
+      "song_family": "thank_you_aimee",
+      "version_tag": "standalone"
     },
     {
       "title": "I Look in People's Windows",
@@ -19,7 +28,16 @@
       "edition": "standard",
       "display_section": "standard edition",
       "display_order": 2,
-      "base_title": "I Look in People's Windows"
+      "base_title": "I Look in People's Windows",
+      "album": "THE TORTURED POETS DEPARTMENT",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "I Look in People's Windows",
+      "song_family": "i_look_in_people_s_windows",
+      "version_tag": "standalone"
     },
     {
       "title": "The Prophecy",
@@ -28,7 +46,16 @@
       "edition": "standard",
       "display_section": "standard edition",
       "display_order": 3,
-      "base_title": "The Prophecy"
+      "base_title": "The Prophecy",
+      "album": "THE TORTURED POETS DEPARTMENT",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "The Prophecy",
+      "song_family": "the_prophecy",
+      "version_tag": "standalone"
     },
     {
       "title": "Cassandra",
@@ -37,7 +64,16 @@
       "edition": "standard",
       "display_section": "standard edition",
       "display_order": 4,
-      "base_title": "Cassandra"
+      "base_title": "Cassandra",
+      "album": "THE TORTURED POETS DEPARTMENT",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Cassandra",
+      "song_family": "cassandra",
+      "version_tag": "standalone"
     },
     {
       "title": "Peter",
@@ -46,7 +82,16 @@
       "edition": "standard",
       "display_section": "standard edition",
       "display_order": 5,
-      "base_title": "Peter"
+      "base_title": "Peter",
+      "album": "THE TORTURED POETS DEPARTMENT",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Peter",
+      "song_family": "peter",
+      "version_tag": "standalone"
     },
     {
       "title": "The Bolter",
@@ -55,7 +100,16 @@
       "edition": "standard",
       "display_section": "standard edition",
       "display_order": 6,
-      "base_title": "The Bolter"
+      "base_title": "The Bolter",
+      "album": "THE TORTURED POETS DEPARTMENT",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "The Bolter",
+      "song_family": "the_bolter",
+      "version_tag": "standalone"
     },
     {
       "title": "Robin",
@@ -64,7 +118,16 @@
       "edition": "standard",
       "display_section": "standard edition",
       "display_order": 7,
-      "base_title": "Robin"
+      "base_title": "Robin",
+      "album": "THE TORTURED POETS DEPARTMENT",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Robin",
+      "song_family": "robin",
+      "version_tag": "standalone"
     },
     {
       "title": "The Manuscript",
@@ -73,7 +136,16 @@
       "edition": "standard",
       "display_section": "standard edition",
       "display_order": 8,
-      "base_title": "The Manuscript"
+      "base_title": "The Manuscript",
+      "album": "THE TORTURED POETS DEPARTMENT",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "The Manuscript",
+      "song_family": "the_manuscript",
+      "version_tag": "standalone"
     },
     {
       "title": "The Black Dog",
@@ -82,7 +154,16 @@
       "edition": "standard",
       "display_section": "standard edition",
       "display_order": 9,
-      "base_title": "The Black Dog"
+      "base_title": "The Black Dog",
+      "album": "THE TORTURED POETS DEPARTMENT",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "The Black Dog",
+      "song_family": "the_black_dog",
+      "version_tag": "standalone"
     },
     {
       "title": "imgonnagetyouback",
@@ -91,7 +172,16 @@
       "edition": "standard",
       "display_section": "standard edition",
       "display_order": 10,
-      "base_title": "imgonnagetyouback"
+      "base_title": "imgonnagetyouback",
+      "album": "THE TORTURED POETS DEPARTMENT",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "imgonnagetyouback",
+      "song_family": "imgonnagetyouback",
+      "version_tag": "standalone"
     },
     {
       "title": "The Albatross",
@@ -100,7 +190,16 @@
       "edition": "standard",
       "display_section": "standard edition",
       "display_order": 11,
-      "base_title": "The Albatross"
+      "base_title": "The Albatross",
+      "album": "THE TORTURED POETS DEPARTMENT",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "The Albatross",
+      "song_family": "the_albatross",
+      "version_tag": "standalone"
     },
     {
       "title": "Chloe or Sam or Sophia or Marcus",
@@ -109,7 +208,16 @@
       "edition": "standard",
       "display_section": "standard edition",
       "display_order": 12,
-      "base_title": "Chloe or Sam or Sophia or Marcus"
+      "base_title": "Chloe or Sam or Sophia or Marcus",
+      "album": "THE TORTURED POETS DEPARTMENT",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Chloe or Sam or Sophia or Marcus",
+      "song_family": "chloe_or_sam_or_sophia_or_marcus",
+      "version_tag": "standalone"
     },
     {
       "title": "How Did It End?",
@@ -118,7 +226,16 @@
       "edition": "standard",
       "display_section": "standard  edition",
       "display_order": 13,
-      "base_title": "How Did It End?"
+      "base_title": "How Did It End?",
+      "album": "THE TORTURED POETS DEPARTMENT",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "How Did It End?",
+      "song_family": "how_did_it_end",
+      "version_tag": "standalone"
     },
     {
       "title": "So High School",
@@ -127,7 +244,16 @@
       "edition": "standard",
       "display_section": "standard edition",
       "display_order": 14,
-      "base_title": "So High School"
+      "base_title": "So High School",
+      "album": "THE TORTURED POETS DEPARTMENT",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "So High School",
+      "song_family": "so_high_school",
+      "version_tag": "standalone"
     },
     {
       "title": "I Hate It Here",
@@ -136,7 +262,16 @@
       "edition": "standard",
       "display_section": "standard  edition",
       "display_order": 15,
-      "base_title": "I Hate It Here"
+      "base_title": "I Hate It Here",
+      "album": "THE TORTURED POETS DEPARTMENT",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "I Hate It Here",
+      "song_family": "i_hate_it_here",
+      "version_tag": "standalone"
     }
   ]
 }

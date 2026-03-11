@@ -10,7 +10,16 @@
       "edition": "standard edition",
       "display_section": "standard edition",
       "display_order": 1,
-      "base_title": "Breathe"
+      "base_title": "Breathe",
+      "album": "Fearless",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Breathe",
+      "song_family": "breathe",
+      "version_tag": "standalone"
     },
     {
       "title": "Come In With The Rain",
@@ -19,7 +28,16 @@
       "edition": "standard edition",
       "display_section": "standard edition",
       "display_order": 2,
-      "base_title": "Come In With The Rain"
+      "base_title": "Come In With The Rain",
+      "album": "Fearless",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Come In With The Rain",
+      "song_family": "come_in_with_the_rain",
+      "version_tag": "standalone"
     },
     {
       "title": "Fearless",
@@ -28,7 +46,16 @@
       "edition": "standard edition",
       "display_section": "standard edition",
       "display_order": 3,
-      "base_title": "Fearless"
+      "base_title": "Fearless",
+      "album": "Fearless",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Fearless",
+      "song_family": "fearless",
+      "version_tag": "standalone"
     },
     {
       "title": "Fifteen",
@@ -37,7 +64,16 @@
       "edition": "standard edition",
       "display_section": "standard edition",
       "display_order": 4,
-      "base_title": "Fifteen"
+      "base_title": "Fifteen",
+      "album": "Fearless",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Fifteen",
+      "song_family": "fifteen",
+      "version_tag": "standalone"
     },
     {
       "title": "Forever & Always - Piano Version",
@@ -46,7 +82,16 @@
       "edition": "standard edition",
       "display_section": "standard edition",
       "display_order": 5,
-      "base_title": "Forever & Always"
+      "base_title": "Forever & Always",
+      "album": "Fearless",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Forever & Always - Piano Version",
+      "song_family": "forever_always_piano_version",
+      "version_tag": "standalone"
     },
     {
       "title": "Hey Stephen",
@@ -55,7 +100,16 @@
       "edition": "standard edition",
       "display_section": "standard edition",
       "display_order": 6,
-      "base_title": "Hey Stephen"
+      "base_title": "Hey Stephen",
+      "album": "Fearless",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Hey Stephen",
+      "song_family": "hey_stephen",
+      "version_tag": "standalone"
     },
     {
       "title": "Jump Then Fall",
@@ -64,7 +118,16 @@
       "edition": "standard edition",
       "display_section": "standard edition",
       "display_order": 7,
-      "base_title": "Jump Then Fall"
+      "base_title": "Jump Then Fall",
+      "album": "Fearless",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Jump Then Fall",
+      "song_family": "jump_then_fall",
+      "version_tag": "standalone"
     },
     {
       "title": "Love Story",
@@ -73,7 +136,16 @@
       "edition": "standard edition",
       "display_section": "standard edition",
       "display_order": 8,
-      "base_title": "Love Story"
+      "base_title": "Love Story",
+      "album": "Fearless",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Love Story",
+      "song_family": "love_story",
+      "version_tag": "standalone"
     },
     {
       "title": "SuperStar",
@@ -82,7 +154,16 @@
       "edition": "standard edition",
       "display_section": "standard edition",
       "display_order": 9,
-      "base_title": "SuperStar"
+      "base_title": "SuperStar",
+      "album": "Fearless",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "SuperStar",
+      "song_family": "superstar",
+      "version_tag": "standalone"
     },
     {
       "title": "Tell Me Why",
@@ -91,7 +172,16 @@
       "edition": "standard edition",
       "display_section": "standard edition",
       "display_order": 10,
-      "base_title": "Tell Me Why"
+      "base_title": "Tell Me Why",
+      "album": "Fearless",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Tell Me Why",
+      "song_family": "tell_me_why",
+      "version_tag": "standalone"
     },
     {
       "title": "The Other Side Of The Door",
@@ -100,7 +190,16 @@
       "edition": "standard edition",
       "display_section": "standard edition",
       "display_order": 11,
-      "base_title": "The Other Side Of The Door"
+      "base_title": "The Other Side Of The Door",
+      "album": "Fearless",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "The Other Side Of The Door",
+      "song_family": "the_other_side_of_the_door",
+      "version_tag": "standalone"
     },
     {
       "title": "Untouchable",
@@ -109,7 +208,16 @@
       "edition": "standard edition",
       "display_section": "standard edition",
       "display_order": 12,
-      "base_title": "Untouchable"
+      "base_title": "Untouchable",
+      "album": "Fearless",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Untouchable",
+      "song_family": "untouchable",
+      "version_tag": "standalone"
     },
     {
       "title": "White Horse",
@@ -118,7 +226,16 @@
       "edition": "standard edition",
       "display_section": "standard edition",
       "display_order": 13,
-      "base_title": "White Horse"
+      "base_title": "White Horse",
+      "album": "Fearless",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "White Horse",
+      "song_family": "white_horse",
+      "version_tag": "standalone"
     },
     {
       "title": "You Belong With Me",
@@ -127,7 +244,16 @@
       "edition": "standard edition",
       "display_section": "standard edition",
       "display_order": 14,
-      "base_title": "You Belong With Me"
+      "base_title": "You Belong With Me",
+      "album": "Fearless",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "You Belong With Me",
+      "song_family": "you_belong_with_me",
+      "version_tag": "standalone"
     },
     {
       "title": "You're Not Sorry",
@@ -136,7 +262,16 @@
       "edition": "standard edition",
       "display_section": "standard edition",
       "display_order": 15,
-      "base_title": "You're Not Sorry"
+      "base_title": "You're Not Sorry",
+      "album": "Fearless",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "You're Not Sorry",
+      "song_family": "you_re_not_sorry",
+      "version_tag": "standalone"
     }
   ]
 }

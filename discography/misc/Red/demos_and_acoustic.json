@@ -10,7 +10,16 @@
       "edition": "acoustic",
       "display_section": "Other Editions",
       "display_order": 1,
-      "base_title": "Red"
+      "base_title": "Red",
+      "album": "Red",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Red - Original Demo Recording",
+      "song_family": "red_original_demo_recording",
+      "version_tag": "demo__alternate_version"
     },
     {
       "title": "Treacherous - Original Demo Recording",
@@ -19,7 +28,16 @@
       "edition": "acoustic",
       "display_section": "Other Editions",
       "display_order": 2,
-      "base_title": "Treacherous"
+      "base_title": "Treacherous",
+      "album": "Red",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Treacherous - Original Demo Recording",
+      "song_family": "treacherous_original_demo_recording",
+      "version_tag": "demo__alternate_version"
     },
     {
       "title": "State Of Grace - Acoustic",
@@ -28,7 +46,16 @@
       "edition": "acoustic",
       "display_section": "Other Editions",
       "display_order": 3,
-      "base_title": "State Of Grace"
+      "base_title": "State Of Grace",
+      "album": "Red",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "State Of Grace - Acoustic",
+      "song_family": "state_of_grace_acoustic",
+      "version_tag": "acoustic__alternate_version"
     }
   ]
 }

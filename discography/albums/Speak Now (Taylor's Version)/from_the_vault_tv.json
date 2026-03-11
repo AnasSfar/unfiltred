@@ -10,7 +10,19 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 1,
-      "base_title": "Castles Crumbling (feat. Hayley Williams) (Taylor's Version) (From The Vault)"
+      "base_title": "Castles Crumbling (feat. Hayley Williams) (Taylor's Version) (From The Vault)",
+      "album": "Speak Now (Taylor's Version)",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [
+        "Hayley Williams"
+      ],
+      "artists": [
+        "Taylor Swift",
+        "Hayley Williams"
+      ],
+      "title_clean": "Castles Crumbling (Taylor's Version) (From The Vault)",
+      "song_family": "castles_crumbling_taylor_s_version_from_the_vault",
+      "version_tag": "featured__vault__taylors_version__feature"
     },
     {
       "title": "Electric Touch (feat. Fall Out Boy) (Taylor's Version) (From The Vault)",
@@ -19,7 +31,19 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 2,
-      "base_title": "Electric Touch (feat. Fall Out Boy) (Taylor's Version) (From The Vault)"
+      "base_title": "Electric Touch (feat. Fall Out Boy) (Taylor's Version) (From The Vault)",
+      "album": "Speak Now (Taylor's Version)",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [
+        "Fall Out Boy"
+      ],
+      "artists": [
+        "Taylor Swift",
+        "Fall Out Boy"
+      ],
+      "title_clean": "Electric Touch (Taylor's Version) (From The Vault)",
+      "song_family": "electric_touch_taylor_s_version_from_the_vault",
+      "version_tag": "featured__vault__taylors_version__feature"
     },
     {
       "title": "Foolish One (Taylor's Version) (From The Vault)",
@@ -28,7 +52,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 3,
-      "base_title": "Foolish One (Taylor's Version) (From The Vault)"
+      "base_title": "Foolish One (Taylor's Version) (From The Vault)",
+      "album": "Speak Now (Taylor's Version)",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Foolish One (Taylor's Version) (From The Vault)",
+      "song_family": "foolish_one_taylor_s_version_from_the_vault",
+      "version_tag": "vault__taylors_version__standalone"
     },
     {
       "title": "I Can See You (Taylor's Version) (From The Vault)",
@@ -37,7 +70,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 4,
-      "base_title": "I Can See You (Taylor's Version) (From The Vault)"
+      "base_title": "I Can See You (Taylor's Version) (From The Vault)",
+      "album": "Speak Now (Taylor's Version)",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "I Can See You (Taylor's Version) (From The Vault)",
+      "song_family": "i_can_see_you_taylor_s_version_from_the_vault",
+      "version_tag": "vault__taylors_version__standalone"
     },
     {
       "title": "Timeless (Taylor's Version) (From The Vault)",
@@ -46,7 +88,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 5,
-      "base_title": "Timeless (Taylor's Version) (From The Vault)"
+      "base_title": "Timeless (Taylor's Version) (From The Vault)",
+      "album": "Speak Now (Taylor's Version)",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Timeless (Taylor's Version) (From The Vault)",
+      "song_family": "timeless_taylor_s_version_from_the_vault",
+      "version_tag": "vault__taylors_version__standalone"
     },
     {
       "title": "When Emma Falls in Love (Taylor's Version) (From The Vault)",
@@ -55,7 +106,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 6,
-      "base_title": "When Emma Falls in Love (Taylor's Version) (From The Vault)"
+      "base_title": "When Emma Falls in Love (Taylor's Version) (From The Vault)",
+      "album": "Speak Now (Taylor's Version)",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "When Emma Falls in Love (Taylor's Version) (From The Vault)",
+      "song_family": "when_emma_falls_in_love_taylor_s_version_from_the_vault",
+      "version_tag": "vault__taylors_version__standalone"
     }
   ]
 }

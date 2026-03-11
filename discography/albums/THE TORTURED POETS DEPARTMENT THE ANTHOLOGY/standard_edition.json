@@ -10,7 +10,19 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 1,
-      "base_title": "Fortnight (feat. Post Malone)"
+      "base_title": "Fortnight (feat. Post Malone)",
+      "album": "THE TORTURED POETS DEPARTMENT",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [
+        "Post Malone"
+      ],
+      "artists": [
+        "Taylor Swift",
+        "Post Malone"
+      ],
+      "title_clean": "Fortnight",
+      "song_family": "fortnight",
+      "version_tag": "featured__feature"
     },
     {
       "title": "The Tortured Poets Department",
@@ -19,7 +31,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 2,
-      "base_title": "The Tortured Poets Department"
+      "base_title": "The Tortured Poets Department",
+      "album": "THE TORTURED POETS DEPARTMENT",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "The Tortured Poets Department",
+      "song_family": "the_tortured_poets_department",
+      "version_tag": "standard"
     },
     {
       "title": "My Boy Only Breaks His Favorite Toys",
@@ -28,7 +49,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 3,
-      "base_title": "My Boy Only Breaks His Favorite Toys"
+      "base_title": "My Boy Only Breaks His Favorite Toys",
+      "album": "THE TORTURED POETS DEPARTMENT",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "My Boy Only Breaks His Favorite Toys",
+      "song_family": "my_boy_only_breaks_his_favorite_toys",
+      "version_tag": "standard"
     },
     {
       "title": "Down Bad",
@@ -37,7 +67,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 4,
-      "base_title": "Down Bad"
+      "base_title": "Down Bad",
+      "album": "THE TORTURED POETS DEPARTMENT",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Down Bad",
+      "song_family": "down_bad",
+      "version_tag": "standard"
     },
     {
       "title": "So Long, London",
@@ -46,7 +85,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 5,
-      "base_title": "So Long, London"
+      "base_title": "So Long, London",
+      "album": "THE TORTURED POETS DEPARTMENT",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "So Long, London",
+      "song_family": "so_long_london",
+      "version_tag": "standard"
     },
     {
       "title": "But Daddy I Love Him",
@@ -55,7 +103,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 6,
-      "base_title": "But Daddy I Love Him"
+      "base_title": "But Daddy I Love Him",
+      "album": "THE TORTURED POETS DEPARTMENT",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "But Daddy I Love Him",
+      "song_family": "but_daddy_i_love_him",
+      "version_tag": "standard"
     },
     {
       "title": "Fresh Out The Slammer",
@@ -64,7 +121,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 7,
-      "base_title": "Fresh Out The Slammer"
+      "base_title": "Fresh Out The Slammer",
+      "album": "THE TORTURED POETS DEPARTMENT",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Fresh Out The Slammer",
+      "song_family": "fresh_out_the_slammer",
+      "version_tag": "standard"
     },
     {
       "title": "Florida!!! (feat. Florence + The Machine)",
@@ -73,7 +139,19 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 8,
-      "base_title": "Florida!!! (feat. Florence + The Machine)"
+      "base_title": "Florida!!! (feat. Florence + The Machine)",
+      "album": "THE TORTURED POETS DEPARTMENT",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [
+        "Florence + The Machine"
+      ],
+      "artists": [
+        "Taylor Swift",
+        "Florence + The Machine"
+      ],
+      "title_clean": "Florida!!!",
+      "song_family": "florida",
+      "version_tag": "featured__feature"
     },
     {
       "title": "Guilty as Sin?",
@@ -82,7 +160,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 9,
-      "base_title": "Guilty as Sin?"
+      "base_title": "Guilty as Sin?",
+      "album": "THE TORTURED POETS DEPARTMENT",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Guilty as Sin?",
+      "song_family": "guilty_as_sin",
+      "version_tag": "standard"
     },
     {
       "title": "Down Bad",
@@ -91,7 +178,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 10,
-      "base_title": "Down Bad"
+      "base_title": "Down Bad",
+      "album": "THE TORTURED POETS DEPARTMENT",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Down Bad",
+      "song_family": "down_bad",
+      "version_tag": "standard"
     },
     {
       "title": "But Daddy I Love Him",
@@ -100,7 +196,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 11,
-      "base_title": "But Daddy I Love Him"
+      "base_title": "But Daddy I Love Him",
+      "album": "THE TORTURED POETS DEPARTMENT",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "But Daddy I Love Him",
+      "song_family": "but_daddy_i_love_him",
+      "version_tag": "standard"
     },
     {
       "title": "Clara Bow",
@@ -109,7 +214,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 12,
-      "base_title": "Clara Bow"
+      "base_title": "Clara Bow",
+      "album": "THE TORTURED POETS DEPARTMENT",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Clara Bow",
+      "song_family": "clara_bow",
+      "version_tag": "standard"
     },
     {
       "title": "I Can Fix Him (No Really I Can)",
@@ -118,7 +232,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 13,
-      "base_title": "I Can Fix Him (No Really I Can)"
+      "base_title": "I Can Fix Him (No Really I Can)",
+      "album": "THE TORTURED POETS DEPARTMENT",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "I Can Fix Him (No Really I Can)",
+      "song_family": "i_can_fix_him_no_really_i_can",
+      "version_tag": "standard"
     },
     {
       "title": "I Can Do It With a Broken Heart",
@@ -127,7 +250,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 14,
-      "base_title": "I Can Do It With a Broken Heart"
+      "base_title": "I Can Do It With a Broken Heart",
+      "album": "THE TORTURED POETS DEPARTMENT",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "I Can Do It With a Broken Heart",
+      "song_family": "i_can_do_it_with_a_broken_heart",
+      "version_tag": "standard"
     },
     {
       "title": "The Alchemy",
@@ -136,7 +268,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 15,
-      "base_title": "The Alchemy"
+      "base_title": "The Alchemy",
+      "album": "THE TORTURED POETS DEPARTMENT",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "The Alchemy",
+      "song_family": "the_alchemy",
+      "version_tag": "standard"
     },
     {
       "title": "Who's Afraid of Little Old Me?",
@@ -145,7 +286,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 16,
-      "base_title": "Who's Afraid of Little Old Me?"
+      "base_title": "Who's Afraid of Little Old Me?",
+      "album": "THE TORTURED POETS DEPARTMENT",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Who's Afraid of Little Old Me?",
+      "song_family": "who_s_afraid_of_little_old_me",
+      "version_tag": "standard"
     },
     {
       "title": "loml",
@@ -154,7 +304,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 17,
-      "base_title": "loml"
+      "base_title": "loml",
+      "album": "THE TORTURED POETS DEPARTMENT",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "loml",
+      "song_family": "loml",
+      "version_tag": "standard"
     },
     {
       "title": "The Smallest Man Who Ever Lived",
@@ -163,7 +322,16 @@
       "edition": "standard",
       "display_section": "Other Editions",
       "display_order": 18,
-      "base_title": "The Smallest Man Who Ever Lived"
+      "base_title": "The Smallest Man Who Ever Lived",
+      "album": "THE TORTURED POETS DEPARTMENT",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "The Smallest Man Who Ever Lived",
+      "song_family": "the_smallest_man_who_ever_lived",
+      "version_tag": "live__alternate_version"
     }
   ]
 }

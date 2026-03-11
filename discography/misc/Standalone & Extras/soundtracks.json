@@ -10,7 +10,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 1,
-      "base_title": "Carolina - \"Where The Crawdads Sing\" - Video Edition"
+      "base_title": "Carolina - \"Where The Crawdads Sing\" - Video Edition",
+      "album": "Standalone & Extras",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Carolina - \"Where The Crawdads Sing\" - Video Edition",
+      "song_family": "carolina_where_the_crawdads_sing_video_edition",
+      "version_tag": "standalone"
     },
     {
       "title": "Carolina - From The Motion Picture “Where The Crawdads Sing”",
@@ -19,7 +28,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 2,
-      "base_title": "Carolina - From The Motion Picture “Where The Crawdads Sing”"
+      "base_title": "Carolina - From The Motion Picture “Where The Crawdads Sing”",
+      "album": "Standalone & Extras",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Carolina - From The Motion Picture “Where The Crawdads Sing”",
+      "song_family": "carolina_from_the_motion_picture_where_the_crawdads_sing",
+      "version_tag": "standalone"
     },
     {
       "title": "Sweeter Than Fiction - From \"One Chance\" Soundtrack",
@@ -28,7 +46,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 3,
-      "base_title": "Sweeter Than Fiction - From \"One Chance\" Soundtrack"
+      "base_title": "Sweeter Than Fiction - From \"One Chance\" Soundtrack",
+      "album": "Standalone & Extras",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Sweeter Than Fiction - From \"One Chance\" Soundtrack",
+      "song_family": "sweeter_than_fiction_from_one_chance_soundtrack",
+      "version_tag": "standalone"
     },
     {
       "title": "Eyes Open (Taylor's Version)",
@@ -37,7 +64,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 4,
-      "base_title": "Eyes Open"
+      "base_title": "Eyes Open",
+      "album": "Standalone & Extras",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Eyes Open (Taylor's Version)",
+      "song_family": "eyes_open_taylor_s_version",
+      "version_tag": "taylors_version__standalone"
     },
     {
       "title": "Safe & Sound (feat. Joy Williams and John Paul White) (Taylor's Version)",
@@ -46,7 +82,21 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 5,
-      "base_title": "Safe & Sound (feat. Joy Williams and John Paul White)"
+      "base_title": "Safe & Sound (feat. Joy Williams and John Paul White)",
+      "album": "Standalone & Extras",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [
+        "Joy Williams",
+        "John Paul White"
+      ],
+      "artists": [
+        "Taylor Swift",
+        "Joy Williams",
+        "John Paul White"
+      ],
+      "title_clean": "Safe & Sound (Taylor's Version)",
+      "song_family": "safe_sound_taylor_s_version",
+      "version_tag": "featured__taylors_version__feature"
     },
     {
       "title": "Only The Young - Featured in Miss Americana",
@@ -55,7 +105,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 6,
-      "base_title": "Only The Young - Featured in Miss Americana"
+      "base_title": "Only The Young - Featured in Miss Americana",
+      "album": "Standalone & Extras",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Only The Young - Featured in Miss Americana",
+      "song_family": "only_the_young_featured_in_miss_americana",
+      "version_tag": "standalone"
     },
     {
       "title": "Safe & Sound - from The Hunger Games Soundtrack",
@@ -64,7 +123,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 7,
-      "base_title": "Safe & Sound - from The Hunger Games Soundtrack"
+      "base_title": "Safe & Sound - from The Hunger Games Soundtrack",
+      "album": "Standalone & Extras",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Safe & Sound - from The Hunger Games Soundtrack",
+      "song_family": "safe_sound_from_the_hunger_games_soundtrack",
+      "version_tag": "standalone"
     },
     {
       "title": "Beautiful Ghosts - From The Motion Picture Soundtrack \"Cats\"",
@@ -73,7 +141,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 8,
-      "base_title": "Beautiful Ghosts - From The Motion Picture Soundtrack \"Cats\""
+      "base_title": "Beautiful Ghosts - From The Motion Picture Soundtrack \"Cats\"",
+      "album": "Standalone & Extras",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Beautiful Ghosts - From The Motion Picture Soundtrack \"Cats\"",
+      "song_family": "beautiful_ghosts_from_the_motion_picture_soundtrack_cats",
+      "version_tag": "standalone"
     },
     {
       "title": "Macavity - From The Motion Picture Soundtrack \"Cats\"",
@@ -82,7 +159,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 9,
-      "base_title": "Macavity - From The Motion Picture Soundtrack \"Cats\""
+      "base_title": "Macavity - From The Motion Picture Soundtrack \"Cats\"",
+      "album": "Standalone & Extras",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Macavity - From The Motion Picture Soundtrack \"Cats\"",
+      "song_family": "macavity_from_the_motion_picture_soundtrack_cats",
+      "version_tag": "standalone"
     }
   ]
 }

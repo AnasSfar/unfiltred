@@ -10,7 +10,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 1,
-      "base_title": "September - Recorded at The Tracking Room Nashville"
+      "base_title": "September - Recorded at The Tracking Room Nashville",
+      "album": "reputation",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "September - Recorded at The Tracking Room Nashville",
+      "song_family": "september_recorded_at_the_tracking_room_nashville",
+      "version_tag": "standalone"
     }
   ]
 }

@@ -10,7 +10,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 1,
-      "base_title": "I Forgot That You Existed"
+      "base_title": "I Forgot That You Existed",
+      "album": "Lover",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "I Forgot That You Existed",
+      "song_family": "i_forgot_that_you_existed",
+      "version_tag": "standard"
     },
     {
       "title": "Cruel Summer",
@@ -19,7 +28,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 2,
-      "base_title": "Cruel Summer"
+      "base_title": "Cruel Summer",
+      "album": "Lover",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Cruel Summer",
+      "song_family": "cruel_summer",
+      "version_tag": "standard"
     },
     {
       "title": "Lover",
@@ -28,7 +46,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 3,
-      "base_title": "Lover"
+      "base_title": "Lover",
+      "album": "Lover",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Lover",
+      "song_family": "lover",
+      "version_tag": "standard"
     },
     {
       "title": "The Man",
@@ -37,7 +64,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 4,
-      "base_title": "The Man"
+      "base_title": "The Man",
+      "album": "Lover",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "The Man",
+      "song_family": "the_man",
+      "version_tag": "standard"
     },
     {
       "title": "The Archer",
@@ -46,7 +82,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 5,
-      "base_title": "The Archer"
+      "base_title": "The Archer",
+      "album": "Lover",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "The Archer",
+      "song_family": "the_archer",
+      "version_tag": "standard"
     },
     {
       "title": "I Think He Knows",
@@ -55,7 +100,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 6,
-      "base_title": "I Think He Knows"
+      "base_title": "I Think He Knows",
+      "album": "Lover",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "I Think He Knows",
+      "song_family": "i_think_he_knows",
+      "version_tag": "standard"
     },
     {
       "title": "Miss Americana & The Heartbreak Prince",
@@ -64,7 +118,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 7,
-      "base_title": "Miss Americana & The Heartbreak Prince"
+      "base_title": "Miss Americana & The Heartbreak Prince",
+      "album": "Lover",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Miss Americana & The Heartbreak Prince",
+      "song_family": "miss_americana_the_heartbreak_prince",
+      "version_tag": "standard"
     },
     {
       "title": "Paper Rings",
@@ -73,7 +136,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 8,
-      "base_title": "Paper Rings"
+      "base_title": "Paper Rings",
+      "album": "Lover",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Paper Rings",
+      "song_family": "paper_rings",
+      "version_tag": "standard"
     },
     {
       "title": "Cornelia Street",
@@ -82,7 +154,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 9,
-      "base_title": "Cornelia Street"
+      "base_title": "Cornelia Street",
+      "album": "Lover",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Cornelia Street",
+      "song_family": "cornelia_street",
+      "version_tag": "standard"
     },
     {
       "title": "Death By A Thousand Cuts",
@@ -91,7 +172,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 10,
-      "base_title": "Death By A Thousand Cuts"
+      "base_title": "Death By A Thousand Cuts",
+      "album": "Lover",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Death By A Thousand Cuts",
+      "song_family": "death_by_a_thousand_cuts",
+      "version_tag": "standard"
     },
     {
       "title": "London Boy",
@@ -100,7 +190,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 11,
-      "base_title": "London Boy"
+      "base_title": "London Boy",
+      "album": "Lover",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "London Boy",
+      "song_family": "london_boy",
+      "version_tag": "standard"
     },
     {
       "title": "Soon You'll Get Better (feat. The Chicks)",
@@ -109,7 +208,19 @@
       "edition": "standard",
       "display_section": "Extras",
       "display_order": 12,
-      "base_title": "Soon You'll Get Better (feat. The Chicks)"
+      "base_title": "Soon You'll Get Better (feat. The Chicks)",
+      "album": "Lover",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [
+        "The Chicks"
+      ],
+      "artists": [
+        "Taylor Swift",
+        "The Chicks"
+      ],
+      "title_clean": "Soon You'll Get Better",
+      "song_family": "soon_you_ll_get_better",
+      "version_tag": "featured__feature"
     },
     {
       "title": "False God",
@@ -118,7 +229,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 13,
-      "base_title": "False God"
+      "base_title": "False God",
+      "album": "Lover",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "False God",
+      "song_family": "false_god",
+      "version_tag": "standard"
     },
     {
       "title": "You Need To Calm Down",
@@ -127,7 +247,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 14,
-      "base_title": "You Need To Calm Down"
+      "base_title": "You Need To Calm Down",
+      "album": "Lover",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "You Need To Calm Down",
+      "song_family": "you_need_to_calm_down",
+      "version_tag": "standard"
     },
     {
       "title": "Afterglow",
@@ -136,7 +265,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 15,
-      "base_title": "Afterglow"
+      "base_title": "Afterglow",
+      "album": "Lover",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Afterglow",
+      "song_family": "afterglow",
+      "version_tag": "standard"
     },
     {
       "title": "ME! (feat. Brendon Urie of Panic! At The Disco)",
@@ -145,7 +283,19 @@
       "edition": "standard",
       "display_section": "Extras",
       "display_order": 16,
-      "base_title": "ME! (feat. Brendon Urie of Panic! At The Disco)"
+      "base_title": "ME! (feat. Brendon Urie of Panic! At The Disco)",
+      "album": "Lover",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [
+        "Brendon Urie of Panic! At The Disco"
+      ],
+      "artists": [
+        "Taylor Swift",
+        "Brendon Urie of Panic! At The Disco"
+      ],
+      "title_clean": "ME!",
+      "song_family": "me",
+      "version_tag": "featured__feature"
     },
     {
       "title": "It's Nice To Have A Friend",
@@ -154,7 +304,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 17,
-      "base_title": "It's Nice To Have A Friend"
+      "base_title": "It's Nice To Have A Friend",
+      "album": "Lover",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "It's Nice To Have A Friend",
+      "song_family": "it_s_nice_to_have_a_friend",
+      "version_tag": "standard"
     },
     {
       "title": "Daylight",
@@ -163,7 +322,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 18,
-      "base_title": "Daylight"
+      "base_title": "Daylight",
+      "album": "Lover",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Daylight",
+      "song_family": "daylight",
+      "version_tag": "standard"
     }
   ]
 }

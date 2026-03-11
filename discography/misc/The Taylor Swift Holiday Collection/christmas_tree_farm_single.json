@@ -10,7 +10,16 @@
       "edition": "standard edition",
       "display_section": "standard edition",
       "display_order": 1,
-      "base_title": "Christmas Tree Farm"
+      "base_title": "Christmas Tree Farm",
+      "album": "The Taylor Swift Holiday Collection",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Christmas Tree Farm",
+      "song_family": "christmas_tree_farm",
+      "version_tag": "standalone"
     },
     {
       "title": "Christmas Tree Farm - Old Timey Version",
@@ -19,7 +28,16 @@
       "edition": "standard edition",
       "display_section": "standard edition",
       "display_order": 2,
-      "base_title": "Christmas Tree Farm"
+      "base_title": "Christmas Tree Farm",
+      "album": "The Taylor Swift Holiday Collection",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Christmas Tree Farm - Old Timey Version",
+      "song_family": "christmas_tree_farm_old_timey_version",
+      "version_tag": "standalone"
     },
     {
       "title": "Christmas Tree Farm - Recorded Live at the 2019 iHeartRadio Jingle Ball",
@@ -28,7 +46,16 @@
       "edition": "standard edition",
       "display_section": "standard edition",
       "display_order": 3,
-      "base_title": "Christmas Tree Farm"
+      "base_title": "Christmas Tree Farm",
+      "album": "The Taylor Swift Holiday Collection",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Christmas Tree Farm - Recorded Live at the 2019 iHeartRadio Jingle Ball",
+      "song_family": "christmas_tree_farm_recorded_live_at_the_2019_iheartradio_jingle_ball",
+      "version_tag": "live__standalone"
     }
   ]
 }

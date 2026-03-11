@@ -10,7 +10,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 1,
-      "base_title": "I Don't Wanna Live Forever (Fifty Shades Darker)"
+      "base_title": "I Don't Wanna Live Forever (Fifty Shades Darker)",
+      "album": "reputation",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "I Don't Wanna Live Forever (Fifty Shades Darker)",
+      "song_family": "i_don_t_wanna_live_forever_fifty_shades_darker",
+      "version_tag": "live__standalone"
     }
   ]
 }

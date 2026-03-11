@@ -10,7 +10,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 1,
-      "base_title": "willow"
+      "base_title": "willow",
+      "album": "evermore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "willow - 90's trend remix",
+      "song_family": "willow_90_s_trend_remix",
+      "version_tag": "remix"
     },
     {
       "title": "willow - dancing witch version (Elvira remix)",
@@ -19,7 +28,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 2,
-      "base_title": "willow"
+      "base_title": "willow",
+      "album": "evermore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "willow - dancing witch version (Elvira remix)",
+      "song_family": "willow_dancing_witch_version_elvira_remix",
+      "version_tag": "remix"
     },
     {
       "title": "willow - lonely witch version",
@@ -28,7 +46,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 3,
-      "base_title": "willow"
+      "base_title": "willow",
+      "album": "evermore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "willow - lonely witch version",
+      "song_family": "willow_lonely_witch_version",
+      "version_tag": "standalone"
     },
     {
       "title": "willow - moonlit witch version",
@@ -37,7 +64,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 4,
-      "base_title": "willow"
+      "base_title": "willow",
+      "album": "evermore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "willow - moonlit witch version",
+      "song_family": "willow_moonlit_witch_version",
+      "version_tag": "standalone"
     }
   ]
 }

@@ -10,7 +10,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 1,
-      "base_title": "A Perfectly Good Heart"
+      "base_title": "A Perfectly Good Heart",
+      "album": "Taylor Swift",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "A Perfectly Good Heart",
+      "song_family": "a_perfectly_good_heart",
+      "version_tag": "standard"
     },
     {
       "title": "A Place in this World",
@@ -19,7 +28,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 2,
-      "base_title": "A Place in this World"
+      "base_title": "A Place in this World",
+      "album": "Taylor Swift",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "A Place in this World",
+      "song_family": "a_place_in_this_world",
+      "version_tag": "standard"
     },
     {
       "title": "Cold As You",
@@ -28,7 +46,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 3,
-      "base_title": "Cold As You"
+      "base_title": "Cold As You",
+      "album": "Taylor Swift",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Cold As You",
+      "song_family": "cold_as_you",
+      "version_tag": "standard"
     },
     {
       "title": "I'm Only Me When I'm With You",
@@ -37,7 +64,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 4,
-      "base_title": "I'm Only Me When I'm With You"
+      "base_title": "I'm Only Me When I'm With You",
+      "album": "Taylor Swift",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "I'm Only Me When I'm With You",
+      "song_family": "i_m_only_me_when_i_m_with_you",
+      "version_tag": "standard"
     },
     {
       "title": "Invisible",
@@ -46,7 +82,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 5,
-      "base_title": "Invisible"
+      "base_title": "Invisible",
+      "album": "Taylor Swift",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Invisible",
+      "song_family": "invisible",
+      "version_tag": "standard"
     },
     {
       "title": "Mary's Song (Oh My My My)",
@@ -55,7 +100,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 6,
-      "base_title": "Mary's Song (Oh My My My)"
+      "base_title": "Mary's Song (Oh My My My)",
+      "album": "Taylor Swift",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Mary's Song (Oh My My My)",
+      "song_family": "mary_s_song_oh_my_my_my",
+      "version_tag": "standard"
     },
     {
       "title": "Our Song",
@@ -64,7 +118,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 7,
-      "base_title": "Our Song"
+      "base_title": "Our Song",
+      "album": "Taylor Swift",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Our Song",
+      "song_family": "our_song",
+      "version_tag": "standard"
     },
     {
       "title": "Picture To Burn",
@@ -73,7 +136,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 8,
-      "base_title": "Picture To Burn"
+      "base_title": "Picture To Burn",
+      "album": "Taylor Swift",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Picture To Burn",
+      "song_family": "picture_to_burn",
+      "version_tag": "standard"
     },
     {
       "title": "Should've Said No",
@@ -82,7 +154,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 9,
-      "base_title": "Should've Said No"
+      "base_title": "Should've Said No",
+      "album": "Taylor Swift",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Should've Said No",
+      "song_family": "should_ve_said_no",
+      "version_tag": "standard"
     },
     {
       "title": "Stay Beautiful",
@@ -91,7 +172,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 10,
-      "base_title": "Stay Beautiful"
+      "base_title": "Stay Beautiful",
+      "album": "Taylor Swift",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Stay Beautiful",
+      "song_family": "stay_beautiful",
+      "version_tag": "standard"
     },
     {
       "title": "Teardrops on My Guitar - Pop Version",
@@ -100,7 +190,16 @@
       "edition": "standard",
       "display_section": "Other Editions",
       "display_order": 11,
-      "base_title": "Teardrops on My Guitar"
+      "base_title": "Teardrops on My Guitar",
+      "album": "Taylor Swift",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Teardrops on My Guitar - Pop Version",
+      "song_family": "teardrops_on_my_guitar_pop_version",
+      "version_tag": "alternate_version"
     },
     {
       "title": "Teardrops On My Guitar - Radio Single Remix",
@@ -109,7 +208,16 @@
       "edition": "standard",
       "display_section": "Extras",
       "display_order": 12,
-      "base_title": "Teardrops On My Guitar"
+      "base_title": "Teardrops On My Guitar",
+      "album": "Taylor Swift",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Teardrops On My Guitar - Radio Single Remix",
+      "song_family": "teardrops_on_my_guitar_radio_single_remix",
+      "version_tag": "remix"
     },
     {
       "title": "The Outside",
@@ -118,7 +226,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 13,
-      "base_title": "The Outside"
+      "base_title": "The Outside",
+      "album": "Taylor Swift",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "The Outside",
+      "song_family": "the_outside",
+      "version_tag": "standard"
     },
     {
       "title": "Tied Together with a Smile",
@@ -127,7 +244,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 14,
-      "base_title": "Tied Together with a Smile"
+      "base_title": "Tied Together with a Smile",
+      "album": "Taylor Swift",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Tied Together with a Smile",
+      "song_family": "tied_together_with_a_smile",
+      "version_tag": "standard"
     },
     {
       "title": "Tim McGraw",
@@ -136,7 +262,16 @@
       "edition": "standard",
       "display_section": "Standard Edition",
       "display_order": 15,
-      "base_title": "Tim McGraw"
+      "base_title": "Tim McGraw",
+      "album": "Taylor Swift",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "Tim McGraw",
+      "song_family": "tim_mcgraw",
+      "version_tag": "standard"
     }
   ]
 }

@@ -10,7 +10,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 1,
-      "base_title": "If This Was A Movie"
+      "base_title": "If This Was A Movie",
+      "album": "Standalone & Extras",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "If This Was A Movie (Taylor's Version)",
+      "song_family": "if_this_was_a_movie_taylor_s_version",
+      "version_tag": "taylors_version__standalone"
     },
     {
       "title": "You All Over Me (feat. Maren Morris) (Taylor's Version) (From The Vault)",
@@ -19,7 +28,19 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 2,
-      "base_title": "You All Over Me (feat. Maren Morris) (Taylor's Version) (From The Vault)"
+      "base_title": "You All Over Me (feat. Maren Morris) (Taylor's Version) (From The Vault)",
+      "album": "Standalone & Extras",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [
+        "Maren Morris"
+      ],
+      "artists": [
+        "Taylor Swift",
+        "Maren Morris"
+      ],
+      "title_clean": "You All Over Me (Taylor's Version) (From The Vault)",
+      "song_family": "you_all_over_me_taylor_s_version_from_the_vault",
+      "version_tag": "featured__vault__taylors_version__feature"
     },
     {
       "title": "All Too Well (10 Minute Version) (The Short Film)",
@@ -28,7 +49,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 3,
-      "base_title": "All Too Well (10 Minute Version) (The Short Film)"
+      "base_title": "All Too Well (10 Minute Version) (The Short Film)",
+      "album": "Standalone & Extras",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "All Too Well (10 Minute Version) (The Short Film)",
+      "song_family": "all_too_well_10_minute_version_the_short_film",
+      "version_tag": "standalone"
     },
     {
       "title": "All Too Well (Sad Girl Autumn Version) - Recorded at Long Pond Studios",
@@ -37,7 +67,16 @@
       "edition": "extras",
       "display_section": "Extras",
       "display_order": 4,
-      "base_title": "All Too Well (Sad Girl Autumn Version) - Recorded at Long Pond Studios"
+      "base_title": "All Too Well (Sad Girl Autumn Version) - Recorded at Long Pond Studios",
+      "album": "Standalone & Extras",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "All Too Well (Sad Girl Autumn Version) - Recorded at Long Pond Studios",
+      "song_family": "all_too_well_sad_girl_autumn_version_recorded_at_long_pond_studios",
+      "version_tag": "standalone"
     }
   ]
 }

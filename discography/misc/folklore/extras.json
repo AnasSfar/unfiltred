@@ -10,7 +10,16 @@
       "edition": "other editions",
       "display_section": "deluxe edition",
       "display_order": 1,
-      "base_title": "the lakes"
+      "base_title": "the lakes",
+      "album": "folklore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "the lakes - original version",
+      "song_family": "the_lakes_original_version",
+      "version_tag": "deluxe__standalone"
     }
   ]
 }

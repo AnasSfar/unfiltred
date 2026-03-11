@@ -10,7 +10,16 @@
       "edition": "live",
       "display_section": "Other Editions",
       "display_order": 1,
-      "base_title": "betty"
+      "base_title": "betty",
+      "album": "folklore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "betty - Live from the 2020 Academy of Country Music Awards",
+      "song_family": "betty_live_from_the_2020_academy_of_country_music_awards",
+      "version_tag": "live__alternate_version"
     },
     {
       "title": "cardigan - cabin in candlelight version",
@@ -19,7 +28,16 @@
       "edition": "live",
       "display_section": "Other Editions",
       "display_order": 2,
-      "base_title": "cardigan"
+      "base_title": "cardigan",
+      "album": "folklore",
+      "primary_artist": "Taylor Swift",
+      "featured_artists": [],
+      "artists": [
+        "Taylor Swift"
+      ],
+      "title_clean": "cardigan - cabin in candlelight version",
+      "song_family": "cardigan_cabin_in_candlelight_version",
+      "version_tag": "alternate_version"
     }
   ]
 }
