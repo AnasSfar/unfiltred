@@ -36,7 +36,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Cruel Summer - Live from TS",
-      "song_family": "cruel_summer_live_from_ts",
+      "song_family": "cruel_summer",
       "version_tag": "live__standalone"
     },
     {
@@ -54,7 +54,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Cruel Summer - LP Giobbi Remix",
-      "song_family": "cruel_summer_lp_giobbi_remix",
+      "song_family": "cruel_summer",
       "version_tag": "remix"
     },
     {
@@ -72,7 +72,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Cruel Summer - LP Giobbi Remix - Extended Version",
-      "song_family": "cruel_summer_lp_giobbi_remix_extended_version",
+      "song_family": "cruel_summer",
       "version_tag": "remix"
     }
   ]

@@ -18,7 +18,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Opalite - BUNT. Remix",
-      "song_family": "opalite_bunt_remix",
+      "song_family": "opalite",
       "version_tag": "remix"
     },
     {
@@ -36,7 +36,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Opalite - Chris Lake Remix",
-      "song_family": "opalite_chris_lake_remix",
+      "song_family": "opalite",
       "version_tag": "remix"
     },
     {
@@ -54,7 +54,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Opalite - Ely Oaks Remix",
-      "song_family": "opalite_ely_oaks_remix",
+      "song_family": "opalite",
       "version_tag": "remix"
     },
     {
@@ -72,7 +72,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Opalite - Skream Remix",
-      "song_family": "opalite_skream_remix",
+      "song_family": "opalite",
       "version_tag": "remix"
     },
     {
@@ -108,7 +108,7 @@
         "Taylor Swift"
       ],
       "title_clean": "The Fate of Ophelia - Loud Luxury Remix",
-      "song_family": "the_fate_of_ophelia_loud_luxury_remix",
+      "song_family": "the_fate_of_ophelia",
       "version_tag": "remix"
     },
     {
@@ -126,7 +126,7 @@
         "Taylor Swift"
       ],
       "title_clean": "The Fate of Ophelia - The Chainsmokers Remix",
-      "song_family": "the_fate_of_ophelia_the_chainsmokers_remix",
+      "song_family": "the_fate_of_ophelia",
       "version_tag": "remix"
     }
   ]

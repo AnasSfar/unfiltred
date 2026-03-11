@@ -71,8 +71,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Eyes Open (Taylor's Version)",
-      "song_family": "eyes_open_taylor_s_version",
+      "title_clean": "Eyes Open",
+      "song_family": "eyes_open",
       "version_tag": "taylors_version__standalone"
     },
     {
@@ -94,8 +94,8 @@
         "Joy Williams",
         "John Paul White"
       ],
-      "title_clean": "Safe & Sound (Taylor's Version)",
-      "song_family": "safe_sound_taylor_s_version",
+      "title_clean": "Safe & Sound",
+      "song_family": "safe_sound",
       "version_tag": "featured__taylors_version__feature"
     },
     {

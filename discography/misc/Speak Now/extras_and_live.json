@@ -36,7 +36,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Back To December - Acoustic",
-      "song_family": "back_to_december_acoustic",
+      "song_family": "back_to_december",
       "version_tag": "acoustic__alternate_version"
     },
     {
@@ -54,7 +54,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Haunted - Acoustic Version",
-      "song_family": "haunted_acoustic_version",
+      "song_family": "haunted",
       "version_tag": "acoustic__alternate_version"
     },
     {
@@ -72,7 +72,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Better Than Revenge - Live/2011",
-      "song_family": "better_than_revenge_live_2011",
+      "song_family": "better_than_revenge",
       "version_tag": "live__alternate_version"
     },
     {
@@ -90,7 +90,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Last Kiss - Live/2011",
-      "song_family": "last_kiss_live_2011",
+      "song_family": "last_kiss",
       "version_tag": "live__alternate_version"
     },
     {
@@ -108,7 +108,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Mean - Live/2011",
-      "song_family": "mean_live_2011",
+      "song_family": "mean",
       "version_tag": "live__alternate_version"
     },
     {
@@ -126,7 +126,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Mine - Live/2011",
-      "song_family": "mine_live_2011",
+      "song_family": "mine",
       "version_tag": "live__alternate_version"
     },
     {
@@ -144,7 +144,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Ours - Live/2011",
-      "song_family": "ours_live_2011",
+      "song_family": "ours",
       "version_tag": "live__alternate_version"
     },
     {
@@ -162,7 +162,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Sparks Fly - Live/2011",
-      "song_family": "sparks_fly_live_2011",
+      "song_family": "sparks_fly",
       "version_tag": "live__alternate_version"
     },
     {
@@ -180,7 +180,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Speak Now - Live/2011",
-      "song_family": "speak_now_live_2011",
+      "song_family": "speak_now",
       "version_tag": "live__alternate_version"
     },
     {
@@ -198,7 +198,7 @@
         "Taylor Swift"
       ],
       "title_clean": "The Story Of Us - Live",
-      "song_family": "the_story_of_us_live",
+      "song_family": "the_story_of_us",
       "version_tag": "live__alternate_version"
     }
   ]

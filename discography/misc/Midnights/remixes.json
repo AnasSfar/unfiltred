@@ -57,7 +57,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Anti-Hero - ILLENIUM Remix",
-      "song_family": "anti_hero_illenium_remix",
+      "song_family": "anti_hero",
       "version_tag": "remix"
     },
     {
@@ -75,7 +75,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Anti-Hero - Jayda G Remix",
-      "song_family": "anti_hero_jayda_g_remix",
+      "song_family": "anti_hero",
       "version_tag": "remix"
     },
     {
@@ -93,7 +93,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Anti-Hero - Kungs Remix",
-      "song_family": "anti_hero_kungs_remix",
+      "song_family": "anti_hero",
       "version_tag": "remix"
     },
     {
@@ -111,7 +111,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Anti-Hero - Roosevelt Remix",
-      "song_family": "anti_hero_roosevelt_remix",
+      "song_family": "anti_hero",
       "version_tag": "remix"
     },
     {
@@ -129,7 +129,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Anti-Hero - Acoustic Version",
-      "song_family": "anti_hero_acoustic_version",
+      "song_family": "anti_hero",
       "version_tag": "acoustic__standalone"
     },
     {
@@ -186,7 +186,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Lavender Haze - Felix Jaehn Remix",
-      "song_family": "lavender_haze_felix_jaehn_remix",
+      "song_family": "lavender_haze",
       "version_tag": "remix"
     },
     {
@@ -204,7 +204,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Lavender Haze - Jungle Remix",
-      "song_family": "lavender_haze_jungle_remix",
+      "song_family": "lavender_haze",
       "version_tag": "remix"
     },
     {
@@ -222,7 +222,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Lavender Haze - Snakehips Remix",
-      "song_family": "lavender_haze_snakehips_remix",
+      "song_family": "lavender_haze",
       "version_tag": "remix"
     },
     {
@@ -240,7 +240,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Lavender Haze - Tensnake Remix",
-      "song_family": "lavender_haze_tensnake_remix",
+      "song_family": "lavender_haze",
       "version_tag": "remix"
     }
   ]

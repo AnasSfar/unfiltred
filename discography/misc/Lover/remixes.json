@@ -17,8 +17,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Lover (Remix) [feat. Shawn Mendes]",
-      "song_family": "lover_remix_feat_shawn_mendes",
+      "title_clean": "Lover [feat. Shawn Mendes]",
+      "song_family": "lover_feat_shawn_mendes",
       "version_tag": "remix"
     },
     {
@@ -36,7 +36,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Lover - First Dance Remix",
-      "song_family": "lover_first_dance_remix",
+      "song_family": "lover",
       "version_tag": "remix"
     },
     {
@@ -54,7 +54,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Lover - Live From Paris",
-      "song_family": "lover_live_from_paris",
+      "song_family": "lover",
       "version_tag": "live__standalone"
     },
     {
@@ -72,7 +72,7 @@
         "Taylor Swift"
       ],
       "title_clean": "You Need To Calm Down - Clean Bandit Remix",
-      "song_family": "you_need_to_calm_down_clean_bandit_remix",
+      "song_family": "you_need_to_calm_down",
       "version_tag": "remix"
     },
     {
@@ -90,7 +90,7 @@
         "Taylor Swift"
       ],
       "title_clean": "You Need To Calm Down - Live From Paris",
-      "song_family": "you_need_to_calm_down_live_from_paris",
+      "song_family": "you_need_to_calm_down",
       "version_tag": "live__standalone"
     },
     {
@@ -108,7 +108,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Cornelia Street - Live From Paris",
-      "song_family": "cornelia_street_live_from_paris",
+      "song_family": "cornelia_street",
       "version_tag": "live__standalone"
     },
     {
@@ -126,7 +126,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Daylight - Live From Paris",
-      "song_family": "daylight_live_from_paris",
+      "song_family": "daylight",
       "version_tag": "live__standalone"
     },
     {
@@ -144,7 +144,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Death By A Thousand Cuts - Live From Paris",
-      "song_family": "death_by_a_thousand_cuts_live_from_paris",
+      "song_family": "death_by_a_thousand_cuts",
       "version_tag": "live__standalone"
     },
     {
@@ -162,7 +162,7 @@
         "Taylor Swift"
       ],
       "title_clean": "The Archer - Live From Paris",
-      "song_family": "the_archer_live_from_paris",
+      "song_family": "the_archer",
       "version_tag": "live__standalone"
     },
     {
@@ -180,7 +180,7 @@
         "Taylor Swift"
       ],
       "title_clean": "The Man - Live From Paris",
-      "song_family": "the_man_live_from_paris",
+      "song_family": "the_man",
       "version_tag": "live__standalone"
     },
     {
@@ -198,7 +198,7 @@
         "Taylor Swift"
       ],
       "title_clean": "ME! - Live From Paris",
-      "song_family": "me_live_from_paris",
+      "song_family": "me",
       "version_tag": "live__standalone"
     }
   ]

@@ -57,8 +57,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "\"Slut!\" (Taylor's Version) (From The Vault)",
-      "song_family": "slut_taylor_s_version_from_the_vault",
+      "title_clean": "\"Slut!\"",
+      "song_family": "slut",
       "version_tag": "vault__taylors_version__standalone"
     },
     {
@@ -217,7 +217,7 @@
         "Taylor Swift"
       ],
       "title_clean": "...Ready For It? - BloodPop® Remix",
-      "song_family": "ready_for_it_bloodpop_remix",
+      "song_family": "ready_for_it",
       "version_tag": "remix"
     },
     {
@@ -278,7 +278,7 @@
         "Taylor Swift"
       ],
       "title_clean": "...Ready For It? - Karaoke Version",
-      "song_family": "ready_for_it_karaoke_version",
+      "song_family": "ready_for_it",
       "version_tag": "alternate_version"
     },
     {
@@ -375,8 +375,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "22 (Taylor's Version)",
-      "song_family": "22_taylor_s_version",
+      "title_clean": "22",
+      "song_family": "22",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -730,8 +730,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "All Too Well (10 Minute Version) (Taylor's Version) (From The Vault)",
-      "song_family": "all_too_well_10_minute_version_taylor_s_version_from_the_vault",
+      "title_clean": "All Too Well (10 Minute Version)",
+      "song_family": "all_too_well_10_minute_version",
       "version_tag": "vault__taylors_version__standalone"
     },
     {
@@ -877,8 +877,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "All Too Well (Taylor's Version)",
-      "song_family": "all_too_well_taylor_s_version",
+      "title_clean": "All Too Well",
+      "song_family": "all_too_well",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -975,8 +975,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "All You Had To Do Was Stay (Taylor's Version)",
-      "song_family": "all_you_had_to_do_was_stay_taylor_s_version",
+      "title_clean": "All You Had To Do Was Stay",
+      "song_family": "all_you_had_to_do_was_stay",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -1176,7 +1176,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Anti-Hero - Acoustic Version",
-      "song_family": "anti_hero_acoustic_version",
+      "song_family": "anti_hero",
       "version_tag": "acoustic__standalone"
     },
     {
@@ -1237,7 +1237,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Anti-Hero - ILLENIUM Remix",
-      "song_family": "anti_hero_illenium_remix",
+      "song_family": "anti_hero",
       "version_tag": "remix"
     },
     {
@@ -1298,7 +1298,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Anti-Hero - Jayda G Remix",
-      "song_family": "anti_hero_jayda_g_remix",
+      "song_family": "anti_hero",
       "version_tag": "remix"
     },
     {
@@ -1359,7 +1359,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Anti-Hero - Kungs Remix",
-      "song_family": "anti_hero_kungs_remix",
+      "song_family": "anti_hero",
       "version_tag": "remix"
     },
     {
@@ -1420,7 +1420,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Anti-Hero - Roosevelt Remix",
-      "song_family": "anti_hero_roosevelt_remix",
+      "song_family": "anti_hero",
       "version_tag": "remix"
     },
     {
@@ -1631,8 +1631,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Babe (Taylor's Version) (From The Vault)",
-      "song_family": "babe_taylor_s_version_from_the_vault",
+      "title_clean": "Babe",
+      "song_family": "babe",
       "version_tag": "vault__taylors_version__standalone"
     },
     {
@@ -1729,8 +1729,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Back To December (Taylor's Version)",
-      "song_family": "back_to_december_taylor_s_version",
+      "title_clean": "Back To December",
+      "song_family": "back_to_december",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -1791,7 +1791,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Back To December - Acoustic",
-      "song_family": "back_to_december_acoustic",
+      "song_family": "back_to_december",
       "version_tag": "acoustic__alternate_version"
     },
     {
@@ -1840,7 +1840,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Back To December/Apologize/You're Not Sorry - Live/2011/Medley",
-      "song_family": "back_to_december_apologize_you_re_not_sorry_live_2011_medley",
+      "song_family": "back_to_december_apologize_you_re_not_sorry",
       "version_tag": "live__standalone"
     },
     {
@@ -2004,8 +2004,8 @@
         "Taylor Swift",
         "Kendrick Lamar"
       ],
-      "title_clean": "Bad Blood (Taylor's Version)",
-      "song_family": "bad_blood_taylor_s_version",
+      "title_clean": "Bad Blood",
+      "song_family": "bad_blood",
       "version_tag": "featured__deluxe__taylors_version__alternate_version"
     },
     {
@@ -2053,8 +2053,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Bad Blood (Taylor's Version)",
-      "song_family": "bad_blood_taylor_s_version",
+      "title_clean": "Bad Blood",
+      "song_family": "bad_blood",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -2200,8 +2200,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Begin Again (Taylor's Version)",
-      "song_family": "begin_again_taylor_s_version",
+      "title_clean": "Begin Again",
+      "song_family": "begin_again",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -2298,8 +2298,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Better Man (Taylor's Version) (From The Vault)",
-      "song_family": "better_man_taylor_s_version_from_the_vault",
+      "title_clean": "Better Man",
+      "song_family": "better_man",
       "version_tag": "vault__taylors_version__standalone"
     },
     {
@@ -2396,8 +2396,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Better Than Revenge (Taylor's Version)",
-      "song_family": "better_than_revenge_taylor_s_version",
+      "title_clean": "Better Than Revenge",
+      "song_family": "better_than_revenge",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -2458,7 +2458,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Better Than Revenge - Live/2011",
-      "song_family": "better_than_revenge_live_2011",
+      "song_family": "better_than_revenge",
       "version_tag": "live__alternate_version"
     },
     {
@@ -2568,7 +2568,7 @@
         "Taylor Swift"
       ],
       "title_clean": "betty - Live from the 2020 Academy of Country Music Awards",
-      "song_family": "betty_live_from_the_2020_academy_of_country_music_awards",
+      "song_family": "betty",
       "version_tag": "live__alternate_version"
     },
     {
@@ -2812,8 +2812,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Blank Space (Taylor's Version)",
-      "song_family": "blank_space_taylor_s_version",
+      "title_clean": "Blank Space",
+      "song_family": "blank_space",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -3039,8 +3039,8 @@
         "Taylor Swift",
         "Colbie Caillat"
       ],
-      "title_clean": "Breathe (Taylor's Version)",
-      "song_family": "breathe_taylor_s_version",
+      "title_clean": "Breathe",
+      "song_family": "breathe",
       "version_tag": "featured__taylors_version__feature"
     },
     {
@@ -3138,8 +3138,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Bye Bye Baby (Taylor's Version) (From The Vault)",
-      "song_family": "bye_bye_baby_taylor_s_version_from_the_vault",
+      "title_clean": "Bye Bye Baby",
+      "song_family": "bye_bye_baby",
       "version_tag": "vault__taylors_version__standalone"
     },
     {
@@ -3249,7 +3249,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Call It What You Want - Karaoke Version",
-      "song_family": "call_it_what_you_want_karaoke_version",
+      "song_family": "call_it_what_you_want",
       "version_tag": "alternate_version"
     },
     {
@@ -3421,7 +3421,7 @@
         "Taylor Swift"
       ],
       "title_clean": "cardigan - cabin in candlelight version",
-      "song_family": "cardigan_cabin_in_candlelight_version",
+      "song_family": "cardigan",
       "version_tag": "alternate_version"
     },
     {
@@ -3619,8 +3619,8 @@
         "Taylor Swift",
         "Hayley Williams"
       ],
-      "title_clean": "Castles Crumbling (Taylor's Version) (From The Vault)",
-      "song_family": "castles_crumbling_taylor_s_version_from_the_vault",
+      "title_clean": "Castles Crumbling",
+      "song_family": "castles_crumbling",
       "version_tag": "featured__vault__taylors_version__feature"
     },
     {
@@ -3766,8 +3766,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Change (Taylor's Version)",
-      "song_family": "change_taylor_s_version",
+      "title_clean": "Change",
+      "song_family": "change",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -4011,7 +4011,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Christmas Tree Farm - Old Timey Version",
-      "song_family": "christmas_tree_farm_old_timey_version",
+      "song_family": "christmas_tree_farm",
       "version_tag": "standalone"
     },
     {
@@ -4084,7 +4084,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Christmas Tree Farm - Recorded Live at the 2019 iHeartRadio Jingle Ball",
-      "song_family": "christmas_tree_farm_recorded_live_at_the_2019_iheartradio_jingle_ball",
+      "song_family": "christmas_tree_farm",
       "version_tag": "live__standalone"
     },
     {
@@ -4279,8 +4279,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Clean (Taylor's Version)",
-      "song_family": "clean_taylor_s_version",
+      "title_clean": "Clean",
+      "song_family": "clean",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -4475,8 +4475,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Come Back...Be Here (Taylor's Version)",
-      "song_family": "come_back_be_here_taylor_s_version",
+      "title_clean": "Come Back...Be Here",
+      "song_family": "come_back_be_here",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -4586,8 +4586,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Come In With The Rain (Taylor's Version)",
-      "song_family": "come_in_with_the_rain_taylor_s_version",
+      "title_clean": "Come In With The Rain",
+      "song_family": "come_in_with_the_rain",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -4749,7 +4749,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Cornelia Street - Live From Paris",
-      "song_family": "cornelia_street_live_from_paris",
+      "song_family": "cornelia_street",
       "version_tag": "live__standalone"
     },
     {
@@ -4994,7 +4994,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Cruel Summer - LP Giobbi Remix",
-      "song_family": "cruel_summer_lp_giobbi_remix",
+      "song_family": "cruel_summer",
       "version_tag": "remix"
     },
     {
@@ -5055,7 +5055,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Cruel Summer - LP Giobbi Remix - Extended Version",
-      "song_family": "cruel_summer_lp_giobbi_remix_extended_version",
+      "song_family": "cruel_summer",
       "version_tag": "remix"
     },
     {
@@ -5165,7 +5165,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Dancing With Our Hands Tied - Karaoke Version",
-      "song_family": "dancing_with_our_hands_tied_karaoke_version",
+      "song_family": "dancing_with_our_hands_tied",
       "version_tag": "alternate_version"
     },
     {
@@ -5275,7 +5275,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Daylight - Live From Paris",
-      "song_family": "daylight_live_from_paris",
+      "song_family": "daylight",
       "version_tag": "live__standalone"
     },
     {
@@ -5372,8 +5372,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Dear John (Taylor's Version)",
-      "song_family": "dear_john_taylor_s_version",
+      "title_clean": "Dear John",
+      "song_family": "dear_john",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -5532,7 +5532,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Death By A Thousand Cuts - Live From Paris",
-      "song_family": "death_by_a_thousand_cuts_live_from_paris",
+      "song_family": "death_by_a_thousand_cuts",
       "version_tag": "live__standalone"
     },
     {
@@ -5642,7 +5642,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Delicate - Karaoke Version",
-      "song_family": "delicate_karaoke_version",
+      "song_family": "delicate",
       "version_tag": "alternate_version"
     },
     {
@@ -5825,7 +5825,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Delicate - Seeb Remix",
-      "song_family": "delicate_seeb_remix",
+      "song_family": "delicate",
       "version_tag": "remix"
     },
     {
@@ -5935,7 +5935,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Don't Blame Me - Karaoke Version",
-      "song_family": "don_t_blame_me_karaoke_version",
+      "song_family": "don_t_blame_me",
       "version_tag": "alternate_version"
     },
     {
@@ -5983,8 +5983,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Don't You (Taylor's Version) (From The Vault)",
-      "song_family": "don_t_you_taylor_s_version_from_the_vault",
+      "title_clean": "Don't You",
+      "song_family": "don_t_you",
       "version_tag": "vault__taylors_version__standalone"
     },
     {
@@ -6193,7 +6193,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Dress - Karaoke Version",
-      "song_family": "dress_karaoke_version",
+      "song_family": "dress",
       "version_tag": "alternate_version"
     },
     {
@@ -6315,7 +6315,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Eldest Daughter - Now You're Home Acoustic Version",
-      "song_family": "eldest_daughter_now_you_re_home_acoustic_version",
+      "song_family": "eldest_daughter",
       "version_tag": "acoustic__alternate_version"
     },
     {
@@ -6366,8 +6366,8 @@
         "Taylor Swift",
         "Fall Out Boy"
       ],
-      "title_clean": "Electric Touch (Taylor's Version) (From The Vault)",
-      "song_family": "electric_touch_taylor_s_version_from_the_vault",
+      "title_clean": "Electric Touch",
+      "song_family": "electric_touch",
       "version_tag": "featured__vault__taylors_version__feature"
     },
     {
@@ -6489,7 +6489,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Elizabeth Taylor - So Glamorous Cabaret Version",
-      "song_family": "elizabeth_taylor_so_glamorous_cabaret_version",
+      "song_family": "elizabeth_taylor",
       "version_tag": "alternate_version"
     },
     {
@@ -6647,8 +6647,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Enchanted (Taylor's Version)",
-      "song_family": "enchanted_taylor_s_version",
+      "title_clean": "Enchanted",
+      "song_family": "enchanted",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -6758,7 +6758,7 @@
         "Taylor Swift"
       ],
       "title_clean": "End Game - Karaoke Version",
-      "song_family": "end_game_karaoke_version",
+      "song_family": "end_game",
       "version_tag": "alternate_version"
     },
     {
@@ -7008,8 +7008,8 @@
         "Taylor Swift",
         "Ed Sheeran"
       ],
-      "title_clean": "Everything Has Changed (Taylor's Version)",
-      "song_family": "everything_has_changed_taylor_s_version",
+      "title_clean": "Everything Has Changed",
+      "song_family": "everything_has_changed",
       "version_tag": "featured__taylors_version__feature"
     },
     {
@@ -7122,8 +7122,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Eyes Open (Taylor's Version)",
-      "song_family": "eyes_open_taylor_s_version",
+      "title_clean": "Eyes Open",
+      "song_family": "eyes_open",
       "version_tag": "taylors_version__standalone"
     },
     {
@@ -7392,8 +7392,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Fearless (Taylor's Version)",
-      "song_family": "fearless_taylor_s_version",
+      "title_clean": "Fearless",
+      "song_family": "fearless",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -7503,8 +7503,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Fifteen (Taylor's Version)",
-      "song_family": "fifteen_taylor_s_version",
+      "title_clean": "Fifteen",
+      "song_family": "fifteen",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -7604,8 +7604,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Foolish One (Taylor's Version) (From The Vault)",
-      "song_family": "foolish_one_taylor_s_version_from_the_vault",
+      "title_clean": "Foolish One",
+      "song_family": "foolish_one",
       "version_tag": "vault__taylors_version__standalone"
     },
     {
@@ -7702,8 +7702,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Forever & Always (Piano Version) (Taylor's Version)",
-      "song_family": "forever_always_piano_version_taylor_s_version",
+      "title_clean": "Forever & Always (Piano Version)",
+      "song_family": "forever_always_piano_version",
       "version_tag": "taylors_version__standalone"
     },
     {
@@ -7751,8 +7751,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Forever & Always (Taylor's Version)",
-      "song_family": "forever_always_taylor_s_version",
+      "title_clean": "Forever & Always",
+      "song_family": "forever_always",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -7814,7 +7814,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Forever & Always - Piano Version",
-      "song_family": "forever_always_piano_version",
+      "song_family": "forever_always",
       "version_tag": "standalone"
     },
     {
@@ -7862,8 +7862,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Forever Winter (Taylor's Version) (From The Vault)",
-      "song_family": "forever_winter_taylor_s_version_from_the_vault",
+      "title_clean": "Forever Winter",
+      "song_family": "forever_winter",
       "version_tag": "vault__taylors_version__standalone"
     },
     {
@@ -7968,7 +7968,7 @@
         "Post Malone"
       ],
       "title_clean": "Fortnight - Acoustic Version",
-      "song_family": "Frtnight (feat. post malone)",
+      "song_family": "fortnight",
       "version_tag": "featured__acoustic__alternate_version"
     },
     {
@@ -8020,7 +8020,7 @@
         "Post Malone"
       ],
       "title_clean": "Fortnight - BLOND:ISH Remix",
-      "song_family": "fortnight_blond_ish_remix",
+      "song_family": "fortnight",
       "version_tag": "featured__remix"
     },
     {
@@ -8072,7 +8072,7 @@
         "Post Malone"
       ],
       "title_clean": "Fortnight - Cults Remix",
-      "song_family": "fortnight_cults_remix",
+      "song_family": "fortnight",
       "version_tag": "featured__remix"
     },
     {
@@ -8283,7 +8283,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Getaway Car - Karaoke Version",
-      "song_family": "getaway_car_karaoke_version",
+      "song_family": "getaway_car",
       "version_tag": "alternate_version"
     },
     {
@@ -8380,8 +8380,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Girl At Home (Taylor's Version)",
-      "song_family": "girl_at_home_taylor_s_version",
+      "title_clean": "Girl At Home",
+      "song_family": "girl_at_home",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -8589,7 +8589,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Gorgeous - Karaoke Version",
-      "song_family": "gorgeous_karaoke_version",
+      "song_family": "gorgeous",
       "version_tag": "alternate_version"
     },
     {
@@ -8784,8 +8784,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Haunted (Taylor's Version)",
-      "song_family": "haunted_taylor_s_version",
+      "title_clean": "Haunted",
+      "song_family": "haunted",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -8846,7 +8846,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Haunted - Acoustic Version",
-      "song_family": "haunted_acoustic_version",
+      "song_family": "haunted",
       "version_tag": "acoustic__alternate_version"
     },
     {
@@ -8956,8 +8956,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Hey Stephen (Taylor's Version)",
-      "song_family": "hey_stephen_taylor_s_version",
+      "title_clean": "Hey Stephen",
+      "song_family": "hey_stephen",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -9299,8 +9299,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Holy Ground (Taylor's Version)",
-      "song_family": "holy_ground_taylor_s_version",
+      "title_clean": "Holy Ground",
+      "song_family": "holy_ground",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -9495,8 +9495,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "How You Get The Girl (Taylor's Version)",
-      "song_family": "how_you_get_the_girl_taylor_s_version",
+      "title_clean": "How You Get The Girl",
+      "song_family": "how_you_get_the_girl",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -9593,8 +9593,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "I Almost Do (Taylor's Version)",
-      "song_family": "i_almost_do_taylor_s_version",
+      "title_clean": "I Almost Do",
+      "song_family": "i_almost_do",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -9645,8 +9645,8 @@
         "Taylor Swift",
         "Chris Stapleton"
       ],
-      "title_clean": "I Bet You Think About Me (Taylor's Version) (From The Vault)",
-      "song_family": "i_bet_you_think_about_me_taylor_s_version_from_the_vault",
+      "title_clean": "I Bet You Think About Me",
+      "song_family": "i_bet_you_think_about_me",
       "version_tag": "featured__vault__taylors_version__feature"
     },
     {
@@ -9745,7 +9745,7 @@
         "Taylor Swift"
       ],
       "title_clean": "I Can Do It With a Broken Heart - Dombresky Remix",
-      "song_family": "i_can_do_it_with_a_broken_heart_dombresky_remix",
+      "song_family": "i_can_do_it_with_a_broken_heart",
       "version_tag": "remix"
     },
     {
@@ -9794,7 +9794,7 @@
         "Taylor Swift"
       ],
       "title_clean": "I Can Do It With a Broken Heart - Instrumental",
-      "song_family": "i_can_do_it_with_a_broken_heart_instrumental",
+      "song_family": "i_can_do_it_with_a_broken_heart",
       "version_tag": "alternate_version"
     },
     {
@@ -9891,8 +9891,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "I Can See You (Taylor's Version) (From The Vault)",
-      "song_family": "i_can_see_you_taylor_s_version_from_the_vault",
+      "title_clean": "I Can See You",
+      "song_family": "i_can_see_you",
       "version_tag": "vault__taylors_version__standalone"
     },
     {
@@ -10002,7 +10002,7 @@
         "Taylor Swift"
       ],
       "title_clean": "I Did Something Bad - Karaoke Version",
-      "song_family": "i_did_something_bad_karaoke_version",
+      "song_family": "i_did_something_bad",
       "version_tag": "alternate_version"
     },
     {
@@ -10209,8 +10209,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "I Knew You Were Trouble (Taylor's Version)",
-      "song_family": "i_knew_you_were_trouble_taylor_s_version",
+      "title_clean": "I Knew You Were Trouble",
+      "song_family": "i_knew_you_were_trouble",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -10356,8 +10356,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "I Know Places (Taylor's Version)",
-      "song_family": "i_know_places_taylor_s_version",
+      "title_clean": "I Know Places",
+      "song_family": "i_know_places",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -10613,8 +10613,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "I Wish You Would (Taylor's Version)",
-      "song_family": "i_wish_you_would_taylor_s_version",
+      "title_clean": "I Wish You Would",
+      "song_family": "i_wish_you_would",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -10821,8 +10821,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "If This Was A Movie (Taylor's Version)",
-      "song_family": "if_this_was_a_movie_taylor_s_version",
+      "title_clean": "If This Was A Movie",
+      "song_family": "if_this_was_a_movie",
       "version_tag": "taylors_version__standalone"
     },
     {
@@ -11066,8 +11066,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Innocent (Taylor's Version)",
-      "song_family": "innocent_taylor_s_version",
+      "title_clean": "Innocent",
+      "song_family": "innocent",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -11262,8 +11262,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Is It Over Now? (Taylor's Version) (From The Vault)",
-      "song_family": "is_it_over_now_taylor_s_version_from_the_vault",
+      "title_clean": "Is It Over Now?",
+      "song_family": "is_it_over_now",
       "version_tag": "vault__taylors_version__standalone"
     },
     {
@@ -11520,8 +11520,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Jump Then Fall (Taylor's Version)",
-      "song_family": "jump_then_fall_taylor_s_version",
+      "title_clean": "Jump Then Fall",
+      "song_family": "jump_then_fall",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -11732,7 +11732,7 @@
         "Taylor Swift"
       ],
       "title_clean": "King Of My Heart - Karaoke Version",
-      "song_family": "king_of_my_heart_karaoke_version",
+      "song_family": "king_of_my_heart",
       "version_tag": "alternate_version"
     },
     {
@@ -11927,8 +11927,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Last Kiss (Taylor's Version)",
-      "song_family": "last_kiss_taylor_s_version",
+      "title_clean": "Last Kiss",
+      "song_family": "last_kiss",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -11989,7 +11989,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Last Kiss - Live/2011",
-      "song_family": "last_kiss_live_2011",
+      "song_family": "last_kiss",
       "version_tag": "live__alternate_version"
     },
     {
@@ -12124,7 +12124,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Lavender Haze - Felix Jaehn Remix",
-      "song_family": "lavender_haze_felix_jaehn_remix",
+      "song_family": "lavender_haze",
       "version_tag": "remix"
     },
     {
@@ -12185,7 +12185,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Lavender Haze - Jungle Remix",
-      "song_family": "lavender_haze_jungle_remix",
+      "song_family": "lavender_haze",
       "version_tag": "remix"
     },
     {
@@ -12246,7 +12246,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Lavender Haze - Snakehips Remix",
-      "song_family": "lavender_haze_snakehips_remix",
+      "song_family": "lavender_haze",
       "version_tag": "remix"
     },
     {
@@ -12307,7 +12307,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Lavender Haze - Tensnake Remix",
-      "song_family": "lavender_haze_tensnake_remix",
+      "song_family": "lavender_haze",
       "version_tag": "remix"
     },
     {
@@ -12502,8 +12502,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Long Live (Taylor's Version)",
-      "song_family": "long_live_taylor_s_version",
+      "title_clean": "Long Live",
+      "song_family": "long_live",
       "version_tag": "live__taylors_version__alternate_version"
     },
     {
@@ -12662,7 +12662,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Look What You Made Me Do - Karaoke Version",
-      "song_family": "look_what_you_made_me_do_karaoke_version",
+      "song_family": "look_what_you_made_me_do",
       "version_tag": "alternate_version"
     },
     {
@@ -12772,8 +12772,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Love Story (Taylor's Version)",
-      "song_family": "love_story_taylor_s_version",
+      "title_clean": "Love Story",
+      "song_family": "love_story",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -12833,8 +12833,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Love Story (Taylor's Version) - Elvira Remix",
-      "song_family": "love_story_taylor_s_version_elvira_remix",
+      "title_clean": "Love Story - Elvira Remix",
+      "song_family": "love_story",
       "version_tag": "remix__taylors_version"
     },
     {
@@ -12895,7 +12895,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Love Story - Digital Dog Remix",
-      "song_family": "love_story_digital_dog_remix",
+      "song_family": "love_story",
       "version_tag": "remix"
     },
     {
@@ -13004,8 +13004,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Lover (Remix) [feat. Shawn Mendes]",
-      "song_family": "lover_remix_feat_shawn_mendes",
+      "title_clean": "Lover [feat. Shawn Mendes]",
+      "song_family": "lover_feat_shawn_mendes",
       "version_tag": "remix"
     },
     {
@@ -13066,7 +13066,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Lover - First Dance Remix",
-      "song_family": "lover_first_dance_remix",
+      "song_family": "lover",
       "version_tag": "remix"
     },
     {
@@ -13127,7 +13127,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Lover - Live From Paris",
-      "song_family": "lover_live_from_paris",
+      "song_family": "lover",
       "version_tag": "live__standalone"
     },
     {
@@ -13583,7 +13583,7 @@
         "Taylor Swift"
       ],
       "title_clean": "ME! - Live From Paris",
-      "song_family": "me_live_from_paris",
+      "song_family": "me",
       "version_tag": "live__standalone"
     },
     {
@@ -13680,8 +13680,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Mean (Taylor's Version)",
-      "song_family": "mean_taylor_s_version",
+      "title_clean": "Mean",
+      "song_family": "mean",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -13742,7 +13742,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Mean - Live/2011",
-      "song_family": "mean_live_2011",
+      "song_family": "mean",
       "version_tag": "live__alternate_version"
     },
     {
@@ -13802,8 +13802,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Message In A Bottle (Fat Max G Remix) (Taylor's Version)",
-      "song_family": "message_in_a_bottle_fat_max_g_remix_taylor_s_version",
+      "title_clean": "Message In A Bottle (Fat Max G Remix)",
+      "song_family": "message_in_a_bottle_fat_max_g_remix",
       "version_tag": "remix__taylors_version"
     },
     {
@@ -13851,8 +13851,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Message In A Bottle (Taylor's Version) (From The Vault)",
-      "song_family": "message_in_a_bottle_taylor_s_version_from_the_vault",
+      "title_clean": "Message In A Bottle",
+      "song_family": "message_in_a_bottle",
       "version_tag": "vault__taylors_version__standalone"
     },
     {
@@ -13998,8 +13998,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Mine (Taylor's Version)",
-      "song_family": "mine_taylor_s_version",
+      "title_clean": "Mine",
+      "song_family": "mine",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -14060,7 +14060,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Mine - Live/2011",
-      "song_family": "mine_live_2011",
+      "song_family": "mine",
       "version_tag": "live__alternate_version"
     },
     {
@@ -14329,8 +14329,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Mr. Perfectly Fine (Taylor's Version) (From The Vault)",
-      "song_family": "mr_perfectly_fine_taylor_s_version_from_the_vault",
+      "title_clean": "Mr. Perfectly Fine",
+      "song_family": "mr_perfectly_fine",
       "version_tag": "vault__taylors_version__standalone"
     },
     {
@@ -14587,8 +14587,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Never Grow Up (Taylor's Version)",
-      "song_family": "never_grow_up_taylor_s_version",
+      "title_clean": "Never Grow Up",
+      "song_family": "never_grow_up",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -14685,8 +14685,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "New Romantics (Taylor's Version)",
-      "song_family": "new_romantics_taylor_s_version",
+      "title_clean": "New Romantics",
+      "song_family": "new_romantics",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -14796,7 +14796,7 @@
         "Taylor Swift"
       ],
       "title_clean": "New Year's Day - Karaoke Version",
-      "song_family": "new_year_s_day_karaoke_version",
+      "song_family": "new_year_s_day",
       "version_tag": "alternate_version"
     },
     {
@@ -14899,8 +14899,8 @@
         "Taylor Swift",
         "Phoebe Bridgers"
       ],
-      "title_clean": "Nothing New (Taylor's Version) (From The Vault)",
-      "song_family": "nothing_new_taylor_s_version_from_the_vault",
+      "title_clean": "Nothing New",
+      "song_family": "nothing_new",
       "version_tag": "featured__vault__taylors_version__feature"
     },
     {
@@ -14948,8 +14948,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Now That We Don't Talk (Taylor's Version) (From The Vault)",
-      "song_family": "now_that_we_don_t_talk_taylor_s_version_from_the_vault",
+      "title_clean": "Now That We Don't Talk",
+      "song_family": "now_that_we_don_t_talk",
       "version_tag": "vault__taylors_version__standalone"
     },
     {
@@ -15108,7 +15108,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Opalite - BUNT. Remix",
-      "song_family": "opalite_bunt_remix",
+      "song_family": "opalite",
       "version_tag": "remix"
     },
     {
@@ -15169,7 +15169,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Opalite - Chris Lake Remix",
-      "song_family": "opalite_chris_lake_remix",
+      "song_family": "opalite",
       "version_tag": "remix"
     },
     {
@@ -15230,7 +15230,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Opalite - Ely Oaks Remix",
-      "song_family": "opalite_ely_oaks_remix",
+      "song_family": "opalite",
       "version_tag": "remix"
     },
     {
@@ -15279,7 +15279,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Opalite - Life Is A Song Acoustic Version",
-      "song_family": "opalite_life_is_a_song_acoustic_version",
+      "song_family": "opalite",
       "version_tag": "acoustic__alternate_version"
     },
     {
@@ -15340,7 +15340,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Opalite - Official Music Video Extended Version Part 1",
-      "song_family": "opalite_official_music_video_extended_version_part_1",
+      "song_family": "opalite",
       "version_tag": "alternate_version"
     },
     {
@@ -15401,7 +15401,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Opalite - Official Music Video Extended Version Part 2",
-      "song_family": "opalite_official_music_video_extended_version_part_2",
+      "song_family": "opalite",
       "version_tag": "alternate_version"
     },
     {
@@ -15462,7 +15462,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Opalite - Skream Remix",
-      "song_family": "opalite_skream_remix",
+      "song_family": "opalite",
       "version_tag": "remix"
     },
     {
@@ -15669,8 +15669,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Ours (Taylor's Version)",
-      "song_family": "ours_taylor_s_version",
+      "title_clean": "Ours",
+      "song_family": "ours",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -15731,7 +15731,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Ours - Live/2011",
-      "song_family": "ours_live_2011",
+      "song_family": "ours",
       "version_tag": "live__alternate_version"
     },
     {
@@ -15828,8 +15828,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Out Of The Woods (Taylor's Version)",
-      "song_family": "out_of_the_woods_taylor_s_version",
+      "title_clean": "Out Of The Woods",
+      "song_family": "out_of_the_woods",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -16269,8 +16269,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Red (Taylor's Version)",
-      "song_family": "red_taylor_s_version",
+      "title_clean": "Red",
+      "song_family": "red",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -16331,7 +16331,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Red - Original Demo Recording",
-      "song_family": "red_original_demo_recording",
+      "song_family": "red",
       "version_tag": "demo__alternate_version"
     },
     {
@@ -16429,7 +16429,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Renegade - Pop Version",
-      "song_family": "renegade_pop_version",
+      "song_family": "renegade",
       "version_tag": "standalone"
     },
     {
@@ -16624,8 +16624,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Ronan (Taylor's Version)",
-      "song_family": "ronan_taylor_s_version",
+      "title_clean": "Ronan",
+      "song_family": "ronan",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -16747,7 +16747,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Ruin The Friendship - My Advice Version",
-      "song_family": "ruin_the_friendship_my_advice_version",
+      "song_family": "ruin_the_friendship",
       "version_tag": "alternate_version"
     },
     {
@@ -16798,8 +16798,8 @@
         "Taylor Swift",
         "Ed Sheeran"
       ],
-      "title_clean": "Run (Taylor's Version) (From The Vault)",
-      "song_family": "run_taylor_s_version_from_the_vault",
+      "title_clean": "Run",
+      "song_family": "run",
       "version_tag": "featured__vault__taylors_version__feature"
     },
     {
@@ -16896,8 +16896,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Sad Beautiful Tragic (Taylor's Version)",
-      "song_family": "sad_beautiful_tragic_taylor_s_version",
+      "title_clean": "Sad Beautiful Tragic",
+      "song_family": "sad_beautiful_tragic",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -16950,8 +16950,8 @@
         "Joy Williams",
         "John Paul White"
       ],
-      "title_clean": "Safe & Sound (Taylor's Version)",
-      "song_family": "safe_sound_taylor_s_version",
+      "title_clean": "Safe & Sound",
+      "song_family": "safe_sound",
       "version_tag": "featured__taylors_version__feature"
     },
     {
@@ -17097,8 +17097,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Say Don't Go (Taylor's Version) (From The Vault)",
-      "song_family": "say_don_t_go_taylor_s_version_from_the_vault",
+      "title_clean": "Say Don't Go",
+      "song_family": "say_don_t_go",
       "version_tag": "vault__taylors_version__standalone"
     },
     {
@@ -17367,8 +17367,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Shake It Off (Taylor's Version)",
-      "song_family": "shake_it_off_taylor_s_version",
+      "title_clean": "Shake It Off",
+      "song_family": "shake_it_off",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -17729,7 +17729,7 @@
         "Taylor Swift"
       ],
       "title_clean": "So It Goes... - Karaoke Version",
-      "song_family": "so_it_goes_karaoke_version",
+      "song_family": "so_it_goes",
       "version_tag": "alternate_version"
     },
     {
@@ -17927,8 +17927,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Sparks Fly (Taylor's Version)",
-      "song_family": "sparks_fly_taylor_s_version",
+      "title_clean": "Sparks Fly",
+      "song_family": "sparks_fly",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -17989,7 +17989,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Sparks Fly - Live/2011",
-      "song_family": "sparks_fly_live_2011",
+      "song_family": "sparks_fly",
       "version_tag": "live__alternate_version"
     },
     {
@@ -18086,8 +18086,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Speak Now (Taylor's Version)",
-      "song_family": "speak_now_taylor_s_version",
+      "title_clean": "Speak Now",
+      "song_family": "speak_now",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -18148,7 +18148,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Speak Now - Live/2011",
-      "song_family": "speak_now_live_2011",
+      "song_family": "speak_now",
       "version_tag": "live__alternate_version"
     },
     {
@@ -18245,8 +18245,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Starlight (Taylor's Version)",
-      "song_family": "starlight_taylor_s_version",
+      "title_clean": "Starlight",
+      "song_family": "starlight",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -18343,8 +18343,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "State Of Grace (Acoustic Version) (Taylor's Version)",
-      "song_family": "state_of_grace_acoustic_version_taylor_s_version",
+      "title_clean": "State Of Grace (Acoustic Version)",
+      "song_family": "state_of_grace_acoustic_version",
       "version_tag": "acoustic__taylors_version__standalone"
     },
     {
@@ -18392,8 +18392,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "State Of Grace (Taylor's Version)",
-      "song_family": "state_of_grace_taylor_s_version",
+      "title_clean": "State Of Grace",
+      "song_family": "state_of_grace",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -18454,7 +18454,7 @@
         "Taylor Swift"
       ],
       "title_clean": "State Of Grace - Acoustic",
-      "song_family": "state_of_grace_acoustic",
+      "song_family": "state_of_grace",
       "version_tag": "acoustic__alternate_version"
     },
     {
@@ -18600,8 +18600,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Stay Stay Stay (Taylor's Version)",
-      "song_family": "stay_stay_stay_taylor_s_version",
+      "title_clean": "Stay Stay Stay",
+      "song_family": "stay_stay_stay",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -18698,8 +18698,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Style (Taylor's Version)",
-      "song_family": "style_taylor_s_version",
+      "title_clean": "Style",
+      "song_family": "style",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -18747,8 +18747,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Suburban Legends (Taylor's Version) (From The Vault)",
-      "song_family": "suburban_legends_taylor_s_version_from_the_vault",
+      "title_clean": "Suburban Legends",
+      "song_family": "suburban_legends",
       "version_tag": "vault__taylors_version__standalone"
     },
     {
@@ -18845,8 +18845,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Superman (Taylor's Version)",
-      "song_family": "superman_taylor_s_version",
+      "title_clean": "Superman",
+      "song_family": "superman",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -18956,8 +18956,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Superstar (Taylor's Version)",
-      "song_family": "superstar_taylor_s_version",
+      "title_clean": "Superstar",
+      "song_family": "superstar",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -19104,7 +19104,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Teardrops on My Guitar - Pop Version",
-      "song_family": "teardrops_on_my_guitar_pop_version",
+      "song_family": "teardrops_on_my_guitar",
       "version_tag": "alternate_version"
     },
     {
@@ -19153,7 +19153,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Teardrops On My Guitar - Radio Single Remix",
-      "song_family": "teardrops_on_my_guitar_radio_single_remix",
+      "song_family": "teardrops_on_my_guitar",
       "version_tag": "remix"
     },
     {
@@ -19263,8 +19263,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Tell Me Why (Taylor's Version)",
-      "song_family": "tell_me_why_taylor_s_version",
+      "title_clean": "Tell Me Why",
+      "song_family": "tell_me_why",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -19364,8 +19364,8 @@
         "Taylor Swift",
         "Keith Urban"
       ],
-      "title_clean": "That's When (Taylor's Version) (From The Vault)",
-      "song_family": "that_s_when_taylor_s_version_from_the_vault",
+      "title_clean": "That's When",
+      "song_family": "that_s_when",
       "version_tag": "featured__vault__taylors_version__feature"
     },
     {
@@ -19687,7 +19687,7 @@
         "Taylor Swift"
       ],
       "title_clean": "The Archer - Live From Paris",
-      "song_family": "the_archer_live_from_paris",
+      "song_family": "the_archer",
       "version_tag": "live__standalone"
     },
     {
@@ -19784,8 +19784,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "The Best Day (Taylor's Version)",
-      "song_family": "the_best_day_taylor_s_version",
+      "title_clean": "The Best Day",
+      "song_family": "the_best_day",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -20006,7 +20006,7 @@
         "Taylor Swift"
       ],
       "title_clean": "The Fate of Ophelia - Alone In My Tower Acoustic Version",
-      "song_family": "the_fate_of_ophelia_alone_in_my_tower_acoustic_version",
+      "song_family": "the_fate_of_ophelia",
       "version_tag": "acoustic__alternate_version"
     },
     {
@@ -20067,7 +20067,7 @@
         "Taylor Swift"
       ],
       "title_clean": "The Fate of Ophelia - Loud Luxury Remix",
-      "song_family": "the_fate_of_ophelia_loud_luxury_remix",
+      "song_family": "the_fate_of_ophelia",
       "version_tag": "remix"
     },
     {
@@ -20128,7 +20128,7 @@
         "Taylor Swift"
       ],
       "title_clean": "The Fate of Ophelia - The Chainsmokers Remix",
-      "song_family": "the_fate_of_ophelia_the_chainsmokers_remix",
+      "song_family": "the_fate_of_ophelia",
       "version_tag": "remix"
     },
     {
@@ -20400,7 +20400,7 @@
         "Taylor Swift"
       ],
       "title_clean": "the lakes - original version",
-      "song_family": "the_lakes_original_version",
+      "song_family": "the_lakes",
       "version_tag": "deluxe__standalone"
     },
     {
@@ -20611,8 +20611,8 @@
         "Taylor Swift",
         "Gary Lightbody of Snow Patrol"
       ],
-      "title_clean": "The Last Time (Taylor's Version)",
-      "song_family": "the_last_time_taylor_s_version",
+      "title_clean": "The Last Time",
+      "song_family": "the_last_time",
       "version_tag": "featured__taylors_version__feature"
     },
     {
@@ -20740,7 +20740,7 @@
         "Sabrina Carpenter"
       ],
       "title_clean": "The Life of a Showgirl - Dressing Room Rehearsal Version",
-      "song_family": "the_life_of_a_showgirl_dressing_room_rehearsal_version",
+      "song_family": "the_life_of_a_showgirl",
       "version_tag": "featured__alternate_version"
     },
     {
@@ -20970,8 +20970,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "The Lucky One (Taylor's Version)",
-      "song_family": "the_lucky_one_taylor_s_version",
+      "title_clean": "The Lucky One",
+      "song_family": "the_lucky_one",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -21081,7 +21081,7 @@
         "Taylor Swift"
       ],
       "title_clean": "The Man - Live From Paris",
-      "song_family": "the_man_live_from_paris",
+      "song_family": "the_man",
       "version_tag": "live__standalone"
     },
     {
@@ -21178,8 +21178,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "The Moment I Knew (Taylor's Version)",
-      "song_family": "the_moment_i_knew_taylor_s_version",
+      "title_clean": "The Moment I Knew",
+      "song_family": "the_moment_i_knew",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -21289,8 +21289,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "The Other Side Of The Door (Taylor's Version)",
-      "song_family": "the_other_side_of_the_door_taylor_s_version",
+      "title_clean": "The Other Side Of The Door",
+      "song_family": "the_other_side_of_the_door",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -21534,8 +21534,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "The Story Of Us (Taylor's Version)",
-      "song_family": "the_story_of_us_taylor_s_version",
+      "title_clean": "The Story Of Us",
+      "song_family": "the_story_of_us",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -21596,7 +21596,7 @@
         "Taylor Swift"
       ],
       "title_clean": "The Story Of Us - Live",
-      "song_family": "the_story_of_us_live",
+      "song_family": "the_story_of_us",
       "version_tag": "live__alternate_version"
     },
     {
@@ -21693,8 +21693,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "The Very First Night (Taylor's Version) (From The Vault)",
-      "song_family": "the_very_first_night_taylor_s_version_from_the_vault",
+      "title_clean": "The Very First Night",
+      "song_family": "the_very_first_night",
       "version_tag": "vault__taylors_version__standalone"
     },
     {
@@ -21791,8 +21791,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "The Way I Loved You (Taylor's Version)",
-      "song_family": "the_way_i_loved_you_taylor_s_version",
+      "title_clean": "The Way I Loved You",
+      "song_family": "the_way_i_loved_you",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -22000,7 +22000,7 @@
         "Taylor Swift"
       ],
       "title_clean": "This Is Why We Can't Have Nice Things - Karaoke Version",
-      "song_family": "this_is_why_we_can_t_have_nice_things_karaoke_version",
+      "song_family": "this_is_why_we_can_t_have_nice_things",
       "version_tag": "alternate_version"
     },
     {
@@ -22097,8 +22097,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "This Love (Taylor's Version)",
-      "song_family": "this_love_taylor_s_version",
+      "title_clean": "This Love",
+      "song_family": "this_love",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -22244,8 +22244,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Timeless (Taylor's Version) (From The Vault)",
-      "song_family": "timeless_taylor_s_version_from_the_vault",
+      "title_clean": "Timeless",
+      "song_family": "timeless",
       "version_tag": "vault__taylors_version__standalone"
     },
     {
@@ -22342,8 +22342,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Today Was A Fairytale (Taylor's Version)",
-      "song_family": "today_was_a_fairytale_taylor_s_version",
+      "title_clean": "Today Was A Fairytale",
+      "song_family": "today_was_a_fairytale",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -22489,8 +22489,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Treacherous (Taylor's Version)",
-      "song_family": "treacherous_taylor_s_version",
+      "title_clean": "Treacherous",
+      "song_family": "treacherous",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -22551,7 +22551,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Treacherous - Original Demo Recording",
-      "song_family": "treacherous_original_demo_recording",
+      "song_family": "treacherous",
       "version_tag": "demo__alternate_version"
     },
     {
@@ -22713,8 +22713,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Untouchable (Taylor's Version)",
-      "song_family": "untouchable_taylor_s_version",
+      "title_clean": "Untouchable",
+      "song_family": "untouchable",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -22912,8 +22912,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "We Are Never Ever Getting Back Together (Taylor's Version)",
-      "song_family": "we_are_never_ever_getting_back_together_taylor_s_version",
+      "title_clean": "We Are Never Ever Getting Back Together",
+      "song_family": "we_are_never_ever_getting_back_together",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -22961,8 +22961,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "We Were Happy (Taylor's Version) (From The Vault)",
-      "song_family": "we_were_happy_taylor_s_version_from_the_vault",
+      "title_clean": "We Were Happy",
+      "song_family": "we_were_happy",
       "version_tag": "vault__taylors_version__standalone"
     },
     {
@@ -23059,8 +23059,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Welcome To New York (Taylor's Version)",
-      "song_family": "welcome_to_new_york_taylor_s_version",
+      "title_clean": "Welcome To New York",
+      "song_family": "welcome_to_new_york",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -23108,8 +23108,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "When Emma Falls in Love (Taylor's Version) (From The Vault)",
-      "song_family": "when_emma_falls_in_love_taylor_s_version_from_the_vault",
+      "title_clean": "When Emma Falls in Love",
+      "song_family": "when_emma_falls_in_love",
       "version_tag": "vault__taylors_version__standalone"
     },
     {
@@ -23268,8 +23268,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "White Horse (Taylor's Version)",
-      "song_family": "white_horse_taylor_s_version",
+      "title_clean": "White Horse",
+      "song_family": "white_horse",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -23440,7 +23440,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Wi$h Li$t - Settled Down Acoustic Version",
-      "song_family": "wi_h_li_t_settled_down_acoustic_version",
+      "song_family": "wi_h_li_t",
       "version_tag": "acoustic__alternate_version"
     },
     {
@@ -23537,8 +23537,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Wildest Dreams (Taylor's Version)",
-      "song_family": "wildest_dreams_taylor_s_version",
+      "title_clean": "Wildest Dreams",
+      "song_family": "wildest_dreams",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -23599,7 +23599,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Wildest Dreams - R3hab Remix",
-      "song_family": "wildest_dreams_r3hab_remix",
+      "song_family": "wildest_dreams",
       "version_tag": "remix"
     },
     {
@@ -23709,7 +23709,7 @@
         "Taylor Swift"
       ],
       "title_clean": "willow - 90's trend remix",
-      "song_family": "willow_90_s_trend_remix",
+      "song_family": "willow",
       "version_tag": "remix"
     },
     {
@@ -23770,7 +23770,7 @@
         "Taylor Swift"
       ],
       "title_clean": "willow - dancing witch version (Elvira remix)",
-      "song_family": "willow_dancing_witch_version_elvira_remix",
+      "song_family": "willow",
       "version_tag": "remix"
     },
     {
@@ -23856,7 +23856,7 @@
         "Taylor Swift"
       ],
       "title_clean": "willow - lonely witch version",
-      "song_family": "willow_lonely_witch_version",
+      "song_family": "willow",
       "version_tag": "standalone"
     },
     {
@@ -23942,7 +23942,7 @@
         "Taylor Swift"
       ],
       "title_clean": "willow - moonlit witch version",
-      "song_family": "willow_moonlit_witch_version",
+      "song_family": "willow",
       "version_tag": "standalone"
     },
     {
@@ -24039,8 +24039,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Wonderland (Taylor's Version)",
-      "song_family": "wonderland_taylor_s_version",
+      "title_clean": "Wonderland",
+      "song_family": "wonderland",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -24202,8 +24202,8 @@
         "Taylor Swift",
         "Maren Morris"
       ],
-      "title_clean": "You All Over Me (Taylor's Version) (From The Vault)",
-      "song_family": "you_all_over_me_taylor_s_version_from_the_vault",
+      "title_clean": "You All Over Me",
+      "song_family": "you_all_over_me",
       "version_tag": "featured__vault__taylors_version__feature"
     },
     {
@@ -24300,8 +24300,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "You Are In Love (Taylor's Version)",
-      "song_family": "you_are_in_love_taylor_s_version",
+      "title_clean": "You Are In Love",
+      "song_family": "you_are_in_love",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -24411,8 +24411,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "You Belong With Me (Taylor's Version)",
-      "song_family": "you_belong_with_me_taylor_s_version",
+      "title_clean": "You Belong With Me",
+      "song_family": "you_belong_with_me",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -24522,7 +24522,7 @@
         "Taylor Swift"
       ],
       "title_clean": "You Need To Calm Down - Clean Bandit Remix",
-      "song_family": "you_need_to_calm_down_clean_bandit_remix",
+      "song_family": "you_need_to_calm_down",
       "version_tag": "remix"
     },
     {
@@ -24583,7 +24583,7 @@
         "Taylor Swift"
       ],
       "title_clean": "You Need To Calm Down - Live From Paris",
-      "song_family": "you_need_to_calm_down_live_from_paris",
+      "song_family": "you_need_to_calm_down",
       "version_tag": "live__standalone"
     },
     {
@@ -24631,8 +24631,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "You're Losing Me (From The Vault)",
-      "song_family": "you_re_losing_me_from_the_vault",
+      "title_clean": "You're Losing Me",
+      "song_family": "you_re_losing_me",
       "version_tag": "vault__standalone"
     },
     {
@@ -24742,8 +24742,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "You're Not Sorry (Taylor's Version)",
-      "song_family": "you_re_not_sorry_taylor_s_version",
+      "title_clean": "You're Not Sorry",
+      "song_family": "you_re_not_sorry",
       "version_tag": "taylors_version__alternate_version"
     },
     {
@@ -24804,7 +24804,7 @@
         "Taylor Swift"
       ],
       "title_clean": "You're Not Sorry - CSI Remix",
-      "song_family": "you_re_not_sorry_csi_remix",
+      "song_family": "you_re_not_sorry",
       "version_tag": "remix"
     },
     {

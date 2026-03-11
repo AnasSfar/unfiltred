@@ -37,10 +37,19 @@ def extract_featured_artists(title: str) -> list[str]:
     parts = [p.strip() for p in SPLIT_REGEX.split(raw) if p.strip()]
     return parts
 
-
 def clean_title(title: str) -> str:
-    cleaned = FEATURE_REGEX.sub("", title or "").strip()
-    cleaned = re.sub(r"\s+", " ", cleaned)
+    cleaned = title or ""
+
+    cleaned = re.sub(r"\((?:feat\.|ft\.|featuring)\s+([^)]+)\)", "", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"\((?:from the vault)\)", "", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"\((?:taylor'?s version)\)", "", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"\((?:deluxe)\)", "", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"\((?:acoustic)\)", "", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"\((?:live)\)", "", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"\((?:demo)\)", "", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"\((?:remix)\)", "", cleaned, flags=re.IGNORECASE)
+
+    cleaned = re.sub(r"\s+", " ", cleaned).strip()
     return cleaned
 
 
@@ -94,7 +103,9 @@ def extract_version_tag(track: dict, title: str, title_clean: str, featured_arti
 
 def build_song_family(track: dict, title_clean: str) -> str:
     base_title = str(track.get("base_title") or "").strip()
-    family_source = title_clean or base_title or track.get("title") or ""
+    title = str(track.get("title") or "").strip()
+
+    family_source = clean_title(base_title) or title_clean or clean_title(title) or title
     return slugify(family_source)
 
 

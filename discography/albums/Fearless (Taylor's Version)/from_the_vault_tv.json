@@ -17,8 +17,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Bye Bye Baby (Taylor's Version) (From The Vault)",
-      "song_family": "bye_bye_baby_taylor_s_version_from_the_vault",
+      "title_clean": "Bye Bye Baby",
+      "song_family": "bye_bye_baby",
       "version_tag": "vault__taylors_version__standalone"
     },
     {
@@ -35,8 +35,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Don't You (Taylor's Version) (From The Vault)",
-      "song_family": "don_t_you_taylor_s_version_from_the_vault",
+      "title_clean": "Don't You",
+      "song_family": "don_t_you",
       "version_tag": "vault__taylors_version__standalone"
     },
     {
@@ -53,8 +53,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Mr. Perfectly Fine (Taylor's Version) (From The Vault)",
-      "song_family": "mr_perfectly_fine_taylor_s_version_from_the_vault",
+      "title_clean": "Mr. Perfectly Fine",
+      "song_family": "mr_perfectly_fine",
       "version_tag": "vault__taylors_version__standalone"
     },
     {
@@ -74,8 +74,8 @@
         "Taylor Swift",
         "Keith Urban"
       ],
-      "title_clean": "That's When (Taylor's Version) (From The Vault)",
-      "song_family": "that_s_when_taylor_s_version_from_the_vault",
+      "title_clean": "That's When",
+      "song_family": "that_s_when",
       "version_tag": "featured__vault__taylors_version__feature"
     },
     {
@@ -92,8 +92,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "We Were Happy (Taylor's Version) (From The Vault)",
-      "song_family": "we_were_happy_taylor_s_version_from_the_vault",
+      "title_clean": "We Were Happy",
+      "song_family": "we_were_happy",
       "version_tag": "vault__taylors_version__standalone"
     },
     {
@@ -113,8 +113,8 @@
         "Taylor Swift",
         "Maren Morris"
       ],
-      "title_clean": "You All Over Me (Taylor's Version) (From The Vault)",
-      "song_family": "you_all_over_me_taylor_s_version_from_the_vault",
+      "title_clean": "You All Over Me",
+      "song_family": "you_all_over_me",
       "version_tag": "featured__vault__taylors_version__feature"
     },
     {
@@ -131,8 +131,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Forever & Always (Piano Version) (Taylor's Version)",
-      "song_family": "forever_always_piano_version_taylor_s_version",
+      "title_clean": "Forever & Always (Piano Version)",
+      "song_family": "forever_always_piano_version",
       "version_tag": "taylors_version__standalone"
     }
   ]

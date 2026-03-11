@@ -21,7 +21,7 @@
         "Post Malone"
       ],
       "title_clean": "Fortnight - BLOND:ISH Remix",
-      "song_family": "fortnight_blond_ish_remix",
+      "song_family": "fortnight",
       "version_tag": "featured__remix"
     },
     {
@@ -39,7 +39,7 @@
         "Taylor Swift"
       ],
       "title_clean": "I Can Do It With a Broken Heart - Dombresky Remix",
-      "song_family": "i_can_do_it_with_a_broken_heart_dombresky_remix",
+      "song_family": "i_can_do_it_with_a_broken_heart",
       "version_tag": "remix"
     },
     {
@@ -57,7 +57,7 @@
         "Taylor Swift"
       ],
       "title_clean": "I Can Do It With a Broken Heart - Instrumental",
-      "song_family": "i_can_do_it_with_a_broken_heart_instrumental",
+      "song_family": "i_can_do_it_with_a_broken_heart",
       "version_tag": "alternate_version"
     },
     {
@@ -78,7 +78,7 @@
         "Post Malone"
       ],
       "title_clean": "Fortnight - Acoustic Version",
-      "song_family": "fortnight_acoustic_version",
+      "song_family": "fortnight",
       "version_tag": "featured__acoustic__alternate_version"
     },
     {
@@ -99,7 +99,7 @@
         "Post Malone"
       ],
       "title_clean": "Fortnight - Cults Remix",
-      "song_family": "fortnight_cults_remix",
+      "song_family": "fortnight",
       "version_tag": "featured__remix"
     }
   ]

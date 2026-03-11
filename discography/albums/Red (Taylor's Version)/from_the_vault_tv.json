@@ -17,8 +17,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "All Too Well (10 Minute Version) (Taylor's Version) (From The Vault)",
-      "song_family": "all_too_well_10_minute_version_taylor_s_version_from_the_vault",
+      "title_clean": "All Too Well (10 Minute Version)",
+      "song_family": "all_too_well_10_minute_version",
       "version_tag": "vault__taylors_version__standalone"
     },
     {
@@ -35,8 +35,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Babe (Taylor's Version) (From The Vault)",
-      "song_family": "babe_taylor_s_version_from_the_vault",
+      "title_clean": "Babe",
+      "song_family": "babe",
       "version_tag": "vault__taylors_version__standalone"
     },
     {
@@ -53,8 +53,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Better Man (Taylor's Version) (From The Vault)",
-      "song_family": "better_man_taylor_s_version_from_the_vault",
+      "title_clean": "Better Man",
+      "song_family": "better_man",
       "version_tag": "vault__taylors_version__standalone"
     },
     {
@@ -71,8 +71,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Forever Winter (Taylor's Version) (From The Vault)",
-      "song_family": "forever_winter_taylor_s_version_from_the_vault",
+      "title_clean": "Forever Winter",
+      "song_family": "forever_winter",
       "version_tag": "vault__taylors_version__standalone"
     },
     {
@@ -92,8 +92,8 @@
         "Taylor Swift",
         "Chris Stapleton"
       ],
-      "title_clean": "I Bet You Think About Me (Taylor's Version) (From The Vault)",
-      "song_family": "i_bet_you_think_about_me_taylor_s_version_from_the_vault",
+      "title_clean": "I Bet You Think About Me",
+      "song_family": "i_bet_you_think_about_me",
       "version_tag": "featured__vault__taylors_version__feature"
     },
     {
@@ -110,8 +110,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "Message In A Bottle (Taylor's Version) (From The Vault)",
-      "song_family": "message_in_a_bottle_taylor_s_version_from_the_vault",
+      "title_clean": "Message In A Bottle",
+      "song_family": "message_in_a_bottle",
       "version_tag": "vault__taylors_version__standalone"
     },
     {
@@ -131,8 +131,8 @@
         "Taylor Swift",
         "Phoebe Bridgers"
       ],
-      "title_clean": "Nothing New (Taylor's Version) (From The Vault)",
-      "song_family": "nothing_new_taylor_s_version_from_the_vault",
+      "title_clean": "Nothing New",
+      "song_family": "nothing_new",
       "version_tag": "featured__vault__taylors_version__feature"
     },
     {
@@ -152,8 +152,8 @@
         "Taylor Swift",
         "Ed Sheeran"
       ],
-      "title_clean": "Run (Taylor's Version) (From The Vault)",
-      "song_family": "run_taylor_s_version_from_the_vault",
+      "title_clean": "Run",
+      "song_family": "run",
       "version_tag": "featured__vault__taylors_version__feature"
     },
     {
@@ -170,8 +170,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "The Very First Night (Taylor's Version) (From The Vault)",
-      "song_family": "the_very_first_night_taylor_s_version_from_the_vault",
+      "title_clean": "The Very First Night",
+      "song_family": "the_very_first_night",
       "version_tag": "vault__taylors_version__standalone"
     },
     {
@@ -188,8 +188,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "State Of Grace (Acoustic Version) (Taylor's Version)",
-      "song_family": "state_of_grace_acoustic_version_taylor_s_version",
+      "title_clean": "State Of Grace (Acoustic Version)",
+      "song_family": "state_of_grace_acoustic_version",
       "version_tag": "acoustic__taylors_version__standalone"
     }
   ]

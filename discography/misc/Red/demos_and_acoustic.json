@@ -18,7 +18,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Red - Original Demo Recording",
-      "song_family": "red_original_demo_recording",
+      "song_family": "red",
       "version_tag": "demo__alternate_version"
     },
     {
@@ -36,7 +36,7 @@
         "Taylor Swift"
       ],
       "title_clean": "Treacherous - Original Demo Recording",
-      "song_family": "treacherous_original_demo_recording",
+      "song_family": "treacherous",
       "version_tag": "demo__alternate_version"
     },
     {
@@ -54,7 +54,7 @@
         "Taylor Swift"
       ],
       "title_clean": "State Of Grace - Acoustic",
-      "song_family": "state_of_grace_acoustic",
+      "song_family": "state_of_grace",
       "version_tag": "acoustic__alternate_version"
     }
   ]

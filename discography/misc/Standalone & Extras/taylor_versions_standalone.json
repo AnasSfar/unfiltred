@@ -17,8 +17,8 @@
       "artists": [
         "Taylor Swift"
       ],
-      "title_clean": "If This Was A Movie (Taylor's Version)",
-      "song_family": "if_this_was_a_movie_taylor_s_version",
+      "title_clean": "If This Was A Movie",
+      "song_family": "if_this_was_a_movie",
       "version_tag": "taylors_version__standalone"
     },
     {
@@ -38,8 +38,8 @@
         "Taylor Swift",
         "Maren Morris"
       ],
-      "title_clean": "You All Over Me (Taylor's Version) (From The Vault)",
-      "song_family": "you_all_over_me_taylor_s_version_from_the_vault",
+      "title_clean": "You All Over Me",
+      "song_family": "you_all_over_me",
       "version_tag": "featured__vault__taylors_version__feature"
     },
     {
