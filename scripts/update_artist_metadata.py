@@ -14,7 +14,7 @@ DATA_DIR = ROOT / "data"
 ARTIST_PATH = DATA_DIR / "artist.json"
 ARTIST_URL = "https://open.spotify.com/artist/06HL4z0CvFAxyc27GXpf02"
 
-HEADLESS = True
+HEADLESS = False
 
 
 def get_scrape_date_str() -> str:
@@ -150,7 +150,6 @@ def extract_monthly_listeners_and_rank_from_text(text: str) -> tuple[int | None,
 
     return monthly_listeners, monthly_rank
 
-
 def scrape_artist_metadata() -> dict:
     result = {
         "name": "Taylor Swift",
@@ -168,9 +167,31 @@ def scrape_artist_metadata() -> dict:
     page.route("**/*", block_unneeded)
 
     try:
-        page.goto(ARTIST_URL, wait_until="domcontentloaded", timeout=30000)
+        success = False
 
-        for wait_ms in (800, 1500, 2500, 4000):
+        for attempt in range(2):
+            try:
+                page.goto(ARTIST_URL, wait_until="domcontentloaded", timeout=60000)
+                success = True
+                break
+            except PlaywrightTimeoutError:
+                print(f"Artist page timeout (attempt {attempt + 1}/2)")
+                page.wait_for_timeout(2000)
+            except Exception as e:
+                print(f"Artist page error (attempt {attempt + 1}/2): {e}")
+                page.wait_for_timeout(2000)
+
+        if not success:
+            print("Could not load artist page. Keeping existing artist metadata if available.")
+            return result
+
+        try:
+            page.get_by_role("button", name=re.compile("Accept|Accept all|Accepter|Autoriser", re.I)).click(timeout=2000)
+            page.wait_for_timeout(1000)
+        except Exception:
+            pass
+
+        for wait_ms in (1000, 2000, 4000, 6000):
             page.wait_for_timeout(wait_ms)
 
             try:
@@ -183,18 +204,14 @@ def scrape_artist_metadata() -> dict:
 
             if image_url:
                 result["image_url"] = image_url
-
             if monthly_listeners is not None:
                 result["monthly_listeners"] = monthly_listeners
-
             if monthly_rank is not None:
                 result["monthly_rank"] = monthly_rank
 
             if result["image_url"] and result["monthly_listeners"] is not None:
                 break
 
-    except PlaywrightTimeoutError:
-        pass
     finally:
         browser.close()
         p.stop()
@@ -219,7 +236,6 @@ def save_artist_metadata(data: dict) -> None:
         encoding="utf-8",
     )
 
-
 def update_artist_metadata() -> dict:
     existing = load_existing_artist_metadata()
     scraped = scrape_artist_metadata()
@@ -242,6 +258,13 @@ def update_artist_metadata() -> dict:
     }
 
     save_artist_metadata(merged)
+
+    print(
+        "Artist metadata updated | "
+        f"monthly_listeners={format_int(merged.get('monthly_listeners'))} | "
+        f"rank={merged.get('monthly_rank') if merged.get('monthly_rank') is not None else 'N/A'}"
+    )
+
     return merged
 
 

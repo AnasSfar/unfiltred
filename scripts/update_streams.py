@@ -25,11 +25,28 @@ DISCOGRAPHY_DIR = ROOT / "discography"
 ARTIST_PATH = DATA_DIR / "artist.json"
 ARTIST_URL = "https://open.spotify.com/artist/06HL4z0CvFAxyc27GXpf02"
 
-HEADLESS = True
-MAX_PARALLEL_PAGES = 8
+HEADLESS = False
+MAX_PARALLEL_PAGES = 4
 SLEEP_SECONDS = 10 * 60
+PAGE_GOTO_TIMEOUT_MS = 600000
+DEBUG_PAGE_PREVIEW = True
 
 START_TIME = None
+
+
+def get_scrape_date_str() -> str:
+    return date.today().isoformat()
+
+
+def get_stats_date_str() -> str:
+    return (date.today() - timedelta(days=1)).isoformat()
+
+
+def format_int(value: int | None) -> str:
+    if value is None:
+        return "N/A"
+    return f"{value:,}".replace(",", " ")
+
 
 def parse_int_from_text(value: str | None) -> int | None:
     if not value:
@@ -45,13 +62,31 @@ def parse_int_from_text(value: str | None) -> int | None:
         return None
 
 
+def is_duration_line(text: str) -> bool:
+    return bool(re.fullmatch(r"\d{1,2}:\d{2}", text.strip()))
+
+
+def is_large_number_line(text: str) -> bool:
+    cleaned = text.strip().replace("\u202f", " ").replace("\xa0", " ")
+    if not re.fullmatch(r"[\d\s,.\']+", cleaned):
+        return False
+    value = parse_int_from_text(cleaned)
+    return value is not None and value >= 1000
+
+
+def extract_track_id(url: str | None) -> str | None:
+    if not url:
+        return None
+    match = re.search(r"track/([A-Za-z0-9]+)", url)
+    return match.group(1) if match else None
+
+
 def extract_monthly_listeners_and_rank_from_text(text: str) -> tuple[int | None, int | None]:
     if not text:
         return None, None
 
     monthly_listeners = None
     monthly_rank = None
-
     text_compact = re.sub(r"\s+", " ", text).strip()
 
     monthly_patterns = [
@@ -85,11 +120,58 @@ def extract_monthly_listeners_and_rank_from_text(text: str) -> tuple[int | None,
     return monthly_listeners, monthly_rank
 
 
+def block_unneeded(route):
+    request = route.request
+    url = request.url.lower()
+    resource_type = request.resource_type
+
+    blocked_resource_types = {"media", "font"}
+    blocked_keywords = (
+        "doubleclick",
+        "googletagmanager",
+        "google-analytics",
+        "analytics",
+        "facebook",
+        "pixel",
+        "ads",
+        ".mp4",
+        ".webm",
+        ".mp3",
+        ".wav",
+        ".ogg",
+        ".woff",
+        ".woff2",
+        ".ttf",
+    )
+
+    if resource_type in blocked_resource_types or any(x in url for x in blocked_keywords):
+        route.abort()
+    else:
+        route.continue_()
+
+
+def maybe_accept_cookies(page) -> None:
+    patterns = [
+        r"Accept",
+        r"Accept all",
+        r"Accepter",
+        r"Autoriser",
+    ]
+
+    for pattern in patterns:
+        try:
+            page.get_by_role("button", name=re.compile(pattern, re.I)).click(timeout=1500)
+            page.wait_for_timeout(800)
+            return
+        except Exception:
+            pass
+
+
 def extract_artist_image(page) -> str | None:
     selectors = [
         'img[alt="Taylor Swift"]',
         'img[src*="i.scdn.co"]',
-        'img',
+        "img",
     ]
 
     for selector in selectors:
@@ -133,9 +215,25 @@ def scrape_artist_metadata() -> dict:
     page.route("**/*", block_unneeded)
 
     try:
-        page.goto(ARTIST_URL, wait_until="domcontentloaded", timeout=30000)
+        success = False
 
-        for wait_ms in (800, 1500, 2500, 4000):
+        for attempt in range(2):
+            try:
+                page.goto(ARTIST_URL, wait_until="domcontentloaded", timeout=PAGE_GOTO_TIMEOUT_MS)
+                maybe_accept_cookies(page)
+                success = True
+                break
+            except PlaywrightTimeoutError:
+                print(f"Artist page timeout ({attempt + 1}/2)")
+                page.wait_for_timeout(2000)
+            except Exception as e:
+                print(f"Artist page error ({attempt + 1}/2): {e}")
+                page.wait_for_timeout(2000)
+
+        if not success:
+            return result
+
+        for wait_ms in (1000, 2000, 4000, 6000):
             page.wait_for_timeout(wait_ms)
 
             try:
@@ -212,26 +310,6 @@ def update_artist_metadata() -> dict:
 
     return merged
 
-def get_scrape_date_str() -> str:
-    return date.today().isoformat()
-
-
-def get_stats_date_str() -> str:
-    return (date.today() - timedelta(days=1)).isoformat()
-
-
-def format_int(value: int | None) -> str:
-    if value is None:
-        return "N/A"
-    return f"{value:,}".replace(",", " ")
-
-
-def extract_track_id(url: str | None) -> str | None:
-    if not url:
-        return None
-    match = re.search(r"track/([A-Za-z0-9]+)", url)
-    return match.group(1) if match else None
-
 
 def load_active_track_ids_from_discography() -> set[str]:
     active_track_ids = set()
@@ -252,36 +330,6 @@ def load_active_track_ids_from_discography() -> set[str]:
                 active_track_ids.add(track_id)
 
     return active_track_ids
-
-
-def block_unneeded(route):
-    request = route.request
-    url = request.url.lower()
-    resource_type = request.resource_type
-
-    blocked_resource_types = {"media", "font"}
-    blocked_keywords = (
-        "doubleclick",
-        "googletagmanager",
-        "google-analytics",
-        "analytics",
-        "facebook",
-        "pixel",
-        "ads",
-        ".mp4",
-        ".webm",
-        ".mp3",
-        ".wav",
-        ".ogg",
-        ".woff",
-        ".woff2",
-        ".ttf",
-    )
-
-    if resource_type in blocked_resource_types or any(x in url for x in blocked_keywords):
-        route.abort()
-    else:
-        route.continue_()
 
 
 def ensure_history_file() -> None:
@@ -310,14 +358,17 @@ def load_today_history_track_ids(stats_date: str) -> set[str]:
                 continue
 
             daily_raw = (row.get("daily_streams") or "").strip()
+            if not daily_raw:
+                continue
 
             try:
-                if daily_raw != "" and int(daily_raw) > 0:
+                if int(daily_raw) > 0:
                     done.add(track_id)
             except ValueError:
                 pass
 
     return done
+
 
 def get_last_history_total(track_id: str) -> int | None:
     if not HISTORY_PATH.exists():
@@ -380,7 +431,7 @@ def append_history_rows(rows: list[list]) -> None:
         writer.writerows(rows)
 
 
-def save_not_found_rows(rows: list[dict]) -> None:
+def save_failed_rows(rows: list[dict]) -> None:
     if not rows:
         if FAILED_PATH.exists():
             FAILED_PATH.unlink()
@@ -388,92 +439,162 @@ def save_not_found_rows(rows: list[dict]) -> None:
 
     with FAILED_PATH.open("w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
-        writer.writerow(["title", "track_id", "spotify_url"])
+        writer.writerow(["title", "track_id", "spotify_url", "status"])
         for row in rows:
-            writer.writerow([row["title"], row["track_id"], row.get("spotify_url", "")])
+            writer.writerow(
+                [
+                    row["title"],
+                    row["track_id"],
+                    row.get("spotify_url", ""),
+                    row.get("status", ""),
+                ]
+            )
 
 
-def parse_streams_text(value: str) -> int | None:
-    if not value:
-        return None
+def extract_main_track_playcount_from_lines(lines: list[str]) -> tuple[int | None, str | None]:
+    if not lines:
+        return None, None
 
-    digits = re.sub(r"[^\d]", "", value)
-    if not digits:
-        return None
+    start_idx = None
+    for i, line in enumerate(lines):
+        if line.strip().lower() == "titre":
+            start_idx = i
+            break
 
-    try:
-        return int(digits)
-    except ValueError:
-        return None
+    if start_idx is None:
+        return None, None
+
+    end_markers = {
+        "connectez-vous",
+        "se connecter",
+        "artiste",
+        "recommandés",
+        "basées sur ce titre",
+        "titres populaires par",
+        "sorties populaires par taylor swift",
+    }
+
+    block: list[str] = []
+    for line in lines[start_idx + 1 :]:
+        normalized = line.strip().lower()
+        if normalized in end_markers:
+            break
+        block.append(line.strip())
+
+    if not block:
+        return None, None
+
+    for i, line in enumerate(block):
+        if is_duration_line(line):
+            for j in range(i + 1, min(i + 6, len(block))):
+                candidate = block[j].strip()
+                if candidate in {"•", "-", ""}:
+                    continue
+                if is_large_number_line(candidate):
+                    value = parse_int_from_text(candidate)
+                    if value is not None:
+                        return value, candidate
+
+    numeric_candidates = []
+    for line in block:
+        cleaned = line.strip()
+        if is_large_number_line(cleaned):
+            value = parse_int_from_text(cleaned)
+            if value is not None:
+                numeric_candidates.append((value, cleaned))
+
+    if len(numeric_candidates) == 1:
+        return numeric_candidates[0]
+
+    return None, None
 
 
 def extract_streams_from_page(page) -> tuple[int | None, str | None]:
-    candidates = [
-        '[data-testid="playcount"]',
-        'span:has-text("streams")',
-        'span:has-text("écoutes")',
-        'span:has-text("lectures")',
-        'div:has-text("streams")',
-        'div:has-text("écoutes")',
-        'div:has-text("lectures")',
-    ]
-
-    for selector in candidates:
-        try:
-            loc = page.locator(selector)
-            count = min(loc.count(), 8)
-        except Exception:
-            continue
-
-        for i in range(count):
-            try:
-                text = loc.nth(i).inner_text().strip()
-            except Exception:
-                continue
-
-            total = parse_streams_text(text)
-            if total is not None:
-                return total, text
-
     try:
         body_text = page.locator("body").inner_text(timeout=5000)
     except Exception:
         return None, None
 
-    patterns = [
-        r"([\d\s.,]+)\s+(streams|écoutes|lectures)",
-        r"(streams|écoutes|lectures)\s+([\d\s.,]+)",
+    if not body_text:
+        return None, None
+
+    lines = [
+        line.replace("\u202f", " ").replace("\xa0", " ").strip()
+        for line in body_text.splitlines()
     ]
+    lines = [line for line in lines if line]
 
-    for pattern in patterns:
-        match = re.search(pattern, body_text, re.IGNORECASE)
-        if not match:
-            continue
-
-        raw = match.group(1) if re.match(r"^[\d\s.,]+$", match.group(1)) else match.group(2)
-        total = parse_streams_text(raw)
-        if total is not None:
-            return total, raw
+    total, raw = extract_main_track_playcount_from_lines(lines)
+    if total is not None:
+        return total, raw
 
     return None, None
 
 
-def scrape_track_total(page, title: str, url: str) -> tuple[int | None, str | None]:
+def debug_page_preview(page, title: str, url: str) -> None:
+    if not DEBUG_PAGE_PREVIEW:
+        return
+
     try:
-        page.goto(url, wait_until="domcontentloaded", timeout=20000)
-
-        for wait_ms in (400, 900, 1500):
-            page.wait_for_timeout(wait_ms)
-            total, raw = extract_streams_from_page(page)
-            if total is not None:
-                return total, raw
-
-        return None, None
-
-    except PlaywrightTimeoutError:
-        return None, None
+        body_text = page.locator("body").inner_text(timeout=5000)
     except Exception:
-        return None, None
+        body_text = ""
+
+    try:
+        page_title = page.title()
+    except Exception:
+        page_title = ""
+
+    print()
+    print("=" * 80)
+    print(f"TRACK: {title}")
+    print(f"URL asked: {url}")
+    print(f"URL final: {page.url}")
+    print(f"PAGE TITLE: {page_title}")
+    print("BODY PREVIEW:")
+    print(body_text[:2500])
+    print("=" * 80)
+    print()
+
+
+def scrape_track_total(page, title: str, url: str) -> tuple[int | None, str | None, str]:
+    for attempt in range(2):
+        try:
+            page.goto(url, wait_until="domcontentloaded", timeout=PAGE_GOTO_TIMEOUT_MS)
+            maybe_accept_cookies(page)
+            page.wait_for_timeout(2000)
+
+            debug_page_preview(page, title, url)
+
+            for wait_ms in (1000, 2000, 4000):
+                page.wait_for_timeout(wait_ms)
+                total, raw = extract_streams_from_page(page)
+                if total is not None:
+                    return total, raw, "ok"
+
+            return None, None, "not_found"
+
+        except PlaywrightTimeoutError:
+            if attempt == 0:
+                try:
+                    page.wait_for_timeout(2000)
+                except Exception:
+                    pass
+                continue
+            print(f"SCRAPE TIMEOUT on {title}: {url}")
+            return None, None, "timeout"
+
+        except Exception as e:
+            if attempt == 0:
+                try:
+                    page.wait_for_timeout(1500)
+                except Exception:
+                    pass
+                continue
+            print(f"SCRAPE ERROR on {title}: {e}")
+            return None, None, "error"
+
+    return None, None, "error"
 
 
 def update_song_in_db(track_id: str, streams: int, daily_streams: int | None, scrape_date: str) -> None:
@@ -522,14 +643,20 @@ def live_progress(i, total, title, result):
     elif status == "pending":
         print(
             f"{prefix} PENDING | total={format_int(result.get('streams'))} | "
-            f"unchanged yet | ETA {eta}"
+            f"no new streams yet | ETA {eta}"
         )
     elif status == "skipped":
         print(f"{prefix} SKIPPED | ETA {eta}")
+    elif status == "timeout":
+        print(f"{prefix} TIMEOUT | ETA {eta}")
+    elif status == "error":
+        print(f"{prefix} ERROR | ETA {eta}")
     elif status == "not_found":
         print(f"{prefix} NOT FOUND | ETA {eta}")
     else:
         print(f"{prefix} {status.upper()} | ETA {eta}")
+
+
 def _worker(queue, results, lock, on_progress, total_tracks, history_rows):
     p = sync_playwright().start()
     browser = p.chromium.launch(headless=HEADLESS)
@@ -553,9 +680,23 @@ def _worker(queue, results, lock, on_progress, total_tracks, history_rows):
             if on_progress:
                 on_progress(i, total_tracks, title, None)
 
-            total, raw = scrape_track_total(page, title, url)
+            total, raw, scrape_status = scrape_track_total(page, title, url)
 
-            if total is None:
+            if scrape_status == "timeout":
+                result = {
+                    "track_id": track_id,
+                    "title": title,
+                    "spotify_url": url,
+                    "status": "timeout",
+                }
+            elif scrape_status == "error":
+                result = {
+                    "track_id": track_id,
+                    "title": title,
+                    "spotify_url": url,
+                    "status": "error",
+                }
+            elif scrape_status == "not_found" or total is None:
                 result = {
                     "track_id": track_id,
                     "title": title,
@@ -668,6 +809,8 @@ def run_update(on_progress=None):
         "updated_this_run": sum(1 for r in filtered_results if r["status"] == "updated"),
         "pending_this_run": sum(1 for r in filtered_results if r["status"] == "pending"),
         "skipped_this_run": sum(1 for r in filtered_results if r["status"] == "skipped"),
+        "timeout_this_run": sum(1 for r in filtered_results if r["status"] == "timeout"),
+        "error_this_run": sum(1 for r in filtered_results if r["status"] == "error"),
         "not_found_this_run": sum(1 for r in filtered_results if r["status"] == "not_found"),
         "results": filtered_results,
     }
@@ -692,12 +835,22 @@ def run_until_complete(on_progress=None):
             f"Progress {summary['stats_date']}: "
             f"{summary['done_tracks']}/{summary['total_tracks']} "
             f"| remaining={summary['remaining_tracks']} "
-            f"| pending={summary['pending_this_run']}"
+            f"| pending={summary['pending_this_run']} "
+            f"| timeout={summary['timeout_this_run']} "
+            f"| error={summary['error_this_run']} "
+            f"| not_found={summary['not_found_this_run']}"
         )
 
+        if summary["updated_this_run"] == 0 and summary["pending_this_run"] > 0:
+            print("No new updates detected in this run.")
+            print("Spotify usually updates daily counts around 15:00 Paris time.")
+
         if summary["all_done"]:
-            failed_rows = [r for r in last_results if r["status"] == "not_found"]
-            save_not_found_rows(failed_rows)
+            failed_rows = [
+                r for r in last_results
+                if r["status"] in {"not_found", "timeout", "error"}
+            ]
+            save_failed_rows(failed_rows)
 
             print("All tracks updated.")
 
@@ -727,4 +880,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        print("\nStopped by user.")
