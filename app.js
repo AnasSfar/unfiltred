@@ -10,7 +10,6 @@ const state = {
   combineVersions: false,
 };
 
-
 function formatFull(value) {
   if (value === null || value === undefined) return "N/A";
   return value.toLocaleString("en-US");
@@ -35,132 +34,16 @@ function getQueryParam(name) {
   return url.searchParams.get(name);
 }
 
-function getSongVersionsForFamily(family, date) {
-  const rows = enrichSongsForDate(date);
-
-  return rows
-    .filter((song) => (song.song_family || song.track_id) === family)
-    .sort((a, b) =>
-      (b.streams || 0) - (a.streams || 0) ||
-      (b.daily_streams || 0) - (a.daily_streams || 0) ||
-      a.title.localeCompare(b.title)
-    );
-}
-
-function getSongFamilyTotals(rows) {
-  return {
-    total_streams: rows.reduce((sum, song) => sum + (song.streams || 0), 0),
-    daily_streams: rows.reduce((sum, song) => sum + (song.daily_streams || 0), 0),
-    versions_count: rows.length,
-  };
-}
-
-function getLeadSongVersion(rows) {
-  if (!rows.length) return null;
-
-  return [...rows].sort((a, b) =>
-    (b.streams || 0) - (a.streams || 0) ||
-    (b.daily_streams || 0) - (a.daily_streams || 0)
-  )[0];
-}
-
-function renderSongDetail(container) {
-  const family = getQueryParam("family");
-
-  if (!family) {
-    container.innerHTML = `
-      ${renderNav()}
-      ${renderTopbar()}
-      <section class="section-card">
-        <div class="empty">Song not found.</div>
-      </section>
-    `;
-    return;
+function formatArtists(song) {
+  if (Array.isArray(song.artists) && song.artists.length) {
+    return song.artists.join(", ");
   }
 
-  const versions = getSongVersionsForFamily(family, state.selectedDate);
-
-  if (!versions.length) {
-    container.innerHTML = `
-      ${renderNav()}
-      ${renderTopbar()}
-      <section class="section-card">
-        <div class="empty">No versions found for this song.</div>
-      </section>
-    `;
-    return;
+  if (typeof song.primary_artist === "string" && song.primary_artist.trim()) {
+    return song.primary_artist;
   }
 
-  const leadSong = getLeadSongVersion(versions);
-  const totals = getSongFamilyTotals(versions);
-
-  container.innerHTML = `
-    ${renderNav()}
-    ${renderTopbar()}
-
-    <section class="section-card">
-      <div class="section-head album-hero-head">
-        <div class="album-hero">
-          <img class="album-cover-small" src="${leadSong.image_url || ""}" alt="${leadSong.title}">
-          <div>
-            <h2>${leadSong.title_clean || leadSong.title}</h2>
-            <p>
-              ${formatArtists(leadSong)}
-              • ${totals.versions_count} version${totals.versions_count > 1 ? "s" : ""}
-              • ${formatFull(totals.total_streams)} total streams combined
-              • ${formatFull(totals.daily_streams)} daily streams combined
-              • ${state.selectedDate}
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="subsection-head">
-        <h3>Versions</h3>
-      </div>
-
-      <div class="table-wrap">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Version</th>
-              <th>Artists</th>
-              <th>Album</th>
-              <th>Edition</th>
-              <th>Type</th>
-              <th>Daily streams</th>
-              <th>Total streams</th>
-              <th>Streams change</th>
-            </tr>
-          </thead>
-          <tbody>
-            ${versions.map((song, i) => `
-              <tr>
-                <td>${i + 1}</td>
-                <td>
-                  <div class="mini-song">
-                    <img src="${song.image_url || ""}" alt="${song.title}">
-                    <div>
-                      <div><strong>${song.title}</strong></div>
-                      <div class="mini-song-sub">${song.version_tag || "standard"}</div>
-                    </div>
-                  </div>
-                </td>
-                <td>${formatArtists(song)}</td>
-                <td>${song.primary_album || "Unknown album"}</td>
-                <td>${song.edition || "—"}</td>
-                <td>${song.type || "—"}</td>
-                <td>${formatFull(song.daily_streams)}</td>
-                <td>${formatFull(song.streams)}</td>
-                <td>${renderStreamChange(song.total_change)}</td>
-              </tr>
-            `).join("")}
-          </tbody>
-        </table>
-      </div>
-    </section>
-  `;
+  return "Unknown artist";
 }
 
 function enrichSongsForDate(date) {
@@ -191,22 +74,6 @@ function enrichSongsForDate(date) {
   return rows;
 }
 
-updateBtn?.addEventListener("click", async () => {
-  updateBtn.disabled = true;
-  updateBtn.classList.add("loading");
-  updateBtn.textContent = "Updating...";
-
-  try {
-    await fetch("/api/update", { method: "POST" });
-  } catch (err) {
-    console.error(err);
-  }
-
-  updateBtn.disabled = false;
-  updateBtn.classList.remove("loading");
-  updateBtn.textContent = "Update streams";
-});
-
 function sortSongs(rows, mode = "streams") {
   const copy = [...rows];
 
@@ -235,13 +102,74 @@ function computeRankMap(rows, mode) {
 
   sorted.forEach((song, idx) => {
     const key = state.combineVersions
-      ? (song.song_family || song.track_id)
+      ? song.song_family || song.track_id
       : song.track_id;
 
     rankMap.set(key, idx + 1);
   });
 
   return rankMap;
+}
+
+function combineSongVersions(rows) {
+  const grouped = new Map();
+
+  for (const song of rows) {
+    const key = song.song_family || song.track_id;
+
+    if (!grouped.has(key)) {
+      grouped.set(key, {
+        ...song,
+        combined_versions_count: 1,
+      });
+      continue;
+    }
+
+    const existing = grouped.get(key);
+
+    const existingStreams = existing.streams || 0;
+    const existingDaily = existing.daily_streams || 0;
+    const existingPrevious = existing.previous_streams;
+    const existingChange = existing.total_change;
+
+    const currentStreams = song.streams || 0;
+    const currentDaily = song.daily_streams || 0;
+    const currentPrevious = song.previous_streams;
+    const currentChange = song.total_change;
+
+    const wasLeader = existingStreams >= currentStreams;
+
+    existing.streams = existingStreams + currentStreams;
+    existing.daily_streams = existingDaily + currentDaily;
+
+    if (existingPrevious != null && currentPrevious != null) {
+      existing.previous_streams = existingPrevious + currentPrevious;
+    } else if (existingPrevious == null && currentPrevious != null) {
+      existing.previous_streams = currentPrevious;
+    }
+
+    if (existingChange != null && currentChange != null) {
+      existing.total_change = existingChange + currentChange;
+    } else if (existingChange == null && currentChange != null) {
+      existing.total_change = currentChange;
+    }
+
+    existing.combined_versions_count += 1;
+
+    if (!wasLeader) {
+      existing.track_id = song.track_id;
+      existing.title = song.title;
+      existing.title_clean = song.title_clean || existing.title_clean;
+      existing.image_url = song.image_url || existing.image_url;
+      existing.primary_album = song.primary_album || existing.primary_album;
+      existing.primary_artist = song.primary_artist || existing.primary_artist;
+      existing.artists = song.artists || existing.artists;
+      existing.song_family = song.song_family || existing.song_family;
+      existing.version_tag = song.version_tag || existing.version_tag;
+    }
+  }
+
+  return [...grouped.values()];
 }
 
 function withRankChanges(rows, date, mode) {
@@ -261,7 +189,7 @@ function withRankChanges(rows, date, mode) {
 
   return rows.map((song) => {
     const key = state.combineVersions
-      ? (song.song_family || song.track_id)
+      ? song.song_family || song.track_id
       : song.track_id;
 
     const currentRank = currentRankMap.get(key) ?? null;
@@ -357,6 +285,37 @@ function getMajorMilestoneHighlights(date) {
     });
 }
 
+function getSongVersionsForFamily(family, date) {
+  const rows = enrichSongsForDate(date);
+
+  return rows
+    .filter((song) => (song.song_family || song.track_id) === family)
+    .sort(
+      (a, b) =>
+        (b.streams || 0) - (a.streams || 0) ||
+        (b.daily_streams || 0) - (a.daily_streams || 0) ||
+        a.title.localeCompare(b.title)
+    );
+}
+
+function getSongFamilyTotals(rows) {
+  return {
+    total_streams: rows.reduce((sum, song) => sum + (song.streams || 0), 0),
+    daily_streams: rows.reduce((sum, song) => sum + (song.daily_streams || 0), 0),
+    versions_count: rows.length,
+  };
+}
+
+function getLeadSongVersion(rows) {
+  if (!rows.length) return null;
+
+  return [...rows].sort(
+    (a, b) =>
+      (b.streams || 0) - (a.streams || 0) ||
+      (b.daily_streams || 0) - (a.daily_streams || 0)
+  )[0];
+}
+
 function renderNav() {
   return `
     <nav class="nav">
@@ -365,76 +324,6 @@ function renderNav() {
       <a href="milestones.html" class="${state.page === "milestones" ? "active" : ""}">Milestones</a>
     </nav>
   `;
-}
-
-function formatArtists(song) {
-  if (Array.isArray(song.artists) && song.artists.length) {
-    return song.artists.join(", ");
-  }
-  if (typeof song.primary_artist === "string" && song.primary_artist.trim()) {
-    return song.primary_artist;
-  }
-  return "Unknown artist";
-}
-
-function combineSongVersions(rows) {
-  const grouped = new Map();
-
-  for (const song of rows) {
-    const key = song.song_family || song.track_id;
-
-    if (!grouped.has(key)) {
-      grouped.set(key, {
-        ...song,
-        combined_versions_count: 1,
-      });
-      continue;
-    }
-
-    const existing = grouped.get(key);
-
-    const existingStreams = existing.streams || 0;
-    const existingDaily = existing.daily_streams || 0;
-    const existingPrevious = existing.previous_streams;
-    const existingChange = existing.total_change;
-    const currentStreams = song.streams || 0;
-    const currentDaily = song.daily_streams || 0;
-    const currentPrevious = song.previous_streams;
-    const currentChange = song.total_change;
-
-    const wasLeader = existingStreams >= currentStreams;
-
-    existing.streams = existingStreams + currentStreams;
-    existing.daily_streams = existingDaily + currentDaily;
-
-    if (existingPrevious != null && currentPrevious != null) {
-      existing.previous_streams = existingPrevious + currentPrevious;
-    } else if (existingPrevious == null && currentPrevious != null) {
-      existing.previous_streams = currentPrevious;
-    }
-
-    if (existingChange != null && currentChange != null) {
-      existing.total_change = existingChange + currentChange;
-    } else if (existingChange == null && currentChange != null) {
-      existing.total_change = currentChange;
-    }
-
-    existing.combined_versions_count += 1;
-
-    if (!wasLeader) {
-      existing.track_id = song.track_id;
-      existing.title = song.title;
-      existing.title_clean = song.title_clean || existing.title_clean;
-      existing.image_url = song.image_url || existing.image_url;
-      existing.primary_album = song.primary_album || existing.primary_album;
-      existing.primary_artist = song.primary_artist || existing.primary_artist;
-      existing.artists = song.artists || existing.artists;
-      existing.song_family = song.song_family || existing.song_family;
-      existing.version_tag = song.version_tag || existing.version_tag;
-    }
-  }
-
-  return [...grouped.values()];
 }
 
 function renderTopbar() {
@@ -446,35 +335,67 @@ function renderTopbar() {
         <h1>Daily Charts</h1>
         <p>Taylor Swift streaming rankings</p>
         <button id="updateBtn" class="update-btn">Update streams</button>
-<div id="updateLog" class="update-log"></div>
+        <div id="updateLog" class="update-log"></div>
       </div>
 
       <div class="date-controls">
         <button id="prevDayBtn">←</button>
-        <input id="dateInput" type="date" value="${state.selectedDate || latest}" min="${state.dates[0] || ""}" max="${latest}">
+        <input
+          id="dateInput"
+          type="date"
+          value="${state.selectedDate || latest}"
+          min="${state.dates[0] || ""}"
+          max="${latest}"
+        >
         <button id="nextDayBtn">→</button>
       </div>
     </div>
   `;
 }
 
-document.getElementById("updateBtn")?.addEventListener("click", async () => {
-  const btn = document.getElementById("updateBtn");
+function bindUpdateButton() {
+  const updateBtn = document.getElementById("updateBtn");
+  const updateLog = document.getElementById("updateLog");
 
-  btn.disabled = true;
-  btn.textContent = "Updating...";
+  if (!updateBtn) return;
 
-  try {
-    await fetch("/api/update", {
-      method: "POST"
-    });
-  } catch (e) {
-    console.error(e);
-  }
+  updateBtn.addEventListener("click", async () => {
+    updateBtn.disabled = true;
+    updateBtn.classList.add("loading");
+    updateBtn.textContent = "Updating...";
 
-  btn.textContent = "Update streams";
-  btn.disabled = false;
-});
+    if (updateLog) {
+      updateLog.textContent = "Update started...";
+      updateLog.className = "update-log";
+    }
+
+    try {
+      const res = await fetch("/api/update", {
+        method: "POST",
+      });
+
+      if (!res.ok) {
+        throw new Error("Update failed");
+      }
+
+      if (updateLog) {
+        updateLog.textContent = `Updated • ${new Date().toLocaleTimeString()}`;
+        updateLog.className = "update-log success";
+      }
+    } catch (err) {
+      console.error(err);
+
+      if (updateLog) {
+        updateLog.textContent = "Update failed";
+        updateLog.className = "update-log error";
+      }
+    } finally {
+      updateBtn.disabled = false;
+      updateBtn.classList.remove("loading");
+      updateBtn.textContent = "Update streams";
+    }
+  });
+}
 
 function renderStats(rows) {
   const totalCombined = rows.reduce((sum, r) => sum + (r.streams || 0), 0);
@@ -506,16 +427,28 @@ function renderStats(rows) {
 }
 
 function renderRankChange(change) {
-  if (change === null || change === undefined) return `<span class="delta neutral">—</span>`;
-  if (change > 0) return `<span class="delta up">↑ ${change}</span>`;
-  if (change < 0) return `<span class="delta down">↓ ${Math.abs(change)}</span>`;
+  if (change === null || change === undefined) {
+    return `<span class="delta neutral">—</span>`;
+  }
+  if (change > 0) {
+    return `<span class="delta up">↑ ${change}</span>`;
+  }
+  if (change < 0) {
+    return `<span class="delta down">↓ ${Math.abs(change)}</span>`;
+  }
   return `<span class="delta neutral">• 0</span>`;
 }
 
 function renderStreamChange(change) {
-  if (change === null || change === undefined) return `<span class="delta neutral">—</span>`;
-  if (change > 0) return `<span class="delta up">+${formatFull(change)}</span>`;
-  if (change < 0) return `<span class="delta down">${formatFull(change)}</span>`;
+  if (change === null || change === undefined) {
+    return `<span class="delta neutral">—</span>`;
+  }
+  if (change > 0) {
+    return `<span class="delta up">+${formatFull(change)}</span>`;
+  }
+  if (change < 0) {
+    return `<span class="delta down">${formatFull(change)}</span>`;
+  }
   return `<span class="delta neutral">0</span>`;
 }
 
@@ -529,10 +462,15 @@ function songRow(song) {
           <div class="song-row-grid">
             <div class="col-rank">${song.current_rank ?? "—"}</div>
 
-            <div class="col-rank-change">${renderRankChange(song.rank_change)}</div>
+            <div class="col-rank-change">
+              ${renderRankChange(song.rank_change)}
+            </div>
 
             <div class="col-song">
-              <a class="song-link" href="song.html?family=${encodeURIComponent(song.song_family || song.track_id)}">
+              <a
+                class="song-link"
+                href="song.html?family=${encodeURIComponent(song.song_family || song.track_id)}"
+              >
                 <img class="row-cover" src="${song.image_url || ""}" alt="${song.title}">
                 <div class="row-song-meta">
                   <div class="row-song-title">${song.title_clean || song.title}</div>
@@ -583,21 +521,21 @@ function renderMilestoneHighlightsBox(date) {
         ${highlights
           .map(
             (item) => `
-          <article class="milestone-highlight-item">
-            <img
-              class="milestone-highlight-cover"
-              src="${item.image_url || ""}"
-              alt="${item.title}"
-            >
-            <div class="milestone-highlight-content">
-              <div class="milestone-highlight-title">${item.title}</div>
-              <div class="milestone-highlight-text">
-                surpassed <strong>${item.milestone_label}</strong> and became the
-                <strong>${formatOrdinal(item.ordinal)}</strong> Taylor Swift song to do so.
-              </div>
-            </div>
-          </article>
-        `
+              <article class="milestone-highlight-item">
+                <img
+                  class="milestone-highlight-cover"
+                  src="${item.image_url || ""}"
+                  alt="${item.title}"
+                >
+                <div class="milestone-highlight-content">
+                  <div class="milestone-highlight-title">${item.title}</div>
+                  <div class="milestone-highlight-text">
+                    surpassed <strong>${item.milestone_label}</strong> and became the
+                    <strong>${formatOrdinal(item.ordinal)}</strong> Taylor Swift song to do so.
+                  </div>
+                </div>
+              </article>
+            `
           )
           .join("")}
       </div>
@@ -605,48 +543,11 @@ function renderMilestoneHighlightsBox(date) {
   `;
 }
 
-const updateBtn = document.getElementById("updateBtn");
-const updateLog = document.getElementById("updateLog");
-
-updateBtn.addEventListener("click", async () => {
-
-  updateLog.textContent = "Updating streams...";
-  updateLog.className = "update-log";
-
-  try {
-
-    updateBtn.classList.add("loading");
-    updateBtn.disabled = true;
-
-    const res = await fetch("/api/update-streams");
-
-    if (!res.ok) throw new Error("update failed");
-
-    const data = await res.json();
-
-    updateLog.textContent =
-      "Updated • " + new Date().toLocaleTimeString();
-
-    updateLog.classList.add("success");
-
-  } catch (err) {
-
-    updateLog.textContent = "Update failed";
-    updateLog.classList.add("error");
-
-  } finally {
-
-    updateBtn.classList.remove("loading");
-    updateBtn.disabled = false;
-
-  }
-});
-
 function renderHome(container) {
   const rawRows = enrichSongsForDate(state.selectedDate);
-const baseRows = state.combineVersions ? combineSongVersions(rawRows) : rawRows;
-const rowsWithRankChanges = withRankChanges(baseRows, state.selectedDate, state.sortMode);
-const sorted = sortSongs(rowsWithRankChanges, state.sortMode);
+  const baseRows = state.combineVersions ? combineSongVersions(rawRows) : rawRows;
+  const rowsWithRankChanges = withRankChanges(baseRows, state.selectedDate, state.sortMode);
+  const sorted = sortSongs(rowsWithRankChanges, state.sortMode);
 
   container.innerHTML = `
     ${renderNav()}
@@ -657,16 +558,33 @@ const sorted = sortSongs(rowsWithRankChanges, state.sortMode);
       <div class="section-head">
         <div>
           <h2>Main Ranking</h2>
-          <p>${state.selectedDate} • sorted by ${state.sortMode === "daily" ? "daily streams" : "total streams"}</p>
+          <p>
+            ${state.selectedDate} • sorted by ${
+              state.sortMode === "daily" ? "daily streams" : "total streams"
+            }
+          </p>
         </div>
 
         <div class="toolbar">
-<div class="toolbar">
-  <button id="sortStreamsBtn" class="${state.sortMode === "streams" ? "active" : ""}">Total streams</button>
-  <button id="sortDailyBtn" class="${state.sortMode === "daily" ? "active" : ""}">Daily streams</button>
-  <button id="combineBtn" class="${state.combineVersions ? "active" : ""}">Combine</button>
-</div>
-</div>
+          <button
+            id="sortStreamsBtn"
+            class="${state.sortMode === "streams" ? "active" : ""}"
+          >
+            Total streams
+          </button>
+          <button
+            id="sortDailyBtn"
+            class="${state.sortMode === "daily" ? "active" : ""}"
+          >
+            Daily streams
+          </button>
+          <button
+            id="combineBtn"
+            class="${state.combineVersions ? "active" : ""}"
+          >
+            Combine
+          </button>
+        </div>
       </div>
 
       <div class="table-wrap ranking-wrap">
@@ -699,25 +617,28 @@ const sorted = sortSongs(rowsWithRankChanges, state.sortMode);
     state.sortMode = "daily";
     renderPage();
   });
+
   document.getElementById("combineBtn")?.addEventListener("click", () => {
-  state.combineVersions = !state.combineVersions;
-  renderPage();
-});
+    state.combineVersions = !state.combineVersions;
+    renderPage();
+  });
 }
 
 function renderAlbums(container) {
   const cards = state.albums
     .map(
       (album) => `
-    <a class="album-card" href="album.html?name=${encodeURIComponent(album.album)}">
-      <img class="album-cover" src="${album.image_url || ""}" alt="${album.album}">
-      <div class="album-body">
-        <div class="album-title">${album.album}</div>
-        <div class="album-sub">${album.track_count} songs</div>
-        <div class="album-sub">${album.kind === "misc" ? "Remixes, standalones, features" : "Main album page"}</div>
-      </div>
-    </a>
-  `
+        <a class="album-card" href="album.html?name=${encodeURIComponent(album.album)}">
+          <img class="album-cover" src="${album.image_url || ""}" alt="${album.album}">
+          <div class="album-body">
+            <div class="album-title">${album.album}</div>
+            <div class="album-sub">${album.track_count} songs</div>
+            <div class="album-sub">
+              ${album.kind === "misc" ? "Remixes, standalones, features" : "Main album page"}
+            </div>
+          </div>
+        </a>
+      `
     )
     .join("");
 
@@ -738,11 +659,18 @@ function renderAlbums(container) {
 
 function sortAlbumSongs(rows, mode) {
   const copy = [...rows];
+
   if (mode === "total") {
-    copy.sort((a, b) => (b.streams || 0) - (a.streams || 0) || a.title.localeCompare(b.title));
+    copy.sort(
+      (a, b) => (b.streams || 0) - (a.streams || 0) || a.title.localeCompare(b.title)
+    );
   } else {
-    copy.sort((a, b) => (b.daily_streams || 0) - (a.daily_streams || 0) || a.title.localeCompare(b.title));
+    copy.sort(
+      (a, b) =>
+        (b.daily_streams || 0) - (a.daily_streams || 0) || a.title.localeCompare(b.title)
+    );
   }
+
   return copy;
 }
 
@@ -767,21 +695,21 @@ function albumTable(rows, showEmptyText = "No songs in this section.") {
           ${rows
             .map(
               (song, i) => `
-            <tr>
-              <td>${i + 1}</td>
-              <td>
-                <div class="mini-song">
-                  <img src="${song.image_url || ""}" alt="${song.title}">
-                  <div>
-                    <div><strong>${song.title}</strong></div>
-                  </div>
-                </div>
-              </td>
-              <td>${formatFull(song.streams)}</td>
-              <td>${formatFull(song.daily_streams)}</td>
-              <td>${renderStreamChange(song.total_change)}</td>
-            </tr>
-          `
+                <tr>
+                  <td>${i + 1}</td>
+                  <td>
+                    <div class="mini-song">
+                      <img src="${song.image_url || ""}" alt="${song.title}">
+                      <div>
+                        <div><strong>${song.title}</strong></div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>${formatFull(song.streams)}</td>
+                  <td>${formatFull(song.daily_streams)}</td>
+                  <td>${renderStreamChange(song.total_change)}</td>
+                </tr>
+              `
             )
             .join("")}
         </tbody>
@@ -793,12 +721,14 @@ function albumTable(rows, showEmptyText = "No songs in this section.") {
 function uniqueByTrackId(rows) {
   const seen = new Set();
   const out = [];
+
   for (const row of rows) {
     if (!seen.has(row.track_id)) {
       seen.add(row.track_id);
       out.push(row);
     }
   }
+
   return out;
 }
 
@@ -810,12 +740,15 @@ function getAlbumBlockSongs(album, rows, blockKey) {
   const songsById = getSongMap(rows);
   const block = (album.display_blocks || []).find((b) => b.key === blockKey);
   if (!block) return [];
+
   return block.track_ids.map((id) => songsById.get(id)).filter(Boolean);
 }
 
 function computeAlbumTotalsForDate(album, rows) {
   const songsById = getSongMap(rows);
-  const albumSongs = (album.track_ids || []).map((id) => songsById.get(id)).filter(Boolean);
+  const albumSongs = (album.track_ids || [])
+    .map((id) => songsById.get(id))
+    .filter(Boolean);
 
   return {
     total_streams_sum: albumSongs.reduce((sum, song) => sum + (song.streams || 0), 0),
@@ -855,7 +788,9 @@ function renderAlbumDetail(container) {
   const songsById = getSongMap(rows);
 
   const displayBlocks = sortDisplayBlocks(albumMeta.display_blocks || []).map((block) => {
-    const songs = (block.track_ids || []).map((id) => songsById.get(id)).filter(Boolean);
+    const songs = (block.track_ids || [])
+      .map((id) => songsById.get(id))
+      .filter(Boolean);
 
     return {
       ...block,
@@ -882,19 +817,33 @@ function renderAlbumDetail(container) {
               ${totals.track_count} songs
               • ${formatFull(totals.total_streams_sum)} total streams
               • ${formatFull(totals.daily_streams_sum)} daily streams
-              • sorted by ${state.albumSortMode === "daily" ? "daily streams" : "total streams"}
+              • sorted by ${
+                state.albumSortMode === "daily" ? "daily streams" : "total streams"
+              }
               for ${state.selectedDate}
             </p>
           </div>
         </div>
 
         <div class="toolbar">
-          <button id="albumSortDailyBtn" class="${state.albumSortMode === "daily" ? "active" : ""}">Daily streams</button>
-          <button id="albumSortTotalBtn" class="${state.albumSortMode === "total" ? "active" : ""}">Total streams</button>
+          <button
+            id="albumSortDailyBtn"
+            class="${state.albumSortMode === "daily" ? "active" : ""}"
+          >
+            Daily streams
+          </button>
+          <button
+            id="albumSortTotalBtn"
+            class="${state.albumSortMode === "total" ? "active" : ""}"
+          >
+            Total streams
+          </button>
         </div>
       </div>
 
-      ${displayBlocks.map((block) => renderAlbumBlock(block.name, block.songs, `No songs in ${block.name}.`)).join("")}
+      ${displayBlocks
+        .map((block) => renderAlbumBlock(block.name, block.songs, `No songs in ${block.name}.`))
+        .join("")}
     </section>
   `;
 
@@ -934,6 +883,113 @@ function sortDisplayBlocks(blocks) {
 
     return aLabel.localeCompare(bLabel);
   });
+}
+
+function renderSongDetail(container) {
+  const family = getQueryParam("family");
+
+  if (!family) {
+    container.innerHTML = `
+      ${renderNav()}
+      ${renderTopbar()}
+      <section class="section-card">
+        <div class="empty">Song not found.</div>
+      </section>
+    `;
+    return;
+  }
+
+  const versions = getSongVersionsForFamily(family, state.selectedDate);
+
+  if (!versions.length) {
+    container.innerHTML = `
+      ${renderNav()}
+      ${renderTopbar()}
+      <section class="section-card">
+        <div class="empty">No versions found for this song.</div>
+      </section>
+    `;
+    return;
+  }
+
+  const leadSong = getLeadSongVersion(versions);
+  const totals = getSongFamilyTotals(versions);
+
+  container.innerHTML = `
+    ${renderNav()}
+    ${renderTopbar()}
+
+    <section class="section-card">
+      <div class="section-head album-hero-head">
+        <div class="album-hero">
+          <img
+            class="album-cover-small"
+            src="${leadSong.image_url || ""}"
+            alt="${leadSong.title}"
+          >
+          <div>
+            <h2>${leadSong.title_clean || leadSong.title}</h2>
+            <p>
+              ${formatArtists(leadSong)}
+              • ${totals.versions_count} version${totals.versions_count > 1 ? "s" : ""}
+              • ${formatFull(totals.total_streams)} total streams combined
+              • ${formatFull(totals.daily_streams)} daily streams combined
+              • ${state.selectedDate}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection-head">
+        <h3>Versions</h3>
+      </div>
+
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Version</th>
+              <th>Artists</th>
+              <th>Album</th>
+              <th>Edition</th>
+              <th>Type</th>
+              <th>Daily streams</th>
+              <th>Total streams</th>
+              <th>Streams change</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${versions
+              .map(
+                (song, i) => `
+                  <tr>
+                    <td>${i + 1}</td>
+                    <td>
+                      <div class="mini-song">
+                        <img src="${song.image_url || ""}" alt="${song.title}">
+                        <div>
+                          <div><strong>${song.title}</strong></div>
+                          <div class="mini-song-sub">${song.version_tag || "standard"}</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>${formatArtists(song)}</td>
+                    <td>${song.primary_album || "Unknown album"}</td>
+                    <td>${song.edition || "—"}</td>
+                    <td>${song.type || "—"}</td>
+                    <td>${formatFull(song.daily_streams)}</td>
+                    <td>${formatFull(song.streams)}</td>
+                    <td>${renderStreamChange(song.total_change)}</td>
+                  </tr>
+                `
+              )
+              .join("")}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  `;
 }
 
 function renderMilestones(container) {
@@ -1018,13 +1074,20 @@ function renderPage() {
   const app = document.getElementById("app");
   if (!app) return;
 
-  if (state.page === "albums") renderAlbums(app);
-  else if (state.page === "album") renderAlbumDetail(app);
-  else if (state.page === "song") renderSongDetail(app);
-  else if (state.page === "milestones") renderMilestones(app);
-  else renderHome(app);
+  if (state.page === "albums") {
+    renderAlbums(app);
+  } else if (state.page === "album") {
+    renderAlbumDetail(app);
+  } else if (state.page === "song") {
+    renderSongDetail(app);
+  } else if (state.page === "milestones") {
+    renderMilestones(app);
+  } else {
+    renderHome(app);
+  }
 
   bindDateControls();
+  bindUpdateButton();
 }
 
 async function loadData() {
