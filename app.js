@@ -313,6 +313,8 @@ function songRow(song) {
           <div class="song-row-grid">
             <div class="col-rank">${song.current_rank ?? "—"}</div>
 
+            <div class="col-rank-change">${renderRankChange(song.rank_change)}</div>
+
             <div class="col-song">
               <img class="row-cover" src="${song.image_url || ""}" alt="${song.title}">
               <div class="row-song-meta">
@@ -326,8 +328,6 @@ function songRow(song) {
             <div class="col-daily">${formatFull(song.daily_streams)}</div>
 
             <div class="col-total">${formatFull(song.streams)}</div>
-
-            <div class="col-rank-change">${renderRankChange(song.rank_change)}</div>
 
             <div class="col-stream-change">
               ${renderStreamChange(song.total_change)}
