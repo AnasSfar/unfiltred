@@ -177,6 +177,9 @@ function bindUpdateButton() {
   const updateLog = document.getElementById("updateLog");
 
   if (!updateBtn) return;
+  if (updateBtn.dataset.bound === "1") return;
+
+  updateBtn.dataset.bound = "1";
 
   updateBtn.addEventListener("click", async () => {
     const log = (message, className = "update-log") => {
@@ -193,6 +196,7 @@ function bindUpdateButton() {
 
     try {
       await loadData();
+      renderPage();
       log(`Data refreshed • ${new Date().toLocaleTimeString()}`, "update-log success");
     } catch (err) {
       console.error(err);
@@ -368,7 +372,6 @@ function renderTopbar() {
         <h1>Daily Charts</h1>
         <p>Taylor Swift streaming rankings</p>
         <button id="updateBtn" class="update-btn">Refresh data</button>
-<div id="updateLog" class="update-log"></div>
         <div id="updateLog" class="update-log"></div>
       </div>
 
@@ -1097,4 +1100,6 @@ async function loadData() {
     historyData.summary?.latest_date || state.dates[state.dates.length - 1] || null;
 }
 
-loadData();
+loadData().then(() => {
+  renderPage();
+});
