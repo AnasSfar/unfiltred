@@ -697,11 +697,11 @@ function renderMilestones(container) {
                 <thead>
                   <tr>
                     <th>#</th>
+                    <th>Rank change</th>
                     <th>Song</th>
                     <th>Album</th>
                     <th>Daily</th>
                     <th>Total</th>
-                    <th>Rank change</th>
                     <th>Streams change</th>
                   </tr>
                 </thead>
