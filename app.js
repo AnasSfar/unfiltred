@@ -360,39 +360,57 @@ function bindUpdateButton() {
   if (!updateBtn) return;
 
   updateBtn.addEventListener("click", async () => {
+
+    const log = (msg) => {
+      const time = new Date().toLocaleTimeString();
+      updateLog.innerHTML += `<div>[${time}] ${msg}</div>`;
+    };
+
+    updateLog.innerHTML = "";
+    log("Update started");
+
     updateBtn.disabled = true;
     updateBtn.classList.add("loading");
     updateBtn.textContent = "Updating...";
 
-    if (updateLog) {
-      updateLog.textContent = "Update started...";
-      updateLog.className = "update-log";
-    }
-
     try {
+
+      log("Sending request to /api/update");
+
       const res = await fetch("/api/update", {
-        method: "POST",
+        method: "POST"
       });
 
+      log("Response received");
+
       if (!res.ok) {
+        log("Server returned error status");
         throw new Error("Update failed");
       }
 
-      if (updateLog) {
-        updateLog.textContent = `Updated • ${new Date().toLocaleTimeString()}`;
-        updateLog.className = "update-log success";
-      }
-    } catch (err) {
-      console.error(err);
+      const data = await res.json();
 
-      if (updateLog) {
-        updateLog.textContent = "Update failed";
-        updateLog.className = "update-log error";
-      }
+      log("Update finished");
+      log(`Songs updated: ${data.updated || "unknown"}`);
+      log(`Date: ${data.date || "unknown"}`);
+
+      updateLog.className = "update-log success";
+
+    } catch (err) {
+
+      log("Error occurred");
+      log(err.message);
+
+      updateLog.className = "update-log error";
+
     } finally {
+
       updateBtn.disabled = false;
       updateBtn.classList.remove("loading");
       updateBtn.textContent = "Update streams";
+
+      log("Button unlocked");
+
     }
   });
 }
