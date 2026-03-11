@@ -378,15 +378,17 @@ function bindUpdateButton() {
       log("Sending request to /api/update");
 
       const res = await fetch("/api/update", {
-        method: "POST"
-      });
+  method: "POST"
+});
 
-      log("Response received");
+log(`HTTP status: ${res.status}`);
 
-      if (!res.ok) {
-        log("Server returned error status");
-        throw new Error("Update failed");
-      }
+const text = await res.text();
+log(`Response body: ${text}`);
+
+if (!res.ok) {
+  throw new Error(`Update failed with status ${res.status}`);
+}
 
       const data = await res.json();
 
