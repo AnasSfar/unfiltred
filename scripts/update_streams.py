@@ -311,18 +311,13 @@ def load_today_history_track_ids(stats_date: str) -> set[str]:
 
             daily_raw = (row.get("daily_streams") or "").strip()
 
-            if daily_raw == "":
-                done.add(track_id)
-                continue
-
             try:
-                if int(daily_raw) > 0:
+                if daily_raw != "" and int(daily_raw) > 0:
                     done.add(track_id)
             except ValueError:
                 pass
 
     return done
-
 
 def get_last_history_total(track_id: str) -> int | None:
     if not HISTORY_PATH.exists():
