@@ -61,6 +61,24 @@ function enrichSongsForDate(date) {
   return rows;
 }
 
+const updateBtn = document.getElementById("updateBtn");
+
+updateBtn?.addEventListener("click", async () => {
+  updateBtn.disabled = true;
+  updateBtn.classList.add("loading");
+  updateBtn.textContent = "Updating...";
+
+  try {
+    await fetch("/api/update", { method: "POST" });
+  } catch (err) {
+    console.error(err);
+  }
+
+  updateBtn.disabled = false;
+  updateBtn.classList.remove("loading");
+  updateBtn.textContent = "Update streams";
+});
+
 function sortSongs(rows, mode = "streams") {
   const copy = [...rows];
 

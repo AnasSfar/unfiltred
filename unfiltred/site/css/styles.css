@@ -775,3 +775,67 @@ a{
 .milestone-highlight-text strong{
   font-weight:800;
 }
+
+.update-btn,
+#updateBtn {
+  height: 42px;
+  padding: 0 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  background: linear-gradient(180deg, #1f1f24 0%, #141419 100%);
+  color: #f5f5f7;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.update-btn:hover,
+#updateBtn:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.22);
+  background: linear-gradient(180deg, #2a2a31 0%, #1a1a20 100%);
+}
+
+.update-btn:active,
+#updateBtn:active {
+  transform: translateY(0);
+}
+
+.update-btn:disabled,
+#updateBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.update-btn.loading,
+#updateBtn.loading {
+  position: relative;
+  padding-left: 38px;
+}
+
+.update-btn.loading::before,
+#updateBtn.loading::before {
+  content: "";
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  margin-top: -7px;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
