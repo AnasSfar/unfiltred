@@ -10,6 +10,7 @@ const state = {
   combineVersions: false,
 };
 
+
 function formatFull(value) {
   if (value === null || value === undefined) return "N/A";
   return value.toLocaleString("en-US");
@@ -189,8 +190,6 @@ function enrichSongsForDate(date) {
 
   return rows;
 }
-
-const updateBtn = document.getElementById("updateBtn");
 
 updateBtn?.addEventListener("click", async () => {
   updateBtn.disabled = true;
@@ -446,7 +445,8 @@ function renderTopbar() {
       <div class="brand">
         <h1>Daily Charts</h1>
         <p>Taylor Swift streaming rankings</p>
-        <button id="updateBtn">Update streams</button>
+        <button id="updateBtn" class="update-btn">Update streams</button>
+<div id="updateLog" class="update-log"></div>
       </div>
 
       <div class="date-controls">
@@ -604,6 +604,43 @@ function renderMilestoneHighlightsBox(date) {
     </div>
   `;
 }
+
+const updateBtn = document.getElementById("updateBtn");
+const updateLog = document.getElementById("updateLog");
+
+updateBtn.addEventListener("click", async () => {
+
+  updateLog.textContent = "Updating streams...";
+  updateLog.className = "update-log";
+
+  try {
+
+    updateBtn.classList.add("loading");
+    updateBtn.disabled = true;
+
+    const res = await fetch("/api/update-streams");
+
+    if (!res.ok) throw new Error("update failed");
+
+    const data = await res.json();
+
+    updateLog.textContent =
+      "Updated • " + new Date().toLocaleTimeString();
+
+    updateLog.classList.add("success");
+
+  } catch (err) {
+
+    updateLog.textContent = "Update failed";
+    updateLog.classList.add("error");
+
+  } finally {
+
+    updateBtn.classList.remove("loading");
+    updateBtn.disabled = false;
+
+  }
+});
 
 function renderHome(container) {
   const rawRows = enrichSongsForDate(state.selectedDate);

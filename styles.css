@@ -911,3 +911,19 @@ a{
   overflow:hidden;
   text-overflow:ellipsis;
 }
+
+.update-log{
+  margin-top:6px;
+  font-size:12px;
+  color:var(--muted);
+  opacity:.85;
+  min-height:14px;
+}
+
+.update-log.success{
+  color:#067647;
+}
+
+.update-log.error{
+  color:#b42318;
+}
