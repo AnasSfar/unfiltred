@@ -318,8 +318,10 @@ function songRow(song) {
             <div class="col-song">
               <img class="row-cover" src="${song.image_url || ""}" alt="${song.title}">
               <div class="row-song-meta">
-                <div class="row-song-title">${song.title}</div>
-                <div class="row-song-album">${song.primary_album || "Unknown album"}</div>
+                <div class="row-song-meta">
+  <div class="row-song-title">${song.title}</div>
+  <div class="row-song-artist">${song.artist || "Taylor Swift"}</div>
+</div>
               </div>
             </div>
 
