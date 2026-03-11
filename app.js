@@ -172,6 +172,39 @@ function combineSongVersions(rows) {
   return [...grouped.values()];
 }
 
+function bindUpdateButton() {
+  const updateBtn = document.getElementById("updateBtn");
+  const updateLog = document.getElementById("updateLog");
+
+  if (!updateBtn) return;
+
+  updateBtn.addEventListener("click", async () => {
+    const log = (message, className = "update-log") => {
+      if (!updateLog) return;
+      updateLog.textContent = message;
+      updateLog.className = className;
+    };
+
+    updateBtn.disabled = true;
+    updateBtn.classList.add("loading");
+    updateBtn.textContent = "Refreshing...";
+
+    log("Refreshing data...");
+
+    try {
+      await loadData();
+      log(`Data refreshed • ${new Date().toLocaleTimeString()}`, "update-log success");
+    } catch (err) {
+      console.error(err);
+      log("Refresh failed", "update-log error");
+    } finally {
+      updateBtn.disabled = false;
+      updateBtn.classList.remove("loading");
+      updateBtn.textContent = "Refresh data";
+    }
+  });
+}
+
 function withRankChanges(rows, date, mode) {
   const previousDate = getPreviousDate(date);
   const currentRankMap = computeRankMap(rows, mode);
@@ -334,7 +367,8 @@ function renderTopbar() {
       <div class="brand">
         <h1>Daily Charts</h1>
         <p>Taylor Swift streaming rankings</p>
-        <button id="updateBtn" class="update-btn">Update streams</button>
+        <button id="updateBtn" class="update-btn">Refresh data</button>
+<div id="updateLog" class="update-log"></div>
         <div id="updateLog" class="update-log"></div>
       </div>
 
@@ -353,71 +387,7 @@ function renderTopbar() {
   `;
 }
 
-function bindUpdateButton() {
-  const updateBtn = document.getElementById("updateBtn");
-  const updateLog = document.getElementById("updateLog");
 
-  if (!updateBtn) return;
-
-  updateBtn.addEventListener("click", async () => {
-    const log = (message) => {
-      if (!updateLog) return;
-      const time = new Date().toLocaleTimeString();
-      updateLog.innerHTML += `<div>[${time}] ${message}</div>`;
-    };
-
-    if (updateLog) {
-      updateLog.innerHTML = "";
-      updateLog.className = "update-log";
-    }
-
-    log("Update started");
-
-    updateBtn.disabled = true;
-    updateBtn.classList.add("loading");
-    updateBtn.textContent = "Updating...";
-
-    try {
-      log("Sending request to /api/update");
-
-      const res = await fetch("/api/update", {
-        method: "POST"
-      });
-
-      log(`HTTP status: ${res.status}`);
-
-      const data = await res.json();
-      log(`Response body: ${JSON.stringify(data)}`);
-
-      if (!res.ok) {
-        throw new Error(`Update failed with status ${res.status}`);
-      }
-
-      log("Update finished");
-
-      if (updateLog) {
-        updateLog.className = "update-log success";
-      }
-
-    } catch (err) {
-      console.error(err);
-
-      log("Error occurred");
-      log(err.message);
-
-      if (updateLog) {
-        updateLog.className = "update-log error";
-      }
-
-    } finally {
-      updateBtn.disabled = false;
-      updateBtn.classList.remove("loading");
-      updateBtn.textContent = "Update streams";
-
-      log("Button unlocked");
-    }
-  });
-}
 
 function renderStats(rows) {
   const totalCombined = rows.reduce((sum, r) => sum + (r.streams || 0), 0);
@@ -1125,8 +1095,6 @@ async function loadData() {
   state.dates = historyData.dates || [];
   state.selectedDate =
     historyData.summary?.latest_date || state.dates[state.dates.length - 1] || null;
-
-  renderPage();
 }
 
 loadData();
