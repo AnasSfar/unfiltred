@@ -1,23 +1,29 @@
+from http.server import BaseHTTPRequestHandler
 import json
-import subprocess
 
-def handler(request):
-    if request.method != "POST":
-        return {
-            "statusCode": 405,
-            "body": json.dumps({"error": "Method not allowed"})
-        }
+class handler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        self.send_response(200)
+        self.send_header("Content-Type", "application/json")
+        self.end_headers()
+        self.wfile.write(json.dumps({"ok": True, "method": "GET"}).encode())
 
-    try:
-        subprocess.run(["python", "scripts/update_streams.py"], check=True)
+    def do_POST(self):
+        self.send_response(200)
+        self.send_header("Content-Type", "application/json")
+        self.end_headers()
+        self.wfile.write(json.dumps({"ok": True, "method": "POST"}).encode())from http.server import BaseHTTPRequestHandler
+import json
 
-        return {
-            "statusCode": 200,
-            "body": json.dumps({"status": "update_started"})
-        }
+class handler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        self.send_response(200)
+        self.send_header("Content-Type", "application/json")
+        self.end_headers()
+        self.wfile.write(json.dumps({"ok": True, "method": "GET"}).encode())
 
-    except Exception as e:
-        return {
-            "statusCode": 500,
-            "body": json.dumps({"error": str(e)})
-        }
+    def do_POST(self):
+        self.send_response(200)
+        self.send_header("Content-Type", "application/json")
+        self.end_headers()
+        self.wfile.write(json.dumps({"ok": True, "method": "POST"}).encode())
