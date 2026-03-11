@@ -360,13 +360,17 @@ function bindUpdateButton() {
   if (!updateBtn) return;
 
   updateBtn.addEventListener("click", async () => {
-
-    const log = (msg) => {
+    const log = (message) => {
+      if (!updateLog) return;
       const time = new Date().toLocaleTimeString();
-      updateLog.innerHTML += `<div>[${time}] ${msg}</div>`;
+      updateLog.innerHTML += `<div>[${time}] ${message}</div>`;
     };
 
-    updateLog.innerHTML = "";
+    if (updateLog) {
+      updateLog.innerHTML = "";
+      updateLog.className = "update-log";
+    }
+
     log("Update started");
 
     updateBtn.disabled = true;
@@ -374,45 +378,43 @@ function bindUpdateButton() {
     updateBtn.textContent = "Updating...";
 
     try {
-
       log("Sending request to /api/update");
 
       const res = await fetch("/api/update", {
-  method: "POST"
-});
+        method: "POST"
+      });
 
-log(`HTTP status: ${res.status}`);
-
-const text = await res.text();
-log(`Response body: ${text}`);
-
-if (!res.ok) {
-  throw new Error(`Update failed with status ${res.status}`);
-}
+      log(`HTTP status: ${res.status}`);
 
       const data = await res.json();
+      log(`Response body: ${JSON.stringify(data)}`);
+
+      if (!res.ok) {
+        throw new Error(`Update failed with status ${res.status}`);
+      }
 
       log("Update finished");
-      log(`Songs updated: ${data.updated || "unknown"}`);
-      log(`Date: ${data.date || "unknown"}`);
 
-      updateLog.className = "update-log success";
+      if (updateLog) {
+        updateLog.className = "update-log success";
+      }
 
     } catch (err) {
+      console.error(err);
 
       log("Error occurred");
       log(err.message);
 
-      updateLog.className = "update-log error";
+      if (updateLog) {
+        updateLog.className = "update-log error";
+      }
 
     } finally {
-
       updateBtn.disabled = false;
       updateBtn.classList.remove("loading");
       updateBtn.textContent = "Update streams";
 
       log("Button unlocked");
-
     }
   });
 }
