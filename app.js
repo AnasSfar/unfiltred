@@ -386,28 +386,45 @@ function renderNav() {
 
 function renderTopbar() {
   const latest = state.dates[state.dates.length - 1] || "";
+  const selected = state.selectedDate || latest;
+
+  let fullDateLabel = "";
+  if (selected) {
+    const d = new Date(`${selected}T12:00:00`);
+    fullDateLabel = d.toLocaleDateString("en-GB", {
+      weekday: "long",
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    });
+  }
 
   return `
     <div class="topbar">
       <div class="brand">
         <h1>Daily Charts</h1>
         <p>Taylor Swift streaming rankings</p>
-        <button id="updateBtn" class="update-btn">Refresh data</button>
         <div id="updateLog" class="${state.updateLogClass}">
           ${state.updateLogText}
         </div>
       </div>
 
-      <div class="date-controls">
-        <button id="prevDayBtn">←</button>
-        <input
-          id="dateInput"
-          type="date"
-          value="${state.selectedDate || latest}"
-          min="${state.dates[0] || ""}"
-          max="${latest}"
-        >
-        <button id="nextDayBtn">→</button>
+      <div class="date-panel">
+        <div class="date-full-label">${fullDateLabel}</div>
+
+        <div class="date-controls">
+          <button id="prevDayBtn">←</button>
+          <input
+            id="dateInput"
+            type="date"
+            value="${selected}"
+            min="${state.dates[0] || ""}"
+            max="${latest}"
+          >
+          <button id="nextDayBtn">→</button>
+        </div>
+
+        <button id="updateBtn" class="update-btn">Refresh data</button>
       </div>
     </div>
   `;

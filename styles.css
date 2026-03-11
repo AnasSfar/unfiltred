@@ -83,7 +83,7 @@ a{
 .topbar{
   display:flex;
   justify-content:space-between;
-  align-items:center;
+  align-items:flex-start;
   gap:24px;
   margin-bottom:24px;
   padding:22px 24px;
@@ -107,11 +107,28 @@ a{
   font-size:15px;
 }
 
+.date-panel{
+  margin-left:auto;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:10px;
+  min-width:320px;
+}
+
+.date-full-label{
+  font-size:14px;
+  font-weight:700;
+  color:var(--text);
+  text-transform:capitalize;
+}
+
 .date-controls{
   display:flex;
   align-items:center;
   gap:10px;
   flex-wrap:wrap;
+  justify-content:flex-end;
 }
 
 .date-controls button,
@@ -702,6 +719,12 @@ a{
     opacity .2s ease;
 }
 
+#updateBtn,
+.update-btn{
+  align-self:flex-end;
+  min-width:160px;
+}
+
 .update-btn:hover,
 #updateBtn:hover{
   transform:translateY(-1px);
@@ -751,6 +774,22 @@ a{
   to{
     transform:rotate(360deg);
   }
+}
+
+.update-log{
+  margin-top:10px;
+  font-size:12px;
+  color:var(--muted);
+  opacity:.85;
+  min-height:14px;
+}
+
+.update-log.success{
+  color:#067647;
+}
+
+.update-log.error{
+  color:#b42318;
 }
 
 ::-webkit-scrollbar{
@@ -838,6 +877,25 @@ a{
     font-size:28px;
   }
 
+  .date-panel{
+    width:100%;
+    min-width:0;
+    align-items:stretch;
+  }
+
+  .date-full-label{
+    text-align:left;
+  }
+
+  .date-controls{
+    justify-content:flex-start;
+  }
+
+  #updateBtn,
+  .update-btn{
+    align-self:flex-start;
+  }
+
   .stats-grid{
     grid-template-columns:1fr;
   }
@@ -871,59 +929,4 @@ a{
   .col-stream-change{
     padding-left:0;
   }
-}
-.col-song{
-  min-width:0;
-}
-
-.song-link{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  min-width:0;
-  color:inherit;
-  text-decoration:none;
-}
-
-.song-link:hover .row-song-title{
-  text-decoration:underline;
-}
-
-.row-song-meta{
-  min-width:0;
-}
-
-.row-song-title{
-  font-size:15px;
-  font-weight:800;
-  line-height:1.2;
-  letter-spacing:-0.02em;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
-
-.row-song-artist{
-  font-size:13px;
-  color:var(--muted);
-  margin-top:3px;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
-
-.update-log{
-  margin-top:6px;
-  font-size:12px;
-  color:var(--muted);
-  opacity:.85;
-  min-height:14px;
-}
-
-.update-log.success{
-  color:#067647;
-}
-
-.update-log.error{
-  color:#b42318;
 }
