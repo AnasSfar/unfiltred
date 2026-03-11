@@ -242,27 +242,27 @@ a{
 }
 
 .ranking-table thead th:nth-child(2){
-  width:12%;
+  width:120px;
 }
 
 .ranking-table thead th:nth-child(3){
-  width:34%;
+  width:420px;
 }
 
 .ranking-table thead th:nth-child(4){
-  width:22%;
+  width:300px;
 }
 
 .ranking-table thead th:nth-child(5){
-  width:14%;
+  width:170px;
 }
 
 .ranking-table thead th:nth-child(6){
-  width:14%;
+  width:190px;
 }
 
 .ranking-table thead th:nth-child(7){
-  width:18%;
+  width:220px;
 }
 
 .row-shell-cell{
@@ -321,17 +321,80 @@ a{
   display:grid;
   grid-template-columns:
     72px
-    minmax(130px, .75fr)
-    minmax(280px, 1.6fr)
-    minmax(210px, 1.05fr)
-    minmax(120px, .7fr)
-    minmax(140px, .8fr)
-    minmax(160px, .9fr);
+    120px
+    420px
+    300px
+    170px
+    190px
+    220px;
   align-items:center;
-  column-gap:18px;
-  row-gap:10px;
-  padding:16px 18px;
-  min-width:0;
+  column-gap:0;
+  row-gap:8px;
+  padding:12px 18px;
+  min-width:max-content;
+}
+
+.col-rank,
+.col-rank-change,
+.col-daily,
+.col-total,
+.col-stream-change{
+  display:flex;
+  align-items:center;
+}
+
+.col-rank{
+  justify-content:center;
+}
+
+.col-rank-change{
+  justify-content:flex-start;
+}
+
+.col-daily,
+.col-total,
+.col-stream-change{
+  justify-content:flex-start;
+}
+
+.song-row-card{
+  border-radius:16px;
+}
+
+.song-row-grid{
+  padding:10px 16px;
+}
+
+.row-cover{
+  width:44px;
+  height:44px;
+  border-radius:10px;
+  flex:0 0 44px;
+}
+
+.row-song-title{
+  font-size:14px;
+}
+
+.row-song-artist{
+  font-size:12px;
+  color:var(--muted);
+  margin-top:2px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.col-album,
+.col-daily,
+.col-total,
+.col-rank-change,
+.col-stream-change{
+  font-size:14px;
+}
+
+.ranking-table{
+  border-spacing:0 8px;
 }
 
 .col-rank{
