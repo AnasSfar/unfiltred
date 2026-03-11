@@ -900,3 +900,22 @@ a{
   min-width: 96px;
   text-align: center;
 }
+
+.song-link{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-width:0;
+  color:inherit;
+  text-decoration:none;
+}
+
+.song-link:hover .row-song-title{
+  text-decoration:underline;
+}
+
+.mini-song-sub{
+  color:var(--muted);
+  font-size:12px;
+  margin-top:3px;
+}

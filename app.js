@@ -34,6 +34,134 @@ function getQueryParam(name) {
   return url.searchParams.get(name);
 }
 
+function getSongVersionsForFamily(family, date) {
+  const rows = enrichSongsForDate(date);
+
+  return rows
+    .filter((song) => (song.song_family || song.track_id) === family)
+    .sort((a, b) =>
+      (b.streams || 0) - (a.streams || 0) ||
+      (b.daily_streams || 0) - (a.daily_streams || 0) ||
+      a.title.localeCompare(b.title)
+    );
+}
+
+function getSongFamilyTotals(rows) {
+  return {
+    total_streams: rows.reduce((sum, song) => sum + (song.streams || 0), 0),
+    daily_streams: rows.reduce((sum, song) => sum + (song.daily_streams || 0), 0),
+    versions_count: rows.length,
+  };
+}
+
+function getLeadSongVersion(rows) {
+  if (!rows.length) return null;
+
+  return [...rows].sort((a, b) =>
+    (b.streams || 0) - (a.streams || 0) ||
+    (b.daily_streams || 0) - (a.daily_streams || 0)
+  )[0];
+}
+
+function renderSongDetail(container) {
+  const family = getQueryParam("family");
+
+  if (!family) {
+    container.innerHTML = `
+      ${renderNav()}
+      ${renderTopbar()}
+      <section class="section-card">
+        <div class="empty">Song not found.</div>
+      </section>
+    `;
+    return;
+  }
+
+  const versions = getSongVersionsForFamily(family, state.selectedDate);
+
+  if (!versions.length) {
+    container.innerHTML = `
+      ${renderNav()}
+      ${renderTopbar()}
+      <section class="section-card">
+        <div class="empty">No versions found for this song.</div>
+      </section>
+    `;
+    return;
+  }
+
+  const leadSong = getLeadSongVersion(versions);
+  const totals = getSongFamilyTotals(versions);
+
+  container.innerHTML = `
+    ${renderNav()}
+    ${renderTopbar()}
+
+    <section class="section-card">
+      <div class="section-head album-hero-head">
+        <div class="album-hero">
+          <img class="album-cover-small" src="${leadSong.image_url || ""}" alt="${leadSong.title}">
+          <div>
+            <h2>${leadSong.title_clean || leadSong.title}</h2>
+            <p>
+              ${formatArtists(leadSong)}
+              • ${totals.versions_count} version${totals.versions_count > 1 ? "s" : ""}
+              • ${formatFull(totals.total_streams)} total streams combined
+              • ${formatFull(totals.daily_streams)} daily streams combined
+              • ${state.selectedDate}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection-head">
+        <h3>Versions</h3>
+      </div>
+
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Version</th>
+              <th>Artists</th>
+              <th>Album</th>
+              <th>Edition</th>
+              <th>Type</th>
+              <th>Daily streams</th>
+              <th>Total streams</th>
+              <th>Streams change</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${versions.map((song, i) => `
+              <tr>
+                <td>${i + 1}</td>
+                <td>
+                  <div class="mini-song">
+                    <img src="${song.image_url || ""}" alt="${song.title}">
+                    <div>
+                      <div><strong>${song.title}</strong></div>
+                      <div class="mini-song-sub">${song.version_tag || "standard"}</div>
+                    </div>
+                  </div>
+                </td>
+                <td>${formatArtists(song)}</td>
+                <td>${song.primary_album || "Unknown album"}</td>
+                <td>${song.edition || "—"}</td>
+                <td>${song.type || "—"}</td>
+                <td>${formatFull(song.daily_streams)}</td>
+                <td>${formatFull(song.streams)}</td>
+                <td>${renderStreamChange(song.total_change)}</td>
+              </tr>
+            `).join("")}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  `;
+}
+
 function enrichSongsForDate(date) {
   const previousDate = getPreviousDate(date);
   const rows = [];
@@ -404,11 +532,18 @@ function songRow(song) {
             <div class="col-rank-change">${renderRankChange(song.rank_change)}</div>
 
             <div class="col-song">
-              <img class="row-cover" src="${song.image_url || ""}" alt="${song.title}">
-              <div class="row-song-meta">
-                <div class="row-song-meta">
-  <div class="row-song-title">${song.title}</div>
-  <div class="row-song-artist">${formatArtists(song)}</div>
+  <a class="song-link" href="song.html?family=${encodeURIComponent(song.song_family || song.track_id)}">
+    <img class="row-cover" src="${song.image_url || ""}" alt="${song.title}">
+    <div class="row-song-meta">
+      <div class="row-song-title">${song.title_clean || song.title}</div>
+      <div class="row-song-artist">${formatArtists(song)}</div>
+      ${
+        state.combineVersions && (song.combined_versions_count || 1) > 1
+          ? `<div class="row-song-artist">${song.combined_versions_count} versions combined</div>`
+          : ""
+      }
+    </div>
+  </a>
   ${
   state.combineVersions && (song.combined_versions_count || 1) > 1
     ? `<div class="row-song-artist">${song.combined_versions_count} versions combined</div>`
@@ -855,6 +990,7 @@ function renderPage() {
 
   if (state.page === "albums") renderAlbums(app);
   else if (state.page === "album") renderAlbumDetail(app);
+  else if (state.page === "song") renderSongDetail(app);
   else if (state.page === "milestones") renderMilestones(app);
   else renderHome(app);
 
