@@ -4,10 +4,12 @@ const state = {
   history: {},
   dates: [],
   selectedDate: null,
-  sortMode: "streams",
+  sortMode: "daily",
   albumSortMode: "daily",
   page: document.body.dataset.page || "home",
   combineVersions: false,
+  updateLogText: "",
+  updateLogClass: "update-log",
 };
 
 function formatFull(value) {
@@ -174,7 +176,6 @@ function combineSongVersions(rows) {
 
 function bindUpdateButton() {
   const updateBtn = document.getElementById("updateBtn");
-  const updateLog = document.getElementById("updateLog");
 
   if (!updateBtn) return;
   if (updateBtn.dataset.bound === "1") return;
@@ -182,29 +183,49 @@ function bindUpdateButton() {
   updateBtn.dataset.bound = "1";
 
   updateBtn.addEventListener("click", async () => {
-    const log = (message, className = "update-log") => {
-      if (!updateLog) return;
-      updateLog.textContent = message;
-      updateLog.className = className;
-    };
+    const previousLatestDate = state.dates[state.dates.length - 1] || null;
+    const previousSongCount = state.songs.length;
 
     updateBtn.disabled = true;
     updateBtn.classList.add("loading");
     updateBtn.textContent = "Refreshing...";
 
-    log("Refreshing data...");
+    state.updateLogText = "Refreshing data...";
+    state.updateLogClass = "update-log";
+    renderPage();
 
     try {
       await loadData();
+
+      const newLatestDate = state.dates[state.dates.length - 1] || null;
+      const newSongCount = state.songs.length;
+
+      if (
+        previousLatestDate === newLatestDate &&
+        previousSongCount === newSongCount
+      ) {
+        state.updateLogText =
+          "No new update detected. Spotify usually refreshes around 15:00 Paris time.";
+        state.updateLogClass = "update-log";
+      } else {
+        state.updateLogText =
+          `Data refreshed • latest date: ${newLatestDate || "unknown"}`;
+        state.updateLogClass = "update-log success";
+      }
+
       renderPage();
-      log(`Data refreshed • ${new Date().toLocaleTimeString()}`, "update-log success");
     } catch (err) {
       console.error(err);
-      log("Refresh failed", "update-log error");
+      state.updateLogText = "Refresh failed.";
+      state.updateLogClass = "update-log error";
+      renderPage();
     } finally {
-      updateBtn.disabled = false;
-      updateBtn.classList.remove("loading");
-      updateBtn.textContent = "Refresh data";
+      const freshBtn = document.getElementById("updateBtn");
+      if (freshBtn) {
+        freshBtn.disabled = false;
+        freshBtn.classList.remove("loading");
+        freshBtn.textContent = "Refresh data";
+      }
     }
   });
 }
@@ -372,7 +393,9 @@ function renderTopbar() {
         <h1>Daily Charts</h1>
         <p>Taylor Swift streaming rankings</p>
         <button id="updateBtn" class="update-btn">Refresh data</button>
-        <div id="updateLog" class="update-log"></div>
+        <div id="updateLog" class="${state.updateLogClass}">
+          ${state.updateLogText}
+        </div>
       </div>
 
       <div class="date-controls">
@@ -389,7 +412,6 @@ function renderTopbar() {
     </div>
   `;
 }
-
 
 
 function renderStats(rows) {
