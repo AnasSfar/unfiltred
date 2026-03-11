@@ -895,3 +895,8 @@ a{
   overflow:hidden;
   text-overflow:ellipsis;
 }
+
+#combineBtn{
+  min-width: 96px;
+  text-align: center;
+}
