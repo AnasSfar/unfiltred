@@ -4,14 +4,10 @@ import unicodedata
 from pathlib import Path
 
 DISCOGRAPHY_DIR = Path("discography")
+DATA_DIR = Path("data")
 
 FEATURE_REGEX = re.compile(
     r"\((?:feat\.|ft\.|featuring)\s+([^)]+)\)",
-    re.IGNORECASE
-)
-
-VERSION_BLOCK_REGEX = re.compile(
-    r"\((?:feat\.|ft\.|featuring|from the vault|taylor'?s version|deluxe|remix|acoustic|live|version|demo)[^)]+\)",
     re.IGNORECASE
 )
 
@@ -97,9 +93,7 @@ def extract_version_tag(track: dict, title: str, title_clean: str, featured_arti
 
 
 def build_song_family(track: dict, title_clean: str) -> str:
-    album = str(track.get("album") or "").strip()
     base_title = str(track.get("base_title") or "").strip()
-
     family_source = title_clean or base_title or track.get("title") or ""
     return slugify(family_source)
 
@@ -143,13 +137,74 @@ def process_file(path: Path) -> None:
         json.dumps(data, ensure_ascii=False, indent=2),
         encoding="utf-8"
     )
+
+    print(f"Updated: {path}")
+
+
+def enrich_song_entry(song: dict) -> dict:
+    title = str(song.get("title") or "").strip()
+    featured_artists = extract_featured_artists(title)
+
+    primary_artist = "Taylor Swift"
+    artists = [primary_artist, *featured_artists]
+
+    title_clean = clean_title(title)
+
+    appearances = song.get("appearances") or []
+    first_appearance = appearances[0] if appearances and isinstance(appearances[0], dict) else {}
+
+    pseudo_track = {
+        "title": title,
+        "type": song.get("type") or first_appearance.get("type") or "",
+        "edition": song.get("edition") or first_appearance.get("edition") or "",
+        "display_section": song.get("display_section") or first_appearance.get("display_section") or "",
+        "base_title": song.get("base_title") or first_appearance.get("base_title") or title,
+        "album": song.get("primary_album") or first_appearance.get("album") or "",
+    }
+
+    version_tag = extract_version_tag(pseudo_track, title, title_clean, featured_artists)
+    song_family = build_song_family(pseudo_track, title_clean)
+
+    song["primary_artist"] = primary_artist
+    song["featured_artists"] = featured_artists
+    song["artists"] = artists
+    song["title_clean"] = title_clean
+    song["song_family"] = song_family
+    song["version_tag"] = version_tag
+
+    return song
+
+
+def process_songs_json():
+    path = DATA_DIR / "songs.json"
+    if not path.exists():
+        return
+
+    data = json.loads(path.read_text(encoding="utf-8"))
+    songs = data.get("songs", [])
+
+    if not isinstance(songs, list):
+        return
+
+    for song in songs:
+        if isinstance(song, dict):
+            enrich_song_entry(song)
+
+    path.write_text(
+        json.dumps(data, ensure_ascii=False, indent=2),
+        encoding="utf-8"
+    )
+
     print(f"Updated: {path}")
 
 
 def main() -> None:
     files = sorted(DISCOGRAPHY_DIR.rglob("*.json"))
+
     for path in files:
         process_file(path)
+
+    process_songs_json()
 
 
 if __name__ == "__main__":
