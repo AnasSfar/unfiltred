@@ -7,6 +7,7 @@ const state = {
   sortMode: "streams",
   albumSortMode: "daily",
   page: document.body.dataset.page || "home",
+  combineVersions: false,
 };
 
 function formatFull(value) {
@@ -104,7 +105,15 @@ function sortSongs(rows, mode = "streams") {
 function computeRankMap(rows, mode) {
   const sorted = sortSongs(rows, mode);
   const rankMap = new Map();
-  sorted.forEach((song, idx) => rankMap.set(song.track_id, idx + 1));
+
+  sorted.forEach((song, idx) => {
+    const key = state.combineVersions
+      ? (song.song_family || song.track_id)
+      : song.track_id;
+
+    rankMap.set(key, idx + 1);
+  });
+
   return rankMap;
 }
 
@@ -113,14 +122,24 @@ function withRankChanges(rows, date, mode) {
   const currentRankMap = computeRankMap(rows, mode);
 
   let previousRankMap = new Map();
+
   if (previousDate) {
-    const previousRows = enrichSongsForDate(previousDate);
+    let previousRows = enrichSongsForDate(previousDate);
+
+    if (state.combineVersions) {
+      previousRows = combineSongVersions(previousRows);
+    }
+
     previousRankMap = computeRankMap(previousRows, mode);
   }
 
   return rows.map((song) => {
-    const currentRank = currentRankMap.get(song.track_id) ?? null;
-    const previousRank = previousRankMap.get(song.track_id) ?? null;
+    const rankKey = state.combineVersions
+      ? (song.song_family || song.track_id)
+      : song.track_id;
+
+    const currentRank = currentRankMap.get(rankKey) ?? null;
+    const previousRank = previousRankMap.get(rankKey) ?? null;
 
     let rankChange = null;
     if (currentRank !== null && previousRank !== null) {
@@ -222,6 +241,68 @@ function renderNav() {
   `;
 }
 
+function formatArtists(song) {
+  if (Array.isArray(song.artists) && song.artists.length) {
+    return song.artists.join(", ");
+  }
+  if (typeof song.primary_artist === "string" && song.primary_artist.trim()) {
+    return song.primary_artist;
+  }
+  return "Unknown artist";
+}
+
+function combineSongVersions(rows) {
+  const grouped = new Map();
+
+  for (const song of rows) {
+    const key = song.song_family || song.track_id;
+
+    if (!grouped.has(key)) {
+      grouped.set(key, {
+        ...song,
+        combined_versions_count: 1,
+      });
+      continue;
+    }
+
+    const existing = grouped.get(key);
+
+    existing.streams = (existing.streams || 0) + (song.streams || 0);
+    existing.daily_streams = (existing.daily_streams || 0) + (song.daily_streams || 0);
+
+    if (
+      existing.previous_streams !== null &&
+      existing.previous_streams !== undefined &&
+      song.previous_streams !== null &&
+      song.previous_streams !== undefined
+    ) {
+      existing.previous_streams += song.previous_streams;
+    } else {
+      existing.previous_streams = existing.previous_streams ?? song.previous_streams ?? null;
+    }
+
+    if (
+      existing.total_change !== null &&
+      existing.total_change !== undefined &&
+      song.total_change !== null &&
+      song.total_change !== undefined
+    ) {
+      existing.total_change += song.total_change;
+    } else {
+      existing.total_change = existing.total_change ?? song.total_change ?? null;
+    }
+
+    existing.combined_versions_count += 1;
+
+    if ((song.streams || 0) > (existing.streams || 0)) {
+      existing.image_url = song.image_url || existing.image_url;
+      existing.primary_album = song.primary_album || existing.primary_album;
+    }
+  }
+
+  return [...grouped.values()];
+}
+
 function renderTopbar() {
   const latest = state.dates[state.dates.length - 1] || "";
 
@@ -320,7 +401,7 @@ function songRow(song) {
               <div class="row-song-meta">
                 <div class="row-song-meta">
   <div class="row-song-title">${song.title}</div>
-  <div class="row-song-artist">${song.artist || "Taylor Swift"}</div>
+  <div class="row-song-artist">${formatArtists(song)}</div>
 </div>
               </div>
             </div>
@@ -385,9 +466,14 @@ function renderMilestoneHighlightsBox(date) {
 }
 
 function renderHome(container) {
-  const baseRows = enrichSongsForDate(state.selectedDate);
-  const rowsWithRankChanges = withRankChanges(baseRows, state.selectedDate, state.sortMode);
-  const sorted = sortSongs(rowsWithRankChanges, state.sortMode);
+  let baseRows = enrichSongsForDate(state.selectedDate);
+
+if (state.combineVersions) {
+  baseRows = combineSongVersions(baseRows);
+}
+
+const rowsWithRankChanges = withRankChanges(baseRows, state.selectedDate, state.sortMode);
+const sorted = sortSongs(rowsWithRankChanges, state.sortMode);
 
   container.innerHTML = `
     ${renderNav()}
@@ -402,9 +488,12 @@ function renderHome(container) {
         </div>
 
         <div class="toolbar">
-          <button id="sortStreamsBtn" class="${state.sortMode === "streams" ? "active" : ""}">Total streams</button>
-          <button id="sortDailyBtn" class="${state.sortMode === "daily" ? "active" : ""}">Daily streams</button>
-        </div>
+  <button id="sortStreamsBtn" class="${state.sortMode === "streams" ? "active" : ""}">Total streams</button>
+  <button id="sortDailyBtn" class="${state.sortMode === "daily" ? "active" : ""}">Daily streams</button>
+  <button id="combineBtn" class="${state.combineVersions ? "active" : ""}">
+    ${state.combineVersions ? "Combined versions" : "Separate versions"}
+  </button>
+</div>
       </div>
 
       <div class="table-wrap ranking-wrap">
@@ -437,6 +526,10 @@ function renderHome(container) {
     state.sortMode = "daily";
     renderPage();
   });
+  document.getElementById("combineBtn")?.addEventListener("click", () => {
+  state.combineVersions = !state.combineVersions;
+  renderPage();
+});
 }
 
 function renderAlbums(container) {
