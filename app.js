@@ -10,6 +10,7 @@ const state = {
   combineVersions: false,
   updateLogText: "",
   updateLogClass: "update-log",
+  artist: null,
 };
 
 function formatFull(value) {
@@ -399,13 +400,57 @@ function renderTopbar() {
     });
   }
 
+  const artistName = state.artist?.name || "Taylor Swift";
+  const artistImage = state.artist?.image_url || "";
+  const monthlyListeners = state.artist?.monthly_listeners ?? null;
+  const monthlyRank = state.artist?.monthly_rank ?? null;
+
+  const dailyStreams = state.songs.reduce(
+    (sum, song) => sum + (getDayData(song.track_id, selected)?.daily_streams || 0),
+    0
+  );
+
+  const totalStreams = state.songs.reduce(
+    (sum, song) => sum + (getDayData(song.track_id, selected)?.streams || song.streams || 0),
+    0
+  );
+
   return `
     <div class="topbar">
-      <div class="brand">
-        <h1>Daily Charts</h1>
-        <p>Taylor Swift streaming rankings</p>
-        <div id="updateLog" class="${state.updateLogClass}">
-          ${state.updateLogText}
+      <div class="hero-left">
+        <div class="artist-hero-card">
+          <img
+            class="artist-hero-photo"
+            src="${artistImage}"
+            alt="${artistName}"
+          >
+
+          <div class="artist-hero-content">
+            <div class="artist-hero-name">${artistName}</div>
+
+            <div class="artist-daily-big">
+              +${formatFull(dailyStreams)}
+            </div>
+
+            <div class="artist-daily-label">Daily streams</div>
+
+            <div class="artist-total-line">
+              ${formatFull(totalStreams)} total streams
+            </div>
+
+            <div class="artist-monthly-box">
+              <div class="artist-monthly-text">
+                <div class="artist-monthly-label">Monthly listeners</div>
+                <div class="artist-monthly-value">
+                  ${monthlyListeners !== null ? formatFull(monthlyListeners) : "N/A"}
+                </div>
+              </div>
+
+              <div class="artist-rank-badge">
+                ${monthlyRank !== null ? `#${monthlyRank}` : "N/A"}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -428,6 +473,19 @@ function renderTopbar() {
       </div>
     </div>
   `;
+}
+
+function getSelectedRows() {
+  const rawRows = enrichSongsForDate(state.selectedDate);
+  return state.combineVersions ? combineSongVersions(rawRows) : rawRows;
+}
+
+function getSelectedDailyStreams() {
+  return getSelectedRows().reduce((sum, song) => sum + (song.daily_streams || 0), 0);
+}
+
+function getSelectedTotalStreams() {
+  return getSelectedRows().reduce((sum, song) => sum + (song.streams || 0), 0);
 }
 
 
@@ -1125,10 +1183,11 @@ function renderPage() {
 }
 
 async function loadData() {
-  const [songsData, albumsData, historyData] = await Promise.all([
+  const [songsData, albumsData, historyData, artistData] = await Promise.all([
     fetch("data/songs.json").then((r) => r.json()),
     fetch("data/albums.json").then((r) => r.json()),
     fetch("data/history.json").then((r) => r.json()),
+    fetch("data/artist.json").then((r) => r.json()).catch(() => null),
   ]);
 
   state.songs = songsData.songs || [];
@@ -1137,6 +1196,7 @@ async function loadData() {
   state.dates = historyData.dates || [];
   state.selectedDate =
     historyData.summary?.latest_date || state.dates[state.dates.length - 1] || null;
+  state.artist = artistData || null;
 }
 
 loadData().then(() => {

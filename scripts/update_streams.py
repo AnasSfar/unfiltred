@@ -22,6 +22,8 @@ DB_PATH = DATA_DIR / "songs.db"
 HISTORY_PATH = DATA_DIR / "history.csv"
 FAILED_PATH = DATA_DIR / "not_found_today.csv"
 DISCOGRAPHY_DIR = ROOT / "discography"
+ARTIST_PATH = DATA_DIR / "artist.json"
+ARTIST_URL = "https://open.spotify.com/artist/06HL4z0CvFAxyc27GXpf02"
 
 HEADLESS = True
 MAX_PARALLEL_PAGES = 8
@@ -29,6 +31,186 @@ SLEEP_SECONDS = 10 * 60
 
 START_TIME = None
 
+def parse_int_from_text(value: str | None) -> int | None:
+    if not value:
+        return None
+
+    digits = re.sub(r"[^\d]", "", value)
+    if not digits:
+        return None
+
+    try:
+        return int(digits)
+    except ValueError:
+        return None
+
+
+def extract_monthly_listeners_and_rank_from_text(text: str) -> tuple[int | None, int | None]:
+    if not text:
+        return None, None
+
+    monthly_listeners = None
+    monthly_rank = None
+
+    text_compact = re.sub(r"\s+", " ", text).strip()
+
+    monthly_patterns = [
+        r"([\d\s.,]+)\s+monthly listeners",
+        r"monthly listeners\s*[:\-]?\s*([\d\s.,]+)",
+        r"([\d\s.,]+)\s+auditeurs mensuels",
+        r"auditeurs mensuels\s*[:\-]?\s*([\d\s.,]+)",
+    ]
+
+    for pattern in monthly_patterns:
+        match = re.search(pattern, text_compact, re.IGNORECASE)
+        if match:
+            monthly_listeners = parse_int_from_text(match.group(1))
+            if monthly_listeners is not None:
+                break
+
+    rank_patterns = [
+        r"#\s*([\d\s.,]+)\s+in the world",
+        r"world\s*rank\s*[:\-]?\s*#?\s*([\d\s.,]+)",
+        r"ranked\s*#\s*([\d\s.,]+)",
+        r"#\s*([\d\s.,]+)\s+dans le monde",
+    ]
+
+    for pattern in rank_patterns:
+        match = re.search(pattern, text_compact, re.IGNORECASE)
+        if match:
+            monthly_rank = parse_int_from_text(match.group(1))
+            if monthly_rank is not None:
+                break
+
+    return monthly_listeners, monthly_rank
+
+
+def extract_artist_image(page) -> str | None:
+    selectors = [
+        'img[alt="Taylor Swift"]',
+        'img[src*="i.scdn.co"]',
+        'img',
+    ]
+
+    for selector in selectors:
+        try:
+            loc = page.locator(selector)
+            count = min(loc.count(), 12)
+        except Exception:
+            continue
+
+        for i in range(count):
+            try:
+                src = (loc.nth(i).get_attribute("src") or "").strip()
+                alt = (loc.nth(i).get_attribute("alt") or "").strip()
+            except Exception:
+                continue
+
+            if not src:
+                continue
+
+            if "i.scdn.co" in src:
+                if alt.lower() == "taylor swift" or selector != 'img[alt="Taylor Swift"]':
+                    return src
+
+    return None
+
+
+def scrape_artist_metadata() -> dict:
+    result = {
+        "name": "Taylor Swift",
+        "spotify_url": ARTIST_URL,
+        "image_url": None,
+        "monthly_listeners": None,
+        "monthly_rank": None,
+        "updated_at": get_scrape_date_str(),
+    }
+
+    p = sync_playwright().start()
+    browser = p.chromium.launch(headless=HEADLESS)
+    context = browser.new_context()
+    page = context.new_page()
+    page.route("**/*", block_unneeded)
+
+    try:
+        page.goto(ARTIST_URL, wait_until="domcontentloaded", timeout=30000)
+
+        for wait_ms in (800, 1500, 2500, 4000):
+            page.wait_for_timeout(wait_ms)
+
+            try:
+                body_text = page.locator("body").inner_text(timeout=5000)
+            except Exception:
+                body_text = ""
+
+            image_url = extract_artist_image(page)
+            monthly_listeners, monthly_rank = extract_monthly_listeners_and_rank_from_text(body_text)
+
+            if image_url:
+                result["image_url"] = image_url
+            if monthly_listeners is not None:
+                result["monthly_listeners"] = monthly_listeners
+            if monthly_rank is not None:
+                result["monthly_rank"] = monthly_rank
+
+            if result["image_url"] and result["monthly_listeners"] is not None:
+                break
+
+    finally:
+        browser.close()
+        p.stop()
+
+    return result
+
+
+def load_existing_artist_metadata() -> dict:
+    if not ARTIST_PATH.exists():
+        return {}
+
+    try:
+        return json.loads(ARTIST_PATH.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
+
+def save_artist_metadata(data: dict) -> None:
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    ARTIST_PATH.write_text(
+        json.dumps(data, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+
+
+def update_artist_metadata() -> dict:
+    existing = load_existing_artist_metadata()
+    scraped = scrape_artist_metadata()
+
+    merged = {
+        "name": scraped.get("name") or existing.get("name") or "Taylor Swift",
+        "spotify_url": scraped.get("spotify_url") or existing.get("spotify_url") or ARTIST_URL,
+        "image_url": scraped.get("image_url") or existing.get("image_url"),
+        "monthly_listeners": (
+            scraped.get("monthly_listeners")
+            if scraped.get("monthly_listeners") is not None
+            else existing.get("monthly_listeners")
+        ),
+        "monthly_rank": (
+            scraped.get("monthly_rank")
+            if scraped.get("monthly_rank") is not None
+            else existing.get("monthly_rank")
+        ),
+        "updated_at": get_scrape_date_str(),
+    }
+
+    save_artist_metadata(merged)
+
+    print(
+        "Artist metadata updated | "
+        f"monthly_listeners={format_int(merged.get('monthly_listeners'))} | "
+        f"rank={merged.get('monthly_rank') if merged.get('monthly_rank') is not None else 'N/A'}"
+    )
+
+    return merged
 
 def get_scrape_date_str() -> str:
     return date.today().isoformat()
@@ -523,6 +705,10 @@ def run_until_complete(on_progress=None):
             save_not_found_rows(failed_rows)
 
             print("All tracks updated.")
+
+            print("Updating artist metadata...")
+            update_artist_metadata()
+
             print("Re-exporting web data...")
             export_for_web.export_for_web()
             print("Web export done.")
