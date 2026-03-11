@@ -1,0 +1,142 @@
+{
+  "album": "evermore",
+  "section": "standard_edition",
+  "track_count": 15,
+  "tracks": [
+    {
+      "title": "willow",
+      "url": "https://open.spotify.com/intl-fr/track/0lx2cLdOt3piJbcaXIV74f",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 1,
+      "base_title": "willow"
+    },
+    {
+      "title": "champagne problems",
+      "url": "https://open.spotify.com/intl-fr/track/0sY6ZUTh4yoctD8VIXz339",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 2,
+      "base_title": "champagne problems"
+    },
+    {
+      "title": "gold rush",
+      "url": "https://open.spotify.com/intl-fr/track/5BK0uqwY9DNfZ630STAEaq",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 3,
+      "base_title": "gold rush"
+    },
+    {
+      "title": "tolerate it",
+      "url": "https://open.spotify.com/intl-fr/track/0PurA4JVJ8YQgSVopY8fn6",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 4,
+      "base_title": "tolerate it"
+    },
+    {
+      "title": "no body, no crime (feat. HAIM)",
+      "url": "https://open.spotify.com/intl-fr/track/3RaT22zZsxVYxxKR7TAaYF",
+      "type": "feature",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 5,
+      "base_title": "no body, no crime (feat. HAIM)"
+    },
+    {
+      "title": "happiness",
+      "url": "https://open.spotify.com/intl-fr/track/73YUReisjb3A9ActdLLjJQ",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 6,
+      "base_title": "happiness"
+    },
+    {
+      "title": "dorothea",
+      "url": "https://open.spotify.com/intl-fr/track/670fUmXf4KQekzbEgaXyPA",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 7,
+      "base_title": "dorothea"
+    },
+    {
+      "title": "coney island (feat. The National)",
+      "url": "https://open.spotify.com/intl-fr/track/3k7ne7VmH43ZPWxPdvPUgR",
+      "type": "feature",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 8,
+      "base_title": "coney island (feat. The National)"
+    },
+    {
+      "title": "ivy",
+      "url": "https://open.spotify.com/intl-fr/track/19CSr8rwW05VJL2F91KFNK",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 9,
+      "base_title": "ivy"
+    },
+    {
+      "title": "cowboy like me",
+      "url": "https://open.spotify.com/intl-fr/track/1XjHRolIXL2M1EEOUsGGR4",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 10,
+      "base_title": "cowboy like me"
+    },
+    {
+      "title": "long story short",
+      "url": "https://open.spotify.com/intl-fr/track/2o2sgVJIgFXk8GQjWTgI6U",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 11,
+      "base_title": "long story short"
+    },
+    {
+      "title": "marjorie",
+      "url": "https://open.spotify.com/intl-fr/track/12ntTeqEeTg7GAVpe8Mhpl",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 12,
+      "base_title": "marjorie"
+    },
+    {
+      "title": "closure",
+      "url": "https://open.spotify.com/intl-fr/track/35rdVq36LMHQX0Suw9a6tK",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 13,
+      "base_title": "closure"
+    },
+    {
+      "title": "evermore (feat. Bon Iver)",
+      "url": "https://open.spotify.com/intl-fr/track/3O5osWf1rSoKMwe6E9ZaXP",
+      "type": "feature",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 14,
+      "base_title": "evermore (feat. Bon Iver)"
+    },
+    {
+      "title": "'tis the damn season",
+      "url": "https://open.spotify.com/track/6sQckd3Z8NPxVVKUnavY1F",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 15,
+      "base_title": "'tis the damn season"
+    }
+  ]
+}

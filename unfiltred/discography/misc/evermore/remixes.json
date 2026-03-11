@@ -1,0 +1,43 @@
+{
+  "album": "evermore",
+  "section": "remixes",
+  "track_count": 5,
+  "tracks": [
+    {
+      "title": "willow - 90's trend remix",
+      "url": "https://open.spotify.com/intl-fr/track/77p4fRpoeiZMtUy3P9kN21",
+      "type": "remix",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 1,
+      "base_title": "willow"
+    },
+    {
+      "title": "willow - dancing witch version (Elvira remix)",
+      "url": "https://open.spotify.com/intl-fr/track/2NnrAdjE9cPdMklonMBuAv",
+      "type": "remix",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 2,
+      "base_title": "willow"
+    },
+    {
+      "title": "willow - lonely witch version",
+      "url": "https://open.spotify.com/intl-fr/track/77d7q9TNbsIDmRTDPkPv3L",
+      "type": "standalone",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 3,
+      "base_title": "willow"
+    },
+    {
+      "title": "willow - moonlit witch version",
+      "url": "https://open.spotify.com/intl-fr/track/5F7hpFKLmWgMHGxQuwssuv",
+      "type": "standalone",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 4,
+      "base_title": "willow"
+    }
+  ]
+}

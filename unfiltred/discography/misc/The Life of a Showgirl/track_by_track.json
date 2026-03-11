@@ -1,0 +1,52 @@
+{
+  "album": "The Life of a Showgirl",
+  "section": "track_by_track",
+  "track_count": 5,
+  "tracks": [
+    {
+      "title": "Elizabeth Taylor - Track by Track",
+      "url": "https://open.spotify.com/intl-fr/track/3r9fAceWmaDFvbNiTnFiLr",
+      "type": "standalone",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 1,
+      "base_title": "Elizabeth Taylor - Track by Track"
+    },
+    {
+      "title": "Father Figure - Track by Track",
+      "url": "https://open.spotify.com/intl-fr/track/2NGGvVcfb2m2NbVaXHC3gb",
+      "type": "standalone",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 2,
+      "base_title": "Father Figure - Track by Track"
+    },
+    {
+      "title": "Opalite - Track by Track",
+      "url": "https://open.spotify.com/intl-fr/track/5SkuikJwvwfEvNyCepGkq3",
+      "type": "standalone",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 3,
+      "base_title": "Opalite - Track by Track"
+    },
+    {
+      "title": "The Fate of Ophelia - Track by Track",
+      "url": "https://open.spotify.com/intl-fr/track/5k9RjjuYyOMCLL81U8FaHT",
+      "type": "standalone",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 4,
+      "base_title": "The Fate of Ophelia - Track by Track"
+    },
+    {
+      "title": "The Life of a Showgirl - Track by Track",
+      "url": "https://open.spotify.com/intl-fr/track/42TAweWJJ9YlQ47T5nesu5",
+      "type": "standalone",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 5,
+      "base_title": "The Life of a Showgirl - Track by Track"
+    }
+  ]
+}

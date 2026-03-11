@@ -1,0 +1,52 @@
+{
+  "album": "THE TORTURED POETS DEPARTMENT",
+  "section": "remixes_and_live",
+  "track_count": 5,
+  "tracks": [
+    {
+      "title": "Fortnight (feat. Post Malone) - BLOND:ISH Remix",
+      "url": "https://open.spotify.com/intl-fr/track/1gejz5ROvJBUb6WJzkMAcc",
+      "type": "remix",
+      "edition": "live",
+      "display_section": "Extras",
+      "display_order": 1,
+      "base_title": "Fortnight (feat. Post Malone)"
+    },
+    {
+      "title": "I Can Do It With a Broken Heart - Dombresky Remix",
+      "url": "https://open.spotify.com/intl-fr/track/0hFF0aqyjDwDh6SQwRbTyx",
+      "type": "remix",
+      "edition": "live",
+      "display_section": "Extras",
+      "display_order": 2,
+      "base_title": "I Can Do It With a Broken Heart"
+    },
+    {
+      "title": "I Can Do It With a Broken Heart - Instrumental",
+      "url": "https://open.spotify.com/intl-fr/track/2PGIFYRG1XWsPqNG14hgD1",
+      "type": "alternate_version",
+      "edition": "live",
+      "display_section": "Other Editions",
+      "display_order": 3,
+      "base_title": "I Can Do It With a Broken Heart"
+    },
+    {
+      "title": "Fortnight (feat. Post Malone) - Acoustic Version",
+      "url": "https://open.spotify.com/intl-fr/track/2BUTSRKPGRsyc9FnsC5Udd",
+      "type": "alternate_version",
+      "edition": "live",
+      "display_section": "Other Editions",
+      "display_order": 4,
+      "base_title": "Fortnight (feat. Post Malone)"
+    },
+    {
+      "title": "Fortnight (feat. Post Malone) - Cults Remix",
+      "url": "https://open.spotify.com/intl-fr/track/7pM01Cfj8vt7z3qI2TveNT",
+      "type": "remix",
+      "edition": "live",
+      "display_section": "Extras",
+      "display_order": 5,
+      "base_title": "Fortnight (feat. Post Malone)"
+    }
+  ]
+}

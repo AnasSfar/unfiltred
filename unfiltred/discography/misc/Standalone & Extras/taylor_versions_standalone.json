@@ -1,0 +1,43 @@
+{
+  "album": "Standalone & Extras",
+  "section": "taylor_versions_standalone",
+  "track_count": 8,
+  "tracks": [
+    {
+      "title": "If This Was A Movie (Taylor's Version)",
+      "url": "https://open.spotify.com/intl-fr/track/0kAZ3H6G9Zac4PMpmobMkj",
+      "type": "standalone",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 1,
+      "base_title": "If This Was A Movie"
+    },
+    {
+      "title": "You All Over Me (feat. Maren Morris) (Taylor's Version) (From The Vault)",
+      "url": "https://open.spotify.com/intl-fr/track/5pcjystBtalYeqaiXCcgEY",
+      "type": "feature",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 2,
+      "base_title": "You All Over Me (feat. Maren Morris) (Taylor's Version) (From The Vault)"
+    },
+    {
+      "title": "All Too Well (10 Minute Version) (The Short Film)",
+      "url": "https://open.spotify.com/intl-fr/track/1u4HUiREUR6vX1W1RYG2Tm",
+      "type": "standalone",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 3,
+      "base_title": "All Too Well (10 Minute Version) (The Short Film)"
+    },
+    {
+      "title": "All Too Well (Sad Girl Autumn Version) - Recorded at Long Pond Studios",
+      "url": "https://open.spotify.com/intl-fr/track/1n3b9Eekoy3S9ZSZ5DmTW1",
+      "type": "standalone",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 4,
+      "base_title": "All Too Well (Sad Girl Autumn Version) - Recorded at Long Pond Studios"
+    }
+  ]
+}

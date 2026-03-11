@@ -1,0 +1,115 @@
+{
+  "album": "The Life of a Showgirl",
+  "section": "standard_edition",
+  "track_count": 12,
+  "tracks": [
+    {
+      "title": "The Fate of Ophelia",
+      "url": "https://open.spotify.com/intl-fr/track/53iuhJlwXhSER5J2IYYv1W",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 1,
+      "base_title": "The Fate of Ophelia"
+    },
+    {
+      "title": "Elizabeth Taylor",
+      "url": "https://open.spotify.com/intl-fr/track/1jgTiNob5cVyXeJ3WgX5bL",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 2,
+      "base_title": "Elizabeth Taylor"
+    },
+    {
+      "title": "Opalite",
+      "url": "https://open.spotify.com/intl-fr/track/3yWuTOYDztXjZxdE2cIRUa",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 3,
+      "base_title": "Opalite"
+    },
+    {
+      "title": "Father Figure",
+      "url": "https://open.spotify.com/intl-fr/track/03bTIHJElXZ0O0jqOQvAbY",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 4,
+      "base_title": "Father Figure"
+    },
+    {
+      "title": "Eldest Daughter",
+      "url": "https://open.spotify.com/intl-fr/track/62HoDY1Km6lm47haFpUn9c",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 5,
+      "base_title": "Eldest Daughter"
+    },
+    {
+      "title": "Ruin The Friendship",
+      "url": "https://open.spotify.com/intl-fr/track/62V2ZHslgQV98gH4AuVXnr",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 6,
+      "base_title": "Ruin The Friendship"
+    },
+    {
+      "title": "Actually Romantic",
+      "url": "https://open.spotify.com/intl-fr/track/2x3mwb96B6TquRqMtbxUE1",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 7,
+      "base_title": "Actually Romantic"
+    },
+    {
+      "title": "Wi$h Li$t",
+      "url": "https://open.spotify.com/intl-fr/track/2TEQvxxQabwLQMqWMg1qGu",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 8,
+      "base_title": "Wi$h Li$t"
+    },
+    {
+      "title": "Wood",
+      "url": "https://open.spotify.com/intl-fr/track/5ylJtmaWPJ33cW3En7WOu0",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 9,
+      "base_title": "Wood"
+    },
+    {
+      "title": "CANCELLED!",
+      "url": "https://open.spotify.com/intl-fr/track/1appZ3c336FkPvCuywfmrs",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 10,
+      "base_title": "CANCELLED!"
+    },
+    {
+      "title": "Honey",
+      "url": "https://open.spotify.com/intl-fr/track/4qmFC3Jz5aQ0erlk2OSi2X",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 11,
+      "base_title": "Honey"
+    },
+    {
+      "title": "The Life of a Showgirl (feat. Sabrina Carpenter)",
+      "url": "https://open.spotify.com/intl-fr/track/5eXgqtg3T8Av0m1FUaGHex",
+      "type": "feature",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 12,
+      "base_title": "The Life of a Showgirl (feat. Sabrina Carpenter)"
+    }
+  ]
+}

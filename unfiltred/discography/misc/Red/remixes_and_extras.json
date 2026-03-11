@@ -1,0 +1,16 @@
+{
+  "album": "Red",
+  "section": "remixes_and_extras",
+  "track_count": 2,
+  "tracks": [
+    {
+      "title": "Message In A Bottle (Fat Max G Remix) (Taylor's Version)",
+      "url": "https://open.spotify.com/intl-fr/track/3tGq7hWDCtrnL83y5OGual",
+      "type": "remix",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 1,
+      "base_title": "Message In A Bottle (Fat Max G Remix)"
+    }
+  ]
+}

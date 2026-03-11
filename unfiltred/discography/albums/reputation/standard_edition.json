@@ -1,0 +1,142 @@
+{
+  "album": "reputation",
+  "section": "standard_edition",
+  "track_count": 15,
+  "tracks": [
+    {
+      "title": "...Ready For It?",
+      "url": "https://open.spotify.com/intl-fr/track/2yLa0QULdQr0qAIvVwN6B5",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 1,
+      "base_title": "...Ready For It?"
+    },
+    {
+      "title": "End Game",
+      "url": "https://open.spotify.com/intl-fr/track/2x0WlnmfG39ZuDmstl9xfX",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 2,
+      "base_title": "End Game"
+    },
+    {
+      "title": "I Did Something Bad",
+      "url": "https://open.spotify.com/intl-fr/track/4svZDCRz4cJoneBpjpx8DJ",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 3,
+      "base_title": "I Did Something Bad"
+    },
+    {
+      "title": "Don't Blame Me",
+      "url": "https://open.spotify.com/intl-fr/track/1R0a2iXumgCiFb7HEZ7gUE",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 4,
+      "base_title": "Don't Blame Me"
+    },
+    {
+      "title": "Delicate",
+      "url": "https://open.spotify.com/intl-fr/track/6NFyWDv5CjfwuzoCkw47Xf",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 5,
+      "base_title": "Delicate"
+    },
+    {
+      "title": "Look What You Made Me Do",
+      "url": "https://open.spotify.com/intl-fr/track/1P17dC1amhFzptugyAO7Il",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 6,
+      "base_title": "Look What You Made Me Do"
+    },
+    {
+      "title": "So It Goes...",
+      "url": "https://open.spotify.com/intl-fr/track/5PxFv9yJEg9dxvbZggykro",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 7,
+      "base_title": "So It Goes..."
+    },
+    {
+      "title": "Gorgeous",
+      "url": "https://open.spotify.com/intl-fr/track/1ZY1PqizIl78geGM4xWlEA",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 8,
+      "base_title": "Gorgeous"
+    },
+    {
+      "title": "Getaway Car",
+      "url": "https://open.spotify.com/intl-fr/track/0VE4kBnHJUgtMf0dy6DRmW",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 9,
+      "base_title": "Getaway Car"
+    },
+    {
+      "title": "King Of My Heart",
+      "url": "https://open.spotify.com/intl-fr/track/7HuBDWi18s4aJM8UFnNheH",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 10,
+      "base_title": "King Of My Heart"
+    },
+    {
+      "title": "Dancing With Our Hands Tied",
+      "url": "https://open.spotify.com/intl-fr/track/7I7JbDv63ZJJsSi24DyJrz",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 11,
+      "base_title": "Dancing With Our Hands Tied"
+    },
+    {
+      "title": "Dress",
+      "url": "https://open.spotify.com/intl-fr/track/6oVxXO5oQ4pTpO8RSnkzvv",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 12,
+      "base_title": "Dress"
+    },
+    {
+      "title": "This Is Why We Can't Have Nice Things",
+      "url": "https://open.spotify.com/intl-fr/track/07NxDD1iKCHbAldceD7QLP",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 13,
+      "base_title": "This Is Why We Can't Have Nice Things"
+    },
+    {
+      "title": "Call It What You Want",
+      "url": "https://open.spotify.com/intl-fr/track/1GwMQaZz6Au3QLDbjbMdme",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 14,
+      "base_title": "Call It What You Want"
+    },
+    {
+      "title": "New Year's Day",
+      "url": "https://open.spotify.com/intl-fr/track/7F5oktn5YOsR9eR5YsFtqb",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 15,
+      "base_title": "New Year's Day"
+    }
+  ]
+}

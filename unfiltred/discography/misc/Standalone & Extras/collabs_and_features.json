@@ -1,0 +1,97 @@
+{
+  "album": "Standalone & Extras",
+  "section": "collabs_and_features",
+  "track_count": 10,
+  "tracks": [
+    {
+      "title": "Renegade",
+      "url": "https://open.spotify.com/intl-fr/track/73W5aXorr5vxrySFcoZqIN",
+      "type": "standalone",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 1,
+      "base_title": "Renegade"
+    },
+    {
+      "title": "Renegade - Pop Version",
+      "url": "https://open.spotify.com/intl-fr/track/06zIBqLC9ZRm5i0iMf0kHI",
+      "type": "standalone",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 2,
+      "base_title": "Renegade"
+    },
+    {
+      "title": "The Joker And The Queen (feat. Taylor Swift)",
+      "url": "https://open.spotify.com/intl-fr/track/3wx2iW1rJGgdNln2I64HNh",
+      "type": "feature",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 3,
+      "base_title": "The Joker And The Queen (feat. Taylor Swift)"
+    },
+    {
+      "title": "Gasoline (feat. Taylor Swift)",
+      "url": "https://open.spotify.com/intl-fr/track/2bzUVEvpZ7At5cYz1kOLI9",
+      "type": "feature",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 4,
+      "base_title": "Gasoline (feat. Taylor Swift)"
+    },
+    {
+      "title": "Both of Us (feat. Taylor Swift)",
+      "url": "https://open.spotify.com/intl-fr/track/3r9bgSJlJz2zlevcBRYXko",
+      "type": "feature",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 5,
+      "base_title": "Both of Us (feat. Taylor Swift)"
+    },
+    {
+      "title": "Two Is Better Than One (feat. Taylor Swift)",
+      "url": "https://open.spotify.com/intl-fr/track/1MaqkdFNIKPdpQGDzme5ss",
+      "type": "feature",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 6,
+      "base_title": "Two Is Better Than One (feat. Taylor Swift)"
+    },
+    {
+      "title": "Highway Don't Care",
+      "url": "https://open.spotify.com/intl-fr/track/60hGQrn24APqEFSLObLeDc",
+      "type": "standalone",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 7,
+      "base_title": "Highway Don't Care"
+    },
+    {
+      "title": "Babe (feat. Taylor Swift)",
+      "url": "https://open.spotify.com/track/40PXEOFLJc7UIpLMrhSfW1",
+      "type": "feature",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 8,
+      "base_title": "Babe (feat. Taylor Swift)"
+    },
+    {
+      "title": "The Alcott (feat. Taylor Swift)",
+      "url": "https://open.spotify.com/track/6INztpNwOTlfSKTuPo0HOP",
+      "type": "feature",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 9,
+      "base_title": "The Alcott (feat. Taylor Swift)"
+    },
+    {
+      "title": "us. (feat. Taylor Swift)",
+      "url": "https://open.spotify.com/track/0hhzNPE68LWLfgZwdpxVdR",
+      "type": "feature",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 10,
+      "base_title": "us. (feat. Taylor Swift)"
+    }
+  ]
+}

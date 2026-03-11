@@ -1,0 +1,34 @@
+{
+  "album": "Red",
+  "section": "demos_and_acoustic",
+  "track_count": 3,
+  "tracks": [
+    {
+      "title": "Red - Original Demo Recording",
+      "url": "https://open.spotify.com/intl-fr/track/4mqgn90sCeVSYqcoftTQTd",
+      "type": "alternate_version",
+      "edition": "acoustic",
+      "display_section": "Other Editions",
+      "display_order": 1,
+      "base_title": "Red"
+    },
+    {
+      "title": "Treacherous - Original Demo Recording",
+      "url": "https://open.spotify.com/intl-fr/track/7BT9K9BDqq6HI2oWH5UMZQ",
+      "type": "alternate_version",
+      "edition": "acoustic",
+      "display_section": "Other Editions",
+      "display_order": 2,
+      "base_title": "Treacherous"
+    },
+    {
+      "title": "State Of Grace - Acoustic",
+      "url": "https://open.spotify.com/intl-fr/track/5G9AVKld9q7DCrmoY42raf",
+      "type": "alternate_version",
+      "edition": "acoustic",
+      "display_section": "Other Editions",
+      "display_order": 3,
+      "base_title": "State Of Grace"
+    }
+  ]
+}

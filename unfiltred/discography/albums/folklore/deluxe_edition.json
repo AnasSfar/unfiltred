@@ -1,0 +1,16 @@
+{
+  "album": "folklore",
+  "section": "deluxe_edition",
+  "track_count": 1,
+  "tracks": [
+    {
+      "title": "the lakes - bonus track",
+      "url": "https://open.spotify.com/intl-fr/track/0eFQWVz0qIxDOvhLpZ40P7",
+      "type": "alternate_version",
+      "edition": "deluxe",
+      "display_section": "Other Editions",
+      "display_order": 1,
+      "base_title": "the lakes - bonus track"
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "album": "reputation",
+  "section": "karaoke",
+  "track_count": 15,
+  "tracks": [
+    {
+      "title": "...Ready For It? - Karaoke Version",
+      "url": "https://open.spotify.com/intl-fr/track/4twNUyTpLMPWokYmCdFDCH",
+      "type": "alternate_version",
+      "edition": "karaoke",
+      "display_section": "Other Editions",
+      "display_order": 1,
+      "base_title": "...Ready For It?"
+    },
+    {
+      "title": "Call It What You Want - Karaoke Version",
+      "url": "https://open.spotify.com/intl-fr/track/1VPHQriwOsy5aGHLwwZyho",
+      "type": "alternate_version",
+      "edition": "karaoke",
+      "display_section": "Other Editions",
+      "display_order": 2,
+      "base_title": "Call It What You Want"
+    },
+    {
+      "title": "Dancing With Our Hands Tied - Karaoke Version",
+      "url": "https://open.spotify.com/intl-fr/track/3ZfvKQxJp4zZshiJsRPoD1",
+      "type": "alternate_version",
+      "edition": "karaoke",
+      "display_section": "Other Editions",
+      "display_order": 3,
+      "base_title": "Dancing With Our Hands Tied"
+    },
+    {
+      "title": "Delicate - Karaoke Version",
+      "url": "https://open.spotify.com/intl-fr/track/5Iadj8IBPrt634WW0yGPRI",
+      "type": "alternate_version",
+      "edition": "karaoke",
+      "display_section": "Other Editions",
+      "display_order": 4,
+      "base_title": "Delicate"
+    },
+    {
+      "title": "Don't Blame Me - Karaoke Version",
+      "url": "https://open.spotify.com/intl-fr/track/5JtXBqKLdfzwedmlUjjqAm",
+      "type": "alternate_version",
+      "edition": "karaoke",
+      "display_section": "Other Editions",
+      "display_order": 5,
+      "base_title": "Don't Blame Me"
+    },
+    {
+      "title": "Dress - Karaoke Version",
+      "url": "https://open.spotify.com/intl-fr/track/2k0w1FGqvzVPgQ9VdTaJpe",
+      "type": "alternate_version",
+      "edition": "karaoke",
+      "display_section": "Other Editions",
+      "display_order": 6,
+      "base_title": "Dress"
+    },
+    {
+      "title": "End Game - Karaoke Version",
+      "url": "https://open.spotify.com/intl-fr/track/4cag67C3v9ToeFivUwDUsE",
+      "type": "alternate_version",
+      "edition": "karaoke",
+      "display_section": "Other Editions",
+      "display_order": 7,
+      "base_title": "End Game"
+    },
+    {
+      "title": "Getaway Car - Karaoke Version",
+      "url": "https://open.spotify.com/intl-fr/track/7bdyzcQ0onk60hfsxDCd2X",
+      "type": "alternate_version",
+      "edition": "karaoke",
+      "display_section": "Other Editions",
+      "display_order": 8,
+      "base_title": "Getaway Car"
+    },
+    {
+      "title": "Gorgeous - Karaoke Version",
+      "url": "https://open.spotify.com/intl-fr/track/3ZHTwJzCNDFvjLpVQiqpH6",
+      "type": "alternate_version",
+      "edition": "karaoke",
+      "display_section": "Other Editions",
+      "display_order": 9,
+      "base_title": "Gorgeous"
+    },
+    {
+      "title": "I Did Something Bad - Karaoke Version",
+      "url": "https://open.spotify.com/intl-fr/track/2hecdut2HWM5JMHqLTWThq",
+      "type": "alternate_version",
+      "edition": "karaoke",
+      "display_section": "Other Editions",
+      "display_order": 10,
+      "base_title": "I Did Something Bad"
+    },
+    {
+      "title": "King Of My Heart - Karaoke Version",
+      "url": "https://open.spotify.com/intl-fr/track/5EsfyTD26nlVQ0DtYo16uJ",
+      "type": "alternate_version",
+      "edition": "karaoke",
+      "display_section": "Other Editions",
+      "display_order": 11,
+      "base_title": "King Of My Heart"
+    },
+    {
+      "title": "Look What You Made Me Do - Karaoke Version",
+      "url": "https://open.spotify.com/intl-fr/track/1zz0XSmHCFd57ne04UAp38",
+      "type": "alternate_version",
+      "edition": "karaoke",
+      "display_section": "Other Editions",
+      "display_order": 12,
+      "base_title": "Look What You Made Me Do"
+    },
+    {
+      "title": "New Year's Day - Karaoke Version",
+      "url": "https://open.spotify.com/intl-fr/track/13tYZVTtzLUJTlM7m1ivbi",
+      "type": "alternate_version",
+      "edition": "karaoke",
+      "display_section": "Other Editions",
+      "display_order": 13,
+      "base_title": "New Year's Day"
+    },
+    {
+      "title": "So It Goes... - Karaoke Version",
+      "url": "https://open.spotify.com/intl-fr/track/5oJUjUsBZcqyEhOdpif37h",
+      "type": "alternate_version",
+      "edition": "karaoke",
+      "display_section": "Other Editions",
+      "display_order": 14,
+      "base_title": "So It Goes..."
+    },
+    {
+      "title": "This Is Why We Can't Have Nice Things - Karaoke Version",
+      "url": "https://open.spotify.com/intl-fr/track/0MtU9ETYyVX8YPBDCYPdMb",
+      "type": "alternate_version",
+      "edition": "karaoke",
+      "display_section": "Other Editions",
+      "display_order": 15,
+      "base_title": "This Is Why We Can't Have Nice Things"
+    }
+  ]
+}

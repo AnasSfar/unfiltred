@@ -1,0 +1,160 @@
+{
+  "album": "Speak Now",
+  "section": "standard_edition",
+  "track_count": 17,
+  "tracks": [
+    {
+      "title": "Back To December",
+      "url": "https://open.spotify.com/intl-fr/track/5l6GqSxplqnZbLg0LTPQeG",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 1,
+      "base_title": "Back To December"
+    },
+    {
+      "title": "Better Than Revenge",
+      "url": "https://open.spotify.com/intl-fr/track/1By2VQkUN0Frd8mKNV5NYC",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 2,
+      "base_title": "Better Than Revenge"
+    },
+    {
+      "title": "Dear John",
+      "url": "https://open.spotify.com/intl-fr/track/3K2es3gElMRJ3qvmPW442g",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 3,
+      "base_title": "Dear John"
+    },
+    {
+      "title": "Enchanted",
+      "url": "https://open.spotify.com/intl-fr/track/04S1pkp1VaIqjg8zZqknR5",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 4,
+      "base_title": "Enchanted"
+    },
+    {
+      "title": "Haunted",
+      "url": "https://open.spotify.com/intl-fr/track/11UaQaEp2LvdspTyyuE3ur",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 5,
+      "base_title": "Haunted"
+    },
+    {
+      "title": "If This Was A Movie",
+      "url": "https://open.spotify.com/intl-fr/track/0vvt4IZOMkRug195S4MUq0",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 6,
+      "base_title": "If This Was A Movie"
+    },
+    {
+      "title": "Innocent",
+      "url": "https://open.spotify.com/intl-fr/track/3kfgJql90tzgoxByioAMXR",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 7,
+      "base_title": "Innocent"
+    },
+    {
+      "title": "Last Kiss",
+      "url": "https://open.spotify.com/intl-fr/track/1D27z8xNzjW0Mwwt1NCWhJ",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 8,
+      "base_title": "Last Kiss"
+    },
+    {
+      "title": "Mean",
+      "url": "https://open.spotify.com/intl-fr/track/0KztjtD3ytzgYjUKIVfBnW",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 9,
+      "base_title": "Mean"
+    },
+    {
+      "title": "Mine",
+      "url": "https://open.spotify.com/intl-fr/track/6LZaxlycSWrJZ4Volb25qx",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 10,
+      "base_title": "Mine"
+    },
+    {
+      "title": "Never Grow Up",
+      "url": "https://open.spotify.com/intl-fr/track/3JilapcaOXzjR9gtvCY8FO",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 11,
+      "base_title": "Never Grow Up"
+    },
+    {
+      "title": "Ours",
+      "url": "https://open.spotify.com/intl-fr/track/1EQn3Uc5AyUXoiPLeyCrrg",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 12,
+      "base_title": "Ours"
+    },
+    {
+      "title": "Sparks Fly",
+      "url": "https://open.spotify.com/intl-fr/track/46NGAvL695VnbcSeTmQWmM",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 13,
+      "base_title": "Sparks Fly"
+    },
+    {
+      "title": "Speak Now",
+      "url": "https://open.spotify.com/intl-fr/track/7dXKdjpOaH2iwfFKmUj7aq",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 14,
+      "base_title": "Speak Now"
+    },
+    {
+      "title": "Superman",
+      "url": "https://open.spotify.com/intl-fr/track/2R7C9dDqv1UPycvepBFziA",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 15,
+      "base_title": "Superman"
+    },
+    {
+      "title": "The Story Of Us",
+      "url": "https://open.spotify.com/intl-fr/track/3lXekiVK1ZPZbKconsys73",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 16,
+      "base_title": "The Story Of Us"
+    },
+    {
+      "title": "Long Live",
+      "url": "https://open.spotify.com/track/6XDBA3QWX51lDJ0oZbaJJN",
+      "type": "alternate_version",
+      "edition": "standard",
+      "display_section": "Other Editions",
+      "display_order": 17,
+      "base_title": "Long Live"
+    }
+  ]
+}

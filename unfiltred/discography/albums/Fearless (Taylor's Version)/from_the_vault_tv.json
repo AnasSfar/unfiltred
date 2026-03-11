@@ -1,0 +1,70 @@
+{
+  "album": "Fearless (Taylor's Version)",
+  "section": "from_the_vault_tv",
+  "track_count": 7,
+  "tracks": [
+    {
+      "title": "Bye Bye Baby (Taylor's Version) (From The Vault)",
+      "url": "https://open.spotify.com/intl-fr/track/4qUijfYU8EoIWiY6oSyrgT",
+      "type": "standalone",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 1,
+      "base_title": "Bye Bye Baby (Taylor's Version) (From The Vault)"
+    },
+    {
+      "title": "Don't You (Taylor's Version) (From The Vault)",
+      "url": "https://open.spotify.com/intl-fr/track/4uuEGH5SVuzkkSFjo2DEiY",
+      "type": "standalone",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 2,
+      "base_title": "Don't You (Taylor's Version) (From The Vault)"
+    },
+    {
+      "title": "Mr. Perfectly Fine (Taylor's Version) (From The Vault)",
+      "url": "https://open.spotify.com/intl-fr/track/2CYVETnhM9aytqrazYYwrK",
+      "type": "standalone",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 3,
+      "base_title": "Mr. Perfectly Fine (Taylor's Version) (From The Vault)"
+    },
+    {
+      "title": "That's When (feat. Keith Urban) (Taylor's Version) (From The Vault)",
+      "url": "https://open.spotify.com/intl-fr/track/7eResoqEJJAVTkQYSqvO3P",
+      "type": "feature",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 4,
+      "base_title": "That's When (feat. Keith Urban) (Taylor's Version) (From The Vault)"
+    },
+    {
+      "title": "We Were Happy (Taylor's Version) (From The Vault)",
+      "url": "https://open.spotify.com/intl-fr/track/34V9RiEPe8MNdU32qJsJa1",
+      "type": "standalone",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 5,
+      "base_title": "We Were Happy (Taylor's Version) (From The Vault)"
+    },
+    {
+      "title": "You All Over Me (feat. Maren Morris) (Taylor's Version) (From The Vault)",
+      "url": "https://open.spotify.com/intl-fr/track/4CHpVfAhuxNJ3ibExe6kxO",
+      "type": "feature",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 6,
+      "base_title": "You All Over Me (feat. Maren Morris) (Taylor's Version) (From The Vault)"
+    },
+    {
+      "title": "Forever & Always (Piano Version) (Taylor's Version)",
+      "url": "https://open.spotify.com/intl-fr/track/01QdEx6kFr78ZejhQtWR5m",
+      "type": "standalone",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 7,
+      "base_title": "Forever & Always (Piano Version)"
+    }
+  ]
+}

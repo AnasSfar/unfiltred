@@ -1,0 +1,169 @@
+{
+  "album": "Red",
+  "section": "standard_edition",
+  "track_count": 18,
+  "tracks": [
+    {
+      "title": "State Of Grace",
+      "url": "https://open.spotify.com/intl-fr/track/786NsUYn4GGUf8AOt0SQhP",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 1,
+      "base_title": "State Of Grace"
+    },
+    {
+      "title": "Red",
+      "url": "https://open.spotify.com/intl-fr/track/0cITLOYn1Sv4q27zZPqlNK",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 2,
+      "base_title": "Red"
+    },
+    {
+      "title": "Treacherous",
+      "url": "https://open.spotify.com/intl-fr/track/5kYFVSQoPu7yRpfiHBwMUk",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 3,
+      "base_title": "Treacherous"
+    },
+    {
+      "title": "I Knew You Were Trouble.",
+      "url": "https://open.spotify.com/intl-fr/track/72jCZdH0Lhg93z6Z4hBjgj",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 4,
+      "base_title": "I Knew You Were Trouble."
+    },
+    {
+      "title": "All Too Well",
+      "url": "https://open.spotify.com/intl-fr/track/4XMP3zVxrnr58T0tjIHvpR",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 5,
+      "base_title": "All Too Well"
+    },
+    {
+      "title": "22",
+      "url": "https://open.spotify.com/intl-fr/track/2ULNeSomDxVNmdDy8VxEBU",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 6,
+      "base_title": "22"
+    },
+    {
+      "title": "I Almost Do",
+      "url": "https://open.spotify.com/intl-fr/track/5VwFkx7JOimOGTYfha5rs1",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 7,
+      "base_title": "I Almost Do"
+    },
+    {
+      "title": "We Are Never Ever Getting Back Together",
+      "url": "https://open.spotify.com/intl-fr/track/7AEAGTc8cReDqcbPoY9gwo",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 8,
+      "base_title": "We Are Never Ever Getting Back Together"
+    },
+    {
+      "title": "Stay Stay Stay",
+      "url": "https://open.spotify.com/intl-fr/track/1qLeEu4iXEclkLwoBlMiou",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 9,
+      "base_title": "Stay Stay Stay"
+    },
+    {
+      "title": "The Last Time",
+      "url": "https://open.spotify.com/intl-fr/track/7vvIpJZye5cRR6De1LKM0m",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 10,
+      "base_title": "The Last Time"
+    },
+    {
+      "title": "Holy Ground",
+      "url": "https://open.spotify.com/intl-fr/track/5d2Kn9oAAh9S2EbyCo1i52",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 11,
+      "base_title": "Holy Ground"
+    },
+    {
+      "title": "Sad Beautiful Tragic",
+      "url": "https://open.spotify.com/intl-fr/track/5QKhg4r4Ibt0LVTmWEXTEg",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 12,
+      "base_title": "Sad Beautiful Tragic"
+    },
+    {
+      "title": "The Lucky One",
+      "url": "https://open.spotify.com/intl-fr/track/2wtHlpYSgC7xEdD3DrSHNL",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 13,
+      "base_title": "The Lucky One"
+    },
+    {
+      "title": "Everything Has Changed",
+      "url": "https://open.spotify.com/intl-fr/track/7gdwoOmi258QJq0hmQ4hto",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 14,
+      "base_title": "Everything Has Changed"
+    },
+    {
+      "title": "Starlight",
+      "url": "https://open.spotify.com/intl-fr/track/0vqI4ZIMuifeKeItGiWbPj",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 15,
+      "base_title": "Starlight"
+    },
+    {
+      "title": "Begin Again",
+      "url": "https://open.spotify.com/intl-fr/track/48A0aShHlovDfTMucMrE66",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 16,
+      "base_title": "Begin Again"
+    },
+    {
+      "title": "Come Back...Be Here",
+      "url": "https://open.spotify.com/intl-fr/track/4qyalTRMRH5YuEntvvMvq0",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 17,
+      "base_title": "Come Back...Be Here"
+    },
+    {
+      "title": "Girl At Home",
+      "url": "https://open.spotify.com/intl-fr/track/6cf6rLb8qcklvJv90W6HCW",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 18,
+      "base_title": "Girl At Home"
+    }
+  ]
+}

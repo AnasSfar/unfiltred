@@ -1,0 +1,70 @@
+{
+  "album": "The Life of a Showgirl",
+  "section": "acoustic_edition",
+  "track_count": 2,
+  "tracks": [
+    {
+      "title": "The Fate of Ophelia - Alone In My Tower Acoustic Version",
+      "url": "https://open.spotify.com/intl-fr/track/3Z2nTctPsTsgqqJm5fCSvG",
+      "type": "alternate_version",
+      "edition": "acoustic",
+      "display_section": "Other Editions",
+      "display_order": 1,
+      "base_title": "The Fate of Ophelia"
+    },
+    {
+      "title": "Opalite - Life Is A Song Acoustic Version",
+      "url": "https://open.spotify.com/intl-fr/track/7y16ygjcEcfo1VYKxmgVZY",
+      "type": "alternate_version",
+      "edition": "acoustic",
+      "display_section": "Other Editions",
+      "display_order": 2,
+      "base_title": "Opalite"
+    },
+    {
+      "title": "Wi$h Li$t - Settled Down Acoustic Version",
+      "url": "https://open.spotify.com/track/1qwClaxDb5fCrLjXaAmB35",
+      "type": "alternate_version",
+      "edition": "acoustic",
+      "display_section": "Other Editions",
+      "display_order": 3,
+      "base_title": "Wi$h Li$t"
+    },
+    {
+      "title": "Ruin The Friendship - My Advice Version",
+      "url": "https://open.spotify.com/track/6hKfPNnVlA2cgTgKj6Vgcw",
+      "type": "alternate_version",
+      "edition": "acoustic",
+      "display_section": "Other Editions",
+      "display_order": 4,
+      "base_title": "Ruin The Friendship"
+    },
+    {
+      "title": "Eldest Daughter - Now You're Home Acoustic Version",
+      "url": "https://open.spotify.com/track/2JHzTARFUispsjZHKhrxxO",
+      "type": "alternate_version",
+      "edition": "acoustic",
+      "display_section": "Other Editions",
+      "display_order": 5,
+      "base_title": "Eldest Daughter"
+    },
+    {
+      "title": "Elizabeth Taylor - So Glamorous Cabaret Version",
+      "url": "https://open.spotify.com/track/4UBWugj5D20ZveyzdGpqvD",
+      "type": "alternate_version",
+      "edition": "acoustic",
+      "display_section": "Other Editions",
+      "display_order": 6,
+      "base_title": "Elizabeth Taylor"
+    },
+    {
+      "title": "The Life of a Showgirl (feat. Sabrina Carpenter) - Dressing Room Rehearsal Version",
+      "url": "https://open.spotify.com/track/2DF2sUvgHFKJ5TQGjm6n3T",
+      "type": "alternate_version",
+      "edition": "acoustic",
+      "display_section": "Other Editions",
+      "display_order": 7,
+      "base_title": "The Life of a Showgirl (feat. Sabrina Carpenter)"
+    }
+  ]
+}

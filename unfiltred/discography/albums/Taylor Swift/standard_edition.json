@@ -1,0 +1,142 @@
+{
+  "album": "Taylor Swift",
+  "section": "standard_edition",
+  "track_count": 15,
+  "tracks": [
+    {
+      "title": "A Perfectly Good Heart",
+      "url": "https://open.spotify.com/intl-fr/track/1spLfUJxtyVyiKKTegQ2r4",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 1,
+      "base_title": "A Perfectly Good Heart"
+    },
+    {
+      "title": "A Place in this World",
+      "url": "https://open.spotify.com/intl-fr/track/73OX8GdpOeGzKC6OvGSbsv",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 2,
+      "base_title": "A Place in this World"
+    },
+    {
+      "title": "Cold As You",
+      "url": "https://open.spotify.com/intl-fr/track/7an1exwMnfYRcdVQm0yDev",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 3,
+      "base_title": "Cold As You"
+    },
+    {
+      "title": "I'm Only Me When I'm With You",
+      "url": "https://open.spotify.com/intl-fr/track/0JIdBrXGSJXS72zjF9ss9u",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 4,
+      "base_title": "I'm Only Me When I'm With You"
+    },
+    {
+      "title": "Invisible",
+      "url": "https://open.spotify.com/intl-fr/track/5OOd01o2YS1QFwdpVLds3r",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 5,
+      "base_title": "Invisible"
+    },
+    {
+      "title": "Mary's Song (Oh My My My)",
+      "url": "https://open.spotify.com/intl-fr/track/2QrQCMel6v2JiLxqrg4p2O",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 6,
+      "base_title": "Mary's Song (Oh My My My)"
+    },
+    {
+      "title": "Our Song",
+      "url": "https://open.spotify.com/intl-fr/track/15DeqWWQB4dcEWzJg15VrN",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 7,
+      "base_title": "Our Song"
+    },
+    {
+      "title": "Picture To Burn",
+      "url": "https://open.spotify.com/intl-fr/track/32mVHdy0bi1XKgr0ajsBlG",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 8,
+      "base_title": "Picture To Burn"
+    },
+    {
+      "title": "Should've Said No",
+      "url": "https://open.spotify.com/intl-fr/track/16MVSD0mGI4RMQT83Qzm69",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 9,
+      "base_title": "Should've Said No"
+    },
+    {
+      "title": "Stay Beautiful",
+      "url": "https://open.spotify.com/intl-fr/track/2ZoOmCSgj0ypVAmGd1ve4y",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 10,
+      "base_title": "Stay Beautiful"
+    },
+    {
+      "title": "Teardrops on My Guitar - Pop Version",
+      "url": "https://open.spotify.com/intl-fr/track/4pJi1rVt9GNegU9kywjg4z",
+      "type": "alternate_version",
+      "edition": "standard",
+      "display_section": "Other Editions",
+      "display_order": 11,
+      "base_title": "Teardrops on My Guitar"
+    },
+    {
+      "title": "Teardrops On My Guitar - Radio Single Remix",
+      "url": "https://open.spotify.com/intl-fr/track/7zMcNqs55Mxer82bvZFkpg",
+      "type": "remix",
+      "edition": "standard",
+      "display_section": "Extras",
+      "display_order": 12,
+      "base_title": "Teardrops On My Guitar"
+    },
+    {
+      "title": "The Outside",
+      "url": "https://open.spotify.com/intl-fr/track/2QA3IixpRcKyOdG7XDzRgv",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 13,
+      "base_title": "The Outside"
+    },
+    {
+      "title": "Tied Together with a Smile",
+      "url": "https://open.spotify.com/intl-fr/track/6K0CJLVXqbGMeJSmJ4ENKK",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 14,
+      "base_title": "Tied Together with a Smile"
+    },
+    {
+      "title": "Tim McGraw",
+      "url": "https://open.spotify.com/intl-fr/track/0Om9WAB5RS09L80DyOfTNa",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 15,
+      "base_title": "Tim McGraw"
+    }
+  ]
+}

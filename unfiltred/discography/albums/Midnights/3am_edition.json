@@ -1,0 +1,70 @@
+{
+  "album": "Midnights",
+  "section": "3am_edition",
+  "track_count": 7,
+  "tracks": [
+    {
+      "title": "The Great War",
+      "url": "https://open.spotify.com/intl-fr/track/2VuqMjgoKaOHNM8HpxtXKx",
+      "type": "standalone",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 1,
+      "base_title": "The Great War"
+    },
+    {
+      "title": "Bigger Than The Whole Sky",
+      "url": "https://open.spotify.com/intl-fr/track/71CBDRKmF2VeRKYMG1DFBh",
+      "type": "standalone",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 2,
+      "base_title": "Bigger Than The Whole Sky"
+    },
+    {
+      "title": "Paris",
+      "url": "https://open.spotify.com/intl-fr/track/5tWxKWq1DSP1s9WQ5PWuqu",
+      "type": "standalone",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 3,
+      "base_title": "Paris"
+    },
+    {
+      "title": "High Infidelity",
+      "url": "https://open.spotify.com/intl-fr/track/1SztNGCwEHJEVFx90E5g7D",
+      "type": "standalone",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 4,
+      "base_title": "High Infidelity"
+    },
+    {
+      "title": "Glitch",
+      "url": "https://open.spotify.com/intl-fr/track/7C0w28EsX0Um2FrZs9gso2",
+      "type": "standalone",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 5,
+      "base_title": "Glitch"
+    },
+    {
+      "title": "Would've, Could've, Should've",
+      "url": "https://open.spotify.com/intl-fr/track/4txojlesMFQZGWxwz2EeqB",
+      "type": "standalone",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 6,
+      "base_title": "Would've, Could've, Should've"
+    },
+    {
+      "title": "Dear Reader",
+      "url": "https://open.spotify.com/intl-fr/track/10GRRCR5fctuOF4GFmATJI",
+      "type": "standalone",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 7,
+      "base_title": "Dear Reader"
+    }
+  ]
+}

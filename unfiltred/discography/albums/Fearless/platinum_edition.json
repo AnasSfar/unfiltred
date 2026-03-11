@@ -1,0 +1,178 @@
+{
+  "album": "Fearless",
+  "section": "platinum_edition",
+  "track_count": 19,
+  "tracks": [
+    {
+      "title": "Breathe",
+      "url": "https://open.spotify.com/intl-fr/track/6S9G7J3EB1ZY0rrZPwsBg5",
+      "type": "standalone",
+      "edition": "standard edition",
+      "display_section": "standard edition",
+      "display_order": 1,
+      "base_title": "Breathe"
+    },
+    {
+      "title": "Change",
+      "url": "https://open.spotify.com/intl-fr/track/0RdcBnAXyH2YZZvcBVu2k6",
+      "type": "standalone",
+      "edition": "standard edition",
+      "display_section": "standard edition",
+      "display_order": 2,
+      "base_title": "Change"
+    },
+    {
+      "title": "Come In With The Rain",
+      "url": "https://open.spotify.com/intl-fr/track/4pl5zcqCv4vc3cB7M4MZ6f",
+      "type": "standalone",
+      "edition": "standard edition",
+      "display_section": "standard edition",
+      "display_order": 3,
+      "base_title": "Come In With The Rain"
+    },
+    {
+      "title": "Fearless",
+      "url": "https://open.spotify.com/intl-fr/track/3F6czr26ZwGU5O5CHY04Ma",
+      "type": "standalone",
+      "edition": "standard edition",
+      "display_section": "standard edition",
+      "display_order": 4,
+      "base_title": "Fearless"
+    },
+    {
+      "title": "Fifteen",
+      "url": "https://open.spotify.com/intl-fr/track/3M0w3fhdXByHLCNAoi5c9G",
+      "type": "standalone",
+      "edition": "standard edition",
+      "display_section": "standard edition",
+      "display_order": 5,
+      "base_title": "Fifteen"
+    },
+    {
+      "title": "Forever & Always",
+      "url": "https://open.spotify.com/intl-fr/track/1zxrcAk6eiytfavqriMcKT",
+      "type": "standalone",
+      "edition": "standard edition",
+      "display_section": "standard edition",
+      "display_order": 6,
+      "base_title": "Forever & Always"
+    },
+    {
+      "title": "Forever & Always - Piano Version",
+      "url": "https://open.spotify.com/intl-fr/track/46HGgtwmmuEB8mvDCyjyAc",
+      "type": "standalone",
+      "edition": "standard edition",
+      "display_section": "standard edition",
+      "display_order": 7,
+      "base_title": "Forever & Always"
+    },
+    {
+      "title": "Hey Stephen",
+      "url": "https://open.spotify.com/intl-fr/track/6wcFdMmiDscAhZJrcVFumx",
+      "type": "standalone",
+      "edition": "standard edition",
+      "display_section": "standard edition",
+      "display_order": 8,
+      "base_title": "Hey Stephen"
+    },
+    {
+      "title": "Jump Then Fall",
+      "url": "https://open.spotify.com/intl-fr/track/08gavXombT6KR0af88i9tA",
+      "type": "standalone",
+      "edition": "standard edition",
+      "display_section": "standard edition",
+      "display_order": 9,
+      "base_title": "Jump Then Fall"
+    },
+    {
+      "title": "Love Story",
+      "url": "https://open.spotify.com/intl-fr/track/0kN3oXYWWAk1uC0y2WoyOE",
+      "type": "standalone",
+      "edition": "standard edition",
+      "display_section": "standard edition",
+      "display_order": 10,
+      "base_title": "Love Story"
+    },
+    {
+      "title": "SuperStar",
+      "url": "https://open.spotify.com/intl-fr/track/14Bljc3pOOG0xQX3wqhLN9",
+      "type": "standalone",
+      "edition": "standard edition",
+      "display_section": "standard edition",
+      "display_order": 11,
+      "base_title": "SuperStar"
+    },
+    {
+      "title": "Tell Me Why",
+      "url": "https://open.spotify.com/intl-fr/track/4XrP7vKBjKLEYlRZdb0Ygr",
+      "type": "standalone",
+      "edition": "standard edition",
+      "display_section": "standard edition",
+      "display_order": 12,
+      "base_title": "Tell Me Why"
+    },
+    {
+      "title": "The Best Day",
+      "url": "https://open.spotify.com/intl-fr/track/5YbZZ2gYfvW1UvHHF4pVaD",
+      "type": "standalone",
+      "edition": "standard edition",
+      "display_section": "standard edition",
+      "display_order": 13,
+      "base_title": "The Best Day"
+    },
+    {
+      "title": "The Other Side Of The Door",
+      "url": "https://open.spotify.com/intl-fr/track/0xvsgzM8AtBtRHZm5rav8A",
+      "type": "standalone",
+      "edition": "standard edition",
+      "display_section": "standard edition",
+      "display_order": 14,
+      "base_title": "The Other Side Of The Door"
+    },
+    {
+      "title": "The Way I Loved You",
+      "url": "https://open.spotify.com/intl-fr/track/77VotUUL79U10TAnYdqwvr",
+      "type": "standalone",
+      "edition": "standard edition",
+      "display_section": "standard edition",
+      "display_order": 15,
+      "base_title": "The Way I Loved You"
+    },
+    {
+      "title": "Untouchable",
+      "url": "https://open.spotify.com/intl-fr/track/2IZ00ed83ygPIiacYScWUE",
+      "type": "standalone",
+      "edition": "standard edition",
+      "display_section": "standard edition",
+      "display_order": 16,
+      "base_title": "Untouchable"
+    },
+    {
+      "title": "White Horse",
+      "url": "https://open.spotify.com/intl-fr/track/4jPtq9shRdUv8Zjr0a5xkD",
+      "type": "standalone",
+      "edition": "standard edition",
+      "display_section": "standard edition",
+      "display_order": 17,
+      "base_title": "White Horse"
+    },
+    {
+      "title": "You Belong With Me",
+      "url": "https://open.spotify.com/intl-fr/track/3as6Wz3mwbTnusWhZjTUNr",
+      "type": "standalone",
+      "edition": "standard edition",
+      "display_section": "standard edition",
+      "display_order": 18,
+      "base_title": "You Belong With Me"
+    },
+    {
+      "title": "You're Not Sorry",
+      "url": "https://open.spotify.com/intl-fr/track/6HWYtS215rxaaMjvpyG18W",
+      "type": "standalone",
+      "edition": "standard edition",
+      "display_section": "standard edition",
+      "display_order": 19,
+      "base_title": "You're Not Sorry"
+    }
+  ]
+}

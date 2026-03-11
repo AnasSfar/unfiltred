@@ -1,0 +1,88 @@
+{
+  "album": "Standalone & Extras",
+  "section": "soundtracks",
+  "track_count": 9,
+  "tracks": [
+    {
+      "title": "Carolina - \"Where The Crawdads Sing\" - Video Edition",
+      "url": "https://open.spotify.com/intl-fr/track/12xIjI9A9UlB6zEc7kyZ06",
+      "type": "standalone",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 1,
+      "base_title": "Carolina - \"Where The Crawdads Sing\" - Video Edition"
+    },
+    {
+      "title": "Carolina - From The Motion Picture “Where The Crawdads Sing”",
+      "url": "https://open.spotify.com/intl-fr/track/4axSuOg3BqsowKjRpj59RU",
+      "type": "standalone",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 2,
+      "base_title": "Carolina - From The Motion Picture “Where The Crawdads Sing”"
+    },
+    {
+      "title": "Sweeter Than Fiction - From \"One Chance\" Soundtrack",
+      "url": "https://open.spotify.com/intl-fr/track/0RFCHlNuTeUHIB36VuVbOL",
+      "type": "standalone",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 3,
+      "base_title": "Sweeter Than Fiction - From \"One Chance\" Soundtrack"
+    },
+    {
+      "title": "Eyes Open (Taylor's Version)",
+      "url": "https://open.spotify.com/intl-fr/track/2NIBaWXdjaTDmytjjwbEfP",
+      "type": "standalone",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 4,
+      "base_title": "Eyes Open"
+    },
+    {
+      "title": "Safe & Sound (feat. Joy Williams and John Paul White) (Taylor's Version)",
+      "url": "https://open.spotify.com/intl-fr/track/2RJnNdu4pb3MypbBroHU0T",
+      "type": "feature",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 5,
+      "base_title": "Safe & Sound (feat. Joy Williams and John Paul White)"
+    },
+    {
+      "title": "Only The Young - Featured in Miss Americana",
+      "url": "https://open.spotify.com/intl-fr/track/2slqvGLwzZZYsT4K4Y1GBC",
+      "type": "standalone",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 6,
+      "base_title": "Only The Young - Featured in Miss Americana"
+    },
+    {
+      "title": "Safe & Sound - from The Hunger Games Soundtrack",
+      "url": "https://open.spotify.com/track/0z9UVN8VBHJ9HdfYsOuuNf",
+      "type": "standalone",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 7,
+      "base_title": "Safe & Sound - from The Hunger Games Soundtrack"
+    },
+    {
+      "title": "Beautiful Ghosts - From The Motion Picture Soundtrack \"Cats\"",
+      "url": "https://open.spotify.com/track/2evEoQAhIMaa9PfjTT5skG",
+      "type": "standalone",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 8,
+      "base_title": "Beautiful Ghosts - From The Motion Picture Soundtrack \"Cats\""
+    },
+    {
+      "title": "Macavity - From The Motion Picture Soundtrack \"Cats\"",
+      "url": "https://open.spotify.com/track/5zOKuItOTZhRCGtPrDYmlj",
+      "type": "standalone",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 9,
+      "base_title": "Macavity - From The Motion Picture Soundtrack \"Cats\""
+    }
+  ]
+}

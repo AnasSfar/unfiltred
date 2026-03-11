@@ -1,0 +1,124 @@
+{
+  "album": "Midnights",
+  "section": "standard_edition",
+  "track_count": 13,
+  "tracks": [
+    {
+      "title": "Lavender Haze",
+      "url": "https://open.spotify.com/intl-fr/track/5jQI2r1RdgtuT8S3iG8zFC",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 1,
+      "base_title": "Lavender Haze"
+    },
+    {
+      "title": "Maroon",
+      "url": "https://open.spotify.com/intl-fr/track/3eX0NZfLtGzoLUxPNvRfqm",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 2,
+      "base_title": "Maroon"
+    },
+    {
+      "title": "Anti-Hero",
+      "url": "https://open.spotify.com/intl-fr/track/0V3wPSX9ygBnCm8psDIegu",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 3,
+      "base_title": "Anti-Hero"
+    },
+    {
+      "title": "Snow On The Beach (feat. Lana Del Rey)",
+      "url": "https://open.spotify.com/intl-fr/track/1wtOxkiel43cVs0Yux5Q4h",
+      "type": "feature",
+      "edition": "standard",
+      "display_section": "Extras",
+      "display_order": 4,
+      "base_title": "Snow On The Beach (feat. Lana Del Rey)"
+    },
+    {
+      "title": "You're On Your Own, Kid",
+      "url": "https://open.spotify.com/intl-fr/track/4D7BCuvgdJlYvlX5WlN54t",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 5,
+      "base_title": "You're On Your Own, Kid"
+    },
+    {
+      "title": "Midnight Rain",
+      "url": "https://open.spotify.com/intl-fr/track/3rWDp9tBPQR9z6U5YyRSK4",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 6,
+      "base_title": "Midnight Rain"
+    },
+    {
+      "title": "Question...?",
+      "url": "https://open.spotify.com/intl-fr/track/0heeNYlwOGuUSe7TgUD27B",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 7,
+      "base_title": "Question...?"
+    },
+    {
+      "title": "Vigilante Shit",
+      "url": "https://open.spotify.com/intl-fr/track/1xwAWUI6Dj0WGC3KiUPN0O",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 8,
+      "base_title": "Vigilante Shit"
+    },
+    {
+      "title": "Bejeweled",
+      "url": "https://open.spotify.com/intl-fr/track/3qoftcUZaUOncvIYjFSPdE",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 9,
+      "base_title": "Bejeweled"
+    },
+    {
+      "title": "Labyrinth",
+      "url": "https://open.spotify.com/intl-fr/track/4bBDkw2KBMX0tcgAaXC83Q",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 10,
+      "base_title": "Labyrinth"
+    },
+    {
+      "title": "Karma",
+      "url": "https://open.spotify.com/intl-fr/track/45R112Jz5hQeKgITXgSXzs",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 11,
+      "base_title": "Karma"
+    },
+    {
+      "title": "Sweet Nothing",
+      "url": "https://open.spotify.com/intl-fr/track/2L09RYwH5Pjzca6PmbUAw3",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 12,
+      "base_title": "Sweet Nothing"
+    },
+    {
+      "title": "Mastermind",
+      "url": "https://open.spotify.com/intl-fr/track/1QQii3pa5m8MEda0nbkjfw",
+      "type": "track",
+      "edition": "standard",
+      "display_section": "Standard Edition",
+      "display_order": 13,
+      "base_title": "Mastermind"
+    }
+  ]
+}

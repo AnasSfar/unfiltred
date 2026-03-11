@@ -1,0 +1,25 @@
+{
+  "album": "folklore",
+  "section": "remixes_and_live",
+  "track_count": 2,
+  "tracks": [
+    {
+      "title": "betty - Live from the 2020 Academy of Country Music Awards",
+      "url": "https://open.spotify.com/intl-fr/track/4GS68CE8nKLIKjjapiSm2I",
+      "type": "alternate_version",
+      "edition": "live",
+      "display_section": "Other Editions",
+      "display_order": 1,
+      "base_title": "betty"
+    },
+    {
+      "title": "cardigan - cabin in candlelight version",
+      "url": "https://open.spotify.com/intl-fr/track/2hmafYGj1CXYKIYcMnX4lj",
+      "type": "alternate_version",
+      "edition": "live",
+      "display_section": "Other Editions",
+      "display_order": 2,
+      "base_title": "cardigan"
+    }
+  ]
+}

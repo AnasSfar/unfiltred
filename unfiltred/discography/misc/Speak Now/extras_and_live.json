@@ -1,0 +1,106 @@
+{
+  "album": "Speak Now",
+  "section": "extras_and_live",
+  "track_count": 11,
+  "tracks": [
+    {
+      "title": "Mine - POP Mix",
+      "url": "https://open.spotify.com/intl-fr/track/0GxW5K0qzrq7L1jwSY5OmY",
+      "type": "alternate_version",
+      "edition": "live",
+      "display_section": "Other Editions",
+      "display_order": 1,
+      "base_title": "Mine - POP Mix"
+    },
+    {
+      "title": "Back To December - Acoustic",
+      "url": "https://open.spotify.com/intl-fr/track/6IH2Z54gYPLqgJtxZjX80i",
+      "type": "alternate_version",
+      "edition": "live",
+      "display_section": "Other Editions",
+      "display_order": 2,
+      "base_title": "Back To December"
+    },
+    {
+      "title": "Haunted - Acoustic Version",
+      "url": "https://open.spotify.com/intl-fr/track/62rlxI6g2PNaWsHoiRryto",
+      "type": "alternate_version",
+      "edition": "live",
+      "display_section": "Other Editions",
+      "display_order": 3,
+      "base_title": "Haunted"
+    },
+    {
+      "title": "Better Than Revenge - Live/2011",
+      "url": "https://open.spotify.com/intl-fr/track/6505MLhnqTDDg4tjoUz2Wp",
+      "type": "alternate_version",
+      "edition": "live",
+      "display_section": "Other Editions",
+      "display_order": 4,
+      "base_title": "Better Than Revenge"
+    },
+    {
+      "title": "Last Kiss - Live/2011",
+      "url": "https://open.spotify.com/intl-fr/track/6hH37tyeRdyan1mAppmVor",
+      "type": "alternate_version",
+      "edition": "live",
+      "display_section": "Other Editions",
+      "display_order": 5,
+      "base_title": "Last Kiss"
+    },
+    {
+      "title": "Mean - Live/2011",
+      "url": "https://open.spotify.com/intl-fr/track/7mFiEij8AXPUZB7aKLbUlQ",
+      "type": "alternate_version",
+      "edition": "live",
+      "display_section": "Other Editions",
+      "display_order": 6,
+      "base_title": "Mean"
+    },
+    {
+      "title": "Mine - Live/2011",
+      "url": "https://open.spotify.com/intl-fr/track/7yndkPYP6YQQLBpPsizDfh",
+      "type": "alternate_version",
+      "edition": "live",
+      "display_section": "Other Editions",
+      "display_order": 7,
+      "base_title": "Mine"
+    },
+    {
+      "title": "Ours - Live/2011",
+      "url": "https://open.spotify.com/intl-fr/track/68QyrSzpnoU04AAhE5z8lj",
+      "type": "alternate_version",
+      "edition": "live",
+      "display_section": "Other Editions",
+      "display_order": 8,
+      "base_title": "Ours"
+    },
+    {
+      "title": "Sparks Fly - Live/2011",
+      "url": "https://open.spotify.com/intl-fr/track/1aBJNc2thaKyh5THWzIqHX",
+      "type": "alternate_version",
+      "edition": "live",
+      "display_section": "Other Editions",
+      "display_order": 9,
+      "base_title": "Sparks Fly"
+    },
+    {
+      "title": "Speak Now - Live/2011",
+      "url": "https://open.spotify.com/intl-fr/track/3QFB14MOUf3imlyISNmrbT",
+      "type": "alternate_version",
+      "edition": "live",
+      "display_section": "Other Editions",
+      "display_order": 10,
+      "base_title": "Speak Now"
+    },
+    {
+      "title": "The Story Of Us - Live",
+      "url": "https://open.spotify.com/intl-fr/track/72GIZuUXo14oyrS0si3Rgc",
+      "type": "alternate_version",
+      "edition": "live",
+      "display_section": "Other Editions",
+      "display_order": 11,
+      "base_title": "The Story Of Us"
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "album": "Lover",
+  "section": "remixes",
+  "track_count": 11,
+  "tracks": [
+    {
+      "title": "Lover (Remix) [feat. Shawn Mendes]",
+      "url": "https://open.spotify.com/intl-fr/track/3i9UVldZOE0aD0JnyfAZZ0",
+      "type": "remix",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 1,
+      "base_title": "Lover (Remix) [feat. Shawn Mendes]"
+    },
+    {
+      "title": "Lover - First Dance Remix",
+      "url": "https://open.spotify.com/intl-fr/track/2msvOEbkK50foYf9BMXr2X",
+      "type": "remix",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 2,
+      "base_title": "Lover"
+    },
+    {
+      "title": "Lover - Live From Paris",
+      "url": "https://open.spotify.com/intl-fr/track/4lD3RXyvHpJsM3BhIEC4aA",
+      "type": "standalone",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 3,
+      "base_title": "Lover"
+    },
+    {
+      "title": "You Need To Calm Down - Clean Bandit Remix",
+      "url": "https://open.spotify.com/intl-fr/track/7Bjf96uNizpvXLvNyOJpst",
+      "type": "remix",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 4,
+      "base_title": "You Need To Calm Down"
+    },
+    {
+      "title": "You Need To Calm Down - Live From Paris",
+      "url": "https://open.spotify.com/intl-fr/track/36a08nLG1xazGaaVKK0vv7",
+      "type": "standalone",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 5,
+      "base_title": "You Need To Calm Down"
+    },
+    {
+      "title": "Cornelia Street - Live From Paris",
+      "url": "https://open.spotify.com/intl-fr/track/3fGnrtrtL1IHSX9t4DKOYf",
+      "type": "standalone",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 6,
+      "base_title": "Cornelia Street"
+    },
+    {
+      "title": "Daylight - Live From Paris",
+      "url": "https://open.spotify.com/intl-fr/track/7ryS0xBZNYjQqql34GCkDp",
+      "type": "standalone",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 7,
+      "base_title": "Daylight"
+    },
+    {
+      "title": "Death By A Thousand Cuts - Live From Paris",
+      "url": "https://open.spotify.com/intl-fr/track/3oF7Or7T35yhQbGxbCGvRX",
+      "type": "standalone",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 8,
+      "base_title": "Death By A Thousand Cuts"
+    },
+    {
+      "title": "The Archer - Live From Paris",
+      "url": "https://open.spotify.com/intl-fr/track/2fgiBCtbWo8pijF6M7pN1i",
+      "type": "standalone",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 9,
+      "base_title": "The Archer"
+    },
+    {
+      "title": "The Man - Live From Paris",
+      "url": "https://open.spotify.com/intl-fr/track/7FKbTRXXIWVFQmPH8zGfU0",
+      "type": "standalone",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 10,
+      "base_title": "The Man"
+    },
+    {
+      "title": "ME! - Live From Paris",
+      "url": "https://open.spotify.com/intl-fr/track/5fOV54t6mMYv3H9CsnvU81",
+      "type": "standalone",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 11,
+      "base_title": "ME!"
+    }
+  ]
+}

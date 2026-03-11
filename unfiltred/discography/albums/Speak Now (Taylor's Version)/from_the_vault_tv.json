@@ -1,0 +1,61 @@
+{
+  "album": "Speak Now (Taylor's Version)",
+  "section": "from_the_vault_tv",
+  "track_count": 6,
+  "tracks": [
+    {
+      "title": "Castles Crumbling (feat. Hayley Williams) (Taylor's Version) (From The Vault)",
+      "url": "https://open.spotify.com/intl-fr/track/4ABYxlb92WBIjHu7TIKmml",
+      "type": "feature",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 1,
+      "base_title": "Castles Crumbling (feat. Hayley Williams) (Taylor's Version) (From The Vault)"
+    },
+    {
+      "title": "Electric Touch (feat. Fall Out Boy) (Taylor's Version) (From The Vault)",
+      "url": "https://open.spotify.com/intl-fr/track/4e3ZNTAV6PCrdYMUrUlMpQ",
+      "type": "feature",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 2,
+      "base_title": "Electric Touch (feat. Fall Out Boy) (Taylor's Version) (From The Vault)"
+    },
+    {
+      "title": "Foolish One (Taylor's Version) (From The Vault)",
+      "url": "https://open.spotify.com/intl-fr/track/4s8BIKx4Zh6ryAEz8RTlaU",
+      "type": "standalone",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 3,
+      "base_title": "Foolish One (Taylor's Version) (From The Vault)"
+    },
+    {
+      "title": "I Can See You (Taylor's Version) (From The Vault)",
+      "url": "https://open.spotify.com/intl-fr/track/5kHMfzgLZP95O9NBy0ku4v",
+      "type": "standalone",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 4,
+      "base_title": "I Can See You (Taylor's Version) (From The Vault)"
+    },
+    {
+      "title": "Timeless (Taylor's Version) (From The Vault)",
+      "url": "https://open.spotify.com/intl-fr/track/1HCdems7PQZRj42QDWLA0A",
+      "type": "standalone",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 5,
+      "base_title": "Timeless (Taylor's Version) (From The Vault)"
+    },
+    {
+      "title": "When Emma Falls in Love (Taylor's Version) (From The Vault)",
+      "url": "https://open.spotify.com/intl-fr/track/0zo975x58DlXbZllWvfYhg",
+      "type": "standalone",
+      "edition": "extras",
+      "display_section": "Extras",
+      "display_order": 6,
+      "base_title": "When Emma Falls in Love (Taylor's Version) (From The Vault)"
+    }
+  ]
+}
