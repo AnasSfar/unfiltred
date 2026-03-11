@@ -532,25 +532,18 @@ function songRow(song) {
             <div class="col-rank-change">${renderRankChange(song.rank_change)}</div>
 
             <div class="col-song">
-  <a class="song-link" href="song.html?family=${encodeURIComponent(song.song_family || song.track_id)}">
-    <img class="row-cover" src="${song.image_url || ""}" alt="${song.title}">
-    <div class="row-song-meta">
-      <div class="row-song-title">${song.title_clean || song.title}</div>
-      <div class="row-song-artist">${formatArtists(song)}</div>
-      ${
-        state.combineVersions && (song.combined_versions_count || 1) > 1
-          ? `<div class="row-song-artist">${song.combined_versions_count} versions combined</div>`
-          : ""
-      }
-    </div>
-  </a>
-  ${
-  state.combineVersions && (song.combined_versions_count || 1) > 1
-    ? `<div class="row-song-artist">${song.combined_versions_count} versions combined</div>`
-    : ""
-}
-</div>
-              </div>
+              <a class="song-link" href="song.html?family=${encodeURIComponent(song.song_family || song.track_id)}">
+                <img class="row-cover" src="${song.image_url || ""}" alt="${song.title}">
+                <div class="row-song-meta">
+                  <div class="row-song-title">${song.title_clean || song.title}</div>
+                  <div class="row-song-artist">${formatArtists(song)}</div>
+                  ${
+                    state.combineVersions && (song.combined_versions_count || 1) > 1
+                      ? `<div class="row-song-artist">${song.combined_versions_count} versions combined</div>`
+                      : ""
+                  }
+                </div>
+              </a>
             </div>
 
             <div class="col-album">${song.primary_album || ""}</div>

@@ -872,3 +872,42 @@ a{
     padding-left:0;
   }
 }
+.col-song{
+  min-width:0;
+}
+
+.song-link{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-width:0;
+  color:inherit;
+  text-decoration:none;
+}
+
+.song-link:hover .row-song-title{
+  text-decoration:underline;
+}
+
+.row-song-meta{
+  min-width:0;
+}
+
+.row-song-title{
+  font-size:15px;
+  font-weight:800;
+  line-height:1.2;
+  letter-spacing:-0.02em;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.row-song-artist{
+  font-size:13px;
+  color:var(--muted);
+  margin-top:3px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
