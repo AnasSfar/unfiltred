@@ -8,7 +8,7 @@
     "history_dates_count": 2,
     "latest_date": "2026-03-10",
     "songs_updated_on_latest_date": 466,
-    "total_combined_streams": 121328193747,
+    "total_combined_streams": 121328225086,
     "milestones_crossed_on_latest_date": 2
   },
   "songs": [
@@ -11886,14 +11886,14 @@
       "title_key": "mine - pop mix",
       "spotify_url": "https://open.spotify.com/intl-fr/track/0GxW5K0qzrq7L1jwSY5OmY",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273d0eae3c1661a96570f0ca7bd",
-      "streams": 56617429,
+      "streams": 56623907,
       "daily_streams": null,
       "last_updated": "2026-03-12",
       "current_milestone": null,
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 43382571,
+      "remaining_to_next_milestone": 43376093,
       "appearances": [
         {
           "source_type": "misc",
@@ -13848,14 +13848,14 @@
       "title_key": "renegade - pop version",
       "spotify_url": "https://open.spotify.com/intl-fr/track/06zIBqLC9ZRm5i0iMf0kHI",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273f0b56f34301a37d015cbb678",
-      "streams": 25705815,
+      "streams": 25730676,
       "daily_streams": null,
       "last_updated": "2026-03-12",
       "current_milestone": null,
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 74294185,
+      "remaining_to_next_milestone": 74269324,
       "appearances": [
         {
           "source_type": "misc",
@@ -13880,7 +13880,7 @@
       "merged_track_ids": [
         "06zIBqLC9ZRm5i0iMf0kHI"
       ],
-      "rank_total": 365,
+      "rank_total": 364,
       "rank_daily": 469
     },
     {
@@ -15576,7 +15576,7 @@
       "merged_track_ids": [
         "5G9AVKld9q7DCrmoY42raf"
       ],
-      "rank_total": 364,
+      "rank_total": 365,
       "rank_daily": 404
     },
     {
@@ -20134,11 +20134,11 @@
       "rank_daily": 380
     },
     {
-      "track_id": "5XkJj6sV2XLMaURdmdXgNx",
+      "track_id": "5F7hpFKLmWgMHGxQuwssuv",
       "title": "willow - moonlit witch version",
       "title_key": "willow - moonlit witch version",
-      "spotify_url": "https://open.spotify.com/intl-fr/track/5XkJj6sV2XLMaURdmdXgNx",
-      "image_url": "https://i.scdn.co/image/ab67616d0000b273ec07f0fc562d46804df394b4",
+      "spotify_url": "https://open.spotify.com/intl-fr/track/5F7hpFKLmWgMHGxQuwssuv",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b2738312c50a6b9046d7dea5de12",
       "streams": 10641088,
       "daily_streams": 2175,
       "last_updated": "2026-03-12",
