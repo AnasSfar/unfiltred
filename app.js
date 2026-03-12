@@ -538,7 +538,7 @@ function extractThemeFromImage(url) {
           return;
         }
 
-        const size = 40;
+        const size = 48;
         canvas.width = size;
         canvas.height = size;
         ctx.drawImage(img, 0, 0, size, size);
@@ -550,7 +550,7 @@ function extractThemeFromImage(url) {
         let totalB = 0;
         let count = 0;
 
-        let maxSat = -1;
+        let accentScore = -1;
         let accent = { r: 29, g: 185, b: 84 };
 
         for (let i = 0; i < data.length; i += 4) {
@@ -569,9 +569,12 @@ function extractThemeFromImage(url) {
           const max = Math.max(r, g, b);
           const min = Math.min(r, g, b);
           const sat = max - min;
+          const brightness = (r + g + b) / 3;
 
-          if (sat > maxSat && max > 70) {
-            maxSat = sat;
+          const score = sat + brightness * 0.15;
+
+          if (score > accentScore && brightness > 45) {
+            accentScore = score;
             accent = { r, g, b };
           }
         }
@@ -585,27 +588,66 @@ function extractThemeFromImage(url) {
         const avgG = Math.round(totalG / count);
         const avgB = Math.round(totalB / count);
 
-        const text = pickTextColor(avgR, avgG, avgB);
+        const avgBrightness = (avgR + avgG + avgB) / 3;
+        const isLightBase = avgBrightness >= 150;
+
+        let bgR, bgG, bgB, surfaceR, surfaceG, surfaceB, surface2R, surface2G, surface2B, text, muted, line, hoverBorder, shadow, shadowSoft, shadowHover;
+
+        if (isLightBase) {
+          bgR = clamp(avgR + 22, 244, 252);
+          bgG = clamp(avgG + 22, 244, 252);
+          bgB = clamp(avgB + 22, 244, 252);
+
+          surfaceR = clamp(avgR + 14, 248, 255);
+          surfaceG = clamp(avgG + 14, 248, 255);
+          surfaceB = clamp(avgB + 14, 248, 255);
+
+          surface2R = clamp(avgR + 6, 240, 250);
+          surface2G = clamp(avgG + 6, 240, 250);
+          surface2B = clamp(avgB + 6, 240, 250);
+
+          text = "#101828";
+          muted = "#667085";
+          line = "rgba(16,24,40,.08)";
+          hoverBorder = "rgba(16,24,40,.14)";
+          shadow = "0 8px 24px rgba(16,24,40,.07)";
+          shadowSoft = "0 4px 14px rgba(16,24,40,.05)";
+          shadowHover = "0 18px 42px rgba(16,24,40,.14)";
+        } else {
+          bgR = clamp(avgR - 34, 8, 28);
+          bgG = clamp(avgG - 34, 8, 28);
+          bgB = clamp(avgB - 34, 8, 28);
+
+          surfaceR = clamp(avgR - 18, 16, 40);
+          surfaceG = clamp(avgG - 18, 16, 40);
+          surfaceB = clamp(avgB - 18, 16, 40);
+
+          surface2R = clamp(avgR - 10, 22, 50);
+          surface2G = clamp(avgG - 10, 22, 50);
+          surface2B = clamp(avgB - 10, 22, 50);
+
+          text = "#f8fafc";
+          muted = "#98a2b3";
+          line = "rgba(255,255,255,.10)";
+          hoverBorder = "rgba(255,255,255,.16)";
+          shadow = "0 8px 24px rgba(0,0,0,.34)";
+          shadowSoft = "0 4px 14px rgba(0,0,0,.24)";
+          shadowHover = "0 18px 42px rgba(0,0,0,.42)";
+        }
 
         resolve({
-          bg: shiftRgb(avgR, avgG, avgB, text === "#101828" ? 170 : -120),
-          surface: shiftRgb(avgR, avgG, avgB, text === "#101828" ? 135 : -95),
-          surface2: shiftRgb(avgR, avgG, avgB, text === "#101828" ? 120 : -80),
+          bg: rgbToHex(bgR, bgG, bgB),
+          surface: rgbToHex(surfaceR, surfaceG, surfaceB),
+          surface2: rgbToHex(surface2R, surface2G, surface2B),
           text,
-          muted: text === "#101828" ? "#475467" : "#cbd5e1",
-          line: text === "#101828" ? "rgba(16,24,40,.10)" : "rgba(255,255,255,.12)",
+          muted,
+          line,
           accent: rgbToHex(accent.r, accent.g, accent.b),
-          accent2: shiftRgb(accent.r, accent.g, accent.b, -25),
-          hoverBorder: text === "#101828" ? "rgba(16,24,40,.16)" : "rgba(255,255,255,.18)",
-          shadow: text === "#101828"
-            ? "0 8px 24px rgba(16,24,40,.08)"
-            : "0 8px 24px rgba(0,0,0,.30)",
-          shadowSoft: text === "#101828"
-            ? "0 4px 14px rgba(16,24,40,.06)"
-            : "0 4px 14px rgba(0,0,0,.22)",
-          shadowHover: text === "#101828"
-            ? "0 18px 42px rgba(16,24,40,.16)"
-            : "0 18px 42px rgba(0,0,0,.40)",
+          accent2: shiftRgb(accent.r, accent.g, accent.b, -24),
+          hoverBorder,
+          shadow,
+          shadowSoft,
+          shadowHover,
         });
       } catch (err) {
         reject(err);
