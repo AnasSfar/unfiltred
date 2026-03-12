@@ -135,19 +135,21 @@ def load_db_songs() -> list[dict]:
     with sqlite3.connect(DB_PATH) as conn:
         conn.row_factory = sqlite3.Row
         rows = conn.execute(
-            """
-            SELECT
-                track_id,
-                title,
-                spotify_url,
-                image_url,
-                streams,
-                daily_streams,
-                last_updated
-            FROM songs
-            ORDER BY title COLLATE NOCASE, track_id
-            """
-        ).fetchall()
+    """
+    SELECT
+        track_id,
+        title,
+        spotify_url,
+        image_url,
+        streams,
+        daily_streams,
+        last_updated,
+        primary_artist,
+        artists_json
+    FROM songs
+    ORDER BY title COLLATE NOCASE, track_id
+    """
+).fetchall()
 
     songs = []
     for row in rows:
@@ -155,6 +157,15 @@ def load_db_songs() -> list[dict]:
         current_ms = current_milestone(streams)
         next_ms = next_milestone(streams)
         remaining = None if streams is None or next_ms is None else max(next_ms - streams, 0)
+
+        artists = []
+        if row["artists_json"]:
+            try:
+                artists = json.loads(row["artists_json"])
+            except Exception:
+                artists = []
+
+        primary_artist = row["primary_artist"] if row["primary_artist"] else (artists[0] if artists else None)
 
         songs.append(
             {
@@ -166,11 +177,16 @@ def load_db_songs() -> list[dict]:
                 "streams": row["streams"],
                 "daily_streams": row["daily_streams"],
                 "last_updated": row["last_updated"],
+
+                "primary_artist": primary_artist,
+                "artists": artists,
+
                 "current_milestone": current_ms,
                 "current_milestone_label": format_milestone_label(current_ms),
                 "next_milestone": next_ms,
                 "next_milestone_label": format_milestone_label(next_ms),
                 "remaining_to_next_milestone": remaining,
+
                 "appearances": [],
             }
         )
