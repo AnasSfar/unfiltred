@@ -11,6 +11,8 @@ const state = {
   updateLogText: "",
   updateLogClass: "update-log",
   artist: null,
+  themeMode: localStorage.getItem("site-theme-mode") || "light",
+  themeImageUrl: null,
 };
 
 function formatFull(value) {
@@ -214,6 +216,10 @@ function bindUpdateButton() {
         state.updateLogClass = "update-log success";
       }
 
+      if (state.themeMode === "cover") {
+        await applyTheme("cover");
+      }
+
       renderPage();
     } catch (err) {
       console.error(err);
@@ -375,13 +381,298 @@ function getLeadSongVersion(rows) {
   )[0];
 }
 
+function renderThemeSwitcher() {
+  const currentLabel =
+    state.themeMode === "dark"
+      ? "Dark"
+      : state.themeMode === "cover"
+      ? "Cover"
+      : "Light";
+
+  return `
+    <div class="theme-switcher" id="themeSwitcher">
+      <button id="themeToggleBtn" class="theme-toggle-btn" type="button" aria-label="Change theme">
+        Theme · ${currentLabel}
+      </button>
+
+      <div class="theme-menu" id="themeMenu">
+        <button
+          type="button"
+          class="theme-option ${state.themeMode === "light" ? "active" : ""}"
+          data-theme="light"
+        >
+          Clair
+        </button>
+        <button
+          type="button"
+          class="theme-option ${state.themeMode === "dark" ? "active" : ""}"
+          data-theme="dark"
+        >
+          Sombre
+        </button>
+        <button
+          type="button"
+          class="theme-option ${state.themeMode === "cover" ? "active" : ""}"
+          data-theme="cover"
+        >
+          Cover
+        </button>
+      </div>
+    </div>
+  `;
+}
+
+function getLatestCoverImage() {
+  const img = document.getElementById("latestCover");
+  if (img && img.src) return img.src;
+  return null;
+}
+
+function rgbToHex(r, g, b) {
+  return (
+    "#" +
+    [r, g, b]
+      .map((v) => Math.max(0, Math.min(255, Math.round(v))).toString(16).padStart(2, "0"))
+      .join("")
+  );
+}
+
+function clamp(value, min, max) {
+  return Math.max(min, Math.min(max, value));
+}
+
+function shiftRgb(r, g, b, amount) {
+  return rgbToHex(
+    clamp(r + amount, 0, 255),
+    clamp(g + amount, 0, 255),
+    clamp(b + amount, 0, 255)
+  );
+}
+
+function pickTextColor(r, g, b) {
+  const luminance = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
+  return luminance > 0.62 ? "#101828" : "#f8fafc";
+}
+
+function extractThemeFromImage(url) {
+  return new Promise((resolve, reject) => {
+    if (!url) {
+      reject(new Error("No image URL"));
+      return;
+    }
+
+    const img = new Image();
+    img.crossOrigin = "anonymous";
+
+    img.onload = () => {
+      try {
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d", { willReadFrequently: true });
+
+        if (!ctx) {
+          reject(new Error("Canvas context unavailable"));
+          return;
+        }
+
+        const size = 40;
+        canvas.width = size;
+        canvas.height = size;
+        ctx.drawImage(img, 0, 0, size, size);
+
+        const { data } = ctx.getImageData(0, 0, size, size);
+
+        let totalR = 0;
+        let totalG = 0;
+        let totalB = 0;
+        let count = 0;
+
+        let maxSat = -1;
+        let accent = { r: 29, g: 185, b: 84 };
+
+        for (let i = 0; i < data.length; i += 4) {
+          const a = data[i + 3];
+          if (a < 120) continue;
+
+          const r = data[i];
+          const g = data[i + 1];
+          const b = data[i + 2];
+
+          totalR += r;
+          totalG += g;
+          totalB += b;
+          count += 1;
+
+          const max = Math.max(r, g, b);
+          const min = Math.min(r, g, b);
+          const sat = max - min;
+
+          if (sat > maxSat && max > 70) {
+            maxSat = sat;
+            accent = { r, g, b };
+          }
+        }
+
+        if (!count) {
+          reject(new Error("No pixels"));
+          return;
+        }
+
+        const avgR = Math.round(totalR / count);
+        const avgG = Math.round(totalG / count);
+        const avgB = Math.round(totalB / count);
+
+        const text = pickTextColor(avgR, avgG, avgB);
+
+        resolve({
+          bg: shiftRgb(avgR, avgG, avgB, text === "#101828" ? 170 : -120),
+          surface: shiftRgb(avgR, avgG, avgB, text === "#101828" ? 135 : -95),
+          surface2: shiftRgb(avgR, avgG, avgB, text === "#101828" ? 120 : -80),
+          text,
+          muted: text === "#101828" ? "#475467" : "#cbd5e1",
+          line: text === "#101828" ? "rgba(16,24,40,.10)" : "rgba(255,255,255,.12)",
+          accent: rgbToHex(accent.r, accent.g, accent.b),
+          accent2: shiftRgb(accent.r, accent.g, accent.b, -25),
+          hoverBorder: text === "#101828" ? "rgba(16,24,40,.16)" : "rgba(255,255,255,.18)",
+          shadow: text === "#101828"
+            ? "0 8px 24px rgba(16,24,40,.08)"
+            : "0 8px 24px rgba(0,0,0,.30)",
+          shadowSoft: text === "#101828"
+            ? "0 4px 14px rgba(16,24,40,.06)"
+            : "0 4px 14px rgba(0,0,0,.22)",
+          shadowHover: text === "#101828"
+            ? "0 18px 42px rgba(16,24,40,.16)"
+            : "0 18px 42px rgba(0,0,0,.40)",
+        });
+      } catch (err) {
+        reject(err);
+      }
+    };
+
+    img.onerror = () => reject(new Error("Image load failed"));
+    img.src = url;
+  });
+}
+
+function clearThemeVariables() {
+  const root = document.documentElement.style;
+  [
+    "--bg",
+    "--surface",
+    "--surface-2",
+    "--text",
+    "--muted",
+    "--line",
+    "--accent",
+    "--accent-2",
+    "--hover-border",
+    "--shadow",
+    "--shadow-soft",
+    "--shadow-hover",
+  ].forEach((prop) => root.removeProperty(prop));
+}
+
+function applyLightTheme() {
+  document.body.dataset.theme = "light";
+  clearThemeVariables();
+}
+
+function applyDarkTheme() {
+  document.body.dataset.theme = "dark";
+  const root = document.documentElement.style;
+
+  root.setProperty("--bg", "#0b1118");
+  root.setProperty("--surface", "#101822");
+  root.setProperty("--surface-2", "#17212d");
+  root.setProperty("--text", "#f8fafc");
+  root.setProperty("--muted", "#98a2b3");
+  root.setProperty("--line", "rgba(255,255,255,.10)");
+  root.setProperty("--accent", "#8b5cf6");
+  root.setProperty("--accent-2", "#6d47d9");
+  root.setProperty("--hover-border", "rgba(255,255,255,.18)");
+  root.setProperty("--shadow", "0 8px 24px rgba(0,0,0,.34)");
+  root.setProperty("--shadow-soft", "0 4px 14px rgba(0,0,0,.24)");
+  root.setProperty("--shadow-hover", "0 18px 42px rgba(0,0,0,.42)");
+}
+
+async function applyCoverTheme() {
+  document.body.dataset.theme = "cover";
+
+  const imageUrl = state.themeImageUrl || getLatestCoverImage();
+  state.themeImageUrl = imageUrl;
+
+  if (!imageUrl) {
+    applyDarkTheme();
+    return;
+  }
+
+  try {
+    const palette = await extractThemeFromImage(imageUrl);
+    const root = document.documentElement.style;
+
+    Object.entries(palette).forEach(([key, value]) => {
+      root.setProperty(`--${key}`, value);
+    });
+  } catch (err) {
+    console.error("Cover theme failed, fallback to dark:", err);
+    applyDarkTheme();
+  }
+}
+
+async function applyTheme(mode = state.themeMode) {
+  state.themeMode = mode;
+  localStorage.setItem("site-theme-mode", mode);
+
+  if (mode === "dark") {
+    applyDarkTheme();
+  } else if (mode === "cover") {
+    await applyCoverTheme();
+  } else {
+    applyLightTheme();
+  }
+}
+
+function bindThemeSwitcher() {
+  const toggleBtn = document.getElementById("themeToggleBtn");
+  const switcher = document.getElementById("themeSwitcher");
+  const menu = document.getElementById("themeMenu");
+
+  if (!toggleBtn || !switcher || !menu) return;
+  if (switcher.dataset.bound === "1") return;
+
+  switcher.dataset.bound = "1";
+
+  toggleBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    switcher.classList.toggle("open");
+  });
+
+  menu.querySelectorAll(".theme-option").forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const mode = btn.dataset.theme;
+      switcher.classList.remove("open");
+      await applyTheme(mode);
+      renderPage();
+    });
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!switcher.contains(e.target)) {
+      switcher.classList.remove("open");
+    }
+  });
+}
+
 function renderNav() {
   return `
-    <nav class="nav">
-      <a href="index.html" class="${state.page === "home" ? "active" : ""}">Top Songs</a>
-      <a href="albums.html" class="${state.page === "albums" || state.page === "album" ? "active" : ""}">Albums</a>
-      <a href="milestones.html" class="${state.page === "milestones" ? "active" : ""}">Milestones</a>
-    </nav>
+    <div class="nav-row">
+      <nav class="nav">
+        <a href="index.html" class="${state.page === "home" ? "active" : ""}">Top Songs</a>
+        <a href="albums.html" class="${state.page === "albums" || state.page === "album" ? "active" : ""}">Albums</a>
+        <a href="milestones.html" class="${state.page === "milestones" ? "active" : ""}">Milestones</a>
+      </nav>
+
+      ${renderThemeSwitcher()}
+    </div>
   `;
 }
 
@@ -470,6 +761,7 @@ function renderTopbar() {
         </div>
 
         <button id="updateBtn" class="update-btn">Refresh data</button>
+        <div class="${state.updateLogClass}">${state.updateLogText || ""}</div>
       </div>
     </div>
   `;
@@ -487,7 +779,6 @@ function getSelectedDailyStreams() {
 function getSelectedTotalStreams() {
   return getSelectedRows().reduce((sum, song) => sum + (song.streams || 0), 0);
 }
-
 
 function renderStats(rows) {
   const totalCombined = rows.reduce((sum, r) => sum + (r.streams || 0), 0);
@@ -1180,6 +1471,7 @@ function renderPage() {
 
   bindDateControls();
   bindUpdateButton();
+  bindThemeSwitcher();
 }
 
 async function loadData() {
@@ -1197,9 +1489,10 @@ async function loadData() {
   state.selectedDate =
     historyData.summary?.latest_date || state.dates[state.dates.length - 1] || null;
   state.artist = artistData || null;
+  state.themeImageUrl = getLatestCoverImage();
 }
 
-loadData().then(() => {
+loadData().then(async () => {
+  await applyTheme(state.themeMode);
   renderPage();
 });
-// .
