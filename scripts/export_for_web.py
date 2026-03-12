@@ -779,10 +779,13 @@ def build_summary(
 
 def export_for_web() -> None:
     SITE_DATA_DIR.mkdir(parents=True, exist_ok=True)
-
+    print(f"ROOT = {ROOT}")
+    print(f"DB_PATH = {DB_PATH}")
+    print(f"HISTORY_CSV_PATH = {HISTORY_CSV_PATH}")
     raw_songs = load_db_songs()
     dates, raw_history_by_date = load_raw_history()
-
+    print(f"Last 10 dates found: {dates[-10:]}")
+    print(f"Rows on 2026-03-10: {len(raw_history_by_date.get('2026-03-10', {}))}")
     track_appearances_by_id, albums_payload_raw = build_discography_index()
 
     for song in raw_songs:
