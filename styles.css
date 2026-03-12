@@ -1255,3 +1255,134 @@ body[data-theme="cover"] .delta.neutral{
     padding-left:0;
   }
 }
+
+.ambient-layer{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  overflow:hidden;
+}
+
+.glitter-field{
+  position:absolute;
+  inset:0;
+}
+
+.glitter-particle{
+  position:absolute;
+  left:var(--x);
+  top:var(--y);
+  width:var(--size);
+  height:var(--size);
+  border-radius:999px;
+  background:radial-gradient(circle, rgba(255,255,255,.95) 0%, rgba(255,255,255,.32) 45%, rgba(255,255,255,0) 75%);
+  box-shadow:
+    0 0 8px rgba(255,255,255,.22),
+    0 0 18px rgba(255,255,255,.12);
+  opacity:.18;
+  animation:
+    glitterPulse var(--dur) ease-in-out infinite,
+    glitterFloat calc(var(--dur) * 1.35) ease-in-out infinite;
+  animation-delay:var(--delay);
+}
+
+.cursor-glow{
+  position:fixed;
+  left:0;
+  top:0;
+  width:280px;
+  height:280px;
+  border-radius:50%;
+  pointer-events:none;
+  opacity:0;
+  background:
+    radial-gradient(circle, color-mix(in srgb, var(--accent) 20%, transparent) 0%, rgba(255,255,255,.08) 18%, rgba(255,255,255,0) 62%);
+  filter:blur(10px);
+  transition:opacity .25s ease;
+  mix-blend-mode:screen;
+  z-index:1;
+}
+
+.cursor-glow.is-visible{
+  opacity:1;
+}
+
+.page,
+.nav-row,
+.topbar,
+.section-card{
+  position:relative;
+  z-index:2;
+}
+
+@keyframes glitterPulse{
+  0%, 100%{
+    opacity:.08;
+    transform:scale(.75);
+  }
+  20%{
+    opacity:.18;
+  }
+  50%{
+    opacity:.42;
+    transform:scale(1.35);
+  }
+  80%{
+    opacity:.14;
+  }
+}
+
+@keyframes glitterFloat{
+  0%, 100%{
+    transform:translate3d(0, 0, 0);
+  }
+  25%{
+    transform:translate3d(8px, -10px, 0);
+  }
+  50%{
+    transform:translate3d(-6px, 6px, 0);
+  }
+  75%{
+    transform:translate3d(10px, 12px, 0);
+  }
+}
+
+body[data-theme="dark"] .glitter-particle,
+body[data-theme="cover"] .glitter-particle{
+  background:radial-gradient(circle, rgba(255,255,255,.92) 0%, color-mix(in srgb, var(--accent) 22%, white 78%) 38%, rgba(255,255,255,0) 74%);
+  box-shadow:
+    0 0 10px color-mix(in srgb, var(--accent) 26%, white 74%),
+    0 0 22px rgba(255,255,255,.10);
+}
+
+body[data-theme="light"] .cursor-glow{
+  background:
+    radial-gradient(circle, rgba(29,185,84,.16) 0%, rgba(29,185,84,.08) 22%, rgba(255,255,255,0) 62%);
+}
+
+body[data-theme="dark"] .cursor-glow,
+body[data-theme="cover"] .cursor-glow{
+  background:
+    radial-gradient(circle, color-mix(in srgb, var(--accent) 24%, transparent) 0%, rgba(255,255,255,.06) 16%, rgba(255,255,255,0) 62%);
+}
+
+@media (max-width: 700px){
+  .cursor-glow{
+    width:180px;
+    height:180px;
+    filter:blur(12px);
+  }
+
+  .glitter-particle{
+    opacity:.12;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .glitter-particle,
+  .cursor-glow{
+    animation:none !important;
+    transition:none !important;
+  }
+}

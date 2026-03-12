@@ -428,6 +428,70 @@ function getLatestCoverImage() {
   return null;
 }
 
+function renderAmbientEffects() {
+  return `
+    <div class="ambient-layer" aria-hidden="true">
+      <div class="glitter-field">
+        ${Array.from({ length: 26 })
+          .map(
+            (_, i) => `
+              <span
+                class="glitter-particle"
+                style="
+                  --x:${(i * 37) % 100}%;
+                  --y:${(i * 19 + 11) % 100}%;
+                  --size:${2 + (i % 4)}px;
+                  --delay:${(i % 7) * 0.6}s;
+                  --dur:${4.8 + (i % 5) * 1.1}s;
+                "
+              ></span>
+            `
+          )
+          .join("")}
+      </div>
+
+      <div class="cursor-glow" id="cursorGlow"></div>
+    </div>
+  `;
+}
+
+function bindCursorGlow() {
+  const glow = document.getElementById("cursorGlow");
+  if (!glow) return;
+  if (glow.dataset.bound === "1") return;
+
+  glow.dataset.bound = "1";
+
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+  let currentX = mouseX;
+  let currentY = mouseY;
+  let rafId = null;
+
+  function animate() {
+    currentX += (mouseX - currentX) * 0.14;
+    currentY += (mouseY - currentY) * 0.14;
+
+    glow.style.transform = `translate(${currentX}px, ${currentY}px) translate(-50%, -50%)`;
+
+    rafId = requestAnimationFrame(animate);
+  }
+
+  window.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    glow.classList.add("is-visible");
+
+    if (!rafId) {
+      rafId = requestAnimationFrame(animate);
+    }
+  });
+
+  window.addEventListener("mouseleave", () => {
+    glow.classList.remove("is-visible");
+  });
+}
+
 function rgbToHex(r, g, b) {
   return (
     "#" +
@@ -1469,9 +1533,14 @@ function renderPage() {
     renderHome(app);
   }
 
+  if (!document.querySelector(".ambient-layer")) {
+    document.body.insertAdjacentHTML("beforeend", renderAmbientEffects());
+  }
+
   bindDateControls();
   bindUpdateButton();
   bindThemeSwitcher();
+  bindCursorGlow();
 }
 
 async function loadData() {
