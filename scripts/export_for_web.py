@@ -784,6 +784,11 @@ def export_for_web() -> None:
     print(f"HISTORY_CSV_PATH = {HISTORY_CSV_PATH}")
     raw_songs = load_db_songs()
     dates, raw_history_by_date = load_raw_history()
+    print(f"ROOT = {ROOT}")
+    print(f"HISTORY_CSV_PATH = {HISTORY_CSV_PATH}")
+    print(f"HISTORY_JSON_PATH = {HISTORY_JSON_PATH}")
+    print(f"Last 10 dates found: {dates[-10:]}")
+    print(f"Rows on 2026-03-11: {len(raw_history_by_date.get('2026-03-11', {}))}")
     print(f"Last 10 dates found: {dates[-10:]}")
     print(f"Rows on 2026-03-10: {len(raw_history_by_date.get('2026-03-10', {}))}")
     track_appearances_by_id, albums_payload_raw = build_discography_index()
@@ -928,6 +933,8 @@ def export_for_web() -> None:
 
     write_json(SONGS_JSON_PATH, songs_payload)
     write_json(ALBUMS_JSON_PATH, albums_payload_out)
+    print(f"history latest_date to write = {latest_date}")
+    print(f"history dates to write = {dates[-5:]}")
     write_json(HISTORY_JSON_PATH, history_payload)
 
     print(f"Exported songs:   {SONGS_JSON_PATH}")
