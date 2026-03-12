@@ -1184,10 +1184,10 @@ function renderPage() {
 
 async function loadData() {
   const [songsData, albumsData, historyData, artistData] = await Promise.all([
-    fetch("data/songs.json").then((r) => r.json()),
-    fetch("data/albums.json").then((r) => r.json()),
-    fetch("data/history.json").then((r) => r.json()),
-    fetch("data/artist.json").then((r) => r.json()).catch(() => null),
+    fetch("site/data/songs.json?ts=" + Date.now()).then((r) => r.json()),
+    fetch("site/data/albums.json?ts=" + Date.now()).then((r) => r.json()),
+    fetch("site/data/history.json?ts=" + Date.now()).then((r) => r.json()),
+    fetch("data/artist.json?ts=" + Date.now()).then((r) => r.json()).catch(() => null),
   ]);
 
   state.songs = songsData.songs || [];
