@@ -10,6 +10,7 @@ import unicodedata
 from datetime import date, datetime, timedelta
 from pathlib import Path
 from queue import Empty, Queue
+import subprocess
 
 from playwright.sync_api import TimeoutError as PlaywrightTimeoutError
 from playwright.sync_api import sync_playwright
@@ -26,8 +27,8 @@ DISCOGRAPHY_DIR = ROOT / "discography"
 ARTIST_PATH = DATA_DIR / "artist.json"
 ARTIST_URL = "https://open.spotify.com/artist/06HL4z0CvFAxyc27GXpf02"
 
-HEADLESS = True
-MAX_PARALLEL_PAGES = 1
+HEADLESS = False
+MAX_PARALLEL_PAGES = 4
 PAGE_GOTO_TIMEOUT_MS = 60_000
 DEBUG_PAGE_PREVIEW = False
 
@@ -502,6 +503,19 @@ def save_failed_rows(rows: list[dict]) -> None:
                 ]
             )
 
+def git_commit_and_push():
+    try:
+        subprocess.run(["git", "add", "."], check=True)
+
+        msg = f"daily update {date.today().isoformat()}"
+        subprocess.run(["git", "commit", "-m", msg], check=True)
+
+        subprocess.run(["git", "push"], check=True)
+
+        print("Git commit + push done.")
+
+    except subprocess.CalledProcessError:
+        print("No git changes to commit.")
 
 def extract_main_track_playcount_from_lines(lines: list[str]) -> tuple[int | None, str | None]:
     if not lines:
@@ -700,7 +714,7 @@ def scrape_track_total(page, title: str, url: str) -> tuple[int | None, str | No
 
     for attempt in range(3):
         try:
-            page.goto(clean_url, wait_until="commit", timeout=20_000)
+            page.goto(clean_url, wait_until="commit", timeout=PAGE_GOTO_TIMEOUT_MS)
             page.wait_for_timeout(5000)
             maybe_accept_cookies(page)
 
@@ -1191,5 +1205,7 @@ def main():
 if __name__ == "__main__":
     try:
         main()
+        git_commit_and_push()
     except KeyboardInterrupt:
         print("\nStopped by user.")
+    
