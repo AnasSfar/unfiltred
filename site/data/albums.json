@@ -1,7 +1,7 @@
 {
   "summary": {
     "total_albums": 18,
-    "latest_date": "2026-03-11"
+    "latest_date": "2026-03-12"
   },
   "albums": [
     {
@@ -322,8 +322,8 @@
       ],
       "track_count": 21,
       "image_url": "https://i.scdn.co/image/ab67616d0000b27352b2a3824413eefe9e33817a",
-      "total_streams_sum": 10456307972,
-      "daily_streams_sum": 4151242,
+      "total_streams_sum": 10460512119,
+      "daily_streams_sum": 4204147,
       "top_song_total": "1u8c2t2Cy7UBoG4ArRcF5g",
       "top_song_daily": "0ug5NqcwcFR2xrfTkc7k8e",
       "display_blocks": [
@@ -696,8 +696,8 @@
       ],
       "track_count": 22,
       "image_url": "https://i.scdn.co/image/ab67616d0000b273dc2bacae1dca83d26e2b1949",
-      "total_streams_sum": 6184242066,
-      "daily_streams_sum": 2532908,
+      "total_streams_sum": 6186781604,
+      "daily_streams_sum": 2539538,
       "top_song_total": "1K39ty6o1sHwwlZwO6a7wK",
       "top_song_daily": "1K39ty6o1sHwwlZwO6a7wK",
       "display_blocks": [
@@ -1088,8 +1088,8 @@
       ],
       "track_count": 21,
       "image_url": "https://i.scdn.co/image/ab67616d0000b27333b8541201f1ef38941024be",
-      "total_streams_sum": 6361712092,
-      "daily_streams_sum": 1771742,
+      "total_streams_sum": 6363519661,
+      "daily_streams_sum": 1807569,
       "top_song_total": "0lx2cLdOt3piJbcaXIV74f",
       "top_song_daily": "0lx2cLdOt3piJbcaXIV74f",
       "display_blocks": [
@@ -1626,10 +1626,10 @@
       ],
       "track_count": 21,
       "image_url": "https://i.scdn.co/image/ab67616d0000b27334e5885465afc8a497ac1b7e",
-      "total_streams_sum": 2904110897,
-      "daily_streams_sum": 942336,
+      "total_streams_sum": 2905059808,
+      "daily_streams_sum": 948911,
       "top_song_total": "5xPsybHWRHbTYO44xnREY5",
-      "top_song_daily": "5xPsybHWRHbTYO44xnREY5",
+      "top_song_daily": "7G6TDmGJXDoBaV6NGj3Yic",
       "display_blocks": [
         {
           "key": "standard edition",
@@ -2055,8 +2055,8 @@
       ],
       "track_count": 27,
       "image_url": "https://i.scdn.co/image/ab67616d0000b273a48964b5d9a3d6968ae3e0de",
-      "total_streams_sum": 5668748362,
-      "daily_streams_sum": 2017657,
+      "total_streams_sum": 5670831942,
+      "daily_streams_sum": 2083580,
       "top_song_total": "6YvqWjhGD8mB5QXcbcUKtx",
       "top_song_daily": "6YvqWjhGD8mB5QXcbcUKtx",
       "display_blocks": [
@@ -2682,8 +2682,8 @@
       ],
       "track_count": 33,
       "image_url": "https://i.scdn.co/image/ab67616d0000b27395f754318336a07e85ec59bc",
-      "total_streams_sum": 11499413414,
-      "daily_streams_sum": 4208865,
+      "total_streams_sum": 11503845148,
+      "daily_streams_sum": 4431734,
       "top_song_total": "7zcnlq38eqNWyUF6eNaB5Z",
       "top_song_daily": "7zcnlq38eqNWyUF6eNaB5Z",
       "display_blocks": [
@@ -3223,8 +3223,8 @@
       ],
       "track_count": 32,
       "image_url": "https://i.scdn.co/image/ab67616d0000b273e787cffec20aa2a396a61647",
-      "total_streams_sum": 15325579025,
-      "daily_streams_sum": 4801072,
+      "total_streams_sum": 15330328910,
+      "daily_streams_sum": 4749885,
       "top_song_total": "1kHVme7OVyPqhtdiLj2SI4",
       "top_song_daily": "1kHVme7OVyPqhtdiLj2SI4",
       "display_blocks": [
@@ -3796,8 +3796,8 @@
       ],
       "track_count": 34,
       "image_url": "https://i.scdn.co/image/ab67616d0000b273fa747621a53c8e2cc436dee0",
-      "total_streams_sum": 12482321169,
-      "daily_streams_sum": 3478035,
+      "total_streams_sum": 12485820854,
+      "daily_streams_sum": 3499685,
       "top_song_total": "2wMKBH2p5kIDFkRWjS9IOW",
       "top_song_daily": "2wMKBH2p5kIDFkRWjS9IOW",
       "display_blocks": [
@@ -4173,8 +4173,8 @@
       ],
       "track_count": 22,
       "image_url": "https://i.scdn.co/image/ab67616d0000b27396384c98ac4f3e7c2440f5b5",
-      "total_streams_sum": 4054693210,
-      "daily_streams_sum": 1015115,
+      "total_streams_sum": 4055747661,
+      "daily_streams_sum": 1054451,
       "top_song_total": "72jCZdH0Lhg93z6Z4hBjgj",
       "top_song_daily": "72jCZdH0Lhg93z6Z4hBjgj",
       "display_blocks": [
@@ -4640,8 +4640,8 @@
       ],
       "track_count": 30,
       "image_url": "https://i.scdn.co/image/ab67616d0000b273318443aab3531a0558e79a4d",
-      "total_streams_sum": 7106422965,
-      "daily_streams_sum": 2546605,
+      "total_streams_sum": 7108997553,
+      "daily_streams_sum": 2574588,
       "top_song_total": "5enxwA8aAbwZbf5qCHORXi",
       "top_song_daily": "5enxwA8aAbwZbf5qCHORXi",
       "display_blocks": [
@@ -5213,8 +5213,8 @@
       ],
       "track_count": 36,
       "image_url": "https://i.scdn.co/image/ab67616d0000b273da5d5aeeabacacc1263c0f4b",
-      "total_streams_sum": 13076320795,
-      "daily_streams_sum": 4108812,
+      "total_streams_sum": 13080547381,
+      "daily_streams_sum": 4226586,
       "top_song_total": "2y5aJvzXhHPA94U5GFAcXe",
       "top_song_daily": "2y5aJvzXhHPA94U5GFAcXe",
       "display_blocks": [
@@ -5668,8 +5668,8 @@
       ],
       "track_count": 28,
       "image_url": "https://i.scdn.co/image/ab67616d0000b273d0eae3c1661a96570f0ca7bd",
-      "total_streams_sum": 3866840343,
-      "daily_streams_sum": 912205,
+      "total_streams_sum": 3867766349,
+      "daily_streams_sum": 919465,
       "top_song_total": "04S1pkp1VaIqjg8zZqknR5",
       "top_song_daily": "04S1pkp1VaIqjg8zZqknR5",
       "display_blocks": [
@@ -6030,8 +6030,8 @@
       ],
       "track_count": 22,
       "image_url": "https://i.scdn.co/image/ab67616d0000b2730b04da4f224b51ff86e0a481",
-      "total_streams_sum": 3741961768,
-      "daily_streams_sum": 1375131,
+      "total_streams_sum": 3743383430,
+      "daily_streams_sum": 1421662,
       "top_song_total": "3sW3oSbzsfecv9XoUdGs7h",
       "top_song_daily": "3sW3oSbzsfecv9XoUdGs7h",
       "display_blocks": [
@@ -6308,8 +6308,8 @@
       ],
       "track_count": 16,
       "image_url": "https://i.scdn.co/image/ab67616d0000b2732f8c0fd72a80a93f8c53b96c",
-      "total_streams_sum": 1937811427,
-      "daily_streams_sum": 509405,
+      "total_streams_sum": 1938333055,
+      "daily_streams_sum": 521628,
       "top_song_total": "15DeqWWQB4dcEWzJg15VrN",
       "top_song_daily": "15DeqWWQB4dcEWzJg15VrN",
       "display_blocks": [
@@ -6834,8 +6834,8 @@
       ],
       "track_count": 32,
       "image_url": "https://i.scdn.co/image/ab67616d0000b273bc755429117cac056edd2bf7",
-      "total_streams_sum": 4177372636,
-      "daily_streams_sum": 10594988,
+      "total_streams_sum": 4188008626,
+      "daily_streams_sum": 10635990,
       "top_song_total": "5cKBWgDjB5IXZ5jnryewOH",
       "top_song_daily": "5cKBWgDjB5IXZ5jnryewOH",
       "display_blocks": [
@@ -7074,8 +7074,8 @@
       ],
       "track_count": 9,
       "image_url": "https://i.scdn.co/image/ab67616d0000b2732a0face7d69df61c20a6db2b",
-      "total_streams_sum": 404674548,
-      "daily_streams_sum": 14900,
+      "total_streams_sum": 404690133,
+      "daily_streams_sum": 15585,
       "top_song_total": "4mKye6Z1kXuKolzMkJoKFA",
       "top_song_daily": "4mKye6Z1kXuKolzMkJoKFA",
       "display_blocks": [
@@ -7527,8 +7527,8 @@
       ],
       "track_count": 31,
       "image_url": "https://i.scdn.co/image/ab67616d0000b2738ecc33f195df6aa257c39eaa",
-      "total_streams_sum": 9535891507,
-      "daily_streams_sum": 5399105,
+      "total_streams_sum": 9541418019,
+      "daily_streams_sum": 5526512,
       "top_song_total": "2OzhQlSqBEmt7hmkYxfT6m",
       "top_song_daily": "2OzhQlSqBEmt7hmkYxfT6m",
       "display_blocks": [
@@ -7675,8 +7675,8 @@
           ],
           "track_count": 4,
           "image_url": "https://i.scdn.co/image/ab67616d0000b273b8d01ff84dc531f884d90928",
-          "total_streams_sum": 33256275,
-          "daily_streams_sum": 16001
+          "total_streams_sum": 33273123,
+          "daily_streams_sum": 16848
         },
         {
           "name": "evermore",
@@ -7780,8 +7780,8 @@
           ],
           "track_count": 4,
           "image_url": "https://i.scdn.co/image/ab67616d0000b2738312c50a6b9046d7dea5de12",
-          "total_streams_sum": 89295377,
-          "daily_streams_sum": 14977
+          "total_streams_sum": 89310571,
+          "daily_streams_sum": 15194
         },
         {
           "name": "Fearless",
@@ -7826,8 +7826,8 @@
           ],
           "track_count": 2,
           "image_url": "https://i.scdn.co/image/ab67616d0000b273c4d3acdcb5d53a2a3856786e",
-          "total_streams_sum": 13920542,
-          "daily_streams_sum": 2903
+          "total_streams_sum": 13923328,
+          "daily_streams_sum": 2786
         },
         {
           "name": "Fearless (Taylor's Version)",
@@ -7859,8 +7859,8 @@
           ],
           "track_count": 1,
           "image_url": "https://i.scdn.co/image/ab67616d0000b273f2d3584898505ffee9cacfde",
-          "total_streams_sum": 40246966,
-          "daily_streams_sum": 8498
+          "total_streams_sum": 40255502,
+          "daily_streams_sum": 8536
         },
         {
           "name": "folklore",
@@ -7927,8 +7927,8 @@
           ],
           "track_count": 3,
           "image_url": "https://i.scdn.co/image/ab67616d0000b2737d60bda8f85d66599c3fe851",
-          "total_streams_sum": 114592345,
-          "daily_streams_sum": 20578
+          "total_streams_sum": 114613612,
+          "daily_streams_sum": 21267
         },
         {
           "name": "Lover",
@@ -8160,8 +8160,8 @@
           ],
           "track_count": 15,
           "image_url": "https://i.scdn.co/image/ab67616d0000b273905c0872bdf4e1787a6bb5da",
-          "total_streams_sum": 4411785189,
-          "daily_streams_sum": 1431655
+          "total_streams_sum": 4413158309,
+          "daily_streams_sum": 1373120
         },
         {
           "name": "Midnights",
@@ -8336,8 +8336,8 @@
           ],
           "track_count": 12,
           "image_url": "https://i.scdn.co/image/ab67616d0000b2739954fa9f0ba8534c3897b59d",
-          "total_streams_sum": 3056489256,
-          "daily_streams_sum": 667822
+          "total_streams_sum": 3057147758,
+          "daily_streams_sum": 658502
         },
         {
           "name": "Red",
@@ -8417,8 +8417,8 @@
           ],
           "track_count": 4,
           "image_url": "https://i.scdn.co/image/ab67616d0000b273a7613d346501b828b56a0bc3",
-          "total_streams_sum": 87385020,
-          "daily_streams_sum": 13683
+          "total_streams_sum": 87398537,
+          "daily_streams_sum": 13517
         },
         {
           "name": "reputation",
@@ -8737,8 +8737,8 @@
           ],
           "track_count": 21,
           "image_url": "https://i.scdn.co/image/ab67616d0000b273bae8f095c58e137855f6d230",
-          "total_streams_sum": 2325717592,
-          "daily_streams_sum": 678116
+          "total_streams_sum": 2326447513,
+          "daily_streams_sum": 729921
         },
         {
           "name": "Speak Now",
@@ -8900,8 +8900,8 @@
           ],
           "track_count": 11,
           "image_url": "https://i.scdn.co/image/ab67616d0000b273d0eae3c1661a96570f0ca7bd",
-          "total_streams_sum": 229276854,
-          "daily_streams_sum": 22284
+          "total_streams_sum": 229305939,
+          "daily_streams_sum": 22544
         },
         {
           "name": "Standalone & Extras",
@@ -9298,8 +9298,8 @@
           ],
           "track_count": 27,
           "image_url": "https://i.scdn.co/image/ab67616d0000b273fbab613f887083f7ee11a1de",
-          "total_streams_sum": 2652147205,
-          "daily_streams_sum": 794416
+          "total_streams_sum": 2652980376,
+          "daily_streams_sum": 806233
         },
         {
           "name": "Taylor Swift",
@@ -9331,8 +9331,8 @@
           ],
           "track_count": 1,
           "image_url": "https://i.scdn.co/image/ab67616d0000b2730e8ba185f3e9f15630a7b5fb",
-          "total_streams_sum": 143690297,
-          "daily_streams_sum": 52002
+          "total_streams_sum": 143744907,
+          "daily_streams_sum": 54610
         },
         {
           "name": "The Life of a Showgirl",
@@ -9625,8 +9625,8 @@
           ],
           "track_count": 19,
           "image_url": "https://i.scdn.co/image/ab67616d0000b273f756bdc2c11a985dc0c06d94",
-          "total_streams_sum": 1231455203,
-          "daily_streams_sum": 4560144
+          "total_streams_sum": 1235992111,
+          "daily_streams_sum": 4536908
         },
         {
           "name": "The Taylor Swift Holiday Collection",
@@ -9684,8 +9684,8 @@
           ],
           "track_count": 3,
           "image_url": "https://i.scdn.co/image/ab67616d0000b2733b86fc3447e27df6630ce0d8",
-          "total_streams_sum": 306027623,
-          "daily_streams_sum": 7626
+          "total_streams_sum": 306035455,
+          "daily_streams_sum": 7832
         },
         {
           "name": "THE TORTURED POETS DEPARTMENT",
@@ -9769,8 +9769,8 @@
           ],
           "track_count": 5,
           "image_url": "https://i.scdn.co/image/ab67616d0000b273e6b77b3eef9269d06e13fe17",
-          "total_streams_sum": 75238173,
-          "daily_streams_sum": 48290
+          "total_streams_sum": 75287417,
+          "daily_streams_sum": 49244
         }
       ],
       "track_ids": [
@@ -9909,8 +9909,8 @@
       ],
       "track_count": 132,
       "image_url": "https://i.scdn.co/image/ab67616d0000b273b8d01ff84dc531f884d90928",
-      "total_streams_sum": 14810523917,
-      "daily_streams_sum": 8338995,
+      "total_streams_sum": 14818874458,
+      "daily_streams_sum": 8317062,
       "top_song_total": "1kHVme7OVyPqhtdiLj2SI4",
       "top_song_daily": "5cKBWgDjB5IXZ5jnryewOH"
     }
