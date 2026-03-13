@@ -56,6 +56,14 @@ function getCombineKey(song) {
     return String(song.song_family).trim().toLowerCase();
   }
 
+  if (song.base_title && String(song.base_title).trim()) {
+    return String(song.base_title).trim().toLowerCase();
+  }
+
+  if (song.title_key && String(song.title_key).trim()) {
+    return String(song.title_key).trim().toLowerCase();
+  }
+
   if (song.title_clean && String(song.title_clean).trim()) {
     return String(song.title_clean).trim().toLowerCase();
   }
@@ -71,13 +79,6 @@ function getCombineKey(song) {
       .trim();
   }
 
-  return song.track_id;
-}
-
-function getCombineKey(song) {
-  if (song.song_family != null && String(song.song_family).trim() !== "") {
-    return String(song.song_family).trim().toLowerCase();
-  }
   return song.track_id;
 }
 
