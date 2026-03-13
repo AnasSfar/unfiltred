@@ -74,6 +74,13 @@ function getCombineKey(song) {
   return song.track_id;
 }
 
+function getCombineKey(song) {
+  if (song.song_family != null && String(song.song_family).trim() !== "") {
+    return String(song.song_family).trim().toLowerCase();
+  }
+  return song.track_id;
+}
+
 function enrichSongsForDate(date) {
   const previousDate = getPreviousDate(date);
   const rows = [];
