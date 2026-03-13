@@ -42,6 +42,11 @@ PROBE_TITLES = [
 MIN_SUCCESSFUL_PROBES = 2
 MIN_UPDATED_PROBES_TO_START = 1
 
+PENDING_RETRY_SLEEP_SECONDS = 10 * 60
+MIN_PENDING_TRACKS_FOR_RETRY = 3
+MAX_PENDING_RETRY_ROUNDS = 6
+INCREMENTAL_PUBLISH_ON_UPDATE = True
+
 START_TIME = None
 
 
@@ -509,7 +514,7 @@ def save_failed_rows(rows: list[dict]) -> None:
             )
 
 
-def git_commit_and_push() -> None:
+def git_commit_and_push(message: str | None = None) -> None:
     try:
         subprocess.run(["git", "add", "."], check=True)
         diff = subprocess.run(
@@ -520,12 +525,35 @@ def git_commit_and_push() -> None:
             print("No git changes to commit.")
             return
 
-        msg = f"daily update {date.today().isoformat()}"
+        msg = message or f"daily update {date.today().isoformat()}"
         subprocess.run(["git", "commit", "-m", msg], check=True)
         subprocess.run(["git", "push"], check=True)
         print("Git commit + push done.")
     except subprocess.CalledProcessError as e:
         print(f"Git commit/push failed: {e}")
+
+
+def incremental_publish_update(
+    track: dict,
+    stats_date: str,
+    publish_lock: threading.Lock,
+) -> None:
+    if not INCREMENTAL_PUBLISH_ON_UPDATE:
+        return
+
+    with publish_lock:
+        try:
+            print(
+                f"Incremental publish | {track['title']} | "
+                f"{track['track_id']} | stats_date={stats_date}"
+            )
+            export_for_web.export_for_web()
+            git_commit_and_push(f"track update {stats_date} {track['track_id']}")
+        except Exception as e:
+            print(
+                f"Incremental publish failed for {track['title']} "
+                f"({track['track_id']}): {e}"
+            )
 
 
 def extract_main_track_playcount_from_lines(lines: list[str]) -> tuple[int | None, str | None]:
@@ -553,7 +581,7 @@ def extract_main_track_playcount_from_lines(lines: list[str]) -> tuple[int | Non
     }
 
     block: list[str] = []
-    for line in lines[start_idx + 1 :]:
+    for line in lines[start_idx + 1:]:
         normalized = normalize_title(line.strip())
         if normalized in end_markers:
             break
@@ -609,7 +637,7 @@ def extract_recommended_tracks_from_lines(lines: list[str]) -> list[dict]:
         "afficher plus",
     }
 
-    for line in lines[start_idx + 1 :]:
+    for line in lines[start_idx + 1:]:
         normalized = normalize_title(line)
         if normalized in end_markers:
             break
@@ -787,6 +815,7 @@ def try_apply_track_update(
     scrape_date: str,
     stats_date: str,
     lock: threading.Lock,
+    publish_lock: threading.Lock,
 ) -> dict:
     track_id = track["track_id"]
     last_total = get_last_history_total(track_id)
@@ -799,7 +828,14 @@ def try_apply_track_update(
         row = [stats_date, track_id, total, daily if daily is not None else ""]
         with lock:
             append_history_row(row)
+
         status = "updated"
+
+        incremental_publish_update(
+            track=track,
+            stats_date=stats_date,
+            publish_lock=publish_lock,
+        )
     else:
         status = "pending"
 
@@ -940,6 +976,7 @@ def _worker(
     results,
     failed_results,
     lock,
+    publish_lock,
     on_progress,
     total_groups,
     track_lookup,
@@ -1056,6 +1093,7 @@ def _worker(
                         scrape_date=scrape_date,
                         stats_date=stats_date,
                         lock=lock,
+                        publish_lock=publish_lock,
                     )
                     group_result["raw"] = raw
                     group_results.append(group_result)
@@ -1094,6 +1132,7 @@ def _worker(
                             scrape_date=scrape_date,
                             stats_date=stats_date,
                             lock=lock,
+                            publish_lock=publish_lock,
                         )
 
             with lock:
@@ -1169,6 +1208,7 @@ def run_update(on_progress=None):
 
     if queue.qsize() > 0:
         lock = threading.Lock()
+        publish_lock = threading.Lock()
         worker_count = min(MAX_PARALLEL_PAGES, queue.qsize())
 
         workers = [
@@ -1179,6 +1219,7 @@ def run_update(on_progress=None):
                     results,
                     failed_results,
                     lock,
+                    publish_lock,
                     on_progress,
                     total_groups,
                     track_lookup,
@@ -1219,12 +1260,56 @@ def run_update(on_progress=None):
         "failed_results": failed_results,
     }
 
+
 def get_update_state_for_stats_date() -> tuple[int, int]:
     stats_date = get_stats_date_str()
     active_track_ids = load_active_track_ids_from_discography()
     total_tracks = len(load_tracks_from_db(active_track_ids))
     done_tracks = len(load_today_history_track_ids(stats_date))
     return done_tracks, total_tracks
+
+
+def print_remaining_details(summary: dict) -> None:
+    print()
+    print("Tracks still not done for this stats date:")
+
+    remaining_details = []
+
+    for r in summary["results"]:
+        if r["status"] == "pending":
+            remaining_details.append(
+                f"PENDING | {r['title']} | {r.get('track_id', '')} | "
+                f"total={format_int(r.get('streams'))} | "
+                f"daily={format_int(r.get('daily_streams'))}"
+            )
+
+    for r in summary["failed_results"]:
+        if r["status"] in {"not_found", "timeout", "error"}:
+            remaining_details.append(
+                f"{r['status'].upper()} | {r['title']} | "
+                f"{r.get('track_id', '')} | {r.get('spotify_url', '')}"
+            )
+
+    if remaining_details:
+        for line in remaining_details:
+            print(line)
+    else:
+        print("None.")
+
+
+def print_summary_block(summary: dict) -> None:
+    print()
+    print(
+        f"Progress {summary['stats_date']}: "
+        f"{summary['done_tracks']}/{summary['total_tracks']} "
+        f"| groups={summary['total_groups']} "
+        f"| remaining={summary['remaining_tracks']} "
+        f"| pending={summary['pending_this_run']} "
+        f"| timeout={summary['timeout_this_run']} "
+        f"| error={summary['error_this_run']} "
+        f"| not_found={summary['not_found_this_run']}"
+    )
+
 
 def main():
     global START_TIME
@@ -1286,44 +1371,36 @@ def main():
     print("=" * 70)
 
     summary = run_update(on_progress=live_progress)
+    print_summary_block(summary)
 
-    print()
-    print(
-        f"Progress {summary['stats_date']}: "
-        f"{summary['done_tracks']}/{summary['total_tracks']} "
-        f"| groups={summary['total_groups']} "
-        f"| remaining={summary['remaining_tracks']} "
-        f"| pending={summary['pending_this_run']} "
-        f"| timeout={summary['timeout_this_run']} "
-        f"| error={summary['error_this_run']} "
-        f"| not_found={summary['not_found_this_run']}"
-    )
+    retry_round = 0
+    while (
+        not summary["all_done"]
+        and summary["pending_this_run"] >= MIN_PENDING_TRACKS_FOR_RETRY
+        and retry_round < MAX_PENDING_RETRY_ROUNDS
+    ):
+        retry_round += 1
 
-    print()
-    print("Tracks still not done for this stats date:")
+        print()
+        print(
+            f"Detected {summary['pending_this_run']} unchanged track(s) "
+            f"for {summary['stats_date']}."
+        )
+        print(
+            f"Waiting {PENDING_RETRY_SLEEP_SECONDS // 60} minutes before retry "
+            f"({retry_round}/{MAX_PENDING_RETRY_ROUNDS})..."
+        )
+        time.sleep(PENDING_RETRY_SLEEP_SECONDS)
 
-    remaining_details = []
+        print()
+        print("=" * 70)
+        print(f"Retry round {retry_round}")
+        print("=" * 70)
 
-    for r in summary["results"]:
-        if r["status"] == "pending":
-            remaining_details.append(
-                f"PENDING | {r['title']} | {r.get('track_id', '')} | "
-                f"total={format_int(r.get('streams'))} | "
-                f"daily={format_int(r.get('daily_streams'))}"
-            )
+        summary = run_update(on_progress=live_progress)
+        print_summary_block(summary)
 
-    for r in summary["failed_results"]:
-        if r["status"] in {"not_found", "timeout", "error"}:
-            remaining_details.append(
-                f"{r['status'].upper()} | {r['title']} | "
-                f"{r.get('track_id', '')} | {r.get('spotify_url', '')}"
-            )
-
-    if remaining_details:
-        for line in remaining_details:
-            print(line)
-    else:
-        print("None.")
+    print_remaining_details(summary)
 
     save_failed_rows(summary["failed_results"])
 
@@ -1331,7 +1408,7 @@ def main():
         print("All tracks updated.")
     else:
         print("Full scrape finished, but not all tracks are done.")
-        print("Publishing partial daily data anyway.")
+        print("Publishing current data anyway.")
 
     print("Updating artist metadata...")
     update_artist_metadata()
@@ -1341,14 +1418,15 @@ def main():
     print("Web export done.")
 
     print("Git commit and push...")
-    git_commit_and_push()
+    git_commit_and_push(f"daily final export {summary['stats_date']}")
 
     elapsed = time.perf_counter() - START_TIME
     print()
     print(f"Finished in {int(elapsed // 60)}m {int(elapsed % 60)}s")
     print(f"Done: {summary['done_tracks']}/{summary['total_tracks']}")
     print(f"Remaining: {summary['remaining_tracks']}")
-    
+
+
 if __name__ == "__main__":
     try:
         main()
