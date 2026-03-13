@@ -689,7 +689,7 @@ function renderTopbar() {
           <div class="artist-hero-content">
             <div class="artist-hero-name">${artistName}</div>
 
-            <div class="artist-daily-big">
+            <div class="artist-daily-big" data-text="+${formatFull(dailyStreams)}">
               +${formatFull(dailyStreams)}
             </div>
 
