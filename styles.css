@@ -279,76 +279,6 @@ a{
   text-transform:uppercase;
 }
 
-.artist-daily-big{
-  position:relative;
-  display:inline-block;
-  margin-top:4px;
-  line-height:.92;
-  letter-spacing:-0.04em;
-  font-size:54px;
-  font-weight:900;
-
-  font-family:"TT Modernoir", Inter, sans-serif;
-
-  background:
-    linear-gradient(180deg,
-      #fff0cf 0%,
-      #d6b3ff 14%,
-      #9b6dff 34%,
-      #7c4dff 56%,
-      #b794ff 76%,
-      #fff0cf 100%);
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-
-  filter:
-    drop-shadow(0 0 8px rgba(140,92,255,.18))
-    drop-shadow(0 0 20px rgba(167,116,255,.12));
-}
-
-.artist-daily-big::before{
-  content:attr(data-text);
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-
-  background:
-    radial-gradient(circle, rgba(255,255,255,.95) 0 12%, transparent 14%) 0 0 / 14px 14px,
-    radial-gradient(circle, rgba(233,220,255,.85) 0 9%, transparent 11%) 7px 7px / 16px 16px,
-    linear-gradient(180deg,
-      #fff6e2 0%,
-      #d7bbff 18%,
-      #9c73ff 38%,
-      #7a4fff 58%,
-      #bf9eff 80%,
-      #fff2dd 100%);
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-
-  mix-blend-mode:screen;
-  opacity:.88;
-  animation:dailyNumberGlitter 8s linear infinite;
-}
-
-.artist-daily-big::after{
-  content:"";
-  position:absolute;
-  inset:-4%;
-  pointer-events:none;
-  background:
-    linear-gradient(115deg,
-      transparent 0%,
-      rgba(255,255,255,0) 38%,
-      rgba(255,245,255,.92) 50%,
-      rgba(255,255,255,0) 62%,
-      transparent 100%);
-  transform:translateX(-130%) skewX(-18deg);
-  filter:blur(1.5px);
-  animation:dailyNumberShine 5.6s ease-in-out infinite;
-}
-
 @keyframes dailyNumberGlitter{
   0%{
     background-position:0 0, 7px 7px, 0 0;
@@ -1647,10 +1577,6 @@ body[data-theme="dark"] .news-card.purple{
     width:92px;
     height:92px;
     border-radius:18px;
-  }
-
-  .artist-daily-big{
-    font-size:38px;
   }
 
   .artist-total-line{
