@@ -279,6 +279,11 @@ a{
   text-transform:uppercase;
 }
 
+.artist-daily-big::before,
+.artist-daily-big::after{
+  content:none;
+}
+
 @keyframes dailyNumberGlitter{
   0%{
     background-position:0 0, 7px 7px, 0 0;
