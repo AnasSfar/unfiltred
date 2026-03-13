@@ -1233,18 +1233,29 @@ function renderHome(container){
     ${renderFocusModal()}
   `;
 
-  document.getElementById("sortStreamsBtn")?.onclick=()=>{
-    state.sortMode="streams"; renderPage();
-  };
-
-  document.getElementById("sortDailyBtn")?.onclick=()=>{
-    state.sortMode="daily"; renderPage();
-  };
-
-  document.getElementById("combineBtn")?.onclick=()=>{
-    state.combineVersions=!state.combineVersions;
+ const sortStreamsBtn = document.getElementById("sortStreamsBtn");
+if (sortStreamsBtn) {
+  sortStreamsBtn.onclick = () => {
+    state.sortMode = "streams";
     renderPage();
   };
+}
+
+const sortDailyBtn = document.getElementById("sortDailyBtn");
+if (sortDailyBtn) {
+  sortDailyBtn.onclick = () => {
+    state.sortMode = "daily";
+    renderPage();
+  };
+}
+
+const combineBtn = document.getElementById("combineBtn");
+if (combineBtn) {
+  combineBtn.onclick = () => {
+    state.combineVersions = !state.combineVersions;
+    renderPage();
+  };
+}
 
 }
 /* =========================
@@ -1388,15 +1399,21 @@ function renderAlbums(container){
     </section>
   `;
 
-  document.getElementById("sortAlbumStreamsBtn")?.onclick=()=>{
-    state.albumSortMode="streams";
+  const sortAlbumStreamsBtn = document.getElementById("sortAlbumStreamsBtn");
+if (sortAlbumStreamsBtn) {
+  sortAlbumStreamsBtn.onclick = () => {
+    state.albumSortMode = "streams";
     renderPage();
   };
+}
 
-  document.getElementById("sortAlbumDailyBtn")?.onclick=()=>{
-    state.albumSortMode="daily";
+const sortAlbumDailyBtn = document.getElementById("sortAlbumDailyBtn");
+if (sortAlbumDailyBtn) {
+  sortAlbumDailyBtn.onclick = () => {
+    state.albumSortMode = "daily";
     renderPage();
   };
+}
 
 }
 
