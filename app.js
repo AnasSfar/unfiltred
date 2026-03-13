@@ -51,6 +51,29 @@ function formatArtists(song) {
   return "Unknown artist";
 }
 
+function getCombineKey(song) {
+  if (song.song_family && String(song.song_family).trim()) {
+    return String(song.song_family).trim().toLowerCase();
+  }
+
+  if (song.title_clean && String(song.title_clean).trim()) {
+    return String(song.title_clean).trim().toLowerCase();
+  }
+
+  if (song.title && String(song.title).trim()) {
+    return String(song.title)
+      .toLowerCase()
+      .replace(/\s*\([^)]*\)\s*/g, " ")
+      .replace(/\s*\[[^\]]*\]\s*/g, " ")
+      .replace(/\b(feat|featuring|ft)\.?\s+[^-–—,]+/g, " ")
+      .replace(/\b(live|acoustic|remix|version|deluxe|karaoke|edit|demo|instrumental|radio edit|from the vault)\b/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+  return song.track_id;
+}
+
 function enrichSongsForDate(date) {
   const previousDate = getPreviousDate(date);
   const rows = [];
@@ -107,7 +130,7 @@ function computeRankMap(rows, mode) {
 
   sorted.forEach((song, idx) => {
     const key = state.combineVersions
-      ? song.song_family || song.track_id
+      ? getCombineKey(song)
       : song.track_id;
 
     rankMap.set(key, idx + 1);
@@ -120,11 +143,12 @@ function combineSongVersions(rows) {
   const grouped = new Map();
 
   for (const song of rows) {
-    const key = song.song_family || song.track_id;
+    const key = getCombineKey(song);
 
     if (!grouped.has(key)) {
       grouped.set(key, {
         ...song,
+        song_family: key,
         combined_versions_count: 1,
       });
       continue;
@@ -142,7 +166,9 @@ function combineSongVersions(rows) {
     const currentPrevious = song.previous_streams;
     const currentChange = song.total_change;
 
-    const wasLeader = existingStreams >= currentStreams;
+    const existingLeaderScore = (existing.streams || 0) * 1000000000 + (existing.daily_streams || 0);
+    const currentLeaderScore = (song.streams || 0) * 1000000000 + (song.daily_streams || 0);
+    const keepExistingLeader = existingLeaderScore >= currentLeaderScore;
 
     existing.streams = existingStreams + currentStreams;
     existing.daily_streams = existingDaily + currentDaily;
@@ -161,7 +187,7 @@ function combineSongVersions(rows) {
 
     existing.combined_versions_count += 1;
 
-    if (!wasLeader) {
+    if (!keepExistingLeader) {
       existing.track_id = song.track_id;
       existing.title = song.title;
       existing.title_clean = song.title_clean || existing.title_clean;
@@ -169,8 +195,21 @@ function combineSongVersions(rows) {
       existing.primary_album = song.primary_album || existing.primary_album;
       existing.primary_artist = song.primary_artist || existing.primary_artist;
       existing.artists = song.artists || existing.artists;
-      existing.song_family = song.song_family || existing.song_family;
       existing.version_tag = song.version_tag || existing.version_tag;
+      existing.edition = song.edition || existing.edition;
+      existing.type = song.type || existing.type;
+    }
+
+    if (song.crossed_milestone_today) {
+      existing.crossed_milestone_today = true;
+
+      if (
+        !existing.crossed_milestone_today_label ||
+        getMajorMilestoneValue(song.crossed_milestone_today_label) >
+          getMajorMilestoneValue(existing.crossed_milestone_today_label)
+      ) {
+        existing.crossed_milestone_today_label = song.crossed_milestone_today_label;
+      }
     }
   }
 
@@ -254,7 +293,7 @@ function withRankChanges(rows, date, mode) {
 
   return rows.map((song) => {
     const key = state.combineVersions
-      ? song.song_family || song.track_id
+      ? getCombineKey(song)
       : song.track_id;
 
     const currentRank = currentRankMap.get(key) ?? null;
@@ -354,7 +393,7 @@ function getSongVersionsForFamily(family, date) {
   const rows = enrichSongsForDate(date);
 
   return rows
-    .filter((song) => (song.song_family || song.track_id) === family)
+    .filter((song) => getCombineKey(song) === family)
     .sort(
       (a, b) =>
         (b.streams || 0) - (a.streams || 0) ||
@@ -511,11 +550,6 @@ function shiftRgb(r, g, b, amount) {
     clamp(g + amount, 0, 255),
     clamp(b + amount, 0, 255)
   );
-}
-
-function pickTextColor(r, g, b) {
-  const luminance = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
-  return luminance > 0.62 ? "#101828" : "#f8fafc";
 }
 
 function extractThemeFromImage(url) {
@@ -958,7 +992,7 @@ function songRow(song) {
             <div class="col-song">
               <a
                 class="song-link"
-                href="song.html?family=${encodeURIComponent(song.song_family || song.track_id)}"
+                href="song.html?family=${encodeURIComponent(getCombineKey(song))}"
               >
                 <img class="row-cover" src="${song.image_url || ""}" alt="${song.title}">
                 <div class="row-song-meta">
@@ -1223,14 +1257,6 @@ function uniqueByTrackId(rows) {
 
 function getSongMap(rows) {
   return new Map(rows.map((song) => [song.track_id, song]));
-}
-
-function getAlbumBlockSongs(album, rows, blockKey) {
-  const songsById = getSongMap(rows);
-  const block = (album.display_blocks || []).find((b) => b.key === blockKey);
-  if (!block) return [];
-
-  return block.track_ids.map((id) => songsById.get(id)).filter(Boolean);
 }
 
 function computeAlbumTotalsForDate(album, rows) {
