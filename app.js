@@ -635,6 +635,8 @@ function renderNav() {
         <a href="albums.html" class="${state.page === "albums" || state.page === "album" ? "active" : ""}">Albums</a>
         <a href="milestones.html" class="${state.page === "milestones" ? "active" : ""}">Milestones</a>
       </nav>
+
+      ${renderThemeSwitcher()}
     </div>
   `;
 }
@@ -671,9 +673,6 @@ function renderTopbar() {
 
   return `
     <div class="topbar">
-      <div class="topbar-theme-slot">
-        ${renderThemeSwitcher()}
-      </div>
 
       <div class="hero-left">
         <div class="artist-hero-card">
@@ -1059,7 +1058,6 @@ function renderHome(container) {
 
   container.innerHTML = `
     ${renderTopbar()}
-    ${renderStats(sorted)}
     ${renderNewsSection(rowsWithRankChanges, state.selectedDate)}
 
     <section class="section-card">
