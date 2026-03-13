@@ -176,8 +176,8 @@ async function loadData() {
 
     fetch("site/data/songs.json?ts=" + Date.now()).then(r => r.json()),
     fetch("site/data/albums.json?ts=" + Date.now()).then(r => r.json()),
-    state.history = {};
-    state.dates = songsData.dates || [];
+    state.history = {},
+    state.dates = songsData.dates || [],
     fetch("site/data/artist.json?ts=" + Date.now()).then(r => r.json()).catch(() => null),
     fetch("site/data/expected_milestones.json?ts=" + Date.now()).then(r => r.json()).catch(() => null)
 
@@ -1893,7 +1893,7 @@ function bindUpdateButton(){
    PAGE ROUTER
 ========================= */
 
-function renderPage(){
+async function renderPage(){
   await loadHistory(state.selectedDate);
   const container =
     document.getElementById("app") ||
