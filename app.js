@@ -1919,11 +1919,12 @@ async function loadData() {
 
   state.history = {};
 
-  const allDates =
-  songsData.dates ||
-  expectedMilestonesData?.dates ||
-  Object.keys(state.history || {}).sort();
+  let allDates = songsData.dates || expectedMilestonesData?.dates || [];
 
+if (!allDates.length) {
+  const r = await fetchJSON("site/history/index.json");
+  allDates = r.dates || [];
+}
   state.dates = allDates;
 
   const storedDate = localStorage.getItem("site-selected-date");
