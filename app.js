@@ -81,7 +81,6 @@ function getCombineKey(song) {
 
   return song.track_id;
 }
-
 function enrichSongsForDate(date) {
   const previousDate = getPreviousDate(date);
   const rows = [];
@@ -92,15 +91,21 @@ function enrichSongsForDate(date) {
 
     const streams = day?.streams ?? song.streams ?? null;
     const daily = day?.daily_streams ?? null;
+
     const previousStreams = prevDay?.streams ?? null;
+    const previousDaily = prevDay?.daily_streams ?? null;
+
     const totalChange =
-      streams !== null && previousStreams !== null ? streams - previousStreams : null;
+      daily !== null && previousDaily !== null
+        ? daily - previousDaily
+        : null;
 
     rows.push({
       ...song,
       streams,
       daily_streams: daily,
       previous_streams: previousStreams,
+      previous_daily_streams: previousDaily,
       total_change: totalChange,
       crossed_milestone_today: day?.crossed_milestone_today ?? null,
       crossed_milestone_today_label: day?.crossed_milestone_today_label ?? null,
