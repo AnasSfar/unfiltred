@@ -32,6 +32,11 @@ const state = {
 /* =========================
    GENERIC HELPERS
 ========================= */
+async function fetchJSON(url) {
+  const r = await fetch(`${url}${url.includes("?") ? "&" : "?"}ts=${Date.now()}`);
+  if (!r.ok) throw new Error(`Failed to fetch ${url}`);
+  return r.json();
+}
 
 const normalize = v =>
   String(v || "")
@@ -150,66 +155,13 @@ function filterSongsByQuery(rows) {
    DATA LOADING
 ========================= */
 
-async function loadHistory(date){
+async function loadHistory(date) {
+  if (!date || state.history[date]) return;
 
-  if(state.history[date]) return;
-
-  const r = await fetch(
-    `site/history/${date}.json`
-  );
-
-  const data = await r.json();
-
-  state.history[date] = data;
-
+  const data = await fetchJSON(`site/history/${date}.json`);
+  state.history[date] = data || {};
 }
 
-async function loadData() {
-
-  const [
-    songsData,
-    albumsData,
-    historyData,
-    artistData,
-    expectedMilestonesData
-  ] = await Promise.all([
-
-    fetch("site/data/songs.json?ts=" + Date.now()).then(r => r.json()),
-    fetch("site/data/albums.json?ts=" + Date.now()).then(r => r.json()),
-    state.history = {},
-    state.dates = songsData.dates || [],
-    fetch("site/data/artist.json?ts=" + Date.now()).then(r => r.json()).catch(() => null),
-    fetch("site/data/expected_milestones.json?ts=" + Date.now()).then(r => r.json()).catch(() => null)
-
-  ]);
-
-
-  state.songs = songsData.songs || [];
-  state.albums = albumsData.albums || [];
-
-  state.history = historyData.by_date || {};
-  state.dates = historyData.dates || [];
-
-  state.artist = artistData || null;
-
-  state.expectedMilestones =
-    expectedMilestonesData?.forecasts || [];
-
-
-  const storedDate = localStorage.getItem("site-selected-date");
-  const latestDate =
-    historyData.summary?.latest_date ||
-    state.dates[state.dates.length - 1] ||
-    null;
-
-  if (storedDate && state.dates.includes(storedDate)) {
-    state.selectedDate = storedDate;
-  } else {
-    state.selectedDate = latestDate;
-    persistSelectedDate();
-  }
-
-}
 /* =========================
    COMBINE KEY
 ========================= */
@@ -1293,6 +1245,10 @@ function renderHome(container){
 /* =========================
    ALBUM CARD
 ========================= */
+function getAlbumCover(album) {
+  if (!album) return "";
+  return album.image_url || "";
+}
 
 function albumRow(album){
 
@@ -1719,7 +1675,7 @@ function milestoneRow(item){
 
 function renderMilestones(container){
 
-  const rows = (state.milestones || [])
+  const rows = (state.expectedMilestones || [])
     .slice()
     .sort((a,b)=>{
 
@@ -1781,47 +1737,41 @@ function renderMilestones(container){
    DATE CONTROLS
 ========================= */
 
-function bindDateControls(){
-
+function bindDateControls() {
   const input = document.getElementById("dateInput");
   const prev = document.getElementById("prevDayBtn");
   const next = document.getElementById("nextDayBtn");
 
-  if(input){
-
-    input.onchange = ()=>{
+  if (input) {
+    input.onchange = async () => {
       state.selectedDate = input.value;
       persistSelectedDate();
+      await loadHistory(state.selectedDate);
       renderPage();
     };
-
   }
 
-  if(prev){
-
-    prev.onclick = ()=>{
+  if (prev) {
+    prev.onclick = async () => {
       const d = getPreviousDate(state.selectedDate);
-      if(!d) return;
+      if (!d) return;
       state.selectedDate = d;
       persistSelectedDate();
+      await loadHistory(state.selectedDate);
       renderPage();
     };
-
   }
 
-  if(next){
-
-    next.onclick = ()=>{
-      const i = state.dates.indexOf(state.selectedDate);
-      if(i === -1 || i >= state.dates.length-1) return;
-
-      state.selectedDate = state.dates[i+1];
+  if (next) {
+    next.onclick = async () => {
+      const d = getNextDate(state.selectedDate);
+      if (!d) return;
+      state.selectedDate = d;
       persistSelectedDate();
+      await loadHistory(state.selectedDate);
       renderPage();
     };
-
   }
-
 }
 
 
@@ -1932,36 +1882,41 @@ async function renderPage(){
    DATA LOADING
 ========================= */
 
-async function loadData(){
-
-  const [
-    songs,
-    history,
-    albums,
-    milestones,
-    artist
-  ] = await Promise.all([
-
-    fetchJSON("data/songs.json"),
-    fetchJSON("data/history.json"),
-    fetchJSON("data/albums.json"),
-    fetchJSON("data/milestones.json"),
-    fetchJSON("data/artist.json")
-
+async function loadData() {
+  const [songsData, albumsData, artistData, expectedMilestonesData] = await Promise.all([
+    fetchJSON("site/data/songs.json"),
+    fetchJSON("site/data/albums.json"),
+    fetchJSON("site/data/artist.json").catch(() => null),
+    fetchJSON("site/data/expected_milestones.json").catch(() => null)
   ]);
 
-  state.songs = songs || [];
-  state.history = history || {};
-  state.albums = albums || [];
-  state.milestones = milestones || [];
-  state.artist = artist || null;
+  state.songs = songsData.songs || [];
+  state.albums = albumsData.albums || [];
+  state.artist = artistData || null;
+  state.expectedMilestones = expectedMilestonesData?.forecasts || [];
 
-  state.dates = Object.keys(state.history).sort();
+  state.history = {};
 
-  if(!state.selectedDate){
-    state.selectedDate = state.dates[state.dates.length-1] || null;
+  const allDates =
+    songsData.dates ||
+    expectedMilestonesData?.dates ||
+    [];
+
+  state.dates = allDates;
+
+  const storedDate = localStorage.getItem("site-selected-date");
+  const latestDate = state.dates[state.dates.length - 1] || null;
+
+  if (storedDate && state.dates.includes(storedDate)) {
+    state.selectedDate = storedDate;
+  } else {
+    state.selectedDate = latestDate;
+    persistSelectedDate();
   }
 
+  if (state.selectedDate) {
+    await loadHistory(state.selectedDate);
+  }
 }
 
 
