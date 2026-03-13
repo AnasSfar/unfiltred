@@ -12,39 +12,12 @@ const state = {
   updateLogText: "",
   updateLogClass: "update-log",
   artist: null,
-  albumCovers: {},
   themeMode: localStorage.getItem("site-theme-mode") || "light",
-  themeImageUrl: null,
 };
 
 function formatFull(value) {
   if (value === null || value === undefined) return "N/A";
   return value.toLocaleString("en-US");
-}
-
-function normalizeAlbumName(value) {
-  return String(value || "")
-    .toLowerCase()
-    .trim()
-    .replace(/[’']/g, "'")
-    .replace(/\s+/g, " ");
-}
-
-function getAlbumCover(album) {
-  if (!album) return "";
-
-  const albumName = normalizeAlbumName(album.album);
-
-  for (const entry of Object.values(state.albumCovers || {})) {
-    if (!entry || typeof entry !== "object") continue;
-
-    const entryTitle = normalizeAlbumName(entry.title);
-    if (entryTitle === albumName) {
-      return entry.cover_url || album.image_url || "";
-    }
-  }
-
-  return album.image_url || "";
 }
 
 function persistSelectedDate() {
@@ -88,6 +61,12 @@ function formatArtists(song) {
   }
 
   return "Unknown artist";
+}
+
+function formatArtistAlbum(song) {
+  const artist = formatArtists(song);
+  const album = song.primary_album || "Unknown album";
+  return `${artist} / ${album}`;
 }
 
 function getCombineKey(song) {
@@ -307,10 +286,6 @@ function bindUpdateButton() {
         state.updateLogClass = "update-log success";
       }
 
-      if (state.themeMode === "cover") {
-        await applyTheme("cover");
-      }
-
       renderPage();
     } catch (err) {
       console.error(err);
@@ -429,7 +404,7 @@ function getMajorMilestoneHighlights(date) {
 
       return {
         track_id: song.track_id,
-        title: song.title,
+        title: song.title_clean || song.title,
         image_url: song.image_url,
         primary_album: song.primary_album,
         milestone_label: normalizeMilestoneLabel(song.crossed_milestone_today_label),
@@ -470,13 +445,28 @@ function getLeadSongVersion(rows) {
   )[0];
 }
 
+function getBiggestGainer(rows) {
+  return [...rows]
+    .filter((song) => song.total_change !== null && song.total_change !== undefined)
+    .sort(
+      (a, b) =>
+        (b.total_change || 0) - (a.total_change || 0) ||
+        (b.daily_streams || 0) - (a.daily_streams || 0)
+    )[0] || null;
+}
+
+function getBiggestRankMover(rows) {
+  return [...rows]
+    .filter((song) => song.rank_change !== null && song.rank_change !== undefined)
+    .sort(
+      (a, b) =>
+        (b.rank_change || 0) - (a.rank_change || 0) ||
+        (b.daily_streams || 0) - (a.daily_streams || 0)
+    )[0] || null;
+}
+
 function renderThemeSwitcher() {
-  const currentLabel =
-    state.themeMode === "dark"
-      ? "Dark"
-      : state.themeMode === "cover"
-      ? "Cover"
-      : "Light";
+  const currentLabel = state.themeMode === "dark" ? "Dark" : "Light";
 
   return `
     <div class="theme-switcher" id="themeSwitcher">
@@ -490,51 +480,25 @@ function renderThemeSwitcher() {
           class="theme-option ${state.themeMode === "light" ? "active" : ""}"
           data-theme="light"
         >
-          Clair
+          Light
         </button>
         <button
           type="button"
           class="theme-option ${state.themeMode === "dark" ? "active" : ""}"
           data-theme="dark"
         >
-          Sombre
-        </button>
-        <button
-          type="button"
-          class="theme-option ${state.themeMode === "cover" ? "active" : ""}"
-          data-theme="cover"
-        >
-          Cover
+          Dark
         </button>
       </div>
     </div>
   `;
 }
 
-function getLatestCoverImage() {
-  const selectors = [
-    ".artist-hero-photo",
-    ".album-cover-small",
-    ".album-cover",
-    ".row-cover",
-    "#latestCover",
-  ];
-
-  for (const selector of selectors) {
-    const img = document.querySelector(selector);
-    if (img?.getAttribute("src")) {
-      return img.getAttribute("src");
-    }
-  }
-
-  return state.artist?.image_url || null;
-}
-
 function renderAmbientEffects() {
   return `
     <div class="ambient-layer" aria-hidden="true">
       <div class="glitter-field">
-        ${Array.from({ length: 26 })
+        ${Array.from({ length: 22 })
           .map(
             (_, i) => `
               <span
@@ -542,9 +506,9 @@ function renderAmbientEffects() {
                 style="
                   --x:${(i * 37) % 100}%;
                   --y:${(i * 19 + 11) % 100}%;
-                  --size:${2 + (i % 4)}px;
-                  --delay:${(i % 7) * 0.6}s;
-                  --dur:${4.8 + (i % 5) * 1.1}s;
+                  --size:${2 + (i % 3)}px;
+                  --delay:${(i % 7) * 0.8}s;
+                  --dur:${7 + (i % 5) * 2.4}s;
                 "
               ></span>
             `
@@ -571,9 +535,8 @@ function bindCursorGlow() {
   let rafId = null;
 
   function animate() {
-    currentX += (mouseX - currentX) * 0.14;
-    currentY += (mouseY - currentY) * 0.14;
-
+    currentX += (mouseX - currentX) * 0.08;
+    currentY += (mouseY - currentY) * 0.08;
     glow.style.transform = `translate(${currentX}px, ${currentY}px) translate(-50%, -50%)`;
     rafId = requestAnimationFrame(animate);
   }
@@ -593,174 +556,14 @@ function bindCursorGlow() {
   });
 }
 
-function rgbToHex(r, g, b) {
-  return (
-    "#" +
-    [r, g, b]
-      .map((v) => Math.max(0, Math.min(255, Math.round(v))).toString(16).padStart(2, "0"))
-      .join("")
-  );
-}
-
-function clamp(value, min, max) {
-  return Math.max(min, Math.min(max, value));
-}
-
-function shiftRgb(r, g, b, amount) {
-  return rgbToHex(
-    clamp(r + amount, 0, 255),
-    clamp(g + amount, 0, 255),
-    clamp(b + amount, 0, 255)
-  );
-}
-
-function extractThemeFromImage(url) {
-  return new Promise((resolve, reject) => {
-    if (!url) {
-      reject(new Error("No image URL"));
-      return;
-    }
-
-    const img = new Image();
-    img.crossOrigin = "anonymous";
-
-    img.onload = () => {
-      try {
-        const canvas = document.createElement("canvas");
-        const ctx = canvas.getContext("2d", { willReadFrequently: true });
-
-        if (!ctx) {
-          reject(new Error("Canvas context unavailable"));
-          return;
-        }
-
-        const size = 48;
-        canvas.width = size;
-        canvas.height = size;
-        ctx.drawImage(img, 0, 0, size, size);
-
-        const { data } = ctx.getImageData(0, 0, size, size);
-
-        let totalR = 0;
-        let totalG = 0;
-        let totalB = 0;
-        let count = 0;
-
-        let accentScore = -1;
-        let accent = { r: 29, g: 185, b: 84 };
-
-        for (let i = 0; i < data.length; i += 4) {
-          const a = data[i + 3];
-          if (a < 120) continue;
-
-          const r = data[i];
-          const g = data[i + 1];
-          const b = data[i + 2];
-
-          totalR += r;
-          totalG += g;
-          totalB += b;
-          count += 1;
-
-          const max = Math.max(r, g, b);
-          const min = Math.min(r, g, b);
-          const sat = max - min;
-          const brightness = (r + g + b) / 3;
-          const score = sat + brightness * 0.15;
-
-          if (score > accentScore && brightness > 45) {
-            accentScore = score;
-            accent = { r, g, b };
-          }
-        }
-
-        if (!count) {
-          reject(new Error("No pixels"));
-          return;
-        }
-
-        const avgR = Math.round(totalR / count);
-        const avgG = Math.round(totalG / count);
-        const avgB = Math.round(totalB / count);
-
-        const avgBrightness = (avgR + avgG + avgB) / 3;
-        const isLightBase = avgBrightness >= 150;
-
-        let bgR, bgG, bgB, surfaceR, surfaceG, surfaceB, surface2R, surface2G, surface2B;
-        let text, muted, line, hoverBorder, shadow, shadowSoft, shadowHover;
-
-        if (isLightBase) {
-          bgR = clamp(avgR + 22, 244, 252);
-          bgG = clamp(avgG + 22, 244, 252);
-          bgB = clamp(avgB + 22, 244, 252);
-
-          surfaceR = clamp(avgR + 14, 248, 255);
-          surfaceG = clamp(avgG + 14, 248, 255);
-          surfaceB = clamp(avgB + 14, 248, 255);
-
-          surface2R = clamp(avgR + 6, 240, 250);
-          surface2G = clamp(avgG + 6, 240, 250);
-          surface2B = clamp(avgB + 6, 240, 250);
-
-          text = "#101828";
-          muted = "#667085";
-          line = "rgba(16,24,40,.08)";
-          hoverBorder = "rgba(16,24,40,.14)";
-          shadow = "0 8px 24px rgba(16,24,40,.07)";
-          shadowSoft = "0 4px 14px rgba(16,24,40,.05)";
-          shadowHover = "0 18px 42px rgba(16,24,40,.14)";
-        } else {
-          bgR = clamp(avgR - 34, 8, 28);
-          bgG = clamp(avgG - 34, 8, 28);
-          bgB = clamp(avgB - 34, 8, 28);
-
-          surfaceR = clamp(avgR - 18, 16, 40);
-          surfaceG = clamp(avgG - 18, 16, 40);
-          surfaceB = clamp(avgB - 18, 16, 40);
-
-          surface2R = clamp(avgR - 10, 22, 50);
-          surface2G = clamp(avgG - 10, 22, 50);
-          surface2B = clamp(avgB - 10, 22, 50);
-
-          text = "#f8fafc";
-          muted = "#98a2b3";
-          line = "rgba(255,255,255,.10)";
-          hoverBorder = "rgba(255,255,255,.16)";
-          shadow = "0 8px 24px rgba(0,0,0,.34)";
-          shadowSoft = "0 4px 14px rgba(0,0,0,.24)";
-          shadowHover = "0 18px 42px rgba(0,0,0,.42)";
-        }
-
-        resolve({
-          bg: rgbToHex(bgR, bgG, bgB),
-          surface: rgbToHex(surfaceR, surfaceG, surfaceB),
-          surface2: rgbToHex(surface2R, surface2G, surface2B),
-          text,
-          muted,
-          line,
-          accent: rgbToHex(accent.r, accent.g, accent.b),
-          accent2: shiftRgb(accent.r, accent.g, accent.b, -24),
-          hoverBorder,
-          shadow,
-          shadowSoft,
-          shadowHover,
-        });
-      } catch (err) {
-        reject(err);
-      }
-    };
-
-    img.onerror = () => reject(new Error("Image load failed"));
-    img.src = url;
-  });
-}
-
 function clearThemeVariables() {
   const root = document.documentElement.style;
   [
     "--bg",
+    "--bg-2",
     "--surface",
     "--surface-2",
+    "--surface-3",
     "--text",
     "--muted",
     "--line",
@@ -770,68 +573,16 @@ function clearThemeVariables() {
     "--shadow",
     "--shadow-soft",
     "--shadow-hover",
-    "--card-backdrop",
   ].forEach((prop) => root.removeProperty(prop));
 }
 
 function applyLightTheme() {
   document.body.dataset.theme = "light";
   clearThemeVariables();
-
-  const root = document.documentElement.style;
-  root.setProperty("--surface", "rgba(255,255,255,.72)");
-  root.setProperty("--surface-2", "rgba(255,255,255,.48)");
-  root.setProperty("--card-backdrop", "blur(18px) saturate(160%)");
 }
 
 function applyDarkTheme() {
   document.body.dataset.theme = "dark";
-  const root = document.documentElement.style;
-
-  root.setProperty("--bg", "#0b1118");
-  root.setProperty("--surface", "rgba(16,24,34,.62)");
-  root.setProperty("--surface-2", "rgba(23,33,45,.42)");
-  root.setProperty("--text", "#f8fafc");
-  root.setProperty("--muted", "#98a2b3");
-  root.setProperty("--line", "rgba(255,255,255,.10)");
-  root.setProperty("--accent", "#8b5cf6");
-  root.setProperty("--accent-2", "#6d47d9");
-  root.setProperty("--hover-border", "rgba(255,255,255,.18)");
-  root.setProperty("--shadow", "0 8px 24px rgba(0,0,0,.34)");
-  root.setProperty("--shadow-soft", "0 4px 14px rgba(0,0,0,.24)");
-  root.setProperty("--shadow-hover", "0 18px 42px rgba(0,0,0,.42)");
-  root.setProperty("--card-backdrop", "blur(18px) saturate(150%)");
-}
-
-async function applyCoverTheme() {
-  document.body.dataset.theme = "cover";
-
-  const rawImageUrl = getLatestCoverImage() || state.artist?.image_url || null;
-  const imageUrl = withCacheBuster(rawImageUrl);
-  state.themeImageUrl = imageUrl;
-
-  if (!imageUrl) {
-    applyDarkTheme();
-    return;
-  }
-
-  try {
-    const palette = await extractThemeFromImage(imageUrl);
-    const root = document.documentElement.style;
-
-    Object.entries(palette).forEach(([key, value]) => {
-      root.setProperty(`--${key}`, value);
-    });
-
-    root.setProperty("--surface", "rgba(255,255,255,.14)");
-    root.setProperty("--surface-2", "rgba(255,255,255,.08)");
-    root.setProperty("--line", "rgba(255,255,255,.14)");
-    root.setProperty("--hover-border", "rgba(255,255,255,.22)");
-    root.setProperty("--card-backdrop", "blur(22px) saturate(160%)");
-  } catch (err) {
-    console.error("Cover theme failed, fallback to dark:", err);
-    applyDarkTheme();
-  }
 }
 
 async function applyTheme(mode = state.themeMode) {
@@ -840,8 +591,6 @@ async function applyTheme(mode = state.themeMode) {
 
   if (mode === "dark") {
     applyDarkTheme();
-  } else if (mode === "cover") {
-    await applyCoverTheme();
   } else {
     applyLightTheme();
   }
@@ -928,11 +677,15 @@ function renderTopbar() {
 
       <div class="hero-left">
         <div class="artist-hero-card">
-          <img
-            class="artist-hero-photo"
-            src="${artistImage ? withCacheBuster(artistImage) : ""}"
-            alt="${artistName}"
-          >
+          ${
+            artistImage
+              ? `<img
+                   class="artist-hero-photo"
+                   src="${withCacheBuster(artistImage)}"
+                   alt="${artistName}"
+                 >`
+              : `<div class="artist-hero-photo artist-hero-photo-placeholder">${artistName[0] || "T"}</div>`
+          }
 
           <div class="artist-hero-content">
             <div class="artist-hero-name">${artistName}</div>
@@ -987,11 +740,6 @@ function renderTopbar() {
   `;
 }
 
-function getSelectedRows() {
-  const rawRows = enrichSongsForDate(state.selectedDate);
-  return state.combineVersions ? combineSongVersions(rawRows) : rawRows;
-}
-
 function renderStats(rows) {
   const totalCombined = rows.reduce((sum, r) => sum + (r.streams || 0), 0);
   const milestonesToday = rows.filter((r) => r.crossed_milestone_today).length;
@@ -1023,7 +771,7 @@ function renderStats(rows) {
 
 function renderRankChange(change) {
   if (change === null || change === undefined) {
-    return `<span class="delta neutral">—</span>`;
+    return `<span class="delta neutral">• 0</span>`;
   }
   if (change > 0) {
     return `<span class="delta up">↑ ${change}</span>`;
@@ -1072,7 +820,7 @@ function songRow(song) {
 
   return `
     <tr>
-      <td colspan="7" class="row-shell-cell">
+      <td colspan="6" class="row-shell-cell">
         <article class="song-row-card${goldClass}">
           <div class="song-row-grid">
             <div class="col-rank">${song.current_rank ?? "—"}</div>
@@ -1102,18 +850,16 @@ function songRow(song) {
                   <img class="row-cover" src="${song.image_url ? withCacheBuster(song.image_url) : ""}" alt="${song.title}">
                   <div class="row-song-meta">
                     <div class="row-song-title">${song.title_clean || song.title}</div>
-                    <div class="row-song-artist">${formatArtists(song)}</div>
+                    <div class="row-song-sub">${formatArtistAlbum(song)}</div>
                     ${
                       state.combineVersions && (song.combined_versions_count || 1) > 1
-                        ? `<div class="row-song-artist">${song.combined_versions_count} versions combined</div>`
+                        ? `<div class="row-song-sub">${song.combined_versions_count} versions combined</div>`
                         : ""
                     }
                   </div>
                 </a>
               </div>
             </div>
-
-            <div class="col-album">${song.primary_album || ""}</div>
 
             <div class="col-daily">${formatFull(song.daily_streams)}</div>
 
@@ -1137,6 +883,134 @@ function songRow(song) {
       </td>
     </tr>
   `;
+}
+
+function renderNewsSection(rowsWithRankChanges, date) {
+  const milestoneHighlights = getMajorMilestoneHighlights(date);
+  const biggestGainer = getBiggestGainer(rowsWithRankChanges);
+  const biggestRankMover = getBiggestRankMover(rowsWithRankChanges);
+
+  const milestoneCard = milestoneHighlights.length
+    ? `
+      <div class="news-card blue">
+        <div class="news-kicker">News</div>
+        <div class="news-title">${milestoneHighlights.length} milestone${milestoneHighlights.length > 1 ? "s" : ""} crossed</div>
+        <div class="news-sub">
+          ${
+            milestoneHighlights.length > 2
+              ? `Several songs crossed milestones on ${date}. Full details are available on the milestones page.`
+              : `Major milestone activity detected on ${date}.`
+          }
+        </div>
+        ${milestoneHighlights
+          .slice(0, 2)
+          .map(
+            (item) => `
+              <div class="news-song">
+                <img src="${item.image_url ? withCacheBuster(item.image_url) : ""}" alt="${item.title}">
+                <div class="news-song-meta">
+                  <div class="news-song-title">${item.title}</div>
+                  <div class="news-song-sub">${item.milestone_label} • ${formatOrdinal(item.ordinal)}</div>
+                </div>
+              </div>
+            `
+          )
+          .join("")}
+      </div>
+    `
+    : `
+      <div class="news-card blue">
+        <div class="news-kicker">News</div>
+        <div class="news-title">No major milestone today</div>
+        <div class="news-sub">No 900M, 1B, 1.5B, 2B, 2.5B or 3B milestone was crossed on ${date}.</div>
+      </div>
+    `;
+
+  const gainerCard = biggestGainer
+    ? `
+      <div class="news-card green">
+        <div class="news-kicker">Biggest gainer</div>
+        <div class="news-title">${renderPlainSigned(biggestGainer.total_change)}</div>
+        <div class="news-sub">Largest day-to-day streams change on ${date}.</div>
+        <div class="news-song">
+          <img src="${biggestGainer.image_url ? withCacheBuster(biggestGainer.image_url) : ""}" alt="${biggestGainer.title}">
+          <div class="news-song-meta">
+            <div class="news-song-title">${biggestGainer.title_clean || biggestGainer.title}</div>
+            <div class="news-song-sub">${formatArtistAlbum(biggestGainer)}</div>
+          </div>
+        </div>
+        <div class="news-badges">
+          <span class="news-mini-badge ${biggestGainer.total_change >= 0 ? "green" : "red"}">${renderSignedCompact(biggestGainer.total_change)}</span>
+          <span class="news-mini-badge ${biggestGainer.percent_change >= 0 ? "green" : "red"}">${formatPercentCompact(biggestGainer.percent_change)}</span>
+        </div>
+      </div>
+    `
+    : `
+      <div class="news-card green">
+        <div class="news-kicker">Biggest gainer</div>
+        <div class="news-title">No data</div>
+        <div class="news-sub">Streams change is unavailable for this date.</div>
+      </div>
+    `;
+
+  const rankCard = biggestRankMover
+    ? `
+      <div class="news-card purple">
+        <div class="news-kicker">Best rank move</div>
+        <div class="news-title">↑ ${biggestRankMover.rank_change}</div>
+        <div class="news-sub">Strongest positive rank movement on ${date}.</div>
+        <div class="news-song">
+          <img src="${biggestRankMover.image_url ? withCacheBuster(biggestRankMover.image_url) : ""}" alt="${biggestRankMover.title}">
+          <div class="news-song-meta">
+            <div class="news-song-title">${biggestRankMover.title_clean || biggestRankMover.title}</div>
+            <div class="news-song-sub">${formatArtistAlbum(biggestRankMover)}</div>
+          </div>
+        </div>
+        <div class="news-badges">
+          <span class="news-mini-badge green">Now #${biggestRankMover.current_rank ?? "—"}</span>
+          <span class="news-mini-badge gold">Before #${biggestRankMover.previous_rank ?? "—"}</span>
+        </div>
+      </div>
+    `
+    : `
+      <div class="news-card purple">
+        <div class="news-kicker">Best rank move</div>
+        <div class="news-title">No movement</div>
+        <div class="news-sub">No comparable rank change is available for this date.</div>
+      </div>
+    `;
+
+  return `
+    <section class="section-card">
+      <div class="section-head">
+        <div>
+          <h2>News</h2>
+          <p>Fast highlights for ${date}</p>
+        </div>
+      </div>
+
+      <div class="news-grid">
+        ${milestoneCard}
+        ${gainerCard}
+        ${rankCard}
+      </div>
+    </section>
+  `;
+}
+
+function renderPlainSigned(value) {
+  if (value === null || value === undefined) return "N/A";
+  return value > 0 ? `+${formatFull(value)}` : formatFull(value);
+}
+
+function renderSignedCompact(value) {
+  if (value === null || value === undefined) return "N/A";
+  return value > 0 ? `+${formatFull(value)}` : formatFull(value);
+}
+
+function formatPercentCompact(value) {
+  if (value === null || value === undefined || Number.isNaN(value)) return "N/A";
+  return value > 0 ? `+${Math.abs(value).toFixed(2)}%` : `${value.toFixed(2)}%`;
 }
 
 function renderMilestoneHighlightsBox(date) {
@@ -1186,6 +1060,7 @@ function renderHome(container) {
   container.innerHTML = `
     ${renderTopbar()}
     ${renderStats(sorted)}
+    ${renderNewsSection(rowsWithRankChanges, state.selectedDate)}
 
     <section class="section-card">
       <div class="section-head">
@@ -1227,7 +1102,6 @@ function renderHome(container) {
               <th>#</th>
               <th>Rank change</th>
               <th>Song</th>
-              <th>Album</th>
               <th>Daily</th>
               <th>Total</th>
               <th>Streams change</th>
@@ -1368,10 +1242,10 @@ function renderAlbums(container) {
 
                           <div class="col-song">
                             <a class="song-link" href="album.html?name=${encodeURIComponent(album.album)}">
-                              <img class="row-cover" src="${getAlbumCover(album) ? withCacheBuster(getAlbumCover(album)) : ""}" alt="${album.album}">
+                              <img class="row-cover" src="${album.image_url ? withCacheBuster(album.image_url) : ""}" alt="${album.album}">
                               <div class="row-song-meta">
                                 <div class="row-song-title">${album.album}</div>
-                                <div class="row-song-artist">Album page</div>
+                                <div class="row-song-sub">Album page</div>
                               </div>
                             </a>
                           </div>
@@ -1458,7 +1332,7 @@ function albumTable(rows, showEmptyText = "No songs in this section.") {
                             ? `<div class="mini-song-sub">${song.combined_versions_count} versions combined</div>`
                             : song.version_tag
                             ? `<div class="mini-song-sub">${song.version_tag}</div>`
-                            : ""
+                            : `<div class="mini-song-sub">${formatArtistAlbum(song)}</div>`
                         }
                       </div>
                     </div>
@@ -1572,9 +1446,9 @@ function renderAlbumDetail(container) {
   });
 
   const cover =
-  getAlbumCover(albumMeta) ||
-  displayBlocks.flatMap((b) => b.songs).find((s) => s.image_url)?.image_url ||
-  "";
+    albumMeta.image_url ||
+    displayBlocks.flatMap((b) => b.songs).find((s) => s.image_url)?.image_url ||
+    "";
 
   container.innerHTML = `
     ${renderTopbar()}
@@ -1683,7 +1557,7 @@ function renderSongDetail(container) {
           <div>
             <h2>${leadSong.title_clean || leadSong.title}</h2>
             <p>
-              ${formatArtists(leadSong)}
+              ${formatArtistAlbum(leadSong)}
               • ${totals.versions_count} version${totals.versions_count > 1 ? "s" : ""}
               • ${formatFull(totals.total_streams)} total streams combined
               • ${formatFull(totals.daily_streams)} daily streams combined
@@ -1703,8 +1577,7 @@ function renderSongDetail(container) {
             <tr>
               <th>#</th>
               <th>Version</th>
-              <th>Artists</th>
-              <th>Album</th>
+              <th>Artists / Album</th>
               <th>Edition</th>
               <th>Type</th>
               <th>Daily streams</th>
@@ -1727,8 +1600,7 @@ function renderSongDetail(container) {
                         </div>
                       </div>
                     </td>
-                    <td>${formatArtists(song)}</td>
-                    <td>${song.primary_album || "Unknown album"}</td>
+                    <td>${formatArtistAlbum(song)}</td>
                     <td>${song.edition || "—"}</td>
                     <td>${song.type || "—"}</td>
                     <td>${formatFull(song.daily_streams)}</td>
@@ -1751,13 +1623,34 @@ function renderSongDetail(container) {
 }
 
 function renderMilestones(container) {
-  const rows = enrichSongsForDate(state.selectedDate)
+  const rawRows = enrichSongsForDate(state.selectedDate)
     .filter((r) => r.crossed_milestone_today)
     .sort((a, b) => (b.streams || 0) - (a.streams || 0));
 
-  const baseRows = state.combineVersions ? combineSongVersions(rows) : rows;
+  const baseRows = state.combineVersions ? combineSongVersions(rawRows) : rawRows;
   const withChanges = withRankChanges(baseRows, state.selectedDate, state.sortMode);
   const sorted = sortSongs(withChanges, state.sortMode);
+
+  if (sorted.length <= 2) {
+    container.innerHTML = `
+      ${renderTopbar()}
+      ${renderNewsSection(withChanges, state.selectedDate)}
+      <section class="section-card">
+        <div class="section-head">
+          <div>
+            <h2>Milestones</h2>
+            <p>There are only ${sorted.length} milestone${sorted.length > 1 ? "s" : ""} on this date, so the summary is shown in News.</p>
+          </div>
+        </div>
+        ${
+          sorted.length
+            ? renderMilestoneHighlightsBox(state.selectedDate)
+            : `<div class="empty">No milestone crossed on this date.</div>`
+        }
+      </section>
+    `;
+    return;
+  }
 
   container.innerHTML = `
     ${renderTopbar()}
@@ -1793,30 +1686,23 @@ function renderMilestones(container) {
         </div>
       </div>
 
-      ${
-        sorted.length
-          ? `
-            <div class="table-wrap ranking-wrap">
-              <table class="table ranking-table">
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>Rank change</th>
-                    <th>Song</th>
-                    <th>Album</th>
-                    <th>Daily</th>
-                    <th>Total</th>
-                    <th>Streams change</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  ${sorted.map((song) => songRow(song)).join("")}
-                </tbody>
-              </table>
-            </div>
-          `
-          : `<div class="empty">No milestone crossed on this date.</div>`
-      }
+      <div class="table-wrap ranking-wrap">
+        <table class="table ranking-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Rank change</th>
+              <th>Song</th>
+              <th>Daily</th>
+              <th>Total</th>
+              <th>Streams change</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${sorted.map((song) => songRow(song)).join("")}
+          </tbody>
+        </table>
+      </div>
     </section>
   `;
 
@@ -1892,21 +1778,14 @@ function renderPage() {
   bindUpdateButton();
   bindThemeSwitcher();
   bindCursorGlow();
-
-  if (state.themeMode === "cover") {
-    requestAnimationFrame(() => {
-      applyCoverTheme();
-    });
-  }
 }
 
 async function loadData() {
-  const [songsData, albumsData, historyData, artistData, coversData] = await Promise.all([
+  const [songsData, albumsData, historyData, artistData] = await Promise.all([
     fetch("site/data/songs.json?ts=" + Date.now()).then((r) => r.json()),
     fetch("site/data/albums.json?ts=" + Date.now()).then((r) => r.json()),
     fetch("site/data/history.json?ts=" + Date.now()).then((r) => r.json()),
     fetch("site/data/artist.json?ts=" + Date.now()).then((r) => r.json()).catch(() => null),
-    fetch("site/data/covers.json?ts=" + Date.now()).then((r) => r.json()).catch(() => ({})),
   ]);
 
   state.songs = songsData.songs || [];
@@ -1914,7 +1793,6 @@ async function loadData() {
   state.history = historyData.by_date || {};
   state.dates = historyData.dates || [];
   state.artist = artistData || null;
-  state.albumCovers = coversData || {};
 
   const storedDate = localStorage.getItem("site-selected-date");
   const latestDate = historyData.summary?.latest_date || state.dates[state.dates.length - 1] || null;
@@ -1925,8 +1803,6 @@ async function loadData() {
     state.selectedDate = latestDate;
     persistSelectedDate();
   }
-
-  state.themeImageUrl = null;
 }
 
 loadData().then(async () => {
