@@ -6,6 +6,7 @@ const state = {
   selectedDate: null,
   sortMode: "daily",
   albumSortMode: "daily",
+  albumsPageSortMode: "daily",
   page: document.body.dataset.page || "home",
   combineVersions: false,
   updateLogText: "",
@@ -150,10 +151,7 @@ function computeRankMap(rows, mode) {
   const rankMap = new Map();
 
   sorted.forEach((song, idx) => {
-    const key = state.combineVersions
-      ? getCombineKey(song)
-      : song.track_id;
-
+    const key = state.combineVersions ? getCombineKey(song) : song.track_id;
     rankMap.set(key, idx + 1);
   });
 
@@ -217,6 +215,8 @@ function combineSongVersions(rows) {
       existing.version_tag = song.version_tag || existing.version_tag;
       existing.edition = song.edition || existing.edition;
       existing.type = song.type || existing.type;
+      existing.display_section = song.display_section || existing.display_section;
+      existing.display_order = song.display_order ?? existing.display_order;
     }
 
     if (song.crossed_milestone_today) {
@@ -305,9 +305,7 @@ function withRankChanges(rows, date, mode) {
   }
 
   return rows.map((song) => {
-    const key = state.combineVersions
-      ? getCombineKey(song)
-      : song.track_id;
+    const key = state.combineVersions ? getCombineKey(song) : song.track_id;
 
     const currentRank = currentRankMap.get(key) ?? null;
     const previousRank = previousRankMap.get(key) ?? null;
@@ -638,7 +636,8 @@ function extractThemeFromImage(url) {
         const avgBrightness = (avgR + avgG + avgB) / 3;
         const isLightBase = avgBrightness >= 150;
 
-        let bgR, bgG, bgB, surfaceR, surfaceG, surfaceB, surface2R, surface2G, surface2B, text, muted, line, hoverBorder, shadow, shadowSoft, shadowHover;
+        let bgR, bgG, bgB, surfaceR, surfaceG, surfaceB, surface2R, surface2G, surface2B;
+        let text, muted, line, hoverBorder, shadow, shadowSoft, shadowHover;
 
         if (isLightBase) {
           bgR = clamp(avgR + 22, 244, 252);
@@ -986,7 +985,9 @@ function renderStreamChange(change) {
     return `<span class="delta down">${formatFull(change)}</span>`;
   }
   return `<span class="delta neutral">0</span>`;
-  function renderPercentChange(change) {
+}
+
+function renderPercentChange(change) {
   if (change === null || change === undefined || Number.isNaN(change)) {
     return `<span class="delta neutral">—</span>`;
   }
@@ -1002,7 +1003,6 @@ function renderStreamChange(change) {
   }
 
   return `<span class="delta neutral">0.00%</span>`;
-}
 }
 
 function songRow(song) {
@@ -1044,16 +1044,16 @@ function songRow(song) {
             <div class="col-total">${formatFull(song.streams)}</div>
 
             <div class="col-stream-change">
-            ${renderStreamChange(song.total_change)}
-            <div class="sub-delta">
-              ${renderPercentChange(song.percent_change)}
+              ${renderStreamChange(song.total_change)}
+              <div class="sub-delta">
+                ${renderPercentChange(song.percent_change)}
+              </div>
+              ${
+                song.crossed_milestone_today_label
+                  ? `<div class="milestone-chip gold">${song.crossed_milestone_today_label} crossed</div>`
+                  : ""
+              }
             </div>
-            ${
-              song.crossed_milestone_today_label
-                ? `<div class="milestone-chip gold">${song.crossed_milestone_today_label} crossed</div>`
-                : ""
-            }
-          </div>
           </div>
         </article>
       </td>
@@ -1180,17 +1180,76 @@ function renderHome(container) {
   });
 }
 
+function getSongMap(rows) {
+  return new Map(rows.map((song) => [song.track_id, song]));
+}
+
+function computeAlbumTotalsForDate(album, rows, options = {}) {
+  const songsById = getSongMap(rows);
+  let albumSongs = (album.track_ids || [])
+    .map((id) => songsById.get(id))
+    .filter(Boolean);
+
+  if (options.combineVersions) {
+    albumSongs = combineSongVersions(albumSongs);
+  }
+
+  return {
+    total_streams_sum: albumSongs.reduce((sum, song) => sum + (song.streams || 0), 0),
+    daily_streams_sum: albumSongs.reduce((sum, song) => sum + (song.daily_streams || 0), 0),
+    track_count: albumSongs.length,
+  };
+}
+
+function sortAlbumsForPage(albums, rows) {
+  const mapped = albums.map((album) => {
+    const totals = computeAlbumTotalsForDate(album, rows, {
+      combineVersions: state.combineVersions,
+    });
+
+    return {
+      ...album,
+      totals,
+    };
+  });
+
+  return mapped.sort((a, b) => {
+    if (state.albumsPageSortMode === "total") {
+      return (
+        (b.totals.total_streams_sum || 0) - (a.totals.total_streams_sum || 0) ||
+        (b.totals.daily_streams_sum || 0) - (a.totals.daily_streams_sum || 0) ||
+        a.album.localeCompare(b.album)
+      );
+    }
+
+    return (
+      (b.totals.daily_streams_sum || 0) - (a.totals.daily_streams_sum || 0) ||
+      (b.totals.total_streams_sum || 0) - (a.totals.total_streams_sum || 0) ||
+      a.album.localeCompare(b.album)
+    );
+  });
+}
+
 function renderAlbums(container) {
-  const cards = state.albums
+  const rows = enrichSongsForDate(state.selectedDate);
+  const albums = sortAlbumsForPage(state.albums, rows);
+
+  const cards = albums
     .map(
       (album) => `
         <a class="album-card" href="album.html?name=${encodeURIComponent(album.album)}">
           <img class="album-cover" src="${album.image_url || ""}" alt="${album.album}">
           <div class="album-body">
             <div class="album-title">${album.album}</div>
-            <div class="album-sub">${album.track_count} songs</div>
+            <div class="album-sub">${album.totals.track_count} songs</div>
             <div class="album-sub">
               ${album.kind === "misc" ? "Remixes, standalones, features" : "Main album page"}
+            </div>
+            <div class="album-sub">
+              ${formatFull(album.totals.daily_streams_sum)} daily streams
+            </div>
+            <div class="album-sub">
+              ${formatFull(album.totals.total_streams_sum)} total streams
             </div>
           </div>
         </a>
@@ -1205,12 +1264,41 @@ function renderAlbums(container) {
       <div class="section-head">
         <div>
           <h2>Albums</h2>
-          <p>Open an album to see tracks grouped by edition type</p>
+          <p>
+            Sorted by ${
+              state.albumsPageSortMode === "daily" ? "daily streams" : "total streams"
+            } for ${state.selectedDate}
+          </p>
+        </div>
+
+        <div class="toolbar">
+          <button
+            id="albumsPageSortDailyBtn"
+            class="${state.albumsPageSortMode === "daily" ? "active" : ""}"
+          >
+            Daily streams
+          </button>
+          <button
+            id="albumsPageSortTotalBtn"
+            class="${state.albumsPageSortMode === "total" ? "active" : ""}"
+          >
+            Total streams
+          </button>
         </div>
       </div>
       <div class="album-grid">${cards}</div>
     </section>
   `;
+
+  document.getElementById("albumsPageSortDailyBtn")?.addEventListener("click", () => {
+    state.albumsPageSortMode = "daily";
+    renderPage();
+  });
+
+  document.getElementById("albumsPageSortTotalBtn")?.addEventListener("click", () => {
+    state.albumsPageSortMode = "total";
+    renderPage();
+  });
 }
 
 function sortAlbumSongs(rows, mode) {
@@ -1218,12 +1306,17 @@ function sortAlbumSongs(rows, mode) {
 
   if (mode === "total") {
     copy.sort(
-      (a, b) => (b.streams || 0) - (a.streams || 0) || a.title.localeCompare(b.title)
+      (a, b) =>
+        (b.streams || 0) - (a.streams || 0) ||
+        (b.daily_streams || 0) - (a.daily_streams || 0) ||
+        a.title.localeCompare(b.title)
     );
   } else {
     copy.sort(
       (a, b) =>
-        (b.daily_streams || 0) - (a.daily_streams || 0) || a.title.localeCompare(b.title)
+        (b.daily_streams || 0) - (a.daily_streams || 0) ||
+        (b.streams || 0) - (a.streams || 0) ||
+        a.title.localeCompare(b.title)
     );
   }
 
@@ -1257,13 +1350,25 @@ function albumTable(rows, showEmptyText = "No songs in this section.") {
                     <div class="mini-song">
                       <img src="${song.image_url || ""}" alt="${song.title}">
                       <div>
-                        <div><strong>${song.title}</strong></div>
+                        <div><strong>${song.title_clean || song.title}</strong></div>
+                        ${
+                          state.combineVersions && (song.combined_versions_count || 1) > 1
+                            ? `<div class="mini-song-sub">${song.combined_versions_count} versions combined</div>`
+                            : song.version_tag
+                            ? `<div class="mini-song-sub">${song.version_tag}</div>`
+                            : ""
+                        }
                       </div>
                     </div>
                   </td>
                   <td>${formatFull(song.streams)}</td>
                   <td>${formatFull(song.daily_streams)}</td>
-                  <td>${renderStreamChange(song.total_change)}</td>
+                  <td>
+                    ${renderStreamChange(song.total_change)}
+                    <div class="sub-delta">
+                      ${renderPercentChange(song.percent_change)}
+                    </div>
+                  </td>
                 </tr>
               `
             )
@@ -1288,25 +1393,17 @@ function uniqueByTrackId(rows) {
   return out;
 }
 
-function getSongMap(rows) {
-  return new Map(rows.map((song) => [song.track_id, song]));
-}
-
-function computeAlbumTotalsForDate(album, rows) {
+function getAlbumBlockSongs(album, rows, blockKey) {
   const songsById = getSongMap(rows);
-  const albumSongs = (album.track_ids || [])
-    .map((id) => songsById.get(id))
-    .filter(Boolean);
+  const block = (album.display_blocks || []).find((b) => b.key === blockKey);
+  if (!block) return [];
 
-  return {
-    total_streams_sum: albumSongs.reduce((sum, song) => sum + (song.streams || 0), 0),
-    daily_streams_sum: albumSongs.reduce((sum, song) => sum + (song.daily_streams || 0), 0),
-    track_count: albumSongs.length,
-  };
+  return block.track_ids.map((id) => songsById.get(id)).filter(Boolean);
 }
 
 function renderAlbumBlock(title, rows, emptyText) {
-  const sorted = sortAlbumSongs(uniqueByTrackId(rows), state.albumSortMode);
+  const preparedRows = state.combineVersions ? combineSongVersions(rows) : uniqueByTrackId(rows);
+  const sorted = sortAlbumSongs(preparedRows, state.albumSortMode);
 
   return `
     <div class="subsection-head">
@@ -1332,17 +1429,25 @@ function renderAlbumDetail(container) {
     return;
   }
 
-  const totals = computeAlbumTotalsForDate(albumMeta, rows);
+  const totals = computeAlbumTotalsForDate(albumMeta, rows, {
+    combineVersions: state.combineVersions,
+  });
   const songsById = getSongMap(rows);
 
   const displayBlocks = sortDisplayBlocks(albumMeta.display_blocks || []).map((block) => {
-    const songs = (block.track_ids || [])
+    let songs = (block.track_ids || [])
       .map((id) => songsById.get(id))
       .filter(Boolean);
 
+    if (state.combineVersions) {
+      songs = combineSongVersions(songs);
+    } else {
+      songs = uniqueByTrackId(songs);
+    }
+
     return {
       ...block,
-      songs: sortAlbumSongs(uniqueByTrackId(songs), state.albumSortMode),
+      songs: sortAlbumSongs(songs, state.albumSortMode),
     };
   });
 
@@ -1362,7 +1467,7 @@ function renderAlbumDetail(container) {
           <div>
             <h2>${albumName}</h2>
             <p>
-              ${totals.track_count} songs
+              ${totals.track_count} ${totals.track_count > 1 ? "entries" : "entry"}
               • ${formatFull(totals.total_streams_sum)} total streams
               • ${formatFull(totals.daily_streams_sum)} daily streams
               • sorted by ${
@@ -1386,6 +1491,12 @@ function renderAlbumDetail(container) {
           >
             Total streams
           </button>
+          <button
+            id="albumCombineBtn"
+            class="${state.combineVersions ? "active" : ""}"
+          >
+            Combine
+          </button>
         </div>
       </div>
 
@@ -1402,6 +1513,11 @@ function renderAlbumDetail(container) {
 
   document.getElementById("albumSortTotalBtn")?.addEventListener("click", () => {
     state.albumSortMode = "total";
+    renderPage();
+  });
+
+  document.getElementById("albumCombineBtn")?.addEventListener("click", () => {
+    state.combineVersions = !state.combineVersions;
     renderPage();
   });
 }
@@ -1528,7 +1644,12 @@ function renderSongDetail(container) {
                     <td>${song.type || "—"}</td>
                     <td>${formatFull(song.daily_streams)}</td>
                     <td>${formatFull(song.streams)}</td>
-                    <td>${renderStreamChange(song.total_change)}</td>
+                    <td>
+                      ${renderStreamChange(song.total_change)}
+                      <div class="sub-delta">
+                        ${renderPercentChange(song.percent_change)}
+                      </div>
+                    </td>
                   </tr>
                 `
               )
@@ -1545,7 +1666,9 @@ function renderMilestones(container) {
     .filter((r) => r.crossed_milestone_today)
     .sort((a, b) => (b.streams || 0) - (a.streams || 0));
 
-  const withChanges = withRankChanges(rows, state.selectedDate, state.sortMode);
+  const baseRows = state.combineVersions ? combineSongVersions(rows) : rows;
+  const withChanges = withRankChanges(baseRows, state.selectedDate, state.sortMode);
+  const sorted = sortSongs(withChanges, state.sortMode);
 
   container.innerHTML = `
     ${renderNav()}
@@ -1559,10 +1682,31 @@ function renderMilestones(container) {
           <h2>Milestones crossed</h2>
           <p>Only songs that crossed a milestone on ${state.selectedDate}</p>
         </div>
+
+        <div class="toolbar">
+          <button
+            id="milestoneSortStreamsBtn"
+            class="${state.sortMode === "streams" ? "active" : ""}"
+          >
+            Total streams
+          </button>
+          <button
+            id="milestoneSortDailyBtn"
+            class="${state.sortMode === "daily" ? "active" : ""}"
+          >
+            Daily streams
+          </button>
+          <button
+            id="milestoneCombineBtn"
+            class="${state.combineVersions ? "active" : ""}"
+          >
+            Combine
+          </button>
+        </div>
       </div>
 
       ${
-        withChanges.length
+        sorted.length
           ? `
             <div class="table-wrap ranking-wrap">
               <table class="table ranking-table">
@@ -1578,7 +1722,7 @@ function renderMilestones(container) {
                   </tr>
                 </thead>
                 <tbody>
-                  ${withChanges.map((song) => songRow(song)).join("")}
+                  ${sorted.map((song) => songRow(song)).join("")}
                 </tbody>
               </table>
             </div>
@@ -1587,6 +1731,21 @@ function renderMilestones(container) {
       }
     </section>
   `;
+
+  document.getElementById("milestoneSortStreamsBtn")?.addEventListener("click", () => {
+    state.sortMode = "streams";
+    renderPage();
+  });
+
+  document.getElementById("milestoneSortDailyBtn")?.addEventListener("click", () => {
+    state.sortMode = "daily";
+    renderPage();
+  });
+
+  document.getElementById("milestoneCombineBtn")?.addEventListener("click", () => {
+    state.combineVersions = !state.combineVersions;
+    renderPage();
+  });
 }
 
 function bindDateControls() {
@@ -1649,7 +1808,7 @@ async function loadData() {
     fetch("site/data/songs.json?ts=" + Date.now()).then((r) => r.json()),
     fetch("site/data/albums.json?ts=" + Date.now()).then((r) => r.json()),
     fetch("site/data/history.json?ts=" + Date.now()).then((r) => r.json()),
-    fetch("data/artist.json?ts=" + Date.now()).then((r) => r.json()).catch(() => null),
+    fetch("site/data/artist.json?ts=" + Date.now()).then((r) => r.json()).catch(() => null),
   ]);
 
   state.songs = songsData.songs || [];
