@@ -1920,9 +1920,9 @@ async function loadData() {
   state.history = {};
 
   const allDates =
-    songsData.dates ||
-    expectedMilestonesData?.dates ||
-    [];
+  songsData.dates ||
+  expectedMilestonesData?.dates ||
+  Object.keys(state.history || {}).sort();
 
   state.dates = allDates;
 
