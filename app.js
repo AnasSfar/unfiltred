@@ -97,7 +97,7 @@ function getNextDate(date) {
    HISTORY ACCESS
 ========================= */
 
-function getDayData(trackId, date) {
+function getDayData(trackId, date){
   return state.history?.[date]?.[trackId] || null;
 }
 
@@ -150,6 +150,20 @@ function filterSongsByQuery(rows) {
    DATA LOADING
 ========================= */
 
+async function loadHistory(date){
+
+  if(state.history[date]) return;
+
+  const r = await fetch(
+    `site/history/${date}.json`
+  );
+
+  const data = await r.json();
+
+  state.history[date] = data;
+
+}
+
 async function loadData() {
 
   const [
@@ -162,7 +176,8 @@ async function loadData() {
 
     fetch("site/data/songs.json?ts=" + Date.now()).then(r => r.json()),
     fetch("site/data/albums.json?ts=" + Date.now()).then(r => r.json()),
-    fetch("site/data/history.json?ts=" + Date.now()).then(r => r.json()),
+    state.history = {};
+    state.dates = songsData.dates || [];
     fetch("site/data/artist.json?ts=" + Date.now()).then(r => r.json()).catch(() => null),
     fetch("site/data/expected_milestones.json?ts=" + Date.now()).then(r => r.json()).catch(() => null)
 
@@ -1879,7 +1894,7 @@ function bindUpdateButton(){
 ========================= */
 
 function renderPage(){
-
+  await loadHistory(state.selectedDate);
   const container =
     document.getElementById("app") ||
     document.body;
