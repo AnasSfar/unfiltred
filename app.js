@@ -13,6 +13,8 @@ const state = {
   updateLogClass: "update-log",
   artist: null,
   themeMode: localStorage.getItem("site-theme-mode") || "light",
+  searchQuery: "",
+  focusFamily: null,
 };
 
 function formatFull(value) {
@@ -46,6 +48,12 @@ function getPreviousDate(date) {
   return null;
 }
 
+function getNextDate(date) {
+  const idx = state.dates.indexOf(date);
+  if (idx >= 0 && idx < state.dates.length - 1) return state.dates[idx + 1];
+  return null;
+}
+
 function getQueryParam(name) {
   const url = new URL(window.location.href);
   return url.searchParams.get(name);
@@ -67,6 +75,24 @@ function formatArtistAlbum(song) {
   const artist = formatArtists(song);
   const album = song.primary_album || "Unknown album";
   return `${artist} / ${album}`;
+}
+
+function normalizeSearchValue(value) {
+  return String(value || "")
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .trim();
+}
+
+function formatCompactNumber(value) {
+  if (value === null || value === undefined || Number.isNaN(value)) return "N/A";
+  const abs = Math.abs(value);
+
+  if (abs >= 1_000_000_000) return `${(value / 1_000_000_000).toFixed(2)}B`;
+  if (abs >= 1_000_000) return `${(value / 1_000_000).toFixed(2)}M`;
+  if (abs >= 1_000) return `${(value / 1_000).toFixed(1)}K`;
+  return String(value);
 }
 
 function getCombineKey(song) {
@@ -247,6 +273,100 @@ function combineSongVersions(rows) {
   return [...grouped.values()];
 }
 
+function filterSongsByQuery(rows) {
+  const q = normalizeSearchValue(state.searchQuery);
+  if (!q) return rows;
+
+  return rows.filter((song) => {
+    const haystack = normalizeSearchValue([
+      song.title,
+      song.title_clean,
+      song.primary_album,
+      song.primary_artist,
+      formatArtists(song),
+      song.version_tag,
+      song.edition,
+      song.type,
+    ].join(" "));
+
+    return haystack.includes(q);
+  });
+}
+
+function buildCopyStatsText() {
+  const selected = state.selectedDate;
+  const dailyStreams = state.songs.reduce(
+    (sum, song) => sum + (getDayData(song.track_id, selected)?.daily_streams || 0),
+    0
+  );
+
+  const totalStreams = state.songs.reduce(
+    (sum, song) => sum + (getDayData(song.track_id, selected)?.streams || song.streams || 0),
+    0
+  );
+
+  const monthlyListeners = state.artist?.monthly_listeners ?? null;
+  const monthlyRank = state.artist?.monthly_rank ?? null;
+
+  return [
+    `${state.artist?.name || "Taylor Swift"} stats`,
+    `${selected || ""}`,
+    `+${formatFull(dailyStreams)} daily streams`,
+    `${formatFull(totalStreams)} total streams`,
+    monthlyListeners !== null ? `${formatFull(monthlyListeners)} monthly listeners` : null,
+    monthlyRank !== null ? `Spotify rank #${monthlyRank}` : null,
+  ].filter(Boolean).join("\n");
+}
+
+async function copyStats() {
+  const text = buildCopyStatsText();
+
+  try {
+    await navigator.clipboard.writeText(text);
+    state.updateLogText = "Stats copied.";
+    state.updateLogClass = "update-log success";
+  } catch (err) {
+    state.updateLogText = "Copy failed.";
+    state.updateLogClass = "update-log error";
+  }
+
+  renderPage();
+}
+
+function getFamilyTotalsForDate(family, date) {
+  const rows = enrichSongsForDate(date).filter((song) => getCombineKey(song) === family);
+
+  return {
+    streams: rows.reduce((sum, song) => sum + (song.streams || 0), 0),
+    daily_streams: rows.reduce((sum, song) => sum + (song.daily_streams || 0), 0),
+  };
+}
+
+function getFamilySparklineData(family, length = 7) {
+  const dates = state.dates.slice(-length);
+  return dates.map((d) => ({
+    date: d,
+    value: getFamilyTotalsForDate(family, d).daily_streams || 0,
+  }));
+}
+
+function renderSparkline(values) {
+  if (!values.length) return "";
+
+  const max = Math.max(...values.map((v) => v.value), 1);
+
+  return `
+    <div class="sparkline" aria-hidden="true">
+      ${values
+        .map((item) => {
+          const h = Math.max(12, Math.round((item.value / max) * 42));
+          return `<span class="sparkline-bar" title="${item.date}: ${formatFull(item.value)}" style="height:${h}px"></span>`;
+        })
+        .join("")}
+    </div>
+  `;
+}
+
 function bindUpdateButton() {
   const updateBtn = document.getElementById("updateBtn");
 
@@ -282,7 +402,7 @@ function bindUpdateButton() {
         state.updateLogClass = "update-log";
       } else {
         state.updateLogText =
-          `Data refreshed • latest date: ${newLatestDate || "unknown"}`;
+          `Data refreshed - latest date: ${newLatestDate || "unknown"}`;
         state.updateLogClass = "update-log success";
       }
 
@@ -671,6 +791,19 @@ function renderTopbar() {
     0
   );
 
+  const updatedTracks = state.songs.filter(
+    (song) => getDayData(song.track_id, selected)?.daily_streams !== null &&
+      getDayData(song.track_id, selected)?.daily_streams !== undefined
+  ).length;
+
+  const sparklineData = state.dates.slice(-7).map((d) => ({
+    date: d,
+    value: state.songs.reduce(
+      (sum, song) => sum + (getDayData(song.track_id, d)?.daily_streams || 0),
+      0
+    ),
+  }));
+
   return `
     <div class="topbar">
 
@@ -689,14 +822,12 @@ function renderTopbar() {
           <div class="artist-hero-content">
             <div class="artist-hero-name">${artistName}</div>
 
-            <div class="artist-daily-big" data-text="+${formatFull(dailyStreams)}">
-              +${formatFull(dailyStreams)}
-            </div>
-
-            <div class="artist-daily-label">Daily streams</div>
-
-            <div class="artist-total-line">
-              ${formatFull(totalStreams)} total streams
+            <div class="artist-daily-highlight">
+              <div class="artist-daily-big number-update">+${formatFull(dailyStreams)}</div>
+              <div class="artist-daily-label">Daily streams</div>
+              <div class="artist-total-line">
+                ${formatFull(totalStreams)} total streams
+              </div>
             </div>
 
             <div class="artist-monthly-box">
@@ -711,6 +842,14 @@ function renderTopbar() {
                 ${monthlyRank !== null ? `#${monthlyRank}` : "N/A"}
               </div>
             </div>
+
+            <div class="quick-meta-row">
+              <span class="quick-meta-chip">Updated tracks: ${updatedTracks}/${state.songs.length}</span>
+              <span class="quick-meta-chip">Date: ${selected || "N/A"}</span>
+              <button type="button" class="copy-stats-btn" id="copyStatsBtn">Copy stats</button>
+            </div>
+
+            ${renderSparkline(sparklineData)}
           </div>
         </div>
       </div>
@@ -750,19 +889,19 @@ function renderStats(rows) {
     <div class="stats-grid">
       <div class="stat-card">
         <div class="stat-label">Songs shown</div>
-        <div class="stat-value">${rows.length}</div>
+        <div class="stat-value number-update">${rows.length}</div>
       </div>
       <div class="stat-card">
         <div class="stat-label">Combined streams</div>
-        <div class="stat-value">${formatFull(totalCombined)}</div>
+        <div class="stat-value number-update">${formatFull(totalCombined)}</div>
       </div>
       <div class="stat-card">
         <div class="stat-label">Songs with daily data</div>
-        <div class="stat-value">${withDaily}</div>
+        <div class="stat-value number-update">${withDaily}</div>
       </div>
       <div class="stat-card">
         <div class="stat-label">Milestones crossed that day</div>
-        <div class="stat-value">${milestonesToday}</div>
+        <div class="stat-value number-update">${milestonesToday}</div>
       </div>
     </div>
   `;
@@ -783,7 +922,7 @@ function renderRankChange(change) {
 
 function renderStreamChange(change) {
   if (change === null || change === undefined) {
-    return `<span class="delta neutral">—</span>`;
+    return `<span class="delta neutral">-</span>`;
   }
   if (change > 0) {
     return `<span class="delta up">+${formatFull(change)}</span>`;
@@ -796,7 +935,7 @@ function renderStreamChange(change) {
 
 function renderPercentChange(change) {
   if (change === null || change === undefined || Number.isNaN(change)) {
-    return `<span class="delta neutral">—</span>`;
+    return `<span class="delta neutral">-</span>`;
   }
 
   const rounded = Math.abs(change).toFixed(2);
@@ -816,13 +955,14 @@ function songRow(song) {
   const goldClass = song.crossed_milestone_today ? " song-row-gold" : "";
   const spotifyUrl =
     song.spotify_url || (song.track_id ? `https://open.spotify.com/track/${song.track_id}` : "#");
+  const family = getCombineKey(song);
 
   return `
     <tr>
       <td colspan="6" class="row-shell-cell">
-        <article class="song-row-card${goldClass}">
+        <article class="song-row-card${goldClass} js-song-focus" data-family="${encodeURIComponent(family)}">
           <div class="song-row-grid">
-            <div class="col-rank">${song.current_rank ?? "—"}</div>
+            <div class="col-rank">${song.current_rank ?? "-"}</div>
 
             <div class="col-rank-change">
               ${renderRankChange(song.rank_change)}
@@ -836,6 +976,7 @@ function songRow(song) {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Open on Spotify"
+                  data-ignore-focus="1"
                 >
                   <svg viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M8 5v14l11-7z"></path>
@@ -844,7 +985,8 @@ function songRow(song) {
 
                 <a
                   class="song-link"
-                  href="song.html?family=${encodeURIComponent(getCombineKey(song))}"
+                  href="song.html?family=${encodeURIComponent(family)}"
+                  data-ignore-focus="1"
                 >
                   <img class="row-cover" src="${song.image_url ? withCacheBuster(song.image_url) : ""}" alt="${song.title}">
                   <div class="row-song-meta">
@@ -884,6 +1026,21 @@ function songRow(song) {
   `;
 }
 
+function renderSearchBar(placeholder = "Search songs...") {
+  return `
+    <label class="toolbar-search">
+      <span>🔎</span>
+      <input
+        id="searchInput"
+        type="text"
+        value="${state.searchQuery.replace(/"/g, "&quot;")}"
+        placeholder="${placeholder}"
+        autocomplete="off"
+      >
+    </label>
+  `;
+}
+
 function renderNewsSection(rowsWithRankChanges, date) {
   const milestoneHighlights = getMajorMilestoneHighlights(date);
   const biggestGainer = getBiggestGainer(rowsWithRankChanges);
@@ -892,7 +1049,7 @@ function renderNewsSection(rowsWithRankChanges, date) {
   const milestoneCard = milestoneHighlights.length
     ? `
       <div class="news-card blue">
-        <div class="news-kicker">News</div>
+        <div class="news-kicker">🏆 News</div>
         <div class="news-title">${milestoneHighlights.length} milestone${milestoneHighlights.length > 1 ? "s" : ""} crossed</div>
         <div class="news-sub">
           ${
@@ -919,7 +1076,7 @@ function renderNewsSection(rowsWithRankChanges, date) {
     `
     : `
       <div class="news-card blue">
-        <div class="news-kicker">News</div>
+        <div class="news-kicker">🏆 News</div>
         <div class="news-title">No major milestone today</div>
         <div class="news-sub">No 900M, 1B, 1.5B, 2B, 2.5B or 3B milestone was crossed on ${date}.</div>
       </div>
@@ -928,7 +1085,7 @@ function renderNewsSection(rowsWithRankChanges, date) {
   const gainerCard = biggestGainer
     ? `
       <div class="news-card green">
-        <div class="news-kicker">Biggest gainer</div>
+        <div class="news-kicker">📈 Biggest gainer</div>
         <div class="news-title">${renderPlainSigned(biggestGainer.total_change)}</div>
         <div class="news-sub">Largest day-to-day streams change on ${date}.</div>
         <div class="news-song">
@@ -946,7 +1103,7 @@ function renderNewsSection(rowsWithRankChanges, date) {
     `
     : `
       <div class="news-card green">
-        <div class="news-kicker">Biggest gainer</div>
+        <div class="news-kicker">📈 Biggest gainer</div>
         <div class="news-title">No data</div>
         <div class="news-sub">Streams change is unavailable for this date.</div>
       </div>
@@ -955,7 +1112,7 @@ function renderNewsSection(rowsWithRankChanges, date) {
   const rankCard = biggestRankMover
     ? `
       <div class="news-card purple">
-        <div class="news-kicker">Best rank move</div>
+        <div class="news-kicker">🔥 Best rank move</div>
         <div class="news-title">↑ ${biggestRankMover.rank_change}</div>
         <div class="news-sub">Strongest positive rank movement on ${date}.</div>
         <div class="news-song">
@@ -966,14 +1123,14 @@ function renderNewsSection(rowsWithRankChanges, date) {
           </div>
         </div>
         <div class="news-badges">
-          <span class="news-mini-badge green">Now #${biggestRankMover.current_rank ?? "—"}</span>
-          <span class="news-mini-badge gold">Before #${biggestRankMover.previous_rank ?? "—"}</span>
+          <span class="news-mini-badge green">Now #${biggestRankMover.current_rank ?? "-"}</span>
+          <span class="news-mini-badge gold">Before #${biggestRankMover.previous_rank ?? "-"}</span>
         </div>
       </div>
     `
     : `
       <div class="news-card purple">
-        <div class="news-kicker">Best rank move</div>
+        <div class="news-kicker">🔥 Best rank move</div>
         <div class="news-title">No movement</div>
         <div class="news-sub">No comparable rank change is available for this date.</div>
       </div>
@@ -1054,11 +1211,13 @@ function renderHome(container) {
   const rawRows = enrichSongsForDate(state.selectedDate);
   const baseRows = state.combineVersions ? combineSongVersions(rawRows) : rawRows;
   const rowsWithRankChanges = withRankChanges(baseRows, state.selectedDate, state.sortMode);
-  const sorted = sortSongs(rowsWithRankChanges, state.sortMode);
+  const filteredRows = filterSongsByQuery(rowsWithRankChanges);
+  const sorted = sortSongs(filteredRows, state.sortMode);
 
   container.innerHTML = `
     ${renderTopbar()}
     ${renderNewsSection(rowsWithRankChanges, state.selectedDate)}
+    ${renderStats(filteredRows)}
 
     <section class="section-card">
       <div class="section-head">
@@ -1067,11 +1226,12 @@ function renderHome(container) {
           <p>
             ${state.selectedDate} • sorted by ${
               state.sortMode === "daily" ? "daily streams" : "total streams"
-            }
+            } • ${filteredRows.length} result${filteredRows.length > 1 ? "s" : ""}
           </p>
         </div>
 
         <div class="toolbar">
+          ${renderSearchBar()}
           <button
             id="sortStreamsBtn"
             class="${state.sortMode === "streams" ? "active" : ""}"
@@ -1100,8 +1260,8 @@ function renderHome(container) {
               <th>#</th>
               <th>Rank change</th>
               <th>Song</th>
-              <th>Daily</th>
-              <th>Total</th>
+              <th class="sortable" data-sort="daily">Daily</th>
+              <th class="sortable" data-sort="streams">Total</th>
               <th>Streams change</th>
             </tr>
           </thead>
@@ -1111,6 +1271,8 @@ function renderHome(container) {
         </table>
       </div>
     </section>
+
+    ${renderFocusModal()}
   `;
 
   document.getElementById("sortStreamsBtn")?.addEventListener("click", () => {
@@ -1599,8 +1761,8 @@ function renderSongDetail(container) {
                       </div>
                     </td>
                     <td>${formatArtistAlbum(song)}</td>
-                    <td>${song.edition || "—"}</td>
-                    <td>${song.type || "—"}</td>
+                    <td>${song.edition || "-"}</td>
+                    <td>${song.type || "-"}</td>
                     <td>${formatFull(song.daily_streams)}</td>
                     <td>${formatFull(song.streams)}</td>
                     <td>
@@ -1627,7 +1789,8 @@ function renderMilestones(container) {
 
   const baseRows = state.combineVersions ? combineSongVersions(rawRows) : rawRows;
   const withChanges = withRankChanges(baseRows, state.selectedDate, state.sortMode);
-  const sorted = sortSongs(withChanges, state.sortMode);
+  const filtered = filterSongsByQuery(withChanges);
+  const sorted = sortSongs(filtered, state.sortMode);
 
   if (sorted.length <= 2) {
     container.innerHTML = `
@@ -1663,6 +1826,7 @@ function renderMilestones(container) {
         </div>
 
         <div class="toolbar">
+          ${renderSearchBar("Search milestone songs...")}
           <button
             id="milestoneSortStreamsBtn"
             class="${state.sortMode === "streams" ? "active" : ""}"
@@ -1691,8 +1855,8 @@ function renderMilestones(container) {
               <th>#</th>
               <th>Rank change</th>
               <th>Song</th>
-              <th>Daily</th>
-              <th>Total</th>
+              <th class="sortable" data-sort="daily">Daily</th>
+              <th class="sortable" data-sort="streams">Total</th>
               <th>Streams change</th>
             </tr>
           </thead>
@@ -1702,6 +1866,8 @@ function renderMilestones(container) {
         </table>
       </div>
     </section>
+
+    ${renderFocusModal()}
   `;
 
   document.getElementById("milestoneSortStreamsBtn")?.addEventListener("click", () => {
@@ -1717,6 +1883,157 @@ function renderMilestones(container) {
   document.getElementById("milestoneCombineBtn")?.addEventListener("click", () => {
     state.combineVersions = !state.combineVersions;
     renderPage();
+  });
+}
+
+function renderFocusModal() {
+  if (!state.focusFamily) return "";
+
+  const versions = getSongVersionsForFamily(state.focusFamily, state.selectedDate);
+  if (!versions.length) return "";
+
+  const leadSong = getLeadSongVersion(versions);
+  const totals = getSongFamilyTotals(versions);
+  const sparkline = getFamilySparklineData(state.focusFamily, 7);
+
+  return `
+    <div class="focus-overlay" id="focusOverlay">
+      <div class="focus-card">
+        <div class="focus-head">
+          <div class="album-hero">
+            <img
+              class="album-cover-small"
+              src="${leadSong.image_url ? withCacheBuster(leadSong.image_url) : ""}"
+              alt="${leadSong.title}"
+            >
+            <div>
+              <h2>${leadSong.title_clean || leadSong.title}</h2>
+              <p>
+                ${formatArtistAlbum(leadSong)}
+                • ${totals.versions_count} version${totals.versions_count > 1 ? "s" : ""}
+                • ${formatFull(totals.total_streams)} total
+                • ${formatFull(totals.daily_streams)} daily
+              </p>
+            </div>
+          </div>
+
+          <button type="button" class="focus-close" id="focusCloseBtn">✕</button>
+        </div>
+
+        <div class="subsection-head">
+          <h3>Last 7 days daily trend</h3>
+        </div>
+
+        ${renderSparkline(sparkline)}
+
+        <div class="subsection-head">
+          <h3>Versions</h3>
+        </div>
+
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Version</th>
+                <th>Artists / Album</th>
+                <th>Daily</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${versions
+                .map(
+                  (song, i) => `
+                    <tr>
+                      <td>${i + 1}</td>
+                      <td>
+                        <div class="mini-song">
+                          <img src="${song.image_url ? withCacheBuster(song.image_url) : ""}" alt="${song.title}">
+                          <div>
+                            <div><strong>${song.title}</strong></div>
+                            <div class="mini-song-sub">${song.version_tag || "standard"}</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>${formatArtistAlbum(song)}</td>
+                      <td>${formatFull(song.daily_streams)}</td>
+                      <td>${formatFull(song.streams)}</td>
+                    </tr>
+                  `
+                )
+                .join("")}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function bindFocusCards() {
+  document.querySelectorAll(".js-song-focus").forEach((card) => {
+    if (card.dataset.bound === "1") return;
+    card.dataset.bound = "1";
+
+    card.addEventListener("click", (e) => {
+      const ignored = e.target.closest("[data-ignore-focus='1']");
+      if (ignored) return;
+
+      const family = decodeURIComponent(card.dataset.family || "");
+      if (!family) return;
+
+      state.focusFamily = family;
+      renderPage();
+    });
+  });
+
+  document.getElementById("focusCloseBtn")?.addEventListener("click", () => {
+    state.focusFamily = null;
+    renderPage();
+  });
+
+  document.getElementById("focusOverlay")?.addEventListener("click", (e) => {
+    if (e.target.id === "focusOverlay") {
+      state.focusFamily = null;
+      renderPage();
+    }
+  });
+}
+
+function bindSearchInput() {
+  const input = document.getElementById("searchInput");
+  if (!input) return;
+  if (input.dataset.bound === "1") return;
+
+  input.dataset.bound = "1";
+
+  input.addEventListener("input", () => {
+    state.searchQuery = input.value;
+    renderPage();
+  });
+}
+
+function bindCopyStatsButton() {
+  const btn = document.getElementById("copyStatsBtn");
+  if (!btn) return;
+  if (btn.dataset.bound === "1") return;
+
+  btn.dataset.bound = "1";
+  btn.addEventListener("click", copyStats);
+}
+
+function bindSortableHeaders() {
+  document.querySelectorAll("th.sortable[data-sort]").forEach((th) => {
+    if (th.dataset.bound === "1") return;
+    th.dataset.bound = "1";
+
+    th.addEventListener("click", () => {
+      const mode = th.dataset.sort;
+      if (!mode) return;
+      state.sortMode = mode;
+      renderPage();
+    });
   });
 }
 
@@ -1752,6 +2069,53 @@ function bindDateControls() {
   });
 }
 
+function isTypingContext(target) {
+  if (!target) return false;
+  const tag = target.tagName?.toLowerCase();
+  return tag === "input" || tag === "textarea" || target.isContentEditable;
+}
+
+function bindKeyboardShortcuts() {
+  if (document.body.dataset.shortcutsBound === "1") return;
+  document.body.dataset.shortcutsBound = "1";
+
+  window.addEventListener("keydown", (e) => {
+    if (isTypingContext(e.target)) return;
+
+    if (e.key === "ArrowLeft") {
+      const previous = getPreviousDate(state.selectedDate);
+      if (previous) {
+        state.selectedDate = previous;
+        persistSelectedDate();
+        renderPage();
+      }
+    }
+
+    if (e.key === "ArrowRight") {
+      const next = getNextDate(state.selectedDate);
+      if (next) {
+        state.selectedDate = next;
+        persistSelectedDate();
+        renderPage();
+      }
+    }
+
+    if (e.key.toLowerCase() === "s") {
+      const input = document.getElementById("searchInput");
+      if (input) {
+        e.preventDefault();
+        input.focus();
+        input.select();
+      }
+    }
+
+    if (e.key === "Escape" && state.focusFamily) {
+      state.focusFamily = null;
+      renderPage();
+    }
+  });
+}
+
 function renderPage() {
   const app = document.getElementById("app");
   if (!app) return;
@@ -1776,6 +2140,11 @@ function renderPage() {
   bindUpdateButton();
   bindThemeSwitcher();
   bindCursorGlow();
+  bindSearchInput();
+  bindCopyStatsButton();
+  bindSortableHeaders();
+  bindFocusCards();
+  bindKeyboardShortcuts();
 }
 
 async function loadData() {
