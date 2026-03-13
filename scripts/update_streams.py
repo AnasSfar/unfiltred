@@ -11,6 +11,8 @@ import unicodedata
 from datetime import date, datetime, timedelta
 from pathlib import Path
 from queue import Empty, Queue
+import subprocess
+import sys
 
 from playwright.sync_api import TimeoutError as PlaywrightTimeoutError
 from playwright.sync_api import sync_playwright
@@ -1417,6 +1419,12 @@ def main():
     export_for_web.export_for_web()
     print("Web export done.")
 
+    print("Rebuilding expected milestones forecast...")
+    subprocess.run(
+        [sys.executable, str(ROOT / "scripts" / "forecast_milestones.py")],
+        check=True,
+    )
+    print("Expected milestones forecast done.")
     print("Git commit and push...")
     git_commit_and_push(f"daily final export {summary['stats_date']}")
 
