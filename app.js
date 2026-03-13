@@ -15,6 +15,7 @@ const state = {
   themeMode: localStorage.getItem("site-theme-mode") || "light",
   searchQuery: "",
   focusFamily: null,
+  expectedMilestones: [],
 };
 
 function formatFull(value) {
@@ -1787,6 +1788,52 @@ function renderMilestones(container) {
     .filter((r) => r.crossed_milestone_today)
     .sort((a, b) => (b.streams || 0) - (a.streams || 0));
 
+function renderUpcomingMilestones() {
+  if (!state.expectedMilestones?.length) return "";
+
+  return `
+  <section class="section-card">
+    <div class="section-head">
+      <div>
+        <h2>Upcoming milestones</h2>
+        <p>Projected using recent streaming trends</p>
+      </div>
+    </div>
+
+    <div class="milestone-forecast-list">
+      ${state.expectedMilestones.slice(0, 20).map(item => `
+        <article class="forecast-row">
+
+          <img class="forecast-cover"
+            src="${item.image_url || ""}"
+          >
+
+          <div class="forecast-info">
+            <div class="forecast-title">
+              ${item.title_clean || item.title}
+            </div>
+
+            <div class="forecast-sub">
+              ${item.next_milestone_label}
+              • expected ${item.forecast?.expected_date || "unknown"}
+              • ${item.forecast?.days_left || "?"} days
+            </div>
+
+            <div class="forecast-progress">
+              <div class="forecast-progress-bar"
+                style="width:${item.progress.progress_percent}%">
+              </div>
+            </div>
+
+          </div>
+
+        </article>
+      `).join("")}
+    </div>
+  </section>
+  `;
+}
+
   const baseRows = state.combineVersions ? combineSongVersions(rawRows) : rawRows;
   const withChanges = withRankChanges(baseRows, state.selectedDate, state.sortMode);
   const filtered = filterSongsByQuery(withChanges);
@@ -2170,6 +2217,14 @@ async function loadData() {
     state.selectedDate = latestDate;
     persistSelectedDate();
   }
+  fetch("site/data/expected_milestones.json?ts=" + Date.now())
+  .then((r) => r.json())
+  .then((data) => {
+    state.expectedMilestones = data.forecasts || [];
+  })
+  .catch(() => {
+    state.expectedMilestones = [];
+  });
 }
 
 loadData().then(async () => {
