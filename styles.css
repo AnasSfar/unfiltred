@@ -284,6 +284,58 @@ a{
   content:none;
 }
 
+.topbar{
+  align-items:stretch;
+}
+
+.hero-left{
+  flex:1;
+  min-width:0;
+  display:flex;
+  align-items:stretch;
+}
+
+.artist-hero-card{
+  display:flex;
+  align-items:stretch;
+  gap:20px;
+  min-width:0;
+}
+
+.artist-hero-photo{
+  width:150px;
+  height:auto;
+  min-height:100%;
+  align-self:stretch;
+  border-radius:24px;
+  object-fit:cover;
+  background:#eef2f6;
+  flex:0 0 150px;
+  box-shadow:0 10px 26px rgba(16,24,40,.14);
+}
+
+:root{
+  --daily-number-color:#16a34a;
+  --daily-number-shadow:0 0 18px rgba(29,185,84,.14);
+}
+
+body[data-theme="dark"]{
+  --daily-number-color:#8b5cf6;
+  --daily-number-shadow:0 0 22px rgba(139,92,246,.24);
+}
+
+.artist-daily-big{
+  display:inline-block;
+  margin-top:2px;
+  line-height:.9;
+  letter-spacing:-0.05em;
+  font-size:72px;
+  font-weight:900;
+  font-family:"TT Modernoir", Inter, sans-serif;
+  color:var(--daily-number-color);
+  text-shadow:var(--daily-number-shadow);
+}
+
 @keyframes dailyNumberGlitter{
   0%{
     background-position:0 0, 7px 7px, 0 0;
