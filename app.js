@@ -32,6 +32,11 @@ const state = {
 /* =========================
    GENERIC HELPERS
 ========================= */
+
+function renderFocusModal() {
+  return "";
+}
+
 async function fetchJSON(url) {
   const r = await fetch(`${url}${url.includes("?") ? "&" : "?"}ts=${Date.now()}`);
   if (!r.ok) throw new Error(`Failed to fetch ${url}`);
