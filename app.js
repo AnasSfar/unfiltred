@@ -289,6 +289,38 @@ function bindUpdateButton() {
   });
 }
 
+function renderPage() {
+  const app = document.getElementById("app");
+  if (!app) return;
+
+  if (state.page === "albums") {
+    renderAlbums(app);
+  } else if (state.page === "album") {
+    renderAlbumDetail(app);
+  } else if (state.page === "song") {
+    renderSongDetail(app);
+  } else if (state.page === "milestones") {
+    renderMilestones(app);
+  } else {
+    renderHome(app);
+  }
+
+  if (!document.querySelector(".ambient-layer")) {
+    document.body.insertAdjacentHTML("beforeend", renderAmbientEffects());
+  }
+
+  bindDateControls();
+  bindUpdateButton();
+  bindThemeSwitcher();
+  bindCursorGlow();
+
+  if (state.themeMode === "cover") {
+    requestAnimationFrame(() => {
+      applyCoverTheme();
+    });
+  }
+}
+
 function withRankChanges(rows, date, mode) {
   const previousDate = getPreviousDate(date);
   const currentRankMap = computeRankMap(rows, mode);
@@ -473,8 +505,19 @@ function renderThemeSwitcher() {
 }
 
 function getLatestCoverImage() {
-  const img = document.getElementById("latestCover");
-  if (img && img.src) return img.src;
+  const selectors = [
+    "#latestCover",
+    ".artist-hero-photo",
+    ".album-cover-small",
+    ".album-cover",
+    ".row-cover",
+  ];
+
+  for (const selector of selectors) {
+    const img = document.querySelector(selector);
+    if (img && img.src) return img.src;
+  }
+
   return null;
 }
 
@@ -720,21 +763,26 @@ function clearThemeVariables() {
     "--shadow",
     "--shadow-soft",
     "--shadow-hover",
+    "--card-backdrop",
   ].forEach((prop) => root.removeProperty(prop));
 }
 
 function applyLightTheme() {
   document.body.dataset.theme = "light";
   clearThemeVariables();
-}
 
+  const root = document.documentElement.style;
+  root.setProperty("--surface", "rgba(255,255,255,.58)");
+  root.setProperty("--surface-2", "rgba(255,255,255,.38)");
+  root.setProperty("--card-backdrop", "blur(18px) saturate(160%)");
+}
 function applyDarkTheme() {
   document.body.dataset.theme = "dark";
   const root = document.documentElement.style;
 
   root.setProperty("--bg", "#0b1118");
-  root.setProperty("--surface", "#101822");
-  root.setProperty("--surface-2", "#17212d");
+  root.setProperty("--surface", "rgba(16,24,34,.58)");
+  root.setProperty("--surface-2", "rgba(23,33,45,.40)");
   root.setProperty("--text", "#f8fafc");
   root.setProperty("--muted", "#98a2b3");
   root.setProperty("--line", "rgba(255,255,255,.10)");
@@ -744,12 +792,13 @@ function applyDarkTheme() {
   root.setProperty("--shadow", "0 8px 24px rgba(0,0,0,.34)");
   root.setProperty("--shadow-soft", "0 4px 14px rgba(0,0,0,.24)");
   root.setProperty("--shadow-hover", "0 18px 42px rgba(0,0,0,.42)");
+  root.setProperty("--card-backdrop", "blur(18px) saturate(150%)");
 }
 
 async function applyCoverTheme() {
   document.body.dataset.theme = "cover";
 
-  const imageUrl = state.themeImageUrl || getLatestCoverImage();
+  const imageUrl = getLatestCoverImage();
   state.themeImageUrl = imageUrl;
 
   if (!imageUrl) {
@@ -764,6 +813,12 @@ async function applyCoverTheme() {
     Object.entries(palette).forEach(([key, value]) => {
       root.setProperty(`--${key}`, value);
     });
+
+    root.setProperty("--surface", "rgba(255,255,255,.14)");
+    root.setProperty("--surface-2", "rgba(255,255,255,.08)");
+    root.setProperty("--line", "rgba(255,255,255,.14)");
+    root.setProperty("--hover-border", "rgba(255,255,255,.22)");
+    root.setProperty("--card-backdrop", "blur(22px) saturate(160%)");
   } catch (err) {
     console.error("Cover theme failed, fallback to dark:", err);
     applyDarkTheme();
@@ -1024,7 +1079,19 @@ function songRow(song) {
                 class="song-link"
                 href="song.html?family=${encodeURIComponent(getCombineKey(song))}"
               >
+                <div class="row-cover-wrapper">
                 <img class="row-cover" src="${song.image_url || ""}" alt="${song.title}">
+
+                <a class="play-btn"
+                  href="https://open.spotify.com/track/${song.track_id}"
+                  target="_blank">
+
+                  <svg viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+
+                </a>
+              </div>
                 <div class="row-song-meta">
                   <div class="row-song-title">${song.title_clean || song.title}</div>
                   <div class="row-song-artist">${formatArtists(song)}</div>
@@ -1777,32 +1844,6 @@ function bindDateControls() {
   });
 }
 
-function renderPage() {
-  const app = document.getElementById("app");
-  if (!app) return;
-
-  if (state.page === "albums") {
-    renderAlbums(app);
-  } else if (state.page === "album") {
-    renderAlbumDetail(app);
-  } else if (state.page === "song") {
-    renderSongDetail(app);
-  } else if (state.page === "milestones") {
-    renderMilestones(app);
-  } else {
-    renderHome(app);
-  }
-
-  if (!document.querySelector(".ambient-layer")) {
-    document.body.insertAdjacentHTML("beforeend", renderAmbientEffects());
-  }
-
-  bindDateControls();
-  bindUpdateButton();
-  bindThemeSwitcher();
-  bindCursorGlow();
-}
-
 async function loadData() {
   const [songsData, albumsData, historyData, artistData] = await Promise.all([
     fetch("site/data/songs.json?ts=" + Date.now()).then((r) => r.json()),
@@ -1816,9 +1857,9 @@ async function loadData() {
   state.history = historyData.by_date || {};
   state.dates = historyData.dates || [];
   state.selectedDate =
-    historyData.summary?.latest_date || state.dates[state.dates.length - 1] || null;
+  historyData.summary?.latest_date || state.dates[state.dates.length - 1] || null;
   state.artist = artistData || null;
-  state.themeImageUrl = getLatestCoverImage();
+  state.themeImageUrl = null;
 }
 
 loadData().then(async () => {
