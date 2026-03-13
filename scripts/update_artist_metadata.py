@@ -11,7 +11,9 @@ from playwright.sync_api import sync_playwright
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data"
+SITE_DATA_DIR = ROOT / "site" / "data"
 ARTIST_PATH = DATA_DIR / "artist.json"
+SITE_ARTIST_PATH = SITE_DATA_DIR / "artist.json"
 ARTIST_URL = "https://open.spotify.com/artist/06HL4z0CvFAxyc27GXpf02"
 
 HEADLESS = False
@@ -150,6 +152,7 @@ def extract_monthly_listeners_and_rank_from_text(text: str) -> tuple[int | None,
 
     return monthly_listeners, monthly_rank
 
+
 def scrape_artist_metadata() -> dict:
     result = {
         "name": "Taylor Swift",
@@ -229,12 +232,18 @@ def load_existing_artist_metadata() -> dict:
         return {}
 
 
-def save_artist_metadata(data: dict) -> None:
-    DATA_DIR.mkdir(parents=True, exist_ok=True)
-    ARTIST_PATH.write_text(
+def save_json(path: Path, data: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
         json.dumps(data, ensure_ascii=False, indent=2),
         encoding="utf-8",
     )
+
+
+def save_artist_metadata(data: dict) -> None:
+    save_json(ARTIST_PATH, data)
+    save_json(SITE_ARTIST_PATH, data)
+
 
 def update_artist_metadata() -> dict:
     existing = load_existing_artist_metadata()
@@ -280,6 +289,7 @@ def main():
         + (f"#{data.get('monthly_rank')}" if data.get("monthly_rank") is not None else "N/A")
     )
     print(f"Saved to: {ARTIST_PATH}")
+    print(f"Copied to: {SITE_ARTIST_PATH}")
 
 
 if __name__ == "__main__":

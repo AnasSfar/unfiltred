@@ -12,6 +12,7 @@ const state = {
   updateLogText: "",
   updateLogClass: "update-log",
   artist: null,
+  albumCovers: {},
   themeMode: localStorage.getItem("site-theme-mode") || "light",
   themeImageUrl: null,
 };
@@ -19,6 +20,31 @@ const state = {
 function formatFull(value) {
   if (value === null || value === undefined) return "N/A";
   return value.toLocaleString("en-US");
+}
+
+function normalizeAlbumName(value) {
+  return String(value || "")
+    .toLowerCase()
+    .trim()
+    .replace(/[’']/g, "'")
+    .replace(/\s+/g, " ");
+}
+
+function getAlbumCover(album) {
+  if (!album) return "";
+
+  const albumName = normalizeAlbumName(album.album);
+
+  for (const entry of Object.values(state.albumCovers || {})) {
+    if (!entry || typeof entry !== "object") continue;
+
+    const entryTitle = normalizeAlbumName(entry.title);
+    if (entryTitle === albumName) {
+      return entry.cover_url || album.image_url || "";
+    }
+  }
+
+  return album.image_url || "";
 }
 
 function persistSelectedDate() {
@@ -1342,7 +1368,7 @@ function renderAlbums(container) {
 
                           <div class="col-song">
                             <a class="song-link" href="album.html?name=${encodeURIComponent(album.album)}">
-                              <img class="row-cover" src="${album.image_url ? withCacheBuster(album.image_url) : ""}" alt="${album.album}">
+                              <img class="row-cover" src="${getAlbumCover(album) ? withCacheBuster(getAlbumCover(album)) : ""}" alt="${album.album}">
                               <div class="row-song-meta">
                                 <div class="row-song-title">${album.album}</div>
                                 <div class="row-song-artist">Album page</div>
@@ -1546,9 +1572,9 @@ function renderAlbumDetail(container) {
   });
 
   const cover =
-    albumMeta.image_url ||
-    displayBlocks.flatMap((b) => b.songs).find((s) => s.image_url)?.image_url ||
-    "";
+  getAlbumCover(albumMeta) ||
+  displayBlocks.flatMap((b) => b.songs).find((s) => s.image_url)?.image_url ||
+  "";
 
   container.innerHTML = `
     ${renderTopbar()}
@@ -1875,11 +1901,12 @@ function renderPage() {
 }
 
 async function loadData() {
-  const [songsData, albumsData, historyData, artistData] = await Promise.all([
+  const [songsData, albumsData, historyData, artistData, coversData] = await Promise.all([
     fetch("site/data/songs.json?ts=" + Date.now()).then((r) => r.json()),
     fetch("site/data/albums.json?ts=" + Date.now()).then((r) => r.json()),
     fetch("site/data/history.json?ts=" + Date.now()).then((r) => r.json()),
     fetch("site/data/artist.json?ts=" + Date.now()).then((r) => r.json()).catch(() => null),
+    fetch("site/data/covers.json?ts=" + Date.now()).then((r) => r.json()).catch(() => ({})),
   ]);
 
   state.songs = songsData.songs || [];
@@ -1887,6 +1914,7 @@ async function loadData() {
   state.history = historyData.by_date || {};
   state.dates = historyData.dates || [];
   state.artist = artistData || null;
+  state.albumCovers = coversData || {};
 
   const storedDate = localStorage.getItem("site-selected-date");
   const latestDate = historyData.summary?.latest_date || state.dates[state.dates.length - 1] || null;
