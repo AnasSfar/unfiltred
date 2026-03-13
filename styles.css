@@ -1396,3 +1396,8 @@ body[data-theme="cover"] .cursor-glow{
     transition:none !important;
   }
 }
+
+.sub-delta {
+  margin-top: 4px;
+  font-size: 0.9em;
+}

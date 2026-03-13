@@ -81,6 +81,7 @@ function getCombineKey(song) {
 
   return song.track_id;
 }
+
 function enrichSongsForDate(date) {
   const previousDate = getPreviousDate(date);
   const rows = [];
@@ -91,13 +92,19 @@ function enrichSongsForDate(date) {
 
     const streams = day?.streams ?? song.streams ?? null;
     const daily = day?.daily_streams ?? null;
-
     const previousStreams = prevDay?.streams ?? null;
     const previousDaily = prevDay?.daily_streams ?? null;
 
     const totalChange =
       daily !== null && previousDaily !== null
         ? daily - previousDaily
+        : null;
+
+    const percentChange =
+      daily !== null &&
+      previousDaily !== null &&
+      previousDaily !== 0
+        ? ((daily - previousDaily) / previousDaily) * 100
         : null;
 
     rows.push({
@@ -107,6 +114,7 @@ function enrichSongsForDate(date) {
       previous_streams: previousStreams,
       previous_daily_streams: previousDaily,
       total_change: totalChange,
+      percent_change: percentChange,
       crossed_milestone_today: day?.crossed_milestone_today ?? null,
       crossed_milestone_today_label: day?.crossed_milestone_today_label ?? null,
     });
@@ -171,36 +179,34 @@ function combineSongVersions(rows) {
 
     const existingStreams = existing.streams || 0;
     const existingDaily = existing.daily_streams || 0;
-    const existingPrevious = existing.previous_streams;
-    const existingChange = existing.total_change;
+    const existingPreviousStreams = existing.previous_streams || 0;
+    const existingPreviousDaily = existing.previous_daily_streams || 0;
+    const existingChange = existing.total_change || 0;
 
     const currentStreams = song.streams || 0;
     const currentDaily = song.daily_streams || 0;
-    const currentPrevious = song.previous_streams;
-    const currentChange = song.total_change;
+    const currentPreviousStreams = song.previous_streams || 0;
+    const currentPreviousDaily = song.previous_daily_streams || 0;
+    const currentChange = song.total_change || 0;
 
-    const existingLeaderScore = (existing.streams || 0) * 1000000000 + (existing.daily_streams || 0);
-    const currentLeaderScore = (song.streams || 0) * 1000000000 + (song.daily_streams || 0);
-    const keepExistingLeader = existingLeaderScore >= currentLeaderScore;
+    const existingLeaderScore =
+      (existing.streams || 0) * 1000000000 + (existing.daily_streams || 0);
+    const currentLeaderScore =
+      (song.streams || 0) * 1000000000 + (song.daily_streams || 0);
 
     existing.streams = existingStreams + currentStreams;
     existing.daily_streams = existingDaily + currentDaily;
-
-    if (existingPrevious != null && currentPrevious != null) {
-      existing.previous_streams = existingPrevious + currentPrevious;
-    } else if (existingPrevious == null && currentPrevious != null) {
-      existing.previous_streams = currentPrevious;
-    }
-
-    if (existingChange != null && currentChange != null) {
-      existing.total_change = existingChange + currentChange;
-    } else if (existingChange == null && currentChange != null) {
-      existing.total_change = currentChange;
-    }
-
+    existing.previous_streams = existingPreviousStreams + currentPreviousStreams;
+    existing.previous_daily_streams = existingPreviousDaily + currentPreviousDaily;
+    existing.total_change = existingChange + currentChange;
     existing.combined_versions_count += 1;
 
-    if (!keepExistingLeader) {
+    existing.percent_change =
+      existing.previous_daily_streams && existing.previous_daily_streams !== 0
+        ? (existing.total_change / existing.previous_daily_streams) * 100
+        : null;
+
+    if (currentLeaderScore > existingLeaderScore) {
       existing.track_id = song.track_id;
       existing.title = song.title;
       existing.title_clean = song.title_clean || existing.title_clean;
@@ -215,14 +221,8 @@ function combineSongVersions(rows) {
 
     if (song.crossed_milestone_today) {
       existing.crossed_milestone_today = true;
-
-      if (
-        !existing.crossed_milestone_today_label ||
-        getMajorMilestoneValue(song.crossed_milestone_today_label) >
-          getMajorMilestoneValue(existing.crossed_milestone_today_label)
-      ) {
-        existing.crossed_milestone_today_label = song.crossed_milestone_today_label;
-      }
+      existing.crossed_milestone_today_label =
+        song.crossed_milestone_today_label || existing.crossed_milestone_today_label;
     }
   }
 
@@ -986,6 +986,23 @@ function renderStreamChange(change) {
     return `<span class="delta down">${formatFull(change)}</span>`;
   }
   return `<span class="delta neutral">0</span>`;
+  function renderPercentChange(change) {
+  if (change === null || change === undefined || Number.isNaN(change)) {
+    return `<span class="delta neutral">—</span>`;
+  }
+
+  const rounded = Math.abs(change).toFixed(2);
+
+  if (change > 0) {
+    return `<span class="delta up">+${rounded}%</span>`;
+  }
+
+  if (change < 0) {
+    return `<span class="delta down">-${rounded}%</span>`;
+  }
+
+  return `<span class="delta neutral">0.00%</span>`;
+}
 }
 
 function songRow(song) {
@@ -1027,13 +1044,16 @@ function songRow(song) {
             <div class="col-total">${formatFull(song.streams)}</div>
 
             <div class="col-stream-change">
-              ${renderStreamChange(song.total_change)}
-              ${
-                song.crossed_milestone_today_label
-                  ? `<div class="milestone-chip gold">${song.crossed_milestone_today_label} crossed</div>`
-                  : ""
-              }
+            ${renderStreamChange(song.total_change)}
+            <div class="sub-delta">
+              ${renderPercentChange(song.percent_change)}
             </div>
+            ${
+              song.crossed_milestone_today_label
+                ? `<div class="milestone-chip gold">${song.crossed_milestone_today_label} crossed</div>`
+                : ""
+            }
+          </div>
           </div>
         </article>
       </td>
