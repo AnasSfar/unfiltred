@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 380,
-    "total_combined_streams": 121471772881,
+    "songs_updated_on_latest_date": 382,
+    "total_combined_streams": 121471776978,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -12617,9 +12617,9 @@
       "title_key": "mean - live/2011",
       "spotify_url": "https://open.spotify.com/intl-fr/track/7mFiEij8AXPUZB7aKLbUlQ",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273be4ec62353ee75fa11f6d6f7",
-      "streams": 7876390,
-      "daily_streams": 1083,
-      "last_updated": "2026-03-13",
+      "streams": 7877557,
+      "daily_streams": 1167,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -12628,7 +12628,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 92123610,
+      "remaining_to_next_milestone": 92122443,
       "appearances": [
         {
           "source_type": "misc",
@@ -22601,9 +22601,9 @@
       "title_key": "you need to calm down - live from paris",
       "spotify_url": "https://open.spotify.com/intl-fr/track/36a08nLG1xazGaaVKK0vv7",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2738546aa90c89127a13f02c73d",
-      "streams": 9875297,
-      "daily_streams": 2902,
-      "last_updated": "2026-03-13",
+      "streams": 9878227,
+      "daily_streams": 2930,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -22612,7 +22612,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 90124703,
+      "remaining_to_next_milestone": 90121773,
       "appearances": [
         {
           "source_type": "misc",
