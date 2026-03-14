@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 297,
-    "total_combined_streams": 121462856546,
+    "songs_updated_on_latest_date": 298,
+    "total_combined_streams": 121463029956,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -55,7 +55,7 @@
         "0CD7DzeCsuPJygddqlUVYa"
       ],
       "rank_total": 78,
-      "rank_daily": 82
+      "rank_daily": 81
     },
     {
       "track_id": "6sQckd3Z8NPxVVKUnavY1F",
@@ -6722,11 +6722,11 @@
       "rank_daily": 426
     },
     {
-      "track_id": "3F6czr26ZwGU5O5CHY04Ma",
+      "track_id": "6zV8AVM9eVfdG7Qahwd64R",
       "title": "Fearless",
       "title_key": "fearless",
-      "spotify_url": "https://open.spotify.com/intl-fr/track/3F6czr26ZwGU5O5CHY04Ma",
-      "image_url": "https://i.scdn.co/image/ab67616d0000b27334e5885465afc8a497ac1b7e",
+      "spotify_url": "https://open.spotify.com/intl-fr/track/6zV8AVM9eVfdG7Qahwd64R",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273516c279fe91ae3f6a79b23da",
       "streams": 147567573,
       "daily_streams": 49243,
       "last_updated": "2026-03-14",
@@ -6785,9 +6785,9 @@
       "title_key": "fearless (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/77sMIMlNaSURUAXq5coCxE",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273a48964b5d9a3d6968ae3e0de",
-      "streams": 454559748,
-      "daily_streams": 178293,
-      "last_updated": "2026-03-13",
+      "streams": 454733158,
+      "daily_streams": 173410,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -6796,7 +6796,7 @@
       "current_milestone_label": "400M",
       "next_milestone": 500000000,
       "next_milestone_label": "500M",
-      "remaining_to_next_milestone": 45440252,
+      "remaining_to_next_milestone": 45266842,
       "appearances": [
         {
           "source_type": "album",
@@ -6822,7 +6822,7 @@
         "77sMIMlNaSURUAXq5coCxE"
       ],
       "rank_total": 75,
-      "rank_daily": 78
+      "rank_daily": 83
     },
     {
       "track_id": "4yf9OivCH2lmQWN8mzpCC6",
@@ -10850,7 +10850,7 @@
         "4bBDkw2KBMX0tcgAaXC83Q"
       ],
       "rank_total": 90,
-      "rank_daily": 81
+      "rank_daily": 80
     },
     {
       "track_id": "2IprIjGNRlj3TfqUWCAo0C",
@@ -13165,7 +13165,7 @@
         "214nt20w5wOxJnY462klLw"
       ],
       "rank_total": 56,
-      "rank_daily": 79
+      "rank_daily": 78
     },
     {
       "track_id": "2CYVETnhM9aytqrazYYwrK",
@@ -19746,7 +19746,7 @@
         "4GBbcyrbDzwRtQjrsDRywK"
       ],
       "rank_total": 112,
-      "rank_daily": 80
+      "rank_daily": 79
     },
     {
       "track_id": "3lXekiVK1ZPZbKconsys73",
@@ -20967,7 +20967,7 @@
         "0hhzNPE68LWLfgZwdpxVdR"
       ],
       "rank_total": 131,
-      "rank_daily": 83
+      "rank_daily": 82
     },
     {
       "track_id": "1xwAWUI6Dj0WGC3KiUPN0O",

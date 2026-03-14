@@ -1168,7 +1168,7 @@
               "source_file": "original_edition.json"
             },
             {
-              "track_id": "3F6czr26ZwGU5O5CHY04Ma",
+              "track_id": "6zV8AVM9eVfdG7Qahwd64R",
               "title": "Fearless",
               "type": "standalone",
               "edition": "standard edition",
@@ -1314,7 +1314,7 @@
           "track_ids": [
             "6S9G7J3EB1ZY0rrZPwsBg5",
             "4pl5zcqCv4vc3cB7M4MZ6f",
-            "3F6czr26ZwGU5O5CHY04Ma",
+            "6zV8AVM9eVfdG7Qahwd64R",
             "4yf9OivCH2lmQWN8mzpCC6",
             "46HGgtwmmuEB8mvDCyjyAc",
             "6wcFdMmiDscAhZJrcVFumx",
@@ -1368,7 +1368,7 @@
               "source_file": "platinum_edition.json"
             },
             {
-              "track_id": "3F6czr26ZwGU5O5CHY04Ma",
+              "track_id": "6zV8AVM9eVfdG7Qahwd64R",
               "title": "Fearless",
               "type": "standalone",
               "edition": "standard edition",
@@ -1548,7 +1548,7 @@
             "6S9G7J3EB1ZY0rrZPwsBg5",
             "0RdcBnAXyH2YZZvcBVu2k6",
             "4pl5zcqCv4vc3cB7M4MZ6f",
-            "3F6czr26ZwGU5O5CHY04Ma",
+            "6zV8AVM9eVfdG7Qahwd64R",
             "4yf9OivCH2lmQWN8mzpCC6",
             "1zxrcAk6eiytfavqriMcKT",
             "46HGgtwmmuEB8mvDCyjyAc",
@@ -1604,7 +1604,7 @@
       "track_ids": [
         "6S9G7J3EB1ZY0rrZPwsBg5",
         "4pl5zcqCv4vc3cB7M4MZ6f",
-        "3F6czr26ZwGU5O5CHY04Ma",
+        "6zV8AVM9eVfdG7Qahwd64R",
         "4yf9OivCH2lmQWN8mzpCC6",
         "46HGgtwmmuEB8mvDCyjyAc",
         "6wcFdMmiDscAhZJrcVFumx",
@@ -1638,7 +1638,7 @@
             "6S9G7J3EB1ZY0rrZPwsBg5",
             "0RdcBnAXyH2YZZvcBVu2k6",
             "4pl5zcqCv4vc3cB7M4MZ6f",
-            "3F6czr26ZwGU5O5CHY04Ma",
+            "6zV8AVM9eVfdG7Qahwd64R",
             "4yf9OivCH2lmQWN8mzpCC6",
             "46HGgtwmmuEB8mvDCyjyAc",
             "1zxrcAk6eiytfavqriMcKT",
@@ -2055,8 +2055,8 @@
       ],
       "track_count": 27,
       "image_url": "https://i.scdn.co/image/ab67616d0000b273a48964b5d9a3d6968ae3e0de",
-      "total_streams_sum": 5672048466,
-      "daily_streams_sum": 2074337,
+      "total_streams_sum": 5672221876,
+      "daily_streams_sum": 2069454,
       "top_song_total": "6YvqWjhGD8mB5QXcbcUKtx",
       "top_song_daily": "6YvqWjhGD8mB5QXcbcUKtx",
       "display_blocks": [
