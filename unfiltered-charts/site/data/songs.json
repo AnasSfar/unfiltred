@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 181,
-    "total_combined_streams": 121451675013,
+    "songs_updated_on_latest_date": 182,
+    "total_combined_streams": 121451900126,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -3343,9 +3343,9 @@
       "title_key": "champagne problems",
       "spotify_url": "https://open.spotify.com/intl-fr/track/0sY6ZUTh4yoctD8VIXz339",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27333b8541201f1ef38941024be",
-      "streams": 817308558,
-      "daily_streams": 222077,
-      "last_updated": "2026-03-13",
+      "streams": 817533671,
+      "daily_streams": 225113,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -3354,7 +3354,7 @@
       "current_milestone_label": "800M",
       "next_milestone": 900000000,
       "next_milestone_label": "900M",
-      "remaining_to_next_milestone": 82691442,
+      "remaining_to_next_milestone": 82466329,
       "appearances": [
         {
           "source_type": "album",
@@ -3380,7 +3380,7 @@
         "0sY6ZUTh4yoctD8VIXz339"
       ],
       "rank_total": 36,
-      "rank_daily": 59
+      "rank_daily": 58
     },
     {
       "track_id": "0RdcBnAXyH2YZZvcBVu2k6",
@@ -10014,7 +10014,7 @@
         "2NmsngXHeC1GQ9wWrzhOMf"
       ],
       "rank_total": 47,
-      "rank_daily": 58
+      "rank_daily": 59
     },
     {
       "track_id": "560uQyz3p5G9WdnMX39xc6",
