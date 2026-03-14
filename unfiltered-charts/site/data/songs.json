@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 85,
-    "total_combined_streams": 121442996897,
+    "songs_updated_on_latest_date": 87,
+    "total_combined_streams": 121443053269,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -1038,9 +1038,9 @@
       "title_key": "anti-hero - acoustic version",
       "spotify_url": "https://open.spotify.com/intl-fr/track/2d3d9xZutJjmUpntiyHt3F",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2730fc559ebbed8b0b100ad206c",
-      "streams": 37955920,
-      "daily_streams": 9436,
-      "last_updated": "2026-03-13",
+      "streams": 37965093,
+      "daily_streams": 9173,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -1049,7 +1049,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 62044080,
+      "remaining_to_next_milestone": 62034907,
       "appearances": [
         {
           "source_type": "misc",
@@ -17236,9 +17236,9 @@
       "title_key": "suburban legends (taylor's version) (from the vault)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/6M9ppdfFjR1AbpUl3Y8DcV",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273dc2bacae1dca83d26e2b1949",
-      "streams": 158032396,
-      "daily_streams": 47387,
-      "last_updated": "2026-03-13",
+      "streams": 158079595,
+      "daily_streams": 47199,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -17247,7 +17247,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 41967604,
+      "remaining_to_next_milestone": 41920405,
       "appearances": [
         {
           "source_type": "album",
