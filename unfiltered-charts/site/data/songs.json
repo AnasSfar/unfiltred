@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 410,
-    "total_combined_streams": 121475383772,
+    "songs_updated_on_latest_date": 411,
+    "total_combined_streams": 121475384543,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -3560,7 +3560,7 @@
         "31JVjy3XWnh6C2zf4kLCXN"
       ],
       "rank_total": 411,
-      "rank_daily": 443
+      "rank_daily": 442
     },
     {
       "track_id": "4mKye6Z1kXuKolzMkJoKFA",
@@ -15675,9 +15675,9 @@
       "title_key": "santa baby",
       "spotify_url": "https://open.spotify.com/intl-fr/track/71IScwIe7bcIlpnlkbKVQw",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2732a0face7d69df61c20a6db2b",
-      "streams": 16766741,
-      "daily_streams": 834,
-      "last_updated": "2026-03-13",
+      "streams": 16767512,
+      "daily_streams": 771,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -15686,7 +15686,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 83233259,
+      "remaining_to_next_milestone": 83232488,
       "appearances": [
         {
           "source_type": "album",
@@ -15712,7 +15712,7 @@
         "71IScwIe7bcIlpnlkbKVQw"
       ],
       "rank_total": 389,
-      "rank_daily": 442
+      "rank_daily": 443
     },
     {
       "track_id": "3CCRVu4F91Qp2mnGjmWBrf",
