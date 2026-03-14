@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 373,
-    "total_combined_streams": 121471371530,
+    "songs_updated_on_latest_date": 375,
+    "total_combined_streams": 121471414098,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -856,7 +856,7 @@
         "6aLOekfwbytwWvQftxTEF0"
       ],
       "rank_total": 157,
-      "rank_daily": 225
+      "rank_daily": 224
     },
     {
       "track_id": "6GXgd1BPD9bUpqw5AntGV5",
@@ -2651,7 +2651,7 @@
         "0yisH8r0f3Mkq34kjzUlCV"
       ],
       "rank_total": 430,
-      "rank_daily": 450
+      "rank_daily": 449
     },
     {
       "track_id": "3r9bgSJlJz2zlevcBRYXko",
@@ -4958,7 +4958,7 @@
         "1zU8j1x3yi9xalMF96pzKp"
       ],
       "rank_total": 222,
-      "rank_daily": 224
+      "rank_daily": 223
     },
     {
       "track_id": "10GRRCR5fctuOF4GFmATJI",
@@ -9597,7 +9597,7 @@
         "4JQm7ebhsrt10wmrP6AfXL"
       ],
       "rank_total": 429,
-      "rank_daily": 449
+      "rank_daily": 448
     },
     {
       "track_id": "1Zai5UJ2di3qEuR2HeT2s8",
@@ -11937,9 +11937,9 @@
       "title_key": "lover (remix) [feat. shawn mendes]",
       "spotify_url": "https://open.spotify.com/intl-fr/track/3i9UVldZOE0aD0JnyfAZZ0",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27359457bdb1edb5c6417f3baa2",
-      "streams": 330185752,
-      "daily_streams": 42756,
-      "last_updated": "2026-03-13",
+      "streams": 330227839,
+      "daily_streams": 42087,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift",
@@ -11949,7 +11949,7 @@
       "current_milestone_label": "300M",
       "next_milestone": 400000000,
       "next_milestone_label": "400M",
-      "remaining_to_next_milestone": 69814248,
+      "remaining_to_next_milestone": 69772161,
       "appearances": [
         {
           "source_type": "misc",
@@ -11987,7 +11987,7 @@
         "3i9UVldZOE0aD0JnyfAZZ0"
       ],
       "rank_total": 113,
-      "rank_daily": 223
+      "rank_daily": 225
     },
     {
       "track_id": "2msvOEbkK50foYf9BMXr2X",
@@ -22806,9 +22806,9 @@
       "title_key": "you're not sorry - csi remix",
       "spotify_url": "https://open.spotify.com/intl-fr/track/4VbErhGDMTnvPAnt5z70DL",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273e8ae61ef7ff5c29b9f84828f",
-      "streams": 2515936,
-      "daily_streams": 577,
-      "last_updated": "2026-03-13",
+      "streams": 2516417,
+      "daily_streams": 481,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -22817,7 +22817,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 97484064,
+      "remaining_to_next_milestone": 97483583,
       "appearances": [
         {
           "source_type": "misc",
@@ -22855,7 +22855,7 @@
         "4VbErhGDMTnvPAnt5z70DL"
       ],
       "rank_total": 440,
-      "rank_daily": 448
+      "rank_daily": 450
     },
     {
       "track_id": "4D7BCuvgdJlYvlX5WlN54t",
