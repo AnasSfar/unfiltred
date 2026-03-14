@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 102,
-    "total_combined_streams": 121444483299,
+    "songs_updated_on_latest_date": 103,
+    "total_combined_streams": 121444500821,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -439,7 +439,7 @@
         "73OX8GdpOeGzKC6OvGSbsv"
       ],
       "rank_total": 318,
-      "rank_daily": 311
+      "rank_daily": 312
     },
     {
       "track_id": "2x3mwb96B6TquRqMtbxUE1",
@@ -1209,9 +1209,9 @@
       "title_key": "anti-hero - kungs remix",
       "spotify_url": "https://open.spotify.com/intl-fr/track/2oWpe2L8ypC080BxpDVuTY",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2739954fa9f0ba8534c3897b59d",
-      "streams": 40494578,
-      "daily_streams": 16984,
-      "last_updated": "2026-03-13",
+      "streams": 40512100,
+      "daily_streams": 17522,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -1220,7 +1220,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 59505422,
+      "remaining_to_next_milestone": 59487900,
       "appearances": [
         {
           "source_type": "misc",
@@ -1258,7 +1258,7 @@
         "2oWpe2L8ypC080BxpDVuTY"
       ],
       "rank_total": 343,
-      "rank_daily": 313
+      "rank_daily": 311
     },
     {
       "track_id": "4XiypEn8iKbeP1TbTqdfk5",
@@ -12371,7 +12371,7 @@
         "2QrQCMel6v2JiLxqrg4p2O"
       ],
       "rank_total": 308,
-      "rank_daily": 312
+      "rank_daily": 313
     },
     {
       "track_id": "1QQii3pa5m8MEda0nbkjfw",
