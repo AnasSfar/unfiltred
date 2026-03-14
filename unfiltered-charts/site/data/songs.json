@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 311,
-    "total_combined_streams": 121464688473,
+    "songs_updated_on_latest_date": 312,
+    "total_combined_streams": 121464689104,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -3698,7 +3698,7 @@
         "50ho0AOvkm8E5l8zf7OfJI"
       ],
       "rank_total": 395,
-      "rank_daily": 446
+      "rank_daily": 445
     },
     {
       "track_id": "1alAo6dYalSx8yZUn17JxF",
@@ -7401,9 +7401,9 @@
       "title_key": "fortnight (feat. post malone) - cults remix",
       "spotify_url": "https://open.spotify.com/intl-fr/track/7pM01Cfj8vt7z3qI2TveNT",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273aecb5c6308cf8ce94199aea8",
-      "streams": 2107477,
-      "daily_streams": 688,
-      "last_updated": "2026-03-13",
+      "streams": 2108108,
+      "daily_streams": 631,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift",
@@ -7413,7 +7413,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 97892523,
+      "remaining_to_next_milestone": 97891892,
       "appearances": [
         {
           "source_type": "misc",
@@ -7439,7 +7439,7 @@
         "7pM01Cfj8vt7z3qI2TveNT"
       ],
       "rank_total": 442,
-      "rank_daily": 445
+      "rank_daily": 446
     },
     {
       "track_id": "3fO566xJgwxIa3qGCGBvIC",
