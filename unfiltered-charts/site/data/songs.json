@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 223,
-    "total_combined_streams": 121455291848,
+    "songs_updated_on_latest_date": 224,
+    "total_combined_streams": 121455292656,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -3523,9 +3523,9 @@
       "title_key": "christmas must be something more",
       "spotify_url": "https://open.spotify.com/intl-fr/track/31JVjy3XWnh6C2zf4kLCXN",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2732a0face7d69df61c20a6db2b",
-      "streams": 9747508,
-      "daily_streams": 854,
-      "last_updated": "2026-03-13",
+      "streams": 9748316,
+      "daily_streams": 808,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -3534,7 +3534,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 90252492,
+      "remaining_to_next_milestone": 90251684,
       "appearances": [
         {
           "source_type": "album",
@@ -3560,7 +3560,7 @@
         "31JVjy3XWnh6C2zf4kLCXN"
       ],
       "rank_total": 411,
-      "rank_daily": 441
+      "rank_daily": 442
     },
     {
       "track_id": "4mKye6Z1kXuKolzMkJoKFA",
@@ -15712,7 +15712,7 @@
         "71IScwIe7bcIlpnlkbKVQw"
       ],
       "rank_total": 389,
-      "rank_daily": 442
+      "rank_daily": 441
     },
     {
       "track_id": "3CCRVu4F91Qp2mnGjmWBrf",
