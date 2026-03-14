@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 304,
-    "total_combined_streams": 121463524301,
+    "songs_updated_on_latest_date": 305,
+    "total_combined_streams": 121463565749,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -856,7 +856,7 @@
         "6aLOekfwbytwWvQftxTEF0"
       ],
       "rank_total": 157,
-      "rank_daily": 226
+      "rank_daily": 225
     },
     {
       "track_id": "6GXgd1BPD9bUpqw5AntGV5",
@@ -4958,7 +4958,7 @@
         "1zU8j1x3yi9xalMF96pzKp"
       ],
       "rank_total": 222,
-      "rank_daily": 225
+      "rank_daily": 224
     },
     {
       "track_id": "10GRRCR5fctuOF4GFmATJI",
@@ -11987,7 +11987,7 @@
         "3i9UVldZOE0aD0JnyfAZZ0"
       ],
       "rank_total": 113,
-      "rank_daily": 224
+      "rank_daily": 223
     },
     {
       "track_id": "2msvOEbkK50foYf9BMXr2X",
@@ -12858,7 +12858,7 @@
         "6LZaxlycSWrJZ4Volb25qx"
       ],
       "rank_total": 150,
-      "rank_daily": 222
+      "rank_daily": 221
     },
     {
       "track_id": "7G0gBu6nLdhFDPRLc0HdDG",
@@ -15575,7 +15575,7 @@
         "73qMN9bXy7MSPwwGfH3wQr"
       ],
       "rank_total": 240,
-      "rank_daily": 227
+      "rank_daily": 226
     },
     {
       "track_id": "2RJnNdu4pb3MypbBroHU0T",
@@ -16664,7 +16664,7 @@
         "5xXqyjLicvEpch72qEryFT"
       ],
       "rank_total": 228,
-      "rank_daily": 221
+      "rank_daily": 220
     },
     {
       "track_id": "3QFB14MOUf3imlyISNmrbT",
@@ -16946,7 +16946,7 @@
         "6lzc0Al0zfZOIFsFvBS1ki"
       ],
       "rank_total": 209,
-      "rank_daily": 223
+      "rank_daily": 222
     },
     {
       "track_id": "5G9AVKld9q7DCrmoY42raf",
@@ -20884,9 +20884,9 @@
       "title_key": "untouchable (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/0tQ9vBYpldCuikPsbgOVKA",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273a48964b5d9a3d6968ae3e0de",
-      "streams": 84668088,
-      "daily_streams": 45313,
-      "last_updated": "2026-03-13",
+      "streams": 84709536,
+      "daily_streams": 41448,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -20895,7 +20895,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 15331912,
+      "remaining_to_next_milestone": 15290464,
       "appearances": [
         {
           "source_type": "album",
@@ -20921,7 +20921,7 @@
         "0tQ9vBYpldCuikPsbgOVKA"
       ],
       "rank_total": 283,
-      "rank_daily": 220
+      "rank_daily": 228
     },
     {
       "track_id": "0hhzNPE68LWLfgZwdpxVdR",
@@ -21589,7 +21589,7 @@
         "1qwClaxDb5fCrLjXaAmB35"
       ],
       "rank_total": 403,
-      "rank_daily": 228
+      "rank_daily": 227
     },
     {
       "track_id": "4A4A6dwl5DqdqrZaEtKGPR",
