@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 133,
-    "total_combined_streams": 121447677964,
+    "songs_updated_on_latest_date": 134,
+    "total_combined_streams": 121447680843,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -1664,9 +1664,9 @@
       "title_key": "back to december/apologize/you're not sorry - live/2011/medley",
       "spotify_url": "https://open.spotify.com/intl-fr/track/1IsquhJFJ0qcFZI7FeAEuN",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273be4ec62353ee75fa11f6d6f7",
-      "streams": 14673663,
-      "daily_streams": 3040,
-      "last_updated": "2026-03-13",
+      "streams": 14676542,
+      "daily_streams": 2879,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -1675,7 +1675,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 85326337,
+      "remaining_to_next_milestone": 85323458,
       "appearances": [
         {
           "source_type": "misc",
@@ -1701,7 +1701,7 @@
         "1IsquhJFJ0qcFZI7FeAEuN"
       ],
       "rank_total": 398,
-      "rank_daily": 406
+      "rank_daily": 408
     },
     {
       "track_id": "2NlmmAjGYrrjAp0MED5rGx",
@@ -22593,7 +22593,7 @@
         "7Bjf96uNizpvXLvNyOJpst"
       ],
       "rank_total": 382,
-      "rank_daily": 407
+      "rank_daily": 406
     },
     {
       "track_id": "36a08nLG1xazGaaVKK0vv7",
@@ -22650,7 +22650,7 @@
         "36a08nLG1xazGaaVKK0vv7"
       ],
       "rank_total": 410,
-      "rank_daily": 408
+      "rank_daily": 407
     },
     {
       "track_id": "3CWq0pAKKTWb0K4yiglDc4",
