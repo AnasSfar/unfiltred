@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 30,
-    "total_combined_streams": 121435736596,
+    "songs_updated_on_latest_date": 31,
+    "total_combined_streams": 121435879324,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -7820,9 +7820,9 @@
       "title_key": "gorgeous",
       "spotify_url": "https://open.spotify.com/intl-fr/track/1ZY1PqizIl78geGM4xWlEA",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273da5d5aeeabacacc1263c0f4b",
-      "streams": 735370085,
-      "daily_streams": 142885,
-      "last_updated": "2026-03-13",
+      "streams": 735512813,
+      "daily_streams": 142728,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -7831,7 +7831,7 @@
       "current_milestone_label": "700M",
       "next_milestone": 800000000,
       "next_milestone_label": "800M",
-      "remaining_to_next_milestone": 64629915,
+      "remaining_to_next_milestone": 64487187,
       "appearances": [
         {
           "source_type": "album",
