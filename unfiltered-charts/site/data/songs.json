@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 405,
-    "total_combined_streams": 121475067942,
+    "songs_updated_on_latest_date": 406,
+    "total_combined_streams": 121475278663,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -3380,7 +3380,7 @@
         "0sY6ZUTh4yoctD8VIXz339"
       ],
       "rank_total": 36,
-      "rank_daily": 61
+      "rank_daily": 60
     },
     {
       "track_id": "0RdcBnAXyH2YZZvcBVu2k6",
@@ -6617,7 +6617,7 @@
         "5hQSXkFgbxjZo9uCwd11so"
       ],
       "rank_total": 97,
-      "rank_daily": 59
+      "rank_daily": 58
     },
     {
       "track_id": "03bTIHJElXZ0O0jqOQvAbY",
@@ -10014,7 +10014,7 @@
         "2NmsngXHeC1GQ9wWrzhOMf"
       ],
       "rank_total": 47,
-      "rank_daily": 58
+      "rank_daily": 57
     },
     {
       "track_id": "560uQyz3p5G9WdnMX39xc6",
@@ -13075,7 +13075,7 @@
         "5jQyGzcwqAxwT5QUIMivoX"
       ],
       "rank_total": 53,
-      "rank_daily": 63
+      "rank_daily": 62
     },
     {
       "track_id": "2yceD2hx5HhOLgkm1CITCi",
@@ -14556,9 +14556,9 @@
       "title_key": "out of the woods (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/045ZeOHPIzhxxsm8bq5kyE",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273904445d70d04eb24d6bb79ac",
-      "streams": 252390061,
-      "daily_streams": 229836,
-      "last_updated": "2026-03-13",
+      "streams": 252600782,
+      "daily_streams": 210721,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -14567,7 +14567,7 @@
       "current_milestone_label": "200M",
       "next_milestone": 300000000,
       "next_milestone_label": "300M",
-      "remaining_to_next_milestone": 47609939,
+      "remaining_to_next_milestone": 47399218,
       "appearances": [
         {
           "source_type": "album",
@@ -14593,7 +14593,7 @@
         "045ZeOHPIzhxxsm8bq5kyE"
       ],
       "rank_total": 148,
-      "rank_daily": 56
+      "rank_daily": 63
     },
     {
       "track_id": "4y5bvROuBDPr5fuwXbIBZR",
@@ -14638,7 +14638,7 @@
         "4y5bvROuBDPr5fuwXbIBZR"
       ],
       "rank_total": 34,
-      "rank_daily": 57
+      "rank_daily": 56
     },
     {
       "track_id": "5tWxKWq1DSP1s9WQ5PWuqu",
@@ -17228,7 +17228,7 @@
         "1hjRhYpWyqDpPahmSlUTlc"
       ],
       "rank_total": 84,
-      "rank_daily": 62
+      "rank_daily": 61
     },
     {
       "track_id": "6M9ppdfFjR1AbpUl3Y8DcV",
@@ -20118,7 +20118,7 @@
         "7kt9e9LFSpN1zQtYEl19o1"
       ],
       "rank_total": 54,
-      "rank_daily": 60
+      "rank_daily": 59
     },
     {
       "track_id": "1gaLZjPrDnHQWJds2Jg4KT",
