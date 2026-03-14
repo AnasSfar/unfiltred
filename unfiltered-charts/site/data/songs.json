@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 262,
-    "total_combined_streams": 121458793390,
+    "songs_updated_on_latest_date": 264,
+    "total_combined_streams": 121458815206,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -5207,7 +5207,7 @@
         "5Iadj8IBPrt634WW0yGPRI"
       ],
       "rank_total": 456,
-      "rank_daily": 453
+      "rank_daily": 454
     },
     {
       "track_id": "1Fj0T1XKuhRu7EZzJ7NJIK",
@@ -5431,9 +5431,9 @@
       "title_key": "don't blame me - karaoke version",
       "spotify_url": "https://open.spotify.com/intl-fr/track/5JtXBqKLdfzwedmlUjjqAm",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27305fd6906725e3f12544c2d04",
-      "streams": 848516,
-      "daily_streams": 280,
-      "last_updated": "2026-03-13",
+      "streams": 848874,
+      "daily_streams": 358,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -5442,7 +5442,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 99151484,
+      "remaining_to_next_milestone": 99151126,
       "appearances": [
         {
           "source_type": "misc",
@@ -5480,7 +5480,7 @@
         "5JtXBqKLdfzwedmlUjjqAm"
       ],
       "rank_total": 454,
-      "rank_daily": 454
+      "rank_daily": 453
     },
     {
       "track_id": "4uuEGH5SVuzkkSFjo2DEiY",
@@ -19754,9 +19754,9 @@
       "title_key": "the story of us",
       "spotify_url": "https://open.spotify.com/intl-fr/track/3lXekiVK1ZPZbKconsys73",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273d0eae3c1661a96570f0ca7bd",
-      "streams": 166351444,
-      "daily_streams": 21762,
-      "last_updated": "2026-03-13",
+      "streams": 166372902,
+      "daily_streams": 21458,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -19765,7 +19765,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 33648556,
+      "remaining_to_next_milestone": 33627098,
       "appearances": [
         {
           "source_type": "album",
@@ -19791,7 +19791,7 @@
         "3lXekiVK1ZPZbKconsys73"
       ],
       "rank_total": 200,
-      "rank_daily": 294
+      "rank_daily": 295
     },
     {
       "track_id": "6dTA6y0C2ReQklntzZl8l3",
@@ -22298,7 +22298,7 @@
         "5pcjystBtalYeqaiXCcgEY"
       ],
       "rank_total": 242,
-      "rank_daily": 295
+      "rank_daily": 294
     },
     {
       "track_id": "4A2LfnduSTsE8u0ecYROxE",
