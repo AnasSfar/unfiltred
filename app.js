@@ -24,6 +24,7 @@ const state = {
 
   searchQuery: "",
   focusFamily: null,
+  albumCovers: {},
 
   expectedMilestones: []
 };
@@ -1164,7 +1165,6 @@ function renderHome(container){
   container.innerHTML = `
     ${renderTopbar()}
     ${renderNewsSection(ranked,state.selectedDate)}
-    ${renderStats(filtered)}
 
     <section class="section-card">
 
@@ -1261,9 +1261,51 @@ if (combineBtn) {
 /* =========================
    ALBUM CARD
 ========================= */
-function getAlbumCover(album) {
-  if (!album) return "";
-  return album.image_url || "";
+async function loadData() {
+  const [
+    songsData,
+    albumsData,
+    artistData,
+    expectedMilestonesData,
+    albumCoversData
+  ] = await Promise.all([
+    fetchJSON("site/data/songs.json"),
+    fetchJSON("site/data/albums.json"),
+    fetchJSON("site/data/artist.json").catch(() => null),
+    fetchJSON("site/data/expected_milestones.json").catch(() => null),
+    fetchJSON("discography/albums/covers.json").catch(() => ({}))
+  ]);
+
+  state.songs = songsData.songs || [];
+  state.albums = albumsData.albums || [];
+  state.artist = artistData || null;
+  state.expectedMilestones = expectedMilestonesData?.forecasts || [];
+  state.albumCovers = albumCoversData || {};
+
+  state.history = {};
+
+  let allDates = songsData.dates || expectedMilestonesData?.dates || [];
+
+  if (!allDates.length) {
+    const r = await fetchJSON("site/history/index.json");
+    allDates = r.dates || [];
+  }
+
+  state.dates = allDates;
+
+  const storedDate = localStorage.getItem("site-selected-date");
+  const latestDate = state.dates[state.dates.length - 1] || null;
+
+  if (storedDate && state.dates.includes(storedDate)) {
+    state.selectedDate = storedDate;
+  } else {
+    state.selectedDate = latestDate;
+    persistSelectedDate();
+  }
+
+  if (state.selectedDate) {
+    await loadHistory(state.selectedDate);
+  }
 }
 
 function albumRow(album){
@@ -1340,12 +1382,17 @@ function albumRow(album){
    ALBUMS PAGE
 ========================= */
 
-function renderAlbums(container){
-
+function renderAlbums(container) {
   const rowsForDate = enrichSongsForDate(state.selectedDate);
 
   const albums = state.albums.map(album => {
-    const albumSongs = rowsForDate.filter(song => song.primary_album === album.album);
+    let albumSongs = rowsForDate.filter(song =>
+      (song.appearances || []).some(app => app.album === album.album)
+    );
+
+    if (state.combineVersions) {
+      albumSongs = combineSongVersions(albumSongs);
+    }
 
     return {
       ...album,
@@ -1376,36 +1423,35 @@ function renderAlbums(container){
     ${renderTopbar()}
 
     <section class="section-card">
-
       <div class="section-head">
-
         <div>
           <h2>Albums</h2>
           <p>${sorted.length} album${sorted.length > 1 ? "s" : ""}</p>
         </div>
 
         <div class="toolbar">
-
           <button
             id="sortAlbumStreamsBtn"
-            class="${state.albumSortMode==="streams"?"active":""}">
+            class="${state.albumSortMode === "streams" ? "active" : ""}">
             Total streams
           </button>
 
           <button
             id="sortAlbumDailyBtn"
-            class="${state.albumSortMode==="daily"?"active":""}">
+            class="${state.albumSortMode === "daily" ? "active" : ""}">
             Daily streams
           </button>
 
+          <button
+            id="albumsCombineBtn"
+            class="${state.combineVersions ? "active" : ""}">
+            Combine
+          </button>
         </div>
-
       </div>
 
       <div class="table-wrap">
-
         <table class="table">
-
           <thead>
             <tr>
               <th>#</th>
@@ -1419,121 +1465,34 @@ function renderAlbums(container){
           <tbody>
             ${sorted.map(albumRow).join("")}
           </tbody>
-
         </table>
-
       </div>
-
     </section>
   `;
 
-  /* =========================
-   ALBUMS PAGE
-========================= */
-
-function renderAlbums(container){
-
-  const rowsForDate = enrichSongsForDate(state.selectedDate);
-
-  const albums = state.albums.map(album => {
-    const albumSongs = rowsForDate.filter(song => song.primary_album === album.album);
-
-    return {
-      ...album,
-      daily_streams: albumSongs.reduce((sum, song) => sum + (song.daily_streams || 0), 0),
-      streams: albumSongs.reduce((sum, song) => sum + (song.streams || 0), 0),
-      stream_change: albumSongs.reduce((sum, song) => sum + (song.total_change || 0), 0)
+  const sortAlbumStreamsBtn = document.getElementById("sortAlbumStreamsBtn");
+  if (sortAlbumStreamsBtn) {
+    sortAlbumStreamsBtn.onclick = () => {
+      state.albumSortMode = "streams";
+      renderPage();
     };
-  });
+  }
 
-  const sorted =
-    state.albumSortMode === "daily"
-      ? [...albums].sort((a, b) =>
-          (b.daily_streams || 0) - (a.daily_streams || 0) ||
-          (b.streams || 0) - (a.streams || 0) ||
-          a.album.localeCompare(b.album)
-        )
-      : [...albums].sort((a, b) =>
-          (b.streams || 0) - (a.streams || 0) ||
-          (b.daily_streams || 0) - (a.daily_streams || 0) ||
-          a.album.localeCompare(b.album)
-        );
+  const sortAlbumDailyBtn = document.getElementById("sortAlbumDailyBtn");
+  if (sortAlbumDailyBtn) {
+    sortAlbumDailyBtn.onclick = () => {
+      state.albumSortMode = "daily";
+      renderPage();
+    };
+  }
 
-  sorted.forEach((album, i) => {
-    album.rank = i + 1;
-  });
-
-  container.innerHTML = `
-    ${renderTopbar()}
-
-    <section class="section-card">
-
-      <div class="section-head">
-
-        <div>
-          <h2>Albums</h2>
-          <p>${sorted.length} album${sorted.length > 1 ? "s" : ""}</p>
-        </div>
-
-        <div class="toolbar">
-
-          <button
-            id="sortAlbumStreamsBtn"
-            class="${state.albumSortMode==="streams"?"active":""}">
-            Total streams
-          </button>
-
-          <button
-            id="sortAlbumDailyBtn"
-            class="${state.albumSortMode==="daily"?"active":""}">
-            Daily streams
-          </button>
-
-        </div>
-
-      </div>
-
-      <div class="table-wrap">
-
-        <table class="table">
-
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Album</th>
-              <th>Daily</th>
-              <th>Total</th>
-              <th>Change</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            ${sorted.map(albumRow).join("")}
-          </tbody>
-
-        </table>
-
-      </div>
-
-    </section>
-  `;
-
-const sortAlbumStreamsBtn = document.getElementById("sortAlbumStreamsBtn");
-if (sortAlbumStreamsBtn) {
-  sortAlbumStreamsBtn.onclick = () => {
-    state.albumSortMode = "streams";
-    renderPage();
-  };
-}
-
-const sortAlbumDailyBtn = document.getElementById("sortAlbumDailyBtn");
-if (sortAlbumDailyBtn) {
-  sortAlbumDailyBtn.onclick = () => {
-    state.albumSortMode = "daily";
-    renderPage();
-  };
-}
-}
+  const albumsCombineBtn = document.getElementById("albumsCombineBtn");
+  if (albumsCombineBtn) {
+    albumsCombineBtn.onclick = () => {
+      state.combineVersions = !state.combineVersions;
+      renderPage();
+    };
+  }
 }
 
 
@@ -1888,24 +1847,21 @@ function milestoneProgressBar(percent){
    MILESTONE ROW
 ========================= */
 
-function milestoneRow(item){
+function milestoneRow(item) {
+  if (!item?.forecast?.expected_date) return "";
 
-  const song = state.songs.find(
-    s => s.track_id === item.track_id
-  );
-
-  if(!song) return "";
+  const song = state.songs.find(s => s.track_id === item.track_id);
+  if (!song) return "";
 
   return `
   <div class="milestone-highlight-item">
-
     <img
       class="milestone-highlight-cover"
       src="${withCacheBuster(song.image_url)}"
+      alt="${song.title}"
     >
 
     <div class="milestone-highlight-content">
-
       <div class="milestone-highlight-title">
         ${song.title_clean || song.title}
       </div>
@@ -1916,13 +1872,10 @@ function milestoneRow(item){
         <strong>${item.forecast.expected_date}</strong>
       </div>
 
-      ${milestoneProgressBar(item.progress.progress_percent)}
-
+      ${milestoneProgressBar(item.progress?.progress_percent || 0)}
     </div>
-
   </div>
   `;
-
 }
 
 
@@ -1930,25 +1883,21 @@ function milestoneRow(item){
    MILESTONES PAGE
 ========================= */
 
-function renderMilestones(container){
-
+function renderMilestones(container) {
   const rows = (state.expectedMilestones || [])
+    .filter(item => item?.forecast?.expected_date)
     .slice()
-    .sort((a,b)=>{
-
+    .sort((a, b) => {
       const da = new Date(a.forecast.expected_date);
       const db = new Date(b.forecast.expected_date);
-
-      return da-db;
+      return da - db;
     });
 
-  if(!rows.length){
-
+  if (!rows.length) {
     container.innerHTML = `
       ${renderTopbar()}
 
       <section class="section-card">
-
         <div class="section-head">
           <h2>Milestones</h2>
         </div>
@@ -1956,10 +1905,8 @@ function renderMilestones(container){
         <div class="empty">
           No upcoming milestones
         </div>
-
       </section>
     `;
-
     return;
   }
 
@@ -1967,24 +1914,16 @@ function renderMilestones(container){
     ${renderTopbar()}
 
     <section class="section-card">
-
       <div class="section-head">
-
         <div>
           <h2>Upcoming Milestones</h2>
-          <p>
-            Sorted by expected date
-          </p>
+          <p>Sorted by expected date</p>
         </div>
-
       </div>
 
       <div class="milestone-highlight-list">
-
         ${rows.map(milestoneRow).join("")}
-
       </div>
-
     </section>
   `;
 }
@@ -2139,27 +2078,39 @@ async function renderPage() {
 ========================= */
 
 async function loadData() {
-  const [songsData, albumsData, artistData, expectedMilestonesData, historyIndexData] = await Promise.all([
+  const [
+    songsData,
+    albumsData,
+    artistData,
+    expectedMilestonesData,
+    albumCoversData
+  ] = await Promise.all([
     fetchJSON("site/data/songs.json"),
     fetchJSON("site/data/albums.json"),
     fetchJSON("site/data/artist.json").catch(() => null),
     fetchJSON("site/data/expected_milestones.json").catch(() => null),
-    fetchJSON("site/history/index.json").catch(() => ({ dates: [] }))
+    fetchJSON("discography/albums/covers.json").catch(() => ({}))
   ]);
 
   state.songs = songsData.songs || [];
   state.albums = albumsData.albums || [];
   state.artist = artistData || null;
   state.expectedMilestones = expectedMilestonesData?.forecasts || [];
+  state.albumCovers = albumCoversData || {};
 
   state.history = {};
-  state.dates = historyIndexData.dates || [];
+
+  let allDates = songsData.dates || expectedMilestonesData?.dates || [];
+
+  if (!allDates.length) {
+    const r = await fetchJSON("site/history/index.json");
+    allDates = r.dates || [];
+  }
+
+  state.dates = allDates;
 
   const storedDate = localStorage.getItem("site-selected-date");
-  const latestDate =
-    songsData.summary?.latest_date ||
-    state.dates[state.dates.length - 1] ||
-    null;
+  const latestDate = state.dates[state.dates.length - 1] || null;
 
   if (storedDate && state.dates.includes(storedDate)) {
     state.selectedDate = storedDate;
