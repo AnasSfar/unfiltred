@@ -21502,6 +21502,17 @@
         "remaining_to_next_milestone": 62034907,
         "crossed_milestone_today": null,
         "crossed_milestone_today_label": null
+      },
+      "45R112Jz5hQeKgITXgSXzs": {
+        "streams": 1006413313,
+        "daily_streams": 253133,
+        "current_milestone": 1000000000,
+        "current_milestone_label": "1B",
+        "next_milestone": 1100000000,
+        "next_milestone_label": "1.1B",
+        "remaining_to_next_milestone": 93586687,
+        "crossed_milestone_today": null,
+        "crossed_milestone_today_label": null
       }
     }
   }

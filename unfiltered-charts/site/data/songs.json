@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 87,
-    "total_combined_streams": 121443053269,
+    "songs_updated_on_latest_date": 88,
+    "total_combined_streams": 121443306402,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -10620,9 +10620,9 @@
       "title_key": "karma",
       "spotify_url": "https://open.spotify.com/intl-fr/track/45R112Jz5hQeKgITXgSXzs",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273fa747621a53c8e2cc436dee0",
-      "streams": 1006160180,
-      "daily_streams": 250712,
-      "last_updated": "2026-03-13",
+      "streams": 1006413313,
+      "daily_streams": 253133,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -10631,7 +10631,7 @@
       "current_milestone_label": "1B",
       "next_milestone": 1100000000,
       "next_milestone_label": "1.1B",
-      "remaining_to_next_milestone": 93839820,
+      "remaining_to_next_milestone": 93586687,
       "appearances": [
         {
           "source_type": "album",
