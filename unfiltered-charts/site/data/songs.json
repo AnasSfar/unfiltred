@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 277,
-    "total_combined_streams": 121461600375,
+    "songs_updated_on_latest_date": 278,
+    "total_combined_streams": 121461619804,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -5931,9 +5931,9 @@
       "title_key": "elizabeth taylor - so glamorous cabaret version",
       "spotify_url": "https://open.spotify.com/track/4UBWugj5D20ZveyzdGpqvD",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273f756bdc2c11a985dc0c06d94",
-      "streams": 8189852,
-      "daily_streams": 20043,
-      "last_updated": "2026-03-13",
+      "streams": 8209281,
+      "daily_streams": 19429,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -5942,7 +5942,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 91810148,
+      "remaining_to_next_milestone": 91790719,
       "appearances": [
         {
           "source_type": "album",
@@ -5992,7 +5992,7 @@
         "4UBWugj5D20ZveyzdGpqvD"
       ],
       "rank_total": 417,
-      "rank_daily": 299
+      "rank_daily": 301
     },
     {
       "track_id": "3r9fAceWmaDFvbNiTnFiLr",
@@ -9879,7 +9879,7 @@
         "0JIdBrXGSJXS72zjF9ss9u"
       ],
       "rank_total": 304,
-      "rank_daily": 300
+      "rank_daily": 299
     },
     {
       "track_id": "0vvt4IZOMkRug195S4MUq0",
@@ -15439,7 +15439,7 @@
         "6hKfPNnVlA2cgTgKj6Vgcw"
       ],
       "rank_total": 426,
-      "rank_daily": 301
+      "rank_daily": 300
     },
     {
       "track_id": "4IQkfUsrwXol38VV3U7t7T",
