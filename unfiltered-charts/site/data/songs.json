@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 224,
-    "total_combined_streams": 121455292656,
+    "songs_updated_on_latest_date": 225,
+    "total_combined_streams": 121455296862,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -17281,9 +17281,9 @@
       "title_key": "superman",
       "spotify_url": "https://open.spotify.com/intl-fr/track/2R7C9dDqv1UPycvepBFziA",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2732e4ec3175d848eca7b76b07f",
-      "streams": 28200857,
-      "daily_streams": 4216,
-      "last_updated": "2026-03-13",
+      "streams": 28205063,
+      "daily_streams": 4206,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -17292,7 +17292,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 71799143,
+      "remaining_to_next_milestone": 71794937,
       "appearances": [
         {
           "source_type": "album",
