@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 169,
-    "total_combined_streams": 121449714563,
+    "songs_updated_on_latest_date": 170,
+    "total_combined_streams": 121449787325,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -2422,9 +2422,9 @@
       "title_key": "bigger than the whole sky",
       "spotify_url": "https://open.spotify.com/intl-fr/track/71CBDRKmF2VeRKYMG1DFBh",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273fa747621a53c8e2cc436dee0",
-      "streams": 248822624,
-      "daily_streams": 78236,
-      "last_updated": "2026-03-13",
+      "streams": 248895386,
+      "daily_streams": 72762,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -2433,7 +2433,7 @@
       "current_milestone_label": "200M",
       "next_milestone": 300000000,
       "next_milestone_label": "300M",
-      "remaining_to_next_milestone": 51177376,
+      "remaining_to_next_milestone": 51104614,
       "appearances": [
         {
           "source_type": "album",
@@ -2459,7 +2459,7 @@
         "71CBDRKmF2VeRKYMG1DFBh"
       ],
       "rank_total": 152,
-      "rank_daily": 161
+      "rank_daily": 168
     },
     {
       "track_id": "7wo2UNeQBowm28hfAJsEMz",
@@ -3857,7 +3857,7 @@
         "4d9PtIEVij9jW5OaLinH66"
       ],
       "rank_total": 194,
-      "rank_daily": 163
+      "rank_daily": 162
     },
     {
       "track_id": "4bXCcoesMt8u99xMsbLr9U",
@@ -7812,7 +7812,7 @@
         "5BK0uqwY9DNfZ630STAEaq"
       ],
       "rank_total": 105,
-      "rank_daily": 167
+      "rank_daily": 166
     },
     {
       "track_id": "1ZY1PqizIl78geGM4xWlEA",
@@ -13493,7 +13493,7 @@
         "6rZVy6FIG7lSJQMFXHo12z"
       ],
       "rank_total": 114,
-      "rank_daily": 162
+      "rank_daily": 161
     },
     {
       "track_id": "5M787RexsAiVYjQusM98CV",
@@ -13686,7 +13686,7 @@
         "3RaT22zZsxVYxxKR7TAaYF"
       ],
       "rank_total": 107,
-      "rank_daily": 166
+      "rank_daily": 165
     },
     {
       "track_id": "01K4zKU104LyJ8gMb7227B",
@@ -14728,7 +14728,7 @@
         "7MbT4I8qGntX4fMdqMQgke"
       ],
       "rank_total": 141,
-      "rank_daily": 164
+      "rank_daily": 163
     },
     {
       "track_id": "4YHHz3VIXgNDGdoL9xC1tx",
@@ -14908,7 +14908,7 @@
         "0heeNYlwOGuUSe7TgUD27B"
       ],
       "rank_total": 103,
-      "rank_daily": 165
+      "rank_daily": 164
     },
     {
       "track_id": "0cITLOYn1Sv4q27zZPqlNK",
@@ -21430,7 +21430,7 @@
         "5YL553x8sHderRBDlm3NM3"
       ],
       "rank_total": 220,
-      "rank_daily": 168
+      "rank_daily": 167
     },
     {
       "track_id": "6kl8thRysTeVV3WvKxgZAy",
