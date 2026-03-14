@@ -25473,6 +25473,17 @@
         "remaining_to_next_milestone": 16881440,
         "crossed_milestone_today": null,
         "crossed_milestone_today_label": null
+      },
+      "22bPsP2jCgbLUvh82U0Z3M": {
+        "streams": 577771728,
+        "daily_streams": 226074,
+        "current_milestone": 500000000,
+        "current_milestone_label": "500M",
+        "next_milestone": 600000000,
+        "next_milestone_label": "600M",
+        "remaining_to_next_milestone": 22228272,
+        "crossed_milestone_today": null,
+        "crossed_milestone_today_label": null
       }
     }
   }
