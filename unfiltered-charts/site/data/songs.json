@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 354,
-    "total_combined_streams": 121468929970,
+    "songs_updated_on_latest_date": 355,
+    "total_combined_streams": 121468934863,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -721,7 +721,7 @@
         "1u4HUiREUR6vX1W1RYG2Tm"
       ],
       "rank_total": 387,
-      "rank_daily": 390
+      "rank_daily": 389
     },
     {
       "track_id": "1n3b9Eekoy3S9ZSZ5DmTW1",
@@ -8151,7 +8151,7 @@
         "62rlxI6g2PNaWsHoiRryto"
       ],
       "rank_total": 361,
-      "rank_daily": 391
+      "rank_daily": 390
     },
     {
       "track_id": "6wcFdMmiDscAhZJrcVFumx",
@@ -8479,7 +8479,7 @@
         "0QTBsdoJhamY3Aid3fOsOd"
       ],
       "rank_total": 391,
-      "rank_daily": 386
+      "rank_daily": 385
     },
     {
       "track_id": "5d2Kn9oAAh9S2EbyCo1i52",
@@ -8976,7 +8976,7 @@
         "0hFF0aqyjDwDh6SQwRbTyx"
       ],
       "rank_total": 422,
-      "rank_daily": 389
+      "rank_daily": 388
     },
     {
       "track_id": "2PGIFYRG1XWsPqNG14hgD1",
@@ -14736,9 +14736,9 @@
       "title_key": "peace - the long pond studio sessions",
       "spotify_url": "https://open.spotify.com/intl-fr/track/4YHHz3VIXgNDGdoL9xC1tx",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273045514e3ed4e1767a7c3ece5",
-      "streams": 14690467,
-      "daily_streams": 5096,
-      "last_updated": "2026-03-13",
+      "streams": 14695360,
+      "daily_streams": 4893,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -14747,7 +14747,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 85309533,
+      "remaining_to_next_milestone": 85304640,
       "appearances": [
         {
           "source_type": "album",
@@ -14773,7 +14773,7 @@
         "4YHHz3VIXgNDGdoL9xC1tx"
       ],
       "rank_total": 397,
-      "rank_daily": 385
+      "rank_daily": 392
     },
     {
       "track_id": "3zMDGj4D8ogaYgAIZPeU7S",
@@ -18136,7 +18136,7 @@
         "2fgiBCtbWo8pijF6M7pN1i"
       ],
       "rank_total": 396,
-      "rank_daily": 387
+      "rank_daily": 386
     },
     {
       "track_id": "5YbZZ2gYfvW1UvHHF4pVaD",
@@ -19566,7 +19566,7 @@
         "1yDJcXc549N6AabNBzFAku"
       ],
       "rank_total": 384,
-      "rank_daily": 388
+      "rank_daily": 387
     },
     {
       "track_id": "1cSFlSBdpT4F5vb1frQ231",
@@ -21895,7 +21895,7 @@
         "2NnrAdjE9cPdMklonMBuAv"
       ],
       "rank_total": 341,
-      "rank_daily": 392
+      "rank_daily": 391
     },
     {
       "track_id": "77d7q9TNbsIDmRTDPkPv3L",
