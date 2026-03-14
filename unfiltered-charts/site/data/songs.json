@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 55,
-    "total_combined_streams": 121439436530,
+    "songs_updated_on_latest_date": 57,
+    "total_combined_streams": 121439546514,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -684,9 +684,9 @@
       "title_key": "all too well (10 minute version) (the short film)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/1u4HUiREUR6vX1W1RYG2Tm",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2738e16c6e20dbed531a9006d58",
-      "streams": 16936842,
-      "daily_streams": 5039,
-      "last_updated": "2026-03-13",
+      "streams": 16941880,
+      "daily_streams": 5038,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -695,7 +695,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 83063158,
+      "remaining_to_next_milestone": 83058120,
       "appearances": [
         {
           "source_type": "misc",
@@ -5011,9 +5011,9 @@
       "title_key": "death by a thousand cuts",
       "spotify_url": "https://open.spotify.com/intl-fr/track/2dgFqt3w9xIQRjhPtwNk3D",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273e787cffec20aa2a396a61647",
-      "streams": 368713691,
-      "daily_streams": 105880,
-      "last_updated": "2026-03-13",
+      "streams": 368818637,
+      "daily_streams": 104946,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -5022,7 +5022,7 @@
       "current_milestone_label": "300M",
       "next_milestone": 400000000,
       "next_milestone_label": "400M",
-      "remaining_to_next_milestone": 31286309,
+      "remaining_to_next_milestone": 31181363,
       "appearances": [
         {
           "source_type": "album",
@@ -5048,7 +5048,7 @@
         "2dgFqt3w9xIQRjhPtwNk3D"
       ],
       "rank_total": 95,
-      "rank_daily": 129
+      "rank_daily": 131
     },
     {
       "track_id": "3oF7Or7T35yhQbGxbCGvRX",
@@ -15872,7 +15872,7 @@
         "6KJqZcs9XDgVck7Lg9QOTC"
       ],
       "rank_total": 88,
-      "rank_daily": 131
+      "rank_daily": 130
     },
     {
       "track_id": "4cOWq0cVsKjxaQpRMbDoH1",
@@ -18316,7 +18316,7 @@
         "2913xXOVAIDAqxzV2g4VcU"
       ],
       "rank_total": 210,
-      "rank_daily": 130
+      "rank_daily": 129
     },
     {
       "track_id": "5cKBWgDjB5IXZ5jnryewOH",
