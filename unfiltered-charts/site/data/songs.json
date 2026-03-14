@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 44,
-    "total_combined_streams": 121437349614,
+    "songs_updated_on_latest_date": 45,
+    "total_combined_streams": 121437691318,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -22157,9 +22157,9 @@
       "title_key": "wood",
       "spotify_url": "https://open.spotify.com/intl-fr/track/5ylJtmaWPJ33cW3En7WOu0",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273d7812467811a7da6e6a44902",
-      "streams": 221999998,
-      "daily_streams": 333222,
-      "last_updated": "2026-03-13",
+      "streams": 222341702,
+      "daily_streams": 341704,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -22168,7 +22168,7 @@
       "current_milestone_label": "200M",
       "next_milestone": 300000000,
       "next_milestone_label": "300M",
-      "remaining_to_next_milestone": 78000002,
+      "remaining_to_next_milestone": 77658298,
       "appearances": [
         {
           "source_type": "album",
