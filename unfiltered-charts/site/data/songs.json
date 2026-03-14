@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 172,
-    "total_combined_streams": 121449855848,
+    "songs_updated_on_latest_date": 173,
+    "total_combined_streams": 121450111550,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -2937,7 +2937,7 @@
         "1GwMQaZz6Au3QLDbjbMdme"
       ],
       "rank_total": 52,
-      "rank_daily": 51
+      "rank_daily": 50
     },
     {
       "track_id": "1VPHQriwOsy5aGHLwwZyho",
@@ -5616,7 +5616,7 @@
         "2F3N9tdombb64aW6VtZOdo"
       ],
       "rank_total": 61,
-      "rank_daily": 49
+      "rank_daily": 48
     },
     {
       "track_id": "6oVxXO5oQ4pTpO8RSnkzvv",
@@ -17843,14 +17843,14 @@
       "rank_daily": 275
     },
     {
-      "track_id": "0P9wLFurlgumLXuqFEpw52",
+      "track_id": "0Jlcvv8IykzHaSmj49uNW8",
       "title": "the 1",
       "title_key": "the 1",
-      "spotify_url": "https://open.spotify.com/intl-fr/track/0P9wLFurlgumLXuqFEpw52",
-      "image_url": "https://i.scdn.co/image/ab67616d0000b273045514e3ed4e1767a7c3ece5",
-      "streams": 764457479,
-      "daily_streams": 268975,
-      "last_updated": "2026-03-13",
+      "spotify_url": "https://open.spotify.com/intl-fr/track/0Jlcvv8IykzHaSmj49uNW8",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b27395f754318336a07e85ec59bc",
+      "streams": 764713181,
+      "daily_streams": 255702,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -17859,7 +17859,7 @@
       "current_milestone_label": "700M",
       "next_milestone": 800000000,
       "next_milestone_label": "800M",
-      "remaining_to_next_milestone": 35542521,
+      "remaining_to_next_milestone": 35286819,
       "appearances": [
         {
           "source_type": "album",
@@ -17898,7 +17898,7 @@
         "0P9wLFurlgumLXuqFEpw52"
       ],
       "rank_total": 40,
-      "rank_daily": 48
+      "rank_daily": 52
     },
     {
       "track_id": "4EF6IyONolQy0bIQXm2EmX",
@@ -20118,7 +20118,7 @@
         "7kt9e9LFSpN1zQtYEl19o1"
       ],
       "rank_total": 54,
-      "rank_daily": 50
+      "rank_daily": 49
     },
     {
       "track_id": "1gaLZjPrDnHQWJds2Jg4KT",
@@ -21781,7 +21781,7 @@
         "0lx2cLdOt3piJbcaXIV74f"
       ],
       "rank_total": 21,
-      "rank_daily": 52
+      "rank_daily": 51
     },
     {
       "track_id": "77p4fRpoeiZMtUy3P9kN21",
