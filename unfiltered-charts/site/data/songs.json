@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 312,
-    "total_combined_streams": 121464689104,
+    "songs_updated_on_latest_date": 313,
+    "total_combined_streams": 121464863302,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -20929,9 +20929,9 @@
       "title_key": "us. (feat. taylor swift)",
       "spotify_url": "https://open.spotify.com/track/0hhzNPE68LWLfgZwdpxVdR",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2736e2101520787791370f4a96b",
-      "streams": 282362714,
-      "daily_streams": 174974,
-      "last_updated": "2026-03-13",
+      "streams": 282536912,
+      "daily_streams": 174198,
+      "last_updated": "2026-03-14",
       "primary_artist": "Gracie Abrams",
       "artists": [
         "Gracie Abrams",
@@ -20941,7 +20941,7 @@
       "current_milestone_label": "200M",
       "next_milestone": 300000000,
       "next_milestone_label": "300M",
-      "remaining_to_next_milestone": 17637286,
+      "remaining_to_next_milestone": 17463088,
       "appearances": [
         {
           "source_type": "misc",
