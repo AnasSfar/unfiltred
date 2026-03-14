@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 355,
-    "total_combined_streams": 121468934863,
+    "songs_updated_on_latest_date": 356,
+    "total_combined_streams": 121468959096,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -10665,9 +10665,9 @@
       "title_key": "karma (feat. ice spice)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/4i6cwNY6oIUU2XZxPIw82Y",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273fa747621a53c8e2cc436dee0",
-      "streams": 113836780,
-      "daily_streams": 24065,
-      "last_updated": "2026-03-13",
+      "streams": 113861013,
+      "daily_streams": 24233,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift",
@@ -10677,7 +10677,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 86163220,
+      "remaining_to_next_milestone": 86138987,
       "appearances": [
         {
           "source_type": "album",
@@ -10703,7 +10703,7 @@
         "4i6cwNY6oIUU2XZxPIw82Y"
       ],
       "rank_total": 263,
-      "rank_daily": 280
+      "rank_daily": 279
     },
     {
       "track_id": "7HuBDWi18s4aJM8UFnNheH",
@@ -15817,11 +15817,11 @@
       "rank_daily": 337
     },
     {
-      "track_id": "2vJ7QvyCiR4DaHxwO58izA",
+      "track_id": "6KJqZcs9XDgVck7Lg9QOTC",
       "title": "seven",
       "title_key": "seven",
-      "spotify_url": "https://open.spotify.com/intl-fr/track/2vJ7QvyCiR4DaHxwO58izA",
-      "image_url": "https://i.scdn.co/image/ab67616d0000b273045514e3ed4e1767a7c3ece5",
+      "spotify_url": "https://open.spotify.com/intl-fr/track/6KJqZcs9XDgVck7Lg9QOTC",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b27395f754318336a07e85ec59bc",
       "streams": 402720812,
       "daily_streams": 103722,
       "last_updated": "2026-03-14",
@@ -20028,7 +20028,7 @@
         "77VotUUL79U10TAnYdqwvr"
       ],
       "rank_total": 285,
-      "rank_daily": 279
+      "rank_daily": 280
     },
     {
       "track_id": "22bPsP2jCgbLUvh82U0Z3M",
