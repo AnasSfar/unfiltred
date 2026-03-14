@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 429,
-    "total_combined_streams": 121477838978,
+    "songs_updated_on_latest_date": 430,
+    "total_combined_streams": 121477898278,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -17757,9 +17757,9 @@
       "title_key": "thank you aimee",
       "spotify_url": "https://open.spotify.com/intl-fr/track/7ogK4lJDVDMU6A6vYR5rvD",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2738ecc33f195df6aa257c39eaa",
-      "streams": 133962831,
-      "daily_streams": 60311,
-      "last_updated": "2026-03-13",
+      "streams": 134022131,
+      "daily_streams": 59300,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -17768,7 +17768,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 66037169,
+      "remaining_to_next_milestone": 65977869,
       "appearances": [
         {
           "source_type": "album",
