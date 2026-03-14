@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 404,
-    "total_combined_streams": 121475066346,
+    "songs_updated_on_latest_date": 405,
+    "total_combined_streams": 121475067942,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -1201,7 +1201,7 @@
         "4YrpqEBNuz7IMsZtUP6bNQ"
       ],
       "rank_total": 413,
-      "rank_daily": 423
+      "rank_daily": 422
     },
     {
       "track_id": "2oWpe2L8ypC080BxpDVuTY",
@@ -6049,7 +6049,7 @@
         "3r9fAceWmaDFvbNiTnFiLr"
       ],
       "rank_total": 446,
-      "rank_daily": 424
+      "rank_daily": 423
     },
     {
       "track_id": "04S1pkp1VaIqjg8zZqknR5",
@@ -11340,7 +11340,7 @@
         "7kjSmkSo15pHlkb0mOQtfj"
       ],
       "rank_total": 435,
-      "rank_daily": 425
+      "rank_daily": 424
     },
     {
       "track_id": "3YkNIrAvbKNrrwwEd7NVLl",
@@ -14262,9 +14262,9 @@
       "title_key": "opalite - track by track",
       "spotify_url": "https://open.spotify.com/intl-fr/track/5SkuikJwvwfEvNyCepGkq3",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2737e0698e1398b6473de43f901",
-      "streams": 1345294,
-      "daily_streams": 1780,
-      "last_updated": "2026-03-13",
+      "streams": 1346890,
+      "daily_streams": 1596,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -14273,7 +14273,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 98654706,
+      "remaining_to_next_milestone": 98653110,
       "appearances": [
         {
           "source_type": "misc",
@@ -14311,7 +14311,7 @@
         "5SkuikJwvwfEvNyCepGkq3"
       ],
       "rank_total": 447,
-      "rank_daily": 422
+      "rank_daily": 425
     },
     {
       "track_id": "15DeqWWQB4dcEWzJg15VrN",
