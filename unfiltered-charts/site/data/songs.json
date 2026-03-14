@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 225,
-    "total_combined_streams": 121455296862,
+    "songs_updated_on_latest_date": 226,
+    "total_combined_streams": 121455332676,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -7114,9 +7114,9 @@
       "title_key": "forever & always (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/1msEuwSBneBKpVCZQcFTsU",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273a48964b5d9a3d6968ae3e0de",
-      "streams": 146997291,
-      "daily_streams": 36565,
-      "last_updated": "2026-03-13",
+      "streams": 147033105,
+      "daily_streams": 35814,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -7125,7 +7125,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 53002709,
+      "remaining_to_next_milestone": 52966895,
       "appearances": [
         {
           "source_type": "album",
@@ -7151,7 +7151,7 @@
         "1msEuwSBneBKpVCZQcFTsU"
       ],
       "rank_total": 225,
-      "rank_daily": 242
+      "rank_daily": 243
     },
     {
       "track_id": "46HGgtwmmuEB8mvDCyjyAc",
@@ -18431,7 +18431,7 @@
         "3Z2nTctPsTsgqqJm5fCSvG"
       ],
       "rank_total": 394,
-      "rank_daily": 243
+      "rank_daily": 242
     },
     {
       "track_id": "6PlBKImSl4AZoxBU7F649D",
