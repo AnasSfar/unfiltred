@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 363,
-    "total_combined_streams": 121469449401,
+    "songs_updated_on_latest_date": 365,
+    "total_combined_streams": 121469871759,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -11348,9 +11348,9 @@
       "title_key": "loml",
       "spotify_url": "https://open.spotify.com/intl-fr/track/3YkNIrAvbKNrrwwEd7NVLl",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2738ecc33f195df6aa257c39eaa",
-      "streams": 355713062,
-      "daily_streams": 303424,
-      "last_updated": "2026-03-13",
+      "streams": 356020274,
+      "daily_streams": 307212,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -11359,7 +11359,7 @@
       "current_milestone_label": "300M",
       "next_milestone": 400000000,
       "next_milestone_label": "400M",
-      "remaining_to_next_milestone": 44286938,
+      "remaining_to_next_milestone": 43979726,
       "appearances": [
         {
           "source_type": "album",
@@ -11393,9 +11393,9 @@
       "title_key": "london boy",
       "spotify_url": "https://open.spotify.com/intl-fr/track/1LLXZFeAHK9R4xUramtUKw",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273e787cffec20aa2a396a61647",
-      "streams": 430224796,
-      "daily_streams": 118269,
-      "last_updated": "2026-03-13",
+      "streams": 430339942,
+      "daily_streams": 115146,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -11404,7 +11404,7 @@
       "current_milestone_label": "400M",
       "next_milestone": 500000000,
       "next_milestone_label": "500M",
-      "remaining_to_next_milestone": 69775204,
+      "remaining_to_next_milestone": 69660058,
       "appearances": [
         {
           "source_type": "album",
@@ -11430,7 +11430,7 @@
         "1LLXZFeAHK9R4xUramtUKw"
       ],
       "rank_total": 81,
-      "rank_daily": 114
+      "rank_daily": 116
     },
     {
       "track_id": "6XDBA3QWX51lDJ0oZbaJJN",
@@ -14818,7 +14818,7 @@
         "3zMDGj4D8ogaYgAIZPeU7S"
       ],
       "rank_total": 197,
-      "rank_daily": 115
+      "rank_daily": 114
     },
     {
       "track_id": "32mVHdy0bi1XKgr0ajsBlG",
@@ -18647,7 +18647,7 @@
         "2VuqMjgoKaOHNM8HpxtXKx"
       ],
       "rank_total": 94,
-      "rank_daily": 116
+      "rank_daily": 115
     },
     {
       "track_id": "3wx2iW1rJGgdNln2I64HNh",
