@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 82,
-    "total_combined_streams": 121442886603,
+    "songs_updated_on_latest_date": 83,
+    "total_combined_streams": 121442895106,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -974,14 +974,14 @@
       "rank_daily": 27
     },
     {
-      "track_id": "16M9Rxid0nXhVmme7lzVwN",
+      "track_id": "0j0gJqxitjhmmkrW56dtQH",
       "title": "Anti-Hero (feat. Bleachers)",
       "title_key": "anti-hero (feat. bleachers)",
-      "spotify_url": "https://open.spotify.com/intl-fr/track/16M9Rxid0nXhVmme7lzVwN",
-      "image_url": "https://i.scdn.co/image/ab67616d0000b2739954fa9f0ba8534c3897b59d",
-      "streams": 26856167,
-      "daily_streams": 8153,
-      "last_updated": "2026-03-13",
+      "spotify_url": "https://open.spotify.com/intl-fr/track/0j0gJqxitjhmmkrW56dtQH",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b27350a1e24dde78df1d0ebc68ef",
+      "streams": 26864670,
+      "daily_streams": 8503,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift",
@@ -991,7 +991,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 73143833,
+      "remaining_to_next_milestone": 73135330,
       "appearances": [
         {
           "source_type": "misc",
@@ -1030,7 +1030,7 @@
         "16M9Rxid0nXhVmme7lzVwN"
       ],
       "rank_total": 362,
-      "rank_daily": 362
+      "rank_daily": 356
     },
     {
       "track_id": "2d3d9xZutJjmUpntiyHt3F",
@@ -3154,7 +3154,7 @@
         "2hmafYGj1CXYKIYcMnX4lj"
       ],
       "rank_total": 330,
-      "rank_daily": 359
+      "rank_daily": 360
     },
     {
       "track_id": "12xIjI9A9UlB6zEc7kyZ06",
@@ -4082,7 +4082,7 @@
         "4qyalTRMRH5YuEntvvMvq0"
       ],
       "rank_total": 331,
-      "rank_daily": 361
+      "rank_daily": 362
     },
     {
       "track_id": "4pNApnaUWAL2J4KO2eqokq",
@@ -8794,7 +8794,7 @@
         "5VwFkx7JOimOGTYfha5rs1"
       ],
       "rank_total": 305,
-      "rank_daily": 356
+      "rank_daily": 357
     },
     {
       "track_id": "2r9CbjYgFhtAmcFv1cSquB",
@@ -13120,7 +13120,7 @@
         "2yceD2hx5HhOLgkm1CITCi"
       ],
       "rank_total": 370,
-      "rank_daily": 358
+      "rank_daily": 359
     },
     {
       "track_id": "214nt20w5wOxJnY462klLw",
@@ -17093,7 +17093,7 @@
         "1qLeEu4iXEclkLwoBlMiou"
       ],
       "rank_total": 307,
-      "rank_daily": 357
+      "rank_daily": 358
     },
     {
       "track_id": "7eQj6r5PIdYKEIZjucBMcq",
@@ -22753,7 +22753,7 @@
         "6HWYtS215rxaaMjvpyG18W"
       ],
       "rank_total": 324,
-      "rank_daily": 360
+      "rank_daily": 361
     },
     {
       "track_id": "6iiAfo4wTA2CVC3Uwx9uh8",
