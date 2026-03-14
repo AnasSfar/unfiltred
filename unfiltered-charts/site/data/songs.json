@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 318,
-    "total_combined_streams": 121465007460,
+    "songs_updated_on_latest_date": 319,
+    "total_combined_streams": 121465038874,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -3335,7 +3335,7 @@
         "4ABYxlb92WBIjHu7TIKmml"
       ],
       "rank_total": 262,
-      "rank_daily": 251
+      "rank_daily": 250
     },
     {
       "track_id": "0sY6ZUTh4yoctD8VIXz339",
@@ -3902,7 +3902,7 @@
         "4bXCcoesMt8u99xMsbLr9U"
       ],
       "rank_total": 174,
-      "rank_daily": 253
+      "rank_daily": 252
     },
     {
       "track_id": "0lKUBmEyQfzsQHozyeXzES",
@@ -3992,7 +3992,7 @@
         "35rdVq36LMHQX0Suw9a6tK"
       ],
       "rank_total": 218,
-      "rank_daily": 248
+      "rank_daily": 247
     },
     {
       "track_id": "7an1exwMnfYRcdVQm0yDev",
@@ -6925,7 +6925,7 @@
         "2nqio0SfWg6gh2eCtfuMa5"
       ],
       "rank_total": 243,
-      "rank_daily": 252
+      "rank_daily": 251
     },
     {
       "track_id": "3ZVFcD8Wlw9T9klGqmJf9F",
@@ -8254,7 +8254,7 @@
         "550erGcdD9n6PnwxrvYqZT"
       ],
       "rank_total": 257,
-      "rank_daily": 254
+      "rank_daily": 253
     },
     {
       "track_id": "1SztNGCwEHJEVFx90E5g7D",
@@ -8532,9 +8532,9 @@
       "title_key": "holy ground (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/7J4b3LVCIGO4CMBDFLPoP6",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273318443aab3531a0558e79a4d",
-      "streams": 117193268,
-      "daily_streams": 34559,
-      "last_updated": "2026-03-13",
+      "streams": 117224682,
+      "daily_streams": 31414,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -8543,7 +8543,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 82806732,
+      "remaining_to_next_milestone": 82775318,
       "appearances": [
         {
           "source_type": "album",
@@ -8569,7 +8569,7 @@
         "7J4b3LVCIGO4CMBDFLPoP6"
       ],
       "rank_total": 260,
-      "rank_daily": 246
+      "rank_daily": 254
     },
     {
       "track_id": "4qmFC3Jz5aQ0erlk2OSi2X",
@@ -8704,7 +8704,7 @@
         "6wfugRLamFsTRbPcCpNnP7"
       ],
       "rank_total": 184,
-      "rank_daily": 249
+      "rank_daily": 248
     },
     {
       "track_id": "733OhaXQIHY7BKtY3vnSkn",
@@ -14083,7 +14083,7 @@
         "7y16ygjcEcfo1VYKxmgVZY"
       ],
       "rank_total": 414,
-      "rank_daily": 250
+      "rank_daily": 249
     },
     {
       "track_id": "7vf4GBEJmv0uXojpr5qPMX",
@@ -20445,7 +20445,7 @@
         "0Om9WAB5RS09L80DyOfTNa"
       ],
       "rank_total": 203,
-      "rank_daily": 247
+      "rank_daily": 246
     },
     {
       "track_id": "1HCdems7PQZRj42QDWLA0A",
