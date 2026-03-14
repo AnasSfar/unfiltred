@@ -1518,15 +1518,21 @@ function renderAlbums(container){
     </section>
   `;
 
-  document.getElementById("sortAlbumStreamsBtn")?.onclick = () => {
+const sortAlbumStreamsBtn = document.getElementById("sortAlbumStreamsBtn");
+if (sortAlbumStreamsBtn) {
+  sortAlbumStreamsBtn.onclick = () => {
     state.albumSortMode = "streams";
     renderPage();
   };
+}
 
-  document.getElementById("sortAlbumDailyBtn")?.onclick = () => {
+const sortAlbumDailyBtn = document.getElementById("sortAlbumDailyBtn");
+if (sortAlbumDailyBtn) {
+  sortAlbumDailyBtn.onclick = () => {
     state.albumSortMode = "daily";
     renderPage();
   };
+}
 }
 }
 
