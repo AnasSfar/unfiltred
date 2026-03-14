@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 189,
-    "total_combined_streams": 121452199397,
+    "songs_updated_on_latest_date": 190,
+    "total_combined_streams": 121452213098,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -2804,11 +2804,11 @@
       "rank_daily": 283
     },
     {
-      "track_id": "5og4Qzt92jJzVDkOtSEilb",
+      "track_id": "74sZKiwaGtSEEyjhDmi99y",
       "title": "But Daddy I Love Him",
       "title_key": "but daddy i love him",
-      "spotify_url": "https://open.spotify.com/intl-fr/track/5og4Qzt92jJzVDkOtSEilb",
-      "image_url": "https://i.scdn.co/image/ab67616d0000b2735076e4160d018e378f488c33",
+      "spotify_url": "https://open.spotify.com/intl-fr/track/74sZKiwaGtSEEyjhDmi99y",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273c246cd7fb142b383672627c8",
       "streams": 368718586,
       "daily_streams": 168095,
       "last_updated": "2026-03-14",
@@ -2855,9 +2855,9 @@
       "title_key": "bye bye baby (taylor's version) (from the vault)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/4qUijfYU8EoIWiY6oSyrgT",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273a48964b5d9a3d6968ae3e0de",
-      "streams": 70548967,
-      "daily_streams": 14026,
-      "last_updated": "2026-03-13",
+      "streams": 70562668,
+      "daily_streams": 13701,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -2866,7 +2866,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 29451033,
+      "remaining_to_next_milestone": 29437332,
       "appearances": [
         {
           "source_type": "album",
@@ -2892,7 +2892,7 @@
         "4qUijfYU8EoIWiY6oSyrgT"
       ],
       "rank_total": 301,
-      "rank_daily": 323
+      "rank_daily": 324
     },
     {
       "track_id": "1GwMQaZz6Au3QLDbjbMdme",
@@ -4868,7 +4868,7 @@
         "7ryS0xBZNYjQqql34GCkDp"
       ],
       "rank_total": 348,
-      "rank_daily": 324
+      "rank_daily": 323
     },
     {
       "track_id": "3K2es3gElMRJ3qvmPW442g",
