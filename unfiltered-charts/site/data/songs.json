@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 38,
-    "total_combined_streams": 121436635929,
+    "songs_updated_on_latest_date": 40,
+    "total_combined_streams": 121437059918,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -447,9 +447,9 @@
       "title_key": "actually romantic",
       "spotify_url": "https://open.spotify.com/intl-fr/track/2x3mwb96B6TquRqMtbxUE1",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273d7812467811a7da6e6a44902",
-      "streams": 218632337,
-      "daily_streams": 357739,
-      "last_updated": "2026-03-13",
+      "streams": 218987770,
+      "daily_streams": 355433,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -458,7 +458,7 @@
       "current_milestone_label": "200M",
       "next_milestone": 300000000,
       "next_milestone_label": "300M",
-      "remaining_to_next_milestone": 81367663,
+      "remaining_to_next_milestone": 81012230,
       "appearances": [
         {
           "source_type": "album",
@@ -21200,9 +21200,9 @@
       "title_key": "welcome to new york (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/1hR8BSuEqPCCZfv93zzzz9",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273904445d70d04eb24d6bb79ac",
-      "streams": 183782128,
-      "daily_streams": 68596,
-      "last_updated": "2026-03-13",
+      "streams": 183850684,
+      "daily_streams": 68556,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -21211,7 +21211,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 16217872,
+      "remaining_to_next_milestone": 16149316,
       "appearances": [
         {
           "source_type": "album",
