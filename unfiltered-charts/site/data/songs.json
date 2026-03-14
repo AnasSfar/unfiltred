@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 158,
-    "total_combined_streams": 121449275012,
+    "songs_updated_on_latest_date": 159,
+    "total_combined_streams": 121449303908,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -10382,9 +10382,9 @@
       "title_key": "it's nice to have a friend",
       "spotify_url": "https://open.spotify.com/intl-fr/track/1SmiQ65iSAbPto6gPFlBYm",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273e787cffec20aa2a396a61647",
-      "streams": 161567849,
-      "daily_streams": 30433,
-      "last_updated": "2026-03-13",
+      "streams": 161596745,
+      "daily_streams": 28896,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -10393,7 +10393,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 38432151,
+      "remaining_to_next_milestone": 38403255,
       "appearances": [
         {
           "source_type": "album",
@@ -10419,7 +10419,7 @@
         "1SmiQ65iSAbPto6gPFlBYm"
       ],
       "rank_total": 207,
-      "rank_daily": 255
+      "rank_daily": 257
     },
     {
       "track_id": "1kdWw77ZpYOkhxeuhzU1j6",
@@ -10940,7 +10940,7 @@
         "1D27z8xNzjW0Mwwt1NCWhJ"
       ],
       "rank_total": 234,
-      "rank_daily": 256
+      "rank_daily": 255
     },
     {
       "track_id": "59KOoHFcw5XfICnO57holu",
@@ -15667,7 +15667,7 @@
         "0z9UVN8VBHJ9HdfYsOuuNf"
       ],
       "rank_total": 146,
-      "rank_daily": 257
+      "rank_daily": 256
     },
     {
       "track_id": "71IScwIe7bcIlpnlkbKVQw",
