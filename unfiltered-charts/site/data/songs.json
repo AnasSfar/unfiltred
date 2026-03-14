@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 280,
-    "total_combined_streams": 121461673036,
+    "songs_updated_on_latest_date": 281,
+    "total_combined_streams": 121461674723,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -1201,7 +1201,7 @@
         "4YrpqEBNuz7IMsZtUP6bNQ"
       ],
       "rank_total": 413,
-      "rank_daily": 424
+      "rank_daily": 423
     },
     {
       "track_id": "2oWpe2L8ypC080BxpDVuTY",
@@ -6000,9 +6000,9 @@
       "title_key": "elizabeth taylor - track by track",
       "spotify_url": "https://open.spotify.com/intl-fr/track/3r9fAceWmaDFvbNiTnFiLr",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2737e0698e1398b6473de43f901",
-      "streams": 1447799,
-      "daily_streams": 1959,
-      "last_updated": "2026-03-13",
+      "streams": 1449486,
+      "daily_streams": 1687,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -6011,7 +6011,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 98552201,
+      "remaining_to_next_milestone": 98550514,
       "appearances": [
         {
           "source_type": "misc",
@@ -6049,7 +6049,7 @@
         "3r9fAceWmaDFvbNiTnFiLr"
       ],
       "rank_total": 446,
-      "rank_daily": 422
+      "rank_daily": 424
     },
     {
       "track_id": "04S1pkp1VaIqjg8zZqknR5",
@@ -14311,7 +14311,7 @@
         "5SkuikJwvwfEvNyCepGkq3"
       ],
       "rank_total": 447,
-      "rank_daily": 423
+      "rank_daily": 422
     },
     {
       "track_id": "15DeqWWQB4dcEWzJg15VrN",
