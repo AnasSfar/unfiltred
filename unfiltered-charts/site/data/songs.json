@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 131,
-    "total_combined_streams": 121447624699,
+    "songs_updated_on_latest_date": 132,
+    "total_combined_streams": 121447635343,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -2700,14 +2700,14 @@
       "rank_daily": 301
     },
     {
-      "track_id": "6S9G7J3EB1ZY0rrZPwsBg5",
+      "track_id": "0qsSmObOgBZfuMIwfAQDBP",
       "title": "Breathe",
       "title_key": "breathe",
-      "spotify_url": "https://open.spotify.com/intl-fr/track/6S9G7J3EB1ZY0rrZPwsBg5",
-      "image_url": "https://i.scdn.co/image/ab67616d0000b27334e5885465afc8a497ac1b7e",
-      "streams": 74883212,
-      "daily_streams": 10595,
-      "last_updated": "2026-03-13",
+      "spotify_url": "https://open.spotify.com/intl-fr/track/0qsSmObOgBZfuMIwfAQDBP",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273516c279fe91ae3f6a79b23da",
+      "streams": 74893856,
+      "daily_streams": 10644,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -2716,7 +2716,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 25116788,
+      "remaining_to_next_milestone": 25106144,
       "appearances": [
         {
           "source_type": "album",
