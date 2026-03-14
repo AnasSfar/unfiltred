@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 415,
-    "total_combined_streams": 121476293724,
+    "songs_updated_on_latest_date": 416,
+    "total_combined_streams": 121476357379,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -100,7 +100,7 @@
         "6sQckd3Z8NPxVVKUnavY1F"
       ],
       "rank_total": 110,
-      "rank_daily": 185
+      "rank_daily": 186
     },
     {
       "track_id": "2yLa0QULdQr0qAIvVwN6B5",
@@ -901,7 +901,7 @@
         "6GXgd1BPD9bUpqw5AntGV5"
       ],
       "rank_total": 214,
-      "rank_daily": 187
+      "rank_daily": 188
     },
     {
       "track_id": "2wMKBH2p5kIDFkRWjS9IOW",
@@ -12191,7 +12191,7 @@
         "2QDyYdZyhlP2fp79KZX8Bi"
       ],
       "rank_total": 138,
-      "rank_daily": 186
+      "rank_daily": 187
     },
     {
       "track_id": "04xrhDrQ2WOW8GLwu7kbc0",
@@ -20171,9 +20171,9 @@
       "title_key": "this is why we can't have nice things",
       "spotify_url": "https://open.spotify.com/intl-fr/track/07NxDD1iKCHbAldceD7QLP",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273da5d5aeeabacacc1263c0f4b",
-      "streams": 281111425,
-      "daily_streams": 62681,
-      "last_updated": "2026-03-13",
+      "streams": 281175080,
+      "daily_streams": 63655,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -20182,7 +20182,7 @@
       "current_milestone_label": "200M",
       "next_milestone": 300000000,
       "next_milestone_label": "300M",
-      "remaining_to_next_milestone": 18888575,
+      "remaining_to_next_milestone": 18824920,
       "appearances": [
         {
           "source_type": "album",
@@ -20208,7 +20208,7 @@
         "07NxDD1iKCHbAldceD7QLP"
       ],
       "rank_total": 133,
-      "rank_daily": 188
+      "rank_daily": 185
     },
     {
       "track_id": "0MtU9ETYyVX8YPBDCYPdMb",
