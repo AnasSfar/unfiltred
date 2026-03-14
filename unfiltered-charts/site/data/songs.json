@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 420,
-    "total_combined_streams": 121476380936,
+    "songs_updated_on_latest_date": 422,
+    "total_combined_streams": 121476409577,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -8794,7 +8794,7 @@
         "5VwFkx7JOimOGTYfha5rs1"
       ],
       "rank_total": 305,
-      "rank_daily": 357
+      "rank_daily": 358
     },
     {
       "track_id": "2r9CbjYgFhtAmcFv1cSquB",
@@ -17056,9 +17056,9 @@
       "title_key": "stay stay stay",
       "spotify_url": "https://open.spotify.com/intl-fr/track/1qLeEu4iXEclkLwoBlMiou",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27396384c98ac4f3e7c2440f5b5",
-      "streams": 62791421,
-      "daily_streams": 8388,
-      "last_updated": "2026-03-13",
+      "streams": 62799856,
+      "daily_streams": 8435,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -17067,7 +17067,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 37208579,
+      "remaining_to_next_milestone": 37200144,
       "appearances": [
         {
           "source_type": "album",
@@ -17093,7 +17093,7 @@
         "1qLeEu4iXEclkLwoBlMiou"
       ],
       "rank_total": 307,
-      "rank_daily": 358
+      "rank_daily": 357
     },
     {
       "track_id": "7eQj6r5PIdYKEIZjucBMcq",
@@ -20273,9 +20273,9 @@
       "title_key": "this love",
       "spotify_url": "https://open.spotify.com/intl-fr/track/1kTPQnabROVkW9bUXdCGrB",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273332d85510aba3eb28312cfb2",
-      "streams": 120282627,
-      "daily_streams": 20147,
-      "last_updated": "2026-03-13",
+      "streams": 120302833,
+      "daily_streams": 20206,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -20284,7 +20284,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 79717373,
+      "remaining_to_next_milestone": 79697167,
       "appearances": [
         {
           "source_type": "album",
