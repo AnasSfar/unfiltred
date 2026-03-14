@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 376,
-    "total_combined_streams": 121471421409,
+    "songs_updated_on_latest_date": 377,
+    "total_combined_streams": 121471425850,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -12052,9 +12052,9 @@
       "title_key": "lover - live from paris",
       "spotify_url": "https://open.spotify.com/intl-fr/track/4lD3RXyvHpJsM3BhIEC4aA",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273d29b148f84d0cd04ebdbe919",
-      "streams": 13826430,
-      "daily_streams": 4447,
-      "last_updated": "2026-03-13",
+      "streams": 13830871,
+      "daily_streams": 4441,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -12063,7 +12063,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 86173570,
+      "remaining_to_next_milestone": 86169129,
       "appearances": [
         {
           "source_type": "misc",
