@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 12,
-    "total_combined_streams": 121432880745,
+    "songs_updated_on_latest_date": 13,
+    "total_combined_streams": 121433052424,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -55,7 +55,7 @@
         "0CD7DzeCsuPJygddqlUVYa"
       ],
       "rank_total": 78,
-      "rank_daily": 82
+      "rank_daily": 81
     },
     {
       "track_id": "6sQckd3Z8NPxVVKUnavY1F",
@@ -2075,7 +2075,7 @@
         "3qoftcUZaUOncvIYjFSPdE"
       ],
       "rank_total": 43,
-      "rank_daily": 84
+      "rank_daily": 83
     },
     {
       "track_id": "4OmFmE0fzcMG6g0Y8p4eSD",
@@ -6822,7 +6822,7 @@
         "77sMIMlNaSURUAXq5coCxE"
       ],
       "rank_total": 75,
-      "rank_daily": 78
+      "rank_daily": 77
     },
     {
       "track_id": "4yf9OivCH2lmQWN8mzpCC6",
@@ -10850,7 +10850,7 @@
         "4bBDkw2KBMX0tcgAaXC83Q"
       ],
       "rank_total": 90,
-      "rank_daily": 81
+      "rank_daily": 80
     },
     {
       "track_id": "2IprIjGNRlj3TfqUWCAo0C",
@@ -11112,7 +11112,7 @@
         "5jQI2r1RdgtuT8S3iG8zFC"
       ],
       "rank_total": 31,
-      "rank_daily": 85
+      "rank_daily": 84
     },
     {
       "track_id": "2M4tVhRXucLE9M3STv21Yi",
@@ -13165,7 +13165,7 @@
         "214nt20w5wOxJnY462klLw"
       ],
       "rank_total": 56,
-      "rank_daily": 79
+      "rank_daily": 78
     },
     {
       "track_id": "2CYVETnhM9aytqrazYYwrK",
@@ -17988,7 +17988,7 @@
         "1tuNqJOtRQVHvONR8Lg3MZ"
       ],
       "rank_total": 137,
-      "rank_daily": 77
+      "rank_daily": 76
     },
     {
       "track_id": "6INztpNwOTlfSKTuPo0HOP",
@@ -19746,7 +19746,7 @@
         "4GBbcyrbDzwRtQjrsDRywK"
       ],
       "rank_total": 112,
-      "rank_daily": 80
+      "rank_daily": 79
     },
     {
       "track_id": "3lXekiVK1ZPZbKconsys73",
@@ -20967,7 +20967,7 @@
         "0hhzNPE68LWLfgZwdpxVdR"
       ],
       "rank_total": 131,
-      "rank_daily": 83
+      "rank_daily": 82
     },
     {
       "track_id": "1xwAWUI6Dj0WGC3KiUPN0O",
@@ -22658,9 +22658,9 @@
       "title_key": "you're losing me (from the vault)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/3CWq0pAKKTWb0K4yiglDc4",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2734fe1868aa6838eb595f3673a",
-      "streams": 379023002,
-      "daily_streams": 183356,
-      "last_updated": "2026-03-13",
+      "streams": 379194681,
+      "daily_streams": 171679,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -22669,7 +22669,7 @@
       "current_milestone_label": "300M",
       "next_milestone": 400000000,
       "next_milestone_label": "400M",
-      "remaining_to_next_milestone": 20976998,
+      "remaining_to_next_milestone": 20805319,
       "appearances": [
         {
           "source_type": "album",
@@ -22695,7 +22695,7 @@
         "3CWq0pAKKTWb0K4yiglDc4"
       ],
       "rank_total": 92,
-      "rank_daily": 76
+      "rank_daily": 85
     },
     {
       "track_id": "6HWYtS215rxaaMjvpyG18W",
