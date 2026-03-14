@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 279,
-    "total_combined_streams": 121461631213,
+    "songs_updated_on_latest_date": 280,
+    "total_combined_streams": 121461673036,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -15575,7 +15575,7 @@
         "73qMN9bXy7MSPwwGfH3wQr"
       ],
       "rank_total": 240,
-      "rank_daily": 228
+      "rank_daily": 227
     },
     {
       "track_id": "2RJnNdu4pb3MypbBroHU0T",
@@ -21528,9 +21528,9 @@
       "title_key": "wi$h li$t - settled down acoustic version",
       "spotify_url": "https://open.spotify.com/track/1qwClaxDb5fCrLjXaAmB35",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273f756bdc2c11a985dc0c06d94",
-      "streams": 13205049,
-      "daily_streams": 42233,
-      "last_updated": "2026-03-13",
+      "streams": 13246872,
+      "daily_streams": 41823,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -21539,7 +21539,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 86794951,
+      "remaining_to_next_milestone": 86753128,
       "appearances": [
         {
           "source_type": "album",
@@ -21589,7 +21589,7 @@
         "1qwClaxDb5fCrLjXaAmB35"
       ],
       "rank_total": 403,
-      "rank_daily": 227
+      "rank_daily": 228
     },
     {
       "track_id": "4A4A6dwl5DqdqrZaEtKGPR",
