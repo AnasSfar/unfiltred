@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 127,
-    "total_combined_streams": 121447027194,
+    "songs_updated_on_latest_date": 128,
+    "total_combined_streams": 121447074250,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -9540,7 +9540,7 @@
         "1ULabO0PEsdJekqVH6G10G"
       ],
       "rank_total": 259,
-      "rank_daily": 218
+      "rank_daily": 217
     },
     {
       "track_id": "4JQm7ebhsrt10wmrP6AfXL",
@@ -17273,7 +17273,7 @@
         "6M9ppdfFjR1AbpUl3Y8DcV"
       ],
       "rank_total": 213,
-      "rank_daily": 217
+      "rank_daily": 216
     },
     {
       "track_id": "2R7C9dDqv1UPycvepBFziA",
@@ -18034,7 +18034,7 @@
         "6INztpNwOTlfSKTuPo0HOP"
       ],
       "rank_total": 269,
-      "rank_daily": 216
+      "rank_daily": 215
     },
     {
       "track_id": "3pHkh7d0lzM2AldUtz2x37",
@@ -20453,9 +20453,9 @@
       "title_key": "timeless (taylor's version) (from the vault)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/1HCdems7PQZRj42QDWLA0A",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2730b04da4f224b51ff86e0a481",
-      "streams": 127748422,
-      "daily_streams": 48318,
-      "last_updated": "2026-03-13",
+      "streams": 127795478,
+      "daily_streams": 47056,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -20464,7 +20464,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 72251578,
+      "remaining_to_next_milestone": 72204522,
       "appearances": [
         {
           "source_type": "album",
@@ -20490,7 +20490,7 @@
         "1HCdems7PQZRj42QDWLA0A"
       ],
       "rank_total": 246,
-      "rank_daily": 215
+      "rank_daily": 218
     },
     {
       "track_id": "4pFvEWbjBpPUdYRQly0THs",
