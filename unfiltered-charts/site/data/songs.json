@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 201,
-    "total_combined_streams": 121453330543,
+    "songs_updated_on_latest_date": 202,
+    "total_combined_streams": 121453335618,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -14773,7 +14773,7 @@
         "4YHHz3VIXgNDGdoL9xC1tx"
       ],
       "rank_total": 397,
-      "rank_daily": 387
+      "rank_daily": 386
     },
     {
       "track_id": "3zMDGj4D8ogaYgAIZPeU7S",
@@ -18087,9 +18087,9 @@
       "title_key": "the archer - live from paris",
       "spotify_url": "https://open.spotify.com/intl-fr/track/2fgiBCtbWo8pijF6M7pN1i",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273cde19bd5377f06eb0bca3256",
-      "streams": 15177417,
-      "daily_streams": 5146,
-      "last_updated": "2026-03-13",
+      "streams": 15182492,
+      "daily_streams": 5075,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -18098,7 +18098,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 84822583,
+      "remaining_to_next_milestone": 84817508,
       "appearances": [
         {
           "source_type": "misc",
@@ -18136,7 +18136,7 @@
         "2fgiBCtbWo8pijF6M7pN1i"
       ],
       "rank_total": 396,
-      "rank_daily": 386
+      "rank_daily": 387
     },
     {
       "track_id": "5YbZZ2gYfvW1UvHHF4pVaD",
