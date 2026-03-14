@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 145,
-    "total_combined_streams": 121448668764,
+    "songs_updated_on_latest_date": 146,
+    "total_combined_streams": 121448768166,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -6377,7 +6377,7 @@
         "3O5osWf1rSoKMwe6E9ZaXP"
       ],
       "rank_total": 120,
-      "rank_daily": 140
+      "rank_daily": 141
     },
     {
       "track_id": "7gdwoOmi258QJq0hmQ4hto",
@@ -15970,9 +15970,9 @@
       "title_key": "shake it off (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/3pv7Q5v2dpdefwdWIvE7yH",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273904445d70d04eb24d6bb79ac",
-      "streams": 224049695,
-      "daily_streams": 95426,
-      "last_updated": "2026-03-13",
+      "streams": 224149097,
+      "daily_streams": 99402,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -15981,7 +15981,7 @@
       "current_milestone_label": "200M",
       "next_milestone": 300000000,
       "next_milestone_label": "300M",
-      "remaining_to_next_milestone": 75950305,
+      "remaining_to_next_milestone": 75850903,
       "appearances": [
         {
           "source_type": "album",
@@ -16007,7 +16007,7 @@
         "3pv7Q5v2dpdefwdWIvE7yH"
       ],
       "rank_total": 169,
-      "rank_daily": 142
+      "rank_daily": 138
     },
     {
       "track_id": "16MVSD0mGI4RMQT83Qzm69",
@@ -16143,7 +16143,7 @@
         "1wtOxkiel43cVs0Yux5Q4h"
       ],
       "rank_total": 59,
-      "rank_daily": 141
+      "rank_daily": 142
     },
     {
       "track_id": "4zmKGsrXjLmljb5fTaBTot",
@@ -21192,7 +21192,7 @@
         "3nRmDz7qGCvsMS30rGGY0x"
       ],
       "rank_total": 123,
-      "rank_daily": 139
+      "rank_daily": 140
     },
     {
       "track_id": "1hR8BSuEqPCCZfv93zzzz9",
@@ -22388,7 +22388,7 @@
         "0TyGh27YQ5LknmiDhCzJiT"
       ],
       "rank_total": 212,
-      "rank_daily": 138
+      "rank_daily": 139
     },
     {
       "track_id": "7G6TDmGJXDoBaV6NGj3Yic",
