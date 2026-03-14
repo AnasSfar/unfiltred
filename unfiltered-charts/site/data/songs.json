@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 411,
-    "total_combined_streams": 121475384543,
+    "songs_updated_on_latest_date": 413,
+    "total_combined_streams": 121476225492,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -1373,7 +1373,7 @@
         "3hUxzQpSfdDqwM3ZTFQY0K"
       ],
       "rank_total": 8,
-      "rank_daily": 8
+      "rank_daily": 9
     },
     {
       "track_id": "4MGexoZc12lqE0hYkq9YYx",
@@ -9270,7 +9270,7 @@
         "2y5aJvzXhHPA94U5GFAcXe"
       ],
       "rank_total": 3,
-      "rank_daily": 9
+      "rank_daily": 10
     },
     {
       "track_id": "43rA71bccXFGD4C8GOpIlN",
@@ -11929,7 +11929,7 @@
         "1dGr1c8CrMLDpV6mPbImSI"
       ],
       "rank_total": 4,
-      "rank_daily": 7
+      "rank_daily": 8
     },
     {
       "track_id": "3i9UVldZOE0aD0JnyfAZZ0",
@@ -12609,7 +12609,7 @@
         "30Y4CV7A6YqtQtTTo7Ue4j"
       ],
       "rank_total": 235,
-      "rank_daily": 241
+      "rank_daily": 240
     },
     {
       "track_id": "7mFiEij8AXPUZB7aKLbUlQ",
@@ -15925,9 +15925,9 @@
       "title_key": "shake it off",
       "spotify_url": "https://open.spotify.com/intl-fr/track/0cqRj7pUJDkTCEsJkx8snD",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27352b2a3824413eefe9e33817a",
-      "streams": 1837901864,
-      "daily_streams": 706138,
-      "last_updated": "2026-03-13",
+      "streams": 1838706912,
+      "daily_streams": 805048,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -15936,7 +15936,7 @@
       "current_milestone_label": "1.8B",
       "next_milestone": 1900000000,
       "next_milestone_label": "1.9B",
-      "remaining_to_next_milestone": 62098136,
+      "remaining_to_next_milestone": 61293088,
       "appearances": [
         {
           "source_type": "album",
@@ -15962,7 +15962,7 @@
         "0cqRj7pUJDkTCEsJkx8snD"
       ],
       "rank_total": 7,
-      "rank_daily": 10
+      "rank_daily": 7
     },
     {
       "track_id": "3pv7Q5v2dpdefwdWIvE7yH",
@@ -16052,7 +16052,7 @@
         "16MVSD0mGI4RMQT83Qzm69"
       ],
       "rank_total": 217,
-      "rank_daily": 240
+      "rank_daily": 239
     },
     {
       "track_id": "1cJkUN5LAotktryx2nPCr7",
@@ -18431,7 +18431,7 @@
         "3Z2nTctPsTsgqqJm5fCSvG"
       ],
       "rank_total": 394,
-      "rank_daily": 242
+      "rank_daily": 241
     },
     {
       "track_id": "6PlBKImSl4AZoxBU7F649D",
@@ -20678,9 +20678,9 @@
       "title_key": "treacherous (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/3S7HNKPakdwNEBFIVTL6dZ",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273318443aab3531a0558e79a4d",
-      "streams": 144424882,
-      "daily_streams": 37336,
-      "last_updated": "2026-03-13",
+      "streams": 144460783,
+      "daily_streams": 35901,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -20689,7 +20689,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 55575118,
+      "remaining_to_next_milestone": 55539217,
       "appearances": [
         {
           "source_type": "album",
@@ -20715,7 +20715,7 @@
         "3S7HNKPakdwNEBFIVTL6dZ"
       ],
       "rank_total": 229,
-      "rank_daily": 239
+      "rank_daily": 242
     },
     {
       "track_id": "7BT9K9BDqq6HI2oWH5UMZQ",
