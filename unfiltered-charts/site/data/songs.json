@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 342,
-    "total_combined_streams": 121467799106,
+    "songs_updated_on_latest_date": 343,
+    "total_combined_streams": 121467799581,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -9785,9 +9785,9 @@
       "title_key": "i wish you would - voice memo",
       "spotify_url": "https://open.spotify.com/intl-fr/track/4TtyvyI42C0KFnbDZvNC8Y",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273332d85510aba3eb28312cfb2",
-      "streams": 4899064,
-      "daily_streams": 438,
-      "last_updated": "2026-03-13",
+      "streams": 4899539,
+      "daily_streams": 475,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -9796,7 +9796,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 95100936,
+      "remaining_to_next_milestone": 95100461,
       "appearances": [
         {
           "source_type": "misc",
