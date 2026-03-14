@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 122,
-    "total_combined_streams": 121446821605,
+    "songs_updated_on_latest_date": 123,
+    "total_combined_streams": 121446913896,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -2312,7 +2312,7 @@
         "5kI4eCXXzyuIUXjQra0Cxi"
       ],
       "rank_total": 76,
-      "rank_daily": 145
+      "rank_daily": 144
     },
     {
       "track_id": "4GS68CE8nKLIKjjapiSm2I",
@@ -6377,7 +6377,7 @@
         "3O5osWf1rSoKMwe6E9ZaXP"
       ],
       "rank_total": 120,
-      "rank_daily": 141
+      "rank_daily": 140
     },
     {
       "track_id": "7gdwoOmi258QJq0hmQ4hto",
@@ -8885,7 +8885,7 @@
         "4CkgMiMqZ5JzW9iYXSTMTL"
       ],
       "rank_total": 130,
-      "rank_daily": 146
+      "rank_daily": 145
     },
     {
       "track_id": "4dgf2DYVJbtmy8zAYLs4c7",
@@ -11520,7 +11520,7 @@
         "4hqJ4bSlYJOXb6Z4SRmzxs"
       ],
       "rank_total": 172,
-      "rank_daily": 144
+      "rank_daily": 143
     },
     {
       "track_id": "2o2sgVJIgFXk8GQjWTgI6U",
@@ -12866,9 +12866,9 @@
       "title_key": "mine (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/7G0gBu6nLdhFDPRLc0HdDG",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2730b04da4f224b51ff86e0a481",
-      "streams": 274051882,
-      "daily_streams": 99737,
-      "last_updated": "2026-03-13",
+      "streams": 274144173,
+      "daily_streams": 92291,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -12877,7 +12877,7 @@
       "current_milestone_label": "200M",
       "next_milestone": 300000000,
       "next_milestone_label": "300M",
-      "remaining_to_next_milestone": 25948118,
+      "remaining_to_next_milestone": 25855827,
       "appearances": [
         {
           "source_type": "album",
@@ -12903,7 +12903,7 @@
         "7G0gBu6nLdhFDPRLc0HdDG"
       ],
       "rank_total": 136,
-      "rank_daily": 137
+      "rank_daily": 146
     },
     {
       "track_id": "7yndkPYP6YQQLBpPsizDfh",
@@ -16007,7 +16007,7 @@
         "3pv7Q5v2dpdefwdWIvE7yH"
       ],
       "rank_total": 169,
-      "rank_daily": 143
+      "rank_daily": 142
     },
     {
       "track_id": "16MVSD0mGI4RMQT83Qzm69",
@@ -16143,7 +16143,7 @@
         "1wtOxkiel43cVs0Yux5Q4h"
       ],
       "rank_total": 59,
-      "rank_daily": 142
+      "rank_daily": 141
     },
     {
       "track_id": "4zmKGsrXjLmljb5fTaBTot",
@@ -18488,7 +18488,7 @@
         "6PlBKImSl4AZoxBU7F649D"
       ],
       "rank_total": 372,
-      "rank_daily": 138
+      "rank_daily": 137
     },
     {
       "track_id": "3JNaLxAymiSUMrmjOarjeo",
@@ -21192,7 +21192,7 @@
         "3nRmDz7qGCvsMS30rGGY0x"
       ],
       "rank_total": 123,
-      "rank_daily": 140
+      "rank_daily": 139
     },
     {
       "track_id": "1hR8BSuEqPCCZfv93zzzz9",
@@ -22388,7 +22388,7 @@
         "0TyGh27YQ5LknmiDhCzJiT"
       ],
       "rank_total": 212,
-      "rank_daily": 139
+      "rank_daily": 138
     },
     {
       "track_id": "7G6TDmGJXDoBaV6NGj3Yic",
