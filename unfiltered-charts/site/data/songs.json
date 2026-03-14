@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 251,
-    "total_combined_streams": 121457578587,
+    "songs_updated_on_latest_date": 253,
+    "total_combined_streams": 121457717140,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -3812,7 +3812,7 @@
         "1g09DZjQ7yBommCT6POY2n"
       ],
       "rank_total": 405,
-      "rank_daily": 435
+      "rank_daily": 436
     },
     {
       "track_id": "4d9PtIEVij9jW5OaLinH66",
@@ -4615,9 +4615,9 @@
       "title_key": "cruel summer - lp giobbi remix - extended version",
       "spotify_url": "https://open.spotify.com/intl-fr/track/0ISHfeb30gj4CSWUZYuesj",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273905c0872bdf4e1787a6bb5da",
-      "streams": 1217861,
-      "daily_streams": 1149,
-      "last_updated": "2026-03-13",
+      "streams": 1219227,
+      "daily_streams": 1366,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -4626,7 +4626,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 98782139,
+      "remaining_to_next_milestone": 98780773,
       "appearances": [
         {
           "source_type": "misc",
@@ -4664,7 +4664,7 @@
         "0ISHfeb30gj4CSWUZYuesj"
       ],
       "rank_total": 449,
-      "rank_daily": 436
+      "rank_daily": 430
     },
     {
       "track_id": "7I7JbDv63ZJJsSi24DyJrz",
@@ -12415,7 +12415,7 @@
       "merged_track_ids": [
         "1QQii3pa5m8MEda0nbkjfw"
       ],
-      "rank_total": 72,
+      "rank_total": 73,
       "rank_daily": 112
     },
     {
@@ -12768,7 +12768,7 @@
         "3z6XUommYDWPHeFhmhhT6j"
       ],
       "rank_total": 135,
-      "rank_daily": 104
+      "rank_daily": 105
     },
     {
       "track_id": "3rWDp9tBPQR9z6U5YyRSK4",
@@ -12960,7 +12960,7 @@
         "7yndkPYP6YQQLBpPsizDfh"
       ],
       "rank_total": 420,
-      "rank_daily": 432
+      "rank_daily": 433
     },
     {
       "track_id": "0GxW5K0qzrq7L1jwSY5OmY",
@@ -13777,7 +13777,7 @@
         "5QUIK7ZtziW8kGWo8RqopF"
       ],
       "rank_total": 82,
-      "rank_daily": 103
+      "rank_daily": 104
     },
     {
       "track_id": "2slqvGLwzZZYsT4K4Y1GBC",
@@ -14319,9 +14319,9 @@
       "title_key": "our song",
       "spotify_url": "https://open.spotify.com/intl-fr/track/15DeqWWQB4dcEWzJg15VrN",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2732f8c0fd72a80a93f8c53b96c",
-      "streams": 455480356,
-      "daily_streams": 132533,
-      "last_updated": "2026-03-13",
+      "streams": 455617543,
+      "daily_streams": 137187,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -14330,7 +14330,7 @@
       "current_milestone_label": "400M",
       "next_milestone": 500000000,
       "next_milestone_label": "500M",
-      "remaining_to_next_milestone": 44519644,
+      "remaining_to_next_milestone": 44382457,
       "appearances": [
         {
           "source_type": "album",
@@ -14355,8 +14355,8 @@
       "merged_track_ids": [
         "15DeqWWQB4dcEWzJg15VrN"
       ],
-      "rank_total": 73,
-      "rank_daily": 105
+      "rank_total": 72,
+      "rank_daily": 101
     },
     {
       "track_id": "1EQn3Uc5AyUXoiPLeyCrrg",
@@ -15280,7 +15280,7 @@
         "0Nw8hv79MLJa1yjtsEgz08"
       ],
       "rank_total": 424,
-      "rank_daily": 433
+      "rank_daily": 434
     },
     {
       "track_id": "7nWui6jiMM2m9qFmET1Mtj",
@@ -16189,7 +16189,7 @@
         "4zmKGsrXjLmljb5fTaBTot"
       ],
       "rank_total": 125,
-      "rank_daily": 102
+      "rank_daily": 103
     },
     {
       "track_id": "1J1ldDi3rMQlRi49gaba0a",
@@ -16721,7 +16721,7 @@
         "3QFB14MOUf3imlyISNmrbT"
       ],
       "rank_total": 428,
-      "rank_daily": 434
+      "rank_daily": 435
     },
     {
       "track_id": "0vqI4ZIMuifeKeItGiWbPj",
@@ -19162,7 +19162,7 @@
         "42TAweWJJ9YlQ47T5nesu5"
       ],
       "rank_total": 453,
-      "rank_daily": 431
+      "rank_daily": 432
     },
     {
       "track_id": "0yZPIEgco572UWiwoQtcYF",
@@ -19893,7 +19893,7 @@
         "72GIZuUXo14oyrS0si3Rgc"
       ],
       "rank_total": 419,
-      "rank_daily": 430
+      "rank_daily": 431
     },
     {
       "track_id": "3NMrVbIVWT3fPXBj0rNDKG",
@@ -20625,7 +20625,7 @@
         "0PurA4JVJ8YQgSVopY8fn6"
       ],
       "rank_total": 80,
-      "rank_daily": 101
+      "rank_daily": 102
     },
     {
       "track_id": "5kYFVSQoPu7yRpfiHBwMUk",
