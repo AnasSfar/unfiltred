@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 163,
-    "total_combined_streams": 121449514920,
+    "songs_updated_on_latest_date": 164,
+    "total_combined_streams": 121449524016,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -5056,9 +5056,9 @@
       "title_key": "death by a thousand cuts - live from paris",
       "spotify_url": "https://open.spotify.com/intl-fr/track/3oF7Or7T35yhQbGxbCGvRX",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2737864c044d3fa4ac3814ca667",
-      "streams": 45366907,
-      "daily_streams": 9110,
-      "last_updated": "2026-03-13",
+      "streams": 45376003,
+      "daily_streams": 9096,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -5067,7 +5067,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 54633093,
+      "remaining_to_next_milestone": 54623997,
       "appearances": [
         {
           "source_type": "misc",
