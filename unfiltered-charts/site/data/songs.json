@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 95,
-    "total_combined_streams": 121443901346,
+    "songs_updated_on_latest_date": 96,
+    "total_combined_streams": 121443955873,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -4276,7 +4276,7 @@
         "3k7ne7VmH43ZPWxPdvPUgR"
       ],
       "rank_total": 163,
-      "rank_daily": 205
+      "rank_daily": 204
     },
     {
       "track_id": "12M5uqx0ZuwkpLp5rJim1a",
@@ -4480,7 +4480,7 @@
         "5vyxXfD5gLlyPxGZMEjtmd"
       ],
       "rank_total": 231,
-      "rank_daily": 207
+      "rank_daily": 206
     },
     {
       "track_id": "1kHVme7OVyPqhtdiLj2SI4",
@@ -9777,7 +9777,7 @@
         "43y1WpBdnEy5TR9aZoSQL9"
       ],
       "rank_total": 236,
-      "rank_daily": 204
+      "rank_daily": 203
     },
     {
       "track_id": "4TtyvyI42C0KFnbDZvNC8Y",
@@ -19836,7 +19836,7 @@
         "6dTA6y0C2ReQklntzZl8l3"
       ],
       "rank_total": 227,
-      "rank_daily": 206
+      "rank_daily": 205
     },
     {
       "track_id": "72GIZuUXo14oyrS0si3Rgc",
@@ -22112,9 +22112,9 @@
       "title_key": "wonderland (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/6HRsJu8vcnzYDN4t0570FY",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273dc2bacae1dca83d26e2b1949",
-      "streams": 121219025,
-      "daily_streams": 55885,
-      "last_updated": "2026-03-13",
+      "streams": 121273552,
+      "daily_streams": 54527,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -22123,7 +22123,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 78780975,
+      "remaining_to_next_milestone": 78726448,
       "appearances": [
         {
           "source_type": "album",
@@ -22149,7 +22149,7 @@
         "6HRsJu8vcnzYDN4t0570FY"
       ],
       "rank_total": 254,
-      "rank_daily": 203
+      "rank_daily": 207
     },
     {
       "track_id": "5ylJtmaWPJ33cW3En7WOu0",
