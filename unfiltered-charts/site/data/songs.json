@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 245,
-    "total_combined_streams": 121456185116,
+    "songs_updated_on_latest_date": 247,
+    "total_combined_streams": 121456253593,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -2892,7 +2892,7 @@
         "4qUijfYU8EoIWiY6oSyrgT"
       ],
       "rank_total": 301,
-      "rank_daily": 324
+      "rank_daily": 323
     },
     {
       "track_id": "1GwMQaZz6Au3QLDbjbMdme",
@@ -4431,9 +4431,9 @@
       "title_key": "crazier",
       "spotify_url": "https://open.spotify.com/intl-fr/track/5vyxXfD5gLlyPxGZMEjtmd",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2730e8ba185f3e9f15630a7b5fb",
-      "streams": 143744907,
-      "daily_streams": 54610,
-      "last_updated": "2026-03-13",
+      "streams": 143800000,
+      "daily_streams": 55093,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -4442,7 +4442,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 56255093,
+      "remaining_to_next_milestone": 56200000,
       "appearances": [
         {
           "source_type": "misc",
@@ -4819,9 +4819,9 @@
       "title_key": "daylight - live from paris",
       "spotify_url": "https://open.spotify.com/intl-fr/track/7ryS0xBZNYjQqql34GCkDp",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2739638abe9135aed2817baf686",
-      "streams": 35293136,
-      "daily_streams": 13803,
-      "last_updated": "2026-03-13",
+      "streams": 35306520,
+      "daily_streams": 13384,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -4830,7 +4830,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 64706864,
+      "remaining_to_next_milestone": 64693480,
       "appearances": [
         {
           "source_type": "misc",
@@ -4868,7 +4868,7 @@
         "7ryS0xBZNYjQqql34GCkDp"
       ],
       "rank_total": 348,
-      "rank_daily": 323
+      "rank_daily": 325
     },
     {
       "track_id": "3K2es3gElMRJ3qvmPW442g",
@@ -5378,7 +5378,7 @@
         "2Sy2oGjP5RYB4cLVoDU0Gz"
       ],
       "rank_total": 322,
-      "rank_daily": 325
+      "rank_daily": 324
     },
     {
       "track_id": "1R0a2iXumgCiFb7HEZ7gUE",
