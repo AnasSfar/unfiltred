@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 378,
-    "total_combined_streams": 121471613874,
+    "songs_updated_on_latest_date": 380,
+    "total_combined_streams": 121471772881,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -3244,7 +3244,7 @@
         "4axSuOg3BqsowKjRpj59RU"
       ],
       "rank_total": 276,
-      "rank_daily": 277
+      "rank_daily": 276
     },
     {
       "track_id": "0g4fMVo4JjwnIpTfFfLdxS",
@@ -7857,7 +7857,7 @@
         "1ZY1PqizIl78geGM4xWlEA"
       ],
       "rank_total": 41,
-      "rank_daily": 99
+      "rank_daily": 98
     },
     {
       "track_id": "3ZHTwJzCNDFvjLpVQiqpH6",
@@ -10374,7 +10374,7 @@
         "6IG3sQ8s9nfk6TUlVzRhbN"
       ],
       "rank_total": 49,
-      "rank_daily": 100
+      "rank_daily": 99
     },
     {
       "track_id": "1SmiQ65iSAbPto6gPFlBYm",
@@ -12424,9 +12424,9 @@
       "title_key": "me! (feat. brendon urie of panic! at the disco)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/2Rk4JlNc2TPmZe2af99d45",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273e787cffec20aa2a396a61647",
-      "streams": 973749520,
-      "daily_streams": 144207,
-      "last_updated": "2026-03-13",
+      "streams": 973884287,
+      "daily_streams": 134767,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift",
@@ -12436,7 +12436,7 @@
       "current_milestone_label": "900M",
       "next_milestone": 1000000000,
       "next_milestone_label": "1B",
-      "remaining_to_next_milestone": 26250480,
+      "remaining_to_next_milestone": 26115713,
       "appearances": [
         {
           "source_type": "album",
@@ -12462,7 +12462,7 @@
         "2Rk4JlNc2TPmZe2af99d45"
       ],
       "rank_total": 29,
-      "rank_daily": 98
+      "rank_daily": 101
     },
     {
       "track_id": "5fOV54t6mMYv3H9CsnvU81",
@@ -14356,7 +14356,7 @@
         "15DeqWWQB4dcEWzJg15VrN"
       ],
       "rank_total": 72,
-      "rank_daily": 101
+      "rank_daily": 100
     },
     {
       "track_id": "1EQn3Uc5AyUXoiPLeyCrrg",
@@ -15622,7 +15622,7 @@
         "2RJnNdu4pb3MypbBroHU0T"
       ],
       "rank_total": 286,
-      "rank_daily": 275
+      "rank_daily": 274
     },
     {
       "track_id": "0z9UVN8VBHJ9HdfYsOuuNf",
@@ -16619,7 +16619,7 @@
         "7dXKdjpOaH2iwfFKmUj7aq"
       ],
       "rank_total": 208,
-      "rank_daily": 272
+      "rank_daily": 271
     },
     {
       "track_id": "5xXqyjLicvEpch72qEryFT",
@@ -17840,7 +17840,7 @@
         "7eResoqEJJAVTkQYSqvO3P"
       ],
       "rank_total": 268,
-      "rank_daily": 274
+      "rank_daily": 273
     },
     {
       "track_id": "0P9wLFurlgumLXuqFEpw52",
@@ -19508,7 +19508,7 @@
         "0NRHj8hDwwmSPaA41o379r"
       ],
       "rank_total": 274,
-      "rank_daily": 273
+      "rank_daily": 272
     },
     {
       "track_id": "1yDJcXc549N6AabNBzFAku",
@@ -22104,7 +22104,7 @@
         "6iWMI5oOhWrDbLbjmwTWFq"
       ],
       "rank_total": 202,
-      "rank_daily": 276
+      "rank_daily": 275
     },
     {
       "track_id": "6HRsJu8vcnzYDN4t0570FY",
@@ -22306,9 +22306,9 @@
       "title_key": "you are in love",
       "spotify_url": "https://open.spotify.com/intl-fr/track/4A2LfnduSTsE8u0ecYROxE",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273332d85510aba3eb28312cfb2",
-      "streams": 159239095,
-      "daily_streams": 25394,
-      "last_updated": "2026-03-13",
+      "streams": 159263335,
+      "daily_streams": 24240,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -22317,7 +22317,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 40760905,
+      "remaining_to_next_milestone": 40736665,
       "appearances": [
         {
           "source_type": "album",
@@ -22343,7 +22343,7 @@
         "4A2LfnduSTsE8u0ecYROxE"
       ],
       "rank_total": 211,
-      "rank_daily": 271
+      "rank_daily": 277
     },
     {
       "track_id": "0TyGh27YQ5LknmiDhCzJiT",
