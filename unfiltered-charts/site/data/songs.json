@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 257,
-    "total_combined_streams": 121458246790,
+    "songs_updated_on_latest_date": 258,
+    "total_combined_streams": 121458249022,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -21838,7 +21838,7 @@
         "77p4fRpoeiZMtUy3P9kN21"
       ],
       "rank_total": 392,
-      "rank_daily": 415
+      "rank_daily": 414
     },
     {
       "track_id": "2NnrAdjE9cPdMklonMBuAv",
@@ -21980,14 +21980,14 @@
       "rank_daily": 385
     },
     {
-      "track_id": "5XkJj6sV2XLMaURdmdXgNx",
+      "track_id": "5F7hpFKLmWgMHGxQuwssuv",
       "title": "willow - moonlit witch version",
       "title_key": "willow - moonlit witch version",
-      "spotify_url": "https://open.spotify.com/intl-fr/track/5XkJj6sV2XLMaURdmdXgNx",
-      "image_url": "https://i.scdn.co/image/ab67616d0000b273ec07f0fc562d46804df394b4",
-      "streams": 10645620,
-      "daily_streams": 2299,
-      "last_updated": "2026-03-13",
+      "spotify_url": "https://open.spotify.com/intl-fr/track/5F7hpFKLmWgMHGxQuwssuv",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b2738312c50a6b9046d7dea5de12",
+      "streams": 10647852,
+      "daily_streams": 2232,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -21996,7 +21996,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 89354380,
+      "remaining_to_next_milestone": 89352148,
       "appearances": [
         {
           "source_type": "misc",
@@ -22059,7 +22059,7 @@
         "5XkJj6sV2XLMaURdmdXgNx"
       ],
       "rank_total": 408,
-      "rank_daily": 414
+      "rank_daily": 415
     },
     {
       "track_id": "6iWMI5oOhWrDbLbjmwTWFq",
