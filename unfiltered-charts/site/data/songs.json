@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 218,
-    "total_combined_streams": 121455042848,
+    "songs_updated_on_latest_date": 219,
+    "total_combined_streams": 121455080305,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -5840,9 +5840,9 @@
       "title_key": "electric touch (feat. fall out boy) (taylor's version) (from the vault)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/4e3ZNTAV6PCrdYMUrUlMpQ",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2730b04da4f224b51ff86e0a481",
-      "streams": 121621439,
-      "daily_streams": 37332,
-      "last_updated": "2026-03-13",
+      "streams": 121658896,
+      "daily_streams": 37457,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift",
@@ -5852,7 +5852,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 78378561,
+      "remaining_to_next_milestone": 78341104,
       "appearances": [
         {
           "source_type": "album",
@@ -5878,7 +5878,7 @@
         "4e3ZNTAV6PCrdYMUrUlMpQ"
       ],
       "rank_total": 253,
-      "rank_daily": 239
+      "rank_daily": 238
     },
     {
       "track_id": "1jgTiNob5cVyXeJ3WgX5bL",
@@ -20715,7 +20715,7 @@
         "3S7HNKPakdwNEBFIVTL6dZ"
       ],
       "rank_total": 229,
-      "rank_daily": 238
+      "rank_daily": 239
     },
     {
       "track_id": "7BT9K9BDqq6HI2oWH5UMZQ",
