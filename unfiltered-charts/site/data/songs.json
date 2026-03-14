@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 424,
-    "total_combined_streams": 121477766530,
+    "songs_updated_on_latest_date": 425,
+    "total_combined_streams": 121477785154,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -7106,7 +7106,7 @@
         "01QdEx6kFr78ZejhQtWR5m"
       ],
       "rank_total": 302,
-      "rank_daily": 304
+      "rank_daily": 303
     },
     {
       "track_id": "1msEuwSBneBKpVCZQcFTsU",
@@ -9495,7 +9495,7 @@
         "2zfgVd034GlUvk7LqBHl6u"
       ],
       "rank_total": 226,
-      "rank_daily": 303
+      "rank_daily": 302
     },
     {
       "track_id": "1ULabO0PEsdJekqVH6G10G",
@@ -9879,7 +9879,7 @@
         "0JIdBrXGSJXS72zjF9ss9u"
       ],
       "rank_total": 304,
-      "rank_daily": 305
+      "rank_daily": 304
     },
     {
       "track_id": "0vvt4IZOMkRug195S4MUq0",
@@ -17326,9 +17326,9 @@
       "title_key": "superman (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/4evLyY5Ue1Wesc61t2KXAU",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2730b04da4f224b51ff86e0a481",
-      "streams": 57360163,
-      "daily_streams": 19017,
-      "last_updated": "2026-03-13",
+      "streams": 57378787,
+      "daily_streams": 18624,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -17337,7 +17337,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 42639837,
+      "remaining_to_next_milestone": 42621213,
       "appearances": [
         {
           "source_type": "album",
@@ -17363,7 +17363,7 @@
         "4evLyY5Ue1Wesc61t2KXAU"
       ],
       "rank_total": 315,
-      "rank_daily": 302
+      "rank_daily": 305
     },
     {
       "track_id": "14Bljc3pOOG0xQX3wqhLN9",
