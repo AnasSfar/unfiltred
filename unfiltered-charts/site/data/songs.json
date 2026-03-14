@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 66,
-    "total_combined_streams": 121441076530,
+    "songs_updated_on_latest_date": 67,
+    "total_combined_streams": 121441426199,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -11725,7 +11725,7 @@
         "5xPsybHWRHbTYO44xnREY5"
       ],
       "rank_total": 19,
-      "rank_daily": 33
+      "rank_daily": 32
     },
     {
       "track_id": "6YvqWjhGD8mB5QXcbcUKtx",
@@ -15333,9 +15333,9 @@
       "title_key": "ruin the friendship",
       "spotify_url": "https://open.spotify.com/intl-fr/track/62V2ZHslgQV98gH4AuVXnr",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273d7812467811a7da6e6a44902",
-      "streams": 202284138,
-      "daily_streams": 354017,
-      "last_updated": "2026-03-13",
+      "streams": 202633807,
+      "daily_streams": 349669,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -15344,7 +15344,7 @@
       "current_milestone_label": "200M",
       "next_milestone": 300000000,
       "next_milestone_label": "300M",
-      "remaining_to_next_milestone": 97715862,
+      "remaining_to_next_milestone": 97366193,
       "appearances": [
         {
           "source_type": "album",
@@ -15370,7 +15370,7 @@
         "62V2ZHslgQV98gH4AuVXnr"
       ],
       "rank_total": 180,
-      "rank_daily": 32
+      "rank_daily": 33
     },
     {
       "track_id": "6hKfPNnVlA2cgTgKj6Vgcw",
