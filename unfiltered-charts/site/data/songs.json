@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 8,
-    "total_combined_streams": 121432358039,
+    "songs_updated_on_latest_date": 9,
+    "total_combined_streams": 121432359635,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -1201,7 +1201,7 @@
         "4YrpqEBNuz7IMsZtUP6bNQ"
       ],
       "rank_total": 413,
-      "rank_daily": 426
+      "rank_daily": 425
     },
     {
       "track_id": "2oWpe2L8ypC080BxpDVuTY",
@@ -8984,9 +8984,9 @@
       "title_key": "i can do it with a broken heart - instrumental",
       "spotify_url": "https://open.spotify.com/intl-fr/track/2PGIFYRG1XWsPqNG14hgD1",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273f7dd2c5a8045a39fcecbfe8e",
-      "streams": 5059699,
-      "daily_streams": 1759,
-      "last_updated": "2026-03-13",
+      "streams": 5061295,
+      "daily_streams": 1596,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -8995,7 +8995,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 94940301,
+      "remaining_to_next_milestone": 94938705,
       "appearances": [
         {
           "source_type": "misc",
@@ -9021,7 +9021,7 @@
         "2PGIFYRG1XWsPqNG14hgD1"
       ],
       "rank_total": 432,
-      "rank_daily": 425
+      "rank_daily": 426
     },
     {
       "track_id": "5chnRTB9qMK3W1M41SnU9s",
