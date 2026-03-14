@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 434,
-    "total_combined_streams": 121478179409,
+    "songs_updated_on_latest_date": 435,
+    "total_combined_streams": 121478188760,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -2504,7 +2504,7 @@
         "7wo2UNeQBowm28hfAJsEMz"
       ],
       "rank_total": 377,
-      "rank_daily": 347
+      "rank_daily": 346
     },
     {
       "track_id": "1u8c2t2Cy7UBoG4ArRcF5g",
@@ -18144,9 +18144,9 @@
       "title_key": "the best day",
       "spotify_url": "https://open.spotify.com/intl-fr/track/5YbZZ2gYfvW1UvHHF4pVaD",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27334e5885465afc8a497ac1b7e",
-      "streams": 45681621,
-      "daily_streams": 9503,
-      "last_updated": "2026-03-13",
+      "streams": 45690972,
+      "daily_streams": 9351,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -18155,7 +18155,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 54318379,
+      "remaining_to_next_milestone": 54309028,
       "appearances": [
         {
           "source_type": "album",
@@ -18181,7 +18181,7 @@
         "5YbZZ2gYfvW1UvHHF4pVaD"
       ],
       "rank_total": 335,
-      "rank_daily": 346
+      "rank_daily": 347
     },
     {
       "track_id": "6ON9UuIq49xXY9GPmHIYRp",
