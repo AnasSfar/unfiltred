@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 47,
-    "total_combined_streams": 121437891194,
+    "songs_updated_on_latest_date": 49,
+    "total_combined_streams": 121437954980,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -594,9 +594,9 @@
       "title_key": "all too well",
       "spotify_url": "https://open.spotify.com/intl-fr/track/4XMP3zVxrnr58T0tjIHvpR",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27396384c98ac4f3e7c2440f5b5",
-      "streams": 270853678,
-      "daily_streams": 29006,
-      "last_updated": "2026-03-13",
+      "streams": 270882339,
+      "daily_streams": 28661,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -605,7 +605,7 @@
       "current_milestone_label": "200M",
       "next_milestone": 300000000,
       "next_milestone_label": "300M",
-      "remaining_to_next_milestone": 29146322,
+      "remaining_to_next_milestone": 29117661,
       "appearances": [
         {
           "source_type": "album",
@@ -631,7 +631,7 @@
         "4XMP3zVxrnr58T0tjIHvpR"
       ],
       "rank_total": 139,
-      "rank_daily": 257
+      "rank_daily": 259
     },
     {
       "track_id": "5enxwA8aAbwZbf5qCHORXi",
@@ -3335,7 +3335,7 @@
         "4ABYxlb92WBIjHu7TIKmml"
       ],
       "rank_total": 262,
-      "rank_daily": 246
+      "rank_daily": 245
     },
     {
       "track_id": "0sY6ZUTh4yoctD8VIXz339",
@@ -9732,7 +9732,7 @@
         "5gRYrtvyVyaCRvLt56OfuV"
       ],
       "rank_total": 198,
-      "rank_daily": 259
+      "rank_daily": 258
     },
     {
       "track_id": "43y1WpBdnEy5TR9aZoSQL9",
@@ -9932,8 +9932,8 @@
       "title_key": "if this was a movie (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/0kAZ3H6G9Zac4PMpmobMkj",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273afe932e498abc159219bd2f3",
-      "streams": 95104511,
-      "daily_streams": 36182,
+      "streams": 95139636,
+      "daily_streams": 35125,
       "last_updated": "2026-03-13",
       "primary_artist": "Taylor Swift",
       "artists": [
@@ -9943,7 +9943,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 4895489,
+      "remaining_to_next_milestone": 4860364,
       "appearances": [
         {
           "source_type": "misc",
@@ -9969,7 +9969,7 @@
         "0kAZ3H6G9Zac4PMpmobMkj"
       ],
       "rank_total": 273,
-      "rank_daily": 245
+      "rank_daily": 246
     },
     {
       "track_id": "2NmsngXHeC1GQ9wWrzhOMf",
@@ -15667,7 +15667,7 @@
         "0z9UVN8VBHJ9HdfYsOuuNf"
       ],
       "rank_total": 146,
-      "rank_daily": 258
+      "rank_daily": 257
     },
     {
       "track_id": "71IScwIe7bcIlpnlkbKVQw",
