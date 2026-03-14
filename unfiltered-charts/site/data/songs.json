@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 52,
-    "total_combined_streams": 121438835809,
+    "songs_updated_on_latest_date": 53,
+    "total_combined_streams": 121438844017,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -1030,7 +1030,7 @@
         "16M9Rxid0nXhVmme7lzVwN"
       ],
       "rank_total": 362,
-      "rank_daily": 361
+      "rank_daily": 362
     },
     {
       "track_id": "2d3d9xZutJjmUpntiyHt3F",
@@ -4045,9 +4045,9 @@
       "title_key": "come back...be here",
       "spotify_url": "https://open.spotify.com/intl-fr/track/4qyalTRMRH5YuEntvvMvq0",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273a7613d346501b828b56a0bc3",
-      "streams": 46794721,
-      "daily_streams": 8018,
-      "last_updated": "2026-03-13",
+      "streams": 46802929,
+      "daily_streams": 8208,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -4056,7 +4056,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 53205279,
+      "remaining_to_next_milestone": 53197071,
       "appearances": [
         {
           "source_type": "album",
@@ -4082,7 +4082,7 @@
         "4qyalTRMRH5YuEntvvMvq0"
       ],
       "rank_total": 331,
-      "rank_daily": 362
+      "rank_daily": 361
     },
     {
       "track_id": "4pNApnaUWAL2J4KO2eqokq",
