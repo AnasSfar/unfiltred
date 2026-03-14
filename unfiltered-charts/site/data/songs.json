@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 332,
-    "total_combined_streams": 121466480459,
+    "songs_updated_on_latest_date": 335,
+    "total_combined_streams": 121466586571,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -721,7 +721,7 @@
         "1u4HUiREUR6vX1W1RYG2Tm"
       ],
       "rank_total": 387,
-      "rank_daily": 389
+      "rank_daily": 390
     },
     {
       "track_id": "1n3b9Eekoy3S9ZSZ5DmTW1",
@@ -2266,7 +2266,7 @@
       "merged_track_ids": [
         "6505MLhnqTDDg4tjoUz2Wp"
       ],
-      "rank_total": 422,
+      "rank_total": 423,
       "rank_daily": 429
     },
     {
@@ -2414,7 +2414,7 @@
         "1mh5dObNoOvCfHmXnhvDEK"
       ],
       "rank_total": 390,
-      "rank_daily": 393
+      "rank_daily": 394
     },
     {
       "track_id": "71CBDRKmF2VeRKYMG1DFBh",
@@ -6331,7 +6331,7 @@
         "4yyKppX85ZkmlGOC2toBZA"
       ],
       "rank_total": 402,
-      "rank_daily": 392
+      "rank_daily": 393
     },
     {
       "track_id": "3O5osWf1rSoKMwe6E9ZaXP",
@@ -8151,7 +8151,7 @@
         "62rlxI6g2PNaWsHoiRryto"
       ],
       "rank_total": 361,
-      "rank_daily": 390
+      "rank_daily": 391
     },
     {
       "track_id": "6wcFdMmiDscAhZJrcVFumx",
@@ -8757,9 +8757,9 @@
       "title_key": "i almost do",
       "spotify_url": "https://open.spotify.com/intl-fr/track/5VwFkx7JOimOGTYfha5rs1",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27396384c98ac4f3e7c2440f5b5",
-      "streams": 67175191,
-      "daily_streams": 8462,
-      "last_updated": "2026-03-13",
+      "streams": 67183599,
+      "daily_streams": 8408,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -8768,7 +8768,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 32824809,
+      "remaining_to_next_milestone": 32816401,
       "appearances": [
         {
           "source_type": "album",
@@ -8793,7 +8793,7 @@
       "merged_track_ids": [
         "5VwFkx7JOimOGTYfha5rs1"
       ],
-      "rank_total": 305,
+      "rank_total": 304,
       "rank_daily": 357
     },
     {
@@ -8847,9 +8847,9 @@
       "title_key": "i bet you think about me (feat. chris stapleton) (taylor's version) (from the vault)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/4CkgMiMqZ5JzW9iYXSTMTL",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273318443aab3531a0558e79a4d",
-      "streams": 282759633,
-      "daily_streams": 93302,
-      "last_updated": "2026-03-13",
+      "streams": 282852286,
+      "daily_streams": 92653,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift",
@@ -8859,7 +8859,7 @@
       "current_milestone_label": "200M",
       "next_milestone": 300000000,
       "next_milestone_label": "300M",
-      "remaining_to_next_milestone": 17240367,
+      "remaining_to_next_milestone": 17147714,
       "appearances": [
         {
           "source_type": "album",
@@ -8939,9 +8939,9 @@
       "title_key": "i can do it with a broken heart - dombresky remix",
       "spotify_url": "https://open.spotify.com/intl-fr/track/0hFF0aqyjDwDh6SQwRbTyx",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273f7dd2c5a8045a39fcecbfe8e",
-      "streams": 7759279,
-      "daily_streams": 4709,
-      "last_updated": "2026-03-13",
+      "streams": 7764330,
+      "daily_streams": 5051,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -8950,7 +8950,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 92240721,
+      "remaining_to_next_milestone": 92235670,
       "appearances": [
         {
           "source_type": "misc",
@@ -8975,8 +8975,8 @@
       "merged_track_ids": [
         "0hFF0aqyjDwDh6SQwRbTyx"
       ],
-      "rank_total": 423,
-      "rank_daily": 394
+      "rank_total": 422,
+      "rank_daily": 389
     },
     {
       "track_id": "2PGIFYRG1XWsPqNG14hgD1",
@@ -9878,7 +9878,7 @@
       "merged_track_ids": [
         "0JIdBrXGSJXS72zjF9ss9u"
       ],
-      "rank_total": 304,
+      "rank_total": 305,
       "rank_daily": 299
     },
     {
@@ -21895,7 +21895,7 @@
         "2NnrAdjE9cPdMklonMBuAv"
       ],
       "rank_total": 341,
-      "rank_daily": 391
+      "rank_daily": 392
     },
     {
       "track_id": "77d7q9TNbsIDmRTDPkPv3L",
