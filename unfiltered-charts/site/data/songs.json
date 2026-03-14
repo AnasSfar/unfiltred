@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 45,
-    "total_combined_streams": 121437691318,
+    "songs_updated_on_latest_date": 46,
+    "total_combined_streams": 121437708624,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -439,7 +439,7 @@
         "73OX8GdpOeGzKC6OvGSbsv"
       ],
       "rank_total": 318,
-      "rank_daily": 312
+      "rank_daily": 311
     },
     {
       "track_id": "2x3mwb96B6TquRqMtbxUE1",
@@ -12334,9 +12334,9 @@
       "title_key": "mary's song (oh my my my)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/2QrQCMel6v2JiLxqrg4p2O",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2732f8c0fd72a80a93f8c53b96c",
-      "streams": 62704632,
-      "daily_streams": 17333,
-      "last_updated": "2026-03-13",
+      "streams": 62721938,
+      "daily_streams": 17306,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -12345,7 +12345,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 37295368,
+      "remaining_to_next_milestone": 37278062,
       "appearances": [
         {
           "source_type": "album",
@@ -12371,7 +12371,7 @@
         "2QrQCMel6v2JiLxqrg4p2O"
       ],
       "rank_total": 308,
-      "rank_daily": 311
+      "rank_daily": 312
     },
     {
       "track_id": "1QQii3pa5m8MEda0nbkjfw",
