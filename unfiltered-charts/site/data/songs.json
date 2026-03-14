@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 265,
-    "total_combined_streams": 121458826013,
+    "songs_updated_on_latest_date": 266,
+    "total_combined_streams": 121458903926,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -2030,7 +2030,7 @@
         "05GsNucq8Bngd9fnd4fRa0"
       ],
       "rank_total": 205,
-      "rank_daily": 156
+      "rank_daily": 155
     },
     {
       "track_id": "3qoftcUZaUOncvIYjFSPdE",
@@ -5533,9 +5533,9 @@
       "title_key": "dorothea",
       "spotify_url": "https://open.spotify.com/intl-fr/track/670fUmXf4KQekzbEgaXyPA",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27333b8541201f1ef38941024be",
-      "streams": 229592692,
-      "daily_streams": 83104,
-      "last_updated": "2026-03-13",
+      "streams": 229670605,
+      "daily_streams": 77913,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -5544,7 +5544,7 @@
       "current_milestone_label": "200M",
       "next_milestone": 300000000,
       "next_milestone_label": "300M",
-      "remaining_to_next_milestone": 70407308,
+      "remaining_to_next_milestone": 70329395,
       "appearances": [
         {
           "source_type": "album",
@@ -5570,7 +5570,7 @@
         "670fUmXf4KQekzbEgaXyPA"
       ],
       "rank_total": 164,
-      "rank_daily": 155
+      "rank_daily": 161
     },
     {
       "track_id": "2F3N9tdombb64aW6VtZOdo",
@@ -9066,7 +9066,7 @@
         "5chnRTB9qMK3W1M41SnU9s"
       ],
       "rank_total": 188,
-      "rank_daily": 158
+      "rank_daily": 157
     },
     {
       "track_id": "5kHMfzgLZP95O9NBy0ku4v",
@@ -9687,7 +9687,7 @@
         "2YWtcWi3a83pdEg3Gif4Pd"
       ],
       "rank_total": 108,
-      "rank_daily": 157
+      "rank_daily": 156
     },
     {
       "track_id": "5gRYrtvyVyaCRvLt56OfuV",
@@ -10985,7 +10985,7 @@
         "59KOoHFcw5XfICnO57holu"
       ],
       "rank_total": 238,
-      "rank_daily": 160
+      "rank_daily": 159
     },
     {
       "track_id": "6hH37tyeRdyan1mAppmVor",
@@ -13493,7 +13493,7 @@
         "6rZVy6FIG7lSJQMFXHo12z"
       ],
       "rank_total": 114,
-      "rank_daily": 161
+      "rank_daily": 160
     },
     {
       "track_id": "5M787RexsAiVYjQusM98CV",
@@ -13583,7 +13583,7 @@
         "7F5oktn5YOsR9eR5YsFtqb"
       ],
       "rank_total": 140,
-      "rank_daily": 159
+      "rank_daily": 158
     },
     {
       "track_id": "13tYZVTtzLUJTlM7m1ivbi",
