@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 286,
-    "total_combined_streams": 121461914984,
+    "songs_updated_on_latest_date": 288,
+    "total_combined_streams": 121462367479,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -5150,7 +5150,7 @@
         "6NFyWDv5CjfwuzoCkw47Xf"
       ],
       "rank_total": 12,
-      "rank_daily": 25
+      "rank_daily": 24
     },
     {
       "track_id": "5Iadj8IBPrt634WW0yGPRI",
@@ -6471,14 +6471,14 @@
       "rank_daily": 110
     },
     {
-      "track_id": "6kz2hkq1xQvDqPcUyBkw8f",
+      "track_id": "4pvb0WLRcMtbPGmtejJJ6y",
       "title": "exile (feat. Bon Iver)",
       "title_key": "exile (feat. bon iver)",
-      "spotify_url": "https://open.spotify.com/intl-fr/track/6kz2hkq1xQvDqPcUyBkw8f",
-      "image_url": "https://i.scdn.co/image/ab67616d0000b273045514e3ed4e1767a7c3ece5",
-      "streams": 1065499598,
-      "daily_streams": 467869,
-      "last_updated": "2026-03-13",
+      "spotify_url": "https://open.spotify.com/intl-fr/track/4pvb0WLRcMtbPGmtejJJ6y",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b27395f754318336a07e85ec59bc",
+      "streams": 1065947004,
+      "daily_streams": 447406,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift",
@@ -6488,7 +6488,7 @@
       "current_milestone_label": "1B",
       "next_milestone": 1100000000,
       "next_milestone_label": "1.1B",
-      "remaining_to_next_milestone": 34500402,
+      "remaining_to_next_milestone": 34052996,
       "appearances": [
         {
           "source_type": "album",
@@ -6527,7 +6527,7 @@
         "6kz2hkq1xQvDqPcUyBkw8f"
       ],
       "rank_total": 22,
-      "rank_daily": 20
+      "rank_daily": 25
     },
     {
       "track_id": "2NIBaWXdjaTDmytjjwbEfP",
@@ -7959,7 +7959,7 @@
         "0W0iAC1VGlB82PI6elxFYf"
       ],
       "rank_total": 57,
-      "rank_daily": 22
+      "rank_daily": 21
     },
     {
       "track_id": "73YUReisjb3A9ActdLLjJQ",
@@ -8442,9 +8442,9 @@
       "title_key": "hoax - the long pond studio sessions",
       "spotify_url": "https://open.spotify.com/intl-fr/track/0QTBsdoJhamY3Aid3fOsOd",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273045514e3ed4e1767a7c3ece5",
-      "streams": 16297585,
-      "daily_streams": 5366,
-      "last_updated": "2026-03-13",
+      "streams": 16302674,
+      "daily_streams": 5089,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -8453,7 +8453,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 83702415,
+      "remaining_to_next_milestone": 83697326,
       "appearances": [
         {
           "source_type": "album",
@@ -8479,7 +8479,7 @@
         "0QTBsdoJhamY3Aid3fOsOd"
       ],
       "rank_total": 391,
-      "rank_daily": 384
+      "rank_daily": 386
     },
     {
       "track_id": "5d2Kn9oAAh9S2EbyCo1i52",
@@ -14773,7 +14773,7 @@
         "4YHHz3VIXgNDGdoL9xC1tx"
       ],
       "rank_total": 397,
-      "rank_daily": 386
+      "rank_daily": 385
     },
     {
       "track_id": "3zMDGj4D8ogaYgAIZPeU7S",
@@ -19035,7 +19035,7 @@
         "5eXgqtg3T8Av0m1FUaGHex"
       ],
       "rank_total": 155,
-      "rank_daily": 23
+      "rank_daily": 22
     },
     {
       "track_id": "2DF2sUvgHFKJ5TQGjm6n3T",
@@ -21520,7 +21520,7 @@
         "2TEQvxxQabwLQMqWMg1qGu"
       ],
       "rank_total": 151,
-      "rank_daily": 24
+      "rank_daily": 23
     },
     {
       "track_id": "1qwClaxDb5fCrLjXaAmB35",
@@ -21634,7 +21634,7 @@
         "4A4A6dwl5DqdqrZaEtKGPR"
       ],
       "rank_total": 14,
-      "rank_daily": 21
+      "rank_daily": 20
     },
     {
       "track_id": "1K39ty6o1sHwwlZwO6a7wK",
@@ -21977,7 +21977,7 @@
         "77d7q9TNbsIDmRTDPkPv3L"
       ],
       "rank_total": 378,
-      "rank_daily": 385
+      "rank_daily": 384
     },
     {
       "track_id": "5XkJj6sV2XLMaURdmdXgNx",
