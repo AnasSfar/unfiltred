@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 255,
-    "total_combined_streams": 121458222478,
+    "songs_updated_on_latest_date": 257,
+    "total_combined_streams": 121458246790,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -4876,9 +4876,9 @@
       "title_key": "dear john",
       "spotify_url": "https://open.spotify.com/intl-fr/track/3K2es3gElMRJ3qvmPW442g",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273d0eae3c1661a96570f0ca7bd",
-      "streams": 155233056,
-      "daily_streams": 23438,
-      "last_updated": "2026-03-13",
+      "streams": 155256370,
+      "daily_streams": 23314,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -4887,7 +4887,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 44766944,
+      "remaining_to_next_milestone": 44743630,
       "appearances": [
         {
           "source_type": "album",
@@ -11177,9 +11177,9 @@
       "title_key": "lavender haze - jungle remix",
       "spotify_url": "https://open.spotify.com/intl-fr/track/0ThxqUZ9PwS6n0UT5i1XH6",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273f7c84273e5c8ecb7594b4357",
-      "streams": 3069766,
-      "daily_streams": 889,
-      "last_updated": "2026-03-13",
+      "streams": 3070764,
+      "daily_streams": 998,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -11188,7 +11188,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 96930234,
+      "remaining_to_next_milestone": 96929236,
       "appearances": [
         {
           "source_type": "misc",
