@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 450,
-    "total_combined_streams": 121483145801,
+    "songs_updated_on_latest_date": 451,
+    "total_combined_streams": 121483145957,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -20216,9 +20216,9 @@
       "title_key": "this is why we can't have nice things - karaoke version",
       "spotify_url": "https://open.spotify.com/intl-fr/track/0MtU9ETYyVX8YPBDCYPdMb",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27305fd6906725e3f12544c2d04",
-      "streams": 341391,
-      "daily_streams": 158,
-      "last_updated": "2026-03-13",
+      "streams": 341547,
+      "daily_streams": 156,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -20227,7 +20227,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 99658609,
+      "remaining_to_next_milestone": 99658453,
       "appearances": [
         {
           "source_type": "misc",
