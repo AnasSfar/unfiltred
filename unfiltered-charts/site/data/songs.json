@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 221,
-    "total_combined_streams": 121455119781,
+    "songs_updated_on_latest_date": 222,
+    "total_combined_streams": 121455186589,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -9605,9 +9605,9 @@
       "title_key": "i look in people's windows",
       "spotify_url": "https://open.spotify.com/intl-fr/track/1Zai5UJ2di3qEuR2HeT2s8",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2738ecc33f195df6aa257c39eaa",
-      "streams": 129522507,
-      "daily_streams": 67444,
-      "last_updated": "2026-03-13",
+      "streams": 129589315,
+      "daily_streams": 66808,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -9616,7 +9616,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 70477493,
+      "remaining_to_next_milestone": 70410685,
       "appearances": [
         {
           "source_type": "album",
@@ -9642,7 +9642,7 @@
         "1Zai5UJ2di3qEuR2HeT2s8"
       ],
       "rank_total": 245,
-      "rank_daily": 177
+      "rank_daily": 178
     },
     {
       "track_id": "2YWtcWi3a83pdEg3Gif4Pd",
@@ -16279,7 +16279,7 @@
         "5PxFv9yJEg9dxvbZggykro"
       ],
       "rank_total": 158,
-      "rank_daily": 178
+      "rank_daily": 177
     },
     {
       "track_id": "5oJUjUsBZcqyEhOdpif37h",
