@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 166,
-    "total_combined_streams": 121449599027,
+    "songs_updated_on_latest_date": 167,
+    "total_combined_streams": 121449652764,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -4480,7 +4480,7 @@
         "5vyxXfD5gLlyPxGZMEjtmd"
       ],
       "rank_total": 231,
-      "rank_daily": 205
+      "rank_daily": 204
     },
     {
       "track_id": "1kHVme7OVyPqhtdiLj2SI4",
@@ -17646,7 +17646,7 @@
         "7zMcNqs55Mxer82bvZFkpg"
       ],
       "rank_total": 143,
-      "rank_daily": 207
+      "rank_daily": 206
     },
     {
       "track_id": "6vLpy7UPYuOa75Bkqocrcw",
@@ -19799,9 +19799,9 @@
       "title_key": "the story of us (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/6dTA6y0C2ReQklntzZl8l3",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2730b04da4f224b51ff86e0a481",
-      "streams": 145674193,
-      "daily_streams": 54711,
-      "last_updated": "2026-03-13",
+      "streams": 145727930,
+      "daily_streams": 53737,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -19810,7 +19810,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 54325807,
+      "remaining_to_next_milestone": 54272070,
       "appearances": [
         {
           "source_type": "album",
@@ -19836,7 +19836,7 @@
         "6dTA6y0C2ReQklntzZl8l3"
       ],
       "rank_total": 227,
-      "rank_daily": 204
+      "rank_daily": 207
     },
     {
       "track_id": "72GIZuUXo14oyrS0si3Rgc",
@@ -22149,7 +22149,7 @@
         "6HRsJu8vcnzYDN4t0570FY"
       ],
       "rank_total": 254,
-      "rank_daily": 206
+      "rank_daily": 205
     },
     {
       "track_id": "5ylJtmaWPJ33cW3En7WOu0",
