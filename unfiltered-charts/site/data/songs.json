@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 394,
-    "total_combined_streams": 121472322182,
+    "songs_updated_on_latest_date": 395,
+    "total_combined_streams": 121472417371,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -2312,7 +2312,7 @@
         "5kI4eCXXzyuIUXjQra0Cxi"
       ],
       "rank_total": 76,
-      "rank_daily": 143
+      "rank_daily": 144
     },
     {
       "track_id": "4GS68CE8nKLIKjjapiSm2I",
@@ -8885,7 +8885,7 @@
         "4CkgMiMqZ5JzW9iYXSTMTL"
       ],
       "rank_total": 130,
-      "rank_daily": 145
+      "rank_daily": 146
     },
     {
       "track_id": "4dgf2DYVJbtmy8zAYLs4c7",
@@ -11520,7 +11520,7 @@
         "4hqJ4bSlYJOXb6Z4SRmzxs"
       ],
       "rank_total": 172,
-      "rank_daily": 140
+      "rank_daily": 141
     },
     {
       "track_id": "2o2sgVJIgFXk8GQjWTgI6U",
@@ -12281,7 +12281,7 @@
         "12ntTeqEeTg7GAVpe8Mhpl"
       ],
       "rank_total": 117,
-      "rank_daily": 144
+      "rank_daily": 145
     },
     {
       "track_id": "3eX0NZfLtGzoLUxPNvRfqm",
@@ -12903,7 +12903,7 @@
         "7G0gBu6nLdhFDPRLc0HdDG"
       ],
       "rank_total": 136,
-      "rank_daily": 146
+      "rank_daily": 147
     },
     {
       "track_id": "7yndkPYP6YQQLBpPsizDfh",
@@ -13694,9 +13694,9 @@
       "title_key": "nothing new (feat. phoebe bridgers) (taylor's version) (from the vault)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/01K4zKU104LyJ8gMb7227B",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273318443aab3531a0558e79a4d",
-      "streams": 296215505,
-      "daily_streams": 92213,
-      "last_updated": "2026-03-13",
+      "streams": 296310694,
+      "daily_streams": 95189,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift",
@@ -13706,7 +13706,7 @@
       "current_milestone_label": "200M",
       "next_milestone": 300000000,
       "next_milestone_label": "300M",
-      "remaining_to_next_milestone": 3784495,
+      "remaining_to_next_milestone": 3689306,
       "appearances": [
         {
           "source_type": "album",
@@ -13732,7 +13732,7 @@
         "01K4zKU104LyJ8gMb7227B"
       ],
       "rank_total": 122,
-      "rank_daily": 147
+      "rank_daily": 140
     },
     {
       "track_id": "5QUIK7ZtziW8kGWo8RqopF",
@@ -15100,7 +15100,7 @@
         "73W5aXorr5vxrySFcoZqIN"
       ],
       "rank_total": 185,
-      "rank_daily": 142
+      "rank_daily": 143
     },
     {
       "track_id": "06zIBqLC9ZRm5i0iMf0kHI",
@@ -22239,7 +22239,7 @@
         "4txojlesMFQZGWxwz2EeqB"
       ],
       "rank_total": 104,
-      "rank_daily": 141
+      "rank_daily": 142
     },
     {
       "track_id": "4CHpVfAhuxNJ3ibExe6kxO",
