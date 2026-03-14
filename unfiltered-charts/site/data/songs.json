@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 27,
-    "total_combined_streams": 121435545933,
+    "songs_updated_on_latest_date": 28,
+    "total_combined_streams": 121435598391,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -8712,9 +8712,9 @@
       "title_key": "how you get the girl (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/733OhaXQIHY7BKtY3vnSkn",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273dc2bacae1dca83d26e2b1949",
-      "streams": 121098122,
-      "daily_streams": 51329,
-      "last_updated": "2026-03-13",
+      "streams": 121150580,
+      "daily_streams": 52458,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -8723,7 +8723,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 78901878,
+      "remaining_to_next_milestone": 78849420,
       "appearances": [
         {
           "source_type": "album",
@@ -8749,7 +8749,7 @@
         "733OhaXQIHY7BKtY3vnSkn"
       ],
       "rank_total": 255,
-      "rank_daily": 211
+      "rank_daily": 210
     },
     {
       "track_id": "5VwFkx7JOimOGTYfha5rs1",
@@ -15235,7 +15235,7 @@
         "2CnjDMdpRjlWv04Xk3s6MW"
       ],
       "rank_total": 277,
-      "rank_daily": 210
+      "rank_daily": 211
     },
     {
       "track_id": "0Nw8hv79MLJa1yjtsEgz08",
