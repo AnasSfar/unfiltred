@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 247,
-    "total_combined_streams": 121456253593,
+    "songs_updated_on_latest_date": 248,
+    "total_combined_streams": 121457433988,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -4483,14 +4483,14 @@
       "rank_daily": 203
     },
     {
-      "track_id": "1kHVme7OVyPqhtdiLj2SI4",
+      "track_id": "1BxfuPKGuaTgP7aM0Bbdwr",
       "title": "Cruel Summer",
       "title_key": "cruel summer",
-      "spotify_url": "https://open.spotify.com/intl-fr/track/1kHVme7OVyPqhtdiLj2SI4",
-      "image_url": "https://i.scdn.co/image/ab67616d0000b273905c0872bdf4e1787a6bb5da",
-      "streams": 3277538783,
-      "daily_streams": 1121224,
-      "last_updated": "2026-03-13",
+      "spotify_url": "https://open.spotify.com/intl-fr/track/1BxfuPKGuaTgP7aM0Bbdwr",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273e787cffec20aa2a396a61647",
+      "streams": 3278719178,
+      "daily_streams": 1180395,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -4499,7 +4499,7 @@
       "current_milestone_label": "3.2B",
       "next_milestone": 3300000000,
       "next_milestone_label": "3.3B",
-      "remaining_to_next_milestone": 22461217,
+      "remaining_to_next_milestone": 21280822,
       "appearances": [
         {
           "source_type": "album",
