@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 59,
-    "total_combined_streams": 121439773306,
+    "songs_updated_on_latest_date": 60,
+    "total_combined_streams": 121439897551,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -8352,9 +8352,9 @@
       "title_key": "hits different",
       "spotify_url": "https://open.spotify.com/intl-fr/track/3xYJScVfxByb61dYHTwiby",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273fa747621a53c8e2cc436dee0",
-      "streams": 282197112,
-      "daily_streams": 118470,
-      "last_updated": "2026-03-13",
+      "streams": 282321357,
+      "daily_streams": 124245,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -8363,7 +8363,7 @@
       "current_milestone_label": "200M",
       "next_milestone": 300000000,
       "next_milestone_label": "300M",
-      "remaining_to_next_milestone": 17802888,
+      "remaining_to_next_milestone": 17678643,
       "appearances": [
         {
           "source_type": "album",
@@ -8389,7 +8389,7 @@
         "3xYJScVfxByb61dYHTwiby"
       ],
       "rank_total": 132,
-      "rank_daily": 114
+      "rank_daily": 111
     },
     {
       "track_id": "6MWoRt97mnSTXZhu3ggi9C",
@@ -8659,7 +8659,7 @@
         "5Bedn0svl0ZD7RGmJkmKKw"
       ],
       "rank_total": 175,
-      "rank_daily": 112
+      "rank_daily": 113
     },
     {
       "track_id": "6wfugRLamFsTRbPcCpNnP7",
@@ -12416,7 +12416,7 @@
         "1QQii3pa5m8MEda0nbkjfw"
       ],
       "rank_total": 73,
-      "rank_daily": 111
+      "rank_daily": 112
     },
     {
       "track_id": "2Rk4JlNc2TPmZe2af99d45",
@@ -18271,7 +18271,7 @@
         "62E2nR0od0M5HYxuYLaDz7"
       ],
       "rank_total": 177,
-      "rank_daily": 113
+      "rank_daily": 114
     },
     {
       "track_id": "2913xXOVAIDAqxzV2g4VcU",
