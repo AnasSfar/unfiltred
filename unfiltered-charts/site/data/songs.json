@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 445,
-    "total_combined_streams": 121482700885,
+    "songs_updated_on_latest_date": 446,
+    "total_combined_streams": 121482706117,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -8479,7 +8479,7 @@
         "0QTBsdoJhamY3Aid3fOsOd"
       ],
       "rank_total": 391,
-      "rank_daily": 385
+      "rank_daily": 386
     },
     {
       "track_id": "5d2Kn9oAAh9S2EbyCo1i52",
@@ -18136,7 +18136,7 @@
         "2fgiBCtbWo8pijF6M7pN1i"
       ],
       "rank_total": 396,
-      "rank_daily": 386
+      "rank_daily": 387
     },
     {
       "track_id": "5YbZZ2gYfvW1UvHHF4pVaD",
@@ -19511,14 +19511,14 @@
       "rank_daily": 272
     },
     {
-      "track_id": "1yDJcXc549N6AabNBzFAku",
+      "track_id": "0xvsgzM8AtBtRHZm5rav8A",
       "title": "The Other Side Of The Door",
       "title_key": "the other side of the door",
-      "spotify_url": "https://open.spotify.com/intl-fr/track/1yDJcXc549N6AabNBzFAku",
-      "image_url": "https://i.scdn.co/image/ab67616d0000b27373b565ab9d713e8d5586aac2",
-      "streams": 17880740,
-      "daily_streams": 5058,
-      "last_updated": "2026-03-13",
+      "spotify_url": "https://open.spotify.com/intl-fr/track/0xvsgzM8AtBtRHZm5rav8A",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b27334e5885465afc8a497ac1b7e",
+      "streams": 17885972,
+      "daily_streams": 5232,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -19527,7 +19527,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 82119260,
+      "remaining_to_next_milestone": 82114028,
       "appearances": [
         {
           "source_type": "album",
@@ -19566,7 +19566,7 @@
         "1yDJcXc549N6AabNBzFAku"
       ],
       "rank_total": 384,
-      "rank_daily": 387
+      "rank_daily": 385
     },
     {
       "track_id": "1cSFlSBdpT4F5vb1frQ231",
