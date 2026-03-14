@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 118,
-    "total_combined_streams": 121446473947,
+    "songs_updated_on_latest_date": 119,
+    "total_combined_streams": 121446514715,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -856,7 +856,7 @@
         "6aLOekfwbytwWvQftxTEF0"
       ],
       "rank_total": 157,
-      "rank_daily": 226
+      "rank_daily": 225
     },
     {
       "track_id": "6GXgd1BPD9bUpqw5AntGV5",
@@ -4958,7 +4958,7 @@
         "1zU8j1x3yi9xalMF96pzKp"
       ],
       "rank_total": 222,
-      "rank_daily": 224
+      "rank_daily": 223
     },
     {
       "track_id": "10GRRCR5fctuOF4GFmATJI",
@@ -8802,9 +8802,9 @@
       "title_key": "i almost do (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/2r9CbjYgFhtAmcFv1cSquB",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273318443aab3531a0558e79a4d",
-      "streams": 125003408,
-      "daily_streams": 43827,
-      "last_updated": "2026-03-13",
+      "streams": 125044176,
+      "daily_streams": 40768,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -8813,7 +8813,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 74996592,
+      "remaining_to_next_milestone": 74955824,
       "appearances": [
         {
           "source_type": "album",
@@ -8839,7 +8839,7 @@
         "2r9CbjYgFhtAmcFv1cSquB"
       ],
       "rank_total": 249,
-      "rank_daily": 221
+      "rank_daily": 232
     },
     {
       "track_id": "4CkgMiMqZ5JzW9iYXSTMTL",
@@ -11987,7 +11987,7 @@
         "3i9UVldZOE0aD0JnyfAZZ0"
       ],
       "rank_total": 113,
-      "rank_daily": 225
+      "rank_daily": 224
     },
     {
       "track_id": "2msvOEbkK50foYf9BMXr2X",
@@ -12858,7 +12858,7 @@
         "6LZaxlycSWrJZ4Volb25qx"
       ],
       "rank_total": 150,
-      "rank_daily": 222
+      "rank_daily": 221
     },
     {
       "track_id": "7G0gBu6nLdhFDPRLc0HdDG",
@@ -15575,7 +15575,7 @@
         "73qMN9bXy7MSPwwGfH3wQr"
       ],
       "rank_total": 240,
-      "rank_daily": 229
+      "rank_daily": 228
     },
     {
       "track_id": "2RJnNdu4pb3MypbBroHU0T",
@@ -16427,7 +16427,7 @@
         "4AYtqFyFbX0Xkc2wtcygTr"
       ],
       "rank_total": 190,
-      "rank_daily": 231
+      "rank_daily": 230
     },
     {
       "track_id": "46NGAvL695VnbcSeTmQWmM",
@@ -16472,7 +16472,7 @@
         "46NGAvL695VnbcSeTmQWmM"
       ],
       "rank_total": 179,
-      "rank_daily": 230
+      "rank_daily": 229
     },
     {
       "track_id": "3MytWN8L7shNYzGl4tAKRp",
@@ -16664,7 +16664,7 @@
         "5xXqyjLicvEpch72qEryFT"
       ],
       "rank_total": 228,
-      "rank_daily": 227
+      "rank_daily": 226
     },
     {
       "track_id": "3QFB14MOUf3imlyISNmrbT",
@@ -16946,7 +16946,7 @@
         "6lzc0Al0zfZOIFsFvBS1ki"
       ],
       "rank_total": 209,
-      "rank_daily": 223
+      "rank_daily": 222
     },
     {
       "track_id": "5G9AVKld9q7DCrmoY42raf",
@@ -18693,7 +18693,7 @@
         "3wx2iW1rJGgdNln2I64HNh"
       ],
       "rank_total": 167,
-      "rank_daily": 232
+      "rank_daily": 231
     },
     {
       "track_id": "0eFQWVz0qIxDOvhLpZ40P7",
@@ -21589,7 +21589,7 @@
         "1qwClaxDb5fCrLjXaAmB35"
       ],
       "rank_total": 403,
-      "rank_daily": 228
+      "rank_daily": 227
     },
     {
       "track_id": "4A4A6dwl5DqdqrZaEtKGPR",
