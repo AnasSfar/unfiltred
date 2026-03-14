@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 80,
-    "total_combined_streams": 121442773885,
+    "songs_updated_on_latest_date": 82,
+    "total_combined_streams": 121442886603,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -1792,7 +1792,7 @@
         "6xsEAm6w9oMQYYg3jkEkMT"
       ],
       "rank_total": 168,
-      "rank_daily": 192
+      "rank_daily": 191
     },
     {
       "track_id": "6qAcApH8obo8eqatCKUHd9",
@@ -4127,7 +4127,7 @@
         "4pNApnaUWAL2J4KO2eqokq"
       ],
       "rank_total": 215,
-      "rank_daily": 197
+      "rank_daily": 196
     },
     {
       "track_id": "4pl5zcqCv4vc3cB7M4MZ6f",
@@ -5003,7 +5003,7 @@
         "10GRRCR5fctuOF4GFmATJI"
       ],
       "rank_total": 192,
-      "rank_daily": 196
+      "rank_daily": 195
     },
     {
       "track_id": "2dgFqt3w9xIQRjhPtwNk3D",
@@ -6286,7 +6286,7 @@
         "08fa9LFcFBTcilB3iq2e2A"
       ],
       "rank_total": 162,
-      "rank_daily": 195
+      "rank_daily": 194
     },
     {
       "track_id": "4yyKppX85ZkmlGOC2toBZA",
@@ -9740,9 +9740,9 @@
       "title_key": "i wish you would (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/43y1WpBdnEy5TR9aZoSQL9",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273904445d70d04eb24d6bb79ac",
-      "streams": 136521008,
-      "daily_streams": 56624,
-      "last_updated": "2026-03-13",
+      "streams": 136576842,
+      "daily_streams": 55834,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -9751,7 +9751,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 63478992,
+      "remaining_to_next_milestone": 63423158,
       "appearances": [
         {
           "source_type": "album",
@@ -9777,7 +9777,7 @@
         "43y1WpBdnEy5TR9aZoSQL9"
       ],
       "rank_total": 236,
-      "rank_daily": 200
+      "rank_daily": 204
     },
     {
       "track_id": "4TtyvyI42C0KFnbDZvNC8Y",
@@ -12564,7 +12564,7 @@
         "0KztjtD3ytzgYjUKIVfBnW"
       ],
       "rank_total": 142,
-      "rank_daily": 202
+      "rank_daily": 201
     },
     {
       "track_id": "30Y4CV7A6YqtQtTTo7Ue4j",
@@ -14038,7 +14038,7 @@
         "5t1wMjV9ldVDdYs4l7mG2g"
       ],
       "rank_total": 445,
-      "rank_daily": 201
+      "rank_daily": 200
     },
     {
       "track_id": "7y16ygjcEcfo1VYKxmgVZY",
@@ -17794,7 +17794,7 @@
         "7ogK4lJDVDMU6A6vYR5rvD"
       ],
       "rank_total": 241,
-      "rank_daily": 193
+      "rank_daily": 192
     },
     {
       "track_id": "7eResoqEJJAVTkQYSqvO3P",
@@ -18738,7 +18738,7 @@
         "0eFQWVz0qIxDOvhLpZ40P7"
       ],
       "rank_total": 178,
-      "rank_daily": 194
+      "rank_daily": 193
     },
     {
       "track_id": "0UAdDYrkCvVQftaKpL6q5f",
@@ -18951,9 +18951,9 @@
       "title_key": "the last time (feat. gary lightbody of snow patrol) (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/0y6kdSRCVQhSsHSpWvTUm7",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273318443aab3531a0558e79a4d",
-      "streams": 162752936,
-      "daily_streams": 61622,
-      "last_updated": "2026-03-13",
+      "streams": 162809820,
+      "daily_streams": 56884,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift",
@@ -18963,7 +18963,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 37247064,
+      "remaining_to_next_milestone": 37190180,
       "appearances": [
         {
           "source_type": "album",
@@ -18989,7 +18989,7 @@
         "0y6kdSRCVQhSsHSpWvTUm7"
       ],
       "rank_total": 204,
-      "rank_daily": 190
+      "rank_daily": 197
     },
     {
       "track_id": "5eXgqtg3T8Av0m1FUaGHex",
@@ -19983,7 +19983,7 @@
         "6pYNq0ZwpPVazKzsqpf0G8"
       ],
       "rank_total": 166,
-      "rank_daily": 191
+      "rank_daily": 190
     },
     {
       "track_id": "77VotUUL79U10TAnYdqwvr",
@@ -20818,7 +20818,7 @@
         "1MaqkdFNIKPdpQGDzme5ss"
       ],
       "rank_total": 195,
-      "rank_daily": 203
+      "rank_daily": 202
     },
     {
       "track_id": "6ovFJkdau79DuXEvQjPaNH",
@@ -22149,7 +22149,7 @@
         "6HRsJu8vcnzYDN4t0570FY"
       ],
       "rank_total": 254,
-      "rank_daily": 204
+      "rank_daily": 203
     },
     {
       "track_id": "5ylJtmaWPJ33cW3En7WOu0",
