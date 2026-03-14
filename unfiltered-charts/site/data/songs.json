@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 452,
-    "total_combined_streams": 121483154602,
+    "songs_updated_on_latest_date": 453,
+    "total_combined_streams": 121483175303,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -20543,9 +20543,9 @@
       "title_key": "today was a fairytale (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/2JoJrsEV15OzbijS47lids",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273a48964b5d9a3d6968ae3e0de",
-      "streams": 72293344,
-      "daily_streams": 20863,
-      "last_updated": "2026-03-13",
+      "streams": 72314045,
+      "daily_streams": 20701,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -20554,7 +20554,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 27706656,
+      "remaining_to_next_milestone": 27685955,
       "appearances": [
         {
           "source_type": "album",
