@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 75,
-    "total_combined_streams": 121442098316,
+    "songs_updated_on_latest_date": 77,
+    "total_combined_streams": 121442203341,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -100,7 +100,7 @@
         "6sQckd3Z8NPxVVKUnavY1F"
       ],
       "rank_total": 110,
-      "rank_daily": 187
+      "rank_daily": 186
     },
     {
       "track_id": "2yLa0QULdQr0qAIvVwN6B5",
@@ -856,7 +856,7 @@
         "6aLOekfwbytwWvQftxTEF0"
       ],
       "rank_total": 157,
-      "rank_daily": 227
+      "rank_daily": 226
     },
     {
       "track_id": "6GXgd1BPD9bUpqw5AntGV5",
@@ -864,9 +864,9 @@
       "title_key": "all you had to do was stay (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/6GXgd1BPD9bUpqw5AntGV5",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273904445d70d04eb24d6bb79ac",
-      "streams": 157563885,
-      "daily_streams": 65611,
-      "last_updated": "2026-03-13",
+      "streams": 157626841,
+      "daily_streams": 62956,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -875,7 +875,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 42436115,
+      "remaining_to_next_milestone": 42373159,
       "appearances": [
         {
           "source_type": "album",
@@ -900,8 +900,8 @@
       "merged_track_ids": [
         "6GXgd1BPD9bUpqw5AntGV5"
       ],
-      "rank_total": 215,
-      "rank_daily": 185
+      "rank_total": 214,
+      "rank_daily": 188
     },
     {
       "track_id": "2wMKBH2p5kIDFkRWjS9IOW",
@@ -4126,7 +4126,7 @@
       "merged_track_ids": [
         "4pNApnaUWAL2J4KO2eqokq"
       ],
-      "rank_total": 214,
+      "rank_total": 215,
       "rank_daily": 197
     },
     {
@@ -4958,7 +4958,7 @@
         "1zU8j1x3yi9xalMF96pzKp"
       ],
       "rank_total": 222,
-      "rank_daily": 225
+      "rank_daily": 224
     },
     {
       "track_id": "10GRRCR5fctuOF4GFmATJI",
@@ -8839,7 +8839,7 @@
         "2r9CbjYgFhtAmcFv1cSquB"
       ],
       "rank_total": 249,
-      "rank_daily": 222
+      "rank_daily": 221
     },
     {
       "track_id": "4CkgMiMqZ5JzW9iYXSTMTL",
@@ -11987,7 +11987,7 @@
         "3i9UVldZOE0aD0JnyfAZZ0"
       ],
       "rank_total": 113,
-      "rank_daily": 226
+      "rank_daily": 225
     },
     {
       "track_id": "2msvOEbkK50foYf9BMXr2X",
@@ -12191,7 +12191,7 @@
         "2QDyYdZyhlP2fp79KZX8Bi"
       ],
       "rank_total": 138,
-      "rank_daily": 186
+      "rank_daily": 185
     },
     {
       "track_id": "04xrhDrQ2WOW8GLwu7kbc0",
@@ -12858,7 +12858,7 @@
         "6LZaxlycSWrJZ4Volb25qx"
       ],
       "rank_total": 150,
-      "rank_daily": 223
+      "rank_daily": 222
     },
     {
       "track_id": "7G0gBu6nLdhFDPRLc0HdDG",
@@ -14863,7 +14863,7 @@
         "32mVHdy0bi1XKgr0ajsBlG"
       ],
       "rank_total": 149,
-      "rank_daily": 188
+      "rank_daily": 187
     },
     {
       "track_id": "0heeNYlwOGuUSe7TgUD27B",
@@ -15538,9 +15538,9 @@
       "title_key": "sad beautiful tragic (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/73qMN9bXy7MSPwwGfH3wQr",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273318443aab3531a0558e79a4d",
-      "streams": 134850689,
-      "daily_streams": 43902,
-      "last_updated": "2026-03-13",
+      "streams": 134892758,
+      "daily_streams": 42069,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -15549,7 +15549,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 65149311,
+      "remaining_to_next_milestone": 65107242,
       "appearances": [
         {
           "source_type": "album",
@@ -15575,7 +15575,7 @@
         "73qMN9bXy7MSPwwGfH3wQr"
       ],
       "rank_total": 240,
-      "rank_daily": 221
+      "rank_daily": 229
     },
     {
       "track_id": "2RJnNdu4pb3MypbBroHU0T",
@@ -16664,7 +16664,7 @@
         "5xXqyjLicvEpch72qEryFT"
       ],
       "rank_total": 228,
-      "rank_daily": 228
+      "rank_daily": 227
     },
     {
       "track_id": "3QFB14MOUf3imlyISNmrbT",
@@ -16946,7 +16946,7 @@
         "6lzc0Al0zfZOIFsFvBS1ki"
       ],
       "rank_total": 209,
-      "rank_daily": 224
+      "rank_daily": 223
     },
     {
       "track_id": "5G9AVKld9q7DCrmoY42raf",
@@ -21589,7 +21589,7 @@
         "1qwClaxDb5fCrLjXaAmB35"
       ],
       "rank_total": 403,
-      "rank_daily": 229
+      "rank_daily": 228
     },
     {
       "track_id": "4A4A6dwl5DqdqrZaEtKGPR",
