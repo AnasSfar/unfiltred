@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 204,
-    "total_combined_streams": 121454330639,
+    "songs_updated_on_latest_date": 206,
+    "total_combined_streams": 121454511076,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -2075,7 +2075,7 @@
         "3qoftcUZaUOncvIYjFSPdE"
       ],
       "rank_total": 43,
-      "rank_daily": 84
+      "rank_daily": 85
     },
     {
       "track_id": "4OmFmE0fzcMG6g0Y8p4eSD",
@@ -2847,7 +2847,7 @@
         "74sZKiwaGtSEEyjhDmi99y"
       ],
       "rank_total": 96,
-      "rank_daily": 87
+      "rank_daily": 88
     },
     {
       "track_id": "4qUijfYU8EoIWiY6oSyrgT",
@@ -3105,9 +3105,9 @@
       "title_key": "cardigan - cabin in candlelight version",
       "spotify_url": "https://open.spotify.com/intl-fr/track/2hmafYGj1CXYKIYcMnX4lj",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27326ade10c17424417bd06f1d6",
-      "streams": 47065321,
-      "daily_streams": 8291,
-      "last_updated": "2026-03-13",
+      "streams": 47073087,
+      "daily_streams": 7766,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -3116,7 +3116,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 52934679,
+      "remaining_to_next_milestone": 52926913,
       "appearances": [
         {
           "source_type": "misc",
@@ -3154,7 +3154,7 @@
         "2hmafYGj1CXYKIYcMnX4lj"
       ],
       "rank_total": 330,
-      "rank_daily": 359
+      "rank_daily": 364
     },
     {
       "track_id": "12xIjI9A9UlB6zEc7kyZ06",
@@ -4082,7 +4082,7 @@
         "4qyalTRMRH5YuEntvvMvq0"
       ],
       "rank_total": 331,
-      "rank_daily": 362
+      "rank_daily": 361
     },
     {
       "track_id": "4pNApnaUWAL2J4KO2eqokq",
@@ -6971,7 +6971,7 @@
         "3ZVFcD8Wlw9T9klGqmJf9F"
       ],
       "rank_total": 116,
-      "rank_daily": 88
+      "rank_daily": 89
     },
     {
       "track_id": "4s8BIKx4Zh6ryAEz8RTlaU",
@@ -10067,9 +10067,9 @@
       "title_key": "imgonnagetyouback",
       "spotify_url": "https://open.spotify.com/intl-fr/track/1kcwpPDQnqEqmezzXdJTCP",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2738ecc33f195df6aa257c39eaa",
-      "streams": 248201209,
-      "daily_streams": 161810,
-      "last_updated": "2026-03-13",
+      "streams": 248373880,
+      "daily_streams": 172671,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -10078,7 +10078,7 @@
       "current_milestone_label": "200M",
       "next_milestone": 300000000,
       "next_milestone_label": "300M",
-      "remaining_to_next_milestone": 51798791,
+      "remaining_to_next_milestone": 51626120,
       "appearances": [
         {
           "source_type": "album",
@@ -10104,7 +10104,7 @@
         "1kcwpPDQnqEqmezzXdJTCP"
       ],
       "rank_total": 154,
-      "rank_daily": 89
+      "rank_daily": 84
     },
     {
       "track_id": "3kfgJql90tzgoxByioAMXR",
@@ -11112,7 +11112,7 @@
         "5jQI2r1RdgtuT8S3iG8zFC"
       ],
       "rank_total": 31,
-      "rank_daily": 86
+      "rank_daily": 87
     },
     {
       "track_id": "2M4tVhRXucLE9M3STv21Yi",
@@ -11283,7 +11283,7 @@
         "6F67FNdOBNMFzxdj1CQ5pL"
       ],
       "rank_total": 381,
-      "rank_daily": 360
+      "rank_daily": 359
     },
     {
       "track_id": "7kjSmkSo15pHlkb0mOQtfj",
@@ -13120,7 +13120,7 @@
         "2yceD2hx5HhOLgkm1CITCi"
       ],
       "rank_total": 370,
-      "rank_daily": 363
+      "rank_daily": 362
     },
     {
       "track_id": "214nt20w5wOxJnY462klLw",
@@ -16766,7 +16766,7 @@
         "0vqI4ZIMuifeKeItGiWbPj"
       ],
       "rank_total": 329,
-      "rank_daily": 364
+      "rank_daily": 363
     },
     {
       "track_id": "7A2cNLRT0YJc1yjxHlKihs",
@@ -22695,7 +22695,7 @@
         "3CWq0pAKKTWb0K4yiglDc4"
       ],
       "rank_total": 92,
-      "rank_daily": 85
+      "rank_daily": 86
     },
     {
       "track_id": "6HWYtS215rxaaMjvpyG18W",
@@ -22753,7 +22753,7 @@
         "6HWYtS215rxaaMjvpyG18W"
       ],
       "rank_total": 324,
-      "rank_daily": 361
+      "rank_daily": 360
     },
     {
       "track_id": "6iiAfo4wTA2CVC3Uwx9uh8",
