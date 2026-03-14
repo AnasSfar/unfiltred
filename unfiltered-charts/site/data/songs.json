@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 403,
-    "total_combined_streams": 121475057329,
+    "songs_updated_on_latest_date": 404,
+    "total_combined_streams": 121475066346,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -1030,7 +1030,7 @@
         "16M9Rxid0nXhVmme7lzVwN"
       ],
       "rank_total": 362,
-      "rank_daily": 355
+      "rank_daily": 356
     },
     {
       "track_id": "2d3d9xZutJjmUpntiyHt3F",
@@ -1418,7 +1418,7 @@
         "4MGexoZc12lqE0hYkq9YYx"
       ],
       "rank_total": 359,
-      "rank_daily": 353
+      "rank_daily": 354
     },
     {
       "track_id": "40PXEOFLJc7UIpLMrhSfW1",
@@ -3154,7 +3154,7 @@
         "2hmafYGj1CXYKIYcMnX4lj"
       ],
       "rank_total": 330,
-      "rank_daily": 363
+      "rank_daily": 364
     },
     {
       "track_id": "12xIjI9A9UlB6zEc7kyZ06",
@@ -4082,7 +4082,7 @@
         "4qyalTRMRH5YuEntvvMvq0"
       ],
       "rank_total": 331,
-      "rank_daily": 360
+      "rank_daily": 361
     },
     {
       "track_id": "4pNApnaUWAL2J4KO2eqokq",
@@ -8794,7 +8794,7 @@
         "5VwFkx7JOimOGTYfha5rs1"
       ],
       "rank_total": 305,
-      "rank_daily": 356
+      "rank_daily": 357
     },
     {
       "track_id": "2r9CbjYgFhtAmcFv1cSquB",
@@ -9924,7 +9924,7 @@
         "0vvt4IZOMkRug195S4MUq0"
       ],
       "rank_total": 326,
-      "rank_daily": 354
+      "rank_daily": 355
     },
     {
       "track_id": "0kAZ3H6G9Zac4PMpmobMkj",
@@ -10149,7 +10149,7 @@
         "3kfgJql90tzgoxByioAMXR"
       ],
       "rank_total": 316,
-      "rank_daily": 364
+      "rank_daily": 365
     },
     {
       "track_id": "12nBPF4Rh4XLFJV0YLN7uj",
@@ -11283,7 +11283,7 @@
         "6F67FNdOBNMFzxdj1CQ5pL"
       ],
       "rank_total": 381,
-      "rank_daily": 358
+      "rank_daily": 359
     },
     {
       "track_id": "7kjSmkSo15pHlkb0mOQtfj",
@@ -13120,7 +13120,7 @@
         "2yceD2hx5HhOLgkm1CITCi"
       ],
       "rank_total": 370,
-      "rank_daily": 361
+      "rank_daily": 362
     },
     {
       "track_id": "214nt20w5wOxJnY462klLw",
@@ -14205,9 +14205,9 @@
       "title_key": "opalite - skream remix",
       "spotify_url": "https://open.spotify.com/intl-fr/track/1VCcPLfDiR1S9PJaSp5qm5",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273bcde9224bc1fb45f15c7bc56",
-      "streams": 499758,
-      "daily_streams": 7579,
-      "last_updated": "2026-03-13",
+      "streams": 508775,
+      "daily_streams": 9017,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -14216,7 +14216,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 99500242,
+      "remaining_to_next_milestone": 99491225,
       "appearances": [
         {
           "source_type": "misc",
@@ -14254,7 +14254,7 @@
         "1VCcPLfDiR1S9PJaSp5qm5"
       ],
       "rank_total": 460,
-      "rank_daily": 365
+      "rank_daily": 351
     },
     {
       "track_id": "5SkuikJwvwfEvNyCepGkq3",
@@ -16766,7 +16766,7 @@
         "0vqI4ZIMuifeKeItGiWbPj"
       ],
       "rank_total": 329,
-      "rank_daily": 362
+      "rank_daily": 363
     },
     {
       "track_id": "7A2cNLRT0YJc1yjxHlKihs",
@@ -17093,7 +17093,7 @@
         "1qLeEu4iXEclkLwoBlMiou"
       ],
       "rank_total": 307,
-      "rank_daily": 357
+      "rank_daily": 358
     },
     {
       "track_id": "7eQj6r5PIdYKEIZjucBMcq",
@@ -17556,7 +17556,7 @@
         "0RFCHlNuTeUHIB36VuVbOL"
       ],
       "rank_total": 366,
-      "rank_daily": 351
+      "rank_daily": 352
     },
     {
       "track_id": "4pJi1rVt9GNegU9kywjg4z",
@@ -20535,7 +20535,7 @@
         "4pFvEWbjBpPUdYRQly0THs"
       ],
       "rank_total": 349,
-      "rank_daily": 352
+      "rank_daily": 353
     },
     {
       "track_id": "2JoJrsEV15OzbijS47lids",
@@ -22753,7 +22753,7 @@
         "6HWYtS215rxaaMjvpyG18W"
       ],
       "rank_total": 324,
-      "rank_daily": 359
+      "rank_daily": 360
     },
     {
       "track_id": "6iiAfo4wTA2CVC3Uwx9uh8",
