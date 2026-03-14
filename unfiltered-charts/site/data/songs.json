@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 258,
-    "total_combined_streams": 121458249022,
+    "songs_updated_on_latest_date": 259,
+    "total_combined_streams": 121458249323,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -5158,9 +5158,9 @@
       "title_key": "delicate - karaoke version",
       "spotify_url": "https://open.spotify.com/intl-fr/track/5Iadj8IBPrt634WW0yGPRI",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27305fd6906725e3f12544c2d04",
-      "streams": 638025,
-      "daily_streams": 287,
-      "last_updated": "2026-03-13",
+      "streams": 638326,
+      "daily_streams": 301,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -5169,7 +5169,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 99361975,
+      "remaining_to_next_milestone": 99361674,
       "appearances": [
         {
           "source_type": "misc",
