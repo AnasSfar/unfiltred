@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 268,
-    "total_combined_streams": 121459372987,
+    "songs_updated_on_latest_date": 271,
+    "total_combined_streams": 121460172331,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -676,7 +676,7 @@
         "5enxwA8aAbwZbf5qCHORXi"
       ],
       "rank_total": 13,
-      "rank_daily": 14
+      "rank_daily": 15
     },
     {
       "track_id": "1u4HUiREUR6vX1W1RYG2Tm",
@@ -5423,7 +5423,7 @@
         "1R0a2iXumgCiFb7HEZ7gUE"
       ],
       "rank_total": 10,
-      "rank_daily": 15
+      "rank_daily": 16
     },
     {
       "track_id": "5JtXBqKLdfzwedmlUjjqAm",
@@ -5624,9 +5624,9 @@
       "title_key": "dress",
       "spotify_url": "https://open.spotify.com/intl-fr/track/6oVxXO5oQ4pTpO8RSnkzvv",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273da5d5aeeabacacc1263c0f4b",
-      "streams": 555877868,
-      "daily_streams": 487341,
-      "last_updated": "2026-03-13",
+      "streams": 556392721,
+      "daily_streams": 514853,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -5635,7 +5635,7 @@
       "current_milestone_label": "500M",
       "next_milestone": 600000000,
       "next_milestone_label": "600M",
-      "remaining_to_next_milestone": 44122132,
+      "remaining_to_next_milestone": 43607279,
       "appearances": [
         {
           "source_type": "album",
@@ -5661,7 +5661,7 @@
         "6oVxXO5oQ4pTpO8RSnkzvv"
       ],
       "rank_total": 55,
-      "rank_daily": 16
+      "rank_daily": 13
     },
     {
       "track_id": "2k0w1FGqvzVPgQ9VdTaJpe",
@@ -5669,9 +5669,9 @@
       "title_key": "dress - karaoke version",
       "spotify_url": "https://open.spotify.com/intl-fr/track/2k0w1FGqvzVPgQ9VdTaJpe",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27305fd6906725e3f12544c2d04",
-      "streams": 374058,
-      "daily_streams": 264,
-      "last_updated": "2026-03-13",
+      "streams": 374324,
+      "daily_streams": 266,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -5680,7 +5680,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 99625942,
+      "remaining_to_next_milestone": 99625676,
       "appearances": [
         {
           "source_type": "misc",
@@ -5726,9 +5726,9 @@
       "title_key": "eldest daughter",
       "spotify_url": "https://open.spotify.com/intl-fr/track/62HoDY1Km6lm47haFpUn9c",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273d7812467811a7da6e6a44902",
-      "streams": 196182875,
-      "daily_streams": 280088,
-      "last_updated": "2026-03-13",
+      "streams": 196467100,
+      "daily_streams": 284225,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -5737,7 +5737,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 3817125,
+      "remaining_to_next_milestone": 3532900,
       "appearances": [
         {
           "source_type": "album",
@@ -11770,7 +11770,7 @@
         "6YvqWjhGD8mB5QXcbcUKtx"
       ],
       "rank_total": 15,
-      "rank_daily": 13
+      "rank_daily": 14
     },
     {
       "track_id": "5RaBeejGtdPEszYEKYECs2",
