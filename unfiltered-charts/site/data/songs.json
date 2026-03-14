@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 329,
-    "total_combined_streams": 121466154520,
+    "songs_updated_on_latest_date": 330,
+    "total_combined_streams": 121466182672,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -7254,7 +7254,7 @@
         "3oGVx9RBmiYGv5ZCecWLkx"
       ],
       "rank_total": 252,
-      "rank_daily": 262
+      "rank_daily": 263
     },
     {
       "track_id": "2OzhQlSqBEmt7hmkYxfT6m",
@@ -7530,7 +7530,7 @@
         "2bzUVEvpZ7At5cYz1kOLI9"
       ],
       "rank_total": 281,
-      "rank_daily": 261
+      "rank_daily": 262
     },
     {
       "track_id": "0VE4kBnHJUgtMf0dy6DRmW",
@@ -15485,7 +15485,7 @@
         "4IQkfUsrwXol38VV3U7t7T"
       ],
       "rank_total": 199,
-      "rank_daily": 263
+      "rank_daily": 264
     },
     {
       "track_id": "5QKhg4r4Ibt0LVTmWEXTEg",
@@ -19574,9 +19574,9 @@
       "title_key": "the other side of the door (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/1cSFlSBdpT4F5vb1frQ231",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273a48964b5d9a3d6968ae3e0de",
-      "streams": 96718402,
-      "daily_streams": 27106,
-      "last_updated": "2026-03-13",
+      "streams": 96746554,
+      "daily_streams": 28152,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -19585,7 +19585,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 3281598,
+      "remaining_to_next_milestone": 3253446,
       "appearances": [
         {
           "source_type": "album",
@@ -19611,7 +19611,7 @@
         "1cSFlSBdpT4F5vb1frQ231"
       ],
       "rank_total": 272,
-      "rank_daily": 264
+      "rank_daily": 261
     },
     {
       "track_id": "2QA3IixpRcKyOdG7XDzRgv",
