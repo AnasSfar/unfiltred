@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 119,
-    "total_combined_streams": 121446514715,
+    "songs_updated_on_latest_date": 120,
+    "total_combined_streams": 121446519429,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -2377,9 +2377,9 @@
       "title_key": "betty - the long pond studio sessions",
       "spotify_url": "https://open.spotify.com/intl-fr/track/1mh5dObNoOvCfHmXnhvDEK",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273045514e3ed4e1767a7c3ece5",
-      "streams": 16673051,
-      "daily_streams": 5009,
-      "last_updated": "2026-03-13",
+      "streams": 16677765,
+      "daily_streams": 4714,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -2388,7 +2388,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 83326949,
+      "remaining_to_next_milestone": 83322235,
       "appearances": [
         {
           "source_type": "album",
@@ -2414,7 +2414,7 @@
         "1mh5dObNoOvCfHmXnhvDEK"
       ],
       "rank_total": 390,
-      "rank_daily": 390
+      "rank_daily": 393
     },
     {
       "track_id": "71CBDRKmF2VeRKYMG1DFBh",
@@ -8151,7 +8151,7 @@
         "62rlxI6g2PNaWsHoiRryto"
       ],
       "rank_total": 361,
-      "rank_daily": 392
+      "rank_daily": 391
     },
     {
       "track_id": "6wcFdMmiDscAhZJrcVFumx",
@@ -12236,7 +12236,7 @@
         "04xrhDrQ2WOW8GLwu7kbc0"
       ],
       "rank_total": 399,
-      "rank_daily": 393
+      "rank_daily": 392
     },
     {
       "track_id": "12ntTeqEeTg7GAVpe8Mhpl",
@@ -21895,7 +21895,7 @@
         "2NnrAdjE9cPdMklonMBuAv"
       ],
       "rank_total": 341,
-      "rank_daily": 391
+      "rank_daily": 390
     },
     {
       "track_id": "77d7q9TNbsIDmRTDPkPv3L",
