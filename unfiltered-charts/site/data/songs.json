@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 327,
-    "total_combined_streams": 121465958703,
+    "songs_updated_on_latest_date": 328,
+    "total_combined_streams": 121465981277,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -4378,7 +4378,7 @@
         "3fGnrtrtL1IHSX9t4DKOYf"
       ],
       "rank_total": 284,
-      "rank_daily": 287
+      "rank_daily": 286
     },
     {
       "track_id": "1XjHRolIXL2M1EEOUsGGR4",
@@ -4913,7 +4913,7 @@
         "3K2es3gElMRJ3qvmPW442g"
       ],
       "rank_total": 219,
-      "rank_daily": 285
+      "rank_daily": 284
     },
     {
       "track_id": "1zU8j1x3yi9xalMF96pzKp",
@@ -5525,7 +5525,7 @@
         "4uuEGH5SVuzkkSFjo2DEiY"
       ],
       "rank_total": 278,
-      "rank_daily": 286
+      "rank_daily": 285
     },
     {
       "track_id": "670fUmXf4KQekzbEgaXyPA",
@@ -6880,7 +6880,7 @@
         "4yf9OivCH2lmQWN8mzpCC6"
       ],
       "rank_total": 244,
-      "rank_daily": 290
+      "rank_daily": 289
     },
     {
       "track_id": "2nqio0SfWg6gh2eCtfuMa5",
@@ -10575,9 +10575,9 @@
       "title_key": "jump then fall (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/2m3ObD945KvpE5y9A1eUWm",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273a48964b5d9a3d6968ae3e0de",
-      "streams": 76095568,
-      "daily_streams": 23573,
-      "last_updated": "2026-03-13",
+      "streams": 76118142,
+      "daily_streams": 22574,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -10586,7 +10586,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 23904432,
+      "remaining_to_next_milestone": 23881858,
       "appearances": [
         {
           "source_type": "album",
@@ -10612,7 +10612,7 @@
         "2m3ObD945KvpE5y9A1eUWm"
       ],
       "rank_total": 292,
-      "rank_daily": 283
+      "rank_daily": 290
     },
     {
       "track_id": "45R112Jz5hQeKgITXgSXzs",
@@ -16901,7 +16901,7 @@
         "5jAIouBES8LWMiriuNq170"
       ],
       "rank_total": 299,
-      "rank_daily": 288
+      "rank_daily": 287
     },
     {
       "track_id": "6lzc0Al0zfZOIFsFvBS1ki",
@@ -18226,7 +18226,7 @@
         "6ON9UuIq49xXY9GPmHIYRp"
       ],
       "rank_total": 300,
-      "rank_daily": 289
+      "rank_daily": 288
     },
     {
       "track_id": "62E2nR0od0M5HYxuYLaDz7",
@@ -19316,7 +19316,7 @@
         "4e5ayHsOLJNLTGfjau2mEw"
       ],
       "rank_total": 267,
-      "rank_daily": 284
+      "rank_daily": 283
     },
     {
       "track_id": "3RauEVgRgj1IuWdJ9fDs70",
