@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 272,
-    "total_combined_streams": 121460184677,
+    "songs_updated_on_latest_date": 273,
+    "total_combined_streams": 121460410260,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -3380,7 +3380,7 @@
         "0sY6ZUTh4yoctD8VIXz339"
       ],
       "rank_total": 36,
-      "rank_daily": 58
+      "rank_daily": 59
     },
     {
       "track_id": "0RdcBnAXyH2YZZvcBVu2k6",
@@ -6580,9 +6580,9 @@
       "title_key": "false god",
       "spotify_url": "https://open.spotify.com/intl-fr/track/5hQSXkFgbxjZo9uCwd11so",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273e787cffec20aa2a396a61647",
-      "streams": 367172273,
-      "daily_streams": 220266,
-      "last_updated": "2026-03-13",
+      "streams": 367397856,
+      "daily_streams": 225583,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -6591,7 +6591,7 @@
       "current_milestone_label": "300M",
       "next_milestone": 400000000,
       "next_milestone_label": "400M",
-      "remaining_to_next_milestone": 32827727,
+      "remaining_to_next_milestone": 32602144,
       "appearances": [
         {
           "source_type": "album",
@@ -6617,7 +6617,7 @@
         "5hQSXkFgbxjZo9uCwd11so"
       ],
       "rank_total": 97,
-      "rank_daily": 60
+      "rank_daily": 58
     },
     {
       "track_id": "03bTIHJElXZ0O0jqOQvAbY",
@@ -10014,7 +10014,7 @@
         "2NmsngXHeC1GQ9wWrzhOMf"
       ],
       "rank_total": 47,
-      "rank_daily": 59
+      "rank_daily": 60
     },
     {
       "track_id": "560uQyz3p5G9WdnMX39xc6",
