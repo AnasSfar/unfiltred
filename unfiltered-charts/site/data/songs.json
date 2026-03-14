@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 230,
-    "total_combined_streams": 121455619486,
+    "songs_updated_on_latest_date": 231,
+    "total_combined_streams": 121455620122,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -3637,9 +3637,9 @@
       "title_key": "christmas tree farm - old timey version",
       "spotify_url": "https://open.spotify.com/intl-fr/track/50ho0AOvkm8E5l8zf7OfJI",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2733b86fc3447e27df6630ce0d8",
-      "streams": 15218094,
-      "daily_streams": 673,
-      "last_updated": "2026-03-13",
+      "streams": 15218730,
+      "daily_streams": 636,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -3648,7 +3648,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 84781906,
+      "remaining_to_next_milestone": 84781270,
       "appearances": [
         {
           "source_type": "album",
@@ -18236,7 +18236,7 @@
       "image_url": "https://i.scdn.co/image/ab67616d0000b2738ecc33f195df6aa257c39eaa",
       "streams": 209304326,
       "daily_streams": 119847,
-      "last_updated": "2026-03-13",
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
