@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 418,
-    "total_combined_streams": 121476365335,
+    "songs_updated_on_latest_date": 420,
+    "total_combined_streams": 121476380936,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -16819,9 +16819,9 @@
       "title_key": "state of grace",
       "spotify_url": "https://open.spotify.com/intl-fr/track/786NsUYn4GGUf8AOt0SQhP",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27396384c98ac4f3e7c2440f5b5",
-      "streams": 67890148,
-      "daily_streams": 12378,
-      "last_updated": "2026-03-13",
+      "streams": 67902631,
+      "daily_streams": 12483,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -16830,7 +16830,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 32109852,
+      "remaining_to_next_milestone": 32097369,
       "appearances": [
         {
           "source_type": "album",
@@ -16856,7 +16856,7 @@
         "786NsUYn4GGUf8AOt0SQhP"
       ],
       "rank_total": 303,
-      "rank_daily": 329
+      "rank_daily": 328
     },
     {
       "track_id": "5jAIouBES8LWMiriuNq170",
@@ -16954,9 +16954,9 @@
       "title_key": "state of grace - acoustic",
       "spotify_url": "https://open.spotify.com/intl-fr/track/5G9AVKld9q7DCrmoY42raf",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273a7613d346501b828b56a0bc3",
-      "streams": 25723923,
-      "daily_streams": 3149,
-      "last_updated": "2026-03-13",
+      "streams": 25727041,
+      "daily_streams": 3118,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -16965,7 +16965,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 74276077,
+      "remaining_to_next_milestone": 74272959,
       "appearances": [
         {
           "source_type": "misc",
@@ -17466,7 +17466,7 @@
         "51A8eKvvZz9uydvIZ7xRSV"
       ],
       "rank_total": 327,
-      "rank_daily": 328
+      "rank_daily": 329
     },
     {
       "track_id": "2L09RYwH5Pjzca6PmbUAw3",
