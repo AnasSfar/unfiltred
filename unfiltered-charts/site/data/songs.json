@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 339,
-    "total_combined_streams": 121467473370,
+    "songs_updated_on_latest_date": 341,
+    "total_combined_streams": 121467521028,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -9503,9 +9503,9 @@
       "title_key": "i know places (taylor's version)",
       "spotify_url": "https://open.spotify.com/track/1ULabO0PEsdJekqVH6G10G",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273dc2bacae1dca83d26e2b1949",
-      "streams": 117898164,
-      "daily_streams": 47147,
-      "last_updated": "2026-03-13",
+      "streams": 117945286,
+      "daily_streams": 47122,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -9514,7 +9514,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 82101836,
+      "remaining_to_next_milestone": 82054714,
       "appearances": [
         {
           "source_type": "album",
@@ -9548,9 +9548,9 @@
       "title_key": "i know places - voice memo",
       "spotify_url": "https://open.spotify.com/intl-fr/track/4JQm7ebhsrt10wmrP6AfXL",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273332d85510aba3eb28312cfb2",
-      "streams": 6382652,
-      "daily_streams": 557,
-      "last_updated": "2026-03-13",
+      "streams": 6383188,
+      "daily_streams": 536,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -9559,7 +9559,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 93617348,
+      "remaining_to_next_milestone": 93616812,
       "appearances": [
         {
           "source_type": "misc",
