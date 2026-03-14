@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 391,
-    "total_combined_streams": 121472224047,
+    "songs_updated_on_latest_date": 393,
+    "total_combined_streams": 121472251735,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -7254,7 +7254,7 @@
         "3oGVx9RBmiYGv5ZCecWLkx"
       ],
       "rank_total": 252,
-      "rank_daily": 263
+      "rank_daily": 264
     },
     {
       "track_id": "2OzhQlSqBEmt7hmkYxfT6m",
@@ -7914,7 +7914,7 @@
         "3ZHTwJzCNDFvjLpVQiqpH6"
       ],
       "rank_total": 462,
-      "rank_daily": 466
+      "rank_daily": 465
     },
     {
       "track_id": "0W0iAC1VGlB82PI6elxFYf",
@@ -10805,7 +10805,7 @@
         "5EsfyTD26nlVQ0DtYo16uJ"
       ],
       "rank_total": 466,
-      "rank_daily": 465
+      "rank_daily": 464
     },
     {
       "track_id": "4bBDkw2KBMX0tcgAaXC83Q",
@@ -13591,9 +13591,9 @@
       "title_key": "new year's day - karaoke version",
       "spotify_url": "https://open.spotify.com/intl-fr/track/13tYZVTtzLUJTlM7m1ivbi",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27305fd6906725e3f12544c2d04",
-      "streams": 380154,
-      "daily_streams": 185,
-      "last_updated": "2026-03-13",
+      "streams": 380315,
+      "daily_streams": 161,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -13602,7 +13602,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 99619846,
+      "remaining_to_next_milestone": 99619685,
       "appearances": [
         {
           "source_type": "misc",
@@ -13640,7 +13640,7 @@
         "13tYZVTtzLUJTlM7m1ivbi"
       ],
       "rank_total": 464,
-      "rank_daily": 464
+      "rank_daily": 466
     },
     {
       "track_id": "3RaT22zZsxVYxxKR7TAaYF",
@@ -14409,9 +14409,9 @@
       "title_key": "ours (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/3yNJkriPzWjkkDAWHIAVUq",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2730b04da4f224b51ff86e0a481",
-      "streams": 81536034,
-      "daily_streams": 26430,
-      "last_updated": "2026-03-13",
+      "streams": 81563561,
+      "daily_streams": 27527,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -14420,7 +14420,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 18463966,
+      "remaining_to_next_milestone": 18436439,
       "appearances": [
         {
           "source_type": "album",
@@ -14446,7 +14446,7 @@
         "3yNJkriPzWjkkDAWHIAVUq"
       ],
       "rank_total": 287,
-      "rank_daily": 266
+      "rank_daily": 263
     },
     {
       "track_id": "68QyrSzpnoU04AAhE5z8lj",
@@ -16811,7 +16811,7 @@
         "7A2cNLRT0YJc1yjxHlKihs"
       ],
       "rank_total": 275,
-      "rank_daily": 265
+      "rank_daily": 266
     },
     {
       "track_id": "786NsUYn4GGUf8AOt0SQhP",
@@ -22798,7 +22798,7 @@
         "6iiAfo4wTA2CVC3Uwx9uh8"
       ],
       "rank_total": 271,
-      "rank_daily": 264
+      "rank_daily": 265
     },
     {
       "track_id": "4VbErhGDMTnvPAnt5z70DL",
