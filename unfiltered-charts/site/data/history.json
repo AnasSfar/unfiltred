@@ -1,13 +1,14 @@
 {
   "summary": {
-    "latest_date": "2026-03-12",
-    "dates_count": 4
+    "latest_date": "2026-03-13",
+    "dates_count": 5
   },
   "dates": [
     "2026-03-09",
     "2026-03-10",
     "2026-03-11",
-    "2026-03-12"
+    "2026-03-12",
+    "2026-03-13"
   ],
   "by_date": {
     "2026-03-09": {
@@ -20540,6 +20541,19 @@
         "next_milestone": 100000000,
         "next_milestone_label": "100M",
         "remaining_to_next_milestone": 2239875,
+        "crossed_milestone_today": null,
+        "crossed_milestone_today_label": null
+      }
+    },
+    "2026-03-13": {
+      "0CD7DzeCsuPJygddqlUVYa": {
+        "streams": 440129542,
+        "daily_streams": 175181,
+        "current_milestone": 400000000,
+        "current_milestone_label": "400M",
+        "next_milestone": 500000000,
+        "next_milestone_label": "500M",
+        "remaining_to_next_milestone": 59870458,
         "crossed_milestone_today": null,
         "crossed_milestone_today_label": null
       }

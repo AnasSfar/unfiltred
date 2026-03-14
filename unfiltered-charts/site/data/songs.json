@@ -5,10 +5,10 @@
     "songs_with_images": 470,
     "songs_with_streams": 469,
     "songs_with_daily_streams": 466,
-    "history_dates_count": 4,
-    "latest_date": "2026-03-12",
-    "songs_updated_on_latest_date": 466,
-    "total_combined_streams": 121431455711,
+    "history_dates_count": 5,
+    "latest_date": "2026-03-13",
+    "songs_updated_on_latest_date": 1,
+    "total_combined_streams": 121431630892,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -18,9 +18,9 @@
       "title_key": "\"slut!\" (taylor's version) (from the vault)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/0CD7DzeCsuPJygddqlUVYa",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273dc2bacae1dca83d26e2b1949",
-      "streams": 439954361,
-      "daily_streams": 191368,
-      "last_updated": "2026-03-13",
+      "streams": 440129542,
+      "daily_streams": 175181,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -29,7 +29,7 @@
       "current_milestone_label": "400M",
       "next_milestone": 500000000,
       "next_milestone_label": "500M",
-      "remaining_to_next_milestone": 60045639,
+      "remaining_to_next_milestone": 59870458,
       "appearances": [
         {
           "source_type": "album",
@@ -55,7 +55,7 @@
         "0CD7DzeCsuPJygddqlUVYa"
       ],
       "rank_total": 78,
-      "rank_daily": 72
+      "rank_daily": 82
     },
     {
       "track_id": "6sQckd3Z8NPxVVKUnavY1F",
@@ -811,7 +811,7 @@
         "3nsfB1vus2qaloUdcBZvDu"
       ],
       "rank_total": 93,
-      "rank_daily": 73
+      "rank_daily": 72
     },
     {
       "track_id": "6aLOekfwbytwWvQftxTEF0",
@@ -6822,7 +6822,7 @@
         "77sMIMlNaSURUAXq5coCxE"
       ],
       "rank_total": 75,
-      "rank_daily": 79
+      "rank_daily": 78
     },
     {
       "track_id": "4yf9OivCH2lmQWN8mzpCC6",
@@ -10850,7 +10850,7 @@
         "4bBDkw2KBMX0tcgAaXC83Q"
       ],
       "rank_total": 90,
-      "rank_daily": 82
+      "rank_daily": 81
     },
     {
       "track_id": "2IprIjGNRlj3TfqUWCAo0C",
@@ -13165,7 +13165,7 @@
         "214nt20w5wOxJnY462klLw"
       ],
       "rank_total": 56,
-      "rank_daily": 80
+      "rank_daily": 79
     },
     {
       "track_id": "2CYVETnhM9aytqrazYYwrK",
@@ -16381,7 +16381,7 @@
         "3Vevii7qKqrmW8CcyzBHDl"
       ],
       "rank_total": 85,
-      "rank_daily": 74
+      "rank_daily": 73
     },
     {
       "track_id": "4AYtqFyFbX0Xkc2wtcygTr",
@@ -17988,7 +17988,7 @@
         "1tuNqJOtRQVHvONR8Lg3MZ"
       ],
       "rank_total": 137,
-      "rank_daily": 77
+      "rank_daily": 76
     },
     {
       "track_id": "6INztpNwOTlfSKTuPo0HOP",
@@ -19746,7 +19746,7 @@
         "4GBbcyrbDzwRtQjrsDRywK"
       ],
       "rank_total": 112,
-      "rank_daily": 81
+      "rank_daily": 80
     },
     {
       "track_id": "3lXekiVK1ZPZbKconsys73",
@@ -21057,7 +21057,7 @@
         "7AEAGTc8cReDqcbPoY9gwo"
       ],
       "rank_total": 39,
-      "rank_daily": 78
+      "rank_daily": 77
     },
     {
       "track_id": "5YqltLsjdqFtvqE7Nrysvs",
@@ -22536,7 +22536,7 @@
         "6RRNNciQGZEXnqk8SQ9yv5"
       ],
       "rank_total": 18,
-      "rank_daily": 75
+      "rank_daily": 74
     },
     {
       "track_id": "7Bjf96uNizpvXLvNyOJpst",
@@ -22695,7 +22695,7 @@
         "3CWq0pAKKTWb0K4yiglDc4"
       ],
       "rank_total": 92,
-      "rank_daily": 76
+      "rank_daily": 75
     },
     {
       "track_id": "6HWYtS215rxaaMjvpyG18W",
