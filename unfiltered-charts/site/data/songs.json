@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 124,
-    "total_combined_streams": 121446975980,
+    "songs_updated_on_latest_date": 125,
+    "total_combined_streams": 121446981534,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -15880,9 +15880,9 @@
       "title_key": "seven - the long pond studio sessions",
       "spotify_url": "https://open.spotify.com/intl-fr/track/4cOWq0cVsKjxaQpRMbDoH1",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273045514e3ed4e1767a7c3ece5",
-      "streams": 17856657,
-      "daily_streams": 5568,
-      "last_updated": "2026-03-13",
+      "streams": 17862211,
+      "daily_streams": 5554,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -15891,7 +15891,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 82143343,
+      "remaining_to_next_milestone": 82137789,
       "appearances": [
         {
           "source_type": "album",
