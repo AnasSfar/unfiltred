@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 54,
-    "total_combined_streams": 121438978071,
+    "songs_updated_on_latest_date": 55,
+    "total_combined_streams": 121439436530,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -18997,9 +18997,9 @@
       "title_key": "the life of a showgirl (feat. sabrina carpenter)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/5eXgqtg3T8Av0m1FUaGHex",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273d7812467811a7da6e6a44902",
-      "streams": 247085408,
-      "daily_streams": 456022,
-      "last_updated": "2026-03-13",
+      "streams": 247543867,
+      "daily_streams": 458459,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift",
@@ -19009,7 +19009,7 @@
       "current_milestone_label": "200M",
       "next_milestone": 300000000,
       "next_milestone_label": "300M",
-      "remaining_to_next_milestone": 52914592,
+      "remaining_to_next_milestone": 52456133,
       "appearances": [
         {
           "source_type": "album",
