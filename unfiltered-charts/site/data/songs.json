@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 438,
-    "total_combined_streams": 121482459005,
+    "songs_updated_on_latest_date": 439,
+    "total_combined_streams": 121482528082,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -18496,9 +18496,9 @@
       "title_key": "the fate of ophelia - the chainsmokers remix",
       "spotify_url": "https://open.spotify.com/intl-fr/track/3JNaLxAymiSUMrmjOarjeo",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2735a9197396cb52631e73364b9",
-      "streams": 13470485,
-      "daily_streams": 69704,
-      "last_updated": "2026-03-13",
+      "streams": 13539562,
+      "daily_streams": 69077,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -18507,7 +18507,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 86529515,
+      "remaining_to_next_milestone": 86460438,
       "appearances": [
         {
           "source_type": "misc",
