@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 368,
-    "total_combined_streams": 121470218944,
+    "songs_updated_on_latest_date": 370,
+    "total_combined_streams": 121470244440,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -3767,7 +3767,7 @@
         "1alAo6dYalSx8yZUn17JxF"
       ],
       "rank_total": 439,
-      "rank_daily": 456
+      "rank_daily": 457
     },
     {
       "track_id": "1g09DZjQ7yBommCT6POY2n",
@@ -4607,7 +4607,7 @@
         "37jfioVu3Bd2Du9bteXNDU"
       ],
       "rank_total": 338,
-      "rank_daily": 271
+      "rank_daily": 270
     },
     {
       "track_id": "0ISHfeb30gj4CSWUZYuesj",
@@ -5207,7 +5207,7 @@
         "5Iadj8IBPrt634WW0yGPRI"
       ],
       "rank_total": 456,
-      "rank_daily": 455
+      "rank_daily": 456
     },
     {
       "track_id": "1Fj0T1XKuhRu7EZzJ7NJIK",
@@ -7393,7 +7393,7 @@
         "1gejz5ROvJBUb6WJzkMAcc"
       ],
       "rank_total": 345,
-      "rank_daily": 270
+      "rank_daily": 269
     },
     {
       "track_id": "7pM01Cfj8vt7z3qI2TveNT",
@@ -11618,9 +11618,9 @@
       "title_key": "look what you made me do - karaoke version",
       "spotify_url": "https://open.spotify.com/intl-fr/track/1zz0XSmHCFd57ne04UAp38",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27305fd6906725e3f12544c2d04",
-      "streams": 767232,
-      "daily_streams": 269,
-      "last_updated": "2026-03-13",
+      "streams": 767550,
+      "daily_streams": 318,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -11629,7 +11629,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 99232768,
+      "remaining_to_next_milestone": 99232450,
       "appearances": [
         {
           "source_type": "misc",
@@ -11667,7 +11667,7 @@
         "1zz0XSmHCFd57ne04UAp38"
       ],
       "rank_total": 455,
-      "rank_daily": 457
+      "rank_daily": 455
     },
     {
       "track_id": "5xPsybHWRHbTYO44xnREY5",
@@ -16582,9 +16582,9 @@
       "title_key": "speak now",
       "spotify_url": "https://open.spotify.com/intl-fr/track/7dXKdjpOaH2iwfFKmUj7aq",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273d0eae3c1661a96570f0ca7bd",
-      "streams": 161326597,
-      "daily_streams": 25739,
-      "last_updated": "2026-03-13",
+      "streams": 161351775,
+      "daily_streams": 25178,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -16593,7 +16593,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 38673403,
+      "remaining_to_next_milestone": 38648225,
       "appearances": [
         {
           "source_type": "album",
@@ -16619,7 +16619,7 @@
         "7dXKdjpOaH2iwfFKmUj7aq"
       ],
       "rank_total": 208,
-      "rank_daily": 269
+      "rank_daily": 272
     },
     {
       "track_id": "5xXqyjLicvEpch72qEryFT",
@@ -22343,7 +22343,7 @@
         "4A2LfnduSTsE8u0ecYROxE"
       ],
       "rank_total": 211,
-      "rank_daily": 272
+      "rank_daily": 271
     },
     {
       "track_id": "0TyGh27YQ5LknmiDhCzJiT",
