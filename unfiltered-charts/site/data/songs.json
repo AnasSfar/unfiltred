@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 371,
-    "total_combined_streams": 121470617320,
+    "songs_updated_on_latest_date": 372,
+    "total_combined_streams": 121470619790,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -3199,7 +3199,7 @@
         "12xIjI9A9UlB6zEc7kyZ06"
       ],
       "rank_total": 404,
-      "rank_daily": 413
+      "rank_daily": 414
     },
     {
       "track_id": "4axSuOg3BqsowKjRpj59RU",
@@ -11835,9 +11835,9 @@
       "title_key": "love story - digital dog remix",
       "spotify_url": "https://open.spotify.com/intl-fr/track/3RNDw7yywLNyawDKV99hTx",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273c4d3acdcb5d53a2a3856786e",
-      "streams": 11407392,
-      "daily_streams": 2209,
-      "last_updated": "2026-03-13",
+      "streams": 11409862,
+      "daily_streams": 2470,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -11846,7 +11846,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 88592608,
+      "remaining_to_next_milestone": 88590138,
       "appearances": [
         {
           "source_type": "misc",
@@ -11884,7 +11884,7 @@
         "3RNDw7yywLNyawDKV99hTx"
       ],
       "rank_total": 406,
-      "rank_daily": 417
+      "rank_daily": 413
     },
     {
       "track_id": "1dGr1c8CrMLDpV6mPbImSI",
@@ -20772,7 +20772,7 @@
         "7BT9K9BDqq6HI2oWH5UMZQ"
       ],
       "rank_total": 383,
-      "rank_daily": 414
+      "rank_daily": 415
     },
     {
       "track_id": "1MaqkdFNIKPdpQGDzme5ss",
@@ -21838,7 +21838,7 @@
         "77p4fRpoeiZMtUy3P9kN21"
       ],
       "rank_total": 392,
-      "rank_daily": 415
+      "rank_daily": 416
     },
     {
       "track_id": "2NnrAdjE9cPdMklonMBuAv",
@@ -22059,7 +22059,7 @@
         "5XkJj6sV2XLMaURdmdXgNx"
       ],
       "rank_total": 408,
-      "rank_daily": 416
+      "rank_daily": 417
     },
     {
       "track_id": "6iWMI5oOhWrDbLbjmwTWFq",
