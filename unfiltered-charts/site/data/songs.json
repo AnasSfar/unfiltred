@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 150,
-    "total_combined_streams": 121449041967,
+    "songs_updated_on_latest_date": 152,
+    "total_combined_streams": 121449090681,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -2173,9 +2173,9 @@
       "title_key": "better than revenge (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/0NwGC0v03ysCYINtg6ns58",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2730b04da4f224b51ff86e0a481",
-      "streams": 180271177,
-      "daily_streams": 46010,
-      "last_updated": "2026-03-13",
+      "streams": 180318394,
+      "daily_streams": 47217,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -2184,7 +2184,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 19728823,
+      "remaining_to_next_milestone": 19681606,
       "appearances": [
         {
           "source_type": "album",
@@ -2210,7 +2210,7 @@
         "0NwGC0v03ysCYINtg6ns58"
       ],
       "rank_total": 189,
-      "rank_daily": 219
+      "rank_daily": 216
     },
     {
       "track_id": "6505MLhnqTDDg4tjoUz2Wp",
@@ -2218,9 +2218,9 @@
       "title_key": "better than revenge - live/2011",
       "spotify_url": "https://open.spotify.com/intl-fr/track/6505MLhnqTDDg4tjoUz2Wp",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273be4ec62353ee75fa11f6d6f7",
-      "streams": 7761466,
-      "daily_streams": 1547,
-      "last_updated": "2026-03-13",
+      "streams": 7762963,
+      "daily_streams": 1497,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -2229,7 +2229,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 92238534,
+      "remaining_to_next_milestone": 92237037,
       "appearances": [
         {
           "source_type": "misc",
@@ -2267,7 +2267,7 @@
         "6505MLhnqTDDg4tjoUz2Wp"
       ],
       "rank_total": 422,
-      "rank_daily": 428
+      "rank_daily": 429
     },
     {
       "track_id": "5kI4eCXXzyuIUXjQra0Cxi",
@@ -9540,7 +9540,7 @@
         "1ULabO0PEsdJekqVH6G10G"
       ],
       "rank_total": 259,
-      "rank_daily": 217
+      "rank_daily": 218
     },
     {
       "track_id": "4JQm7ebhsrt10wmrP6AfXL",
@@ -16574,7 +16574,7 @@
         "1aBJNc2thaKyh5THWzIqHX"
       ],
       "rank_total": 409,
-      "rank_daily": 429
+      "rank_daily": 428
     },
     {
       "track_id": "7dXKdjpOaH2iwfFKmUj7aq",
@@ -17273,7 +17273,7 @@
         "6M9ppdfFjR1AbpUl3Y8DcV"
       ],
       "rank_total": 213,
-      "rank_daily": 216
+      "rank_daily": 217
     },
     {
       "track_id": "2R7C9dDqv1UPycvepBFziA",
@@ -20490,7 +20490,7 @@
         "1HCdems7PQZRj42QDWLA0A"
       ],
       "rank_total": 246,
-      "rank_daily": 218
+      "rank_daily": 219
     },
     {
       "track_id": "4pFvEWbjBpPUdYRQly0THs",
