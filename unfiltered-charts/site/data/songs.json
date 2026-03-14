@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 413,
-    "total_combined_streams": 121476225492,
+    "songs_updated_on_latest_date": 414,
+    "total_combined_streams": 121476226206,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -16060,9 +16060,9 @@
       "title_key": "silent night",
       "spotify_url": "https://open.spotify.com/intl-fr/track/1cJkUN5LAotktryx2nPCr7",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2732a0face7d69df61c20a6db2b",
-      "streams": 8169252,
-      "daily_streams": 766,
-      "last_updated": "2026-03-13",
+      "streams": 8169966,
+      "daily_streams": 714,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -16071,7 +16071,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 91830748,
+      "remaining_to_next_milestone": 91830034,
       "appearances": [
         {
           "source_type": "album",
