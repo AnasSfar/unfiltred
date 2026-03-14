@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 164,
-    "total_combined_streams": 121449524016,
+    "songs_updated_on_latest_date": 165,
+    "total_combined_streams": 121449561719,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -7767,7 +7767,7 @@
         "7C0w28EsX0Um2FrZs9gso2"
       ],
       "rank_total": 216,
-      "rank_daily": 236
+      "rank_daily": 235
     },
     {
       "track_id": "5BK0uqwY9DNfZ630STAEaq",
@@ -8839,7 +8839,7 @@
         "2r9CbjYgFhtAmcFv1cSquB"
       ],
       "rank_total": 249,
-      "rank_daily": 231
+      "rank_daily": 230
     },
     {
       "track_id": "4CkgMiMqZ5JzW9iYXSTMTL",
@@ -10464,7 +10464,7 @@
         "1kdWw77ZpYOkhxeuhzU1j6"
       ],
       "rank_total": 223,
-      "rank_daily": 233
+      "rank_daily": 232
     },
     {
       "track_id": "19CSr8rwW05VJL2F91KFNK",
@@ -13448,7 +13448,7 @@
         "2EFZ9emtKWEglWUQGEQ3P9"
       ],
       "rank_total": 279,
-      "rank_daily": 235
+      "rank_daily": 234
     },
     {
       "track_id": "6rZVy6FIG7lSJQMFXHo12z",
@@ -13981,7 +13981,7 @@
         "0ttGLmxI0mAkMblE6iRm2S"
       ],
       "rank_total": 443,
-      "rank_daily": 234
+      "rank_daily": 233
     },
     {
       "track_id": "5t1wMjV9ldVDdYs4l7mG2g",
@@ -16389,9 +16389,9 @@
       "title_key": "soon you'll get better (feat. the chicks)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/4AYtqFyFbX0Xkc2wtcygTr",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273e787cffec20aa2a396a61647",
-      "streams": 177979754,
-      "daily_streams": 41060,
-      "last_updated": "2026-03-13",
+      "streams": 178017457,
+      "daily_streams": 37703,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift",
@@ -16401,7 +16401,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 22020246,
+      "remaining_to_next_milestone": 21982543,
       "appearances": [
         {
           "source_type": "album",
@@ -16427,7 +16427,7 @@
         "4AYtqFyFbX0Xkc2wtcygTr"
       ],
       "rank_total": 190,
-      "rank_daily": 229
+      "rank_daily": 236
     },
     {
       "track_id": "46NGAvL695VnbcSeTmQWmM",
@@ -16472,7 +16472,7 @@
         "46NGAvL695VnbcSeTmQWmM"
       ],
       "rank_total": 179,
-      "rank_daily": 232
+      "rank_daily": 231
     },
     {
       "track_id": "3MytWN8L7shNYzGl4tAKRp",
@@ -18693,7 +18693,7 @@
         "3wx2iW1rJGgdNln2I64HNh"
       ],
       "rank_total": 167,
-      "rank_daily": 230
+      "rank_daily": 229
     },
     {
       "track_id": "0eFQWVz0qIxDOvhLpZ40P7",
