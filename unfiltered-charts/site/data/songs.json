@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 294,
-    "total_combined_streams": 121462628053,
+    "songs_updated_on_latest_date": 295,
+    "total_combined_streams": 121462677296,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -6722,14 +6722,14 @@
       "rank_daily": 426
     },
     {
-      "track_id": "6zV8AVM9eVfdG7Qahwd64R",
+      "track_id": "3F6czr26ZwGU5O5CHY04Ma",
       "title": "Fearless",
       "title_key": "fearless",
-      "spotify_url": "https://open.spotify.com/intl-fr/track/6zV8AVM9eVfdG7Qahwd64R",
-      "image_url": "https://i.scdn.co/image/ab67616d0000b273516c279fe91ae3f6a79b23da",
-      "streams": 147518330,
-      "daily_streams": 50639,
-      "last_updated": "2026-03-13",
+      "spotify_url": "https://open.spotify.com/intl-fr/track/3F6czr26ZwGU5O5CHY04Ma",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b27334e5885465afc8a497ac1b7e",
+      "streams": 147567573,
+      "daily_streams": 49243,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -6738,7 +6738,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 52481670,
+      "remaining_to_next_milestone": 52432427,
       "appearances": [
         {
           "source_type": "album",
@@ -6777,7 +6777,7 @@
         "6zV8AVM9eVfdG7Qahwd64R"
       ],
       "rank_total": 224,
-      "rank_daily": 212
+      "rank_daily": 213
     },
     {
       "track_id": "77sMIMlNaSURUAXq5coCxE",
@@ -15235,7 +15235,7 @@
         "2CnjDMdpRjlWv04Xk3s6MW"
       ],
       "rank_total": 277,
-      "rank_daily": 213
+      "rank_daily": 212
     },
     {
       "track_id": "0Nw8hv79MLJa1yjtsEgz08",
