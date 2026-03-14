@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 372,
-    "total_combined_streams": 121470619790,
+    "songs_updated_on_latest_date": 373,
+    "total_combined_streams": 121471371530,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -1373,7 +1373,7 @@
         "3hUxzQpSfdDqwM3ZTFQY0K"
       ],
       "rank_total": 8,
-      "rank_daily": 7
+      "rank_daily": 8
     },
     {
       "track_id": "4MGexoZc12lqE0hYkq9YYx",
@@ -9270,7 +9270,7 @@
         "2y5aJvzXhHPA94U5GFAcXe"
       ],
       "rank_total": 3,
-      "rank_daily": 8
+      "rank_daily": 9
     },
     {
       "track_id": "43rA71bccXFGD4C8GOpIlN",
@@ -11892,9 +11892,9 @@
       "title_key": "lover",
       "spotify_url": "https://open.spotify.com/intl-fr/track/1dGr1c8CrMLDpV6mPbImSI",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273e787cffec20aa2a396a61647",
-      "streams": 1997551436,
-      "daily_streams": 711684,
-      "last_updated": "2026-03-13",
+      "streams": 1998303176,
+      "daily_streams": 751740,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -11903,7 +11903,7 @@
       "current_milestone_label": "1.9B",
       "next_milestone": 2000000000,
       "next_milestone_label": "2B",
-      "remaining_to_next_milestone": 2448564,
+      "remaining_to_next_milestone": 1696824,
       "appearances": [
         {
           "source_type": "album",
@@ -11929,7 +11929,7 @@
         "1dGr1c8CrMLDpV6mPbImSI"
       ],
       "rank_total": 4,
-      "rank_daily": 9
+      "rank_daily": 7
     },
     {
       "track_id": "3i9UVldZOE0aD0JnyfAZZ0",
