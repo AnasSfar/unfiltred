@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 188,
-    "total_combined_streams": 121452184951,
+    "songs_updated_on_latest_date": 189,
+    "total_combined_streams": 121452199397,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -3470,7 +3470,7 @@
         "3ExweHKZF9B752DPQByRVT"
       ],
       "rank_total": 312,
-      "rank_daily": 320
+      "rank_daily": 319
     },
     {
       "track_id": "1rmEsOezwf2lmIZTMAO5Ag",
@@ -21110,9 +21110,9 @@
       "title_key": "we were happy (taylor's version) (from the vault)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/34V9RiEPe8MNdU32qJsJa1",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273a48964b5d9a3d6968ae3e0de",
-      "streams": 75243436,
-      "daily_streams": 14969,
-      "last_updated": "2026-03-13",
+      "streams": 75257882,
+      "daily_streams": 14446,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -21121,7 +21121,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 24756564,
+      "remaining_to_next_milestone": 24742118,
       "appearances": [
         {
           "source_type": "album",
@@ -21147,7 +21147,7 @@
         "34V9RiEPe8MNdU32qJsJa1"
       ],
       "rank_total": 293,
-      "rank_daily": 319
+      "rank_daily": 320
     },
     {
       "track_id": "3nRmDz7qGCvsMS30rGGY0x",
