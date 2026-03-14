@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 165,
-    "total_combined_streams": 121449561719,
+    "songs_updated_on_latest_date": 166,
+    "total_combined_streams": 121449599027,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -1850,7 +1850,7 @@
         "6qAcApH8obo8eqatCKUHd9"
       ],
       "rank_total": 237,
-      "rank_daily": 239
+      "rank_daily": 238
     },
     {
       "track_id": "64FzgoLZ3oXu2SriZblHic",
@@ -5878,7 +5878,7 @@
         "4e3ZNTAV6PCrdYMUrUlMpQ"
       ],
       "rank_total": 253,
-      "rank_daily": 241
+      "rank_daily": 240
     },
     {
       "track_id": "1jgTiNob5cVyXeJ3WgX5bL",
@@ -16015,9 +16015,9 @@
       "title_key": "should've said no",
       "spotify_url": "https://open.spotify.com/intl-fr/track/16MVSD0mGI4RMQT83Qzm69",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2732f8c0fd72a80a93f8c53b96c",
-      "streams": 156295321,
-      "daily_streams": 37610,
-      "last_updated": "2026-03-13",
+      "streams": 156332629,
+      "daily_streams": 37308,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -16026,7 +16026,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 43704679,
+      "remaining_to_next_milestone": 43667371,
       "appearances": [
         {
           "source_type": "album",
@@ -16052,7 +16052,7 @@
         "16MVSD0mGI4RMQT83Qzm69"
       ],
       "rank_total": 217,
-      "rank_daily": 238
+      "rank_daily": 241
     },
     {
       "track_id": "1cJkUN5LAotktryx2nPCr7",
@@ -20715,7 +20715,7 @@
         "3S7HNKPakdwNEBFIVTL6dZ"
       ],
       "rank_total": 229,
-      "rank_daily": 240
+      "rank_daily": 239
     },
     {
       "track_id": "7BT9K9BDqq6HI2oWH5UMZQ",
