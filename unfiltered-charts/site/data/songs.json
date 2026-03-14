@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 50,
-    "total_combined_streams": 121438255010,
+    "songs_updated_on_latest_date": 52,
+    "total_combined_streams": 121438835809,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -639,9 +639,9 @@
       "title_key": "all too well (10 minute version) (taylor's version) (from the vault)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/5enxwA8aAbwZbf5qCHORXi",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273318443aab3531a0558e79a4d",
-      "streams": 1175563169,
-      "daily_streams": 521533,
-      "last_updated": "2026-03-13",
+      "streams": 1176063408,
+      "daily_streams": 500239,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -650,7 +650,7 @@
       "current_milestone_label": "1.1B",
       "next_milestone": 1200000000,
       "next_milestone_label": "1.2B",
-      "remaining_to_next_milestone": 24436831,
+      "remaining_to_next_milestone": 23936592,
       "appearances": [
         {
           "source_type": "album",
@@ -676,7 +676,7 @@
         "5enxwA8aAbwZbf5qCHORXi"
       ],
       "rank_total": 13,
-      "rank_daily": 13
+      "rank_daily": 15
     },
     {
       "track_id": "1u4HUiREUR6vX1W1RYG2Tm",
@@ -5423,7 +5423,7 @@
         "1R0a2iXumgCiFb7HEZ7gUE"
       ],
       "rank_total": 10,
-      "rank_daily": 15
+      "rank_daily": 14
     },
     {
       "track_id": "5JtXBqKLdfzwedmlUjjqAm",
@@ -9650,9 +9650,9 @@
       "title_key": "i think he knows",
       "spotify_url": "https://open.spotify.com/intl-fr/track/2YWtcWi3a83pdEg3Gif4Pd",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273e787cffec20aa2a396a61647",
-      "streams": 344146271,
-      "daily_streams": 79154,
-      "last_updated": "2026-03-13",
+      "streams": 344226831,
+      "daily_streams": 80560,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -9661,7 +9661,7 @@
       "current_milestone_label": "300M",
       "next_milestone": 400000000,
       "next_milestone_label": "400M",
-      "remaining_to_next_milestone": 55853729,
+      "remaining_to_next_milestone": 55773169,
       "appearances": [
         {
           "source_type": "album",
@@ -11770,7 +11770,7 @@
         "6YvqWjhGD8mB5QXcbcUKtx"
       ],
       "rank_total": 15,
-      "rank_daily": 14
+      "rank_daily": 13
     },
     {
       "track_id": "5RaBeejGtdPEszYEKYECs2",
