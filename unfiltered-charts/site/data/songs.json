@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 16,
-    "total_combined_streams": 121433297461,
+    "songs_updated_on_latest_date": 17,
+    "total_combined_streams": 121433781515,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -9413,9 +9413,9 @@
       "title_key": "i knew you were trouble.",
       "spotify_url": "https://open.spotify.com/intl-fr/track/72jCZdH0Lhg93z6Z4hBjgj",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27396384c98ac4f3e7c2440f5b5",
-      "streams": 1090970828,
-      "daily_streams": 485347,
-      "last_updated": "2026-03-13",
+      "streams": 1091454882,
+      "daily_streams": 484054,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -9424,7 +9424,7 @@
       "current_milestone_label": "1B",
       "next_milestone": 1100000000,
       "next_milestone_label": "1.1B",
-      "remaining_to_next_milestone": 9029172,
+      "remaining_to_next_milestone": 8545118,
       "appearances": [
         {
           "source_type": "album",
