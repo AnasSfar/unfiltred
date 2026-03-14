@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 453,
-    "total_combined_streams": 121483175303,
+    "songs_updated_on_latest_date": 454,
+    "total_combined_streams": 121483184019,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -14254,7 +14254,7 @@
         "1VCcPLfDiR1S9PJaSp5qm5"
       ],
       "rank_total": 460,
-      "rank_daily": 351
+      "rank_daily": 350
     },
     {
       "track_id": "5SkuikJwvwfEvNyCepGkq3",
@@ -17556,7 +17556,7 @@
         "0RFCHlNuTeUHIB36VuVbOL"
       ],
       "rank_total": 366,
-      "rank_daily": 352
+      "rank_daily": 351
     },
     {
       "track_id": "4pJi1rVt9GNegU9kywjg4z",
@@ -20633,9 +20633,9 @@
       "title_key": "treacherous",
       "spotify_url": "https://open.spotify.com/intl-fr/track/5kYFVSQoPu7yRpfiHBwMUk",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27396384c98ac4f3e7c2440f5b5",
-      "streams": 60414834,
-      "daily_streams": 9037,
-      "last_updated": "2026-03-13",
+      "streams": 60423550,
+      "daily_streams": 8716,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -20644,7 +20644,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 39585166,
+      "remaining_to_next_milestone": 39576450,
       "appearances": [
         {
           "source_type": "album",
@@ -20670,7 +20670,7 @@
         "5kYFVSQoPu7yRpfiHBwMUk"
       ],
       "rank_total": 309,
-      "rank_daily": 350
+      "rank_daily": 352
     },
     {
       "track_id": "3S7HNKPakdwNEBFIVTL6dZ",
