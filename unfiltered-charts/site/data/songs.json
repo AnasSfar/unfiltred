@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 154,
-    "total_combined_streams": 121449202013,
+    "songs_updated_on_latest_date": 155,
+    "total_combined_streams": 121449224375,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -1985,7 +1985,7 @@
         "48A0aShHlovDfTMucMrE66"
       ],
       "rank_total": 230,
-      "rank_daily": 292
+      "rank_daily": 291
     },
     {
       "track_id": "05GsNucq8Bngd9fnd4fRa0",
@@ -4378,7 +4378,7 @@
         "3fGnrtrtL1IHSX9t4DKOYf"
       ],
       "rank_total": 285,
-      "rank_daily": 290
+      "rank_daily": 289
     },
     {
       "track_id": "1XjHRolIXL2M1EEOUsGGR4",
@@ -4913,7 +4913,7 @@
         "3K2es3gElMRJ3qvmPW442g"
       ],
       "rank_total": 219,
-      "rank_daily": 289
+      "rank_daily": 288
     },
     {
       "track_id": "1zU8j1x3yi9xalMF96pzKp",
@@ -5525,7 +5525,7 @@
         "4uuEGH5SVuzkkSFjo2DEiY"
       ],
       "rank_total": 278,
-      "rank_daily": 288
+      "rank_daily": 287
     },
     {
       "track_id": "670fUmXf4KQekzbEgaXyPA",
@@ -8012,9 +8012,9 @@
       "title_key": "haunted",
       "spotify_url": "https://open.spotify.com/intl-fr/track/11UaQaEp2LvdspTyyuE3ur",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2732e4ec3175d848eca7b76b07f",
-      "streams": 118150837,
-      "daily_streams": 23467,
-      "last_updated": "2026-03-13",
+      "streams": 118173199,
+      "daily_streams": 22362,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -8023,7 +8023,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 81849163,
+      "remaining_to_next_milestone": 81826801,
       "appearances": [
         {
           "source_type": "album",
@@ -8049,7 +8049,7 @@
         "11UaQaEp2LvdspTyyuE3ur"
       ],
       "rank_total": 258,
-      "rank_daily": 287
+      "rank_daily": 293
     },
     {
       "track_id": "4tMzIAFTFdqGBQLdfbPces",
@@ -10194,7 +10194,7 @@
         "12nBPF4Rh4XLFJV0YLN7uj"
       ],
       "rank_total": 306,
-      "rank_daily": 293
+      "rank_daily": 292
     },
     {
       "track_id": "5OOd01o2YS1QFwdpVLds3r",
@@ -18226,7 +18226,7 @@
         "6ON9UuIq49xXY9GPmHIYRp"
       ],
       "rank_total": 300,
-      "rank_daily": 291
+      "rank_daily": 290
     },
     {
       "track_id": "62E2nR0od0M5HYxuYLaDz7",
