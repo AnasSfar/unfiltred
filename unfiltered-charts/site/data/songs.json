@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 319,
-    "total_combined_streams": 121465038874,
+    "songs_updated_on_latest_date": 321,
+    "total_combined_streams": 121465502372,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -394,7 +394,7 @@
         "1spLfUJxtyVyiKKTegQ2r4"
       ],
       "rank_total": 350,
-      "rank_daily": 344
+      "rank_daily": 343
     },
     {
       "track_id": "73OX8GdpOeGzKC6OvGSbsv",
@@ -6572,7 +6572,7 @@
         "2NIBaWXdjaTDmytjjwbEfP"
       ],
       "rank_total": 325,
-      "rank_daily": 343
+      "rank_daily": 342
     },
     {
       "track_id": "5hQSXkFgbxjZo9uCwd11so",
@@ -7922,9 +7922,9 @@
       "title_key": "guilty as sin?",
       "spotify_url": "https://open.spotify.com/intl-fr/track/0W0iAC1VGlB82PI6elxFYf",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2735076e4160d018e378f488c33",
-      "streams": 552173314,
-      "daily_streams": 461621,
-      "last_updated": "2026-03-13",
+      "streams": 552626760,
+      "daily_streams": 453446,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -7933,7 +7933,7 @@
       "current_milestone_label": "500M",
       "next_milestone": 600000000,
       "next_milestone_label": "600M",
-      "remaining_to_next_milestone": 47826686,
+      "remaining_to_next_milestone": 47373240,
       "appearances": [
         {
           "source_type": "album",
@@ -7958,8 +7958,8 @@
       "merged_track_ids": [
         "0W0iAC1VGlB82PI6elxFYf"
       ],
-      "rank_total": 57,
-      "rank_daily": 21
+      "rank_total": 56,
+      "rank_daily": 23
     },
     {
       "track_id": "73YUReisjb3A9ActdLLjJQ",
@@ -8154,14 +8154,14 @@
       "rank_daily": 390
     },
     {
-      "track_id": "6wcFdMmiDscAhZJrcVFumx",
+      "track_id": "4fWDgRZa0GKE5KZNhE9MQa",
       "title": "Hey Stephen",
       "title_key": "hey stephen",
-      "spotify_url": "https://open.spotify.com/intl-fr/track/6wcFdMmiDscAhZJrcVFumx",
-      "image_url": "https://i.scdn.co/image/ab67616d0000b27334e5885465afc8a497ac1b7e",
-      "streams": 55447508,
-      "daily_streams": 10385,
-      "last_updated": "2026-03-13",
+      "spotify_url": "https://open.spotify.com/intl-fr/track/4fWDgRZa0GKE5KZNhE9MQa",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273516c279fe91ae3f6a79b23da",
+      "streams": 55457560,
+      "daily_streams": 10052,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -8170,7 +8170,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 44552492,
+      "remaining_to_next_milestone": 44542440,
       "appearances": [
         {
           "source_type": "album",
@@ -8209,7 +8209,7 @@
         "6wcFdMmiDscAhZJrcVFumx"
       ],
       "rank_total": 320,
-      "rank_daily": 342
+      "rank_daily": 344
     },
     {
       "track_id": "550erGcdD9n6PnwxrvYqZT",
@@ -13164,7 +13164,7 @@
       "merged_track_ids": [
         "214nt20w5wOxJnY462klLw"
       ],
-      "rank_total": 56,
+      "rank_total": 57,
       "rank_daily": 78
     },
     {
@@ -19035,7 +19035,7 @@
         "5eXgqtg3T8Av0m1FUaGHex"
       ],
       "rank_total": 155,
-      "rank_daily": 22
+      "rank_daily": 21
     },
     {
       "track_id": "2DF2sUvgHFKJ5TQGjm6n3T",
@@ -21520,7 +21520,7 @@
         "2TEQvxxQabwLQMqWMg1qGu"
       ],
       "rank_total": 151,
-      "rank_daily": 23
+      "rank_daily": 22
     },
     {
       "track_id": "1qwClaxDb5fCrLjXaAmB35",
