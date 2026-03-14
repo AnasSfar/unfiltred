@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 152,
-    "total_combined_streams": 121449090681,
+    "songs_updated_on_latest_date": 154,
+    "total_combined_streams": 121449202013,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -2275,9 +2275,9 @@
       "title_key": "betty",
       "spotify_url": "https://open.spotify.com/intl-fr/track/5kI4eCXXzyuIUXjQra0Cxi",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27395f754318336a07e85ec59bc",
-      "streams": 450915153,
-      "daily_streams": 94341,
-      "last_updated": "2026-03-13",
+      "streams": 451009319,
+      "daily_streams": 94166,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -2286,7 +2286,7 @@
       "current_milestone_label": "400M",
       "next_milestone": 500000000,
       "next_milestone_label": "500M",
-      "remaining_to_next_milestone": 49084847,
+      "remaining_to_next_milestone": 48990681,
       "appearances": [
         {
           "source_type": "album",
@@ -13785,9 +13785,9 @@
       "title_key": "only the young - featured in miss americana",
       "spotify_url": "https://open.spotify.com/intl-fr/track/2slqvGLwzZZYsT4K4Y1GBC",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2734aa13f6de271d8403a82e4a8",
-      "streams": 139620458,
-      "daily_streams": 16723,
-      "last_updated": "2026-03-13",
+      "streams": 139637624,
+      "daily_streams": 17166,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -13796,7 +13796,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 60379542,
+      "remaining_to_next_milestone": 60362376,
       "appearances": [
         {
           "source_type": "misc",
