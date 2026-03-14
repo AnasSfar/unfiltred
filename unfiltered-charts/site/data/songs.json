@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 34,
-    "total_combined_streams": 121436277389,
+    "songs_updated_on_latest_date": 35,
+    "total_combined_streams": 121436289143,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -19619,9 +19619,9 @@
       "title_key": "the outside",
       "spotify_url": "https://open.spotify.com/intl-fr/track/2QA3IixpRcKyOdG7XDzRgv",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2732f8c0fd72a80a93f8c53b96c",
-      "streams": 41310713,
-      "daily_streams": 11812,
-      "last_updated": "2026-03-13",
+      "streams": 41322467,
+      "daily_streams": 11754,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -19630,7 +19630,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 58689287,
+      "remaining_to_next_milestone": 58677533,
       "appearances": [
         {
           "source_type": "album",
