@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 231,
-    "total_combined_streams": 121455620122,
+    "songs_updated_on_latest_date": 232,
+    "total_combined_streams": 121455699406,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -9066,7 +9066,7 @@
         "5chnRTB9qMK3W1M41SnU9s"
       ],
       "rank_total": 188,
-      "rank_daily": 159
+      "rank_daily": 158
     },
     {
       "track_id": "5kHMfzgLZP95O9NBy0ku4v",
@@ -9687,7 +9687,7 @@
         "2YWtcWi3a83pdEg3Gif4Pd"
       ],
       "rank_total": 108,
-      "rank_daily": 158
+      "rank_daily": 157
     },
     {
       "track_id": "5gRYrtvyVyaCRvLt56OfuV",
@@ -13546,9 +13546,9 @@
       "title_key": "new year's day",
       "spotify_url": "https://open.spotify.com/intl-fr/track/7F5oktn5YOsR9eR5YsFtqb",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273da5d5aeeabacacc1263c0f4b",
-      "streams": 270417024,
-      "daily_streams": 81516,
-      "last_updated": "2026-03-13",
+      "streams": 270496308,
+      "daily_streams": 79284,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -13557,7 +13557,7 @@
       "current_milestone_label": "200M",
       "next_milestone": 300000000,
       "next_milestone_label": "300M",
-      "remaining_to_next_milestone": 29582976,
+      "remaining_to_next_milestone": 29503692,
       "appearances": [
         {
           "source_type": "album",
@@ -13583,7 +13583,7 @@
         "7F5oktn5YOsR9eR5YsFtqb"
       ],
       "rank_total": 140,
-      "rank_daily": 157
+      "rank_daily": 159
     },
     {
       "track_id": "13tYZVTtzLUJTlM7m1ivbi",
