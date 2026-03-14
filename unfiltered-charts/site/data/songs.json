@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 305,
-    "total_combined_streams": 121463565749,
+    "songs_updated_on_latest_date": 307,
+    "total_combined_streams": 121464261501,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -3289,7 +3289,7 @@
         "0g4fMVo4JjwnIpTfFfLdxS"
       ],
       "rank_total": 251,
-      "rank_daily": 196
+      "rank_daily": 197
     },
     {
       "track_id": "4ABYxlb92WBIjHu7TIKmml",
@@ -4127,7 +4127,7 @@
         "4pNApnaUWAL2J4KO2eqokq"
       ],
       "rank_total": 215,
-      "rank_daily": 194
+      "rank_daily": 195
     },
     {
       "track_id": "4pl5zcqCv4vc3cB7M4MZ6f",
@@ -6286,7 +6286,7 @@
         "08fa9LFcFBTcilB3iq2e2A"
       ],
       "rank_total": 162,
-      "rank_daily": 197
+      "rank_daily": 198
     },
     {
       "track_id": "4yyKppX85ZkmlGOC2toBZA",
@@ -7262,9 +7262,9 @@
       "title_key": "fortnight (feat. post malone)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/2OzhQlSqBEmt7hmkYxfT6m",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2735076e4160d018e378f488c33",
-      "streams": 1134981977,
-      "daily_streams": 650351,
-      "last_updated": "2026-03-13",
+      "streams": 1135618642,
+      "daily_streams": 636665,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift",
@@ -7274,7 +7274,7 @@
       "current_milestone_label": "1.1B",
       "next_milestone": 1200000000,
       "next_milestone_label": "1.2B",
-      "remaining_to_next_milestone": 65018023,
+      "remaining_to_next_milestone": 64381358,
       "appearances": [
         {
           "source_type": "album",
@@ -12527,9 +12527,9 @@
       "title_key": "mean",
       "spotify_url": "https://open.spotify.com/intl-fr/track/0KztjtD3ytzgYjUKIVfBnW",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273d0eae3c1661a96570f0ca7bd",
-      "streams": 264879117,
-      "daily_streams": 56365,
-      "last_updated": "2026-03-13",
+      "streams": 264938204,
+      "daily_streams": 59087,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -12538,7 +12538,7 @@
       "current_milestone_label": "200M",
       "next_milestone": 300000000,
       "next_milestone_label": "300M",
-      "remaining_to_next_milestone": 35120883,
+      "remaining_to_next_milestone": 35061796,
       "appearances": [
         {
           "source_type": "album",
@@ -12564,7 +12564,7 @@
         "0KztjtD3ytzgYjUKIVfBnW"
       ],
       "rank_total": 142,
-      "rank_daily": 199
+      "rank_daily": 192
     },
     {
       "track_id": "30Y4CV7A6YqtQtTTo7Ue4j",
@@ -14038,7 +14038,7 @@
         "5t1wMjV9ldVDdYs4l7mG2g"
       ],
       "rank_total": 445,
-      "rank_daily": 198
+      "rank_daily": 199
     },
     {
       "track_id": "7y16ygjcEcfo1VYKxmgVZY",
@@ -16517,7 +16517,7 @@
         "3MytWN8L7shNYzGl4tAKRp"
       ],
       "rank_total": 186,
-      "rank_daily": 192
+      "rank_daily": 193
     },
     {
       "track_id": "1aBJNc2thaKyh5THWzIqHX",
@@ -18738,7 +18738,7 @@
         "0eFQWVz0qIxDOvhLpZ40P7"
       ],
       "rank_total": 178,
-      "rank_daily": 193
+      "rank_daily": 194
     },
     {
       "track_id": "0UAdDYrkCvVQftaKpL6q5f",
@@ -18989,7 +18989,7 @@
         "0y6kdSRCVQhSsHSpWvTUm7"
       ],
       "rank_total": 204,
-      "rank_daily": 195
+      "rank_daily": 196
     },
     {
       "track_id": "5eXgqtg3T8Av0m1FUaGHex",
