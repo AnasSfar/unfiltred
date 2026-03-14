@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 13,
-    "total_combined_streams": 121433052424,
+    "songs_updated_on_latest_date": 14,
+    "total_combined_streams": 121433069975,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -1258,7 +1258,7 @@
         "2oWpe2L8ypC080BxpDVuTY"
       ],
       "rank_total": 343,
-      "rank_daily": 312
+      "rank_daily": 313
     },
     {
       "track_id": "4XiypEn8iKbeP1TbTqdfk5",
@@ -4037,7 +4037,7 @@
         "7an1exwMnfYRcdVQm0yDev"
       ],
       "rank_total": 314,
-      "rank_daily": 316
+      "rank_daily": 317
     },
     {
       "track_id": "4qyalTRMRH5YuEntvvMvq0",
@@ -12371,7 +12371,7 @@
         "2QrQCMel6v2JiLxqrg4p2O"
       ],
       "rank_total": 308,
-      "rank_daily": 311
+      "rank_daily": 312
     },
     {
       "track_id": "1QQii3pa5m8MEda0nbkjfw",
@@ -13822,7 +13822,7 @@
         "2slqvGLwzZZYsT4K4Y1GBC"
       ],
       "rank_total": 233,
-      "rank_daily": 313
+      "rank_daily": 314
     },
     {
       "track_id": "3yWuTOYDztXjZxdE2cIRUa",
@@ -15325,7 +15325,7 @@
         "7nWui6jiMM2m9qFmET1Mtj"
       ],
       "rank_total": 313,
-      "rank_daily": 315
+      "rank_daily": 316
     },
     {
       "track_id": "62V2ZHslgQV98gH4AuVXnr",
@@ -17601,7 +17601,7 @@
         "4pJi1rVt9GNegU9kywjg4z"
       ],
       "rank_total": 333,
-      "rank_daily": 314
+      "rank_daily": 315
     },
     {
       "track_id": "7zMcNqs55Mxer82bvZFkpg",
@@ -21687,9 +21687,9 @@
       "title_key": "wildest dreams - r3hab remix",
       "spotify_url": "https://open.spotify.com/intl-fr/track/5VDHMi7own9vDZjiwDES1e",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273b8d01ff84dc531f884d90928",
-      "streams": 16795917,
-      "daily_streams": 15429,
-      "last_updated": "2026-03-13",
+      "streams": 16813468,
+      "daily_streams": 17551,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -21698,7 +21698,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 83204083,
+      "remaining_to_next_milestone": 83186532,
       "appearances": [
         {
           "source_type": "misc",
@@ -21736,7 +21736,7 @@
         "5VDHMi7own9vDZjiwDES1e"
       ],
       "rank_total": 388,
-      "rank_daily": 317
+      "rank_daily": 311
     },
     {
       "track_id": "0lx2cLdOt3piJbcaXIV74f",
