@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 407,
-    "total_combined_streams": 121475306288,
+    "songs_updated_on_latest_date": 408,
+    "total_combined_streams": 121475312736,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -1144,7 +1144,7 @@
         "6C0H8ts9M6deezz0yYR6LK"
       ],
       "rank_total": 374,
-      "rank_daily": 375
+      "rank_daily": 374
     },
     {
       "track_id": "4YrpqEBNuz7IMsZtUP6bNQ",
@@ -14197,7 +14197,7 @@
         "7EWLNUpx0QWUCYfmBJS9qb"
       ],
       "rank_total": 451,
-      "rank_daily": 376
+      "rank_daily": 375
     },
     {
       "track_id": "1VCcPLfDiR1S9PJaSp5qm5",
@@ -15493,9 +15493,9 @@
       "title_key": "sad beautiful tragic",
       "spotify_url": "https://open.spotify.com/intl-fr/track/5QKhg4r4Ibt0LVTmWEXTEg",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273a7613d346501b828b56a0bc3",
-      "streams": 43717782,
-      "daily_streams": 6811,
-      "last_updated": "2026-03-13",
+      "streams": 43724230,
+      "daily_streams": 6448,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -15504,7 +15504,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 56282218,
+      "remaining_to_next_milestone": 56275770,
       "appearances": [
         {
           "source_type": "album",
@@ -15530,7 +15530,7 @@
         "5QKhg4r4Ibt0LVTmWEXTEg"
       ],
       "rank_total": 340,
-      "rank_daily": 374
+      "rank_daily": 377
     },
     {
       "track_id": "73qMN9bXy7MSPwwGfH3wQr",
@@ -17704,7 +17704,7 @@
         "6vLpy7UPYuOa75Bkqocrcw"
       ],
       "rank_total": 347,
-      "rank_daily": 377
+      "rank_daily": 376
     },
     {
       "track_id": "0k0vFacOHNuArLWMiH60p7",
