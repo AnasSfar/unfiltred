@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 401,
-    "total_combined_streams": 121475048385,
+    "songs_updated_on_latest_date": 402,
+    "total_combined_streams": 121475050707,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -3199,7 +3199,7 @@
         "12xIjI9A9UlB6zEc7kyZ06"
       ],
       "rank_total": 404,
-      "rank_daily": 414
+      "rank_daily": 413
     },
     {
       "track_id": "4axSuOg3BqsowKjRpj59RU",
@@ -11884,7 +11884,7 @@
         "3RNDw7yywLNyawDKV99hTx"
       ],
       "rank_total": 406,
-      "rank_daily": 413
+      "rank_daily": 412
     },
     {
       "track_id": "1dGr1c8CrMLDpV6mPbImSI",
@@ -12519,7 +12519,7 @@
         "5fOV54t6mMYv3H9CsnvU81"
       ],
       "rank_total": 412,
-      "rank_daily": 411
+      "rank_daily": 410
     },
     {
       "track_id": "0KztjtD3ytzgYjUKIVfBnW",
@@ -13017,7 +13017,7 @@
         "0GxW5K0qzrq7L1jwSY5OmY"
       ],
       "rank_total": 317,
-      "rank_daily": 410
+      "rank_daily": 409
     },
     {
       "track_id": "5jQyGzcwqAxwT5QUIMivoX",
@@ -14091,9 +14091,9 @@
       "title_key": "opalite - official music video extended version part 1",
       "spotify_url": "https://open.spotify.com/intl-fr/track/7vf4GBEJmv0uXojpr5qPMX",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2738b312c2d2873e7da95e316d2",
-      "streams": 1088679,
-      "daily_streams": 2870,
-      "last_updated": "2026-03-13",
+      "streams": 1091001,
+      "daily_streams": 2322,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -14102,7 +14102,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 98911321,
+      "remaining_to_next_milestone": 98908999,
       "appearances": [
         {
           "source_type": "misc",
@@ -14140,7 +14140,7 @@
         "7vf4GBEJmv0uXojpr5qPMX"
       ],
       "rank_total": 450,
-      "rank_daily": 409
+      "rank_daily": 414
     },
     {
       "track_id": "7EWLNUpx0QWUCYfmBJS9qb",
@@ -15055,7 +15055,7 @@
         "4mqgn90sCeVSYqcoftTQTd"
       ],
       "rank_total": 379,
-      "rank_daily": 412
+      "rank_daily": 411
     },
     {
       "track_id": "73W5aXorr5vxrySFcoZqIN",
