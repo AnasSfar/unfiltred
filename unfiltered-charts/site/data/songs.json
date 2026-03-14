@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 212,
-    "total_combined_streams": 121454798742,
+    "songs_updated_on_latest_date": 214,
+    "total_combined_streams": 121454826886,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -1985,7 +1985,7 @@
         "48A0aShHlovDfTMucMrE66"
       ],
       "rank_total": 230,
-      "rank_daily": 291
+      "rank_daily": 292
     },
     {
       "track_id": "05GsNucq8Bngd9fnd4fRa0",
@@ -3388,9 +3388,9 @@
       "title_key": "change",
       "spotify_url": "https://open.spotify.com/intl-fr/track/0RdcBnAXyH2YZZvcBVu2k6",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27334e5885465afc8a497ac1b7e",
-      "streams": 30510064,
-      "daily_streams": 5717,
-      "last_updated": "2026-03-13",
+      "streams": 30515639,
+      "daily_streams": 5575,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -3399,7 +3399,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 69489936,
+      "remaining_to_next_milestone": 69484361,
       "appearances": [
         {
           "source_type": "album",
@@ -3425,7 +3425,7 @@
         "0RdcBnAXyH2YZZvcBVu2k6"
       ],
       "rank_total": 352,
-      "rank_daily": 379
+      "rank_daily": 380
     },
     {
       "track_id": "3ExweHKZF9B752DPQByRVT",
@@ -10157,9 +10157,9 @@
       "title_key": "innocent (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/12nBPF4Rh4XLFJV0YLN7uj",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2730b04da4f224b51ff86e0a481",
-      "streams": 67059751,
-      "daily_streams": 22425,
-      "last_updated": "2026-03-13",
+      "streams": 67082320,
+      "daily_streams": 22569,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -10168,7 +10168,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 32940249,
+      "remaining_to_next_milestone": 32917680,
       "appearances": [
         {
           "source_type": "album",
@@ -10194,7 +10194,7 @@
         "12nBPF4Rh4XLFJV0YLN7uj"
       ],
       "rank_total": 306,
-      "rank_daily": 292
+      "rank_daily": 291
     },
     {
       "track_id": "5OOd01o2YS1QFwdpVLds3r",
@@ -20876,7 +20876,7 @@
         "6ovFJkdau79DuXEvQjPaNH"
       ],
       "rank_total": 363,
-      "rank_daily": 380
+      "rank_daily": 379
     },
     {
       "track_id": "0tQ9vBYpldCuikPsbgOVKA",
