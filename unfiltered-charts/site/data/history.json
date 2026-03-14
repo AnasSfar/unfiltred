@@ -22635,6 +22635,39 @@
         "remaining_to_next_milestone": 29437332,
         "crossed_milestone_today": null,
         "crossed_milestone_today_label": null
+      },
+      "4uuEGH5SVuzkkSFjo2DEiY": {
+        "streams": 92579284,
+        "daily_streams": 23279,
+        "current_milestone": null,
+        "current_milestone_label": null,
+        "next_milestone": 100000000,
+        "next_milestone_label": "100M",
+        "remaining_to_next_milestone": 7420716,
+        "crossed_milestone_today": null,
+        "crossed_milestone_today_label": null
+      },
+      "1GwMQaZz6Au3QLDbjbMdme": {
+        "streams": 573376434,
+        "daily_streams": 246342,
+        "current_milestone": 500000000,
+        "current_milestone_label": "500M",
+        "next_milestone": 600000000,
+        "next_milestone_label": "600M",
+        "remaining_to_next_milestone": 26623566,
+        "crossed_milestone_today": null,
+        "crossed_milestone_today_label": null
+      },
+      "1VPHQriwOsy5aGHLwwZyho": {
+        "streams": 540019,
+        "daily_streams": 434,
+        "current_milestone": null,
+        "current_milestone_label": null,
+        "next_milestone": 100000000,
+        "next_milestone_label": "100M",
+        "remaining_to_next_milestone": 99459981,
+        "crossed_milestone_today": null,
+        "crossed_milestone_today_label": null
       }
     }
   }

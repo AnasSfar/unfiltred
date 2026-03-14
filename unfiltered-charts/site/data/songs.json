@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 190,
-    "total_combined_streams": 121452213098,
+    "songs_updated_on_latest_date": 193,
+    "total_combined_streams": 121452483153,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -2900,9 +2900,9 @@
       "title_key": "call it what you want",
       "spotify_url": "https://open.spotify.com/intl-fr/track/1GwMQaZz6Au3QLDbjbMdme",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273da5d5aeeabacacc1263c0f4b",
-      "streams": 573130092,
-      "daily_streams": 256849,
-      "last_updated": "2026-03-13",
+      "streams": 573376434,
+      "daily_streams": 246342,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -2911,7 +2911,7 @@
       "current_milestone_label": "500M",
       "next_milestone": 600000000,
       "next_milestone_label": "600M",
-      "remaining_to_next_milestone": 26869908,
+      "remaining_to_next_milestone": 26623566,
       "appearances": [
         {
           "source_type": "album",
@@ -2937,7 +2937,7 @@
         "1GwMQaZz6Au3QLDbjbMdme"
       ],
       "rank_total": 52,
-      "rank_daily": 50
+      "rank_daily": 53
     },
     {
       "track_id": "1VPHQriwOsy5aGHLwwZyho",
@@ -2945,9 +2945,9 @@
       "title_key": "call it what you want - karaoke version",
       "spotify_url": "https://open.spotify.com/intl-fr/track/1VPHQriwOsy5aGHLwwZyho",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27305fd6906725e3f12544c2d04",
-      "streams": 539585,
-      "daily_streams": 479,
-      "last_updated": "2026-03-13",
+      "streams": 540019,
+      "daily_streams": 434,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -2956,7 +2956,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 99460415,
+      "remaining_to_next_milestone": 99459981,
       "appearances": [
         {
           "source_type": "misc",
@@ -2994,7 +2994,7 @@
         "1VPHQriwOsy5aGHLwwZyho"
       ],
       "rank_total": 457,
-      "rank_daily": 450
+      "rank_daily": 451
     },
     {
       "track_id": "1appZ3c336FkPvCuywfmrs",
@@ -4913,7 +4913,7 @@
         "3K2es3gElMRJ3qvmPW442g"
       ],
       "rank_total": 219,
-      "rank_daily": 287
+      "rank_daily": 286
     },
     {
       "track_id": "1zU8j1x3yi9xalMF96pzKp",
@@ -5488,9 +5488,9 @@
       "title_key": "don't you (taylor's version) (from the vault)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/4uuEGH5SVuzkkSFjo2DEiY",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273a48964b5d9a3d6968ae3e0de",
-      "streams": 92556005,
-      "daily_streams": 23465,
-      "last_updated": "2026-03-13",
+      "streams": 92579284,
+      "daily_streams": 23279,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -5499,7 +5499,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 7443995,
+      "remaining_to_next_milestone": 7420716,
       "appearances": [
         {
           "source_type": "album",
@@ -5525,7 +5525,7 @@
         "4uuEGH5SVuzkkSFjo2DEiY"
       ],
       "rank_total": 278,
-      "rank_daily": 286
+      "rank_daily": 287
     },
     {
       "track_id": "670fUmXf4KQekzbEgaXyPA",
@@ -9834,7 +9834,7 @@
         "4TtyvyI42C0KFnbDZvNC8Y"
       ],
       "rank_total": 433,
-      "rank_daily": 451
+      "rank_daily": 450
     },
     {
       "track_id": "0JIdBrXGSJXS72zjF9ss9u",
@@ -10657,7 +10657,7 @@
         "45R112Jz5hQeKgITXgSXzs"
       ],
       "rank_total": 25,
-      "rank_daily": 53
+      "rank_daily": 52
     },
     {
       "track_id": "4i6cwNY6oIUU2XZxPIw82Y",
@@ -17898,7 +17898,7 @@
         "0P9wLFurlgumLXuqFEpw52"
       ],
       "rank_total": 40,
-      "rank_daily": 52
+      "rank_daily": 51
     },
     {
       "track_id": "4EF6IyONolQy0bIQXm2EmX",
@@ -21781,7 +21781,7 @@
         "0lx2cLdOt3piJbcaXIV74f"
       ],
       "rank_total": 21,
-      "rank_daily": 51
+      "rank_daily": 50
     },
     {
       "track_id": "77p4fRpoeiZMtUy3P9kN21",
