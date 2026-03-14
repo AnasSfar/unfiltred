@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 365,
-    "total_combined_streams": 121469871759,
+    "songs_updated_on_latest_date": 366,
+    "total_combined_streams": 121470100277,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -10014,7 +10014,7 @@
         "2NmsngXHeC1GQ9wWrzhOMf"
       ],
       "rank_total": 47,
-      "rank_daily": 56
+      "rank_daily": 57
     },
     {
       "track_id": "560uQyz3p5G9WdnMX39xc6",
@@ -14601,9 +14601,9 @@
       "title_key": "paper rings",
       "spotify_url": "https://open.spotify.com/intl-fr/track/4y5bvROuBDPr5fuwXbIBZR",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273e787cffec20aa2a396a61647",
-      "streams": 826033415,
-      "daily_streams": 227501,
-      "last_updated": "2026-03-13",
+      "streams": 826261933,
+      "daily_streams": 228518,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -14612,7 +14612,7 @@
       "current_milestone_label": "800M",
       "next_milestone": 900000000,
       "next_milestone_label": "900M",
-      "remaining_to_next_milestone": 73966585,
+      "remaining_to_next_milestone": 73738067,
       "appearances": [
         {
           "source_type": "album",
@@ -14638,7 +14638,7 @@
         "4y5bvROuBDPr5fuwXbIBZR"
       ],
       "rank_total": 34,
-      "rank_daily": 57
+      "rank_daily": 56
     },
     {
       "track_id": "5tWxKWq1DSP1s9WQ5PWuqu",
