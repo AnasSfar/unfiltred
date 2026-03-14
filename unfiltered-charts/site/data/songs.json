@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 167,
-    "total_combined_streams": 121449652764,
+    "songs_updated_on_latest_date": 168,
+    "total_combined_streams": 121449656317,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -4185,7 +4185,7 @@
         "4pl5zcqCv4vc3cB7M4MZ6f"
       ],
       "rank_total": 380,
-      "rank_daily": 401
+      "rank_daily": 400
     },
     {
       "track_id": "1n2wszmJyVkw6FHqyLnQsY",
@@ -19369,9 +19369,9 @@
       "title_key": "the man - live from paris",
       "spotify_url": "https://open.spotify.com/intl-fr/track/7FKbTRXXIWVFQmPH8zGfU0",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2739a6d517fc78fb707bed067c2",
-      "streams": 23880550,
-      "daily_streams": 3643,
-      "last_updated": "2026-03-13",
+      "streams": 23884103,
+      "daily_streams": 3553,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -19380,7 +19380,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 76119450,
+      "remaining_to_next_milestone": 76115897,
       "appearances": [
         {
           "source_type": "misc",
@@ -19418,7 +19418,7 @@
         "7FKbTRXXIWVFQmPH8zGfU0"
       ],
       "rank_total": 369,
-      "rank_daily": 400
+      "rank_daily": 401
     },
     {
       "track_id": "1DTRUYVd8rYpla9hhVVwjo",
