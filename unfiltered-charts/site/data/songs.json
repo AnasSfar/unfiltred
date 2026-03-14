@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 139,
-    "total_combined_streams": 121448009994,
+    "songs_updated_on_latest_date": 140,
+    "total_combined_streams": 121448047499,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -1800,9 +1800,9 @@
       "title_key": "bad blood (feat. kendrick lamar) (taylor's version)",
       "spotify_url": "https://open.spotify.com/track/6qAcApH8obo8eqatCKUHd9",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273dc2bacae1dca83d26e2b1949",
-      "streams": 135871744,
-      "daily_streams": 37800,
-      "last_updated": "2026-03-13",
+      "streams": 135909249,
+      "daily_streams": 37505,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift",
@@ -1812,7 +1812,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 64128256,
+      "remaining_to_next_milestone": 64090751,
       "appearances": [
         {
           "source_type": "album",
@@ -1850,7 +1850,7 @@
         "6qAcApH8obo8eqatCKUHd9"
       ],
       "rank_total": 237,
-      "rank_daily": 237
+      "rank_daily": 239
     },
     {
       "track_id": "64FzgoLZ3oXu2SriZblHic",
@@ -12609,7 +12609,7 @@
         "30Y4CV7A6YqtQtTTo7Ue4j"
       ],
       "rank_total": 235,
-      "rank_daily": 238
+      "rank_daily": 237
     },
     {
       "track_id": "7mFiEij8AXPUZB7aKLbUlQ",
@@ -16052,7 +16052,7 @@
         "16MVSD0mGI4RMQT83Qzm69"
       ],
       "rank_total": 217,
-      "rank_daily": 239
+      "rank_daily": 238
     },
     {
       "track_id": "1cJkUN5LAotktryx2nPCr7",
