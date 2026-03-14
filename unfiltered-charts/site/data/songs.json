@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 195,
-    "total_combined_streams": 121453015248,
+    "songs_updated_on_latest_date": 196,
+    "total_combined_streams": 121453032741,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -1258,7 +1258,7 @@
         "2oWpe2L8ypC080BxpDVuTY"
       ],
       "rank_total": 343,
-      "rank_daily": 310
+      "rank_daily": 309
     },
     {
       "track_id": "4XiypEn8iKbeP1TbTqdfk5",
@@ -17712,9 +17712,9 @@
       "title_key": "tell me why (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/0k0vFacOHNuArLWMiH60p7",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273a48964b5d9a3d6968ae3e0de",
-      "streams": 74385943,
-      "daily_streams": 17881,
-      "last_updated": "2026-03-13",
+      "streams": 74403436,
+      "daily_streams": 17493,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -17723,7 +17723,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 25614057,
+      "remaining_to_next_milestone": 25596564,
       "appearances": [
         {
           "source_type": "album",
@@ -17749,7 +17749,7 @@
         "0k0vFacOHNuArLWMiH60p7"
       ],
       "rank_total": 295,
-      "rank_daily": 308
+      "rank_daily": 310
     },
     {
       "track_id": "7ogK4lJDVDMU6A6vYR5rvD",
@@ -21736,7 +21736,7 @@
         "5VDHMi7own9vDZjiwDES1e"
       ],
       "rank_total": 388,
-      "rank_daily": 309
+      "rank_daily": 308
     },
     {
       "track_id": "0lx2cLdOt3piJbcaXIV74f",
