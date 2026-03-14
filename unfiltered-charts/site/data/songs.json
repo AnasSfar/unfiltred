@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 356,
-    "total_combined_streams": 121468959096,
+    "songs_updated_on_latest_date": 358,
+    "total_combined_streams": 121469091856,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -7914,7 +7914,7 @@
         "3ZHTwJzCNDFvjLpVQiqpH6"
       ],
       "rank_total": 462,
-      "rank_daily": 465
+      "rank_daily": 466
     },
     {
       "track_id": "0W0iAC1VGlB82PI6elxFYf",
@@ -10756,9 +10756,9 @@
       "title_key": "king of my heart - karaoke version",
       "spotify_url": "https://open.spotify.com/intl-fr/track/5EsfyTD26nlVQ0DtYo16uJ",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27305fd6906725e3f12544c2d04",
-      "streams": 366129,
-      "daily_streams": 180,
-      "last_updated": "2026-03-13",
+      "streams": 366312,
+      "daily_streams": 183,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -10767,7 +10767,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 99633871,
+      "remaining_to_next_milestone": 99633688,
       "appearances": [
         {
           "source_type": "misc",
@@ -10805,7 +10805,7 @@
         "5EsfyTD26nlVQ0DtYo16uJ"
       ],
       "rank_total": 466,
-      "rank_daily": 466
+      "rank_daily": 465
     },
     {
       "track_id": "4bBDkw2KBMX0tcgAaXC83Q",
@@ -12768,7 +12768,7 @@
         "3z6XUommYDWPHeFhmhhT6j"
       ],
       "rank_total": 135,
-      "rank_daily": 104
+      "rank_daily": 103
     },
     {
       "track_id": "3rWDp9tBPQR9z6U5YyRSK4",
@@ -13740,9 +13740,9 @@
       "title_key": "now that we don't talk (taylor's version) (from the vault)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/5QUIK7ZtziW8kGWo8RqopF",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273dc2bacae1dca83d26e2b1949",
-      "streams": 426863732,
-      "daily_streams": 133696,
-      "last_updated": "2026-03-13",
+      "streams": 426996309,
+      "daily_streams": 132577,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -13751,7 +13751,7 @@
       "current_milestone_label": "400M",
       "next_milestone": 500000000,
       "next_milestone_label": "500M",
-      "remaining_to_next_milestone": 73136268,
+      "remaining_to_next_milestone": 73003691,
       "appearances": [
         {
           "source_type": "album",
@@ -13777,7 +13777,7 @@
         "5QUIK7ZtziW8kGWo8RqopF"
       ],
       "rank_total": 82,
-      "rank_daily": 103
+      "rank_daily": 104
     },
     {
       "track_id": "2slqvGLwzZZYsT4K4Y1GBC",

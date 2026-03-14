@@ -24461,6 +24461,28 @@
         "remaining_to_next_milestone": 86138987,
         "crossed_milestone_today": null,
         "crossed_milestone_today_label": null
+      },
+      "5QUIK7ZtziW8kGWo8RqopF": {
+        "streams": 426996309,
+        "daily_streams": 132577,
+        "current_milestone": 400000000,
+        "current_milestone_label": "400M",
+        "next_milestone": 500000000,
+        "next_milestone_label": "500M",
+        "remaining_to_next_milestone": 73003691,
+        "crossed_milestone_today": null,
+        "crossed_milestone_today_label": null
+      },
+      "5EsfyTD26nlVQ0DtYo16uJ": {
+        "streams": 366312,
+        "daily_streams": 183,
+        "current_milestone": null,
+        "current_milestone_label": null,
+        "next_milestone": 100000000,
+        "next_milestone_label": "100M",
+        "remaining_to_next_milestone": 99633688,
+        "crossed_milestone_today": null,
+        "crossed_milestone_today_label": null
       }
     }
   }
