@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 385,
-    "total_combined_streams": 121471809590,
+    "songs_updated_on_latest_date": 386,
+    "total_combined_streams": 121471942534,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -12731,9 +12731,9 @@
       "title_key": "message in a bottle (taylor's version) (from the vault)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/3z6XUommYDWPHeFhmhhT6j",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273318443aab3531a0558e79a4d",
-      "streams": 279901286,
-      "daily_streams": 132848,
-      "last_updated": "2026-03-13",
+      "streams": 280034230,
+      "daily_streams": 132944,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -12742,7 +12742,7 @@
       "current_milestone_label": "200M",
       "next_milestone": 300000000,
       "next_milestone_label": "300M",
-      "remaining_to_next_milestone": 20098714,
+      "remaining_to_next_milestone": 19965770,
       "appearances": [
         {
           "source_type": "album",
