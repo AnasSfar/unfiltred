@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 449,
-    "total_combined_streams": 121483133871,
+    "songs_updated_on_latest_date": 450,
+    "total_combined_streams": 121483145801,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -5832,7 +5832,7 @@
         "2JHzTARFUispsjZHKhrxxO"
       ],
       "rank_total": 436,
-      "rank_daily": 331
+      "rank_daily": 330
     },
     {
       "track_id": "4e3ZNTAV6PCrdYMUrUlMpQ",
@@ -7061,7 +7061,7 @@
         "1zxrcAk6eiytfavqriMcKT"
       ],
       "rank_total": 310,
-      "rank_daily": 332
+      "rank_daily": 331
     },
     {
       "track_id": "01QdEx6kFr78ZejhQtWR5m",
@@ -10239,7 +10239,7 @@
         "5OOd01o2YS1QFwdpVLds3r"
       ],
       "rank_total": 334,
-      "rank_daily": 333
+      "rank_daily": 332
     },
     {
       "track_id": "6VsvKPJ4xjVNKpI8VVZ3SV",
@@ -16856,7 +16856,7 @@
         "786NsUYn4GGUf8AOt0SQhP"
       ],
       "rank_total": 303,
-      "rank_daily": 328
+      "rank_daily": 327
     },
     {
       "track_id": "5jAIouBES8LWMiriuNq170",
@@ -17048,7 +17048,7 @@
         "2ZoOmCSgj0ypVAmGd1ve4y"
       ],
       "rank_total": 332,
-      "rank_daily": 327
+      "rank_daily": 326
     },
     {
       "track_id": "1qLeEu4iXEclkLwoBlMiou",
@@ -17466,7 +17466,7 @@
         "51A8eKvvZz9uydvIZ7xRSV"
       ],
       "rank_total": 327,
-      "rank_daily": 329
+      "rank_daily": 328
     },
     {
       "track_id": "2L09RYwH5Pjzca6PmbUAw3",
@@ -20126,9 +20126,9 @@
       "title_key": "this is me trying - the long pond studio sessions",
       "spotify_url": "https://open.spotify.com/intl-fr/track/1gaLZjPrDnHQWJds2Jg4KT",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273045514e3ed4e1767a7c3ece5",
-      "streams": 28675157,
-      "daily_streams": 12771,
-      "last_updated": "2026-03-13",
+      "streams": 28687087,
+      "daily_streams": 11930,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -20137,7 +20137,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 71324843,
+      "remaining_to_next_milestone": 71312913,
       "appearances": [
         {
           "source_type": "album",
@@ -20163,7 +20163,7 @@
         "1gaLZjPrDnHQWJds2Jg4KT"
       ],
       "rank_total": 358,
-      "rank_daily": 326
+      "rank_daily": 333
     },
     {
       "track_id": "07NxDD1iKCHbAldceD7QLP",
@@ -20400,7 +20400,7 @@
         "6K0CJLVXqbGMeJSmJ4ENKK"
       ],
       "rank_total": 337,
-      "rank_daily": 330
+      "rank_daily": 329
     },
     {
       "track_id": "0Om9WAB5RS09L80DyOfTNa",
