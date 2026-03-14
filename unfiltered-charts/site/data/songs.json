@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 98,
-    "total_combined_streams": 121444324492,
+    "songs_updated_on_latest_date": 99,
+    "total_combined_streams": 121444331159,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -1095,9 +1095,9 @@
       "title_key": "anti-hero - illenium remix",
       "spotify_url": "https://open.spotify.com/intl-fr/track/6C0H8ts9M6deezz0yYR6LK",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273eb7289d463cd524a93b722c9",
-      "streams": 20799877,
-      "daily_streams": 6229,
-      "last_updated": "2026-03-13",
+      "streams": 20806544,
+      "daily_streams": 6667,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -1106,7 +1106,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 79200123,
+      "remaining_to_next_milestone": 79193456,
       "appearances": [
         {
           "source_type": "misc",
@@ -1144,7 +1144,7 @@
         "6C0H8ts9M6deezz0yYR6LK"
       ],
       "rank_total": 374,
-      "rank_daily": 376
+      "rank_daily": 375
     },
     {
       "track_id": "4YrpqEBNuz7IMsZtUP6bNQ",
@@ -17704,7 +17704,7 @@
         "6vLpy7UPYuOa75Bkqocrcw"
       ],
       "rank_total": 347,
-      "rank_daily": 375
+      "rank_daily": 376
     },
     {
       "track_id": "0k0vFacOHNuArLWMiH60p7",
