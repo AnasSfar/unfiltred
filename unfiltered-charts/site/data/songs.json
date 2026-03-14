@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 128,
-    "total_combined_streams": 121447074250,
+    "songs_updated_on_latest_date": 129,
+    "total_combined_streams": 121447555466,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -9450,7 +9450,7 @@
         "72jCZdH0Lhg93z6Z4hBjgj"
       ],
       "rank_total": 20,
-      "rank_daily": 18
+      "rank_daily": 17
     },
     {
       "track_id": "2zfgVd034GlUvk7LqBHl6u",
@@ -22454,9 +22454,9 @@
       "title_key": "you belong with me (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/1qrpoAMXodY6895hGKoUpA",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273a48964b5d9a3d6968ae3e0de",
-      "streams": 1064824306,
-      "daily_streams": 485860,
-      "last_updated": "2026-03-13",
+      "streams": 1065305522,
+      "daily_streams": 481216,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -22465,7 +22465,7 @@
       "current_milestone_label": "1B",
       "next_milestone": 1100000000,
       "next_milestone_label": "1.1B",
-      "remaining_to_next_milestone": 35175694,
+      "remaining_to_next_milestone": 34694478,
       "appearances": [
         {
           "source_type": "album",
@@ -22491,7 +22491,7 @@
         "1qrpoAMXodY6895hGKoUpA"
       ],
       "rank_total": 23,
-      "rank_daily": 17
+      "rank_daily": 18
     },
     {
       "track_id": "6RRNNciQGZEXnqk8SQ9yv5",
