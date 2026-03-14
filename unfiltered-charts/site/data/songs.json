@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 337,
-    "total_combined_streams": 121466672518,
+    "songs_updated_on_latest_date": 338,
+    "total_combined_streams": 121467385404,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -9221,9 +9221,9 @@
       "title_key": "i don't wanna live forever (fifty shades darker)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/2y5aJvzXhHPA94U5GFAcXe",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2735997605214d568d73fd365c2",
-      "streams": 2094386762,
-      "daily_streams": 676044,
-      "last_updated": "2026-03-13",
+      "streams": 2095099648,
+      "daily_streams": 712886,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -9232,7 +9232,7 @@
       "current_milestone_label": "2B",
       "next_milestone": 2100000000,
       "next_milestone_label": "2.1B",
-      "remaining_to_next_milestone": 5613238,
+      "remaining_to_next_milestone": 4900352,
       "appearances": [
         {
           "source_type": "misc",
@@ -9270,7 +9270,7 @@
         "2y5aJvzXhHPA94U5GFAcXe"
       ],
       "rank_total": 3,
-      "rank_daily": 10
+      "rank_daily": 8
     },
     {
       "track_id": "43rA71bccXFGD4C8GOpIlN",
@@ -11929,7 +11929,7 @@
         "1dGr1c8CrMLDpV6mPbImSI"
       ],
       "rank_total": 4,
-      "rank_daily": 8
+      "rank_daily": 9
     },
     {
       "track_id": "3i9UVldZOE0aD0JnyfAZZ0",
@@ -15962,7 +15962,7 @@
         "0cqRj7pUJDkTCEsJkx8snD"
       ],
       "rank_total": 7,
-      "rank_daily": 9
+      "rank_daily": 10
     },
     {
       "track_id": "3pv7Q5v2dpdefwdWIvE7yH",
