@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 439,
-    "total_combined_streams": 121482528082,
+    "songs_updated_on_latest_date": 440,
+    "total_combined_streams": 121482529932,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -2369,7 +2369,7 @@
         "4GS68CE8nKLIKjjapiSm2I"
       ],
       "rank_total": 407,
-      "rank_daily": 421
+      "rank_daily": 420
     },
     {
       "track_id": "1mh5dObNoOvCfHmXnhvDEK",
@@ -5321,7 +5321,7 @@
         "6SYwJcqaltK2WFRmD1unUV"
       ],
       "rank_total": 415,
-      "rank_daily": 420
+      "rank_daily": 419
     },
     {
       "track_id": "2Sy2oGjP5RYB4cLVoDU0Gz",
@@ -18553,9 +18553,9 @@
       "title_key": "the fate of ophelia - track by track",
       "spotify_url": "https://open.spotify.com/intl-fr/track/5k9RjjuYyOMCLL81U8FaHT",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2737e0698e1398b6473de43f901",
-      "streams": 1632904,
-      "daily_streams": 2018,
-      "last_updated": "2026-03-13",
+      "streams": 1634754,
+      "daily_streams": 1850,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -18564,7 +18564,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 98367096,
+      "remaining_to_next_milestone": 98365246,
       "appearances": [
         {
           "source_type": "misc",
@@ -18602,7 +18602,7 @@
         "5k9RjjuYyOMCLL81U8FaHT"
       ],
       "rank_total": 444,
-      "rank_daily": 419
+      "rank_daily": 421
     },
     {
       "track_id": "2VuqMjgoKaOHNM8HpxtXKx",
