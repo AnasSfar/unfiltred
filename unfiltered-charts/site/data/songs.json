@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 111,
-    "total_combined_streams": 121445298877,
+    "songs_updated_on_latest_date": 112,
+    "total_combined_streams": 121445333280,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -3992,7 +3992,7 @@
         "35rdVq36LMHQX0Suw9a6tK"
       ],
       "rank_total": 218,
-      "rank_daily": 248
+      "rank_daily": 249
     },
     {
       "track_id": "7an1exwMnfYRcdVQm0yDev",
@@ -20408,9 +20408,9 @@
       "title_key": "tim mcgraw",
       "spotify_url": "https://open.spotify.com/intl-fr/track/0Om9WAB5RS09L80DyOfTNa",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2732f8c0fd72a80a93f8c53b96c",
-      "streams": 164995849,
-      "daily_streams": 33283,
-      "last_updated": "2026-03-13",
+      "streams": 165030252,
+      "daily_streams": 34403,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -20419,7 +20419,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 35004151,
+      "remaining_to_next_milestone": 34969748,
       "appearances": [
         {
           "source_type": "album",
@@ -20445,7 +20445,7 @@
         "0Om9WAB5RS09L80DyOfTNa"
       ],
       "rank_total": 203,
-      "rank_daily": 249
+      "rank_daily": 248
     },
     {
       "track_id": "1HCdems7PQZRj42QDWLA0A",
