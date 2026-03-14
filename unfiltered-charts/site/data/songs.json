@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 278,
-    "total_combined_streams": 121461619804,
+    "songs_updated_on_latest_date": 279,
+    "total_combined_streams": 121461631213,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -19043,9 +19043,9 @@
       "title_key": "the life of a showgirl (feat. sabrina carpenter) - dressing room rehearsal version",
       "spotify_url": "https://open.spotify.com/track/2DF2sUvgHFKJ5TQGjm6n3T",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273f756bdc2c11a985dc0c06d94",
-      "streams": 5100836,
-      "daily_streams": 11742,
-      "last_updated": "2026-03-13",
+      "streams": 5112245,
+      "daily_streams": 11409,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift",
@@ -19055,7 +19055,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 94899164,
+      "remaining_to_next_milestone": 94887755,
       "appearances": [
         {
           "source_type": "album",
