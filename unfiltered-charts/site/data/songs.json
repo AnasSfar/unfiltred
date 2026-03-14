@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 161,
-    "total_combined_streams": 121449469536,
+    "songs_updated_on_latest_date": 162,
+    "total_combined_streams": 121449513697,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -856,7 +856,7 @@
         "6aLOekfwbytwWvQftxTEF0"
       ],
       "rank_total": 157,
-      "rank_daily": 225
+      "rank_daily": 226
     },
     {
       "track_id": "6GXgd1BPD9bUpqw5AntGV5",
@@ -4958,7 +4958,7 @@
         "1zU8j1x3yi9xalMF96pzKp"
       ],
       "rank_total": 222,
-      "rank_daily": 224
+      "rank_daily": 225
     },
     {
       "track_id": "10GRRCR5fctuOF4GFmATJI",
@@ -11987,7 +11987,7 @@
         "3i9UVldZOE0aD0JnyfAZZ0"
       ],
       "rank_total": 113,
-      "rank_daily": 223
+      "rank_daily": 224
     },
     {
       "track_id": "2msvOEbkK50foYf9BMXr2X",
@@ -12858,7 +12858,7 @@
         "6LZaxlycSWrJZ4Volb25qx"
       ],
       "rank_total": 150,
-      "rank_daily": 221
+      "rank_daily": 222
     },
     {
       "track_id": "7G0gBu6nLdhFDPRLc0HdDG",
@@ -16627,9 +16627,9 @@
       "title_key": "speak now (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/5xXqyjLicvEpch72qEryFT",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2730b04da4f224b51ff86e0a481",
-      "streams": 144994303,
-      "daily_streams": 42375,
-      "last_updated": "2026-03-13",
+      "streams": 145038464,
+      "daily_streams": 44161,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -16638,7 +16638,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 55005697,
+      "remaining_to_next_milestone": 54961536,
       "appearances": [
         {
           "source_type": "album",
@@ -16664,7 +16664,7 @@
         "5xXqyjLicvEpch72qEryFT"
       ],
       "rank_total": 228,
-      "rank_daily": 226
+      "rank_daily": 221
     },
     {
       "track_id": "3QFB14MOUf3imlyISNmrbT",
@@ -16946,7 +16946,7 @@
         "6lzc0Al0zfZOIFsFvBS1ki"
       ],
       "rank_total": 209,
-      "rank_daily": 222
+      "rank_daily": 223
     },
     {
       "track_id": "5G9AVKld9q7DCrmoY42raf",
