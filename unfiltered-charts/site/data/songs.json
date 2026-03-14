@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 72,
-    "total_combined_streams": 121441739115,
+    "songs_updated_on_latest_date": 73,
+    "total_combined_streams": 121441935353,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -811,7 +811,7 @@
         "3nsfB1vus2qaloUdcBZvDu"
       ],
       "rank_total": 93,
-      "rank_daily": 68
+      "rank_daily": 67
     },
     {
       "track_id": "6aLOekfwbytwWvQftxTEF0",
@@ -1746,7 +1746,7 @@
         "2NlmmAjGYrrjAp0MED5rGx"
       ],
       "rank_total": 42,
-      "rank_daily": 69
+      "rank_daily": 68
     },
     {
       "track_id": "6xsEAm6w9oMQYYg3jkEkMT",
@@ -3380,7 +3380,7 @@
         "0sY6ZUTh4yoctD8VIXz339"
       ],
       "rank_total": 36,
-      "rank_daily": 60
+      "rank_daily": 59
     },
     {
       "track_id": "0RdcBnAXyH2YZZvcBVu2k6",
@@ -6617,7 +6617,7 @@
         "5hQSXkFgbxjZo9uCwd11so"
       ],
       "rank_total": 97,
-      "rank_daily": 61
+      "rank_daily": 60
     },
     {
       "track_id": "03bTIHJElXZ0O0jqOQvAbY",
@@ -10014,7 +10014,7 @@
         "2NmsngXHeC1GQ9wWrzhOMf"
       ],
       "rank_total": 47,
-      "rank_daily": 59
+      "rank_daily": 58
     },
     {
       "track_id": "560uQyz3p5G9WdnMX39xc6",
@@ -10284,7 +10284,7 @@
         "6VsvKPJ4xjVNKpI8VVZ3SV"
       ],
       "rank_total": 60,
-      "rank_daily": 63
+      "rank_daily": 62
     },
     {
       "track_id": "5KByGq0JijSSDcy0qzuINs",
@@ -12326,7 +12326,7 @@
         "3eX0NZfLtGzoLUxPNvRfqm"
       ],
       "rank_total": 48,
-      "rank_daily": 70
+      "rank_daily": 69
     },
     {
       "track_id": "2QrQCMel6v2JiLxqrg4p2O",
@@ -12813,7 +12813,7 @@
         "3rWDp9tBPQR9z6U5YyRSK4"
       ],
       "rank_total": 33,
-      "rank_daily": 56
+      "rank_daily": 55
     },
     {
       "track_id": "6LZaxlycSWrJZ4Volb25qx",
@@ -13075,7 +13075,7 @@
         "5jQyGzcwqAxwT5QUIMivoX"
       ],
       "rank_total": 53,
-      "rank_daily": 67
+      "rank_daily": 66
     },
     {
       "track_id": "2yceD2hx5HhOLgkm1CITCi",
@@ -13255,7 +13255,7 @@
         "2XXwLdtuAcE0HSCu61ijAb"
       ],
       "rank_total": 89,
-      "rank_daily": 66
+      "rank_daily": 65
     },
     {
       "track_id": "1MgV7FIyNxIG7WzMRJV5HC",
@@ -14593,7 +14593,7 @@
         "045ZeOHPIzhxxsm8bq5kyE"
       ],
       "rank_total": 148,
-      "rank_daily": 57
+      "rank_daily": 56
     },
     {
       "track_id": "4y5bvROuBDPr5fuwXbIBZR",
@@ -14638,7 +14638,7 @@
         "4y5bvROuBDPr5fuwXbIBZR"
       ],
       "rank_total": 34,
-      "rank_daily": 58
+      "rank_daily": 57
     },
     {
       "track_id": "5tWxKWq1DSP1s9WQ5PWuqu",
@@ -14998,7 +14998,7 @@
         "4OAuvHryIVv4kMDNSLuPt6"
       ],
       "rank_total": 79,
-      "rank_daily": 64
+      "rank_daily": 63
     },
     {
       "track_id": "4mqgn90sCeVSYqcoftTQTd",
@@ -15153,9 +15153,9 @@
       "title_key": "right where you left me - bonus track",
       "spotify_url": "https://open.spotify.com/intl-fr/track/3zwMVvkBe2qIKDObWgXw4N",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27390fd9741e1838115cd90b3b6",
-      "streams": 492553066,
-      "daily_streams": 234164,
-      "last_updated": "2026-03-13",
+      "streams": 492749304,
+      "daily_streams": 196238,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -15164,7 +15164,7 @@
       "current_milestone_label": "400M",
       "next_milestone": 500000000,
       "next_milestone_label": "500M",
-      "remaining_to_next_milestone": 7446934,
+      "remaining_to_next_milestone": 7250696,
       "appearances": [
         {
           "source_type": "album",
@@ -15190,7 +15190,7 @@
         "3zwMVvkBe2qIKDObWgXw4N"
       ],
       "rank_total": 67,
-      "rank_daily": 55
+      "rank_daily": 71
     },
     {
       "track_id": "2CnjDMdpRjlWv04Xk3s6MW",
@@ -17228,7 +17228,7 @@
         "1hjRhYpWyqDpPahmSlUTlc"
       ],
       "rank_total": 84,
-      "rank_daily": 62
+      "rank_daily": 61
     },
     {
       "track_id": "6M9ppdfFjR1AbpUl3Y8DcV",
@@ -18079,7 +18079,7 @@
         "3pHkh7d0lzM2AldUtz2x37"
       ],
       "rank_total": 58,
-      "rank_daily": 71
+      "rank_daily": 70
     },
     {
       "track_id": "2fgiBCtbWo8pijF6M7pN1i",
@@ -21475,7 +21475,7 @@
         "6kl8thRysTeVV3WvKxgZAy"
       ],
       "rank_total": 83,
-      "rank_daily": 65
+      "rank_daily": 64
     },
     {
       "track_id": "2TEQvxxQabwLQMqWMg1qGu",
