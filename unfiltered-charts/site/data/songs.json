@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 226,
-    "total_combined_streams": 121455332676,
+    "songs_updated_on_latest_date": 227,
+    "total_combined_streams": 121455483857,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -7447,8 +7447,8 @@
       "title_key": "fresh out the slammer",
       "spotify_url": "https://open.spotify.com/intl-fr/track/3fO566xJgwxIa3qGCGBvIC",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2735076e4160d018e378f488c33",
-      "streams": 248674985,
-      "daily_streams": 154870,
+      "streams": 248826166,
+      "daily_streams": 151181,
       "last_updated": "2026-03-13",
       "primary_artist": "Taylor Swift",
       "artists": [
@@ -7458,7 +7458,7 @@
       "current_milestone_label": "200M",
       "next_milestone": 300000000,
       "next_milestone_label": "300M",
-      "remaining_to_next_milestone": 51325015,
+      "remaining_to_next_milestone": 51173834,
       "appearances": [
         {
           "source_type": "album",
@@ -7484,7 +7484,7 @@
         "3fO566xJgwxIa3qGCGBvIC"
       ],
       "rank_total": 153,
-      "rank_daily": 94
+      "rank_daily": 95
     },
     {
       "track_id": "2bzUVEvpZ7At5cYz1kOLI9",
@@ -9156,7 +9156,7 @@
         "4svZDCRz4cJoneBpjpx8DJ"
       ],
       "rank_total": 51,
-      "rank_daily": 95
+      "rank_daily": 94
     },
     {
       "track_id": "2hecdut2HWM5JMHqLTWThq",
