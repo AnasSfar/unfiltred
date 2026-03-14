@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 222,
-    "total_combined_streams": 121455186589,
+    "songs_updated_on_latest_date": 223,
+    "total_combined_streams": 121455291848,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -586,7 +586,7 @@
         "4P9Q0GojKVXpRTJCaL3kyy"
       ],
       "rank_total": 68,
-      "rank_daily": 127
+      "rank_daily": 126
     },
     {
       "track_id": "4XMP3zVxrnr58T0tjIHvpR",
@@ -1599,7 +1599,7 @@
         "79uDOz0zuuWS7HWxzMmTa2"
       ],
       "rank_total": 121,
-      "rank_daily": 126
+      "rank_daily": 125
     },
     {
       "track_id": "6IH2Z54gYPLqgJtxZjX80i",
@@ -9323,9 +9323,9 @@
       "title_key": "i hate it here",
       "spotify_url": "https://open.spotify.com/intl-fr/track/3hlGuz3loYoLfI3bpwieWq",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2738ecc33f195df6aa257c39eaa",
-      "streams": 171619591,
-      "daily_streams": 107376,
-      "last_updated": "2026-03-13",
+      "streams": 171724850,
+      "daily_streams": 105259,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -9334,7 +9334,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 28380409,
+      "remaining_to_next_milestone": 28275150,
       "appearances": [
         {
           "source_type": "album",
@@ -9360,7 +9360,7 @@
         "3hlGuz3loYoLfI3bpwieWq"
       ],
       "rank_total": 196,
-      "rank_daily": 124
+      "rank_daily": 128
     },
     {
       "track_id": "6AtZLIzUINvExIUy4QhdjP",
@@ -15872,7 +15872,7 @@
         "6KJqZcs9XDgVck7Lg9QOTC"
       ],
       "rank_total": 88,
-      "rank_daily": 128
+      "rank_daily": 127
     },
     {
       "track_id": "4cOWq0cVsKjxaQpRMbDoH1",
@@ -21012,7 +21012,7 @@
         "1xwAWUI6Dj0WGC3KiUPN0O"
       ],
       "rank_total": 62,
-      "rank_daily": 125
+      "rank_daily": 124
     },
     {
       "track_id": "7AEAGTc8cReDqcbPoY9gwo",
