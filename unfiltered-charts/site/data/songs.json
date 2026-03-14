@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 414,
-    "total_combined_streams": 121476226206,
+    "songs_updated_on_latest_date": 415,
+    "total_combined_streams": 121476293724,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -8004,7 +8004,7 @@
         "73YUReisjb3A9ActdLLjJQ"
       ],
       "rank_total": 159,
-      "rank_daily": 177
+      "rank_daily": 178
     },
     {
       "track_id": "11UaQaEp2LvdspTyyuE3ur",
@@ -8434,7 +8434,7 @@
         "6MWoRt97mnSTXZhu3ggi9C"
       ],
       "rank_total": 160,
-      "rank_daily": 176
+      "rank_daily": 177
     },
     {
       "track_id": "0QTBsdoJhamY3Aid3fOsOd",
@@ -14728,7 +14728,7 @@
         "7MbT4I8qGntX4fMdqMQgke"
       ],
       "rank_total": 141,
-      "rank_daily": 178
+      "rank_daily": 179
     },
     {
       "track_id": "4YHHz3VIXgNDGdoL9xC1tx",
@@ -16242,9 +16242,9 @@
       "title_key": "so it goes...",
       "spotify_url": "https://open.spotify.com/intl-fr/track/5PxFv9yJEg9dxvbZggykro",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273da5d5aeeabacacc1263c0f4b",
-      "streams": 244880238,
-      "daily_streams": 66817,
-      "last_updated": "2026-03-13",
+      "streams": 244947756,
+      "daily_streams": 67518,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -16253,7 +16253,7 @@
       "current_milestone_label": "200M",
       "next_milestone": 300000000,
       "next_milestone_label": "300M",
-      "remaining_to_next_milestone": 55119762,
+      "remaining_to_next_milestone": 55052244,
       "appearances": [
         {
           "source_type": "album",
@@ -16279,7 +16279,7 @@
         "5PxFv9yJEg9dxvbZggykro"
       ],
       "rank_total": 158,
-      "rank_daily": 179
+      "rank_daily": 176
     },
     {
       "track_id": "5oJUjUsBZcqyEhOdpif37h",
