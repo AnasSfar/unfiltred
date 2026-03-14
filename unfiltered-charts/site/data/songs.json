@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 299,
-    "total_combined_streams": 121463052718,
+    "songs_updated_on_latest_date": 300,
+    "total_combined_streams": 121463226342,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -2075,7 +2075,7 @@
         "3qoftcUZaUOncvIYjFSPdE"
       ],
       "rank_total": 43,
-      "rank_daily": 85
+      "rank_daily": 86
     },
     {
       "track_id": "4OmFmE0fzcMG6g0Y8p4eSD",
@@ -2847,7 +2847,7 @@
         "74sZKiwaGtSEEyjhDmi99y"
       ],
       "rank_total": 96,
-      "rank_daily": 88
+      "rank_daily": 89
     },
     {
       "track_id": "4qUijfYU8EoIWiY6oSyrgT",
@@ -6822,7 +6822,7 @@
         "77sMIMlNaSURUAXq5coCxE"
       ],
       "rank_total": 75,
-      "rank_daily": 83
+      "rank_daily": 84
     },
     {
       "track_id": "3M0w3fhdXByHLCNAoi5c9G",
@@ -6933,9 +6933,9 @@
       "title_key": "florida!!! (feat. florence + the machine)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/3ZVFcD8Wlw9T9klGqmJf9F",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2735076e4160d018e378f488c33",
-      "streams": 323365209,
-      "daily_streams": 162832,
-      "last_updated": "2026-03-13",
+      "streams": 323538833,
+      "daily_streams": 173624,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift",
@@ -6945,7 +6945,7 @@
       "current_milestone_label": "300M",
       "next_milestone": 400000000,
       "next_milestone_label": "400M",
-      "remaining_to_next_milestone": 76634791,
+      "remaining_to_next_milestone": 76461167,
       "appearances": [
         {
           "source_type": "album",
@@ -6971,7 +6971,7 @@
         "3ZVFcD8Wlw9T9klGqmJf9F"
       ],
       "rank_total": 116,
-      "rank_daily": 89
+      "rank_daily": 83
     },
     {
       "track_id": "4s8BIKx4Zh6ryAEz8RTlaU",
@@ -10104,7 +10104,7 @@
         "1kcwpPDQnqEqmezzXdJTCP"
       ],
       "rank_total": 154,
-      "rank_daily": 84
+      "rank_daily": 85
     },
     {
       "track_id": "3kfgJql90tzgoxByioAMXR",
@@ -11112,7 +11112,7 @@
         "5jQI2r1RdgtuT8S3iG8zFC"
       ],
       "rank_total": 31,
-      "rank_daily": 87
+      "rank_daily": 88
     },
     {
       "track_id": "2M4tVhRXucLE9M3STv21Yi",
@@ -22695,7 +22695,7 @@
         "3CWq0pAKKTWb0K4yiglDc4"
       ],
       "rank_total": 92,
-      "rank_daily": 86
+      "rank_daily": 87
     },
     {
       "track_id": "6HWYtS215rxaaMjvpyG18W",
