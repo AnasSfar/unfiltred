@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 239,
-    "total_combined_streams": 121455939869,
+    "songs_updated_on_latest_date": 241,
+    "total_combined_streams": 121456019923,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -2414,7 +2414,7 @@
         "1mh5dObNoOvCfHmXnhvDEK"
       ],
       "rank_total": 390,
-      "rank_daily": 393
+      "rank_daily": 392
     },
     {
       "track_id": "71CBDRKmF2VeRKYMG1DFBh",
@@ -3820,9 +3820,9 @@
       "title_key": "clara bow",
       "spotify_url": "https://open.spotify.com/intl-fr/track/4d9PtIEVij9jW5OaLinH66",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2738ecc33f195df6aa257c39eaa",
-      "streams": 173148361,
-      "daily_streams": 77064,
-      "last_updated": "2026-03-13",
+      "streams": 173223710,
+      "daily_streams": 75349,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -3831,7 +3831,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 26851639,
+      "remaining_to_next_milestone": 26776290,
       "appearances": [
         {
           "source_type": "album",
@@ -3857,7 +3857,7 @@
         "4d9PtIEVij9jW5OaLinH66"
       ],
       "rank_total": 194,
-      "rank_daily": 162
+      "rank_daily": 163
     },
     {
       "track_id": "4bXCcoesMt8u99xMsbLr9U",
@@ -8976,7 +8976,7 @@
         "0hFF0aqyjDwDh6SQwRbTyx"
       ],
       "rank_total": 423,
-      "rank_daily": 394
+      "rank_daily": 393
     },
     {
       "track_id": "2PGIFYRG1XWsPqNG14hgD1",
@@ -12199,9 +12199,9 @@
       "title_key": "mad woman - the long pond studio sessions",
       "spotify_url": "https://open.spotify.com/intl-fr/track/04xrhDrQ2WOW8GLwu7kbc0",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273045514e3ed4e1767a7c3ece5",
-      "streams": 14503933,
-      "daily_streams": 4913,
-      "last_updated": "2026-03-13",
+      "streams": 14508638,
+      "daily_streams": 4705,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -12210,7 +12210,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 85496067,
+      "remaining_to_next_milestone": 85491362,
       "appearances": [
         {
           "source_type": "album",
@@ -12236,7 +12236,7 @@
         "04xrhDrQ2WOW8GLwu7kbc0"
       ],
       "rank_total": 399,
-      "rank_daily": 392
+      "rank_daily": 394
     },
     {
       "track_id": "12ntTeqEeTg7GAVpe8Mhpl",
@@ -14728,7 +14728,7 @@
         "7MbT4I8qGntX4fMdqMQgke"
       ],
       "rank_total": 141,
-      "rank_daily": 163
+      "rank_daily": 162
     },
     {
       "track_id": "4YHHz3VIXgNDGdoL9xC1tx",
