@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 458,
-    "total_combined_streams": 121483353331,
+    "songs_updated_on_latest_date": 459,
+    "total_combined_streams": 121483456952,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -2120,7 +2120,7 @@
         "4OmFmE0fzcMG6g0Y8p4eSD"
       ],
       "rank_total": 181,
-      "rank_daily": 132
+      "rank_daily": 133
     },
     {
       "track_id": "1By2VQkUN0Frd8mKNV5NYC",
@@ -15757,7 +15757,7 @@
         "3CCRVu4F91Qp2mnGjmWBrf"
       ],
       "rank_total": 134,
-      "rank_daily": 133
+      "rank_daily": 134
     },
     {
       "track_id": "5eGX87IiKsGuzS3iw4CfCX",
@@ -16007,7 +16007,7 @@
         "3pv7Q5v2dpdefwdWIvE7yH"
       ],
       "rank_total": 169,
-      "rank_daily": 136
+      "rank_daily": 137
     },
     {
       "track_id": "16MVSD0mGI4RMQT83Qzm69",
@@ -17511,7 +17511,7 @@
         "2L09RYwH5Pjzca6PmbUAw3"
       ],
       "rank_total": 100,
-      "rank_daily": 131
+      "rank_daily": 132
     },
     {
       "track_id": "0RFCHlNuTeUHIB36VuVbOL",
@@ -18316,7 +18316,7 @@
         "2913xXOVAIDAqxzV2g4VcU"
       ],
       "rank_total": 210,
-      "rank_daily": 134
+      "rank_daily": 135
     },
     {
       "track_id": "5cKBWgDjB5IXZ5jnryewOH",
@@ -18898,7 +18898,7 @@
         "4ojxSyrEraN7d46BMBPThZ"
       ],
       "rank_total": 74,
-      "rank_daily": 135
+      "rank_daily": 136
     },
     {
       "track_id": "7vvIpJZye5cRR6De1LKM0m",
@@ -20821,11 +20821,11 @@
       "rank_daily": 204
     },
     {
-      "track_id": "2IZ00ed83ygPIiacYScWUE",
+      "track_id": "6ovFJkdau79DuXEvQjPaNH",
       "title": "Untouchable",
       "title_key": "untouchable",
-      "spotify_url": "https://open.spotify.com/intl-fr/track/2IZ00ed83ygPIiacYScWUE",
-      "image_url": "https://i.scdn.co/image/ab67616d0000b27334e5885465afc8a497ac1b7e",
+      "spotify_url": "https://open.spotify.com/intl-fr/track/6ovFJkdau79DuXEvQjPaNH",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b27373b565ab9d713e8d5586aac2",
       "streams": 26177685,
       "daily_streams": 5413,
       "last_updated": "2026-03-14",
@@ -21155,9 +21155,9 @@
       "title_key": "welcome to new york",
       "spotify_url": "https://open.spotify.com/intl-fr/track/3nRmDz7qGCvsMS30rGGY0x",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27352b2a3824413eefe9e33817a",
-      "streams": 294832271,
-      "daily_streams": 98870,
-      "last_updated": "2026-03-13",
+      "streams": 294935892,
+      "daily_streams": 103621,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -21166,7 +21166,7 @@
       "current_milestone_label": "200M",
       "next_milestone": 300000000,
       "next_milestone_label": "300M",
-      "remaining_to_next_milestone": 5167729,
+      "remaining_to_next_milestone": 5064108,
       "appearances": [
         {
           "source_type": "album",
@@ -21192,7 +21192,7 @@
         "3nRmDz7qGCvsMS30rGGY0x"
       ],
       "rank_total": 123,
-      "rank_daily": 138
+      "rank_daily": 131
     },
     {
       "track_id": "1hR8BSuEqPCCZfv93zzzz9",
@@ -22388,7 +22388,7 @@
         "0TyGh27YQ5LknmiDhCzJiT"
       ],
       "rank_total": 212,
-      "rank_daily": 137
+      "rank_daily": 138
     },
     {
       "track_id": "7G6TDmGJXDoBaV6NGj3Yic",
