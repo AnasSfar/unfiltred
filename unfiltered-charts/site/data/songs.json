@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 99,
-    "total_combined_streams": 121444331159,
+    "songs_updated_on_latest_date": 100,
+    "total_combined_streams": 121444416391,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -3947,7 +3947,7 @@
         "0lKUBmEyQfzsQHozyeXzES"
       ],
       "rank_total": 193,
-      "rank_daily": 150
+      "rank_daily": 149
     },
     {
       "track_id": "35rdVq36LMHQX0Suw9a6tK",
@@ -4423,7 +4423,7 @@
         "1XjHRolIXL2M1EEOUsGGR4"
       ],
       "rank_total": 147,
-      "rank_daily": 149
+      "rank_daily": 148
     },
     {
       "track_id": "5vyxXfD5gLlyPxGZMEjtmd",
@@ -4709,7 +4709,7 @@
         "7I7JbDv63ZJJsSi24DyJrz"
       ],
       "rank_total": 111,
-      "rank_daily": 154
+      "rank_daily": 153
     },
     {
       "track_id": "3ZfvKQxJp4zZshiJsRPoD1",
@@ -9111,7 +9111,7 @@
         "5kHMfzgLZP95O9NBy0ku4v"
       ],
       "rank_total": 109,
-      "rank_daily": 153
+      "rank_daily": 152
     },
     {
       "track_id": "4svZDCRz4cJoneBpjpx8DJ",
@@ -9315,7 +9315,7 @@
         "43rA71bccXFGD4C8GOpIlN"
       ],
       "rank_total": 86,
-      "rank_daily": 152
+      "rank_daily": 151
     },
     {
       "track_id": "3hlGuz3loYoLfI3bpwieWq",
@@ -13538,7 +13538,7 @@
         "5M787RexsAiVYjQusM98CV"
       ],
       "rank_total": 173,
-      "rank_daily": 151
+      "rank_daily": 150
     },
     {
       "track_id": "7F5oktn5YOsR9eR5YsFtqb",
@@ -14511,9 +14511,9 @@
       "title_key": "out of the woods",
       "spotify_url": "https://open.spotify.com/intl-fr/track/0qUnBLZ8bJqUNEeQgayL9t",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27352b2a3824413eefe9e33817a",
-      "streams": 363771781,
-      "daily_streams": 88811,
-      "last_updated": "2026-03-13",
+      "streams": 363857013,
+      "daily_streams": 85232,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -14522,7 +14522,7 @@
       "current_milestone_label": "300M",
       "next_milestone": 400000000,
       "next_milestone_label": "400M",
-      "remaining_to_next_milestone": 36228219,
+      "remaining_to_next_milestone": 36142987,
       "appearances": [
         {
           "source_type": "album",
@@ -14548,7 +14548,7 @@
         "0qUnBLZ8bJqUNEeQgayL9t"
       ],
       "rank_total": 101,
-      "rank_daily": 148
+      "rank_daily": 154
     },
     {
       "track_id": "045ZeOHPIzhxxsm8bq5kyE",
