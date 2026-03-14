@@ -1865,29 +1865,29 @@ function bindUpdateButton(){
    PAGE ROUTER
 ========================= */
 
-async function renderPage(){
-  await loadHistory(state.selectedDate);
-  const container =
-    document.getElementById("app") ||
-    document.body;
+async function renderPage() {
+  if (state.selectedDate) {
+    await loadHistory(state.selectedDate);
 
-  applyTheme(state.themeMode);
+    const prevDate = getPreviousDate(state.selectedDate);
+    if (prevDate) {
+      await loadHistory(prevDate);
+    }
+  }
 
-  const page = state.page;
+  const container = document.getElementById("app") || document.body;
 
-  if(page==="home"){
+  await applyTheme(state.themeMode);
+
+  if (state.page === "home") {
     renderHome(container);
-  }
-  else if(page==="albums"){
+  } else if (state.page === "albums") {
     renderAlbums(container);
-  }
-  else if(page==="album"){
+  } else if (state.page === "album") {
     renderAlbumPage(container);
-  }
-  else if(page==="song"){
+  } else if (state.page === "song") {
     renderSongPage(container);
-  }
-  else if(page==="milestones"){
+  } else if (state.page === "milestones") {
     renderMilestones(container);
   }
 
@@ -1896,7 +1896,6 @@ async function renderPage(){
   bindDateControls();
   bindSearch();
   bindUpdateButton();
-
 }
 
 
