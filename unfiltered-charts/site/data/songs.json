@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 382,
-    "total_combined_streams": 121471776978,
+    "songs_updated_on_latest_date": 383,
+    "total_combined_streams": 121471783067,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -3425,7 +3425,7 @@
         "0RdcBnAXyH2YZZvcBVu2k6"
       ],
       "rank_total": 352,
-      "rank_daily": 380
+      "rank_daily": 381
     },
     {
       "track_id": "3ExweHKZF9B752DPQByRVT",
@@ -10329,7 +10329,7 @@
         "5KByGq0JijSSDcy0qzuINs"
       ],
       "rank_total": 386,
-      "rank_daily": 379
+      "rank_daily": 380
     },
     {
       "track_id": "6IG3sQ8s9nfk6TUlVzRhbN",
@@ -12674,9 +12674,9 @@
       "title_key": "message in a bottle (fat max g remix) (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/3tGq7hWDCtrnL83y5OGual",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273e53252ce47982a3d555a6b3b",
-      "streams": 24580137,
-      "daily_streams": 5415,
-      "last_updated": "2026-03-13",
+      "streams": 24586226,
+      "daily_streams": 6089,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -12685,7 +12685,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 75419863,
+      "remaining_to_next_milestone": 75413774,
       "appearances": [
         {
           "source_type": "misc",
@@ -12723,7 +12723,7 @@
         "3tGq7hWDCtrnL83y5OGual"
       ],
       "rank_total": 368,
-      "rank_daily": 382
+      "rank_daily": 378
     },
     {
       "track_id": "3z6XUommYDWPHeFhmhhT6j",
@@ -15917,7 +15917,7 @@
         "4cOWq0cVsKjxaQpRMbDoH1"
       ],
       "rank_total": 385,
-      "rank_daily": 381
+      "rank_daily": 382
     },
     {
       "track_id": "0cqRj7pUJDkTCEsJkx8snD",
@@ -20876,7 +20876,7 @@
         "6ovFJkdau79DuXEvQjPaNH"
       ],
       "rank_total": 363,
-      "rank_daily": 378
+      "rank_daily": 379
     },
     {
       "track_id": "0tQ9vBYpldCuikPsbgOVKA",
