@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 338,
-    "total_combined_streams": 121467385404,
+    "songs_updated_on_latest_date": 339,
+    "total_combined_streams": 121467473370,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -9278,9 +9278,9 @@
       "title_key": "i forgot that you existed",
       "spotify_url": "https://open.spotify.com/intl-fr/track/43rA71bccXFGD4C8GOpIlN",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273e787cffec20aa2a396a61647",
-      "streams": 412030784,
-      "daily_streams": 86942,
-      "last_updated": "2026-03-13",
+      "streams": 412118750,
+      "daily_streams": 87966,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -9289,7 +9289,7 @@
       "current_milestone_label": "400M",
       "next_milestone": 500000000,
       "next_milestone_label": "500M",
-      "remaining_to_next_milestone": 87969216,
+      "remaining_to_next_milestone": 87881250,
       "appearances": [
         {
           "source_type": "album",
