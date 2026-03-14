@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 100,
-    "total_combined_streams": 121444416391,
+    "songs_updated_on_latest_date": 101,
+    "total_combined_streams": 121444481527,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -1895,7 +1895,7 @@
         "64FzgoLZ3oXu2SriZblHic"
       ],
       "rank_total": 221,
-      "rank_daily": 182
+      "rank_daily": 181
     },
     {
       "track_id": "2evEoQAhIMaa9PfjTT5skG",
@@ -8434,7 +8434,7 @@
         "6MWoRt97mnSTXZhu3ggi9C"
       ],
       "rank_total": 160,
-      "rank_daily": 183
+      "rank_daily": 182
     },
     {
       "track_id": "0QTBsdoJhamY3Aid3fOsOd",
@@ -14646,8 +14646,8 @@
       "title_key": "paris",
       "spotify_url": "https://open.spotify.com/intl-fr/track/5tWxKWq1DSP1s9WQ5PWuqu",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273fa747621a53c8e2cc436dee0",
-      "streams": 239416685,
-      "daily_streams": 66929,
+      "streams": 239481821,
+      "daily_streams": 65136,
       "last_updated": "2026-03-13",
       "primary_artist": "Taylor Swift",
       "artists": [
@@ -14657,7 +14657,7 @@
       "current_milestone_label": "200M",
       "next_milestone": 300000000,
       "next_milestone_label": "300M",
-      "remaining_to_next_milestone": 60583315,
+      "remaining_to_next_milestone": 60518179,
       "appearances": [
         {
           "source_type": "album",
@@ -14683,7 +14683,7 @@
         "5tWxKWq1DSP1s9WQ5PWuqu"
       ],
       "rank_total": 161,
-      "rank_daily": 179
+      "rank_daily": 184
     },
     {
       "track_id": "7MbT4I8qGntX4fMdqMQgke",
@@ -14953,7 +14953,7 @@
         "0cITLOYn1Sv4q27zZPqlNK"
       ],
       "rank_total": 124,
-      "rank_daily": 184
+      "rank_daily": 183
     },
     {
       "track_id": "4OAuvHryIVv4kMDNSLuPt6",
@@ -16279,7 +16279,7 @@
         "5PxFv9yJEg9dxvbZggykro"
       ],
       "rank_total": 158,
-      "rank_daily": 180
+      "rank_daily": 179
     },
     {
       "track_id": "5oJUjUsBZcqyEhOdpif37h",
@@ -19463,7 +19463,7 @@
         "1DTRUYVd8rYpla9hhVVwjo"
       ],
       "rank_total": 266,
-      "rank_daily": 181
+      "rank_daily": 180
     },
     {
       "track_id": "0NRHj8hDwwmSPaA41o379r",
