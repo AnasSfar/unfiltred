@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 444,
-    "total_combined_streams": 121482694049,
+    "songs_updated_on_latest_date": 445,
+    "total_combined_streams": 121482700885,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -1656,7 +1656,7 @@
         "6IH2Z54gYPLqgJtxZjX80i"
       ],
       "rank_total": 288,
-      "rank_daily": 372
+      "rank_daily": 371
     },
     {
       "track_id": "1IsquhJFJ0qcFZI7FeAEuN",
@@ -3629,7 +3629,7 @@
         "4mKye6Z1kXuKolzMkJoKFA"
       ],
       "rank_total": 126,
-      "rank_daily": 371
+      "rank_daily": 370
     },
     {
       "track_id": "50ho0AOvkm8E5l8zf7OfJI",
@@ -19234,9 +19234,9 @@
       "title_key": "the lucky one",
       "spotify_url": "https://open.spotify.com/intl-fr/track/2wtHlpYSgC7xEdD3DrSHNL",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273a7613d346501b828b56a0bc3",
-      "streams": 47988827,
-      "daily_streams": 6959,
-      "last_updated": "2026-03-13",
+      "streams": 47995663,
+      "daily_streams": 6836,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -19245,7 +19245,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 52011173,
+      "remaining_to_next_milestone": 52004337,
       "appearances": [
         {
           "source_type": "album",
@@ -19271,7 +19271,7 @@
         "2wtHlpYSgC7xEdD3DrSHNL"
       ],
       "rank_total": 328,
-      "rank_daily": 370
+      "rank_daily": 372
     },
     {
       "track_id": "4e5ayHsOLJNLTGfjau2mEw",
