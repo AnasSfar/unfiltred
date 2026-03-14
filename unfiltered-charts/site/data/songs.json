@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 70,
-    "total_combined_streams": 121441647157,
+    "songs_updated_on_latest_date": 72,
+    "total_combined_streams": 121441739115,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -729,9 +729,9 @@
       "title_key": "all too well (sad girl autumn version) - recorded at long pond studios",
       "spotify_url": "https://open.spotify.com/intl-fr/track/1n3b9Eekoy3S9ZSZ5DmTW1",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27370f88b5ee2da16d3f3929fea",
-      "streams": 72809762,
-      "daily_streams": 36878,
-      "last_updated": "2026-03-13",
+      "streams": 72844774,
+      "daily_streams": 35012,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -740,7 +740,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 27190238,
+      "remaining_to_next_milestone": 27155226,
       "appearances": [
         {
           "source_type": "misc",
@@ -765,8 +765,8 @@
       "merged_track_ids": [
         "1n3b9Eekoy3S9ZSZ5DmTW1"
       ],
-      "rank_total": 297,
-      "rank_daily": 242
+      "rank_total": 296,
+      "rank_daily": 246
     },
     {
       "track_id": "3nsfB1vus2qaloUdcBZvDu",
@@ -900,7 +900,7 @@
       "merged_track_ids": [
         "6GXgd1BPD9bUpqw5AntGV5"
       ],
-      "rank_total": 214,
+      "rank_total": 215,
       "rank_daily": 185
     },
     {
@@ -3335,7 +3335,7 @@
         "4ABYxlb92WBIjHu7TIKmml"
       ],
       "rank_total": 262,
-      "rank_daily": 245
+      "rank_daily": 244
     },
     {
       "track_id": "0sY6ZUTh4yoctD8VIXz339",
@@ -4090,9 +4090,9 @@
       "title_key": "come back...be here (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/4pNApnaUWAL2J4KO2eqokq",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273318443aab3531a0558e79a4d",
-      "streams": 157535150,
-      "daily_streams": 59662,
-      "last_updated": "2026-03-13",
+      "streams": 157592096,
+      "daily_streams": 56946,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -4101,7 +4101,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 42464850,
+      "remaining_to_next_milestone": 42407904,
       "appearances": [
         {
           "source_type": "album",
@@ -4126,8 +4126,8 @@
       "merged_track_ids": [
         "4pNApnaUWAL2J4KO2eqokq"
       ],
-      "rank_total": 215,
-      "rank_daily": 194
+      "rank_total": 214,
+      "rank_daily": 197
     },
     {
       "track_id": "4pl5zcqCv4vc3cB7M4MZ6f",
@@ -5003,7 +5003,7 @@
         "10GRRCR5fctuOF4GFmATJI"
       ],
       "rank_total": 192,
-      "rank_daily": 197
+      "rank_daily": 196
     },
     {
       "track_id": "2dgFqt3w9xIQRjhPtwNk3D",
@@ -6286,7 +6286,7 @@
         "08fa9LFcFBTcilB3iq2e2A"
       ],
       "rank_total": 162,
-      "rank_daily": 196
+      "rank_daily": 195
     },
     {
       "track_id": "4yyKppX85ZkmlGOC2toBZA",
@@ -7151,7 +7151,7 @@
         "1msEuwSBneBKpVCZQcFTsU"
       ],
       "rank_total": 225,
-      "rank_daily": 243
+      "rank_daily": 242
     },
     {
       "track_id": "46HGgtwmmuEB8mvDCyjyAc",
@@ -9969,7 +9969,7 @@
         "0kAZ3H6G9Zac4PMpmobMkj"
       ],
       "rank_total": 273,
-      "rank_daily": 246
+      "rank_daily": 245
     },
     {
       "track_id": "2NmsngXHeC1GQ9wWrzhOMf",
@@ -18431,7 +18431,7 @@
         "3Z2nTctPsTsgqqJm5fCSvG"
       ],
       "rank_total": 394,
-      "rank_daily": 244
+      "rank_daily": 243
     },
     {
       "track_id": "6PlBKImSl4AZoxBU7F649D",
@@ -18738,7 +18738,7 @@
         "0eFQWVz0qIxDOvhLpZ40P7"
       ],
       "rank_total": 178,
-      "rank_daily": 195
+      "rank_daily": 194
     },
     {
       "track_id": "0UAdDYrkCvVQftaKpL6q5f",
@@ -18942,7 +18942,7 @@
       "merged_track_ids": [
         "7vvIpJZye5cRR6De1LKM0m"
       ],
-      "rank_total": 296,
+      "rank_total": 297,
       "rank_daily": 347
     },
     {
