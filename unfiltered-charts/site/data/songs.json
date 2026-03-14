@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 125,
-    "total_combined_streams": 121446981534,
+    "songs_updated_on_latest_date": 126,
+    "total_combined_streams": 121447022223,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -8839,7 +8839,7 @@
         "2r9CbjYgFhtAmcFv1cSquB"
       ],
       "rank_total": 249,
-      "rank_daily": 232
+      "rank_daily": 231
     },
     {
       "track_id": "4CkgMiMqZ5JzW9iYXSTMTL",
@@ -16427,7 +16427,7 @@
         "4AYtqFyFbX0Xkc2wtcygTr"
       ],
       "rank_total": 190,
-      "rank_daily": 230
+      "rank_daily": 229
     },
     {
       "track_id": "46NGAvL695VnbcSeTmQWmM",
@@ -16435,9 +16435,9 @@
       "title_key": "sparks fly",
       "spotify_url": "https://open.spotify.com/intl-fr/track/46NGAvL695VnbcSeTmQWmM",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273d0eae3c1661a96570f0ca7bd",
-      "streams": 208502995,
-      "daily_streams": 41543,
-      "last_updated": "2026-03-13",
+      "streams": 208543684,
+      "daily_streams": 40689,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -16446,7 +16446,7 @@
       "current_milestone_label": "200M",
       "next_milestone": 300000000,
       "next_milestone_label": "300M",
-      "remaining_to_next_milestone": 91497005,
+      "remaining_to_next_milestone": 91456316,
       "appearances": [
         {
           "source_type": "album",
@@ -16472,7 +16472,7 @@
         "46NGAvL695VnbcSeTmQWmM"
       ],
       "rank_total": 179,
-      "rank_daily": 229
+      "rank_daily": 232
     },
     {
       "track_id": "3MytWN8L7shNYzGl4tAKRp",
@@ -18693,7 +18693,7 @@
         "3wx2iW1rJGgdNln2I64HNh"
       ],
       "rank_total": 167,
-      "rank_daily": 231
+      "rank_daily": 230
     },
     {
       "track_id": "0eFQWVz0qIxDOvhLpZ40P7",
