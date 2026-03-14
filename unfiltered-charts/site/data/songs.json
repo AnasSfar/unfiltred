@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 123,
-    "total_combined_streams": 121446913896,
+    "songs_updated_on_latest_date": 124,
+    "total_combined_streams": 121446975980,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -19946,9 +19946,9 @@
       "title_key": "the very first night (taylor's version) (from the vault)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/6pYNq0ZwpPVazKzsqpf0G8",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273318443aab3531a0558e79a4d",
-      "streams": 227005979,
-      "daily_streams": 61189,
-      "last_updated": "2026-03-13",
+      "streams": 227068063,
+      "daily_streams": 62084,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -19957,7 +19957,7 @@
       "current_milestone_label": "200M",
       "next_milestone": 300000000,
       "next_milestone_label": "300M",
-      "remaining_to_next_milestone": 72994021,
+      "remaining_to_next_milestone": 72931937,
       "appearances": [
         {
           "source_type": "album",
