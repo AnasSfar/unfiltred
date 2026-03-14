@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 462,
-    "total_combined_streams": 121483729165,
+    "songs_updated_on_latest_date": 463,
+    "total_combined_streams": 121483734015,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -14773,7 +14773,7 @@
         "4YHHz3VIXgNDGdoL9xC1tx"
       ],
       "rank_total": 397,
-      "rank_daily": 392
+      "rank_daily": 391
     },
     {
       "track_id": "3zMDGj4D8ogaYgAIZPeU7S",
@@ -21330,11 +21330,11 @@
       "rank_daily": 447
     },
     {
-      "track_id": "1yFjBRQVhRdcdnrTE5LuyD",
+      "track_id": "4jPtq9shRdUv8Zjr0a5xkD",
       "title": "White Horse",
       "title_key": "white horse",
-      "spotify_url": "https://open.spotify.com/intl-fr/track/1yFjBRQVhRdcdnrTE5LuyD",
-      "image_url": "https://i.scdn.co/image/ab67616d0000b273516c279fe91ae3f6a79b23da",
+      "spotify_url": "https://open.spotify.com/intl-fr/track/4jPtq9shRdUv8Zjr0a5xkD",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b27334e5885465afc8a497ac1b7e",
       "streams": 125138720,
       "daily_streams": 21944,
       "last_updated": "2026-03-14",
@@ -21846,9 +21846,9 @@
       "title_key": "willow - dancing witch version (elvira remix)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/2NnrAdjE9cPdMklonMBuAv",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273e141efa4999ddb4b52512a7c",
-      "streams": 43198005,
-      "daily_streams": 4942,
-      "last_updated": "2026-03-13",
+      "streams": 43202855,
+      "daily_streams": 4850,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -21857,7 +21857,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 56801995,
+      "remaining_to_next_milestone": 56797145,
       "appearances": [
         {
           "source_type": "misc",
@@ -21895,7 +21895,7 @@
         "2NnrAdjE9cPdMklonMBuAv"
       ],
       "rank_total": 341,
-      "rank_daily": 391
+      "rank_daily": 392
     },
     {
       "track_id": "77d7q9TNbsIDmRTDPkPv3L",

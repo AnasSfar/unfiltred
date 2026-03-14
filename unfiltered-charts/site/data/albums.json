@@ -1088,8 +1088,8 @@
       ],
       "track_count": 21,
       "image_url": "https://i.scdn.co/image/ab67616d0000b27333b8541201f1ef38941024be",
-      "total_streams_sum": 6365246280,
-      "daily_streams_sum": 1731561,
+      "total_streams_sum": 6365251130,
+      "daily_streams_sum": 1731469,
       "top_song_total": "0lx2cLdOt3piJbcaXIV74f",
       "top_song_daily": "0lx2cLdOt3piJbcaXIV74f",
       "display_blocks": [
@@ -1278,7 +1278,7 @@
               "source_file": "original_edition.json"
             },
             {
-              "track_id": "1yFjBRQVhRdcdnrTE5LuyD",
+              "track_id": "4jPtq9shRdUv8Zjr0a5xkD",
               "title": "White Horse",
               "type": "standalone",
               "edition": "standard edition",
@@ -1324,7 +1324,7 @@
             "6vLpy7UPYuOa75Bkqocrcw",
             "1yDJcXc549N6AabNBzFAku",
             "6ovFJkdau79DuXEvQjPaNH",
-            "1yFjBRQVhRdcdnrTE5LuyD",
+            "4jPtq9shRdUv8Zjr0a5xkD",
             "7G6TDmGJXDoBaV6NGj3Yic",
             "6HWYtS215rxaaMjvpyG18W"
           ],
@@ -1511,7 +1511,7 @@
               "source_file": "platinum_edition.json"
             },
             {
-              "track_id": "1yFjBRQVhRdcdnrTE5LuyD",
+              "track_id": "4jPtq9shRdUv8Zjr0a5xkD",
               "title": "White Horse",
               "type": "standalone",
               "edition": "standard edition",
@@ -1561,7 +1561,7 @@
             "1yDJcXc549N6AabNBzFAku",
             "77VotUUL79U10TAnYdqwvr",
             "6ovFJkdau79DuXEvQjPaNH",
-            "1yFjBRQVhRdcdnrTE5LuyD",
+            "4jPtq9shRdUv8Zjr0a5xkD",
             "7G6TDmGJXDoBaV6NGj3Yic",
             "6HWYtS215rxaaMjvpyG18W"
           ],
@@ -1614,7 +1614,7 @@
         "6vLpy7UPYuOa75Bkqocrcw",
         "1yDJcXc549N6AabNBzFAku",
         "6ovFJkdau79DuXEvQjPaNH",
-        "1yFjBRQVhRdcdnrTE5LuyD",
+        "4jPtq9shRdUv8Zjr0a5xkD",
         "7G6TDmGJXDoBaV6NGj3Yic",
         "6HWYtS215rxaaMjvpyG18W",
         "0RdcBnAXyH2YZZvcBVu2k6",
@@ -1650,7 +1650,7 @@
             "1yDJcXc549N6AabNBzFAku",
             "6ovFJkdau79DuXEvQjPaNH",
             "5YbZZ2gYfvW1UvHHF4pVaD",
-            "1yFjBRQVhRdcdnrTE5LuyD",
+            "4jPtq9shRdUv8Zjr0a5xkD",
             "7G6TDmGJXDoBaV6NGj3Yic",
             "77VotUUL79U10TAnYdqwvr",
             "6HWYtS215rxaaMjvpyG18W"
@@ -7780,8 +7780,8 @@
           ],
           "track_count": 4,
           "image_url": "https://i.scdn.co/image/ab67616d0000b2738312c50a6b9046d7dea5de12",
-          "total_streams_sum": 89320358,
-          "daily_streams_sum": 14729
+          "total_streams_sum": 89325208,
+          "daily_streams_sum": 14637
         },
         {
           "name": "Fearless",
@@ -9909,8 +9909,8 @@
       ],
       "track_count": 132,
       "image_url": "https://i.scdn.co/image/ab67616d0000b273b8d01ff84dc531f884d90928",
-      "total_streams_sum": 14827595959,
-      "daily_streams_sum": 8700055,
+      "total_streams_sum": 14827600809,
+      "daily_streams_sum": 8699963,
       "top_song_total": "1kHVme7OVyPqhtdiLj2SI4",
       "top_song_daily": "5cKBWgDjB5IXZ5jnryewOH"
     }
