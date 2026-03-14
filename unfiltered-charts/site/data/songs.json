@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 425,
-    "total_combined_streams": 121477785154,
+    "songs_updated_on_latest_date": 426,
+    "total_combined_streams": 121477788215,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -17003,7 +17003,7 @@
         "5G9AVKld9q7DCrmoY42raf"
       ],
       "rank_total": 365,
-      "rank_daily": 405
+      "rank_daily": 404
     },
     {
       "track_id": "2ZoOmCSgj0ypVAmGd1ve4y",
@@ -17366,14 +17366,14 @@
       "rank_daily": 305
     },
     {
-      "track_id": "14Bljc3pOOG0xQX3wqhLN9",
+      "track_id": "0XfTh16YcKPzdxMPTeKTAq",
       "title": "SuperStar",
       "title_key": "superstar",
-      "spotify_url": "https://open.spotify.com/intl-fr/track/14Bljc3pOOG0xQX3wqhLN9",
-      "image_url": "https://i.scdn.co/image/ab67616d0000b27334e5885465afc8a497ac1b7e",
-      "streams": 15745887,
-      "daily_streams": 3149,
-      "last_updated": "2026-03-13",
+      "spotify_url": "https://open.spotify.com/intl-fr/track/0XfTh16YcKPzdxMPTeKTAq",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b27373b565ab9d713e8d5586aac2",
+      "streams": 15748948,
+      "daily_streams": 3061,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -17382,7 +17382,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 84254113,
+      "remaining_to_next_milestone": 84251052,
       "appearances": [
         {
           "source_type": "album",
@@ -17421,7 +17421,7 @@
         "14Bljc3pOOG0xQX3wqhLN9"
       ],
       "rank_total": 393,
-      "rank_daily": 404
+      "rank_daily": 405
     },
     {
       "track_id": "51A8eKvvZz9uydvIZ7xRSV",
