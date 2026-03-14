@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 375,
-    "total_combined_streams": 121471414098,
+    "songs_updated_on_latest_date": 376,
+    "total_combined_streams": 121471421409,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -10059,7 +10059,7 @@
         "560uQyz3p5G9WdnMX39xc6"
       ],
       "rank_total": 371,
-      "rank_daily": 367
+      "rank_daily": 368
     },
     {
       "track_id": "1kcwpPDQnqEqmezzXdJTCP",
@@ -11995,9 +11995,9 @@
       "title_key": "lover - first dance remix",
       "spotify_url": "https://open.spotify.com/intl-fr/track/2msvOEbkK50foYf9BMXr2X",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273affd87a5167957a7adbf8e37",
-      "streams": 30094741,
-      "daily_streams": 7020,
-      "last_updated": "2026-03-13",
+      "streams": 30102052,
+      "daily_streams": 7311,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -12006,7 +12006,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 69905259,
+      "remaining_to_next_milestone": 69897948,
       "appearances": [
         {
           "source_type": "misc",
@@ -12044,7 +12044,7 @@
         "2msvOEbkK50foYf9BMXr2X"
       ],
       "rank_total": 353,
-      "rank_daily": 368
+      "rank_daily": 367
     },
     {
       "track_id": "4lD3RXyvHpJsM3BhIEC4aA",
