@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 141,
-    "total_combined_streams": 121448048835,
+    "songs_updated_on_latest_date": 142,
+    "total_combined_streams": 121448516110,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -21597,9 +21597,9 @@
       "title_key": "wildest dreams",
       "spotify_url": "https://open.spotify.com/intl-fr/track/4A4A6dwl5DqdqrZaEtKGPR",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27352b2a3824413eefe9e33817a",
-      "streams": 1160233311,
-      "daily_streams": 467647,
-      "last_updated": "2026-03-13",
+      "streams": 1160700586,
+      "daily_streams": 467275,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -21608,7 +21608,7 @@
       "current_milestone_label": "1.1B",
       "next_milestone": 1200000000,
       "next_milestone_label": "1.2B",
-      "remaining_to_next_milestone": 39766689,
+      "remaining_to_next_milestone": 39299414,
       "appearances": [
         {
           "source_type": "album",
