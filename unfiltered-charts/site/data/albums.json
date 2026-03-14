@@ -6834,8 +6834,8 @@
       ],
       "track_count": 32,
       "image_url": "https://i.scdn.co/image/ab67616d0000b273bc755429117cac056edd2bf7",
-      "total_streams_sum": 4190902048,
-      "daily_streams_sum": 10656506,
+      "total_streams_sum": 4190914394,
+      "daily_streams_sum": 10656366,
       "top_song_total": "5cKBWgDjB5IXZ5jnryewOH",
       "top_song_daily": "5cKBWgDjB5IXZ5jnryewOH",
       "display_blocks": [
@@ -7328,7 +7328,7 @@
               "source_file": "standard_edition.json"
             },
             {
-              "track_id": "212gSq8QwTqxjHJSEcMoEZ",
+              "track_id": "2F3N9tdombb64aW6VtZOdo",
               "title": "Down Bad",
               "type": "track",
               "edition": "standard",
@@ -7475,7 +7475,7 @@
             "2OzhQlSqBEmt7hmkYxfT6m",
             "3NMrVbIVWT3fPXBj0rNDKG",
             "2XXwLdtuAcE0HSCu61ijAb",
-            "212gSq8QwTqxjHJSEcMoEZ",
+            "2F3N9tdombb64aW6VtZOdo",
             "3Vevii7qKqrmW8CcyzBHDl",
             "74sZKiwaGtSEEyjhDmi99y",
             "3fO566xJgwxIa3qGCGBvIC",
@@ -7511,7 +7511,7 @@
         "2OzhQlSqBEmt7hmkYxfT6m",
         "3NMrVbIVWT3fPXBj0rNDKG",
         "2XXwLdtuAcE0HSCu61ijAb",
-        "212gSq8QwTqxjHJSEcMoEZ",
+        "2F3N9tdombb64aW6VtZOdo",
         "3Vevii7qKqrmW8CcyzBHDl",
         "74sZKiwaGtSEEyjhDmi99y",
         "3fO566xJgwxIa3qGCGBvIC",
@@ -7539,7 +7539,7 @@
             "2OzhQlSqBEmt7hmkYxfT6m",
             "3NMrVbIVWT3fPXBj0rNDKG",
             "2XXwLdtuAcE0HSCu61ijAb",
-            "212gSq8QwTqxjHJSEcMoEZ",
+            "2F3N9tdombb64aW6VtZOdo",
             "3Vevii7qKqrmW8CcyzBHDl",
             "74sZKiwaGtSEEyjhDmi99y",
             "3fO566xJgwxIa3qGCGBvIC",
@@ -9625,8 +9625,8 @@
           ],
           "track_count": 19,
           "image_url": "https://i.scdn.co/image/ab67616d0000b273f756bdc2c11a985dc0c06d94",
-          "total_streams_sum": 1235992111,
-          "daily_streams_sum": 4536908
+          "total_streams_sum": 1236004457,
+          "daily_streams_sum": 4536768
         },
         {
           "name": "The Taylor Swift Holiday Collection",
@@ -9909,8 +9909,8 @@
       ],
       "track_count": 132,
       "image_url": "https://i.scdn.co/image/ab67616d0000b273b8d01ff84dc531f884d90928",
-      "total_streams_sum": 14821288171,
-      "daily_streams_sum": 8383292,
+      "total_streams_sum": 14821300517,
+      "daily_streams_sum": 8383152,
       "top_song_total": "1kHVme7OVyPqhtdiLj2SI4",
       "top_song_daily": "5cKBWgDjB5IXZ5jnryewOH"
     }

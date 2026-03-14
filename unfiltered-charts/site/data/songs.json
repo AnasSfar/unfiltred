@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 271,
-    "total_combined_streams": 121460172331,
+    "songs_updated_on_latest_date": 272,
+    "total_combined_streams": 121460184677,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -5573,11 +5573,11 @@
       "rank_daily": 161
     },
     {
-      "track_id": "212gSq8QwTqxjHJSEcMoEZ",
+      "track_id": "2F3N9tdombb64aW6VtZOdo",
       "title": "Down Bad",
       "title_key": "down bad",
-      "spotify_url": "https://open.spotify.com/intl-fr/track/212gSq8QwTqxjHJSEcMoEZ",
-      "image_url": "https://i.scdn.co/image/ab67616d0000b273c246cd7fb142b383672627c8",
+      "spotify_url": "https://open.spotify.com/intl-fr/track/2F3N9tdombb64aW6VtZOdo",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b2735076e4160d018e378f488c33",
       "streams": 516101520,
       "daily_streams": 252852,
       "last_updated": "2026-03-14",
@@ -5771,9 +5771,9 @@
       "title_key": "eldest daughter - now you're home acoustic version",
       "spotify_url": "https://open.spotify.com/track/2JHzTARFUispsjZHKhrxxO",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273f756bdc2c11a985dc0c06d94",
-      "streams": 4369717,
-      "daily_streams": 12486,
-      "last_updated": "2026-03-13",
+      "streams": 4382063,
+      "daily_streams": 12346,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -5782,7 +5782,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 95630283,
+      "remaining_to_next_milestone": 95617937,
       "appearances": [
         {
           "source_type": "album",
@@ -5832,7 +5832,7 @@
         "2JHzTARFUispsjZHKhrxxO"
       ],
       "rank_total": 436,
-      "rank_daily": 329
+      "rank_daily": 333
     },
     {
       "track_id": "4e3ZNTAV6PCrdYMUrUlMpQ",
@@ -10239,7 +10239,7 @@
         "5OOd01o2YS1QFwdpVLds3r"
       ],
       "rank_total": 334,
-      "rank_daily": 330
+      "rank_daily": 329
     },
     {
       "track_id": "6VsvKPJ4xjVNKpI8VVZ3SV",
@@ -16856,7 +16856,7 @@
         "786NsUYn4GGUf8AOt0SQhP"
       ],
       "rank_total": 303,
-      "rank_daily": 332
+      "rank_daily": 331
     },
     {
       "track_id": "5jAIouBES8LWMiriuNq170",
@@ -17466,7 +17466,7 @@
         "51A8eKvvZz9uydvIZ7xRSV"
       ],
       "rank_total": 327,
-      "rank_daily": 331
+      "rank_daily": 330
     },
     {
       "track_id": "2L09RYwH5Pjzca6PmbUAw3",
@@ -20400,7 +20400,7 @@
         "6K0CJLVXqbGMeJSmJ4ENKK"
       ],
       "rank_total": 337,
-      "rank_daily": 333
+      "rank_daily": 332
     },
     {
       "track_id": "0Om9WAB5RS09L80DyOfTNa",
