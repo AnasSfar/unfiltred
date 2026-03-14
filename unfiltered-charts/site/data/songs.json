@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 211,
-    "total_combined_streams": 121454730786,
+    "songs_updated_on_latest_date": 212,
+    "total_combined_streams": 121454798742,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -8344,7 +8344,7 @@
         "60hGQrn24APqEFSLObLeDc"
       ],
       "rank_total": 127,
-      "rank_daily": 174
+      "rank_daily": 173
     },
     {
       "track_id": "3xYJScVfxByb61dYHTwiby",
@@ -17906,9 +17906,9 @@
       "title_key": "the albatross",
       "spotify_url": "https://open.spotify.com/intl-fr/track/4EF6IyONolQy0bIQXm2EmX",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2738ecc33f195df6aa257c39eaa",
-      "streams": 142775574,
-      "daily_streams": 70201,
-      "last_updated": "2026-03-13",
+      "streams": 142843530,
+      "daily_streams": 67956,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -17917,7 +17917,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 57224426,
+      "remaining_to_next_milestone": 57156470,
       "appearances": [
         {
           "source_type": "album",
@@ -17943,7 +17943,7 @@
         "4EF6IyONolQy0bIQXm2EmX"
       ],
       "rank_total": 232,
-      "rank_daily": 173
+      "rank_daily": 176
     },
     {
       "track_id": "1tuNqJOtRQVHvONR8Lg3MZ",
@@ -18545,7 +18545,7 @@
         "3JNaLxAymiSUMrmjOarjeo"
       ],
       "rank_total": 401,
-      "rank_daily": 175
+      "rank_daily": 174
     },
     {
       "track_id": "5k9RjjuYyOMCLL81U8FaHT",
@@ -21237,7 +21237,7 @@
         "1hR8BSuEqPCCZfv93zzzz9"
       ],
       "rank_total": 187,
-      "rank_daily": 176
+      "rank_daily": 175
     },
     {
       "track_id": "0zo975x58DlXbZllWvfYhg",
