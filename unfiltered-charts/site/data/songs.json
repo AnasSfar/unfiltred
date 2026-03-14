@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 142,
-    "total_combined_streams": 121448516110,
+    "songs_updated_on_latest_date": 143,
+    "total_combined_streams": 121448517293,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -3812,7 +3812,7 @@
         "1g09DZjQ7yBommCT6POY2n"
       ],
       "rank_total": 405,
-      "rank_daily": 433
+      "rank_daily": 432
     },
     {
       "track_id": "4d9PtIEVij9jW5OaLinH66",
@@ -15243,9 +15243,9 @@
       "title_key": "ronan",
       "spotify_url": "https://open.spotify.com/intl-fr/track/0Nw8hv79MLJa1yjtsEgz08",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273dbe6e4dd1b2a61e375a12c63",
-      "streams": 7614038,
-      "daily_streams": 1378,
-      "last_updated": "2026-03-13",
+      "streams": 7615221,
+      "daily_streams": 1183,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -15254,7 +15254,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 92385962,
+      "remaining_to_next_milestone": 92384779,
       "appearances": [
         {
           "source_type": "misc",
@@ -15280,7 +15280,7 @@
         "0Nw8hv79MLJa1yjtsEgz08"
       ],
       "rank_total": 424,
-      "rank_daily": 430
+      "rank_daily": 433
     },
     {
       "track_id": "7nWui6jiMM2m9qFmET1Mtj",
@@ -19162,7 +19162,7 @@
         "42TAweWJJ9YlQ47T5nesu5"
       ],
       "rank_total": 453,
-      "rank_daily": 432
+      "rank_daily": 431
     },
     {
       "track_id": "0yZPIEgco572UWiwoQtcYF",
@@ -19893,7 +19893,7 @@
         "72GIZuUXo14oyrS0si3Rgc"
       ],
       "rank_total": 419,
-      "rank_daily": 431
+      "rank_daily": 430
     },
     {
       "track_id": "3NMrVbIVWT3fPXBj0rNDKG",
