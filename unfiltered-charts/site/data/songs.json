@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 96,
-    "total_combined_streams": 121443955873,
+    "songs_updated_on_latest_date": 97,
+    "total_combined_streams": 121444152309,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -12289,9 +12289,9 @@
       "title_key": "maroon",
       "spotify_url": "https://open.spotify.com/intl-fr/track/3eX0NZfLtGzoLUxPNvRfqm",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273bb54dde68cd23e2a268ae0f5",
-      "streams": 605044159,
-      "daily_streams": 200234,
-      "last_updated": "2026-03-13",
+      "streams": 605240595,
+      "daily_streams": 196436,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -12300,7 +12300,7 @@
       "current_milestone_label": "600M",
       "next_milestone": 700000000,
       "next_milestone_label": "700M",
-      "remaining_to_next_milestone": 94955841,
+      "remaining_to_next_milestone": 94759405,
       "appearances": [
         {
           "source_type": "album",
@@ -12326,7 +12326,7 @@
         "3eX0NZfLtGzoLUxPNvRfqm"
       ],
       "rank_total": 48,
-      "rank_daily": 69
+      "rank_daily": 70
     },
     {
       "track_id": "2QrQCMel6v2JiLxqrg4p2O",
@@ -18079,7 +18079,7 @@
         "3pHkh7d0lzM2AldUtz2x37"
       ],
       "rank_total": 58,
-      "rank_daily": 70
+      "rank_daily": 69
     },
     {
       "track_id": "2fgiBCtbWo8pijF6M7pN1i",
