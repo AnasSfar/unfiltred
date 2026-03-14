@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 93,
-    "total_combined_streams": 121443700422,
+    "songs_updated_on_latest_date": 94,
+    "total_combined_streams": 121443869771,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -2847,7 +2847,7 @@
         "74sZKiwaGtSEEyjhDmi99y"
       ],
       "rank_total": 96,
-      "rank_daily": 87
+      "rank_daily": 86
     },
     {
       "track_id": "4qUijfYU8EoIWiY6oSyrgT",
@@ -11050,9 +11050,9 @@
       "title_key": "lavender haze",
       "spotify_url": "https://open.spotify.com/intl-fr/track/5NlYplrGsjUDFZ6x3HeVyT",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273f7c84273e5c8ecb7594b4357",
-      "streams": 880927323,
-      "daily_streams": 172045,
-      "last_updated": "2026-03-13",
+      "streams": 881096672,
+      "daily_streams": 169349,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -11061,7 +11061,7 @@
       "current_milestone_label": "800M",
       "next_milestone": 900000000,
       "next_milestone_label": "900M",
-      "remaining_to_next_milestone": 19072677,
+      "remaining_to_next_milestone": 18903328,
       "appearances": [
         {
           "source_type": "misc",
@@ -11112,7 +11112,7 @@
         "5jQI2r1RdgtuT8S3iG8zFC"
       ],
       "rank_total": 31,
-      "rank_daily": 85
+      "rank_daily": 87
     },
     {
       "track_id": "2M4tVhRXucLE9M3STv21Yi",
@@ -22695,7 +22695,7 @@
         "3CWq0pAKKTWb0K4yiglDc4"
       ],
       "rank_total": 92,
-      "rank_daily": 86
+      "rank_daily": 85
     },
     {
       "track_id": "6HWYtS215rxaaMjvpyG18W",
