@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 459,
-    "total_combined_streams": 121483456952,
+    "songs_updated_on_latest_date": 460,
+    "total_combined_streams": 121483457549,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -21290,9 +21290,9 @@
       "title_key": "white christmas",
       "spotify_url": "https://open.spotify.com/intl-fr/track/7GZ3KDorsc1yWndEtzGTjf",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2732a0face7d69df61c20a6db2b",
-      "streams": 8578620,
-      "daily_streams": 606,
-      "last_updated": "2026-03-13",
+      "streams": 8579217,
+      "daily_streams": 597,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -21301,7 +21301,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 91421380,
+      "remaining_to_next_milestone": 91420783,
       "appearances": [
         {
           "source_type": "album",
