@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 173,
-    "total_combined_streams": 121450111550,
+    "songs_updated_on_latest_date": 175,
+    "total_combined_streams": 121451505568,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -2512,9 +2512,9 @@
       "title_key": "blank space",
       "spotify_url": "https://open.spotify.com/intl-fr/track/1u8c2t2Cy7UBoG4ArRcF5g",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27352b2a3824413eefe9e33817a",
-      "streams": 2377650992,
-      "daily_streams": 986045,
-      "last_updated": "2026-03-13",
+      "streams": 2378726476,
+      "daily_streams": 1075484,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -2523,7 +2523,7 @@
       "current_milestone_label": "2.3B",
       "next_milestone": 2400000000,
       "next_milestone_label": "2.4B",
-      "remaining_to_next_milestone": 22349008,
+      "remaining_to_next_milestone": 21273524,
       "appearances": [
         {
           "source_type": "album",
@@ -3039,7 +3039,7 @@
         "1appZ3c336FkPvCuywfmrs"
       ],
       "rank_total": 176,
-      "rank_daily": 37
+      "rank_daily": 36
     },
     {
       "track_id": "7zcnlq38eqNWyUF6eNaB5Z",
@@ -22863,9 +22863,9 @@
       "title_key": "you're on your own, kid",
       "spotify_url": "https://open.spotify.com/intl-fr/track/4D7BCuvgdJlYvlX5WlN54t",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273bb54dde68cd23e2a268ae0f5",
-      "streams": 847822423,
-      "daily_streams": 321872,
-      "last_updated": "2026-03-13",
+      "streams": 848140957,
+      "daily_streams": 318534,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -22874,7 +22874,7 @@
       "current_milestone_label": "800M",
       "next_milestone": 900000000,
       "next_milestone_label": "900M",
-      "remaining_to_next_milestone": 52177577,
+      "remaining_to_next_milestone": 51859043,
       "appearances": [
         {
           "source_type": "album",
@@ -22900,7 +22900,7 @@
         "4D7BCuvgdJlYvlX5WlN54t"
       ],
       "rank_total": 32,
-      "rank_daily": 36
+      "rank_daily": 37
     }
   ]
 }
