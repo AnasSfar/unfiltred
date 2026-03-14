@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 390,
-    "total_combined_streams": 121472146368,
+    "songs_updated_on_latest_date": 391,
+    "total_combined_streams": 121472224047,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -5570,7 +5570,7 @@
         "670fUmXf4KQekzbEgaXyPA"
       ],
       "rank_total": 164,
-      "rank_daily": 160
+      "rank_daily": 159
     },
     {
       "track_id": "2F3N9tdombb64aW6VtZOdo",
@@ -13456,9 +13456,9 @@
       "title_key": "new romantics",
       "spotify_url": "https://open.spotify.com/intl-fr/track/6rZVy6FIG7lSJQMFXHo12z",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273332d85510aba3eb28312cfb2",
-      "streams": 326631610,
-      "daily_streams": 78122,
-      "last_updated": "2026-03-13",
+      "streams": 326709289,
+      "daily_streams": 77679,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -13467,7 +13467,7 @@
       "current_milestone_label": "300M",
       "next_milestone": 400000000,
       "next_milestone_label": "400M",
-      "remaining_to_next_milestone": 73368390,
+      "remaining_to_next_milestone": 73290711,
       "appearances": [
         {
           "source_type": "album",
@@ -13493,7 +13493,7 @@
         "6rZVy6FIG7lSJQMFXHo12z"
       ],
       "rank_total": 114,
-      "rank_daily": 159
+      "rank_daily": 160
     },
     {
       "track_id": "5M787RexsAiVYjQusM98CV",
