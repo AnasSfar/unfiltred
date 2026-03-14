@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 58,
-    "total_combined_streams": 121439750805,
+    "songs_updated_on_latest_date": 59,
+    "total_combined_streams": 121439773306,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -1948,9 +1948,9 @@
       "title_key": "begin again",
       "spotify_url": "https://open.spotify.com/intl-fr/track/48A0aShHlovDfTMucMrE66",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273a7613d346501b828b56a0bc3",
-      "streams": 144177082,
-      "daily_streams": 23146,
-      "last_updated": "2026-03-13",
+      "streams": 144199583,
+      "daily_streams": 22501,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -1959,7 +1959,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 55822918,
+      "remaining_to_next_milestone": 55800417,
       "appearances": [
         {
           "source_type": "album",
@@ -1985,7 +1985,7 @@
         "48A0aShHlovDfTMucMrE66"
       ],
       "rank_total": 230,
-      "rank_daily": 290
+      "rank_daily": 292
     },
     {
       "track_id": "05GsNucq8Bngd9fnd4fRa0",
@@ -4378,7 +4378,7 @@
         "3fGnrtrtL1IHSX9t4DKOYf"
       ],
       "rank_total": 285,
-      "rank_daily": 291
+      "rank_daily": 290
     },
     {
       "track_id": "1XjHRolIXL2M1EEOUsGGR4",
@@ -18226,7 +18226,7 @@
         "6ON9UuIq49xXY9GPmHIYRp"
       ],
       "rank_total": 300,
-      "rank_daily": 292
+      "rank_daily": 291
     },
     {
       "track_id": "62E2nR0od0M5HYxuYLaDz7",
