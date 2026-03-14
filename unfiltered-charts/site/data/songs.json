@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 176,
-    "total_combined_streams": 121451542539,
+    "songs_updated_on_latest_date": 178,
+    "total_combined_streams": 121451553459,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -2602,9 +2602,9 @@
       "title_key": "blank space - voice memo",
       "spotify_url": "https://open.spotify.com/intl-fr/track/0yisH8r0f3Mkq34kjzUlCV",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273332d85510aba3eb28312cfb2",
-      "streams": 5195490,
-      "daily_streams": 424,
-      "last_updated": "2026-03-13",
+      "streams": 5195989,
+      "daily_streams": 499,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -2613,7 +2613,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 94804510,
+      "remaining_to_next_milestone": 94804011,
       "appearances": [
         {
           "source_type": "misc",
@@ -2651,7 +2651,7 @@
         "0yisH8r0f3Mkq34kjzUlCV"
       ],
       "rank_total": 430,
-      "rank_daily": 451
+      "rank_daily": 449
     },
     {
       "track_id": "3r9bgSJlJz2zlevcBRYXko",
@@ -2755,7 +2755,7 @@
         "6S9G7J3EB1ZY0rrZPwsBg5"
       ],
       "rank_total": 294,
-      "rank_daily": 340
+      "rank_daily": 339
     },
     {
       "track_id": "7HC7R2D8WjXVcUHJyEGjRs",
@@ -2994,7 +2994,7 @@
         "1VPHQriwOsy5aGHLwwZyho"
       ],
       "rank_total": 457,
-      "rank_daily": 449
+      "rank_daily": 450
     },
     {
       "track_id": "1appZ3c336FkPvCuywfmrs",
@@ -6572,7 +6572,7 @@
         "2NIBaWXdjaTDmytjjwbEfP"
       ],
       "rank_total": 325,
-      "rank_daily": 339
+      "rank_daily": 338
     },
     {
       "track_id": "5hQSXkFgbxjZo9uCwd11so",
@@ -8524,7 +8524,7 @@
         "5d2Kn9oAAh9S2EbyCo1i52"
       ],
       "rank_total": 311,
-      "rank_daily": 342
+      "rank_daily": 341
     },
     {
       "track_id": "7J4b3LVCIGO4CMBDFLPoP6",
@@ -9834,7 +9834,7 @@
         "4TtyvyI42C0KFnbDZvNC8Y"
       ],
       "rank_total": 433,
-      "rank_daily": 450
+      "rank_daily": 451
     },
     {
       "track_id": "0JIdBrXGSJXS72zjF9ss9u",
@@ -14401,7 +14401,7 @@
         "1EQn3Uc5AyUXoiPLeyCrrg"
       ],
       "rank_total": 290,
-      "rank_daily": 341
+      "rank_daily": 340
     },
     {
       "track_id": "3yNJkriPzWjkkDAWHIAVUq",
@@ -18746,9 +18746,9 @@
       "title_key": "the lakes - original version",
       "spotify_url": "https://open.spotify.com/track/0UAdDYrkCvVQftaKpL6q5f",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2737d60bda8f85d66599c3fe851",
-      "streams": 56234887,
-      "daily_streams": 10835,
-      "last_updated": "2026-03-13",
+      "streams": 56245308,
+      "daily_streams": 10421,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -18757,7 +18757,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 43765113,
+      "remaining_to_next_milestone": 43754692,
       "appearances": [
         {
           "source_type": "misc",
@@ -18795,7 +18795,7 @@
         "0UAdDYrkCvVQftaKpL6q5f"
       ],
       "rank_total": 319,
-      "rank_daily": 338
+      "rank_daily": 342
     },
     {
       "track_id": "6mqyTq948oap5AkyTsd6XF",
