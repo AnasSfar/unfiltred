@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 200,
-    "total_combined_streams": 121453318096,
+    "songs_updated_on_latest_date": 201,
+    "total_combined_streams": 121453330543,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -5832,7 +5832,7 @@
         "2JHzTARFUispsjZHKhrxxO"
       ],
       "rank_total": 436,
-      "rank_daily": 330
+      "rank_daily": 329
     },
     {
       "track_id": "4e3ZNTAV6PCrdYMUrUlMpQ",
@@ -10239,7 +10239,7 @@
         "5OOd01o2YS1QFwdpVLds3r"
       ],
       "rank_total": 334,
-      "rank_daily": 331
+      "rank_daily": 330
     },
     {
       "track_id": "6VsvKPJ4xjVNKpI8VVZ3SV",
@@ -17048,7 +17048,7 @@
         "2ZoOmCSgj0ypVAmGd1ve4y"
       ],
       "rank_total": 332,
-      "rank_daily": 329
+      "rank_daily": 328
     },
     {
       "track_id": "1qLeEu4iXEclkLwoBlMiou",
@@ -17429,9 +17429,9 @@
       "title_key": "superstar (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/51A8eKvvZz9uydvIZ7xRSV",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273a48964b5d9a3d6968ae3e0de",
-      "streams": 48138008,
-      "daily_streams": 12851,
-      "last_updated": "2026-03-13",
+      "streams": 48150455,
+      "daily_streams": 12447,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -17440,7 +17440,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 51861992,
+      "remaining_to_next_milestone": 51849545,
       "appearances": [
         {
           "source_type": "album",
@@ -17466,7 +17466,7 @@
         "51A8eKvvZz9uydvIZ7xRSV"
       ],
       "rank_total": 327,
-      "rank_daily": 327
+      "rank_daily": 331
     },
     {
       "track_id": "2L09RYwH5Pjzca6PmbUAw3",
@@ -20163,7 +20163,7 @@
         "1gaLZjPrDnHQWJds2Jg4KT"
       ],
       "rank_total": 358,
-      "rank_daily": 328
+      "rank_daily": 327
     },
     {
       "track_id": "07NxDD1iKCHbAldceD7QLP",
