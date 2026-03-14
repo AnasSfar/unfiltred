@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 460,
-    "total_combined_streams": 121483457549,
+    "songs_updated_on_latest_date": 461,
+    "total_combined_streams": 121483479493,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -1985,7 +1985,7 @@
         "48A0aShHlovDfTMucMrE66"
       ],
       "rank_total": 230,
-      "rank_daily": 291
+      "rank_daily": 290
     },
     {
       "track_id": "05GsNucq8Bngd9fnd4fRa0",
@@ -4378,7 +4378,7 @@
         "3fGnrtrtL1IHSX9t4DKOYf"
       ],
       "rank_total": 285,
-      "rank_daily": 286
+      "rank_daily": 285
     },
     {
       "track_id": "1XjHRolIXL2M1EEOUsGGR4",
@@ -4913,7 +4913,7 @@
         "3K2es3gElMRJ3qvmPW442g"
       ],
       "rank_total": 219,
-      "rank_daily": 283
+      "rank_daily": 282
     },
     {
       "track_id": "1zU8j1x3yi9xalMF96pzKp",
@@ -5525,7 +5525,7 @@
         "4uuEGH5SVuzkkSFjo2DEiY"
       ],
       "rank_total": 278,
-      "rank_daily": 284
+      "rank_daily": 283
     },
     {
       "track_id": "670fUmXf4KQekzbEgaXyPA",
@@ -6880,7 +6880,7 @@
         "4yf9OivCH2lmQWN8mzpCC6"
       ],
       "rank_total": 244,
-      "rank_daily": 288
+      "rank_daily": 287
     },
     {
       "track_id": "2nqio0SfWg6gh2eCtfuMa5",
@@ -8049,7 +8049,7 @@
         "11UaQaEp2LvdspTyyuE3ur"
       ],
       "rank_total": 258,
-      "rank_daily": 293
+      "rank_daily": 292
     },
     {
       "track_id": "4tMzIAFTFdqGBQLdfbPces",
@@ -10194,7 +10194,7 @@
         "12nBPF4Rh4XLFJV0YLN7uj"
       ],
       "rank_total": 306,
-      "rank_daily": 290
+      "rank_daily": 289
     },
     {
       "track_id": "5OOd01o2YS1QFwdpVLds3r",
@@ -10612,7 +10612,7 @@
         "2m3ObD945KvpE5y9A1eUWm"
       ],
       "rank_total": 292,
-      "rank_daily": 289
+      "rank_daily": 288
     },
     {
       "track_id": "45R112Jz5hQeKgITXgSXzs",
@@ -16901,7 +16901,7 @@
         "5jAIouBES8LWMiriuNq170"
       ],
       "rank_total": 299,
-      "rank_daily": 287
+      "rank_daily": 286
     },
     {
       "track_id": "6lzc0Al0zfZOIFsFvBS1ki",
@@ -17840,7 +17840,7 @@
         "7eResoqEJJAVTkQYSqvO3P"
       ],
       "rank_total": 268,
-      "rank_daily": 285
+      "rank_daily": 284
     },
     {
       "track_id": "0P9wLFurlgumLXuqFEpw52",
@@ -18226,7 +18226,7 @@
         "6ON9UuIq49xXY9GPmHIYRp"
       ],
       "rank_total": 300,
-      "rank_daily": 292
+      "rank_daily": 291
     },
     {
       "track_id": "62E2nR0od0M5HYxuYLaDz7",
@@ -19316,7 +19316,7 @@
         "4e5ayHsOLJNLTGfjau2mEw"
       ],
       "rank_total": 267,
-      "rank_daily": 282
+      "rank_daily": 281
     },
     {
       "track_id": "3RauEVgRgj1IuWdJ9fDs70",
@@ -20028,7 +20028,7 @@
         "77VotUUL79U10TAnYdqwvr"
       ],
       "rank_total": 284,
-      "rank_daily": 281
+      "rank_daily": 280
     },
     {
       "track_id": "22bPsP2jCgbLUvh82U0Z3M",
@@ -21330,14 +21330,14 @@
       "rank_daily": 447
     },
     {
-      "track_id": "4jPtq9shRdUv8Zjr0a5xkD",
+      "track_id": "1yFjBRQVhRdcdnrTE5LuyD",
       "title": "White Horse",
       "title_key": "white horse",
-      "spotify_url": "https://open.spotify.com/intl-fr/track/4jPtq9shRdUv8Zjr0a5xkD",
-      "image_url": "https://i.scdn.co/image/ab67616d0000b27334e5885465afc8a497ac1b7e",
-      "streams": 125116776,
-      "daily_streams": 23930,
-      "last_updated": "2026-03-13",
+      "spotify_url": "https://open.spotify.com/intl-fr/track/1yFjBRQVhRdcdnrTE5LuyD",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273516c279fe91ae3f6a79b23da",
+      "streams": 125138720,
+      "daily_streams": 21944,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -21346,7 +21346,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 74883224,
+      "remaining_to_next_milestone": 74861280,
       "appearances": [
         {
           "source_type": "album",
@@ -21385,7 +21385,7 @@
         "4jPtq9shRdUv8Zjr0a5xkD"
       ],
       "rank_total": 248,
-      "rank_daily": 280
+      "rank_daily": 293
     },
     {
       "track_id": "5YL553x8sHderRBDlm3NM3",
