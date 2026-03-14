@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 92,
-    "total_combined_streams": 121443626599,
+    "songs_updated_on_latest_date": 93,
+    "total_combined_streams": 121443700422,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -14871,9 +14871,9 @@
       "title_key": "question...?",
       "spotify_url": "https://open.spotify.com/intl-fr/track/0heeNYlwOGuUSe7TgUD27B",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273bb54dde68cd23e2a268ae0f5",
-      "streams": 360525489,
-      "daily_streams": 75711,
-      "last_updated": "2026-03-13",
+      "streams": 360599312,
+      "daily_streams": 73823,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -14882,7 +14882,7 @@
       "current_milestone_label": "300M",
       "next_milestone": 400000000,
       "next_milestone_label": "400M",
-      "remaining_to_next_milestone": 39474511,
+      "remaining_to_next_milestone": 39400688,
       "appearances": [
         {
           "source_type": "album",
