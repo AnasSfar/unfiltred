@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 134,
-    "total_combined_streams": 121447680843,
+    "songs_updated_on_latest_date": 135,
+    "total_combined_streams": 121447731645,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -1509,7 +1509,7 @@
         "0v4z1tuZvn6LGknom9Qx7d"
       ],
       "rank_total": 201,
-      "rank_daily": 211
+      "rank_daily": 210
     },
     {
       "track_id": "5l6GqSxplqnZbLg0LTPQeG",
@@ -6979,9 +6979,9 @@
       "title_key": "foolish one (taylor's version) (from the vault)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/4s8BIKx4Zh6ryAEz8RTlaU",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2730b04da4f224b51ff86e0a481",
-      "streams": 135295010,
-      "daily_streams": 52976,
-      "last_updated": "2026-03-13",
+      "streams": 135345812,
+      "daily_streams": 50802,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -6990,7 +6990,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 64704990,
+      "remaining_to_next_milestone": 64654188,
       "appearances": [
         {
           "source_type": "album",
@@ -7016,7 +7016,7 @@
         "4s8BIKx4Zh6ryAEz8RTlaU"
       ],
       "rank_total": 239,
-      "rank_daily": 208
+      "rank_daily": 212
     },
     {
       "track_id": "1zxrcAk6eiytfavqriMcKT",
@@ -8299,7 +8299,7 @@
         "1SztNGCwEHJEVFx90E5g7D"
       ],
       "rank_total": 182,
-      "rank_daily": 212
+      "rank_daily": 211
     },
     {
       "track_id": "60hGQrn24APqEFSLObLeDc",
@@ -8749,7 +8749,7 @@
         "733OhaXQIHY7BKtY3vnSkn"
       ],
       "rank_total": 255,
-      "rank_daily": 209
+      "rank_daily": 208
     },
     {
       "track_id": "5VwFkx7JOimOGTYfha5rs1",
@@ -15235,7 +15235,7 @@
         "2CnjDMdpRjlWv04Xk3s6MW"
       ],
       "rank_total": 277,
-      "rank_daily": 210
+      "rank_daily": 209
     },
     {
       "track_id": "0Nw8hv79MLJa1yjtsEgz08",
