@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 162,
-    "total_combined_streams": 121449513697,
+    "songs_updated_on_latest_date": 163,
+    "total_combined_streams": 121449514920,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -12911,9 +12911,9 @@
       "title_key": "mine - live/2011",
       "spotify_url": "https://open.spotify.com/intl-fr/track/7yndkPYP6YQQLBpPsizDfh",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273be4ec62353ee75fa11f6d6f7",
-      "streams": 7907154,
-      "daily_streams": 1182,
-      "last_updated": "2026-03-13",
+      "streams": 7908377,
+      "daily_streams": 1223,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -12922,7 +12922,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 92092846,
+      "remaining_to_next_milestone": 92091623,
       "appearances": [
         {
           "source_type": "misc",
@@ -12960,7 +12960,7 @@
         "7yndkPYP6YQQLBpPsizDfh"
       ],
       "rank_total": 420,
-      "rank_daily": 434
+      "rank_daily": 433
     },
     {
       "track_id": "0GxW5K0qzrq7L1jwSY5OmY",
@@ -15280,7 +15280,7 @@
         "0Nw8hv79MLJa1yjtsEgz08"
       ],
       "rank_total": 424,
-      "rank_daily": 433
+      "rank_daily": 434
     },
     {
       "track_id": "7nWui6jiMM2m9qFmET1Mtj",
