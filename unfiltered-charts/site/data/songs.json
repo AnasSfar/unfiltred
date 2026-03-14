@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 160,
-    "total_combined_streams": 121449404275,
+    "songs_updated_on_latest_date": 161,
+    "total_combined_streams": 121449469536,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -100,7 +100,7 @@
         "6sQckd3Z8NPxVVKUnavY1F"
       ],
       "rank_total": 110,
-      "rank_daily": 186
+      "rank_daily": 187
     },
     {
       "track_id": "2yLa0QULdQr0qAIvVwN6B5",
@@ -1895,7 +1895,7 @@
         "64FzgoLZ3oXu2SriZblHic"
       ],
       "rank_total": 221,
-      "rank_daily": 183
+      "rank_daily": 184
     },
     {
       "track_id": "2evEoQAhIMaa9PfjTT5skG",
@@ -12191,7 +12191,7 @@
         "2QDyYdZyhlP2fp79KZX8Bi"
       ],
       "rank_total": 138,
-      "rank_daily": 185
+      "rank_daily": 186
     },
     {
       "track_id": "04xrhDrQ2WOW8GLwu7kbc0",
@@ -14683,7 +14683,7 @@
         "5tWxKWq1DSP1s9WQ5PWuqu"
       ],
       "rank_total": 161,
-      "rank_daily": 184
+      "rank_daily": 185
     },
     {
       "track_id": "7MbT4I8qGntX4fMdqMQgke",
@@ -14826,9 +14826,9 @@
       "title_key": "picture to burn",
       "spotify_url": "https://open.spotify.com/intl-fr/track/32mVHdy0bi1XKgr0ajsBlG",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2732f8c0fd72a80a93f8c53b96c",
-      "streams": 252088256,
-      "daily_streams": 63045,
-      "last_updated": "2026-03-13",
+      "streams": 252153517,
+      "daily_streams": 65261,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -14837,7 +14837,7 @@
       "current_milestone_label": "200M",
       "next_milestone": 300000000,
       "next_milestone_label": "300M",
-      "remaining_to_next_milestone": 47911744,
+      "remaining_to_next_milestone": 47846483,
       "appearances": [
         {
           "source_type": "album",
@@ -14863,7 +14863,7 @@
         "32mVHdy0bi1XKgr0ajsBlG"
       ],
       "rank_total": 149,
-      "rank_daily": 187
+      "rank_daily": 183
     },
     {
       "track_id": "0heeNYlwOGuUSe7TgUD27B",
