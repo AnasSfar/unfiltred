@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 436,
-    "total_combined_streams": 121482312074,
+    "songs_updated_on_latest_date": 437,
+    "total_combined_streams": 121482349378,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -12609,7 +12609,7 @@
         "30Y4CV7A6YqtQtTTo7Ue4j"
       ],
       "rank_total": 235,
-      "rank_daily": 240
+      "rank_daily": 241
     },
     {
       "track_id": "7mFiEij8AXPUZB7aKLbUlQ",
@@ -18394,9 +18394,9 @@
       "title_key": "the fate of ophelia - alone in my tower acoustic version",
       "spotify_url": "https://open.spotify.com/intl-fr/track/3Z2nTctPsTsgqqJm5fCSvG",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273bc755429117cac056edd2bf7",
-      "streams": 15552147,
-      "daily_streams": 36545,
-      "last_updated": "2026-03-13",
+      "streams": 15589451,
+      "daily_streams": 37304,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -18405,7 +18405,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 84447853,
+      "remaining_to_next_milestone": 84410549,
       "appearances": [
         {
           "source_type": "album",
@@ -18431,7 +18431,7 @@
         "3Z2nTctPsTsgqqJm5fCSvG"
       ],
       "rank_total": 394,
-      "rank_daily": 241
+      "rank_daily": 240
     },
     {
       "track_id": "6PlBKImSl4AZoxBU7F649D",
