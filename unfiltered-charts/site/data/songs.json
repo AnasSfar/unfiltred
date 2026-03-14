@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 17,
-    "total_combined_streams": 121433781515,
+    "songs_updated_on_latest_date": 19,
+    "total_combined_streams": 121433992081,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -312,9 +312,9 @@
       "title_key": "22 (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/3yII7UwgLF6K5zW3xad3MP",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273318443aab3531a0558e79a4d",
-      "streams": 406061347,
-      "daily_streams": 108407,
-      "last_updated": "2026-03-13",
+      "streams": 406172676,
+      "daily_streams": 111329,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -323,7 +323,7 @@
       "current_milestone_label": "400M",
       "next_milestone": 500000000,
       "next_milestone_label": "500M",
-      "remaining_to_next_milestone": 93938653,
+      "remaining_to_next_milestone": 93827324,
       "appearances": [
         {
           "source_type": "album",
@@ -349,7 +349,7 @@
         "3yII7UwgLF6K5zW3xad3MP"
       ],
       "rank_total": 87,
-      "rank_daily": 123
+      "rank_daily": 122
     },
     {
       "track_id": "1spLfUJxtyVyiKKTegQ2r4",
@@ -12903,7 +12903,7 @@
         "7G0gBu6nLdhFDPRLc0HdDG"
       ],
       "rank_total": 136,
-      "rank_daily": 139
+      "rank_daily": 138
     },
     {
       "track_id": "7yndkPYP6YQQLBpPsizDfh",
@@ -15757,7 +15757,7 @@
         "3CCRVu4F91Qp2mnGjmWBrf"
       ],
       "rank_total": 134,
-      "rank_daily": 122
+      "rank_daily": 123
     },
     {
       "track_id": "5eGX87IiKsGuzS3iw4CfCX",
@@ -18488,7 +18488,7 @@
         "6PlBKImSl4AZoxBU7F649D"
       ],
       "rank_total": 372,
-      "rank_daily": 140
+      "rank_daily": 139
     },
     {
       "track_id": "3JNaLxAymiSUMrmjOarjeo",
@@ -18898,7 +18898,7 @@
         "4ojxSyrEraN7d46BMBPThZ"
       ],
       "rank_total": 74,
-      "rank_daily": 137
+      "rank_daily": 136
     },
     {
       "track_id": "7vvIpJZye5cRR6De1LKM0m",
@@ -22239,7 +22239,7 @@
         "4txojlesMFQZGWxwz2EeqB"
       ],
       "rank_total": 104,
-      "rank_daily": 138
+      "rank_daily": 137
     },
     {
       "track_id": "4CHpVfAhuxNJ3ibExe6kxO",
@@ -22351,9 +22351,9 @@
       "title_key": "you are in love (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/0TyGh27YQ5LknmiDhCzJiT",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273dc2bacae1dca83d26e2b1949",
-      "streams": 158884192,
-      "daily_streams": 102024,
-      "last_updated": "2026-03-13",
+      "streams": 158983429,
+      "daily_streams": 99237,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -22362,7 +22362,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 41115808,
+      "remaining_to_next_milestone": 41016571,
       "appearances": [
         {
           "source_type": "album",
@@ -22388,7 +22388,7 @@
         "0TyGh27YQ5LknmiDhCzJiT"
       ],
       "rank_total": 212,
-      "rank_daily": 136
+      "rank_daily": 140
     },
     {
       "track_id": "7G6TDmGJXDoBaV6NGj3Yic",
