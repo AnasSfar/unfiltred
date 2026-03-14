@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 457,
-    "total_combined_streams": 121483246709,
+    "songs_updated_on_latest_date": 458,
+    "total_combined_streams": 121483353331,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -20975,9 +20975,9 @@
       "title_key": "vigilante shit",
       "spotify_url": "https://open.spotify.com/intl-fr/track/1xwAWUI6Dj0WGC3KiUPN0O",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273bb54dde68cd23e2a268ae0f5",
-      "streams": 508808087,
-      "daily_streams": 106956,
-      "last_updated": "2026-03-13",
+      "streams": 508914709,
+      "daily_streams": 106622,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -20986,7 +20986,7 @@
       "current_milestone_label": "500M",
       "next_milestone": 600000000,
       "next_milestone_label": "600M",
-      "remaining_to_next_milestone": 91191913,
+      "remaining_to_next_milestone": 91085291,
       "appearances": [
         {
           "source_type": "album",
