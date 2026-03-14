@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 441,
-    "total_combined_streams": 121482644769,
+    "songs_updated_on_latest_date": 442,
+    "total_combined_streams": 121482686026,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -18655,9 +18655,9 @@
       "title_key": "the joker and the queen (feat. taylor swift)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/3wx2iW1rJGgdNln2I64HNh",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2730351028f3e973b76dcf1db60",
-      "streams": 226236479,
-      "daily_streams": 41023,
-      "last_updated": "2026-03-13",
+      "streams": 226277736,
+      "daily_streams": 41257,
+      "last_updated": "2026-03-14",
       "primary_artist": "Ed Sheeran",
       "artists": [
         "Ed Sheeran",
@@ -18667,7 +18667,7 @@
       "current_milestone_label": "200M",
       "next_milestone": 300000000,
       "next_milestone_label": "300M",
-      "remaining_to_next_milestone": 73763521,
+      "remaining_to_next_milestone": 73722264,
       "appearances": [
         {
           "source_type": "misc",
