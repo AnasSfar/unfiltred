@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 253,
-    "total_combined_streams": 121457717140,
+    "songs_updated_on_latest_date": 255,
+    "total_combined_streams": 121458222478,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -4717,9 +4717,9 @@
       "title_key": "dancing with our hands tied - karaoke version",
       "spotify_url": "https://open.spotify.com/intl-fr/track/3ZfvKQxJp4zZshiJsRPoD1",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27305fd6906725e3f12544c2d04",
-      "streams": 393151,
-      "daily_streams": 192,
-      "last_updated": "2026-03-13",
+      "streams": 393375,
+      "daily_streams": 224,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -4728,7 +4728,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 99606849,
+      "remaining_to_next_milestone": 99606625,
       "appearances": [
         {
           "source_type": "misc",
@@ -4766,7 +4766,7 @@
         "3ZfvKQxJp4zZshiJsRPoD1"
       ],
       "rank_total": 463,
-      "rank_daily": 461
+      "rank_daily": 458
     },
     {
       "track_id": "1fzAuUVbzlhZ1lJAx9PtY6",
@@ -6241,7 +6241,7 @@
         "4cag67C3v9ToeFivUwDUsE"
       ],
       "rank_total": 461,
-      "rank_daily": 459
+      "rank_daily": 460
     },
     {
       "track_id": "08fa9LFcFBTcilB3iq2e2A",
@@ -7632,7 +7632,7 @@
         "7bdyzcQ0onk60hfsxDCd2X"
       ],
       "rank_total": 458,
-      "rank_daily": 458
+      "rank_daily": 459
     },
     {
       "track_id": "6cf6rLb8qcklvJv90W6HCW",
@@ -9213,7 +9213,7 @@
         "2hecdut2HWM5JMHqLTWThq"
       ],
       "rank_total": 459,
-      "rank_daily": 460
+      "rank_daily": 461
     },
     {
       "track_id": "2y5aJvzXhHPA94U5GFAcXe",
@@ -11733,9 +11733,9 @@
       "title_key": "love story (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/6YvqWjhGD8mB5QXcbcUKtx",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273a48964b5d9a3d6968ae3e0de",
-      "streams": 1157292160,
-      "daily_streams": 508463,
-      "last_updated": "2026-03-13",
+      "streams": 1157797274,
+      "daily_streams": 505114,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -11744,7 +11744,7 @@
       "current_milestone_label": "1.1B",
       "next_milestone": 1200000000,
       "next_milestone_label": "1.2B",
-      "remaining_to_next_milestone": 42707840,
+      "remaining_to_next_milestone": 42202726,
       "appearances": [
         {
           "source_type": "album",
