@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 7,
-    "total_combined_streams": 121432356047,
+    "songs_updated_on_latest_date": 8,
+    "total_combined_streams": 121432358039,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -5272,9 +5272,9 @@
       "title_key": "delicate - sawyr and ryan tedder mix",
       "spotify_url": "https://open.spotify.com/intl-fr/track/6SYwJcqaltK2WFRmD1unUV",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273d8032a149cd86c879c9df63a",
-      "streams": 8668726,
-      "daily_streams": 1940,
-      "last_updated": "2026-03-13",
+      "streams": 8670718,
+      "daily_streams": 1992,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -5283,7 +5283,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 91331274,
+      "remaining_to_next_milestone": 91329282,
       "appearances": [
         {
           "source_type": "misc",
@@ -5321,7 +5321,7 @@
         "6SYwJcqaltK2WFRmD1unUV"
       ],
       "rank_total": 415,
-      "rank_daily": 422
+      "rank_daily": 420
     },
     {
       "track_id": "2Sy2oGjP5RYB4cLVoDU0Gz",
@@ -6049,7 +6049,7 @@
         "3r9fAceWmaDFvbNiTnFiLr"
       ],
       "rank_total": 446,
-      "rank_daily": 421
+      "rank_daily": 422
     },
     {
       "track_id": "04S1pkp1VaIqjg8zZqknR5",
@@ -6719,7 +6719,7 @@
         "2NGGvVcfb2m2NbVaXHC3gb"
       ],
       "rank_total": 448,
-      "rank_daily": 420
+      "rank_daily": 421
     },
     {
       "track_id": "6zV8AVM9eVfdG7Qahwd64R",
