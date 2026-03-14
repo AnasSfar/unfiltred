@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 296,
-    "total_combined_streams": 121462806251,
+    "songs_updated_on_latest_date": 297,
+    "total_combined_streams": 121462856546,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -7016,7 +7016,7 @@
         "4s8BIKx4Zh6ryAEz8RTlaU"
       ],
       "rank_total": 239,
-      "rank_daily": 211
+      "rank_daily": 210
     },
     {
       "track_id": "1zxrcAk6eiytfavqriMcKT",
@@ -8262,9 +8262,9 @@
       "title_key": "high infidelity",
       "spotify_url": "https://open.spotify.com/intl-fr/track/1SztNGCwEHJEVFx90E5g7D",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273fa747621a53c8e2cc436dee0",
-      "streams": 199151905,
-      "daily_streams": 51322,
-      "last_updated": "2026-03-13",
+      "streams": 199202200,
+      "daily_streams": 50295,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -8273,7 +8273,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 848095,
+      "remaining_to_next_milestone": 797800,
       "appearances": [
         {
           "source_type": "album",
@@ -8299,7 +8299,7 @@
         "1SztNGCwEHJEVFx90E5g7D"
       ],
       "rank_total": 182,
-      "rank_daily": 210
+      "rank_daily": 211
     },
     {
       "track_id": "60hGQrn24APqEFSLObLeDc",
