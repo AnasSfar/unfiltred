@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 440,
-    "total_combined_streams": 121482529932,
+    "songs_updated_on_latest_date": 441,
+    "total_combined_streams": 121482644769,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -11430,7 +11430,7 @@
         "1LLXZFeAHK9R4xUramtUKw"
       ],
       "rank_total": 81,
-      "rank_daily": 116
+      "rank_daily": 115
     },
     {
       "track_id": "6XDBA3QWX51lDJ0oZbaJJN",
@@ -18610,9 +18610,9 @@
       "title_key": "the great war",
       "spotify_url": "https://open.spotify.com/intl-fr/track/2VuqMjgoKaOHNM8HpxtXKx",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273fa747621a53c8e2cc436dee0",
-      "streams": 374091379,
-      "daily_streams": 115299,
-      "last_updated": "2026-03-13",
+      "streams": 374206216,
+      "daily_streams": 114837,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -18621,7 +18621,7 @@
       "current_milestone_label": "300M",
       "next_milestone": 400000000,
       "next_milestone_label": "400M",
-      "remaining_to_next_milestone": 25908621,
+      "remaining_to_next_milestone": 25793784,
       "appearances": [
         {
           "source_type": "album",
@@ -18647,7 +18647,7 @@
         "2VuqMjgoKaOHNM8HpxtXKx"
       ],
       "rank_total": 94,
-      "rank_daily": 115
+      "rank_daily": 116
     },
     {
       "track_id": "3wx2iW1rJGgdNln2I64HNh",
