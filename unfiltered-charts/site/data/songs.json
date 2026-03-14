@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 214,
-    "total_combined_streams": 121454826886,
+    "songs_updated_on_latest_date": 216,
+    "total_combined_streams": 121454854548,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -3433,9 +3433,9 @@
       "title_key": "change (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/3ExweHKZF9B752DPQByRVT",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273a48964b5d9a3d6968ae3e0de",
-      "streams": 58409345,
-      "daily_streams": 14710,
-      "last_updated": "2026-03-13",
+      "streams": 58424192,
+      "daily_streams": 14847,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -3444,7 +3444,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 41590655,
+      "remaining_to_next_milestone": 41575808,
       "appearances": [
         {
           "source_type": "album",
@@ -13321,9 +13321,9 @@
       "title_key": "my tears ricochet - the long pond studio sessions",
       "spotify_url": "https://open.spotify.com/intl-fr/track/5mdNyCS7ttVcAyVYOIFEjs",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273045514e3ed4e1767a7c3ece5",
-      "streams": 31158823,
-      "daily_streams": 13116,
-      "last_updated": "2026-03-13",
+      "streams": 31171638,
+      "daily_streams": 12815,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -13332,7 +13332,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 68841177,
+      "remaining_to_next_milestone": 68828362,
       "appearances": [
         {
           "source_type": "album",
