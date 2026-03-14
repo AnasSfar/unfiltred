@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 137,
-    "total_combined_streams": 121447938230,
+    "songs_updated_on_latest_date": 139,
+    "total_combined_streams": 121448009994,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -1754,9 +1754,9 @@
       "title_key": "bad blood (feat. kendrick lamar)",
       "spotify_url": "https://open.spotify.com/track/6xsEAm6w9oMQYYg3jkEkMT",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2737941dc6a3a023016acbe3d06",
-      "streams": 225239148,
-      "daily_streams": 60849,
-      "last_updated": "2026-03-13",
+      "streams": 225300373,
+      "daily_streams": 61225,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift",
@@ -1766,7 +1766,7 @@
       "current_milestone_label": "200M",
       "next_milestone": 300000000,
       "next_milestone_label": "300M",
-      "remaining_to_next_milestone": 74760852,
+      "remaining_to_next_milestone": 74699627,
       "appearances": [
         {
           "source_type": "album",
@@ -14364,9 +14364,9 @@
       "title_key": "ours",
       "spotify_url": "https://open.spotify.com/intl-fr/track/1EQn3Uc5AyUXoiPLeyCrrg",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2732e4ec3175d848eca7b76b07f",
-      "streams": 78066307,
-      "daily_streams": 10435,
-      "last_updated": "2026-03-13",
+      "streams": 78076846,
+      "daily_streams": 10539,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -14375,7 +14375,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 21933693,
+      "remaining_to_next_milestone": 21923154,
       "appearances": [
         {
           "source_type": "album",
