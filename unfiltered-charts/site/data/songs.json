@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 63,
-    "total_combined_streams": 121440648494,
+    "songs_updated_on_latest_date": 64,
+    "total_combined_streams": 121440772603,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -1599,7 +1599,7 @@
         "79uDOz0zuuWS7HWxzMmTa2"
       ],
       "rank_total": 121,
-      "rank_daily": 110
+      "rank_daily": 109
     },
     {
       "track_id": "6IH2Z54gYPLqgJtxZjX80i",
@@ -6430,9 +6430,9 @@
       "title_key": "everything has changed (feat. ed sheeran) (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/7qEUFOVcxRI19tbT68JcYK",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273318443aab3531a0558e79a4d",
-      "streams": 229060933,
-      "daily_streams": 132512,
-      "last_updated": "2026-03-13",
+      "streams": 229185042,
+      "daily_streams": 124109,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift",
@@ -6442,7 +6442,7 @@
       "current_milestone_label": "200M",
       "next_milestone": 300000000,
       "next_milestone_label": "300M",
-      "remaining_to_next_milestone": 70939067,
+      "remaining_to_next_milestone": 70814958,
       "appearances": [
         {
           "source_type": "album",
@@ -6468,7 +6468,7 @@
         "7qEUFOVcxRI19tbT68JcYK"
       ],
       "rank_total": 165,
-      "rank_daily": 106
+      "rank_daily": 111
     },
     {
       "track_id": "6kz2hkq1xQvDqPcUyBkw8f",
@@ -8389,7 +8389,7 @@
         "3xYJScVfxByb61dYHTwiby"
       ],
       "rank_total": 132,
-      "rank_daily": 111
+      "rank_daily": 110
     },
     {
       "track_id": "6MWoRt97mnSTXZhu3ggi9C",
@@ -13210,7 +13210,7 @@
         "2CYVETnhM9aytqrazYYwrK"
       ],
       "rank_total": 70,
-      "rank_daily": 109
+      "rank_daily": 108
     },
     {
       "track_id": "2XXwLdtuAcE0HSCu61ijAb",
@@ -13924,7 +13924,7 @@
         "0E3Vtmgzk067KASoo0HwzV"
       ],
       "rank_total": 441,
-      "rank_daily": 107
+      "rank_daily": 106
     },
     {
       "track_id": "0ttGLmxI0mAkMblE6iRm2S",
@@ -21102,7 +21102,7 @@
         "5YqltLsjdqFtvqE7Nrysvs"
       ],
       "rank_total": 69,
-      "rank_daily": 108
+      "rank_daily": 107
     },
     {
       "track_id": "34V9RiEPe8MNdU32qJsJa1",
