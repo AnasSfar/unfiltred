@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 73,
-    "total_combined_streams": 121441935353,
+    "songs_updated_on_latest_date": 75,
+    "total_combined_streams": 121442098316,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -819,9 +819,9 @@
       "title_key": "all you had to do was stay",
       "spotify_url": "https://open.spotify.com/intl-fr/track/6aLOekfwbytwWvQftxTEF0",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27352b2a3824413eefe9e33817a",
-      "streams": 245034548,
-      "daily_streams": 43068,
-      "last_updated": "2026-03-13",
+      "streams": 245077086,
+      "daily_streams": 42538,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -830,7 +830,7 @@
       "current_milestone_label": "200M",
       "next_milestone": 300000000,
       "next_milestone_label": "300M",
-      "remaining_to_next_milestone": 54965452,
+      "remaining_to_next_milestone": 54922914,
       "appearances": [
         {
           "source_type": "album",
@@ -856,7 +856,7 @@
         "6aLOekfwbytwWvQftxTEF0"
       ],
       "rank_total": 157,
-      "rank_daily": 224
+      "rank_daily": 227
     },
     {
       "track_id": "6GXgd1BPD9bUpqw5AntGV5",
@@ -4958,7 +4958,7 @@
         "1zU8j1x3yi9xalMF96pzKp"
       ],
       "rank_total": 222,
-      "rank_daily": 226
+      "rank_daily": 225
     },
     {
       "track_id": "10GRRCR5fctuOF4GFmATJI",
@@ -8659,7 +8659,7 @@
         "5Bedn0svl0ZD7RGmJkmKKw"
       ],
       "rank_total": 175,
-      "rank_daily": 113
+      "rank_daily": 112
     },
     {
       "track_id": "6wfugRLamFsTRbPcCpNnP7",
@@ -11987,7 +11987,7 @@
         "3i9UVldZOE0aD0JnyfAZZ0"
       ],
       "rank_total": 113,
-      "rank_daily": 227
+      "rank_daily": 226
     },
     {
       "track_id": "2msvOEbkK50foYf9BMXr2X",
@@ -12379,9 +12379,9 @@
       "title_key": "mastermind",
       "spotify_url": "https://open.spotify.com/intl-fr/track/1QQii3pa5m8MEda0nbkjfw",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273fa747621a53c8e2cc436dee0",
-      "streams": 455476011,
-      "daily_streams": 123310,
-      "last_updated": "2026-03-13",
+      "streams": 455596436,
+      "daily_streams": 120425,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -12390,7 +12390,7 @@
       "current_milestone_label": "400M",
       "next_milestone": 500000000,
       "next_milestone_label": "500M",
-      "remaining_to_next_milestone": 44523989,
+      "remaining_to_next_milestone": 44403564,
       "appearances": [
         {
           "source_type": "album",
@@ -12415,8 +12415,8 @@
       "merged_track_ids": [
         "1QQii3pa5m8MEda0nbkjfw"
       ],
-      "rank_total": 73,
-      "rank_daily": 112
+      "rank_total": 72,
+      "rank_daily": 113
     },
     {
       "track_id": "2Rk4JlNc2TPmZe2af99d45",
@@ -14355,7 +14355,7 @@
       "merged_track_ids": [
         "15DeqWWQB4dcEWzJg15VrN"
       ],
-      "rank_total": 72,
+      "rank_total": 73,
       "rank_daily": 105
     },
     {
@@ -16946,7 +16946,7 @@
         "6lzc0Al0zfZOIFsFvBS1ki"
       ],
       "rank_total": 209,
-      "rank_daily": 225
+      "rank_daily": 224
     },
     {
       "track_id": "5G9AVKld9q7DCrmoY42raf",
