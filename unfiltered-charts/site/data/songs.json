@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 343,
-    "total_combined_streams": 121467799581,
+    "songs_updated_on_latest_date": 344,
+    "total_combined_streams": 121467818284,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -1464,7 +1464,7 @@
         "40PXEOFLJc7UIpLMrhSfW1"
       ],
       "rank_total": 250,
-      "rank_daily": 302
+      "rank_daily": 301
     },
     {
       "track_id": "0v4z1tuZvn6LGknom9Qx7d",
@@ -5992,7 +5992,7 @@
         "4UBWugj5D20ZveyzdGpqvD"
       ],
       "rank_total": 417,
-      "rank_daily": 301
+      "rank_daily": 300
     },
     {
       "track_id": "3r9fAceWmaDFvbNiTnFiLr",
@@ -7106,7 +7106,7 @@
         "01QdEx6kFr78ZejhQtWR5m"
       ],
       "rank_total": 302,
-      "rank_daily": 305
+      "rank_daily": 304
     },
     {
       "track_id": "1msEuwSBneBKpVCZQcFTsU",
@@ -8793,7 +8793,7 @@
       "merged_track_ids": [
         "5VwFkx7JOimOGTYfha5rs1"
       ],
-      "rank_total": 304,
+      "rank_total": 305,
       "rank_daily": 357
     },
     {
@@ -9495,7 +9495,7 @@
         "2zfgVd034GlUvk7LqBHl6u"
       ],
       "rank_total": 226,
-      "rank_daily": 304
+      "rank_daily": 303
     },
     {
       "track_id": "1ULabO0PEsdJekqVH6G10G",
@@ -9842,9 +9842,9 @@
       "title_key": "i'm only me when i'm with you",
       "spotify_url": "https://open.spotify.com/intl-fr/track/0JIdBrXGSJXS72zjF9ss9u",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2732f8c0fd72a80a93f8c53b96c",
-      "streams": 67182080,
-      "daily_streams": 19652,
-      "last_updated": "2026-03-13",
+      "streams": 67200783,
+      "daily_streams": 18703,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -9853,7 +9853,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 32817920,
+      "remaining_to_next_milestone": 32799217,
       "appearances": [
         {
           "source_type": "album",
@@ -9878,8 +9878,8 @@
       "merged_track_ids": [
         "0JIdBrXGSJXS72zjF9ss9u"
       ],
-      "rank_total": 305,
-      "rank_daily": 299
+      "rank_total": 304,
+      "rank_daily": 305
     },
     {
       "track_id": "0vvt4IZOMkRug195S4MUq0",
@@ -15439,7 +15439,7 @@
         "6hKfPNnVlA2cgTgKj6Vgcw"
       ],
       "rank_total": 426,
-      "rank_daily": 300
+      "rank_daily": 299
     },
     {
       "track_id": "4IQkfUsrwXol38VV3U7t7T",
@@ -17363,7 +17363,7 @@
         "4evLyY5Ue1Wesc61t2KXAU"
       ],
       "rank_total": 315,
-      "rank_daily": 303
+      "rank_daily": 302
     },
     {
       "track_id": "14Bljc3pOOG0xQX3wqhLN9",
