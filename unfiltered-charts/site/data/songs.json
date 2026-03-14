@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 83,
-    "total_combined_streams": 121442895106,
+    "songs_updated_on_latest_date": 85,
+    "total_combined_streams": 121442996897,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -1993,8 +1993,8 @@
       "title_key": "begin again (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/05GsNucq8Bngd9fnd4fRa0",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273318443aab3531a0558e79a4d",
-      "streams": 162132434,
-      "daily_streams": 94328,
+      "streams": 162215245,
+      "daily_streams": 82811,
       "last_updated": "2026-03-13",
       "primary_artist": "Taylor Swift",
       "artists": [
@@ -2004,7 +2004,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 37867566,
+      "remaining_to_next_milestone": 37784755,
       "appearances": [
         {
           "source_type": "album",
@@ -2030,7 +2030,7 @@
         "05GsNucq8Bngd9fnd4fRa0"
       ],
       "rank_total": 205,
-      "rank_daily": 146
+      "rank_daily": 156
     },
     {
       "track_id": "3qoftcUZaUOncvIYjFSPdE",
@@ -3947,7 +3947,7 @@
         "0lKUBmEyQfzsQHozyeXzES"
       ],
       "rank_total": 193,
-      "rank_daily": 149
+      "rank_daily": 148
     },
     {
       "track_id": "35rdVq36LMHQX0Suw9a6tK",
@@ -4423,7 +4423,7 @@
         "1XjHRolIXL2M1EEOUsGGR4"
       ],
       "rank_total": 147,
-      "rank_daily": 151
+      "rank_daily": 150
     },
     {
       "track_id": "5vyxXfD5gLlyPxGZMEjtmd",
@@ -4709,7 +4709,7 @@
         "7I7JbDv63ZJJsSi24DyJrz"
       ],
       "rank_total": 111,
-      "rank_daily": 155
+      "rank_daily": 154
     },
     {
       "track_id": "3ZfvKQxJp4zZshiJsRPoD1",
@@ -5570,7 +5570,7 @@
         "670fUmXf4KQekzbEgaXyPA"
       ],
       "rank_total": 164,
-      "rank_daily": 156
+      "rank_daily": 155
     },
     {
       "track_id": "2F3N9tdombb64aW6VtZOdo",
@@ -8885,7 +8885,7 @@
         "4CkgMiMqZ5JzW9iYXSTMTL"
       ],
       "rank_total": 130,
-      "rank_daily": 147
+      "rank_daily": 146
     },
     {
       "track_id": "4dgf2DYVJbtmy8zAYLs4c7",
@@ -9111,7 +9111,7 @@
         "5kHMfzgLZP95O9NBy0ku4v"
       ],
       "rank_total": 109,
-      "rank_daily": 154
+      "rank_daily": 153
     },
     {
       "track_id": "4svZDCRz4cJoneBpjpx8DJ",
@@ -9315,7 +9315,7 @@
         "43rA71bccXFGD4C8GOpIlN"
       ],
       "rank_total": 86,
-      "rank_daily": 153
+      "rank_daily": 152
     },
     {
       "track_id": "3hlGuz3loYoLfI3bpwieWq",
@@ -9458,9 +9458,9 @@
       "title_key": "i know places",
       "spotify_url": "https://open.spotify.com/intl-fr/track/2zfgVd034GlUvk7LqBHl6u",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273332d85510aba3eb28312cfb2",
-      "streams": 146094260,
-      "daily_streams": 19058,
-      "last_updated": "2026-03-13",
+      "streams": 146113240,
+      "daily_streams": 18980,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -9469,7 +9469,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 53905740,
+      "remaining_to_next_milestone": 53886760,
       "appearances": [
         {
           "source_type": "album",
@@ -9495,7 +9495,7 @@
         "2zfgVd034GlUvk7LqBHl6u"
       ],
       "rank_total": 226,
-      "rank_daily": 303
+      "rank_daily": 304
     },
     {
       "track_id": "1ULabO0PEsdJekqVH6G10G",
@@ -13538,7 +13538,7 @@
         "5M787RexsAiVYjQusM98CV"
       ],
       "rank_total": 173,
-      "rank_daily": 152
+      "rank_daily": 151
     },
     {
       "track_id": "7F5oktn5YOsR9eR5YsFtqb",
@@ -13732,7 +13732,7 @@
         "01K4zKU104LyJ8gMb7227B"
       ],
       "rank_total": 122,
-      "rank_daily": 148
+      "rank_daily": 147
     },
     {
       "track_id": "5QUIK7ZtziW8kGWo8RqopF",
@@ -14548,7 +14548,7 @@
         "0qUnBLZ8bJqUNEeQgayL9t"
       ],
       "rank_total": 101,
-      "rank_daily": 150
+      "rank_daily": 149
     },
     {
       "track_id": "045ZeOHPIzhxxsm8bq5kyE",
@@ -17363,7 +17363,7 @@
         "4evLyY5Ue1Wesc61t2KXAU"
       ],
       "rank_total": 315,
-      "rank_daily": 304
+      "rank_daily": 303
     },
     {
       "track_id": "14Bljc3pOOG0xQX3wqhLN9",
