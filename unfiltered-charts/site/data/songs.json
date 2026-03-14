@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 442,
-    "total_combined_streams": 121482686026,
+    "songs_updated_on_latest_date": 443,
+    "total_combined_streams": 121482692780,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -18803,9 +18803,9 @@
       "title_key": "the lakes - the long pond studio sessions",
       "spotify_url": "https://open.spotify.com/intl-fr/track/6mqyTq948oap5AkyTsd6XF",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273045514e3ed4e1767a7c3ece5",
-      "streams": 20968518,
-      "daily_streams": 6853,
-      "last_updated": "2026-03-13",
+      "streams": 20975272,
+      "daily_streams": 6754,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -18814,7 +18814,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 79031482,
+      "remaining_to_next_milestone": 79024728,
       "appearances": [
         {
           "source_type": "album",
