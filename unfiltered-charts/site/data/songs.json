@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 196,
-    "total_combined_streams": 121453032741,
+    "songs_updated_on_latest_date": 197,
+    "total_combined_streams": 121453046592,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -4193,9 +4193,9 @@
       "title_key": "come in with the rain (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/1n2wszmJyVkw6FHqyLnQsY",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273a48964b5d9a3d6968ae3e0de",
-      "streams": 53462495,
-      "daily_streams": 14171,
-      "last_updated": "2026-03-13",
+      "streams": 53476346,
+      "daily_streams": 13851,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -4204,7 +4204,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 46537505,
+      "remaining_to_next_milestone": 46523654,
       "appearances": [
         {
           "source_type": "album",
