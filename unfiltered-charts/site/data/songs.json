@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 117,
-    "total_combined_streams": 121446056661,
+    "songs_updated_on_latest_date": 118,
+    "total_combined_streams": 121446473947,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -13258,13 +13258,13 @@
       "rank_daily": 65
     },
     {
-      "track_id": "1MgV7FIyNxIG7WzMRJV5HC",
+      "track_id": "0Oju1YcbPCJuUQQWoZNdJK",
       "title": "my tears ricochet",
       "title_key": "my tears ricochet",
-      "spotify_url": "https://open.spotify.com/intl-fr/track/1MgV7FIyNxIG7WzMRJV5HC",
-      "image_url": "https://i.scdn.co/image/ab67616d0000b27395f754318336a07e85ec59bc",
-      "streams": 823041321,
-      "daily_streams": 411040,
+      "spotify_url": "https://open.spotify.com/intl-fr/track/0Oju1YcbPCJuUQQWoZNdJK",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273045514e3ed4e1767a7c3ece5",
+      "streams": 823458607,
+      "daily_streams": 417286,
       "last_updated": "2026-03-13",
       "primary_artist": "Taylor Swift",
       "artists": [
@@ -13274,7 +13274,7 @@
       "current_milestone_label": "800M",
       "next_milestone": 900000000,
       "next_milestone_label": "900M",
-      "remaining_to_next_milestone": 76958679,
+      "remaining_to_next_milestone": 76541393,
       "appearances": [
         {
           "source_type": "album",
