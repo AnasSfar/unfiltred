@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 422,
-    "total_combined_streams": 121476409577,
+    "songs_updated_on_latest_date": 423,
+    "total_combined_streams": 121476435368,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -17101,9 +17101,9 @@
       "title_key": "stay stay stay (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/7eQj6r5PIdYKEIZjucBMcq",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273318443aab3531a0558e79a4d",
-      "streams": 113045553,
-      "daily_streams": 26332,
-      "last_updated": "2026-03-13",
+      "streams": 113071344,
+      "daily_streams": 25791,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -17112,7 +17112,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 86954447,
+      "remaining_to_next_milestone": 86928656,
       "appearances": [
         {
           "source_type": "album",
