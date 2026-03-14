@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 185,
-    "total_combined_streams": 121451995562,
+    "songs_updated_on_latest_date": 186,
+    "total_combined_streams": 121451998034,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -15006,9 +15006,9 @@
       "title_key": "red - original demo recording",
       "spotify_url": "https://open.spotify.com/intl-fr/track/4mqgn90sCeVSYqcoftTQTd",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273a7613d346501b828b56a0bc3",
-      "streams": 19135335,
-      "daily_streams": 2653,
-      "last_updated": "2026-03-13",
+      "streams": 19137807,
+      "daily_streams": 2472,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -15017,7 +15017,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 80864665,
+      "remaining_to_next_milestone": 80862193,
       "appearances": [
         {
           "source_type": "misc",
