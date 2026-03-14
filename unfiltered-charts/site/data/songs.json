@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 383,
-    "total_combined_streams": 121471783067,
+    "songs_updated_on_latest_date": 384,
+    "total_combined_streams": 121471784098,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -14454,9 +14454,9 @@
       "title_key": "ours - live/2011",
       "spotify_url": "https://open.spotify.com/intl-fr/track/68QyrSzpnoU04AAhE5z8lj",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273be4ec62353ee75fa11f6d6f7",
-      "streams": 7380476,
-      "daily_streams": 1067,
-      "last_updated": "2026-03-13",
+      "streams": 7381507,
+      "daily_streams": 1031,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -14465,7 +14465,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 92619524,
+      "remaining_to_next_milestone": 92618493,
       "appearances": [
         {
           "source_type": "misc",
