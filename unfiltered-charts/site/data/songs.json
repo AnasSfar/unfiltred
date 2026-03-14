@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 384,
-    "total_combined_streams": 121471784098,
+    "songs_updated_on_latest_date": 385,
+    "total_combined_streams": 121471809590,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -4607,7 +4607,7 @@
         "37jfioVu3Bd2Du9bteXNDU"
       ],
       "rank_total": 338,
-      "rank_daily": 270
+      "rank_daily": 269
     },
     {
       "track_id": "0ISHfeb30gj4CSWUZYuesj",
@@ -7393,7 +7393,7 @@
         "1gejz5ROvJBUb6WJzkMAcc"
       ],
       "rank_total": 345,
-      "rank_daily": 269
+      "rank_daily": 268
     },
     {
       "track_id": "7pM01Cfj8vt7z3qI2TveNT",
@@ -14446,7 +14446,7 @@
         "3yNJkriPzWjkkDAWHIAVUq"
       ],
       "rank_total": 287,
-      "rank_daily": 267
+      "rank_daily": 266
     },
     {
       "track_id": "68QyrSzpnoU04AAhE5z8lj",
@@ -15447,9 +15447,9 @@
       "title_key": "run (feat. ed sheeran) (taylor's version) (from the vault)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/4IQkfUsrwXol38VV3U7t7T",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273318443aab3531a0558e79a4d",
-      "streams": 166708944,
-      "daily_streams": 27141,
-      "last_updated": "2026-03-13",
+      "streams": 166734436,
+      "daily_streams": 25492,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift",
@@ -15459,7 +15459,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 33291056,
+      "remaining_to_next_milestone": 33265564,
       "appearances": [
         {
           "source_type": "album",
@@ -15485,7 +15485,7 @@
         "4IQkfUsrwXol38VV3U7t7T"
       ],
       "rank_total": 199,
-      "rank_daily": 264
+      "rank_daily": 270
     },
     {
       "track_id": "5QKhg4r4Ibt0LVTmWEXTEg",
@@ -16811,7 +16811,7 @@
         "7A2cNLRT0YJc1yjxHlKihs"
       ],
       "rank_total": 275,
-      "rank_daily": 266
+      "rank_daily": 265
     },
     {
       "track_id": "786NsUYn4GGUf8AOt0SQhP",
@@ -17138,7 +17138,7 @@
         "7eQj6r5PIdYKEIZjucBMcq"
       ],
       "rank_total": 264,
-      "rank_daily": 268
+      "rank_daily": 267
     },
     {
       "track_id": "0ug5NqcwcFR2xrfTkc7k8e",
@@ -22798,7 +22798,7 @@
         "6iiAfo4wTA2CVC3Uwx9uh8"
       ],
       "rank_total": 271,
-      "rank_daily": 265
+      "rank_daily": 264
     },
     {
       "track_id": "4VbErhGDMTnvPAnt5z70DL",
