@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 367,
-    "total_combined_streams": 121470124214,
+    "songs_updated_on_latest_date": 368,
+    "total_combined_streams": 121470218944,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -11483,9 +11483,9 @@
       "title_key": "long live (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/4hqJ4bSlYJOXb6Z4SRmzxs",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2730b04da4f224b51ff86e0a481",
-      "streams": 217926526,
-      "daily_streams": 94483,
-      "last_updated": "2026-03-13",
+      "streams": 218021256,
+      "daily_streams": 94730,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -11494,7 +11494,7 @@
       "current_milestone_label": "200M",
       "next_milestone": 300000000,
       "next_milestone_label": "300M",
-      "remaining_to_next_milestone": 82073474,
+      "remaining_to_next_milestone": 81978744,
       "appearances": [
         {
           "source_type": "album",
@@ -11520,7 +11520,7 @@
         "4hqJ4bSlYJOXb6Z4SRmzxs"
       ],
       "rank_total": 172,
-      "rank_daily": 141
+      "rank_daily": 140
     },
     {
       "track_id": "2o2sgVJIgFXk8GQjWTgI6U",
@@ -22239,7 +22239,7 @@
         "4txojlesMFQZGWxwz2EeqB"
       ],
       "rank_total": 104,
-      "rank_daily": 140
+      "rank_daily": 141
     },
     {
       "track_id": "4CHpVfAhuxNJ3ibExe6kxO",
