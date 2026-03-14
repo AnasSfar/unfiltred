@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 386,
-    "total_combined_streams": 121471942534,
+    "songs_updated_on_latest_date": 387,
+    "total_combined_streams": 121472067549,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -13173,9 +13173,9 @@
       "title_key": "mr. perfectly fine (taylor's version) (from the vault)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/2CYVETnhM9aytqrazYYwrK",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273a48964b5d9a3d6968ae3e0de",
-      "streams": 467049594,
-      "daily_streams": 127382,
-      "last_updated": "2026-03-13",
+      "streams": 467174609,
+      "daily_streams": 125015,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -13184,7 +13184,7 @@
       "current_milestone_label": "400M",
       "next_milestone": 500000000,
       "next_milestone_label": "500M",
-      "remaining_to_next_milestone": 32950406,
+      "remaining_to_next_milestone": 32825391,
       "appearances": [
         {
           "source_type": "album",
