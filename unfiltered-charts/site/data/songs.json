@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 193,
-    "total_combined_streams": 121452483153,
+    "songs_updated_on_latest_date": 195,
+    "total_combined_streams": 121453015248,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -3002,9 +3002,9 @@
       "title_key": "cancelled!",
       "spotify_url": "https://open.spotify.com/intl-fr/track/1appZ3c336FkPvCuywfmrs",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273d7812467811a7da6e6a44902",
-      "streams": 212056978,
-      "daily_streams": 320324,
-      "last_updated": "2026-03-13",
+      "streams": 212380971,
+      "daily_streams": 323993,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -3013,7 +3013,7 @@
       "current_milestone_label": "200M",
       "next_milestone": 300000000,
       "next_milestone_label": "300M",
-      "remaining_to_next_milestone": 87943022,
+      "remaining_to_next_milestone": 87619029,
       "appearances": [
         {
           "source_type": "album",
@@ -13218,9 +13218,9 @@
       "title_key": "my boy only breaks his favorite toys",
       "spotify_url": "https://open.spotify.com/intl-fr/track/2XXwLdtuAcE0HSCu61ijAb",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2735076e4160d018e378f488c33",
-      "streams": 398558071,
-      "daily_streams": 205210,
-      "last_updated": "2026-03-13",
+      "streams": 398766173,
+      "daily_streams": 208102,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -13229,7 +13229,7 @@
       "current_milestone_label": "300M",
       "next_milestone": 400000000,
       "next_milestone_label": "400M",
-      "remaining_to_next_milestone": 1441929,
+      "remaining_to_next_milestone": 1233827,
       "appearances": [
         {
           "source_type": "album",
@@ -13255,7 +13255,7 @@
         "2XXwLdtuAcE0HSCu61ijAb"
       ],
       "rank_total": 89,
-      "rank_daily": 65
+      "rank_daily": 64
     },
     {
       "track_id": "1MgV7FIyNxIG7WzMRJV5HC",
@@ -21475,7 +21475,7 @@
         "6kl8thRysTeVV3WvKxgZAy"
       ],
       "rank_total": 83,
-      "rank_daily": 64
+      "rank_daily": 65
     },
     {
       "track_id": "2TEQvxxQabwLQMqWMg1qGu",
