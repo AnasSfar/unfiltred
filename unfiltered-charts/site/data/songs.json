@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 33,
-    "total_combined_streams": 121435984506,
+    "songs_updated_on_latest_date": 34,
+    "total_combined_streams": 121436277389,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -11385,7 +11385,7 @@
         "3YkNIrAvbKNrrwwEd7NVLl"
       ],
       "rank_total": 106,
-      "rank_daily": 40
+      "rank_daily": 39
     },
     {
       "track_id": "1LLXZFeAHK9R4xUramtUKw",
@@ -11610,7 +11610,7 @@
         "1P17dC1amhFzptugyAO7Il"
       ],
       "rank_total": 11,
-      "rank_daily": 42
+      "rank_daily": 41
     },
     {
       "track_id": "1zz0XSmHCFd57ne04UAp38",
@@ -16234,7 +16234,7 @@
         "1J1ldDi3rMQlRi49gaba0a"
       ],
       "rank_total": 91,
-      "rank_daily": 41
+      "rank_daily": 40
     },
     {
       "track_id": "5PxFv9yJEg9dxvbZggykro",
@@ -21642,9 +21642,9 @@
       "title_key": "wildest dreams (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/1K39ty6o1sHwwlZwO6a7wK",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273904445d70d04eb24d6bb79ac",
-      "streams": 1007494075,
-      "daily_streams": 305765,
-      "last_updated": "2026-03-13",
+      "streams": 1007786958,
+      "daily_streams": 292883,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -21653,7 +21653,7 @@
       "current_milestone_label": "1B",
       "next_milestone": 1100000000,
       "next_milestone_label": "1.1B",
-      "remaining_to_next_milestone": 92505925,
+      "remaining_to_next_milestone": 92213042,
       "appearances": [
         {
           "source_type": "album",
@@ -21679,7 +21679,7 @@
         "1K39ty6o1sHwwlZwO6a7wK"
       ],
       "rank_total": 24,
-      "rank_daily": 39
+      "rank_daily": 42
     },
     {
       "track_id": "5VDHMi7own9vDZjiwDES1e",
