@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 417,
-    "total_combined_streams": 121476357573,
+    "songs_updated_on_latest_date": 418,
+    "total_combined_streams": 121476365335,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -3154,7 +3154,7 @@
         "2hmafYGj1CXYKIYcMnX4lj"
       ],
       "rank_total": 330,
-      "rank_daily": 364
+      "rank_daily": 363
     },
     {
       "track_id": "12xIjI9A9UlB6zEc7kyZ06",
@@ -16729,9 +16729,9 @@
       "title_key": "starlight",
       "spotify_url": "https://open.spotify.com/intl-fr/track/0vqI4ZIMuifeKeItGiWbPj",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273a7613d346501b828b56a0bc3",
-      "streams": 47836623,
-      "daily_streams": 7908,
-      "last_updated": "2026-03-13",
+      "streams": 47844385,
+      "daily_streams": 7762,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -16740,7 +16740,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 52163377,
+      "remaining_to_next_milestone": 52155615,
       "appearances": [
         {
           "source_type": "album",
@@ -16766,7 +16766,7 @@
         "0vqI4ZIMuifeKeItGiWbPj"
       ],
       "rank_total": 329,
-      "rank_daily": 363
+      "rank_daily": 364
     },
     {
       "track_id": "7A2cNLRT0YJc1yjxHlKihs",
