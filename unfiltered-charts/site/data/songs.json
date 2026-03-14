@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 216,
-    "total_combined_streams": 121454854548,
+    "songs_updated_on_latest_date": 218,
+    "total_combined_streams": 121455042848,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -349,7 +349,7 @@
         "3yII7UwgLF6K5zW3xad3MP"
       ],
       "rank_total": 87,
-      "rank_daily": 120
+      "rank_daily": 119
     },
     {
       "track_id": "1spLfUJxtyVyiKKTegQ2r4",
@@ -3478,9 +3478,9 @@
       "title_key": "chloe or sam or sophia or marcus",
       "spotify_url": "https://open.spotify.com/intl-fr/track/1rmEsOezwf2lmIZTMAO5Ag",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2738ecc33f195df6aa257c39eaa",
-      "streams": 161895831,
-      "daily_streams": 117837,
-      "last_updated": "2026-03-13",
+      "streams": 162003609,
+      "daily_streams": 107778,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -3489,7 +3489,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 38104169,
+      "remaining_to_next_milestone": 37996391,
       "appearances": [
         {
           "source_type": "album",
@@ -3515,7 +3515,7 @@
         "1rmEsOezwf2lmIZTMAO5Ag"
       ],
       "rank_total": 206,
-      "rank_daily": 116
+      "rank_daily": 122
     },
     {
       "track_id": "31JVjy3XWnh6C2zf4kLCXN",
@@ -9029,9 +9029,9 @@
       "title_key": "i can fix him (no really i can)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/5chnRTB9qMK3W1M41SnU9s",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2738ecc33f195df6aa257c39eaa",
-      "streams": 183472431,
-      "daily_streams": 81528,
-      "last_updated": "2026-03-13",
+      "streams": 183552953,
+      "daily_streams": 80522,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -9040,7 +9040,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 16527569,
+      "remaining_to_next_milestone": 16447047,
       "appearances": [
         {
           "source_type": "album",
@@ -9066,7 +9066,7 @@
         "5chnRTB9qMK3W1M41SnU9s"
       ],
       "rank_total": 188,
-      "rank_daily": 157
+      "rank_daily": 159
     },
     {
       "track_id": "5kHMfzgLZP95O9NBy0ku4v",
@@ -9405,7 +9405,7 @@
         "6AtZLIzUINvExIUy4QhdjP"
       ],
       "rank_total": 65,
-      "rank_daily": 122
+      "rank_daily": 121
     },
     {
       "track_id": "72jCZdH0Lhg93z6Z4hBjgj",
@@ -9687,7 +9687,7 @@
         "2YWtcWi3a83pdEg3Gif4Pd"
       ],
       "rank_total": 108,
-      "rank_daily": 159
+      "rank_daily": 158
     },
     {
       "track_id": "5gRYrtvyVyaCRvLt56OfuV",
@@ -12281,7 +12281,7 @@
         "12ntTeqEeTg7GAVpe8Mhpl"
       ],
       "rank_total": 117,
-      "rank_daily": 119
+      "rank_daily": 118
     },
     {
       "track_id": "3eX0NZfLtGzoLUxPNvRfqm",
@@ -13583,7 +13583,7 @@
         "7F5oktn5YOsR9eR5YsFtqb"
       ],
       "rank_total": 140,
-      "rank_daily": 158
+      "rank_daily": 157
     },
     {
       "track_id": "13tYZVTtzLUJTlM7m1ivbi",
@@ -14818,7 +14818,7 @@
         "3zMDGj4D8ogaYgAIZPeU7S"
       ],
       "rank_total": 197,
-      "rank_daily": 118
+      "rank_daily": 117
     },
     {
       "track_id": "32mVHdy0bi1XKgr0ajsBlG",
@@ -15757,7 +15757,7 @@
         "3CCRVu4F91Qp2mnGjmWBrf"
       ],
       "rank_total": 134,
-      "rank_daily": 121
+      "rank_daily": 120
     },
     {
       "track_id": "5eGX87IiKsGuzS3iw4CfCX",
@@ -18647,7 +18647,7 @@
         "2VuqMjgoKaOHNM8HpxtXKx"
       ],
       "rank_total": 94,
-      "rank_daily": 117
+      "rank_daily": 116
     },
     {
       "track_id": "3wx2iW1rJGgdNln2I64HNh",
