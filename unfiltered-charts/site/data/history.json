@@ -20556,6 +20556,61 @@
         "remaining_to_next_milestone": 59870458,
         "crossed_milestone_today": null,
         "crossed_milestone_today_label": null
+      },
+      "1Ygm9KdH3wbzDekO8JgxcW": {
+        "streams": 29774637,
+        "daily_streams": 6969,
+        "current_milestone": null,
+        "current_milestone_label": null,
+        "next_milestone": 100000000,
+        "next_milestone_label": "100M",
+        "remaining_to_next_milestone": 70225363,
+        "crossed_milestone_today": null,
+        "crossed_milestone_today_label": null
+      },
+      "4twNUyTpLMPWokYmCdFDCH": {
+        "streams": 920334,
+        "daily_streams": 416,
+        "current_milestone": null,
+        "current_milestone_label": null,
+        "next_milestone": 100000000,
+        "next_milestone_label": "100M",
+        "remaining_to_next_milestone": 99079666,
+        "crossed_milestone_today": null,
+        "crossed_milestone_today_label": null
+      },
+      "2yLa0QULdQr0qAIvVwN6B5": {
+        "streams": 1005158398,
+        "daily_streams": 330723,
+        "current_milestone": 1000000000,
+        "current_milestone_label": "1B",
+        "next_milestone": 1100000000,
+        "next_milestone_label": "1.1B",
+        "remaining_to_next_milestone": 94841602,
+        "crossed_milestone_today": null,
+        "crossed_milestone_today_label": null
+      },
+      "6sQckd3Z8NPxVVKUnavY1F": {
+        "streams": 338846616,
+        "daily_streams": 63191,
+        "current_milestone": 300000000,
+        "current_milestone_label": "300M",
+        "next_milestone": 400000000,
+        "next_milestone_label": "400M",
+        "remaining_to_next_milestone": 61153384,
+        "crossed_milestone_today": null,
+        "crossed_milestone_today_label": null
+      },
+      "2ULNeSomDxVNmdDy8VxEBU": {
+        "streams": 460109406,
+        "daily_streams": 104665,
+        "current_milestone": 400000000,
+        "current_milestone_label": "400M",
+        "next_milestone": 500000000,
+        "next_milestone_label": "500M",
+        "remaining_to_next_milestone": 39890594,
+        "crossed_milestone_today": null,
+        "crossed_milestone_today_label": null
       }
     }
   }
