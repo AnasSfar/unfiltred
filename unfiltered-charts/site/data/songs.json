@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 249,
-    "total_combined_streams": 121457500913,
+    "songs_updated_on_latest_date": 250,
+    "total_combined_streams": 121457552994,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -4276,7 +4276,7 @@
         "3k7ne7VmH43ZPWxPdvPUgR"
       ],
       "rank_total": 163,
-      "rank_daily": 206
+      "rank_daily": 205
     },
     {
       "track_id": "12M5uqx0ZuwkpLp5rJim1a",
@@ -8749,7 +8749,7 @@
         "733OhaXQIHY7BKtY3vnSkn"
       ],
       "rank_total": 255,
-      "rank_daily": 208
+      "rank_daily": 207
     },
     {
       "track_id": "5VwFkx7JOimOGTYfha5rs1",
@@ -17609,9 +17609,9 @@
       "title_key": "teardrops on my guitar - radio single remix",
       "spotify_url": "https://open.spotify.com/intl-fr/track/7zMcNqs55Mxer82bvZFkpg",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2732f8c0fd72a80a93f8c53b96c",
-      "streams": 262355992,
-      "daily_streams": 54115,
-      "last_updated": "2026-03-13",
+      "streams": 262408073,
+      "daily_streams": 52081,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -17620,7 +17620,7 @@
       "current_milestone_label": "200M",
       "next_milestone": 300000000,
       "next_milestone_label": "300M",
-      "remaining_to_next_milestone": 37644008,
+      "remaining_to_next_milestone": 37591927,
       "appearances": [
         {
           "source_type": "album",
@@ -17646,7 +17646,7 @@
         "7zMcNqs55Mxer82bvZFkpg"
       ],
       "rank_total": 143,
-      "rank_daily": 205
+      "rank_daily": 208
     },
     {
       "track_id": "6vLpy7UPYuOa75Bkqocrcw",
@@ -19836,7 +19836,7 @@
         "6dTA6y0C2ReQklntzZl8l3"
       ],
       "rank_total": 227,
-      "rank_daily": 207
+      "rank_daily": 206
     },
     {
       "track_id": "72GIZuUXo14oyrS0si3Rgc",
