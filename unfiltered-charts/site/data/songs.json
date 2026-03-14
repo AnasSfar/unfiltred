@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 430,
-    "total_combined_streams": 121477898278,
+    "songs_updated_on_latest_date": 431,
+    "total_combined_streams": 121477921439,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -2801,7 +2801,7 @@
         "7HC7R2D8WjXVcUHJyEGjRs"
       ],
       "rank_total": 280,
-      "rank_daily": 280
+      "rank_daily": 279
     },
     {
       "track_id": "74sZKiwaGtSEEyjhDmi99y",
@@ -3244,7 +3244,7 @@
         "4axSuOg3BqsowKjRpj59RU"
       ],
       "rank_total": 276,
-      "rank_daily": 276
+      "rank_daily": 275
     },
     {
       "track_id": "0g4fMVo4JjwnIpTfFfLdxS",
@@ -4913,7 +4913,7 @@
         "3K2es3gElMRJ3qvmPW442g"
       ],
       "rank_total": 219,
-      "rank_daily": 284
+      "rank_daily": 283
     },
     {
       "track_id": "1zU8j1x3yi9xalMF96pzKp",
@@ -5525,7 +5525,7 @@
         "4uuEGH5SVuzkkSFjo2DEiY"
       ],
       "rank_total": 278,
-      "rank_daily": 285
+      "rank_daily": 284
     },
     {
       "track_id": "670fUmXf4KQekzbEgaXyPA",
@@ -10703,7 +10703,7 @@
         "4i6cwNY6oIUU2XZxPIw82Y"
       ],
       "rank_total": 263,
-      "rank_daily": 278
+      "rank_daily": 277
     },
     {
       "track_id": "7HuBDWi18s4aJM8UFnNheH",
@@ -11475,7 +11475,7 @@
         "6XDBA3QWX51lDJ0oZbaJJN"
       ],
       "rank_total": 261,
-      "rank_daily": 281
+      "rank_daily": 280
     },
     {
       "track_id": "4hqJ4bSlYJOXb6Z4SRmzxs",
@@ -15622,7 +15622,7 @@
         "2RJnNdu4pb3MypbBroHU0T"
       ],
       "rank_total": 286,
-      "rank_daily": 274
+      "rank_daily": 273
     },
     {
       "track_id": "0z9UVN8VBHJ9HdfYsOuuNf",
@@ -17802,9 +17802,9 @@
       "title_key": "that's when (feat. keith urban) (taylor's version) (from the vault)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/7eResoqEJJAVTkQYSqvO3P",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273a48964b5d9a3d6968ae3e0de",
-      "streams": 100179724,
-      "daily_streams": 25070,
-      "last_updated": "2026-03-13",
+      "streams": 100202885,
+      "daily_streams": 23161,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift",
@@ -17814,7 +17814,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 99820276,
+      "remaining_to_next_milestone": 99797115,
       "appearances": [
         {
           "source_type": "album",
@@ -17840,7 +17840,7 @@
         "7eResoqEJJAVTkQYSqvO3P"
       ],
       "rank_total": 268,
-      "rank_daily": 273
+      "rank_daily": 285
     },
     {
       "track_id": "0P9wLFurlgumLXuqFEpw52",
@@ -19316,7 +19316,7 @@
         "4e5ayHsOLJNLTGfjau2mEw"
       ],
       "rank_total": 267,
-      "rank_daily": 283
+      "rank_daily": 282
     },
     {
       "track_id": "3RauEVgRgj1IuWdJ9fDs70",
@@ -20028,7 +20028,7 @@
         "77VotUUL79U10TAnYdqwvr"
       ],
       "rank_total": 285,
-      "rank_daily": 279
+      "rank_daily": 278
     },
     {
       "track_id": "22bPsP2jCgbLUvh82U0Z3M",
@@ -21385,7 +21385,7 @@
         "4jPtq9shRdUv8Zjr0a5xkD"
       ],
       "rank_total": 248,
-      "rank_daily": 282
+      "rank_daily": 281
     },
     {
       "track_id": "5YL553x8sHderRBDlm3NM3",
@@ -22104,7 +22104,7 @@
         "6iWMI5oOhWrDbLbjmwTWFq"
       ],
       "rank_total": 202,
-      "rank_daily": 275
+      "rank_daily": 274
     },
     {
       "track_id": "6HRsJu8vcnzYDN4t0570FY",
@@ -22343,7 +22343,7 @@
         "4A2LfnduSTsE8u0ecYROxE"
       ],
       "rank_total": 211,
-      "rank_daily": 277
+      "rank_daily": 276
     },
     {
       "track_id": "0TyGh27YQ5LknmiDhCzJiT",
