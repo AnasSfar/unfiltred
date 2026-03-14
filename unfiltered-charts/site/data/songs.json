@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 97,
-    "total_combined_streams": 121444152309,
+    "songs_updated_on_latest_date": 98,
+    "total_combined_streams": 121444324492,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -2038,9 +2038,9 @@
       "title_key": "bejeweled",
       "spotify_url": "https://open.spotify.com/intl-fr/track/3qoftcUZaUOncvIYjFSPdE",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273bb54dde68cd23e2a268ae0f5",
-      "streams": 706180759,
-      "daily_streams": 174809,
-      "last_updated": "2026-03-13",
+      "streams": 706352942,
+      "daily_streams": 172183,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -2049,7 +2049,7 @@
       "current_milestone_label": "700M",
       "next_milestone": 800000000,
       "next_milestone_label": "800M",
-      "remaining_to_next_milestone": 93819241,
+      "remaining_to_next_milestone": 93647058,
       "appearances": [
         {
           "source_type": "album",
