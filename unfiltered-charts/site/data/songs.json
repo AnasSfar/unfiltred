@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 307,
-    "total_combined_streams": 121464261501,
+    "songs_updated_on_latest_date": 308,
+    "total_combined_streams": 121464641743,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -8893,9 +8893,9 @@
       "title_key": "i can do it with a broken heart",
       "spotify_url": "https://open.spotify.com/intl-fr/track/4dgf2DYVJbtmy8zAYLs4c7",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273c246cd7fb142b383672627c8",
-      "streams": 801678214,
-      "daily_streams": 383388,
-      "last_updated": "2026-03-13",
+      "streams": 802058456,
+      "daily_streams": 380242,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -8904,7 +8904,7 @@
       "current_milestone_label": "800M",
       "next_milestone": 900000000,
       "next_milestone_label": "900M",
-      "remaining_to_next_milestone": 98321786,
+      "remaining_to_next_milestone": 97941544,
       "appearances": [
         {
           "source_type": "album",
