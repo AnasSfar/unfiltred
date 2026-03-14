@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 370,
-    "total_combined_streams": 121470244440,
+    "songs_updated_on_latest_date": 371,
+    "total_combined_streams": 121470617320,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -484,7 +484,7 @@
         "2x3mwb96B6TquRqMtbxUE1"
       ],
       "rank_total": 171,
-      "rank_daily": 31
+      "rank_daily": 32
     },
     {
       "track_id": "1SymEzIT3H8UZfibCs3TYi",
@@ -11670,14 +11670,14 @@
       "rank_daily": 455
     },
     {
-      "track_id": "5xPsybHWRHbTYO44xnREY5",
+      "track_id": "0kN3oXYWWAk1uC0y2WoyOE",
       "title": "Love Story",
       "title_key": "love story",
-      "spotify_url": "https://open.spotify.com/intl-fr/track/5xPsybHWRHbTYO44xnREY5",
-      "image_url": "https://i.scdn.co/image/ab67616d0000b273516c279fe91ae3f6a79b23da",
-      "streams": 1103280987,
-      "daily_streams": 353535,
-      "last_updated": "2026-03-13",
+      "spotify_url": "https://open.spotify.com/intl-fr/track/0kN3oXYWWAk1uC0y2WoyOE",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b27334e5885465afc8a497ac1b7e",
+      "streams": 1103653867,
+      "daily_streams": 372880,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -11686,7 +11686,7 @@
       "current_milestone_label": "1.1B",
       "next_milestone": 1200000000,
       "next_milestone_label": "1.2B",
-      "remaining_to_next_milestone": 96719013,
+      "remaining_to_next_milestone": 96346133,
       "appearances": [
         {
           "source_type": "album",
@@ -11725,7 +11725,7 @@
         "5xPsybHWRHbTYO44xnREY5"
       ],
       "rank_total": 19,
-      "rank_daily": 32
+      "rank_daily": 31
     },
     {
       "track_id": "6YvqWjhGD8mB5QXcbcUKtx",
