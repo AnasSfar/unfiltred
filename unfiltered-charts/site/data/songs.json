@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 178,
-    "total_combined_streams": 121451553459,
+    "songs_updated_on_latest_date": 179,
+    "total_combined_streams": 121451648055,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -6377,7 +6377,7 @@
         "3O5osWf1rSoKMwe6E9ZaXP"
       ],
       "rank_total": 120,
-      "rank_daily": 141
+      "rank_daily": 140
     },
     {
       "track_id": "7gdwoOmi258QJq0hmQ4hto",
@@ -16007,7 +16007,7 @@
         "3pv7Q5v2dpdefwdWIvE7yH"
       ],
       "rank_total": 169,
-      "rank_daily": 138
+      "rank_daily": 137
     },
     {
       "track_id": "16MVSD0mGI4RMQT83Qzm69",
@@ -16143,7 +16143,7 @@
         "1wtOxkiel43cVs0Yux5Q4h"
       ],
       "rank_total": 59,
-      "rank_daily": 142
+      "rank_daily": 141
     },
     {
       "track_id": "4zmKGsrXjLmljb5fTaBTot",
@@ -18488,7 +18488,7 @@
         "6PlBKImSl4AZoxBU7F649D"
       ],
       "rank_total": 372,
-      "rank_daily": 137
+      "rank_daily": 136
     },
     {
       "track_id": "3JNaLxAymiSUMrmjOarjeo",
@@ -18898,7 +18898,7 @@
         "4ojxSyrEraN7d46BMBPThZ"
       ],
       "rank_total": 74,
-      "rank_daily": 136
+      "rank_daily": 135
     },
     {
       "track_id": "7vvIpJZye5cRR6De1LKM0m",
@@ -21192,7 +21192,7 @@
         "3nRmDz7qGCvsMS30rGGY0x"
       ],
       "rank_total": 123,
-      "rank_daily": 140
+      "rank_daily": 139
     },
     {
       "track_id": "1hR8BSuEqPCCZfv93zzzz9",
@@ -22202,9 +22202,9 @@
       "title_key": "would've, could've, should've",
       "spotify_url": "https://open.spotify.com/intl-fr/track/4txojlesMFQZGWxwz2EeqB",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273fa747621a53c8e2cc436dee0",
-      "streams": 359576367,
-      "daily_streams": 100887,
-      "last_updated": "2026-03-13",
+      "streams": 359670963,
+      "daily_streams": 94596,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -22213,7 +22213,7 @@
       "current_milestone_label": "300M",
       "next_milestone": 400000000,
       "next_milestone_label": "400M",
-      "remaining_to_next_milestone": 40423633,
+      "remaining_to_next_milestone": 40329037,
       "appearances": [
         {
           "source_type": "album",
@@ -22239,7 +22239,7 @@
         "4txojlesMFQZGWxwz2EeqB"
       ],
       "rank_total": 104,
-      "rank_daily": 135
+      "rank_daily": 142
     },
     {
       "track_id": "4CHpVfAhuxNJ3ibExe6kxO",
@@ -22388,7 +22388,7 @@
         "0TyGh27YQ5LknmiDhCzJiT"
       ],
       "rank_total": 212,
-      "rank_daily": 139
+      "rank_daily": 138
     },
     {
       "track_id": "7G6TDmGJXDoBaV6NGj3Yic",
