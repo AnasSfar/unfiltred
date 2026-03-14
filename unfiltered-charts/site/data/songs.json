@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 308,
-    "total_combined_streams": 121464641743,
+    "songs_updated_on_latest_date": 309,
+    "total_combined_streams": 121464656077,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -3470,7 +3470,7 @@
         "3ExweHKZF9B752DPQByRVT"
       ],
       "rank_total": 312,
-      "rank_daily": 319
+      "rank_daily": 318
     },
     {
       "track_id": "1rmEsOezwf2lmIZTMAO5Ag",
@@ -7309,9 +7309,9 @@
       "title_key": "fortnight (feat. post malone) - acoustic version",
       "spotify_url": "https://open.spotify.com/intl-fr/track/2BUTSRKPGRsyc9FnsC5Udd",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273aecb5c6308cf8ce94199aea8",
-      "streams": 20283003,
-      "daily_streams": 15043,
-      "last_updated": "2026-03-13",
+      "streams": 20297337,
+      "daily_streams": 14334,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift",
@@ -7321,7 +7321,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 79716997,
+      "remaining_to_next_milestone": 79702663,
       "appearances": [
         {
           "source_type": "misc",
@@ -7347,7 +7347,7 @@
         "2BUTSRKPGRsyc9FnsC5Udd"
       ],
       "rank_total": 376,
-      "rank_daily": 318
+      "rank_daily": 321
     },
     {
       "track_id": "1gejz5ROvJBUb6WJzkMAcc",
@@ -14197,7 +14197,7 @@
         "7EWLNUpx0QWUCYfmBJS9qb"
       ],
       "rank_total": 451,
-      "rank_daily": 321
+      "rank_daily": 320
     },
     {
       "track_id": "1VCcPLfDiR1S9PJaSp5qm5",
@@ -21147,7 +21147,7 @@
         "34V9RiEPe8MNdU32qJsJa1"
       ],
       "rank_total": 293,
-      "rank_daily": 320
+      "rank_daily": 319
     },
     {
       "track_id": "3nRmDz7qGCvsMS30rGGY0x",
