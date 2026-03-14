@@ -49,6 +49,9 @@ MIN_PENDING_TRACKS_FOR_RETRY = 3
 MAX_PENDING_RETRY_ROUNDS = 6
 INCREMENTAL_PUBLISH_ON_UPDATE = True
 
+NOT_FOUND_STREAK_PATH = DATA_DIR / "not_found_streak.json"
+MAX_NOT_FOUND_DAYS = 7  # suppress + delete after this many consecutive not-found days
+
 START_TIME = None
 
 
@@ -514,6 +517,78 @@ def save_failed_rows(rows: list[dict]) -> None:
                     row.get("status", ""),
                 ]
             )
+
+
+def load_not_found_streak() -> dict:
+    if not NOT_FOUND_STREAK_PATH.exists():
+        return {}
+    try:
+        return json.loads(NOT_FOUND_STREAK_PATH.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
+
+def save_not_found_streak(streak: dict) -> None:
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    NOT_FOUND_STREAK_PATH.write_text(
+        json.dumps(streak, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+
+
+def update_not_found_streak(streak: dict, not_found_ids: set, updated_ids: set) -> None:
+    for track_id in not_found_ids:
+        streak[track_id] = streak.get(track_id, 0) + 1
+    for track_id in updated_ids:
+        streak.pop(track_id, None)
+
+
+def remove_track_from_db(track_id: str) -> None:
+    with sqlite3.connect(DB_PATH) as conn:
+        conn.execute("DELETE FROM songs WHERE track_id = ?", (track_id,))
+        conn.commit()
+
+
+def remove_track_from_discography(track_id: str) -> int:
+    """Remove a track from all discography JSON files. Returns number of files modified."""
+    removed = 0
+    if not DISCOGRAPHY_DIR.exists():
+        return removed
+    for path in DISCOGRAPHY_DIR.rglob("*.json"):
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        tracks = data.get("tracks", [])
+        new_tracks = [
+            t for t in tracks
+            if extract_track_id(t.get("url") or t.get("spotify_url") or "") != track_id
+        ]
+        if len(new_tracks) < len(tracks):
+            data["tracks"] = new_tracks
+            path.write_text(
+                json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8"
+            )
+            removed += 1
+    return removed
+
+
+def purge_stale_tracks(streak: dict, tracks: list[dict]) -> list[str]:
+    """Delete tracks that have been not_found for MAX_NOT_FOUND_DAYS consecutive days."""
+    deleted = []
+    for track_id, count in list(streak.items()):
+        if count >= MAX_NOT_FOUND_DAYS:
+            title = next(
+                (t["title"] for t in tracks if t["track_id"] == track_id), track_id
+            )
+            print(
+                f"AUTO-DELETE | {title} | track_id={track_id} | "
+                f"not found for {count} consecutive days — removing from DB and discography"
+            )
+            remove_track_from_db(track_id)
+            remove_track_from_discography(track_id)
+            del streak[track_id]
+            deleted.append(track_id)
+    return deleted
 
 
 def git_commit_and_push(message: str | None = None) -> None:
@@ -1151,11 +1226,13 @@ def _worker(
         p.stop()
 
 
-def run_update(on_progress=None):
+def run_update(on_progress=None, skip_track_ids: set | None = None):
     ensure_history_file()
 
     scrape_date = get_scrape_date_str()
     stats_date = get_stats_date_str()
+
+    skip_track_ids = skip_track_ids or set()
 
     active_track_ids = load_active_track_ids_from_discography()
     tracks = load_tracks_from_db(active_track_ids)
@@ -1177,7 +1254,11 @@ def run_update(on_progress=None):
     processed_title_keys: set[str] = set()
 
     for index, (title_key, group_tracks) in enumerate(all_group_entries, 1):
-        pending_tracks = [t for t in group_tracks if t["track_id"] not in already_done_for_stats_date]
+        pending_tracks = [
+            t for t in group_tracks
+            if t["track_id"] not in already_done_for_stats_date
+            and t["track_id"] not in skip_track_ids
+        ]
         leader_track = pending_tracks[0] if pending_tracks else group_tracks[0]
         log_title = build_log_title(group_tracks, leader_track)
 
@@ -1375,6 +1456,11 @@ def main():
     summary = run_update(on_progress=live_progress)
     print_summary_block(summary)
 
+    # Accumulate not_found track IDs so retries skip them entirely
+    not_found_ids: set[str] = {
+        r["track_id"] for r in summary["failed_results"] if r["status"] == "not_found"
+    }
+
     retry_round = 0
     while (
         not summary["all_done"]
@@ -1388,6 +1474,8 @@ def main():
             f"Detected {summary['pending_this_run']} unchanged track(s) "
             f"for {summary['stats_date']}."
         )
+        if not_found_ids:
+            print(f"Skipping {len(not_found_ids)} not-found track(s) on this retry.")
         print(
             f"Waiting {PENDING_RETRY_SLEEP_SECONDS // 60} minutes before retry "
             f"({retry_round}/{MAX_PENDING_RETRY_ROUNDS})..."
@@ -1399,12 +1487,28 @@ def main():
         print(f"Retry round {retry_round}")
         print("=" * 70)
 
-        summary = run_update(on_progress=live_progress)
+        summary = run_update(on_progress=live_progress, skip_track_ids=not_found_ids)
+        not_found_ids.update(
+            r["track_id"] for r in summary["failed_results"] if r["status"] == "not_found"
+        )
         print_summary_block(summary)
 
     print_remaining_details(summary)
 
     save_failed_rows(summary["failed_results"])
+
+    # Update per-track not-found streak and auto-delete tracks missing too many days
+    all_tracks = load_tracks_from_db(load_active_track_ids_from_discography())
+    updated_ids: set[str] = {
+        r["track_id"] for r in summary.get("results", [])
+        if r and r.get("status") == "updated"
+    }
+    streak = load_not_found_streak()
+    update_not_found_streak(streak, not_found_ids, updated_ids)
+    deleted = purge_stale_tracks(streak, all_tracks)
+    if deleted:
+        print(f"Auto-deleted {len(deleted)} stale track(s) not found for {MAX_NOT_FOUND_DAYS}+ days.")
+    save_not_found_streak(streak)
 
     if summary["all_done"]:
         print("All tracks updated.")
