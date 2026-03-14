@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 325,
-    "total_combined_streams": 121465924663,
+    "songs_updated_on_latest_date": 327,
+    "total_combined_streams": 121465958703,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -2801,7 +2801,7 @@
         "7HC7R2D8WjXVcUHJyEGjRs"
       ],
       "rank_total": 280,
-      "rank_daily": 282
+      "rank_daily": 281
     },
     {
       "track_id": "74sZKiwaGtSEEyjhDmi99y",
@@ -3244,7 +3244,7 @@
         "4axSuOg3BqsowKjRpj59RU"
       ],
       "rank_total": 276,
-      "rank_daily": 279
+      "rank_daily": 278
     },
     {
       "track_id": "0g4fMVo4JjwnIpTfFfLdxS",
@@ -8487,9 +8487,9 @@
       "title_key": "holy ground",
       "spotify_url": "https://open.spotify.com/intl-fr/track/5d2Kn9oAAh9S2EbyCo1i52",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273a7613d346501b828b56a0bc3",
-      "streams": 60048858,
-      "daily_streams": 10434,
-      "last_updated": "2026-03-13",
+      "streams": 60059333,
+      "daily_streams": 10475,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -8498,7 +8498,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 39951142,
+      "remaining_to_next_milestone": 39940667,
       "appearances": [
         {
           "source_type": "album",
@@ -10612,7 +10612,7 @@
         "2m3ObD945KvpE5y9A1eUWm"
       ],
       "rank_total": 292,
-      "rank_daily": 284
+      "rank_daily": 283
     },
     {
       "track_id": "45R112Jz5hQeKgITXgSXzs",
@@ -10703,7 +10703,7 @@
         "4i6cwNY6oIUU2XZxPIw82Y"
       ],
       "rank_total": 263,
-      "rank_daily": 281
+      "rank_daily": 280
     },
     {
       "track_id": "7HuBDWi18s4aJM8UFnNheH",
@@ -19279,9 +19279,9 @@
       "title_key": "the lucky one (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/4e5ayHsOLJNLTGfjau2mEw",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273318443aab3531a0558e79a4d",
-      "streams": 100198474,
-      "daily_streams": 24397,
-      "last_updated": "2026-03-13",
+      "streams": 100222039,
+      "daily_streams": 23565,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -19290,7 +19290,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 99801526,
+      "remaining_to_next_milestone": 99777961,
       "appearances": [
         {
           "source_type": "album",
@@ -19316,7 +19316,7 @@
         "4e5ayHsOLJNLTGfjau2mEw"
       ],
       "rank_total": 267,
-      "rank_daily": 278
+      "rank_daily": 284
     },
     {
       "track_id": "3RauEVgRgj1IuWdJ9fDs70",
@@ -20028,7 +20028,7 @@
         "77VotUUL79U10TAnYdqwvr"
       ],
       "rank_total": 285,
-      "rank_daily": 280
+      "rank_daily": 279
     },
     {
       "track_id": "22bPsP2jCgbLUvh82U0Z3M",
@@ -21385,7 +21385,7 @@
         "4jPtq9shRdUv8Zjr0a5xkD"
       ],
       "rank_total": 248,
-      "rank_daily": 283
+      "rank_daily": 282
     },
     {
       "track_id": "5YL553x8sHderRBDlm3NM3",
