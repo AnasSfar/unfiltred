@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 285,
-    "total_combined_streams": 121461847608,
+    "songs_updated_on_latest_date": 286,
+    "total_combined_streams": 121461914984,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -8397,9 +8397,9 @@
       "title_key": "hoax",
       "spotify_url": "https://open.spotify.com/intl-fr/track/6MWoRt97mnSTXZhu3ggi9C",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27395f754318336a07e85ec59bc",
-      "streams": 242417775,
-      "daily_streams": 65710,
-      "last_updated": "2026-03-13",
+      "streams": 242485151,
+      "daily_streams": 67376,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -8408,7 +8408,7 @@
       "current_milestone_label": "200M",
       "next_milestone": 300000000,
       "next_milestone_label": "300M",
-      "remaining_to_next_milestone": 57582225,
+      "remaining_to_next_milestone": 57514849,
       "appearances": [
         {
           "source_type": "album",
@@ -8434,7 +8434,7 @@
         "6MWoRt97mnSTXZhu3ggi9C"
       ],
       "rank_total": 160,
-      "rank_daily": 179
+      "rank_daily": 176
     },
     {
       "track_id": "0QTBsdoJhamY3Aid3fOsOd",
@@ -9642,7 +9642,7 @@
         "1Zai5UJ2di3qEuR2HeT2s8"
       ],
       "rank_total": 245,
-      "rank_daily": 178
+      "rank_daily": 179
     },
     {
       "track_id": "2YWtcWi3a83pdEg3Gif4Pd",
@@ -14728,7 +14728,7 @@
         "7MbT4I8qGntX4fMdqMQgke"
       ],
       "rank_total": 141,
-      "rank_daily": 176
+      "rank_daily": 177
     },
     {
       "track_id": "4YHHz3VIXgNDGdoL9xC1tx",
@@ -16279,7 +16279,7 @@
         "5PxFv9yJEg9dxvbZggykro"
       ],
       "rank_total": 158,
-      "rank_daily": 177
+      "rank_daily": 178
     },
     {
       "track_id": "5oJUjUsBZcqyEhOdpif37h",
