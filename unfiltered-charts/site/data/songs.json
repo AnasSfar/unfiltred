@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 464,
-    "total_combined_streams": 121483758008,
+    "songs_updated_on_latest_date": 465,
+    "total_combined_streams": 121483761138,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -17003,7 +17003,7 @@
         "5G9AVKld9q7DCrmoY42raf"
       ],
       "rank_total": 365,
-      "rank_daily": 404
+      "rank_daily": 405
     },
     {
       "track_id": "2ZoOmCSgj0ypVAmGd1ve4y",
@@ -17421,7 +17421,7 @@
         "14Bljc3pOOG0xQX3wqhLN9"
       ],
       "rank_total": 393,
-      "rank_daily": 405
+      "rank_daily": 406
     },
     {
       "track_id": "51A8eKvvZz9uydvIZ7xRSV",
@@ -22544,9 +22544,9 @@
       "title_key": "you need to calm down - clean bandit remix",
       "spotify_url": "https://open.spotify.com/intl-fr/track/7Bjf96uNizpvXLvNyOJpst",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2739911942b4845c29ad3ad1224",
-      "streams": 18402361,
-      "daily_streams": 2971,
-      "last_updated": "2026-03-13",
+      "streams": 18405491,
+      "daily_streams": 3130,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -22555,7 +22555,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 81597639,
+      "remaining_to_next_milestone": 81594509,
       "appearances": [
         {
           "source_type": "misc",
@@ -22593,7 +22593,7 @@
         "7Bjf96uNizpvXLvNyOJpst"
       ],
       "rank_total": 382,
-      "rank_daily": 406
+      "rank_daily": 404
     },
     {
       "track_id": "36a08nLG1xazGaaVKK0vv7",
