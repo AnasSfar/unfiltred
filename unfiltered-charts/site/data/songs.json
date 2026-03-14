@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 360,
-    "total_combined_streams": 121469364845,
+    "songs_updated_on_latest_date": 361,
+    "total_combined_streams": 121469368103,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -1940,7 +1940,7 @@
         "2evEoQAhIMaa9PfjTT5skG"
       ],
       "rank_total": 375,
-      "rank_daily": 403
+      "rank_daily": 402
     },
     {
       "track_id": "48A0aShHlovDfTMucMrE66",
@@ -10858,9 +10858,9 @@
       "title_key": "last christmas",
       "spotify_url": "https://open.spotify.com/intl-fr/track/2IprIjGNRlj3TfqUWCAo0C",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2732a0face7d69df61c20a6db2b",
-      "streams": 43883957,
-      "daily_streams": 3395,
-      "last_updated": "2026-03-13",
+      "streams": 43887215,
+      "daily_streams": 3258,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -10869,7 +10869,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 56116043,
+      "remaining_to_next_milestone": 56112785,
       "appearances": [
         {
           "source_type": "album",
@@ -10895,7 +10895,7 @@
         "2IprIjGNRlj3TfqUWCAo0C"
       ],
       "rank_total": 339,
-      "rank_daily": 402
+      "rank_daily": 403
     },
     {
       "track_id": "1D27z8xNzjW0Mwwt1NCWhJ",
