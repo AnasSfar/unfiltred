@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 273,
-    "total_combined_streams": 121460410260,
+    "songs_updated_on_latest_date": 275,
+    "total_combined_streams": 121461432542,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -5886,9 +5886,9 @@
       "title_key": "elizabeth taylor",
       "spotify_url": "https://open.spotify.com/intl-fr/track/1jgTiNob5cVyXeJ3WgX5bL",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273d7812467811a7da6e6a44902",
-      "streams": 310427757,
-      "daily_streams": 558615,
-      "last_updated": "2026-03-13",
+      "streams": 310996253,
+      "daily_streams": 568496,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -5897,7 +5897,7 @@
       "current_milestone_label": "300M",
       "next_milestone": 400000000,
       "next_milestone_label": "400M",
-      "remaining_to_next_milestone": 89572243,
+      "remaining_to_next_milestone": 89003747,
       "appearances": [
         {
           "source_type": "album",
@@ -21483,9 +21483,9 @@
       "title_key": "wi$h li$t",
       "spotify_url": "https://open.spotify.com/intl-fr/track/2TEQvxxQabwLQMqWMg1qGu",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273d7812467811a7da6e6a44902",
-      "streams": 249403373,
-      "daily_streams": 455713,
-      "last_updated": "2026-03-13",
+      "streams": 249857159,
+      "daily_streams": 453786,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -21494,7 +21494,7 @@
       "current_milestone_label": "200M",
       "next_milestone": 300000000,
       "next_milestone_label": "300M",
-      "remaining_to_next_milestone": 50596627,
+      "remaining_to_next_milestone": 50142841,
       "appearances": [
         {
           "source_type": "album",
