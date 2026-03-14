@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 25,
-    "total_combined_streams": 121435321092,
+    "songs_updated_on_latest_date": 26,
+    "total_combined_streams": 121435473762,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -9119,9 +9119,9 @@
       "title_key": "i did something bad",
       "spotify_url": "https://open.spotify.com/intl-fr/track/4svZDCRz4cJoneBpjpx8DJ",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273da5d5aeeabacacc1263c0f4b",
-      "streams": 573700995,
-      "daily_streams": 154203,
-      "last_updated": "2026-03-13",
+      "streams": 573853665,
+      "daily_streams": 152670,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -9130,7 +9130,7 @@
       "current_milestone_label": "500M",
       "next_milestone": 600000000,
       "next_milestone_label": "600M",
-      "remaining_to_next_milestone": 26299005,
+      "remaining_to_next_milestone": 26146335,
       "appearances": [
         {
           "source_type": "album",
