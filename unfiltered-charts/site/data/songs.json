@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 10,
-    "total_combined_streams": 121432657859,
+    "songs_updated_on_latest_date": 11,
+    "total_combined_streams": 121432691537,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -3335,7 +3335,7 @@
         "4ABYxlb92WBIjHu7TIKmml"
       ],
       "rank_total": 262,
-      "rank_daily": 247
+      "rank_daily": 246
     },
     {
       "track_id": "0sY6ZUTh4yoctD8VIXz339",
@@ -3955,9 +3955,9 @@
       "title_key": "closure",
       "spotify_url": "https://open.spotify.com/intl-fr/track/35rdVq36LMHQX0Suw9a6tK",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27333b8541201f1ef38941024be",
-      "streams": 156257031,
-      "daily_streams": 35693,
-      "last_updated": "2026-03-13",
+      "streams": 156290709,
+      "daily_streams": 33678,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -3966,7 +3966,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 43742969,
+      "remaining_to_next_milestone": 43709291,
       "appearances": [
         {
           "source_type": "album",
@@ -3992,7 +3992,7 @@
         "35rdVq36LMHQX0Suw9a6tK"
       ],
       "rank_total": 218,
-      "rank_daily": 246
+      "rank_daily": 248
     },
     {
       "track_id": "7an1exwMnfYRcdVQm0yDev",
@@ -8569,7 +8569,7 @@
         "7J4b3LVCIGO4CMBDFLPoP6"
       ],
       "rank_total": 260,
-      "rank_daily": 248
+      "rank_daily": 247
     },
     {
       "track_id": "4qmFC3Jz5aQ0erlk2OSi2X",
