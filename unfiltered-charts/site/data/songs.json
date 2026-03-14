@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 147,
-    "total_combined_streams": 121448771499,
+    "songs_updated_on_latest_date": 148,
+    "total_combined_streams": 121448933235,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -2557,9 +2557,9 @@
       "title_key": "blank space (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/45wMBGri1PORPjM9PwFfrS",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273904445d70d04eb24d6bb79ac",
-      "streams": 360750787,
-      "daily_streams": 161159,
-      "last_updated": "2026-03-13",
+      "streams": 360912523,
+      "daily_streams": 161736,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -2568,7 +2568,7 @@
       "current_milestone_label": "300M",
       "next_milestone": 400000000,
       "next_milestone_label": "400M",
-      "remaining_to_next_milestone": 39249213,
+      "remaining_to_next_milestone": 39087477,
       "appearances": [
         {
           "source_type": "album",
