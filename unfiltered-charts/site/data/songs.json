@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 187,
-    "total_combined_streams": 121452016856,
+    "songs_updated_on_latest_date": 188,
+    "total_combined_streams": 121452184951,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -2804,14 +2804,14 @@
       "rank_daily": 283
     },
     {
-      "track_id": "74sZKiwaGtSEEyjhDmi99y",
+      "track_id": "5og4Qzt92jJzVDkOtSEilb",
       "title": "But Daddy I Love Him",
       "title_key": "but daddy i love him",
-      "spotify_url": "https://open.spotify.com/intl-fr/track/74sZKiwaGtSEEyjhDmi99y",
-      "image_url": "https://i.scdn.co/image/ab67616d0000b273c246cd7fb142b383672627c8",
-      "streams": 368550491,
-      "daily_streams": 169373,
-      "last_updated": "2026-03-13",
+      "spotify_url": "https://open.spotify.com/intl-fr/track/5og4Qzt92jJzVDkOtSEilb",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b2735076e4160d018e378f488c33",
+      "streams": 368718586,
+      "daily_streams": 168095,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -2820,7 +2820,7 @@
       "current_milestone_label": "300M",
       "next_milestone": 400000000,
       "next_milestone_label": "400M",
-      "remaining_to_next_milestone": 31449509,
+      "remaining_to_next_milestone": 31281414,
       "appearances": [
         {
           "source_type": "album",
@@ -2847,7 +2847,7 @@
         "74sZKiwaGtSEEyjhDmi99y"
       ],
       "rank_total": 96,
-      "rank_daily": 86
+      "rank_daily": 87
     },
     {
       "track_id": "4qUijfYU8EoIWiY6oSyrgT",
@@ -7071,7 +7071,7 @@
       "image_url": "https://i.scdn.co/image/ab67616d0000b273a48964b5d9a3d6968ae3e0de",
       "streams": 68650676,
       "daily_streams": 18822,
-      "last_updated": "2026-03-13",
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -11112,7 +11112,7 @@
         "5jQI2r1RdgtuT8S3iG8zFC"
       ],
       "rank_total": 31,
-      "rank_daily": 87
+      "rank_daily": 86
     },
     {
       "track_id": "2M4tVhRXucLE9M3STv21Yi",
