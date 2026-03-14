@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 266,
-    "total_combined_streams": 121458903926,
+    "songs_updated_on_latest_date": 267,
+    "total_combined_streams": 121459120135,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -1746,7 +1746,7 @@
         "2NlmmAjGYrrjAp0MED5rGx"
       ],
       "rank_total": 42,
-      "rank_daily": 66
+      "rank_daily": 67
     },
     {
       "track_id": "6xsEAm6w9oMQYYg3jkEkMT",
@@ -10284,7 +10284,7 @@
         "6VsvKPJ4xjVNKpI8VVZ3SV"
       ],
       "rank_total": 60,
-      "rank_daily": 62
+      "rank_daily": 63
     },
     {
       "track_id": "5KByGq0JijSSDcy0qzuINs",
@@ -13020,14 +13020,14 @@
       "rank_daily": 470
     },
     {
-      "track_id": "5jQyGzcwqAxwT5QUIMivoX",
+      "track_id": "0ZNU020wNYvgW84iljPkPP",
       "title": "mirrorball",
       "title_key": "mirrorball",
-      "spotify_url": "https://open.spotify.com/intl-fr/track/5jQyGzcwqAxwT5QUIMivoX",
-      "image_url": "https://i.scdn.co/image/ab67616d0000b273045514e3ed4e1767a7c3ece5",
-      "streams": 570911109,
-      "daily_streams": 204638,
-      "last_updated": "2026-03-13",
+      "spotify_url": "https://open.spotify.com/intl-fr/track/0ZNU020wNYvgW84iljPkPP",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b27395f754318336a07e85ec59bc",
+      "streams": 571127318,
+      "daily_streams": 216209,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -13036,7 +13036,7 @@
       "current_milestone_label": "500M",
       "next_milestone": 600000000,
       "next_milestone_label": "600M",
-      "remaining_to_next_milestone": 29088891,
+      "remaining_to_next_milestone": 28872682,
       "appearances": [
         {
           "source_type": "album",
@@ -13075,7 +13075,7 @@
         "5jQyGzcwqAxwT5QUIMivoX"
       ],
       "rank_total": 53,
-      "rank_daily": 67
+      "rank_daily": 62
     },
     {
       "track_id": "2yceD2hx5HhOLgkm1CITCi",
@@ -13255,7 +13255,7 @@
         "2XXwLdtuAcE0HSCu61ijAb"
       ],
       "rank_total": 89,
-      "rank_daily": 64
+      "rank_daily": 65
     },
     {
       "track_id": "1MgV7FIyNxIG7WzMRJV5HC",
@@ -14998,7 +14998,7 @@
         "4OAuvHryIVv4kMDNSLuPt6"
       ],
       "rank_total": 79,
-      "rank_daily": 63
+      "rank_daily": 64
     },
     {
       "track_id": "4mqgn90sCeVSYqcoftTQTd",
@@ -21475,7 +21475,7 @@
         "6kl8thRysTeVV3WvKxgZAy"
       ],
       "rank_total": 83,
-      "rank_daily": 65
+      "rank_daily": 66
     },
     {
       "track_id": "2TEQvxxQabwLQMqWMg1qGu",

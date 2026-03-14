@@ -2927,7 +2927,7 @@
         "crossed_milestone_today": 200000000,
         "crossed_milestone_today_label": "200M"
       },
-      "5jQyGzcwqAxwT5QUIMivoX": {
+      "0ZNU020wNYvgW84iljPkPP": {
         "streams": 570322144,
         "daily_streams": 188052,
         "current_milestone": 500000000,
@@ -8077,7 +8077,7 @@
         "crossed_milestone_today": null,
         "crossed_milestone_today_label": null
       },
-      "5jQyGzcwqAxwT5QUIMivoX": {
+      "0ZNU020wNYvgW84iljPkPP": {
         "streams": 570513587,
         "daily_streams": 191443,
         "current_milestone": 500000000,
@@ -13370,7 +13370,7 @@
         "crossed_milestone_today": null,
         "crossed_milestone_today_label": null
       },
-      "5jQyGzcwqAxwT5QUIMivoX": {
+      "0ZNU020wNYvgW84iljPkPP": {
         "streams": 570706471,
         "daily_streams": 192884,
         "current_milestone": 500000000,
@@ -17970,7 +17970,7 @@
         "crossed_milestone_today": null,
         "crossed_milestone_today_label": null
       },
-      "5jQyGzcwqAxwT5QUIMivoX": {
+      "0ZNU020wNYvgW84iljPkPP": {
         "streams": 570911109,
         "daily_streams": 204638,
         "current_milestone": 500000000,
@@ -23469,6 +23469,17 @@
         "next_milestone": 300000000,
         "next_milestone_label": "300M",
         "remaining_to_next_milestone": 70329395,
+        "crossed_milestone_today": null,
+        "crossed_milestone_today_label": null
+      },
+      "0ZNU020wNYvgW84iljPkPP": {
+        "streams": 571127318,
+        "daily_streams": 216209,
+        "current_milestone": 500000000,
+        "current_milestone_label": "500M",
+        "next_milestone": 600000000,
+        "next_milestone_label": "600M",
+        "remaining_to_next_milestone": 28872682,
         "crossed_milestone_today": null,
         "crossed_milestone_today_label": null
       }
