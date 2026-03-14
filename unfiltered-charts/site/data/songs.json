@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 129,
-    "total_combined_streams": 121447555466,
+    "songs_updated_on_latest_date": 130,
+    "total_combined_streams": 121447580550,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -11475,7 +11475,7 @@
         "6XDBA3QWX51lDJ0oZbaJJN"
       ],
       "rank_total": 261,
-      "rank_daily": 273
+      "rank_daily": 272
     },
     {
       "track_id": "4hqJ4bSlYJOXb6Z4SRmzxs",
@@ -16619,7 +16619,7 @@
         "7dXKdjpOaH2iwfFKmUj7aq"
       ],
       "rank_total": 208,
-      "rank_daily": 272
+      "rank_daily": 271
     },
     {
       "track_id": "5xXqyjLicvEpch72qEryFT",
@@ -19471,9 +19471,9 @@
       "title_key": "the moment i knew (taylor's version)",
       "spotify_url": "https://open.spotify.com/track/0NRHj8hDwwmSPaA41o379r",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273318443aab3531a0558e79a4d",
-      "streams": 94994457,
-      "daily_streams": 25774,
-      "last_updated": "2026-03-13",
+      "streams": 95019541,
+      "daily_streams": 25084,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -19482,7 +19482,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 5005543,
+      "remaining_to_next_milestone": 4980459,
       "appearances": [
         {
           "source_type": "album",
@@ -19508,7 +19508,7 @@
         "0NRHj8hDwwmSPaA41o379r"
       ],
       "rank_total": 274,
-      "rank_daily": 271
+      "rank_daily": 274
     },
     {
       "track_id": "1yDJcXc549N6AabNBzFAku",
@@ -22343,7 +22343,7 @@
         "4A2LfnduSTsE8u0ecYROxE"
       ],
       "rank_total": 211,
-      "rank_daily": 274
+      "rank_daily": 273
     },
     {
       "track_id": "0TyGh27YQ5LknmiDhCzJiT",
