@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 443,
-    "total_combined_streams": 121482692780,
+    "songs_updated_on_latest_date": 444,
+    "total_combined_streams": 121482694049,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -19113,9 +19113,9 @@
       "title_key": "the life of a showgirl - track by track",
       "spotify_url": "https://open.spotify.com/intl-fr/track/42TAweWJJ9YlQ47T5nesu5",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2737e0698e1398b6473de43f901",
-      "streams": 901791,
-      "daily_streams": 1317,
-      "last_updated": "2026-03-13",
+      "streams": 903060,
+      "daily_streams": 1269,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -19124,7 +19124,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 99098209,
+      "remaining_to_next_milestone": 99096940,
       "appearances": [
         {
           "source_type": "misc",
