@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 67,
-    "total_combined_streams": 121441426199,
+    "songs_updated_on_latest_date": 68,
+    "total_combined_streams": 121441428617,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -3162,9 +3162,9 @@
       "title_key": "carolina - \"where the crawdads sing\" - video edition",
       "spotify_url": "https://open.spotify.com/intl-fr/track/12xIjI9A9UlB6zEc7kyZ06",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2732c683c1b9fa1b711499408f7",
-      "streams": 11817933,
-      "daily_streams": 2489,
-      "last_updated": "2026-03-13",
+      "streams": 11820351,
+      "daily_streams": 2418,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -3173,7 +3173,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 88182067,
+      "remaining_to_next_milestone": 88179649,
       "appearances": [
         {
           "source_type": "misc",
