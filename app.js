@@ -1541,12 +1541,11 @@ if (sortAlbumDailyBtn) {
    ALBUM DETAIL PAGE
 ========================= */
 
-function renderAlbumPage(container){
-
+function renderAlbumPage(container) {
   const albumName = getQueryParam("album");
-  const album = state.albums.find(a=>a.album===albumName);
+  const album = state.albums.find(a => a.album === albumName);
 
-  if(!album){
+  if (!album) {
     container.innerHTML = `
       ${renderTopbar()}
       <div class="section-card empty">Album not found</div>
@@ -1554,71 +1553,188 @@ function renderAlbumPage(container){
     return;
   }
 
-  const songs =
-    state.songs.filter(s=>s.primary_album===album.album);
+  const rowsForDate = enrichSongsForDate(state.selectedDate);
 
-  const rows =
-    enrichSongsForDate(state.selectedDate)
-      .filter(s=>songs.some(x=>x.track_id===s.track_id));
+  const albumSongs = rowsForDate.filter(song =>
+    (song.appearances || []).some(app => app.album === albumName)
+  );
 
-  const sorted =
-    state.albumSortMode==="daily"
-      ? [...rows].sort((a,b)=>(b.daily_streams||0)-(a.daily_streams||0))
-      : [...rows].sort((a,b)=>(b.streams||0)-(a.streams||0));
+  const groups = new Map();
+
+  for (const song of albumSongs) {
+    const appearance =
+      (song.appearances || []).find(app => app.album === albumName) || null;
+
+    const sectionName = appearance?.display_section || "Other";
+    const sectionOrder = appearance?.display_order ?? 9999;
+
+    if (!groups.has(sectionName)) {
+      groups.set(sectionName, {
+        name: sectionName,
+        order: sectionOrder,
+        songs: []
+      });
+    }
+
+    groups.get(sectionName).songs.push(song);
+  }
+
+  let blocks = [...groups.values()]
+    .sort((a, b) => a.order - b.order || a.name.localeCompare(b.name))
+    .map(block => {
+      let songs = [...block.songs];
+
+      if (state.combineVersions) {
+        songs = combineSongVersions(songs);
+      }
+
+      songs.sort((a, b) =>
+        state.albumSortMode === "daily"
+          ? ((b.daily_streams || 0) - (a.daily_streams || 0)) ||
+            ((b.streams || 0) - (a.streams || 0)) ||
+            a.title.localeCompare(b.title)
+          : ((b.streams || 0) - (a.streams || 0)) ||
+            ((b.daily_streams || 0) - (a.daily_streams || 0)) ||
+            a.title.localeCompare(b.title)
+      );
+
+      return { ...block, songs };
+    });
+
+  const totalStreams = blocks.reduce(
+    (sum, block) => sum + block.songs.reduce((s, song) => s + (song.streams || 0), 0),
+    0
+  );
+
+  const totalDaily = blocks.reduce(
+    (sum, block) => sum + block.songs.reduce((s, song) => s + (song.daily_streams || 0), 0),
+    0
+  );
 
   container.innerHTML = `
     ${renderTopbar()}
 
     <section class="section-card">
+      <div class="section-head album-hero-head">
+        <div class="album-hero">
+          <img
+            class="album-cover-small"
+            src="${withCacheBuster(getAlbumCover(album))}"
+            alt="${album.album}"
+          >
 
-      <div class="album-hero">
-
-        <img
-          class="album-cover-small"
-          src="${withCacheBuster(getAlbumCover(album))}"
-        >
-
-        <div>
-
-          <h2>${album.album}</h2>
-
-          <div class="mini-song-sub">
-            ${album.primary_artist}
+          <div>
+            <h2>${album.album}</h2>
+            <div class="mini-song-sub">${album.primary_artist || "Taylor Swift"}</div>
+            <div class="mini-song-sub">
+              ${formatFull(totalStreams)} total streams • ${formatFull(totalDaily)} daily streams
+            </div>
           </div>
-
-          <div class="mini-song-sub">
-            ${formatFull(album.streams)} streams
-          </div>
-
         </div>
 
+        <div class="toolbar">
+          <button
+            id="albumSortStreamsBtn"
+            class="${state.albumSortMode === "streams" ? "active" : ""}">
+            Total streams
+          </button>
+
+          <button
+            id="albumSortDailyBtn"
+            class="${state.albumSortMode === "daily" ? "active" : ""}">
+            Daily streams
+          </button>
+
+          <button
+            id="albumCombineBtn"
+            class="${state.combineVersions ? "active" : ""}">
+            Combine
+          </button>
+        </div>
       </div>
 
-      <div class="table-wrap">
+      ${blocks.map(block => `
+        <div class="subsection-head">
+          <h3>${block.name}</h3>
+        </div>
 
-        <table class="table">
-
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Song</th>
-              <th>Daily</th>
-              <th>Total</th>
-              <th>Change</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            ${sorted.map(songRow).join("")}
-          </tbody>
-
-        </table>
-
-      </div>
-
+        ${
+          block.songs.length
+            ? `
+              <div class="table-wrap">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Song</th>
+                      <th>Daily</th>
+                      <th>Total</th>
+                      <th>Change</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    ${block.songs.map((song, i) => `
+                      <tr>
+                        <td>${i + 1}</td>
+                        <td>
+                          <div class="mini-song">
+                            <img
+                              src="${song.image_url ? withCacheBuster(song.image_url) : ""}"
+                              alt="${song.title}"
+                            >
+                            <div>
+                              <div><strong>${song.title_clean || song.title}</strong></div>
+                              <div class="mini-song-sub">
+                                ${
+                                  state.combineVersions && (song.combined_versions_count || 1) > 1
+                                    ? `${song.combined_versions_count} versions combined`
+                                    : (song.version_tag || formatArtistAlbum(song))
+                                }
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                        <td>${formatFull(song.daily_streams)}</td>
+                        <td>${formatFull(song.streams)}</td>
+                        <td>
+                          ${renderStreamChange(song.total_change)}
+                          <div class="sub-delta">${renderPercentChange(song.percent_change)}</div>
+                        </td>
+                      </tr>
+                    `).join("")}
+                  </tbody>
+                </table>
+              </div>
+            `
+            : `<div class="empty">No songs in ${block.name}.</div>`
+        }
+      `).join("")}
     </section>
   `;
 
+  const albumSortStreamsBtn = document.getElementById("albumSortStreamsBtn");
+  if (albumSortStreamsBtn) {
+    albumSortStreamsBtn.onclick = () => {
+      state.albumSortMode = "streams";
+      renderPage();
+    };
+  }
+
+  const albumSortDailyBtn = document.getElementById("albumSortDailyBtn");
+  if (albumSortDailyBtn) {
+    albumSortDailyBtn.onclick = () => {
+      state.albumSortMode = "daily";
+      renderPage();
+    };
+  }
+
+  const albumCombineBtn = document.getElementById("albumCombineBtn");
+  if (albumCombineBtn) {
+    albumCombineBtn.onclick = () => {
+      state.combineVersions = !state.combineVersions;
+      renderPage();
+    };
+  }
 }
 
 
