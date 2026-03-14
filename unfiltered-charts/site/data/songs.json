@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 446,
-    "total_combined_streams": 121482706117,
+    "songs_updated_on_latest_date": 447,
+    "total_combined_streams": 121482884139,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -19709,9 +19709,9 @@
       "title_key": "the smallest man who ever lived",
       "spotify_url": "https://open.spotify.com/intl-fr/track/4GBbcyrbDzwRtQjrsDRywK",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273c246cd7fb142b383672627c8",
-      "streams": 332802895,
-      "daily_streams": 176005,
-      "last_updated": "2026-03-13",
+      "streams": 332980917,
+      "daily_streams": 178022,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -19720,7 +19720,7 @@
       "current_milestone_label": "300M",
       "next_milestone": 400000000,
       "next_milestone_label": "400M",
-      "remaining_to_next_milestone": 67197105,
+      "remaining_to_next_milestone": 67019083,
       "appearances": [
         {
           "source_type": "album",
