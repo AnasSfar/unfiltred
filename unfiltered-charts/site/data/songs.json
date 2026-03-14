@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 350,
-    "total_combined_streams": 121468676397,
+    "songs_updated_on_latest_date": 351,
+    "total_combined_streams": 121468681981,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -10292,9 +10292,9 @@
       "title_key": "invisible string - the long pond studio sessions",
       "spotify_url": "https://open.spotify.com/intl-fr/track/5KByGq0JijSSDcy0qzuINs",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273045514e3ed4e1767a7c3ece5",
-      "streams": 17187899,
-      "daily_streams": 5940,
-      "last_updated": "2026-03-13",
+      "streams": 17193483,
+      "daily_streams": 5584,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -10303,7 +10303,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 82812101,
+      "remaining_to_next_milestone": 82806517,
       "appearances": [
         {
           "source_type": "album",
@@ -10329,7 +10329,7 @@
         "5KByGq0JijSSDcy0qzuINs"
       ],
       "rank_total": 386,
-      "rank_daily": 378
+      "rank_daily": 379
     },
     {
       "track_id": "6IG3sQ8s9nfk6TUlVzRhbN",
@@ -20876,7 +20876,7 @@
         "6ovFJkdau79DuXEvQjPaNH"
       ],
       "rank_total": 363,
-      "rank_daily": 379
+      "rank_daily": 378
     },
     {
       "track_id": "0tQ9vBYpldCuikPsbgOVKA",
