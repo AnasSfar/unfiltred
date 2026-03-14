@@ -1234,7 +1234,7 @@
               "source_file": "original_edition.json"
             },
             {
-              "track_id": "0XfTh16YcKPzdxMPTeKTAq",
+              "track_id": "14Bljc3pOOG0xQX3wqhLN9",
               "title": "SuperStar",
               "type": "standalone",
               "edition": "standard edition",
@@ -1245,7 +1245,7 @@
               "source_file": "original_edition.json"
             },
             {
-              "track_id": "6vLpy7UPYuOa75Bkqocrcw",
+              "track_id": "4XrP7vKBjKLEYlRZdb0Ygr",
               "title": "Tell Me Why",
               "type": "standalone",
               "edition": "standard edition",
@@ -1320,8 +1320,8 @@
             "6wcFdMmiDscAhZJrcVFumx",
             "6WWvcA62QlnRguluWAk6bv",
             "5xPsybHWRHbTYO44xnREY5",
-            "0XfTh16YcKPzdxMPTeKTAq",
-            "6vLpy7UPYuOa75Bkqocrcw",
+            "14Bljc3pOOG0xQX3wqhLN9",
+            "4XrP7vKBjKLEYlRZdb0Ygr",
             "1yDJcXc549N6AabNBzFAku",
             "6ovFJkdau79DuXEvQjPaNH",
             "4jPtq9shRdUv8Zjr0a5xkD",
@@ -1445,7 +1445,7 @@
               "source_file": "platinum_edition.json"
             },
             {
-              "track_id": "0XfTh16YcKPzdxMPTeKTAq",
+              "track_id": "14Bljc3pOOG0xQX3wqhLN9",
               "title": "SuperStar",
               "type": "standalone",
               "edition": "standard edition",
@@ -1456,7 +1456,7 @@
               "source_file": "platinum_edition.json"
             },
             {
-              "track_id": "6vLpy7UPYuOa75Bkqocrcw",
+              "track_id": "4XrP7vKBjKLEYlRZdb0Ygr",
               "title": "Tell Me Why",
               "type": "standalone",
               "edition": "standard edition",
@@ -1555,8 +1555,8 @@
             "6wcFdMmiDscAhZJrcVFumx",
             "6WWvcA62QlnRguluWAk6bv",
             "5xPsybHWRHbTYO44xnREY5",
-            "0XfTh16YcKPzdxMPTeKTAq",
-            "6vLpy7UPYuOa75Bkqocrcw",
+            "14Bljc3pOOG0xQX3wqhLN9",
+            "4XrP7vKBjKLEYlRZdb0Ygr",
             "5YbZZ2gYfvW1UvHHF4pVaD",
             "1yDJcXc549N6AabNBzFAku",
             "77VotUUL79U10TAnYdqwvr",
@@ -1610,8 +1610,8 @@
         "6wcFdMmiDscAhZJrcVFumx",
         "6WWvcA62QlnRguluWAk6bv",
         "5xPsybHWRHbTYO44xnREY5",
-        "0XfTh16YcKPzdxMPTeKTAq",
-        "6vLpy7UPYuOa75Bkqocrcw",
+        "14Bljc3pOOG0xQX3wqhLN9",
+        "4XrP7vKBjKLEYlRZdb0Ygr",
         "1yDJcXc549N6AabNBzFAku",
         "6ovFJkdau79DuXEvQjPaNH",
         "4jPtq9shRdUv8Zjr0a5xkD",
@@ -1626,8 +1626,8 @@
       ],
       "track_count": 21,
       "image_url": "https://i.scdn.co/image/ab67616d0000b27334e5885465afc8a497ac1b7e",
-      "total_streams_sum": 2905968510,
-      "daily_streams_sum": 991765,
+      "total_streams_sum": 2905974853,
+      "daily_streams_sum": 991537,
       "top_song_total": "5xPsybHWRHbTYO44xnREY5",
       "top_song_daily": "7G6TDmGJXDoBaV6NGj3Yic",
       "display_blocks": [
@@ -1645,8 +1645,8 @@
             "6wcFdMmiDscAhZJrcVFumx",
             "6WWvcA62QlnRguluWAk6bv",
             "5xPsybHWRHbTYO44xnREY5",
-            "0XfTh16YcKPzdxMPTeKTAq",
-            "6vLpy7UPYuOa75Bkqocrcw",
+            "14Bljc3pOOG0xQX3wqhLN9",
+            "4XrP7vKBjKLEYlRZdb0Ygr",
             "1yDJcXc549N6AabNBzFAku",
             "6ovFJkdau79DuXEvQjPaNH",
             "5YbZZ2gYfvW1UvHHF4pVaD",
@@ -6308,8 +6308,8 @@
       ],
       "track_count": 16,
       "image_url": "https://i.scdn.co/image/ab67616d0000b2732f8c0fd72a80a93f8c53b96c",
-      "total_streams_sum": 1938841804,
-      "daily_streams_sum": 524891,
+      "total_streams_sum": 1938858035,
+      "daily_streams_sum": 524980,
       "top_song_total": "15DeqWWQB4dcEWzJg15VrN",
       "top_song_daily": "15DeqWWQB4dcEWzJg15VrN",
       "display_blocks": [

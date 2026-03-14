@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 427,
-    "total_combined_streams": 121477816404,
+    "songs_updated_on_latest_date": 429,
+    "total_combined_streams": 121477838978,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -15530,7 +15530,7 @@
         "5QKhg4r4Ibt0LVTmWEXTEg"
       ],
       "rank_total": 340,
-      "rank_daily": 377
+      "rank_daily": 376
     },
     {
       "track_id": "73qMN9bXy7MSPwwGfH3wQr",
@@ -17366,11 +17366,11 @@
       "rank_daily": 305
     },
     {
-      "track_id": "0XfTh16YcKPzdxMPTeKTAq",
+      "track_id": "14Bljc3pOOG0xQX3wqhLN9",
       "title": "SuperStar",
       "title_key": "superstar",
-      "spotify_url": "https://open.spotify.com/intl-fr/track/0XfTh16YcKPzdxMPTeKTAq",
-      "image_url": "https://i.scdn.co/image/ab67616d0000b27373b565ab9d713e8d5586aac2",
+      "spotify_url": "https://open.spotify.com/intl-fr/track/14Bljc3pOOG0xQX3wqhLN9",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b27334e5885465afc8a497ac1b7e",
       "streams": 15748948,
       "daily_streams": 3061,
       "last_updated": "2026-03-14",
@@ -17564,9 +17564,9 @@
       "title_key": "teardrops on my guitar - pop version",
       "spotify_url": "https://open.spotify.com/intl-fr/track/4pJi1rVt9GNegU9kywjg4z",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2732f8c0fd72a80a93f8c53b96c",
-      "streams": 46367162,
-      "daily_streams": 16142,
-      "last_updated": "2026-03-13",
+      "streams": 46383393,
+      "daily_streams": 16231,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -17575,7 +17575,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 53632838,
+      "remaining_to_next_milestone": 53616607,
       "appearances": [
         {
           "source_type": "album",
@@ -17649,14 +17649,14 @@
       "rank_daily": 209
     },
     {
-      "track_id": "6vLpy7UPYuOa75Bkqocrcw",
+      "track_id": "4XrP7vKBjKLEYlRZdb0Ygr",
       "title": "Tell Me Why",
       "title_key": "tell me why",
-      "spotify_url": "https://open.spotify.com/intl-fr/track/6vLpy7UPYuOa75Bkqocrcw",
-      "image_url": "https://i.scdn.co/image/ab67616d0000b273516c279fe91ae3f6a79b23da",
-      "streams": 35341903,
-      "daily_streams": 6571,
-      "last_updated": "2026-03-13",
+      "spotify_url": "https://open.spotify.com/intl-fr/track/4XrP7vKBjKLEYlRZdb0Ygr",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b27334e5885465afc8a497ac1b7e",
+      "streams": 35348246,
+      "daily_streams": 6343,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -17665,7 +17665,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 64658097,
+      "remaining_to_next_milestone": 64651754,
       "appearances": [
         {
           "source_type": "album",
@@ -17704,7 +17704,7 @@
         "6vLpy7UPYuOa75Bkqocrcw"
       ],
       "rank_total": 347,
-      "rank_daily": 376
+      "rank_daily": 377
     },
     {
       "track_id": "0k0vFacOHNuArLWMiH60p7",
