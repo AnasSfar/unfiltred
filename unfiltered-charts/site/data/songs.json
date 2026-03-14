@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 341,
-    "total_combined_streams": 121467521028,
+    "songs_updated_on_latest_date": 342,
+    "total_combined_streams": 121467799106,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -19324,9 +19324,9 @@
       "title_key": "the man",
       "spotify_url": "https://open.spotify.com/intl-fr/track/3RauEVgRgj1IuWdJ9fDs70",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273e787cffec20aa2a396a61647",
-      "streams": 997015547,
-      "daily_streams": 272312,
-      "last_updated": "2026-03-13",
+      "streams": 997293625,
+      "daily_streams": 278078,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -19335,7 +19335,7 @@
       "current_milestone_label": "900M",
       "next_milestone": 1000000000,
       "next_milestone_label": "1B",
-      "remaining_to_next_milestone": 2984453,
+      "remaining_to_next_milestone": 2706375,
       "appearances": [
         {
           "source_type": "album",
