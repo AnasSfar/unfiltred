@@ -1270,6 +1270,10 @@ function albumRow(album){
 
   const url = `album.html?album=${encodeURIComponent(album.album)}`;
 
+  const daily = album.daily_streams ?? 0;
+  const total = album.streams ?? 0;
+  const change = album.stream_change ?? null;
+
   return `
   <tr>
 
@@ -1300,7 +1304,7 @@ function albumRow(album){
                 </div>
 
                 <div class="row-song-sub">
-                  ${album.primary_artist}
+                  ${album.primary_artist || "Taylor Swift"}
                 </div>
 
               </div>
@@ -1310,15 +1314,15 @@ function albumRow(album){
           </div>
 
           <div class="col-daily">
-            ${formatFull(album.daily_streams)}
+            ${formatFull(daily)}
           </div>
 
           <div class="col-total">
-            ${formatFull(album.streams)}
+            ${formatFull(total)}
           </div>
 
           <div class="col-stream-change">
-            ${renderStreamChange(album.stream_change)}
+            ${renderStreamChange(change)}
           </div>
 
         </div>
@@ -1329,7 +1333,6 @@ function albumRow(album){
 
   </tr>
   `;
-
 }
 
 
