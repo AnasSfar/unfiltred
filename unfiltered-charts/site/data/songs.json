@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 295,
-    "total_combined_streams": 121462677296,
+    "songs_updated_on_latest_date": 296,
+    "total_combined_streams": 121462806251,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -12768,7 +12768,7 @@
         "3z6XUommYDWPHeFhmhhT6j"
       ],
       "rank_total": 135,
-      "rank_daily": 105
+      "rank_daily": 104
     },
     {
       "track_id": "3rWDp9tBPQR9z6U5YyRSK4",
@@ -13777,7 +13777,7 @@
         "5QUIK7ZtziW8kGWo8RqopF"
       ],
       "rank_total": 82,
-      "rank_daily": 104
+      "rank_daily": 103
     },
     {
       "track_id": "2slqvGLwzZZYsT4K4Y1GBC",
@@ -13924,7 +13924,7 @@
         "0E3Vtmgzk067KASoo0HwzV"
       ],
       "rank_total": 441,
-      "rank_daily": 106
+      "rank_daily": 105
     },
     {
       "track_id": "0ttGLmxI0mAkMblE6iRm2S",
@@ -16189,7 +16189,7 @@
         "4zmKGsrXjLmljb5fTaBTot"
       ],
       "rank_total": 125,
-      "rank_daily": 103
+      "rank_daily": 102
     },
     {
       "track_id": "1J1ldDi3rMQlRi49gaba0a",
@@ -20588,9 +20588,9 @@
       "title_key": "tolerate it",
       "spotify_url": "https://open.spotify.com/intl-fr/track/0PurA4JVJ8YQgSVopY8fn6",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27333b8541201f1ef38941024be",
-      "streams": 431351011,
-      "daily_streams": 135878,
-      "last_updated": "2026-03-13",
+      "streams": 431479966,
+      "daily_streams": 128955,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -20599,7 +20599,7 @@
       "current_milestone_label": "400M",
       "next_milestone": 500000000,
       "next_milestone_label": "500M",
-      "remaining_to_next_milestone": 68648989,
+      "remaining_to_next_milestone": 68520034,
       "appearances": [
         {
           "source_type": "album",
@@ -20625,7 +20625,7 @@
         "0PurA4JVJ8YQgSVopY8fn6"
       ],
       "rank_total": 80,
-      "rank_daily": 102
+      "rank_daily": 106
     },
     {
       "track_id": "5kYFVSQoPu7yRpfiHBwMUk",
