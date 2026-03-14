@@ -1427,6 +1427,97 @@ function renderAlbums(container){
     </section>
   `;
 
+  /* =========================
+   ALBUMS PAGE
+========================= */
+
+function renderAlbums(container){
+
+  const rowsForDate = enrichSongsForDate(state.selectedDate);
+
+  const albums = state.albums.map(album => {
+    const albumSongs = rowsForDate.filter(song => song.primary_album === album.album);
+
+    return {
+      ...album,
+      daily_streams: albumSongs.reduce((sum, song) => sum + (song.daily_streams || 0), 0),
+      streams: albumSongs.reduce((sum, song) => sum + (song.streams || 0), 0),
+      stream_change: albumSongs.reduce((sum, song) => sum + (song.total_change || 0), 0)
+    };
+  });
+
+  const sorted =
+    state.albumSortMode === "daily"
+      ? [...albums].sort((a, b) =>
+          (b.daily_streams || 0) - (a.daily_streams || 0) ||
+          (b.streams || 0) - (a.streams || 0) ||
+          a.album.localeCompare(b.album)
+        )
+      : [...albums].sort((a, b) =>
+          (b.streams || 0) - (a.streams || 0) ||
+          (b.daily_streams || 0) - (a.daily_streams || 0) ||
+          a.album.localeCompare(b.album)
+        );
+
+  sorted.forEach((album, i) => {
+    album.rank = i + 1;
+  });
+
+  container.innerHTML = `
+    ${renderTopbar()}
+
+    <section class="section-card">
+
+      <div class="section-head">
+
+        <div>
+          <h2>Albums</h2>
+          <p>${sorted.length} album${sorted.length > 1 ? "s" : ""}</p>
+        </div>
+
+        <div class="toolbar">
+
+          <button
+            id="sortAlbumStreamsBtn"
+            class="${state.albumSortMode==="streams"?"active":""}">
+            Total streams
+          </button>
+
+          <button
+            id="sortAlbumDailyBtn"
+            class="${state.albumSortMode==="daily"?"active":""}">
+            Daily streams
+          </button>
+
+        </div>
+
+      </div>
+
+      <div class="table-wrap">
+
+        <table class="table">
+
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Album</th>
+              <th>Daily</th>
+              <th>Total</th>
+              <th>Change</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            ${sorted.map(albumRow).join("")}
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </section>
+  `;
+
   document.getElementById("sortAlbumStreamsBtn")?.onclick = () => {
     state.albumSortMode = "streams";
     renderPage();
@@ -1436,6 +1527,7 @@ function renderAlbums(container){
     state.albumSortMode = "daily";
     renderPage();
   };
+}
 }
 
 
