@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 114,
-    "total_combined_streams": 121445784774,
+    "songs_updated_on_latest_date": 117,
+    "total_combined_streams": 121446056661,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -349,7 +349,7 @@
         "3yII7UwgLF6K5zW3xad3MP"
       ],
       "rank_total": 87,
-      "rank_daily": 121
+      "rank_daily": 120
     },
     {
       "track_id": "1spLfUJxtyVyiKKTegQ2r4",
@@ -529,7 +529,7 @@
         "1SymEzIT3H8UZfibCs3TYi"
       ],
       "rank_total": 64,
-      "rank_daily": 92
+      "rank_daily": 91
     },
     {
       "track_id": "4P9Q0GojKVXpRTJCaL3kyy",
@@ -1517,9 +1517,9 @@
       "title_key": "back to december",
       "spotify_url": "https://open.spotify.com/intl-fr/track/5l6GqSxplqnZbLg0LTPQeG",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273d0eae3c1661a96570f0ca7bd",
-      "streams": 496072009,
-      "daily_streams": 163154,
-      "last_updated": "2026-03-13",
+      "streams": 496230172,
+      "daily_streams": 158163,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -1528,7 +1528,7 @@
       "current_milestone_label": "400M",
       "next_milestone": 500000000,
       "next_milestone_label": "500M",
-      "remaining_to_next_milestone": 3927991,
+      "remaining_to_next_milestone": 3769828,
       "appearances": [
         {
           "source_type": "album",
@@ -1554,7 +1554,7 @@
         "5l6GqSxplqnZbLg0LTPQeG"
       ],
       "rank_total": 66,
-      "rank_daily": 88
+      "rank_daily": 92
     },
     {
       "track_id": "79uDOz0zuuWS7HWxzMmTa2",
@@ -1562,9 +1562,9 @@
       "title_key": "back to december (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/79uDOz0zuuWS7HWxzMmTa2",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2730b04da4f224b51ff86e0a481",
-      "streams": 296954609,
-      "daily_streams": 125235,
-      "last_updated": "2026-03-13",
+      "streams": 297061025,
+      "daily_streams": 106416,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -1573,7 +1573,7 @@
       "current_milestone_label": "200M",
       "next_milestone": 300000000,
       "next_milestone_label": "300M",
-      "remaining_to_next_milestone": 3045391,
+      "remaining_to_next_milestone": 2938975,
       "appearances": [
         {
           "source_type": "album",
@@ -1599,7 +1599,7 @@
         "79uDOz0zuuWS7HWxzMmTa2"
       ],
       "rank_total": 121,
-      "rank_daily": 109
+      "rank_daily": 125
     },
     {
       "track_id": "6IH2Z54gYPLqgJtxZjX80i",
@@ -2594,7 +2594,7 @@
         "45wMBGri1PORPjM9PwFfrS"
       ],
       "rank_total": 102,
-      "rank_daily": 91
+      "rank_daily": 90
     },
     {
       "track_id": "0yisH8r0f3Mkq34kjzUlCV",
@@ -3515,7 +3515,7 @@
         "1rmEsOezwf2lmIZTMAO5Ag"
       ],
       "rank_total": 206,
-      "rank_daily": 117
+      "rank_daily": 116
     },
     {
       "track_id": "31JVjy3XWnh6C2zf4kLCXN",
@@ -6468,7 +6468,7 @@
         "7qEUFOVcxRI19tbT68JcYK"
       ],
       "rank_total": 165,
-      "rank_daily": 111
+      "rank_daily": 110
     },
     {
       "track_id": "6kz2hkq1xQvDqPcUyBkw8f",
@@ -6971,7 +6971,7 @@
         "3ZVFcD8Wlw9T9klGqmJf9F"
       ],
       "rank_total": 116,
-      "rank_daily": 89
+      "rank_daily": 88
     },
     {
       "track_id": "4s8BIKx4Zh6ryAEz8RTlaU",
@@ -8389,7 +8389,7 @@
         "3xYJScVfxByb61dYHTwiby"
       ],
       "rank_total": 132,
-      "rank_daily": 110
+      "rank_daily": 109
     },
     {
       "track_id": "6MWoRt97mnSTXZhu3ggi9C",
@@ -8659,7 +8659,7 @@
         "5Bedn0svl0ZD7RGmJkmKKw"
       ],
       "rank_total": 175,
-      "rank_daily": 112
+      "rank_daily": 111
     },
     {
       "track_id": "6wfugRLamFsTRbPcCpNnP7",
@@ -9360,7 +9360,7 @@
         "3hlGuz3loYoLfI3bpwieWq"
       ],
       "rank_total": 196,
-      "rank_daily": 124
+      "rank_daily": 123
     },
     {
       "track_id": "6AtZLIzUINvExIUy4QhdjP",
@@ -9405,7 +9405,7 @@
         "6AtZLIzUINvExIUy4QhdjP"
       ],
       "rank_total": 65,
-      "rank_daily": 123
+      "rank_daily": 122
     },
     {
       "track_id": "72jCZdH0Lhg93z6Z4hBjgj",
@@ -10022,9 +10022,9 @@
       "title_key": "illicit affairs - the long pond studio sessions",
       "spotify_url": "https://open.spotify.com/intl-fr/track/560uQyz3p5G9WdnMX39xc6",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273045514e3ed4e1767a7c3ece5",
-      "streams": 21105465,
-      "daily_streams": 7797,
-      "last_updated": "2026-03-13",
+      "streams": 21112773,
+      "daily_streams": 7308,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -10033,7 +10033,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 78894535,
+      "remaining_to_next_milestone": 78887227,
       "appearances": [
         {
           "source_type": "album",
@@ -10059,7 +10059,7 @@
         "560uQyz3p5G9WdnMX39xc6"
       ],
       "rank_total": 371,
-      "rank_daily": 365
+      "rank_daily": 367
     },
     {
       "track_id": "1kcwpPDQnqEqmezzXdJTCP",
@@ -10104,7 +10104,7 @@
         "1kcwpPDQnqEqmezzXdJTCP"
       ],
       "rank_total": 154,
-      "rank_daily": 90
+      "rank_daily": 89
     },
     {
       "track_id": "3kfgJql90tzgoxByioAMXR",
@@ -10149,7 +10149,7 @@
         "3kfgJql90tzgoxByioAMXR"
       ],
       "rank_total": 316,
-      "rank_daily": 366
+      "rank_daily": 365
     },
     {
       "track_id": "12nBPF4Rh4XLFJV0YLN7uj",
@@ -10748,7 +10748,7 @@
         "7HuBDWi18s4aJM8UFnNheH"
       ],
       "rank_total": 98,
-      "rank_daily": 114
+      "rank_daily": 113
     },
     {
       "track_id": "5EsfyTD26nlVQ0DtYo16uJ",
@@ -11430,7 +11430,7 @@
         "1LLXZFeAHK9R4xUramtUKw"
       ],
       "rank_total": 81,
-      "rank_daily": 116
+      "rank_daily": 115
     },
     {
       "track_id": "6XDBA3QWX51lDJ0oZbaJJN",
@@ -12281,7 +12281,7 @@
         "12ntTeqEeTg7GAVpe8Mhpl"
       ],
       "rank_total": 117,
-      "rank_daily": 120
+      "rank_daily": 119
     },
     {
       "track_id": "3eX0NZfLtGzoLUxPNvRfqm",
@@ -12416,7 +12416,7 @@
         "1QQii3pa5m8MEda0nbkjfw"
       ],
       "rank_total": 72,
-      "rank_daily": 113
+      "rank_daily": 112
     },
     {
       "track_id": "2Rk4JlNc2TPmZe2af99d45",
@@ -14254,7 +14254,7 @@
         "1VCcPLfDiR1S9PJaSp5qm5"
       ],
       "rank_total": 460,
-      "rank_daily": 367
+      "rank_daily": 366
     },
     {
       "track_id": "5SkuikJwvwfEvNyCepGkq3",
@@ -14818,7 +14818,7 @@
         "3zMDGj4D8ogaYgAIZPeU7S"
       ],
       "rank_total": 197,
-      "rank_daily": 119
+      "rank_daily": 118
     },
     {
       "track_id": "32mVHdy0bi1XKgr0ajsBlG",
@@ -15757,7 +15757,7 @@
         "3CCRVu4F91Qp2mnGjmWBrf"
       ],
       "rank_total": 134,
-      "rank_daily": 122
+      "rank_daily": 121
     },
     {
       "track_id": "5eGX87IiKsGuzS3iw4CfCX",
@@ -18271,7 +18271,7 @@
         "62E2nR0od0M5HYxuYLaDz7"
       ],
       "rank_total": 177,
-      "rank_daily": 115
+      "rank_daily": 114
     },
     {
       "track_id": "2913xXOVAIDAqxzV2g4VcU",
@@ -18647,7 +18647,7 @@
         "2VuqMjgoKaOHNM8HpxtXKx"
       ],
       "rank_total": 94,
-      "rank_daily": 118
+      "rank_daily": 117
     },
     {
       "track_id": "3wx2iW1rJGgdNln2I64HNh",
@@ -21012,7 +21012,7 @@
         "1xwAWUI6Dj0WGC3KiUPN0O"
       ],
       "rank_total": 62,
-      "rank_daily": 125
+      "rank_daily": 124
     },
     {
       "track_id": "7AEAGTc8cReDqcbPoY9gwo",
