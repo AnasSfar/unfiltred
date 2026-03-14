@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 282,
-    "total_combined_streams": 121461674945,
+    "songs_updated_on_latest_date": 284,
+    "total_combined_streams": 121461736298,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -2414,7 +2414,7 @@
         "1mh5dObNoOvCfHmXnhvDEK"
       ],
       "rank_total": 390,
-      "rank_daily": 392
+      "rank_daily": 393
     },
     {
       "track_id": "71CBDRKmF2VeRKYMG1DFBh",
@@ -3289,7 +3289,7 @@
         "0g4fMVo4JjwnIpTfFfLdxS"
       ],
       "rank_total": 251,
-      "rank_daily": 197
+      "rank_daily": 196
     },
     {
       "track_id": "4ABYxlb92WBIjHu7TIKmml",
@@ -4127,7 +4127,7 @@
         "4pNApnaUWAL2J4KO2eqokq"
       ],
       "rank_total": 215,
-      "rank_daily": 195
+      "rank_daily": 194
     },
     {
       "track_id": "4pl5zcqCv4vc3cB7M4MZ6f",
@@ -6249,9 +6249,9 @@
       "title_key": "epiphany",
       "spotify_url": "https://open.spotify.com/intl-fr/track/08fa9LFcFBTcilB3iq2e2A",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27395f754318336a07e85ec59bc",
-      "streams": 233205658,
-      "daily_streams": 58512,
-      "last_updated": "2026-03-13",
+      "streams": 233262181,
+      "daily_streams": 56523,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -6260,7 +6260,7 @@
       "current_milestone_label": "200M",
       "next_milestone": 300000000,
       "next_milestone_label": "300M",
-      "remaining_to_next_milestone": 66794342,
+      "remaining_to_next_milestone": 66737819,
       "appearances": [
         {
           "source_type": "album",
@@ -6286,7 +6286,7 @@
         "08fa9LFcFBTcilB3iq2e2A"
       ],
       "rank_total": 162,
-      "rank_daily": 193
+      "rank_daily": 197
     },
     {
       "track_id": "4yyKppX85ZkmlGOC2toBZA",
@@ -6294,9 +6294,9 @@
       "title_key": "epiphany - the long pond studio sessions",
       "spotify_url": "https://open.spotify.com/intl-fr/track/4yyKppX85ZkmlGOC2toBZA",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273045514e3ed4e1767a7c3ece5",
-      "streams": 13390339,
-      "daily_streams": 4694,
-      "last_updated": "2026-03-13",
+      "streams": 13395169,
+      "daily_streams": 4830,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -6305,7 +6305,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 86609661,
+      "remaining_to_next_milestone": 86604831,
       "appearances": [
         {
           "source_type": "album",
@@ -6331,7 +6331,7 @@
         "4yyKppX85ZkmlGOC2toBZA"
       ],
       "rank_total": 402,
-      "rank_daily": 395
+      "rank_daily": 392
     },
     {
       "track_id": "3O5osWf1rSoKMwe6E9ZaXP",
@@ -8976,7 +8976,7 @@
         "0hFF0aqyjDwDh6SQwRbTyx"
       ],
       "rank_total": 423,
-      "rank_daily": 393
+      "rank_daily": 394
     },
     {
       "track_id": "2PGIFYRG1XWsPqNG14hgD1",
@@ -12236,7 +12236,7 @@
         "04xrhDrQ2WOW8GLwu7kbc0"
       ],
       "rank_total": 399,
-      "rank_daily": 394
+      "rank_daily": 395
     },
     {
       "track_id": "12ntTeqEeTg7GAVpe8Mhpl",
@@ -18738,7 +18738,7 @@
         "0eFQWVz0qIxDOvhLpZ40P7"
       ],
       "rank_total": 178,
-      "rank_daily": 194
+      "rank_daily": 193
     },
     {
       "track_id": "0UAdDYrkCvVQftaKpL6q5f",
@@ -18989,7 +18989,7 @@
         "0y6kdSRCVQhSsHSpWvTUm7"
       ],
       "rank_total": 204,
-      "rank_daily": 196
+      "rank_daily": 195
     },
     {
       "track_id": "5eXgqtg3T8Av0m1FUaGHex",
