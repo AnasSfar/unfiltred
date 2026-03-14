@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 206,
-    "total_combined_streams": 121454511076,
+    "songs_updated_on_latest_date": 207,
+    "total_combined_streams": 121454535335,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -3042,11 +3042,11 @@
       "rank_daily": 36
     },
     {
-      "track_id": "4R2kfaDFhslZEMJqAFNpdd",
+      "track_id": "7zcnlq38eqNWyUF6eNaB5Z",
       "title": "cardigan",
       "title_key": "cardigan",
-      "spotify_url": "https://open.spotify.com/intl-fr/track/4R2kfaDFhslZEMJqAFNpdd",
-      "image_url": "https://i.scdn.co/image/ab67616d0000b27395f754318336a07e85ec59bc",
+      "spotify_url": "https://open.spotify.com/intl-fr/track/7zcnlq38eqNWyUF6eNaB5Z",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273045514e3ed4e1767a7c3ece5",
       "streams": 1933015465,
       "daily_streams": 932464,
       "last_updated": "2026-03-14",
@@ -3207,9 +3207,9 @@
       "title_key": "carolina - from the motion picture “where the crawdads sing”",
       "spotify_url": "https://open.spotify.com/intl-fr/track/4axSuOg3BqsowKjRpj59RU",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2732c683c1b9fa1b711499408f7",
-      "streams": 93591405,
-      "daily_streams": 24699,
-      "last_updated": "2026-03-13",
+      "streams": 93615664,
+      "daily_streams": 24259,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -3218,7 +3218,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 6408595,
+      "remaining_to_next_milestone": 6384336,
       "appearances": [
         {
           "source_type": "misc",
@@ -3244,7 +3244,7 @@
         "4axSuOg3BqsowKjRpj59RU"
       ],
       "rank_total": 276,
-      "rank_daily": 278
+      "rank_daily": 280
     },
     {
       "track_id": "0g4fMVo4JjwnIpTfFfLdxS",
@@ -6880,7 +6880,7 @@
         "4yf9OivCH2lmQWN8mzpCC6"
       ],
       "rank_total": 244,
-      "rank_daily": 280
+      "rank_daily": 279
     },
     {
       "track_id": "2nqio0SfWg6gh2eCtfuMa5",
@@ -19316,7 +19316,7 @@
         "4e5ayHsOLJNLTGfjau2mEw"
       ],
       "rank_total": 267,
-      "rank_daily": 279
+      "rank_daily": 278
     },
     {
       "track_id": "3RauEVgRgj1IuWdJ9fDs70",
