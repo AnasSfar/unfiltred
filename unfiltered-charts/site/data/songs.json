@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 302,
-    "total_combined_streams": 121463314296,
+    "songs_updated_on_latest_date": 304,
+    "total_combined_streams": 121463524301,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -7154,14 +7154,14 @@
       "rank_daily": 243
     },
     {
-      "track_id": "46HGgtwmmuEB8mvDCyjyAc",
+      "track_id": "13MAWVUSkbGMUi6I7RowRK",
       "title": "Forever & Always - Piano Version",
       "title_key": "forever & always - piano version",
-      "spotify_url": "https://open.spotify.com/intl-fr/track/46HGgtwmmuEB8mvDCyjyAc",
-      "image_url": "https://i.scdn.co/image/ab67616d0000b27334e5885465afc8a497ac1b7e",
-      "streams": 29832917,
-      "daily_streams": 3984,
-      "last_updated": "2026-03-13",
+      "spotify_url": "https://open.spotify.com/intl-fr/track/13MAWVUSkbGMUi6I7RowRK",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b27373b565ab9d713e8d5586aac2",
+      "streams": 29836947,
+      "daily_streams": 4030,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -7170,7 +7170,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 70167083,
+      "remaining_to_next_milestone": 70163053,
       "appearances": [
         {
           "source_type": "album",
@@ -21438,9 +21438,9 @@
       "title_key": "who's afraid of little old me?",
       "spotify_url": "https://open.spotify.com/intl-fr/track/6kl8thRysTeVV3WvKxgZAy",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273c246cd7fb142b383672627c8",
-      "streams": 425662503,
-      "daily_streams": 205911,
-      "last_updated": "2026-03-13",
+      "streams": 425868478,
+      "daily_streams": 205975,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -21449,7 +21449,7 @@
       "current_milestone_label": "400M",
       "next_milestone": 500000000,
       "next_milestone_label": "500M",
-      "remaining_to_next_milestone": 74337497,
+      "remaining_to_next_milestone": 74131522,
       "appearances": [
         {
           "source_type": "album",
