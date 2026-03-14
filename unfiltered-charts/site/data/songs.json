@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 77,
-    "total_combined_streams": 121442203341,
+    "songs_updated_on_latest_date": 79,
+    "total_combined_streams": 121442745647,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -304,7 +304,7 @@
         "2ULNeSomDxVNmdDy8VxEBU"
       ],
       "rank_total": 71,
-      "rank_daily": 132
+      "rank_daily": 131
     },
     {
       "track_id": "3yII7UwgLF6K5zW3xad3MP",
@@ -586,7 +586,7 @@
         "4P9Q0GojKVXpRTJCaL3kyy"
       ],
       "rank_total": 68,
-      "rank_daily": 128
+      "rank_daily": 127
     },
     {
       "track_id": "4XMP3zVxrnr58T0tjIHvpR",
@@ -904,14 +904,14 @@
       "rank_daily": 188
     },
     {
-      "track_id": "2wMKBH2p5kIDFkRWjS9IOW",
+      "track_id": "0V3wPSX9ygBnCm8psDIegu",
       "title": "Anti-Hero",
       "title_key": "anti-hero",
-      "spotify_url": "https://open.spotify.com/intl-fr/track/2wMKBH2p5kIDFkRWjS9IOW",
-      "image_url": "https://i.scdn.co/image/ab67616d0000b2739954fa9f0ba8534c3897b59d",
-      "streams": 1980445576,
-      "daily_streams": 424964,
-      "last_updated": "2026-03-13",
+      "spotify_url": "https://open.spotify.com/intl-fr/track/0V3wPSX9ygBnCm8psDIegu",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273bb54dde68cd23e2a268ae0f5",
+      "streams": 1980884750,
+      "daily_streams": 439174,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -920,7 +920,7 @@
       "current_milestone_label": "1.9B",
       "next_milestone": 2000000000,
       "next_milestone_label": "2B",
-      "remaining_to_next_milestone": 19554424,
+      "remaining_to_next_milestone": 19115250,
       "appearances": [
         {
           "source_type": "album",
@@ -5048,7 +5048,7 @@
         "2dgFqt3w9xIQRjhPtwNk3D"
       ],
       "rank_total": 95,
-      "rank_daily": 131
+      "rank_daily": 130
     },
     {
       "track_id": "3oF7Or7T35yhQbGxbCGvRX",
@@ -9360,7 +9360,7 @@
         "3hlGuz3loYoLfI3bpwieWq"
       ],
       "rank_total": 196,
-      "rank_daily": 126
+      "rank_daily": 125
     },
     {
       "track_id": "6AtZLIzUINvExIUy4QhdjP",
@@ -15100,7 +15100,7 @@
         "73W5aXorr5vxrySFcoZqIN"
       ],
       "rank_total": 185,
-      "rank_daily": 133
+      "rank_daily": 132
     },
     {
       "track_id": "06zIBqLC9ZRm5i0iMf0kHI",
@@ -15872,7 +15872,7 @@
         "6KJqZcs9XDgVck7Lg9QOTC"
       ],
       "rank_total": 88,
-      "rank_daily": 130
+      "rank_daily": 129
     },
     {
       "track_id": "4cOWq0cVsKjxaQpRMbDoH1",
@@ -16143,7 +16143,7 @@
         "1wtOxkiel43cVs0Yux5Q4h"
       ],
       "rank_total": 59,
-      "rank_daily": 134
+      "rank_daily": 133
     },
     {
       "track_id": "4zmKGsrXjLmljb5fTaBTot",
@@ -17474,9 +17474,9 @@
       "title_key": "sweet nothing",
       "spotify_url": "https://open.spotify.com/intl-fr/track/2L09RYwH5Pjzca6PmbUAw3",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273fa747621a53c8e2cc436dee0",
-      "streams": 365459735,
-      "daily_streams": 108206,
-      "last_updated": "2026-03-13",
+      "streams": 365562867,
+      "daily_streams": 103132,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -17485,7 +17485,7 @@
       "current_milestone_label": "300M",
       "next_milestone": 400000000,
       "next_milestone_label": "400M",
-      "remaining_to_next_milestone": 34540265,
+      "remaining_to_next_milestone": 34437133,
       "appearances": [
         {
           "source_type": "album",
@@ -17511,7 +17511,7 @@
         "2L09RYwH5Pjzca6PmbUAw3"
       ],
       "rank_total": 100,
-      "rank_daily": 125
+      "rank_daily": 134
     },
     {
       "track_id": "0RFCHlNuTeUHIB36VuVbOL",
@@ -18316,7 +18316,7 @@
         "2913xXOVAIDAqxzV2g4VcU"
       ],
       "rank_total": 210,
-      "rank_daily": 129
+      "rank_daily": 128
     },
     {
       "track_id": "5cKBWgDjB5IXZ5jnryewOH",
@@ -21012,7 +21012,7 @@
         "1xwAWUI6Dj0WGC3KiUPN0O"
       ],
       "rank_total": 62,
-      "rank_daily": 127
+      "rank_daily": 126
     },
     {
       "track_id": "7AEAGTc8cReDqcbPoY9gwo",
