@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 406,
-    "total_combined_streams": 121475278663,
+    "songs_updated_on_latest_date": 407,
+    "total_combined_streams": 121475306288,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -15108,7 +15108,7 @@
       "title_key": "renegade - pop version",
       "spotify_url": "https://open.spotify.com/intl-fr/track/06zIBqLC9ZRm5i0iMf0kHI",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273f0b56f34301a37d015cbb678",
-      "streams": 25757614,
+      "streams": 25782985,
       "daily_streams": null,
       "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
@@ -15119,7 +15119,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 74242386,
+      "remaining_to_next_milestone": 74217015,
       "appearances": [
         {
           "source_type": "misc",
@@ -21789,9 +21789,9 @@
       "title_key": "willow - 90's trend remix",
       "spotify_url": "https://open.spotify.com/intl-fr/track/77p4fRpoeiZMtUy3P9kN21",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27348ea2c0fbc6682c6d10d91aa",
-      "streams": 15751303,
-      "daily_streams": 2277,
-      "last_updated": "2026-03-13",
+      "streams": 15753557,
+      "daily_streams": 2254,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -21800,7 +21800,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 84248697,
+      "remaining_to_next_milestone": 84246443,
       "appearances": [
         {
           "source_type": "misc",
