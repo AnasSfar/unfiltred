@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 362,
-    "total_combined_streams": 121469442402,
+    "songs_updated_on_latest_date": 363,
+    "total_combined_streams": 121469449401,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -202,7 +202,7 @@
         "1Ygm9KdH3wbzDekO8JgxcW"
       ],
       "rank_total": 355,
-      "rank_daily": 369
+      "rank_daily": 370
     },
     {
       "track_id": "4twNUyTpLMPWokYmCdFDCH",
@@ -1144,7 +1144,7 @@
         "6C0H8ts9M6deezz0yYR6LK"
       ],
       "rank_total": 374,
-      "rank_daily": 375
+      "rank_daily": 376
     },
     {
       "track_id": "4YrpqEBNuz7IMsZtUP6bNQ",
@@ -1656,7 +1656,7 @@
         "6IH2Z54gYPLqgJtxZjX80i"
       ],
       "rank_total": 288,
-      "rank_daily": 372
+      "rank_daily": 373
     },
     {
       "track_id": "1IsquhJFJ0qcFZI7FeAEuN",
@@ -3629,7 +3629,7 @@
         "4mKye6Z1kXuKolzMkJoKFA"
       ],
       "rank_total": 126,
-      "rank_daily": 371
+      "rank_daily": 372
     },
     {
       "track_id": "50ho0AOvkm8E5l8zf7OfJI",
@@ -11120,9 +11120,9 @@
       "title_key": "lavender haze - felix jaehn remix",
       "spotify_url": "https://open.spotify.com/intl-fr/track/2M4tVhRXucLE9M3STv21Yi",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27390212229c9230e320fe0ecd3",
-      "streams": 29125323,
-      "daily_streams": 6153,
-      "last_updated": "2026-03-13",
+      "streams": 29132322,
+      "daily_streams": 6999,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -11131,7 +11131,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 70874677,
+      "remaining_to_next_milestone": 70867678,
       "appearances": [
         {
           "source_type": "misc",
@@ -11169,7 +11169,7 @@
         "2M4tVhRXucLE9M3STv21Yi"
       ],
       "rank_total": 356,
-      "rank_daily": 377
+      "rank_daily": 369
     },
     {
       "track_id": "0ThxqUZ9PwS6n0UT5i1XH6",
@@ -15530,7 +15530,7 @@
         "5QKhg4r4Ibt0LVTmWEXTEg"
       ],
       "rank_total": 340,
-      "rank_daily": 374
+      "rank_daily": 375
     },
     {
       "track_id": "73qMN9bXy7MSPwwGfH3wQr",
@@ -17704,7 +17704,7 @@
         "6vLpy7UPYuOa75Bkqocrcw"
       ],
       "rank_total": 347,
-      "rank_daily": 376
+      "rank_daily": 377
     },
     {
       "track_id": "0k0vFacOHNuArLWMiH60p7",
@@ -18840,7 +18840,7 @@
         "6mqyTq948oap5AkyTsd6XF"
       ],
       "rank_total": 373,
-      "rank_daily": 373
+      "rank_daily": 374
     },
     {
       "track_id": "4ojxSyrEraN7d46BMBPThZ",
@@ -19271,7 +19271,7 @@
         "2wtHlpYSgC7xEdD3DrSHNL"
       ],
       "rank_total": 328,
-      "rank_daily": 370
+      "rank_daily": 371
     },
     {
       "track_id": "4e5ayHsOLJNLTGfjau2mEw",
