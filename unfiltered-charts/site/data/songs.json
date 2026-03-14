@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 321,
-    "total_combined_streams": 121465502372,
+    "songs_updated_on_latest_date": 323,
+    "total_combined_streams": 121465559116,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -8217,9 +8217,9 @@
       "title_key": "hey stephen (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/550erGcdD9n6PnwxrvYqZT",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273a48964b5d9a3d6968ae3e0de",
-      "streams": 118634419,
-      "daily_streams": 31531,
-      "last_updated": "2026-03-13",
+      "streams": 118664693,
+      "daily_streams": 30274,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -8228,7 +8228,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 81365581,
+      "remaining_to_next_milestone": 81335307,
       "appearances": [
         {
           "source_type": "album",
@@ -8254,7 +8254,7 @@
         "550erGcdD9n6PnwxrvYqZT"
       ],
       "rank_total": 257,
-      "rank_daily": 253
+      "rank_daily": 254
     },
     {
       "track_id": "1SztNGCwEHJEVFx90E5g7D",
@@ -8569,7 +8569,7 @@
         "7J4b3LVCIGO4CMBDFLPoP6"
       ],
       "rank_total": 260,
-      "rank_daily": 254
+      "rank_daily": 253
     },
     {
       "track_id": "4qmFC3Jz5aQ0erlk2OSi2X",
@@ -16774,9 +16774,9 @@
       "title_key": "starlight (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/7A2cNLRT0YJc1yjxHlKihs",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273318443aab3531a0558e79a4d",
-      "streams": 93766606,
-      "daily_streams": 26843,
-      "last_updated": "2026-03-13",
+      "streams": 93793076,
+      "daily_streams": 26470,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -16785,7 +16785,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 6233394,
+      "remaining_to_next_milestone": 6206924,
       "appearances": [
         {
           "source_type": "album",
