@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 361,
-    "total_combined_streams": 121469368103,
+    "songs_updated_on_latest_date": 362,
+    "total_combined_streams": 121469442402,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -3857,7 +3857,7 @@
         "4d9PtIEVij9jW5OaLinH66"
       ],
       "rank_total": 194,
-      "rank_daily": 163
+      "rank_daily": 162
     },
     {
       "track_id": "4bXCcoesMt8u99xMsbLr9U",
@@ -5570,7 +5570,7 @@
         "670fUmXf4KQekzbEgaXyPA"
       ],
       "rank_total": 164,
-      "rank_daily": 161
+      "rank_daily": 160
     },
     {
       "track_id": "2F3N9tdombb64aW6VtZOdo",
@@ -8344,7 +8344,7 @@
         "60hGQrn24APqEFSLObLeDc"
       ],
       "rank_total": 127,
-      "rank_daily": 164
+      "rank_daily": 163
     },
     {
       "track_id": "3xYJScVfxByb61dYHTwiby",
@@ -10948,9 +10948,9 @@
       "title_key": "last kiss (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/59KOoHFcw5XfICnO57holu",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2730b04da4f224b51ff86e0a481",
-      "streams": 135619290,
-      "daily_streams": 78264,
-      "last_updated": "2026-03-13",
+      "streams": 135693589,
+      "daily_streams": 74299,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -10959,7 +10959,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 64380710,
+      "remaining_to_next_milestone": 64306411,
       "appearances": [
         {
           "source_type": "album",
@@ -10985,7 +10985,7 @@
         "59KOoHFcw5XfICnO57holu"
       ],
       "rank_total": 238,
-      "rank_daily": 159
+      "rank_daily": 164
     },
     {
       "track_id": "6hH37tyeRdyan1mAppmVor",
@@ -13493,7 +13493,7 @@
         "6rZVy6FIG7lSJQMFXHo12z"
       ],
       "rank_total": 114,
-      "rank_daily": 160
+      "rank_daily": 159
     },
     {
       "track_id": "5M787RexsAiVYjQusM98CV",
@@ -21430,7 +21430,7 @@
         "5YL553x8sHderRBDlm3NM3"
       ],
       "rank_total": 220,
-      "rank_daily": 162
+      "rank_daily": 161
     },
     {
       "track_id": "6kl8thRysTeVV3WvKxgZAy",
