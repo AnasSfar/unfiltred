@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 317,
-    "total_combined_streams": 121465007277,
+    "songs_updated_on_latest_date": 318,
+    "total_combined_streams": 121465007460,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -7865,9 +7865,9 @@
       "title_key": "gorgeous - karaoke version",
       "spotify_url": "https://open.spotify.com/intl-fr/track/3ZHTwJzCNDFvjLpVQiqpH6",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27305fd6906725e3f12544c2d04",
-      "streams": 402751,
-      "daily_streams": 171,
-      "last_updated": "2026-03-13",
+      "streams": 402934,
+      "daily_streams": 183,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -7876,7 +7876,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 99597249,
+      "remaining_to_next_milestone": 99597066,
       "appearances": [
         {
           "source_type": "misc",
@@ -7914,7 +7914,7 @@
         "3ZHTwJzCNDFvjLpVQiqpH6"
       ],
       "rank_total": 462,
-      "rank_daily": 466
+      "rank_daily": 465
     },
     {
       "track_id": "0W0iAC1VGlB82PI6elxFYf",
@@ -10805,7 +10805,7 @@
         "5EsfyTD26nlVQ0DtYo16uJ"
       ],
       "rank_total": 466,
-      "rank_daily": 465
+      "rank_daily": 466
     },
     {
       "track_id": "4bBDkw2KBMX0tcgAaXC83Q",
