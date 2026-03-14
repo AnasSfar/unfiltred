@@ -1342,10 +1342,35 @@ function albumRow(album){
 
 function renderAlbums(container){
 
-  const rows =
-    state.albumSortMode==="daily"
-      ? [...state.albums].sort((a,b)=>(b.daily_streams||0)-(a.daily_streams||0))
-      : [...state.albums].sort((a,b)=>(b.streams||0)-(a.streams||0));
+  const rowsForDate = enrichSongsForDate(state.selectedDate);
+
+  const albums = state.albums.map(album => {
+    const albumSongs = rowsForDate.filter(song => song.primary_album === album.album);
+
+    return {
+      ...album,
+      daily_streams: albumSongs.reduce((sum, song) => sum + (song.daily_streams || 0), 0),
+      streams: albumSongs.reduce((sum, song) => sum + (song.streams || 0), 0),
+      stream_change: albumSongs.reduce((sum, song) => sum + (song.total_change || 0), 0)
+    };
+  });
+
+  const sorted =
+    state.albumSortMode === "daily"
+      ? [...albums].sort((a, b) =>
+          (b.daily_streams || 0) - (a.daily_streams || 0) ||
+          (b.streams || 0) - (a.streams || 0) ||
+          a.album.localeCompare(b.album)
+        )
+      : [...albums].sort((a, b) =>
+          (b.streams || 0) - (a.streams || 0) ||
+          (b.daily_streams || 0) - (a.daily_streams || 0) ||
+          a.album.localeCompare(b.album)
+        );
+
+  sorted.forEach((album, i) => {
+    album.rank = i + 1;
+  });
 
   container.innerHTML = `
     ${renderTopbar()}
@@ -1356,7 +1381,7 @@ function renderAlbums(container){
 
         <div>
           <h2>Albums</h2>
-          <p>${rows.length} album${rows.length>1?"s":""}</p>
+          <p>${sorted.length} album${sorted.length > 1 ? "s" : ""}</p>
         </div>
 
         <div class="toolbar">
@@ -1392,7 +1417,7 @@ function renderAlbums(container){
           </thead>
 
           <tbody>
-            ${rows.map(albumRow).join("")}
+            ${sorted.map(albumRow).join("")}
           </tbody>
 
         </table>
@@ -1402,22 +1427,15 @@ function renderAlbums(container){
     </section>
   `;
 
-  const sortAlbumStreamsBtn = document.getElementById("sortAlbumStreamsBtn");
-if (sortAlbumStreamsBtn) {
-  sortAlbumStreamsBtn.onclick = () => {
+  document.getElementById("sortAlbumStreamsBtn")?.onclick = () => {
     state.albumSortMode = "streams";
     renderPage();
   };
-}
 
-const sortAlbumDailyBtn = document.getElementById("sortAlbumDailyBtn");
-if (sortAlbumDailyBtn) {
-  sortAlbumDailyBtn.onclick = () => {
+  document.getElementById("sortAlbumDailyBtn")?.onclick = () => {
     state.albumSortMode = "daily";
     renderPage();
   };
-}
-
 }
 
 
