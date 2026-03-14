@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 301,
-    "total_combined_streams": 121463302084,
+    "songs_updated_on_latest_date": 302,
+    "total_combined_streams": 121463314296,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -6825,11 +6825,11 @@
       "rank_daily": 84
     },
     {
-      "track_id": "3M0w3fhdXByHLCNAoi5c9G",
+      "track_id": "4yf9OivCH2lmQWN8mzpCC6",
       "title": "Fifteen",
       "title_key": "fifteen",
-      "spotify_url": "https://open.spotify.com/intl-fr/track/3M0w3fhdXByHLCNAoi5c9G",
-      "image_url": "https://i.scdn.co/image/ab67616d0000b27334e5885465afc8a497ac1b7e",
+      "spotify_url": "https://open.spotify.com/intl-fr/track/4yf9OivCH2lmQWN8mzpCC6",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273516c279fe91ae3f6a79b23da",
       "streams": 131094310,
       "daily_streams": 22762,
       "last_updated": "2026-03-14",
@@ -7024,9 +7024,9 @@
       "title_key": "forever & always",
       "spotify_url": "https://open.spotify.com/intl-fr/track/1zxrcAk6eiytfavqriMcKT",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27334e5885465afc8a497ac1b7e",
-      "streams": 60267916,
-      "daily_streams": 12004,
-      "last_updated": "2026-03-13",
+      "streams": 60280128,
+      "daily_streams": 12212,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -7035,7 +7035,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 39732084,
+      "remaining_to_next_milestone": 39719872,
       "appearances": [
         {
           "source_type": "album",
