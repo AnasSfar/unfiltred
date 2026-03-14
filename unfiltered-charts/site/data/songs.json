@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 259,
-    "total_combined_streams": 121458249323,
+    "songs_updated_on_latest_date": 261,
+    "total_combined_streams": 121458295886,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -631,7 +631,7 @@
         "4XMP3zVxrnr58T0tjIHvpR"
       ],
       "rank_total": 139,
-      "rank_daily": 258
+      "rank_daily": 257
     },
     {
       "track_id": "5enxwA8aAbwZbf5qCHORXi",
@@ -5215,9 +5215,9 @@
       "title_key": "delicate - recorded at the tracking room nashville",
       "spotify_url": "https://open.spotify.com/intl-fr/track/1Fj0T1XKuhRu7EZzJ7NJIK",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273bae8f095c58e137855f6d230",
-      "streams": 52183939,
-      "daily_streams": 18184,
-      "last_updated": "2026-03-13",
+      "streams": 52201903,
+      "daily_streams": 17964,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -5226,7 +5226,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 47816061,
+      "remaining_to_next_milestone": 47798097,
       "appearances": [
         {
           "source_type": "misc",
@@ -10419,7 +10419,7 @@
         "1SmiQ65iSAbPto6gPFlBYm"
       ],
       "rank_total": 207,
-      "rank_daily": 257
+      "rank_daily": 256
     },
     {
       "track_id": "1kdWw77ZpYOkhxeuhzU1j6",
@@ -10903,9 +10903,9 @@
       "title_key": "last kiss",
       "spotify_url": "https://open.spotify.com/intl-fr/track/1D27z8xNzjW0Mwwt1NCWhJ",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2732e4ec3175d848eca7b76b07f",
-      "streams": 139319555,
-      "daily_streams": 29472,
-      "last_updated": "2026-03-13",
+      "streams": 139348154,
+      "daily_streams": 28599,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -10914,7 +10914,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 60680445,
+      "remaining_to_next_milestone": 60651846,
       "appearances": [
         {
           "source_type": "album",
@@ -10940,7 +10940,7 @@
         "1D27z8xNzjW0Mwwt1NCWhJ"
       ],
       "rank_total": 234,
-      "rank_daily": 255
+      "rank_daily": 259
     },
     {
       "track_id": "59KOoHFcw5XfICnO57holu",
@@ -15667,7 +15667,7 @@
         "0z9UVN8VBHJ9HdfYsOuuNf"
       ],
       "rank_total": 146,
-      "rank_daily": 256
+      "rank_daily": 255
     },
     {
       "track_id": "71IScwIe7bcIlpnlkbKVQw",
@@ -21282,7 +21282,7 @@
         "0zo975x58DlXbZllWvfYhg"
       ],
       "rank_total": 265,
-      "rank_daily": 259
+      "rank_daily": 258
     },
     {
       "track_id": "7GZ3KDorsc1yWndEtzGTjf",
