@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TS Tracker</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+:root {
+  --bg:#f7f6f3;--surface:#fff;--border:#e6e2db;--text:#18180f;--muted:#918e86;
+  --fr:#2d5a3d;--global:#b85c20;--up:#2d7a4d;--down:#c44030;
+  --shadow:0 1px 2px rgba(0,0,0,.05),0 4px 12px rgba(0,0,0,.04);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;line-height:1.5;min-height:100vh}
+.page{max-width:1140px;margin:0 auto;padding:40px 28px 80px}
+
+header{display:flex;align-items:center;justify-content:space-between;margin-bottom:40px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+.logo{font-family:'Playfair Display',serif;font-size:20px;font-weight:500;letter-spacing:-.2px}
+.logo span{color:var(--muted);font-size:13px;font-family:'DM Sans',sans-serif;font-style:italic;margin-left:8px;font-weight:300}
+.header-right{display:flex;align-items:center;gap:12px}
+.last-update{font-size:11px;color:var(--muted);letter-spacing:.04em}
+.refresh-btn{padding:5px 12px;font-size:12px;border:1px solid var(--border);border-radius:4px;background:var(--surface);cursor:pointer;color:var(--muted);font-family:'DM Sans',sans-serif;transition:all .15s}
+.refresh-btn:hover{color:var(--text);border-color:var(--text)}
+
+.source-bar{display:flex;gap:6px;margin-bottom:28px}
+.src-pill{display:flex;align-items:center;gap:6px;padding:5px 14px;font-size:12px;font-weight:500;border:1.5px solid var(--border);border-radius:20px;background:var(--surface);cursor:pointer;color:var(--muted);font-family:'DM Sans',sans-serif;transition:all .15s}
+.src-pill.fr.on{background:var(--fr);color:#fff;border-color:var(--fr)}
+.src-pill.global.on{background:var(--global);color:#fff;border-color:var(--global)}
+.src-pill.off{opacity:.3;cursor:not-allowed}
+.dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.dot.fr{background:var(--fr)}.dot.global{background:var(--global)}
+.src-pill.fr.on .dot,.src-pill.global.on .dot{background:#fff}
+
+.tabs{display:flex;border-bottom:1px solid var(--border);margin-bottom:32px}
+.tab{padding:9px 18px;font-size:13px;font-family:'DM Sans',sans-serif;background:none;border:none;border-bottom:2px solid transparent;margin-bottom:-1px;color:var(--muted);cursor:pointer;transition:all .15s}
+.tab.on{color:var(--text);border-bottom-color:var(--text);font-weight:500}
+.tab:hover:not(.on){color:var(--text)}
+.panel{display:none}.panel.on{display:block}
+
+/* Toolbar */
+.toolbar{display:flex;align-items:center;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.toolbar-sep{width:1px;height:20px;background:var(--border);margin:0 4px}
+.toolbar label{font-size:11px;color:var(--muted);letter-spacing:.04em;white-space:nowrap}
+.toolbar select,.toolbar-search input{font-size:12px;font-family:'DM Sans',sans-serif;border:1px solid var(--border);border-radius:4px;padding:4px 8px;background:var(--surface);color:var(--text);cursor:pointer;outline:none;transition:border-color .15s}
+.toolbar select:focus,.toolbar-search input:focus{border-color:var(--text)}
+.toolbar-search{display:flex;align-items:center;gap:4px}
+.toolbar-search input{min-width:160px;padding-right:24px}
+.toolbar-search-wrap{position:relative;display:flex;align-items:center}
+.search-clear{position:absolute;right:6px;background:none;border:none;cursor:pointer;color:var(--muted);font-size:13px;line-height:1;padding:0;display:none}
+.view-toggle,.grp-toggle{display:flex;border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.vt-btn{padding:4px 11px;font-size:12px;font-family:'DM Sans',sans-serif;border:none;background:var(--surface);color:var(--muted);cursor:pointer;transition:all .15s;border-right:1px solid var(--border)}
+.vt-btn:last-child{border-right:none}
+.vt-btn.on{background:var(--text);color:#fff}
+
+.kpi-row{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:24px}
+.kpi{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px 18px;box-shadow:var(--shadow)}
+.kpi-label{font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+.kpi-val{font-family:'Playfair Display',serif;font-size:22px;font-weight:500;line-height:1.1}
+.kpi-sub{font-size:11px;color:var(--muted);margin-top:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+.card{background:var(--surface);border:1px solid var(--border);border-radius:8px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:20px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead th{text-align:left;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:12px 14px;border-bottom:1px solid var(--border);background:var(--bg);white-space:nowrap;cursor:pointer;user-select:none}
+thead th:hover{color:var(--text)}
+thead th .sort-arrow{opacity:.3;font-size:9px;margin-left:3px}
+thead th.sort-asc .sort-arrow::after{content:'↑';opacity:1}
+thead th.sort-desc .sort-arrow::after{content:'↓';opacity:1}
+tbody td{padding:10px 14px;border-bottom:1px solid var(--border);vertical-align:middle}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover td{background:#faf9f7}
+.song-name{font-weight:500}
+.rk{font-family:'Playfair Display',serif;font-size:15px;font-weight:500}
+.sub{font-size:11px;color:var(--muted)}
+.num{font-variant-numeric:tabular-nums}
+
+.delta-badge{display:inline-block;font-size:11px;font-weight:500;padding:1px 6px;border-radius:3px;margin-left:5px;vertical-align:middle}
+.delta-badge.up{color:var(--up);background:#e8f5ec}
+.delta-badge.down{color:var(--down);background:#fde8e6}
+.delta-badge.flat{color:var(--muted);background:var(--bg)}
+.delta-badge.new{color:#7a5a00;background:#fff8e1}
+.delta-badge.re{color:#5a3a7a;background:#f3eeff}
+.delta-badge.out{color:#888;background:#f0f0f0}
+
+/* Album grouping */
+.album-header-row td{background:#f5f3ee;border-bottom:1px solid var(--border);padding:8px 14px;cursor:pointer}
+.album-header-row:hover td{background:#eeebe4}
+.album-hdr-inner{display:flex;align-items:center;gap:10px}
+.album-hdr-arrow{font-size:11px;color:var(--muted);transition:transform .15s;display:inline-block;width:12px}
+.album-hdr-name{font-family:'Playfair Display',serif;font-size:14px;font-weight:500}
+.album-hdr-count{font-size:11px;color:var(--muted)}
+.album-hdr-streams{margin-left:auto;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+
+/* Tweet preview */
+.tweet-preview{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:18px 20px;margin-bottom:20px;box-shadow:var(--shadow)}
+.tweet-preview-label{font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.tweet-pre{font-size:13px;line-height:1.7;white-space:pre-wrap;font-family:inherit}
+.tweet-pre.loading{color:var(--muted);font-style:italic}
+
+.section-h{font-family:'Playfair Display',serif;font-size:17px;font-weight:500;margin-bottom:14px;margin-top:28px}
+.section-h:first-child{margin-top:0}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:14px}
+.chip{padding:3px 11px;font-size:12px;border:1px solid var(--border);border-radius:16px;background:var(--surface);cursor:pointer;color:var(--muted);transition:all .15s}
+.chip:hover{border-color:var(--muted);color:var(--text)}
+.chart-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:20px;box-shadow:var(--shadow);margin-bottom:20px}
+.chart-wrap{position:relative;height:240px}
+
+/* Charts date range */
+.chart-toolbar{display:flex;align-items:center;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.chart-toolbar label{font-size:11px;color:var(--muted)}
+.chart-toolbar input[type=date]{font-size:12px;font-family:'DM Sans',sans-serif;border:1px solid var(--border);border-radius:4px;padding:3px 8px;background:var(--surface);color:var(--text);outline:none}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.col-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:500;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.perf-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:18px;box-shadow:var(--shadow);margin-bottom:14px}
+.perf-title{font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.perf-row{display:flex;justify-content:space-between;align-items:baseline;padding:6px 0;border-bottom:1px solid var(--border);font-size:13px;gap:8px}
+.perf-row:last-child{border-bottom:none}
+.perf-song{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:500}
+.perf-val{color:var(--muted);font-size:12px;flex-shrink:0;font-variant-numeric:tabular-nums}
+.perf-date{color:#ccc;font-size:11px;margin-left:4px}
+
+/* History */
+.hist-toolbar{display:flex;align-items:center;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.hist-toolbar label{font-size:11px;color:var(--muted)}
+.hist-toolbar select,.hist-toolbar input[type=date]{font-size:12px;font-family:'DM Sans',sans-serif;border:1px solid var(--border);border-radius:4px;padding:4px 8px;background:var(--surface);color:var(--text);outline:none}
+.hist-grid{display:flex;flex-direction:column}
+.hist-day{padding:12px 0;border-bottom:1px solid var(--border)}
+.hist-day:last-child{border-bottom:none}
+.hist-date{font-size:10px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+.hist-songs{display:flex;flex-direction:column;gap:4px}
+.hist-row{display:flex;align-items:center;gap:8px;font-size:13px}
+.hist-rk{font-weight:500;min-width:34px;font-variant-numeric:tabular-nums}
+.hist-name{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:pointer}
+.hist-name:hover{text-decoration:underline;color:var(--fr)}
+.hist-streams{color:var(--muted);font-size:12px;font-variant-numeric:tabular-nums;flex-shrink:0;min-width:70px;text-align:right}
+.hist-pct{font-size:11px;font-variant-numeric:tabular-nums;flex-shrink:0;min-width:38px;text-align:right}
+.hist-row.out .hist-name{color:var(--muted);font-style:italic}
+.hist-row.out .hist-rk{color:var(--muted)}
+
+/* Song detail modal */
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center;z-index:1000;padding:20px}
+.modal{background:var(--surface);border-radius:10px;box-shadow:0 8px 40px rgba(0,0,0,.15);max-width:640px;width:100%;max-height:80vh;overflow:auto;padding:28px}
+.modal-close{float:right;background:none;border:none;font-size:20px;cursor:pointer;color:var(--muted);margin-top:-4px}
+.modal-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:500;margin-bottom:6px}
+.modal-sub{font-size:12px;color:var(--muted);margin-bottom:20px}
+.modal-stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px}
+.modal-stat{background:var(--bg);border-radius:6px;padding:12px 14px}
+.modal-stat-label{font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.modal-stat-val{font-family:'Playfair Display',serif;font-size:18px;font-weight:500}
+.modal-hist-row{display:flex;align-items:center;gap:10px;padding:6px 0;border-bottom:1px solid var(--border);font-size:13px}
+.modal-hist-row:last-child{border-bottom:none}
+.modal-hist-date{min-width:80px;color:var(--muted);font-size:12px}
+.modal-hist-rk{font-weight:500;min-width:40px}
+.modal-hist-streams{color:var(--muted);font-size:12px;margin-left:auto;font-variant-numeric:tabular-nums}
+
+.no-data{color:var(--muted);font-size:13px;padding:20px 0;font-style:italic}
+@media(max-width:900px){.kpi-row{grid-template-columns:repeat(3,1fr)}.two-col{grid-template-columns:1fr}}
+@media(max-width:600px){.page{padding:20px 14px 60px}.kpi-row{grid-template-columns:1fr 1fr}.toolbar{flex-direction:column;align-items:flex-start}}
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="logo">TS Tracker <span>Spotify Charts</span></div>
+    <div class="header-right">
+      <span class="last-update" id="last-update"></span>
+      <button class="refresh-btn" onclick="loadAll()">&#8635; Refresh</button>
+    </div>
+  </header>
+
+  <div class="source-bar">
+    <button class="src-pill fr on" id="pill-fr" onclick="toggleSource('fr')"><span class="dot fr"></span> France</button>
+    <button class="src-pill global on" id="pill-global" onclick="toggleSource('global')"><span class="dot global"></span> Global</button>
+  </div>
+
+  <div class="tabs">
+    <button class="tab on" onclick="switchTab('table',this)">Songs</button>
+    <button class="tab" onclick="switchTab('charts',this)">Charts</button>
+    <button class="tab" onclick="switchTab('top',this)">Top performances</button>
+    <button class="tab" onclick="switchTab('history',this)">History</button>
+  </div>
+
+  <!-- ═══ CHANSONS ═══ -->
+  <div class="panel on" id="tab-table">
+    <div class="toolbar">
+      <!-- Search -->
+      <div class="toolbar-search">
+        <label>Search</label>
+        <div class="toolbar-search-wrap">
+          <input type="text" id="search-input" placeholder="Filter by title..." oninput="onSearch(this.value)">
+          <button class="search-clear" id="search-clear" onclick="clearSearch()">&#x2715;</button>
+        </div>
+      </div>
+      <div class="toolbar-sep"></div>
+      <!-- Date -->
+      <label>Date</label>
+      <select id="date-select" onchange="onDateChange(this.value)"></select>
+      <div class="toolbar-sep"></div>
+      <!-- View mode -->
+      <label>View</label>
+      <div class="view-toggle">
+        <button class="vt-btn" id="vt-summary" onclick="setViewMode('summary')">Summary</button>
+        <button class="vt-btn on" id="vt-snapshot" onclick="setViewMode('snapshot')">Snapshot</button>
+      </div>
+      <div class="toolbar-sep"></div>
+      <!-- Group -->
+      <label>Group</label>
+      <div class="grp-toggle">
+        <button class="vt-btn on" id="grp-songs" onclick="setGroupMode('songs')">Songs</button>
+        <button class="vt-btn" id="grp-albums" onclick="setGroupMode('albums')">Albums</button>
+      </div>
+    </div>
+
+    <div class="kpi-row" id="kpi-row"></div>
+
+    <!-- Tweet preview (snapshot mode) -->
+    <div class="tweet-preview" id="tweet-preview" style="display:none">
+      <div class="tweet-preview-label">Tweet of the day</div>
+      <div class="tweet-pre loading" id="tweet-content">Loading...</div>
+    </div>
+
+    <div class="card" id="songs-card">
+      <table id="songs-table">
+        <thead id="songs-thead"><tr></tr></thead>
+        <tbody id="table-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ═══ GRAPHIQUES ═══ -->
+  <div class="panel" id="tab-charts">
+    <div class="chart-toolbar">
+      <button class="src-pill fr on" id="chart-pill-fr" onclick="setChartSrc('fr')"><span class="dot fr"></span> France</button>
+      <button class="src-pill global" id="chart-pill-global" onclick="setChartSrc('global')"><span class="dot global"></span> Global</button>
+      <div class="toolbar-sep"></div>
+      <label>From</label>
+      <input type="date" id="chart-from" onchange="renderCharts(chartSrc)">
+      <label>to</label>
+      <input type="date" id="chart-to" onchange="renderCharts(chartSrc)">
+      <button class="refresh-btn" onclick="resetChartRange()">All</button>
+    </div>
+    <div class="section-h">Rank over time</div>
+    <div class="chips" id="rank-chips"></div>
+    <div class="chart-card"><div class="chart-wrap"><canvas id="rank-chart"></canvas></div></div>
+    <div class="section-h">Streams over time</div>
+    <div class="chips" id="streams-chips"></div>
+    <div class="chart-card"><div class="chart-wrap"><canvas id="streams-chart"></canvas></div></div>
+  </div>
+
+  <!-- ═══ TOP PERFORMANCES ═══ -->
+  <div class="panel" id="tab-top">
+    <div class="two-col">
+      <div>
+        <div class="col-title"><span class="dot fr"></span> France</div>
+        <div id="top-fr"><div class="no-data">Loading...</div></div>
+      </div>
+      <div>
+        <div class="col-title"><span class="dot global"></span> Global</div>
+        <div id="top-global"><div class="no-data">Loading...</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ HISTORIQUE ═══ -->
+  <div class="panel" id="tab-history">
+    <div class="hist-toolbar">
+      <button class="src-pill fr on" id="hist-pill-fr" onclick="setHistSrc('fr')"><span class="dot fr"></span> France</button>
+      <button class="src-pill global" id="hist-pill-global" onclick="setHistSrc('global')"><span class="dot global"></span> Global</button>
+      <div class="toolbar-sep"></div>
+      <label>Song</label>
+      <select id="hist-song-filter" onchange="renderHistory(histSrc)">
+        <option value="">All</option>
+      </select>
+      <div class="toolbar-sep"></div>
+      <label>From</label>
+      <input type="date" id="hist-from" onchange="renderHistory(histSrc)">
+      <label>to</label>
+      <input type="date" id="hist-to" onchange="renderHistory(histSrc)">
+      <button class="refresh-btn" onclick="resetHistRange()">All</button>
+    </div>
+    <div class="card" style="padding:4px 20px" id="history-list"></div>
+  </div>
+</div>
+
+<!-- ═══ SONG DETAIL MODAL ═══ -->
+<div class="modal-bg" id="modal-bg" style="display:none" onclick="closeModal(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModalDirect()">&#x2715;</button>
+    <div class="modal-title" id="modal-song-name"></div>
+    <div class="modal-sub" id="modal-song-sub"></div>
+    <div class="modal-stat-row" id="modal-stats"></div>
+    <div id="modal-hist"></div>
+  </div>
+</div>
+
+<script>
+const DATA = { fr: null, global: null };
+const META = { fr: null, global: null };
+const COLORS = ['#2d5a3d','#b85c20','#4a7fa5','#7a4a9a','#5a8a3d','#c43050','#3d7a8a','#a07030','#2a6a7a','#8a4a60'];
+let activeSources = new Set(['fr','global']);
+let chartSrc = 'fr', histSrc = 'fr';
+let rankChart = null, streamsChart = null;
+let activeRankSongs = new Set(), activeStreamsSongs = new Set();
+let selectedDate = null;
+let viewMode = 'snapshot';  // 'summary' | 'snapshot'
+let groupMode = 'songs';    // 'songs' | 'albums'
+let searchQuery = '';
+let sortCol = null, sortDir = 1;
+
+// ── Load ────────────────────────────────────────────────────────────────────────
+async function loadAll() {
+  await Promise.all([...['fr','global'].map(fetchSrc), ...['fr','global'].map(fetchMeta)]);
+  const dates = getAllUnionDates();
+  if (dates.length) {
+    selectedDate = dates[dates.length - 1];
+    populateDateSelector(dates);
+  }
+  renderAll();
+}
+
+async function fetchSrc(src) {
+  try {
+    const r = await fetch('/data/' + src);
+    if (!r.ok) throw new Error(r.status);
+    DATA[src] = await r.json();
+  } catch(e) { DATA[src] = null; }
+}
+
+async function fetchMeta(src) {
+  try {
+    const r = await fetch('/data/' + src + '/meta');
+    if (!r.ok) throw new Error(r.status);
+    META[src] = await r.json();
+  } catch(e) { META[src] = null; }
+}
+
+// ── Helpers ─────────────────────────────────────────────────────────────────────
+const fmtN = n => (n || n === 0) ? parseInt(n).toLocaleString('en-US') : '—';
+const fmtD = d => { if (!d) return '—'; const dt = new Date(d+'T00:00'); return dt.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}); };
+const fmtDShort = d => d ? d.slice(5) : '—';
+const fmtDate = d => d ? new Date(d+'T00:00').toLocaleDateString('en-US',{weekday:'short',day:'numeric',month:'short',year:'numeric'}) : '—';
+
+function getSongs(src) { return DATA[src] ? Object.keys(DATA[src]) : []; }
+
+function getAllDates(src) {
+  if (!DATA[src]) return [];
+  const s = new Set();
+  Object.values(DATA[src]).forEach(e => Object.keys(e).forEach(d => s.add(d)));
+  return [...s].sort();
+}
+
+function getAllUnionDates() {
+  return [...new Set([...getAllDates('fr'), ...getAllDates('global')])].sort();
+}
+
+function getAlbum(src, song) {
+  if (!META[src]) return '';
+  // Try exact match, then case-insensitive
+  if (META[src][song]) return META[src][song].album;
+  const low = song.toLowerCase();
+  for (const [k, v] of Object.entries(META[src])) {
+    if (k.toLowerCase() === low) return v.album;
+  }
+  return '';
+}
+
+function fmtDelta(entry) {
+  if (!entry) return '';
+  const prev = entry.previous_rank, rank = entry.rank, peak = entry.peak_rank;
+  if (!prev || prev <= 0) {
+    if (peak && peak > 0 && peak !== rank) return '<span class="delta-badge re">RE</span>';
+    return '<span class="delta-badge new">NEW</span>';
+  }
+  const d = prev - rank;
+  if (d > 0) return `<span class="delta-badge up">+${d}</span>`;
+  if (d < 0) return `<span class="delta-badge down">${d}</span>`;
+  return '<span class="delta-badge flat">&#8211;</span>';
+}
+
+function fmtPct(cur, prev) {
+  if (!cur || !prev || prev === 0) return '';
+  const pct = (cur - prev) / prev * 100;
+  const sign = pct >= 0 ? '+' : '';
+  const color = pct >= 0 ? 'var(--up)' : 'var(--down)';
+  return `<span class="hist-pct" style="color:${color}">${sign}${pct.toFixed(2).replace('.', '.')}%</span>`;
+}
+
+function getStats(src, song) {
+  const entries = (DATA[src] || {})[song] || {};
+  const dates = Object.keys(entries).sort();
+  if (!dates.length) return null;
+  let bestRank = Infinity, bestRankDate = null, bestStreams = 0, bestStreamsDate = null;
+  let lastRank = null, lastStreams = null, lastDate = null, lastEntry = null;
+  for (const d of dates) {
+    const e = entries[d];
+    if (e.rank && e.rank < bestRank) { bestRank = e.rank; bestRankDate = d; }
+    if (e.streams && e.streams > bestStreams) { bestStreams = e.streams; bestStreamsDate = d; }
+    lastDate = d; lastRank = e.rank; lastStreams = e.streams; lastEntry = e;
+  }
+  const allDates = getAllDates(src);
+  let streak = 0;
+  for (let i = allDates.length - 1; i >= 0; i--) {
+    if (entries[allDates[i]]) streak++; else break;
+  }
+  const chartLastDate = allDates[allDates.length - 1];
+  const isActive = lastDate === chartLastDate;
+  return { bestRank, bestRankDate, bestStreams, bestStreamsDate,
+           lastRank, lastStreams, lastDate, lastEntry, days: dates.length,
+           firstDate: dates[0], streak, isActive };
+}
+
+// ── Date selector ────────────────────────────────────────────────────────────────
+function populateDateSelector(dates) {
+  const sel = document.getElementById('date-select');
+  sel.innerHTML = dates.slice().reverse().map(d =>
+    `<option value="${d}"${d === selectedDate ? ' selected' : ''}>${fmtD(d)}</option>`
+  ).join('');
+}
+
+function onDateChange(val) {
+  selectedDate = val;
+  renderTable();
+  if (viewMode === 'snapshot') loadTweet();
+}
+
+// ── View / Group modes ───────────────────────────────────────────────────────────
+function setViewMode(mode) {
+  viewMode = mode;
+  document.getElementById('vt-summary').classList.toggle('on', mode === 'summary');
+  document.getElementById('vt-snapshot').classList.toggle('on', mode === 'snapshot');
+  document.getElementById('tweet-preview').style.display = mode === 'snapshot' ? '' : 'none';
+  if (mode === 'snapshot') loadTweet();
+  renderTable();
+}
+
+function setGroupMode(mode) {
+  groupMode = mode;
+  document.getElementById('grp-songs').classList.toggle('on', mode === 'songs');
+  document.getElementById('grp-albums').classList.toggle('on', mode === 'albums');
+  renderTable();
+}
+
+// ── Search ───────────────────────────────────────────────────────────────────────
+function onSearch(val) {
+  searchQuery = val.toLowerCase();
+  document.getElementById('search-clear').style.display = val ? 'block' : 'none';
+  renderTable();
+}
+
+function clearSearch() {
+  document.getElementById('search-input').value = '';
+  onSearch('');
+}
+
+// ── Tweet preview ────────────────────────────────────────────────────────────────
+let tweetCache = {};
+
+async function loadTweet() {
+  if (!selectedDate) return;
+  const el = document.getElementById('tweet-content');
+  // Try Fr first, then Global
+  for (const src of ['fr', 'global']) {
+    if (!DATA[src]) continue;
+    const key = src + '/' + selectedDate;
+    if (tweetCache[key] !== undefined) {
+      el.textContent = tweetCache[key] || '(no tweet for this date)';
+      el.className = 'tweet-pre' + (tweetCache[key] ? '' : ' loading');
+      return;
+    }
+    try {
+      const r = await fetch(`/data/${src}/tweet/${selectedDate}`);
+      if (r.ok) {
+        const text = await r.text();
+        tweetCache[key] = text;
+        el.textContent = text;
+        el.className = 'tweet-pre';
+        return;
+      } else {
+        tweetCache[key] = '';
+      }
+    } catch(e) { tweetCache[key] = ''; }
+  }
+  el.textContent = '(no tweet for this date)';
+  el.className = 'tweet-pre loading';
+}
+
+// ── Render all ───────────────────────────────────────────────────────────────────
+function renderAll() {
+  const dates = getAllUnionDates();
+  const last = dates[dates.length - 1];
+  if (last) document.getElementById('last-update').textContent = 'Updated: ' + last;
+  ['fr', 'global'].forEach(src => {
+    const pill = document.getElementById('pill-' + src);
+    if (!DATA[src]) { pill.classList.add('off'); activeSources.delete(src); }
+    else pill.classList.remove('off');
+  });
+  renderTable();
+  renderCharts(chartSrc);
+  renderTop();
+  renderHistory(histSrc);
+  updateHistSongFilter();
+}
+
+function toggleSource(src) {
+  if (!DATA[src]) return;
+  const pill = document.getElementById('pill-' + src);
+  if (activeSources.has(src) && activeSources.size > 1) {
+    activeSources.delete(src); pill.classList.remove('on');
+  } else if (!activeSources.has(src)) {
+    activeSources.add(src); pill.classList.add('on');
+  }
+  renderTable();
+}
+
+// ── Table ─────────────────────────────────────────────────────────────────────────
+function buildMerged() {
+  const merged = {};
+  for (const src of activeSources) {
+    if (!DATA[src]) continue;
+    for (const song of getSongs(src)) {
+      const key = song.toLowerCase();
+      if (!merged[key]) merged[key] = { song, sources: {} };
+      merged[key].sources[src] = getStats(src, song);
+    }
+  }
+  return Object.values(merged).filter(r => {
+    if (!searchQuery) return true;
+    return r.song.toLowerCase().includes(searchQuery);
+  });
+}
+
+function renderTable() {
+  if (viewMode === 'snapshot') renderSnapshot();
+  else renderSummary();
+}
+
+// ── Summary table (all-time stats) ──────────────────────────────────────────────
+function renderSummary() {
+  // Header
+  document.getElementById('songs-thead').innerHTML = `<tr>
+    <th onclick="sortTable('song')" class="${sortColClass('song')}">Song <span class="sort-arrow"></span></th>
+    <th>Source</th>
+    <th onclick="sortTable('rank')" class="${sortColClass('rank')}">Last pos. <span class="sort-arrow"></span></th>
+    <th onclick="sortTable('streams')" class="${sortColClass('streams')}">Last streams <span class="sort-arrow"></span></th>
+    <th onclick="sortTable('first')" class="${sortColClass('first')}">Entry <span class="sort-arrow"></span></th>
+    <th>Status</th>
+    <th onclick="sortTable('streak')" class="${sortColClass('streak')}">Streak <span class="sort-arrow"></span></th>
+    <th onclick="sortTable('bestRank')" class="${sortColClass('bestRank')}">Best pos. <span class="sort-arrow"></span></th>
+    <th onclick="sortTable('bestStreams')" class="${sortColClass('bestStreams')}">Best streams <span class="sort-arrow"></span></th>
+    <th onclick="sortTable('days')" class="${sortColClass('days')}">Days <span class="sort-arrow"></span></th>
+  </tr>`;
+
+  let allSongs = buildMerged();
+
+  // KPI
+  const totalDays = getAllUnionDates().length;
+  const topRankRow = allSongs.reduce((b, r) => {
+    const v = Math.min(...Object.values(r.sources).map(s => s ? s.bestRank : 999));
+    const bv = b ? Math.min(...Object.values(b.sources).map(s => s ? s.bestRank : 999)) : Infinity;
+    return v < bv ? r : b;
+  }, null);
+  const topStreamsRow = allSongs.reduce((b, r) => {
+    const v = Math.max(...Object.values(r.sources).map(s => s ? s.bestStreams : 0));
+    const bv = b ? Math.max(...Object.values(b.sources).map(s => s ? s.bestStreams : 0)) : 0;
+    return v > bv ? r : b;
+  }, null);
+  const activeNow = allSongs.filter(r => Object.values(r.sources).some(s => s && s.isActive)).length;
+  document.getElementById('kpi-row').innerHTML = `
+    <div class="kpi"><div class="kpi-label">Tracked days</div><div class="kpi-val">${totalDays}</div></div>
+    <div class="kpi"><div class="kpi-label">Songs</div><div class="kpi-val">${allSongs.length}</div><div class="kpi-sub">${activeNow} in chart</div></div>
+    <div class="kpi"><div class="kpi-label">Best pos.</div><div class="kpi-val">#${topRankRow ? Math.min(...Object.values(topRankRow.sources).map(s => s ? s.bestRank : 999)) : '—'}</div><div class="kpi-sub">${topRankRow ? topRankRow.song : ''}</div></div>
+    <div class="kpi"><div class="kpi-label">Stream record</div><div class="kpi-val" style="font-size:16px">${topStreamsRow ? fmtN(Math.max(...Object.values(topStreamsRow.sources).map(s => s ? s.bestStreams : 0))) : '—'}</div><div class="kpi-sub">${topStreamsRow ? topStreamsRow.song : ''}</div></div>
+    <div class="kpi"><div class="kpi-label">Sources</div><div class="kpi-val" style="font-size:14px">${[...activeSources].join(' + ')}</div></div>`;
+
+  // Sort
+  allSongs = sortSongs(allSongs);
+
+  if (groupMode === 'albums') {
+    renderSummaryAlbums(allSongs);
+  } else {
+    document.getElementById('table-body').innerHTML = allSongs.map(({song, sources}) =>
+      summaryRow(song, sources)
+    ).join('');
+  }
+}
+
+function summaryRow(song, sources) {
+  const frS = sources.fr, glS = sources.global;
+  const main = frS || glS;
+  if (!main) return '';
+
+  const srcDots = [
+    frS ? '<span class="dot fr"></span>' : '',
+    glS ? '<span class="dot global"></span>' : ''
+  ].filter(Boolean).join(' ');
+
+  const rankCell = [
+    frS ? `<span class="dot fr"></span> <span class="rk">#${frS.lastRank || '—'}</span>${fmtDelta(frS.lastEntry)}` : '',
+    glS ? `<span class="dot global"></span> <span class="rk">#${glS.lastRank || '—'}</span>${fmtDelta(glS.lastEntry)}` : ''
+  ].filter(Boolean).join('<br>');
+
+  const streamsCell = [
+    frS ? `<span class="dot fr"></span> <span class="num">${fmtN(frS.lastStreams)}</span>` : '',
+    glS ? `<span class="dot global"></span> <span class="num">${fmtN(glS.lastStreams)}</span>` : ''
+  ].filter(Boolean).join('<br>');
+
+  const streakCell = [
+    frS ? `<span class="dot fr"></span> ${frS.streak}d${frS.isActive ? ' ●' : ''}` : '',
+    glS ? `<span class="dot global"></span> ${glS.streak}d${glS.isActive ? ' ●' : ''}` : ''
+  ].filter(Boolean).join('<br>');
+
+  const bestRkCell = [
+    frS ? `<span class="dot fr"></span> <span class="rk">#${frS.bestRank}</span> <span class="sub">${fmtD(frS.bestRankDate)}</span>` : '',
+    glS ? `<span class="dot global"></span> <span class="rk">#${glS.bestRank}</span> <span class="sub">${fmtD(glS.bestRankDate)}</span>` : ''
+  ].filter(Boolean).join('<br>');
+
+  const bestStCell = [
+    frS ? `<span class="dot fr"></span> <span class="num">${fmtN(frS.bestStreams)}</span> <span class="sub">${fmtD(frS.bestStreamsDate)}</span>` : '',
+    glS ? `<span class="dot global"></span> <span class="num">${fmtN(glS.bestStreams)}</span> <span class="sub">${fmtD(glS.bestStreamsDate)}</span>` : ''
+  ].filter(Boolean).join('<br>');
+
+  const exitCell = main.isActive
+    ? '<span style="color:var(--up);font-size:11px">● active</span>'
+    : `<span class="sub">${fmtD(main.lastDate)}</span>`;
+
+  const daysCell = frS && glS
+    ? `<span class="sub">Fr:</span> ${frS.days} <span class="sub">Gl:</span> ${glS.days}`
+    : main.days;
+
+  return `<tr onclick="openModal('${escQ(song)}')" style="cursor:pointer">
+    <td class="song-name">${song}</td>
+    <td>${srcDots}</td>
+    <td>${rankCell}</td>
+    <td>${streamsCell}</td>
+    <td><span class="sub">${fmtD(main.firstDate)}</span></td>
+    <td>${exitCell}</td>
+    <td style="font-size:13px">${streakCell}</td>
+    <td>${bestRkCell}</td>
+    <td>${bestStCell}</td>
+    <td class="sub">${daysCell}</td>
+  </tr>`;
+}
+
+function renderSummaryAlbums(allSongs) {
+  // Group by album using first active source's meta
+  const primarySrc = [...activeSources][0];
+  const groups = {};
+  const noAlbum = '_no_album_';
+  for (const {song, sources} of allSongs) {
+    let album = '';
+    for (const src of activeSources) {
+      album = getAlbum(src, song);
+      if (album) break;
+    }
+    const key = album || noAlbum;
+    if (!groups[key]) groups[key] = { album: album || 'Unknown album', songs: [], totalStreams: {} };
+    groups[key].songs.push({song, sources});
+    for (const src of activeSources) {
+      if (!groups[key].totalStreams[src]) groups[key].totalStreams[src] = 0;
+      const s = sources[src];
+      if (s && s.lastStreams) groups[key].totalStreams[src] += s.lastStreams;
+    }
+  }
+
+  // Sort albums by total streams desc
+  const sorted = Object.values(groups).sort((a, b) => {
+    const as = Object.values(a.totalStreams).reduce((s,v) => s+v, 0);
+    const bs = Object.values(b.totalStreams).reduce((s,v) => s+v, 0);
+    return bs - as;
+  });
+
+  let html = '';
+  sorted.forEach((g, gi) => {
+    const totalStr = Object.entries(g.totalStreams)
+      .filter(([,v]) => v > 0)
+      .map(([src, v]) => `<span class="dot ${src}"></span> ${fmtN(v)}`)
+      .join(' &nbsp; ');
+    const id = 'alb-' + gi;
+    html += `<tr class="album-header-row" onclick="toggleAlbum('${id}')">
+      <td colspan="10">
+        <div class="album-hdr-inner">
+          <span class="album-hdr-arrow" id="${id}-arrow">&#9654;</span>
+          <span class="album-hdr-name">${g.album}</span>
+          <span class="album-hdr-count">${g.songs.length} song${g.songs.length > 1 ? 's' : ''}</span>
+          <span class="album-hdr-streams">${totalStr}</span>
+        </div>
+      </td>
+    </tr>`;
+    g.songs.forEach(({song, sources}) => {
+      html += summaryRow(song, sources).replace('<tr ', `<tr class="album-child ${id}" style="display:none" `);
+    });
+  });
+
+  document.getElementById('table-body').innerHTML = html;
+}
+
+const albumOpen = {};
+function toggleAlbum(id) {
+  albumOpen[id] = !albumOpen[id];
+  const rows = document.querySelectorAll('.' + id);
+  rows.forEach(r => r.style.display = albumOpen[id] ? '' : 'none');
+  const arrow = document.getElementById(id + '-arrow');
+  if (arrow) arrow.innerHTML = albumOpen[id] ? '&#9660;' : '&#9654;';
+}
+
+// ── Snapshot table (selected date) ──────────────────────────────────────────────
+function renderSnapshot() {
+  document.getElementById('songs-thead').innerHTML = `<tr>
+    <th onclick="sortTable('song')" class="${sortColClass('song')}">Song <span class="sort-arrow"></span></th>
+    <th>Source</th>
+    <th onclick="sortTable('rank')" class="${sortColClass('rank')}">Rank <span class="sort-arrow"></span></th>
+    <th>Delta</th>
+    <th onclick="sortTable('streams')" class="${sortColClass('streams')}">Streams <span class="sort-arrow"></span></th>
+    <th>Stream delta</th>
+    ${groupMode === 'albums' ? '<th>Album</th>' : ''}
+  </tr>`;
+
+  // Build song list for selected date
+  let rows = [];
+  for (const src of activeSources) {
+    if (!DATA[src]) continue;
+    for (const [song, entries] of Object.entries(DATA[src])) {
+      if (searchQuery && !song.toLowerCase().includes(searchQuery)) continue;
+      const entry = entries[selectedDate];
+      if (!entry) continue;
+      // Find previous entry
+      const songDates = Object.keys(entries).sort();
+      const idx = songDates.indexOf(selectedDate);
+      const prevDate = idx > 0 ? songDates[idx - 1] : null;
+      const prevEntry = prevDate ? entries[prevDate] : null;
+
+      const existing = rows.find(r => r.song.toLowerCase() === song.toLowerCase());
+      if (existing) {
+        existing.sources[src] = { entry, prevEntry };
+      } else {
+        rows.push({ song, sources: { [src]: { entry, prevEntry } } });
+      }
+    }
+  }
+
+  // KPI for snapshot date
+  const totalStreams = {};
+  rows.forEach(r => {
+    for (const [src, {entry}] of Object.entries(r.sources)) {
+      totalStreams[src] = (totalStreams[src] || 0) + (entry.streams || 0);
+    }
+  });
+  const totalStr = Object.entries(totalStreams)
+    .map(([src, v]) => `<span class="dot ${src}" style="vertical-align:middle;margin-right:4px"></span>${fmtN(v)}`)
+    .join(' ');
+  document.getElementById('kpi-row').innerHTML = `
+    <div class="kpi"><div class="kpi-label">Date</div><div class="kpi-val" style="font-size:14px">${fmtDate(selectedDate)}</div></div>
+    <div class="kpi"><div class="kpi-label">Songs in chart</div><div class="kpi-val">${rows.length}</div></div>
+    <div class="kpi"><div class="kpi-label">Total streams</div><div class="kpi-val" style="font-size:13px">${totalStr}</div></div>
+    <div class="kpi"><div class="kpi-label">Best pos.</div><div class="kpi-val">#${rows.length ? Math.min(...rows.flatMap(r => Object.values(r.sources).map(s => s.entry.rank || 999))) : '—'}</div></div>
+    <div class="kpi"><div class="kpi-label">Sources</div><div class="kpi-val" style="font-size:14px">${[...activeSources].join(' + ')}</div></div>`;
+
+  // Sort
+  if (!sortCol || sortCol === 'rank') {
+    rows.sort((a, b) => {
+      const ar = Math.min(...Object.values(a.sources).map(s => s.entry.rank || 999));
+      const br = Math.min(...Object.values(b.sources).map(s => s.entry.rank || 999));
+      return (ar - br) * sortDir;
+    });
+  } else if (sortCol === 'song') {
+    rows.sort((a, b) => a.song.localeCompare(b.song) * sortDir);
+  } else if (sortCol === 'streams') {
+    rows.sort((a, b) => {
+      const as = Math.max(...Object.values(a.sources).map(s => s.entry.streams || 0));
+      const bs = Math.max(...Object.values(b.sources).map(s => s.entry.streams || 0));
+      return (bs - as) * sortDir;
+    });
+  }
+
+  if (groupMode === 'albums') {
+    renderSnapshotAlbums(rows);
+  } else {
+    document.getElementById('table-body').innerHTML = rows.map(r => snapshotRow(r)).join('');
+  }
+}
+
+function snapshotRow({song, sources}) {
+  const rankCells = [], deltaCells = [], streamsCells = [], sdeltaCells = [];
+  for (const src of activeSources) {
+    const sd = sources[src];
+    if (!sd) continue;
+    const { entry, prevEntry } = sd;
+    rankCells.push(`<span class="dot ${src}"></span> <span class="rk">#${entry.rank || '—'}</span>`);
+    deltaCells.push(`<span class="dot ${src}"></span> ${fmtDelta(entry)}`);
+    streamsCells.push(`<span class="dot ${src}"></span> <span class="num">${fmtN(entry.streams)}</span>`);
+    sdeltaCells.push(`<span class="dot ${src}"></span> ${fmtPct(entry.streams, prevEntry?.streams)}`);
+  }
+  const albumCell = groupMode === 'albums'
+    ? `<td><span class="sub">${getAlbum([...activeSources][0], song) || '—'}</span></td>` : '';
+  return `<tr onclick="openModal('${escQ(song)}')" style="cursor:pointer">
+    <td class="song-name">${song}</td>
+    <td>${[...activeSources].filter(s=>sources[s]).map(s=>`<span class="dot ${s}"></span>`).join(' ')}</td>
+    <td>${rankCells.join('<br>')}</td>
+    <td>${deltaCells.join('<br>')}</td>
+    <td>${streamsCells.join('<br>')}</td>
+    <td>${sdeltaCells.join('<br>')}</td>
+    ${albumCell}
+  </tr>`;
+}
+
+function renderSnapshotAlbums(rows) {
+  const groups = {};
+  for (const r of rows) {
+    let album = '';
+    for (const src of activeSources) {
+      album = getAlbum(src, r.song);
+      if (album) break;
+    }
+    const key = album || '_no_album_';
+    if (!groups[key]) groups[key] = { album: album || 'Unknown album', rows: [], totalStreams: {} };
+    groups[key].rows.push(r);
+    for (const [src, {entry}] of Object.entries(r.sources)) {
+      groups[key].totalStreams[src] = (groups[key].totalStreams[src] || 0) + (entry.streams || 0);
+    }
+  }
+  const sorted = Object.values(groups).sort((a, b) => {
+    const as = Object.values(a.totalStreams).reduce((s,v)=>s+v,0);
+    const bs = Object.values(b.totalStreams).reduce((s,v)=>s+v,0);
+    return bs - as;
+  });
+  let html = '';
+  sorted.forEach((g, gi) => {
+    const totalStr = Object.entries(g.totalStreams)
+      .filter(([,v])=>v>0)
+      .map(([src,v])=>`<span class="dot ${src}"></span> ${fmtN(v)}`).join(' &nbsp; ');
+    const id = 'salb-' + gi;
+    const cols = 6 + (groupMode === 'albums' ? 1 : 0);
+    html += `<tr class="album-header-row" onclick="toggleAlbum('${id}')">
+      <td colspan="${cols}">
+        <div class="album-hdr-inner">
+          <span class="album-hdr-arrow" id="${id}-arrow">&#9654;</span>
+          <span class="album-hdr-name">${g.album}</span>
+          <span class="album-hdr-count">${g.rows.length} song${g.rows.length>1?'s':''}</span>
+          <span class="album-hdr-streams">${totalStr}</span>
+        </div>
+      </td>
+    </tr>`;
+    g.rows.forEach(r => {
+      html += snapshotRow(r).replace('<tr ', `<tr class="album-child ${id}" style="display:none" `);
+    });
+  });
+  document.getElementById('table-body').innerHTML = html;
+}
+
+// ── Sorting ──────────────────────────────────────────────────────────────────────
+function sortColClass(col) {
+  if (sortCol !== col) return '';
+  return sortDir === 1 ? 'sort-asc' : 'sort-desc';
+}
+
+function sortTable(col) {
+  if (sortCol === col) sortDir *= -1;
+  else { sortCol = col; sortDir = 1; }
+  renderTable();
+}
+
+function sortSongs(songs) {
+  const col = sortCol || 'rank';
+  return [...songs].sort((a, b) => {
+    let av, bv;
+    if (col === 'song') { av = a.song; bv = b.song; return av.localeCompare(bv) * sortDir; }
+    if (col === 'rank') {
+      av = Math.min(...Object.values(a.sources).filter(Boolean).map(s => s.lastRank || 999));
+      bv = Math.min(...Object.values(b.sources).filter(Boolean).map(s => s.lastRank || 999));
+    } else if (col === 'streams') {
+      av = Math.max(...Object.values(a.sources).filter(Boolean).map(s => s.lastStreams || 0));
+      bv = Math.max(...Object.values(b.sources).filter(Boolean).map(s => s.lastStreams || 0));
+      return (bv - av) * sortDir;
+    } else if (col === 'bestRank') {
+      av = Math.min(...Object.values(a.sources).filter(Boolean).map(s => s.bestRank || 999));
+      bv = Math.min(...Object.values(b.sources).filter(Boolean).map(s => s.bestRank || 999));
+    } else if (col === 'bestStreams') {
+      av = Math.max(...Object.values(a.sources).filter(Boolean).map(s => s.bestStreams || 0));
+      bv = Math.max(...Object.values(b.sources).filter(Boolean).map(s => s.bestStreams || 0));
+      return (bv - av) * sortDir;
+    } else if (col === 'days') {
+      av = Math.max(...Object.values(a.sources).filter(Boolean).map(s => s.days || 0));
+      bv = Math.max(...Object.values(b.sources).filter(Boolean).map(s => s.days || 0));
+      return (bv - av) * sortDir;
+    } else if (col === 'streak') {
+      av = Math.max(...Object.values(a.sources).filter(Boolean).map(s => s.streak || 0));
+      bv = Math.max(...Object.values(b.sources).filter(Boolean).map(s => s.streak || 0));
+      return (bv - av) * sortDir;
+    } else if (col === 'first') {
+      av = Math.min(...Object.values(a.sources).filter(Boolean).map(s => s.firstDate || '9999'));
+      bv = Math.min(...Object.values(b.sources).filter(Boolean).map(s => s.firstDate || '9999'));
+      return av.localeCompare(bv) * sortDir;
+    }
+    return (av - bv) * sortDir;
+  });
+}
+
+// ── Song detail modal ────────────────────────────────────────────────────────────
+function escQ(s) { return s.replace(/\\/g,'\\\\').replace(/'/g,"\\'"); }
+
+function openModal(song) {
+  const modal = document.getElementById('modal');
+  document.getElementById('modal-song-name').textContent = song;
+
+  // Find album
+  let album = '';
+  for (const src of ['fr', 'global']) {
+    album = getAlbum(src, song);
+    if (album) break;
+  }
+  document.getElementById('modal-song-sub').textContent = album || '';
+
+  // Stats per source
+  const statRows = [...activeSources].map(src => {
+    const stats = getStats(src, song);
+    if (!stats) return '';
+    return `
+      <div class="modal-stat" style="border-top:3px solid var(--${src})">
+        <div class="modal-stat-label">${src === 'fr' ? 'France' : 'Global'}</div>
+        <div style="font-size:12px;color:var(--muted);margin-bottom:6px">#${stats.bestRank} peak &nbsp;&bull;&nbsp; ${stats.days}d in chart</div>
+        <div style="font-size:12px">${fmtN(stats.bestStreams)} max streams</div>
+      </div>`;
+  }).join('');
+  document.getElementById('modal-stats').innerHTML = statRows || '<div class="no-data">No data.</div>';
+
+  // History table
+  const allEntries = [];
+  for (const src of ['fr', 'global']) {
+    if (!DATA[src] || !DATA[src][song]) continue;
+    for (const [d, e] of Object.entries(DATA[src][song])) {
+      const existing = allEntries.find(x => x.date === d);
+      if (existing) existing[src] = e;
+      else { const entry = { date: d }; entry[src] = e; allEntries.push(entry); }
+    }
+  }
+  allEntries.sort((a, b) => b.date.localeCompare(a.date));
+
+  const histHtml = allEntries.slice(0, 60).map(row => {
+    const cells = ['fr', 'global'].map(src => {
+      const e = row[src];
+      if (!e) return '';
+      return `<span class="dot ${src}" style="vertical-align:middle"></span> #${e.rank||'—'} ${fmtDelta(e)} &nbsp; <span style="color:var(--muted);font-size:12px">${fmtN(e.streams)}</span>`;
+    }).filter(Boolean).join(' &nbsp; ');
+    return `<div class="modal-hist-row">
+      <span class="modal-hist-date">${row.date}</span>
+      <span style="font-size:13px">${cells}</span>
+    </div>`;
+  }).join('');
+
+  document.getElementById('modal-hist').innerHTML = `
+    <div style="font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:10px">History</div>
+    ${histHtml || '<div class="no-data">No history.</div>'}`;
+
+  document.getElementById('modal-bg').style.display = 'flex';
+}
+
+function closeModal(e) {
+  if (e.target === document.getElementById('modal-bg')) closeModalDirect();
+}
+function closeModalDirect() {
+  document.getElementById('modal-bg').style.display = 'none';
+}
+
+// ── Charts ───────────────────────────────────────────────────────────────────────
+function setChartSrc(src) {
+  if (!DATA[src]) return;
+  chartSrc = src;
+  document.getElementById('chart-pill-fr').className = 'src-pill fr' + (src === 'fr' ? ' on' : '');
+  document.getElementById('chart-pill-global').className = 'src-pill global' + (src === 'global' ? ' on' : '');
+  activeRankSongs = new Set(); activeStreamsSongs = new Set();
+  renderCharts(src);
+}
+
+function resetChartRange() {
+  document.getElementById('chart-from').value = '';
+  document.getElementById('chart-to').value = '';
+  renderCharts(chartSrc);
+}
+
+function getChartDates(src) {
+  let dates = getAllDates(src);
+  const from = document.getElementById('chart-from').value;
+  const to   = document.getElementById('chart-to').value;
+  if (from) dates = dates.filter(d => d >= from);
+  if (to)   dates = dates.filter(d => d <= to);
+  return dates;
+}
+
+function renderChips(id, songs, activeSet, type) {
+  document.getElementById(id).innerHTML = songs.map((s, i) => {
+    const on = activeSet.has(s), c = COLORS[i % COLORS.length];
+    return `<button class="chip" onclick="toggleChip('${escQ(s)}','${type}')"
+      style="${on ? 'background:' + c + ';color:#fff;border-color:' + c : ''}">${s}</button>`;
+  }).join('');
+}
+
+function toggleChip(song, type) {
+  const set = type === 'rank' ? activeRankSongs : activeStreamsSongs;
+  if (set.has(song)) set.delete(song); else set.add(song);
+  renderChips(type + '-chips', getSongs(chartSrc), set, type);
+  drawChart(type, chartSrc);
+}
+
+function drawChart(type, src) {
+  const h = DATA[src], songs = getSongs(src), dates = getChartDates(src);
+  const activeSet = type === 'rank' ? activeRankSongs : activeStreamsSongs;
+  const datasets = [...activeSet].map(song => ({
+    label: song,
+    data: dates.map(d => h[song]?.[d]?.[type] ?? null),
+    borderColor: COLORS[songs.indexOf(song) % COLORS.length],
+    backgroundColor: 'transparent', borderWidth: 1.5,
+    pointRadius: 0, pointHoverRadius: 4, tension: 0.3, spanGaps: false
+  }));
+  if (type === 'rank' && rankChart) rankChart.destroy();
+  if (type === 'streams' && streamsChart) streamsChart.destroy();
+  const chart = new Chart(document.getElementById(type + '-chart'), {
+    type: 'line', data: { labels: dates.map(fmtDShort), datasets },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      scales: {
+        y: type === 'rank'
+          ? { reverse: true, min: 1, ticks: { font: { size: 11 }, color: '#918e86' }, grid: { color: '#e6e2db' } }
+          : { ticks: { font: { size: 11 }, color: '#918e86', callback: v => fmtN(v) }, grid: { color: '#e6e2db' } },
+        x: { ticks: { font: { size: 10 }, color: '#918e86', maxTicksLimit: 14 }, grid: { display: false } }
+      },
+      plugins: { legend: { display: false }, tooltip: {
+        mode: 'index', intersect: false,
+        callbacks: type === 'streams' ? { label: c => c.dataset.label + ': ' + fmtN(c.raw) } : {}
+      }}
+    }
+  });
+  if (type === 'rank') rankChart = chart; else streamsChart = chart;
+}
+
+function renderCharts(src) {
+  if (!DATA[src]) return;
+  const songs = getSongs(src), top5 = songs.slice(0, Math.min(5, songs.length));
+  if (!activeRankSongs.size) top5.forEach(s => activeRankSongs.add(s));
+  if (!activeStreamsSongs.size) top5.forEach(s => activeStreamsSongs.add(s));
+  renderChips('rank-chips', songs, activeRankSongs, 'rank');
+  renderChips('streams-chips', songs, activeStreamsSongs, 'streams');
+  drawChart('rank', src); drawChart('streams', src);
+}
+
+// ── Top ──────────────────────────────────────────────────────────────────────────
+function renderTop() {
+  ['fr', 'global'].forEach(src => {
+    const el = document.getElementById('top-' + src);
+    if (!DATA[src]) { el.innerHTML = '<div class="no-data">Data unavailable.</div>'; return; }
+    const allStats = getSongs(src).map(s => ({ song: s, stats: getStats(src, s) })).filter(x => x.stats);
+    const byRank    = [...allStats].sort((a,b) => a.stats.bestRank - b.stats.bestRank).slice(0, 8);
+    const byStreams  = [...allStats].sort((a,b) => b.stats.bestStreams - a.stats.bestStreams).slice(0, 8);
+    const byDays    = [...allStats].sort((a,b) => b.stats.days - a.stats.days).slice(0, 6);
+    const byStreak  = [...allStats].filter(x => x.stats.streak > 0).sort((a,b) => b.stats.streak - a.stats.streak).slice(0, 6);
+    el.innerHTML = `
+      <div class="perf-card"><div class="perf-title">Best positions</div>
+        ${byRank.map(x => `<div class="perf-row"><div class="perf-song">${x.song}</div><div class="perf-val">#${x.stats.bestRank}<span class="perf-date">${fmtD(x.stats.bestRankDate)}</span></div></div>`).join('')}
+      </div>
+      <div class="perf-card"><div class="perf-title">Best streams</div>
+        ${byStreams.map(x => `<div class="perf-row"><div class="perf-song">${x.song}</div><div class="perf-val">${fmtN(x.stats.bestStreams)}<span class="perf-date">${fmtD(x.stats.bestStreamsDate)}</span></div></div>`).join('')}
+      </div>
+      <div class="perf-card"><div class="perf-title">Most days in chart</div>
+        ${byDays.map(x => `<div class="perf-row"><div class="perf-song">${x.song}</div><div class="perf-val">${x.stats.days}d</div></div>`).join('')}
+      </div>
+      <div class="perf-card"><div class="perf-title">Current streak</div>
+        ${byStreak.length ? byStreak.map(x => `<div class="perf-row"><div class="perf-song">${x.song}</div><div class="perf-val">${x.stats.streak}d ${x.stats.isActive ? '&#9679;' : ''}</div></div>`).join('') : '<div class="no-data" style="padding:6px 0">&#8212;</div>'}
+      </div>`;
+  });
+}
+
+// ── History ──────────────────────────────────────────────────────────────────────
+function setHistSrc(src) {
+  if (!DATA[src]) return;
+  histSrc = src;
+  document.getElementById('hist-pill-fr').className = 'src-pill fr' + (src === 'fr' ? ' on' : '');
+  document.getElementById('hist-pill-global').className = 'src-pill global' + (src === 'global' ? ' on' : '');
+  updateHistSongFilter();
+  renderHistory(src);
+}
+
+function resetHistRange() {
+  document.getElementById('hist-from').value = '';
+  document.getElementById('hist-to').value = '';
+  renderHistory(histSrc);
+}
+
+function updateHistSongFilter() {
+  const sel = document.getElementById('hist-song-filter');
+  const prev = sel.value;
+  const songs = getSongs(histSrc).sort();
+  sel.innerHTML = '<option value="">All</option>' +
+    songs.map(s => `<option value="${escQ(s)}"${s === prev ? ' selected' : ''}>${s}</option>`).join('');
+}
+
+function renderHistory(src) {
+  const el = document.getElementById('history-list');
+  if (!DATA[src]) { el.innerHTML = '<div class="no-data" style="padding:16px 0">Data unavailable.</div>'; return; }
+  const h = DATA[src];
+  let allDates = getAllDates(src).reverse();
+
+  const from = document.getElementById('hist-from').value;
+  const to   = document.getElementById('hist-to').value;
+  if (from) allDates = allDates.filter(d => d >= from);
+  if (to)   allDates = allDates.filter(d => d <= to);
+
+  const songFilter = document.getElementById('hist-song-filter').value;
+  const dates = allDates.slice(0, 120);
+  const allDatesFwd = getAllDates(src);
+
+  el.innerHTML = '<div class="hist-grid">' + dates.map(d => {
+    let present = Object.entries(h)
+      .filter(([song, e]) => {
+        if (!e[d]) return false;
+        if (songFilter && song !== songFilter) return false;
+        return true;
+      })
+      .map(([song, e]) => {
+        const entry = e[d];
+        const songDates = Object.keys(e).sort();
+        const idx = songDates.indexOf(d);
+        const prevDate = idx > 0 ? songDates[idx - 1] : null;
+        const prevEntry = prevDate ? e[prevDate] : null;
+        return { song, entry, prevEntry, out: false };
+      })
+      .sort((a, b) => (a.entry.rank || 999) - (b.entry.rank || 999));
+
+    // OUT songs
+    const yesterday = allDatesFwd[allDatesFwd.indexOf(d) - 1];
+    let outSongs = [];
+    if (!songFilter && yesterday) {
+      outSongs = Object.entries(h)
+        .filter(([, e]) => e[yesterday] && !e[d])
+        .map(([song, e]) => ({ song, entry: e[yesterday], prevEntry: null, out: true }));
+    }
+
+    const all = [...present, ...outSongs];
+    if (!all.length) return '';
+
+    return `<div class="hist-day">
+      <div class="hist-date">${d}</div>
+      <div class="hist-songs">
+        ${all.map(({ song, entry, prevEntry, out }) => {
+          const deltaHtml = out ? '<span class="delta-badge out">OUT</span>' : fmtDelta(entry);
+          const pctHtml = (!out && prevEntry) ? fmtPct(entry.streams, prevEntry.streams) : '';
+          return `<div class="hist-row${out ? ' out' : ''}">
+            <span class="hist-rk">#${entry.rank || '—'}</span>
+            ${deltaHtml}
+            <span class="hist-name" onclick="openModal('${escQ(song)}')">${song}</span>
+            <span class="hist-streams">${out ? '&#8212;' : fmtN(entry.streams)}</span>
+            ${pctHtml}
+          </div>`;
+        }).join('')}
+      </div>
+    </div>`;
+  }).join('') + '</div>';
+}
+
+// ── Tabs ─────────────────────────────────────────────────────────────────────────
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab').forEach(b => b.classList.remove('on'));
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('on'));
+  btn.classList.add('on');
+  document.getElementById('tab-' + name).classList.add('on');
+  if (name === 'charts') setTimeout(() => { rankChart?.resize(); streamsChart?.resize(); }, 50);
+}
+
+loadAll();
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+rank,uri,artist_names,track_name,source,peak_rank,previous_rank,days_on_chart,streams
+1,spotify:track:0V3wPSX9ygBnCm8psDIegu,Taylor Swift,Anti-Hero,Taylor Swift,1,1,8,9662730
+4,spotify:track:5jQI2r1RdgtuT8S3iG8zFC,Taylor Swift,Lavender Haze,Taylor Swift,2,3,8,5810977
+5,spotify:track:3rWDp9tBPQR9z6U5YyRSK4,Taylor Swift,Midnight Rain,Taylor Swift,4,4,8,5510717
+6,spotify:track:1wtOxkiel43cVs0Yux5Q4h,"Taylor Swift, Lana Del Rey",Snow On The Beach (feat. Lana Del Rey),Taylor Swift,3,5,8,5160505
+8,spotify:track:3eX0NZfLtGzoLUxPNvRfqm,Taylor Swift,Maroon,Taylor Swift,4,6,8,4918095
+9,spotify:track:7KokYm8cMIXCsGVmUvKtqf,Taylor Swift,Karma,Taylor Swift,8,8,8,4774317
+11,spotify:track:4D7BCuvgdJlYvlX5WlN54t,Taylor Swift,"You're On Your Own, Kid",Taylor Swift,5,7,8,4703386
+14,spotify:track:3qoftcUZaUOncvIYjFSPdE,Taylor Swift,Bejeweled,Taylor Swift,9,9,8,4476848
+15,spotify:track:1xwAWUI6Dj0WGC3KiUPN0O,Taylor Swift,Vigilante Shit,Taylor Swift,7,10,8,4375153
+16,spotify:track:0heeNYlwOGuUSe7TgUD27B,Taylor Swift,Question...?,Taylor Swift,8,12,8,4177255
+24,spotify:track:7FmYn9e7KHMXcxqGSj9LjH,Taylor Swift,Mastermind,Taylor Swift,12,16,8,3452552
+25,spotify:track:0A1JLUlkZkp2EFrosoNQi0,Taylor Swift,Labyrinth,Taylor Swift,11,18,8,3355024
+28,spotify:track:0wavGRldH0AWyu2zvTz8zb,Taylor Swift,Sweet Nothing,Taylor Swift,12,19,8,3171787
+39,spotify:track:3pUa0ZxdSeaJXm0EIydD3F,Taylor Swift,"Would've, Could've, Should've",Taylor Swift,21,30,8,2457176
+49,spotify:track:5BYl3SodS3rGmafWXRWmB7,Taylor Swift,The Great War,Taylor Swift,22,37,8,2173600
+55,spotify:track:3jzbpOzoYa22FvzBkNkLvC,Taylor Swift,Bigger Than The Whole Sky,Taylor Swift,23,40,8,2091864
+62,spotify:track:6J834IBcZJMH38ksrgAqwF,Taylor Swift,Paris,Taylor Swift,27,48,8,1902165
+68,spotify:track:4356PL6jkERzJouVfQQkZo,Taylor Swift,High Infidelity,Taylor Swift,30,53,8,1770081
+76,spotify:track:6RJBrG3VHz2hPITjv88chh,Taylor Swift,Glitch,Taylor Swift,34,61,8,1586996
+81,spotify:track:7lFNXsbcbds699xCWO3pSe,Taylor Swift,Dear Reader,Taylor Swift,37,65,8,1503397
+134,spotify:track:1R0a2iXumgCiFb7HEZ7gUE,Taylor Swift,Don’t Blame Me,Taylor Swift,68,94,170,1228596
+178,spotify:track:1u8c2t2Cy7UBoG4ArRcF5g,Taylor Swift,Blank Space,Taylor Swift,94,170,365,1042148

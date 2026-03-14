@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//tmp/**)",
+      "Read(//c/Users/sfara/AppData/Local/Temp/claude/**)"
+    ]
+  }
+}

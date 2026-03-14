@@ -1,0 +1,4 @@
+rank,uri,artist_names,track_name,source,peak_rank,previous_rank,days_on_chart,streams,lastfm_tags,pop_flag,album,release_date,days_since_release
+19,spotify:track:0V3wPSX9ygBnCm8psDIegu,Taylor Swift,Anti-Hero,Taylor Swift,1,20,135,2868152,rock; grunge; 90s; test-tag; batch-test,False,Midnights [Clean],,
+138,spotify:track:5jQI2r1RdgtuT8S3iG8zFC,Taylor Swift,Lavender Haze,Taylor Swift,2,131,133,1286704,pop; synthpop; dream pop; overrated; electropop,True,Midnights,,
+149,spotify:track:1u8c2t2Cy7UBoG4ArRcF5g,Taylor Swift,Blank Space,Taylor Swift,94,153,464,1244098,pop; love at first listen; 2014; female vocalists; best of 2014,True,1989,,

@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comparaison — TS Tracker</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+:root {
+  --bg:#f7f6f3;--surface:#fff;--border:#e6e2db;--text:#18180f;--muted:#918e86;
+  --fr:#2d5a3d;--global:#b85c20;--up:#2d7a4d;--down:#c44030;
+  --c1:#2d5a3d;--c2:#b85c20;
+  --shadow:0 1px 2px rgba(0,0,0,.05),0 4px 12px rgba(0,0,0,.04);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;line-height:1.5;min-height:100vh}
+.page{max-width:1100px;margin:0 auto;padding:40px 28px 80px}
+
+header{display:flex;align-items:center;justify-content:space-between;margin-bottom:40px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+.logo{font-family:'Playfair Display',serif;font-size:20px;font-weight:500;letter-spacing:-.2px}
+.logo span{color:var(--muted);font-size:13px;font-family:'DM Sans',sans-serif;font-style:italic;margin-left:8px;font-weight:300}
+.back-btn{font-size:12px;color:var(--muted);text-decoration:none;border:1px solid var(--border);border-radius:4px;padding:5px 12px;transition:all .15s}
+.back-btn:hover{color:var(--text);border-color:var(--text)}
+
+/* Selectors */
+.selector-row{display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:start;margin-bottom:28px}
+.selector-block{background:var(--surface);border:2px solid var(--border);border-radius:10px;padding:20px;transition:border-color .2s}
+.selector-block.s1{border-color:var(--c1)}
+.selector-block.s2{border-color:var(--c2)}
+.sel-label{font-size:10px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;margin-bottom:10px}
+.sel-label.s1{color:var(--c1)}.sel-label.s2{color:var(--c2)}
+.sel-source{display:flex;gap:6px;margin-bottom:10px}
+.sel-src-btn{padding:3px 10px;font-size:11px;font-family:'DM Sans',sans-serif;border:1px solid var(--border);border-radius:12px;background:var(--surface);color:var(--muted);cursor:pointer;transition:all .15s}
+.sel-src-btn.on.s1{background:var(--c1);color:#fff;border-color:var(--c1)}
+.sel-src-btn.on.s2{background:var(--c2);color:#fff;border-color:var(--c2)}
+.sel-search{width:100%;font-size:13px;font-family:'DM Sans',sans-serif;border:1px solid var(--border);border-radius:6px;padding:7px 10px;margin-bottom:8px;outline:none;transition:border-color .15s}
+.sel-search:focus{border-color:var(--muted)}
+.sel-list{max-height:160px;overflow-y:auto;border:1px solid var(--border);border-radius:6px;background:var(--bg)}
+.sel-item{padding:7px 10px;font-size:13px;cursor:pointer;transition:background .1s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sel-item:hover{background:#eeeae3}
+.sel-item.on.s1{background:var(--c1);color:#fff}
+.sel-item.on.s2{background:var(--c2);color:#fff}
+.sel-item.disabled{color:var(--muted);font-style:italic;cursor:default}
+.sel-selected{font-size:13px;font-weight:500;margin-top:10px;min-height:20px}
+.sel-selected.s1{color:var(--c1)}.sel-selected.s2{color:var(--c2)}
+
+.vs-badge{display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:22px;color:var(--muted);font-style:italic;padding-top:50px}
+
+/* Controls */
+.controls{display:flex;align-items:center;gap:8px;margin-bottom:24px;flex-wrap:wrap}
+.controls label{font-size:11px;color:var(--muted)}
+.ctrl-toggle{display:flex;border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.ct-btn{padding:5px 13px;font-size:12px;font-family:'DM Sans',sans-serif;border:none;border-right:1px solid var(--border);background:var(--surface);color:var(--muted);cursor:pointer;transition:all .15s}
+.ct-btn:last-child{border-right:none}
+.ct-btn.on{background:var(--text);color:#fff}
+.ctrl-sep{width:1px;height:20px;background:var(--border);margin:0 4px}
+.ctrl-day{font-size:12px;font-family:'DM Sans',sans-serif;border:1px solid var(--border);border-radius:4px;padding:4px 8px;background:var(--surface);color:var(--text);outline:none;width:70px}
+
+/* KPI */
+.kpi-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px}
+.kpi-block{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px 18px;box-shadow:var(--shadow)}
+.kpi-block-title{font-size:11px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;margin-bottom:12px}
+.kpi-block-title.s1{color:var(--c1)}.kpi-block-title.s2{color:var(--c2)}
+.kpi-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px}
+.kpi-item{}
+.kpi-item-label{font-size:10px;color:var(--muted);margin-bottom:2px}
+.kpi-item-val{font-family:'Playfair Display',serif;font-size:17px;font-weight:500}
+.kpi-item-sub{font-size:11px;color:var(--muted)}
+.kpi-win{color:var(--up)}.kpi-lose{color:var(--down)}
+
+/* Charts */
+.chart-section{margin-bottom:28px}
+.section-h{font-family:'Playfair Display',serif;font-size:16px;font-weight:500;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.chart-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:20px;box-shadow:var(--shadow)}
+.chart-wrap{position:relative;height:260px}
+
+/* Legend */
+.legend{display:flex;gap:16px;margin-bottom:14px;flex-wrap:wrap}
+.legend-item{display:flex;align-items:center;gap:6px;font-size:12px}
+.legend-dot{width:12px;height:3px;border-radius:2px}
+
+/* Day table */
+.day-table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead th{text-align:left;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:10px 14px;border-bottom:1px solid var(--border);background:var(--bg);white-space:nowrap}
+tbody td{padding:8px 14px;border-bottom:1px solid var(--border);vertical-align:middle;font-variant-numeric:tabular-nums}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover td{background:#faf9f7}
+tbody tr.highlight td{background:#fffbee}
+.rk{font-family:'Playfair Display',serif;font-size:14px;font-weight:500}
+.better{font-weight:600}
+.s1-col{color:var(--c1)}.s2-col{color:var(--c2)}
+.day-num{color:var(--muted);font-size:12px}
+
+.no-data{color:var(--muted);font-size:13px;padding:24px;text-align:center;font-style:italic}
+.empty-state{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 20px;gap:12px;color:var(--muted);font-style:italic;font-size:14px;text-align:center}
+.empty-state-big{font-family:'Playfair Display',serif;font-size:28px;color:#ddd;font-style:normal}
+
+/* Text section */
+.text-section{margin-bottom:28px}
+.text-toolbar{display:flex;align-items:center;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+.text-pre{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:20px 22px;box-shadow:var(--shadow);font-family:'Courier New',Courier,monospace;font-size:12px;line-height:1.6;white-space:pre;overflow-x:auto;color:var(--text)}
+.save-status{font-size:11px;color:var(--up);margin-left:4px;opacity:0;transition:opacity .3s}
+.save-status.show{opacity:1}
+
+@media(max-width:700px){.selector-row{grid-template-columns:1fr;}.vs-badge{padding:0;font-size:18px}.kpi-grid{grid-template-columns:1fr 1fr}.page{padding:20px 14px 60px}}
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="logo">TS Tracker <span>Comparaison</span></div>
+    <a href="/" class="back-btn">&#8592; Retour</a>
+  </header>
+
+  <!-- Song selectors -->
+  <div class="selector-row">
+    <div class="selector-block s1" id="block1">
+      <div class="sel-label s1">Chanson A</div>
+      <div class="sel-source" id="src1-btns"></div>
+      <input class="sel-search" type="text" placeholder="Rechercher..." oninput="filterList(1, this.value)" id="search1">
+      <div class="sel-list" id="list1"></div>
+      <div class="sel-selected s1" id="selected1">Aucune selection</div>
+    </div>
+
+    <div class="vs-badge">vs</div>
+
+    <div class="selector-block s2" id="block2">
+      <div class="sel-label s2">Chanson B</div>
+      <div class="sel-source" id="src2-btns"></div>
+      <input class="sel-search" type="text" placeholder="Rechercher..." oninput="filterList(2, this.value)" id="search2">
+      <div class="sel-list" id="list2"></div>
+      <div class="sel-selected s2" id="selected2">Aucune selection</div>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <div class="controls">
+    <label>Alignement</label>
+    <div class="ctrl-toggle">
+      <button class="ct-btn on" id="align-relative" onclick="setAlign('relative')">Jours au chart</button>
+      <button class="ct-btn" id="align-calendar" onclick="setAlign('calendar')">Date calendaire</button>
+    </div>
+    <div class="ctrl-sep"></div>
+    <label>Zoom jour</label>
+    <input class="ctrl-day" type="number" id="day-input" placeholder="ex: 155" min="1" oninput="onDayInput(this.value)">
+    <button class="back-btn" onclick="clearDayInput()" style="font-size:11px">Effacer</button>
+  </div>
+
+  <!-- Result area -->
+  <div id="result">
+    <div class="empty-state">
+      <div class="empty-state-big">A vs B</div>
+      Selectionnez deux chansons pour lancer la comparaison
+    </div>
+  </div>
+</div>
+
+<script>
+const DATA = { fr: null, global: null };
+const SOURCES = ['fr', 'global'];
+const SRC_LABELS = { fr: 'France', global: 'Global' };
+let state = {
+  src1: 'fr', song1: null,
+  src2: 'fr', song2: null,
+  align: 'relative',
+  highlightDay: null,
+};
+let rankChart = null, streamsChart = null;
+
+// ── Load ─────────────────────────────────────────────────────────────────────────
+async function init() {
+  await Promise.all(SOURCES.map(fetchSrc));
+  buildSourceBtns(1); buildSourceBtns(2);
+  buildList(1); buildList(2);
+}
+
+async function fetchSrc(src) {
+  try {
+    const r = await fetch('/data/' + src);
+    if (!r.ok) throw new Error(r.status);
+    DATA[src] = await r.json();
+  } catch(e) { DATA[src] = null; }
+}
+
+// ── Source buttons ────────────────────────────────────────────────────────────────
+function buildSourceBtns(n) {
+  const el = document.getElementById('src' + n + '-btns');
+  el.innerHTML = SOURCES.map(src =>
+    `<button class="sel-src-btn${state['src'+n]===src?' on s'+n:''}" onclick="setSrc(${n},'${src}')">${SRC_LABELS[src]}</button>`
+  ).join('');
+}
+
+function setSrc(n, src) {
+  state['src'+n] = src;
+  state['song'+n] = null;
+  document.getElementById('selected'+n).textContent = 'Aucune selection';
+  buildSourceBtns(n);
+  buildList(n);
+  compare();
+}
+
+// ── Song list ─────────────────────────────────────────────────────────────────────
+function getSongs(src) {
+  if (!DATA[src]) return [];
+  return Object.keys(DATA[src]).sort((a, b) => {
+    // Sort by days on chart desc (most tracked first)
+    const da = Object.keys(DATA[src][a]).length;
+    const db = Object.keys(DATA[src][b]).length;
+    return db - da;
+  });
+}
+
+function buildList(n, filter = '') {
+  const src = state['src' + n];
+  const songs = getSongs(src);
+  const el = document.getElementById('list' + n);
+  const low = filter.toLowerCase();
+  const filtered = low ? songs.filter(s => s.toLowerCase().includes(low)) : songs;
+
+  if (!filtered.length) {
+    el.innerHTML = '<div class="sel-item disabled">Aucune chanson trouvee</div>';
+    return;
+  }
+
+  el.innerHTML = filtered.map(song => {
+    const days = Object.keys(DATA[src][song]).length;
+    const on = state['song' + n] === song;
+    return `<div class="sel-item${on ? ' on s' + n : ''}" onclick="selectSong(${n}, '${escQ(song)}')" title="${song}">
+      ${song} <span style="color:${on?'rgba(255,255,255,.6)':'#bbb'};font-size:11px">${days}j</span>
+    </div>`;
+  }).join('');
+}
+
+function filterList(n, val) {
+  buildList(n, val);
+}
+
+function selectSong(n, song) {
+  state['song' + n] = song;
+  document.getElementById('selected' + n).textContent = song;
+  document.getElementById('search' + n).value = '';
+  buildList(n);
+  compare();
+}
+
+// ── Controls ──────────────────────────────────────────────────────────────────────
+function setAlign(mode) {
+  state.align = mode;
+  document.getElementById('align-relative').classList.toggle('on', mode === 'relative');
+  document.getElementById('align-calendar').classList.toggle('on', mode === 'calendar');
+  compare();
+}
+
+function onDayInput(val) {
+  state.highlightDay = val ? parseInt(val) : null;
+  compare();
+}
+
+function clearDayInput() {
+  document.getElementById('day-input').value = '';
+  state.highlightDay = null;
+  compare();
+}
+
+// ── Compare ───────────────────────────────────────────────────────────────────────
+function compare() {
+  const { src1, song1, src2, song2 } = state;
+  if (!song1 || !song2) {
+    document.getElementById('result').innerHTML = `
+      <div class="empty-state">
+        <div class="empty-state-big">A vs B</div>
+        Selectionnez deux chansons pour lancer la comparaison
+      </div>`;
+    return;
+  }
+
+  const entries1 = getEntries(src1, song1);
+  const entries2 = getEntries(src2, song2);
+
+  if (!entries1.length || !entries2.length) {
+    document.getElementById('result').innerHTML = '<div class="no-data">Donnees insuffisantes.</div>';
+    return;
+  }
+
+  const html = `
+    <div class="kpi-row" id="kpi-cmp"></div>
+    <div class="chart-section">
+      <div class="section-h">Rang <span style="font-size:12px;color:var(--muted);font-family:\'DM Sans\',sans-serif">${state.align==='relative'?'(aligne par jour au chart)':'(date calendaire)'}</span></div>
+      <div class="legend" id="legend-rank"></div>
+      <div class="chart-card"><div class="chart-wrap"><canvas id="rank-chart"></canvas></div></div>
+    </div>
+    <div class="chart-section">
+      <div class="section-h">Streams</div>
+      <div class="legend" id="legend-streams"></div>
+      <div class="chart-card"><div class="chart-wrap"><canvas id="streams-chart"></canvas></div></div>
+    </div>
+    <div class="chart-section">
+      <div class="section-h">Tableau jour par jour</div>
+      <div class="card" style="overflow:hidden"><div class="day-table-wrap"><table>
+        <thead id="day-thead"></thead>
+        <tbody id="day-tbody"></tbody>
+      </table></div></div>
+    </div>
+    <div class="text-section">
+      <div class="section-h">Rapport texte</div>
+      <div class="text-toolbar">
+        <button class="back-btn" onclick="downloadTxt()">&#8595; Telecharger .txt</button>
+        <button class="back-btn" onclick="copyTxt()">&#9647; Copier</button>
+        <button class="back-btn" onclick="saveTxt()">&#128190; Sauvegarder</button>
+        <span class="save-status" id="save-status">Sauvegarde !</span>
+      </div>
+      <pre class="text-pre" id="text-pre"></pre>
+    </div>`;
+
+  document.getElementById('result').innerHTML = html;
+
+  renderKPI(entries1, entries2, song1, song2, src1, src2);
+  renderCharts(entries1, entries2, song1, song2);
+  renderDayTable(entries1, entries2, song1, song2);
+  renderTextSection(entries1, entries2, song1, song2, src1, src2);
+}
+
+function getEntries(src, song) {
+  if (!DATA[src] || !DATA[src][song]) return [];
+  return Object.entries(DATA[src][song])
+    .map(([date, e]) => ({ date, ...e }))
+    .sort((a, b) => a.date.localeCompare(b.date));
+}
+
+// ── KPI ───────────────────────────────────────────────────────────────────────────
+function renderKPI(e1, e2, song1, song2, src1, src2) {
+  const stats = (entries) => {
+    let bestRank = Infinity, bestRankDate = '', bestStreams = 0, bestStreamsDate = '';
+    for (const e of entries) {
+      if (e.rank && e.rank < bestRank) { bestRank = e.rank; bestRankDate = e.date; }
+      if (e.streams && e.streams > bestStreams) { bestStreams = e.streams; bestStreamsDate = e.date; }
+    }
+    return { bestRank, bestRankDate, bestStreams, bestStreamsDate, days: entries.length, firstDate: entries[0]?.date };
+  };
+
+  const s1 = stats(e1), s2 = stats(e2);
+
+  const kpiBlock = (n, song, src, s, other) => {
+    const cls = 's' + n;
+    const rankWin = s.bestRank <= other.bestRank;
+    const streamsWin = s.bestStreams >= other.bestStreams;
+    const daysWin = s.days >= other.days;
+    return `<div class="kpi-block">
+      <div class="kpi-block-title ${cls}">${song} <span style="opacity:.5;font-weight:400">(${SRC_LABELS[src]})</span></div>
+      <div class="kpi-grid">
+        <div class="kpi-item">
+          <div class="kpi-item-label">Pic</div>
+          <div class="kpi-item-val ${rankWin?'kpi-win':''}">#${s.bestRank === Infinity ? '—' : s.bestRank}</div>
+          <div class="kpi-item-sub">${fmtD(s.bestRankDate)}</div>
+        </div>
+        <div class="kpi-item">
+          <div class="kpi-item-label">Max streams</div>
+          <div class="kpi-item-val ${streamsWin?'kpi-win':''}" style="font-size:13px">${fmtN(s.bestStreams)}</div>
+          <div class="kpi-item-sub">${fmtD(s.bestStreamsDate)}</div>
+        </div>
+        <div class="kpi-item">
+          <div class="kpi-item-label">Jours au chart</div>
+          <div class="kpi-item-val ${daysWin?'kpi-win':''}">${s.days}</div>
+          <div class="kpi-item-sub">entree ${fmtD(s.firstDate)}</div>
+        </div>
+        <div class="kpi-item">
+          <div class="kpi-item-label">Jour commun</div>
+          <div class="kpi-item-val" style="font-size:14px">${Math.min(e1.length, e2.length)}</div>
+        </div>
+      </div>
+    </div>`;
+  };
+
+  document.getElementById('kpi-cmp').innerHTML =
+    kpiBlock(1, song1, src1, s1, s2) + kpiBlock(2, song2, src2, s2, s1);
+}
+
+// ── Charts ────────────────────────────────────────────────────────────────────────
+function buildLegend(id, label1, label2) {
+  document.getElementById(id).innerHTML = `
+    <div class="legend-item"><div class="legend-dot" style="background:var(--c1)"></div>${label1}</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--c2)"></div>${label2}</div>`;
+}
+
+function getAlignedData(e1, e2, field) {
+  if (state.align === 'relative') {
+    const maxLen = Math.max(e1.length, e2.length);
+    const labels = Array.from({ length: maxLen }, (_, i) => 'J' + (i + 1));
+    const d1 = e1.map(e => e[field] ?? null);
+    const d2 = e2.map(e => e[field] ?? null);
+    return { labels, d1, d2 };
+  } else {
+    // Calendar alignment
+    const allDates = [...new Set([...e1.map(e => e.date), ...e2.map(e => e.date)])].sort();
+    const map1 = Object.fromEntries(e1.map(e => [e.date, e[field] ?? null]));
+    const map2 = Object.fromEntries(e2.map(e => [e.date, e[field] ?? null]));
+    return {
+      labels: allDates.map(d => d.slice(5)),
+      d1: allDates.map(d => map1[d] ?? null),
+      d2: allDates.map(d => map2[d] ?? null),
+    };
+  }
+}
+
+function renderCharts(e1, e2, song1, song2) {
+  buildLegend('legend-rank', song1, song2);
+  buildLegend('legend-streams', song1, song2);
+
+  const { labels: lR, d1: r1, d2: r2 } = getAlignedData(e1, e2, 'rank');
+  const { labels: lS, d1: s1, d2: s2 } = getAlignedData(e1, e2, 'streams');
+
+  const hDay = state.highlightDay;
+
+  // Rank
+  if (rankChart) rankChart.destroy();
+  rankChart = new Chart(document.getElementById('rank-chart'), {
+    type: 'line',
+    data: {
+      labels: lR,
+      datasets: [
+        { label: song1, data: r1, borderColor: 'var(--c1)', backgroundColor: 'transparent', borderWidth: 2, pointRadius: 0, pointHoverRadius: 4, tension: 0.3, spanGaps: false },
+        { label: song2, data: r2, borderColor: 'var(--c2)', backgroundColor: 'transparent', borderWidth: 2, pointRadius: 0, pointHoverRadius: 4, tension: 0.3, spanGaps: false },
+      ]
+    },
+    options: chartOptions('rank', lR, hDay)
+  });
+
+  // Streams
+  if (streamsChart) streamsChart.destroy();
+  streamsChart = new Chart(document.getElementById('streams-chart'), {
+    type: 'line',
+    data: {
+      labels: lS,
+      datasets: [
+        { label: song1, data: s1, borderColor: 'var(--c1)', backgroundColor: 'transparent', borderWidth: 2, pointRadius: 0, pointHoverRadius: 4, tension: 0.3, spanGaps: false },
+        { label: song2, data: s2, borderColor: 'var(--c2)', backgroundColor: 'transparent', borderWidth: 2, pointRadius: 0, pointHoverRadius: 4, tension: 0.3, spanGaps: false },
+      ]
+    },
+    options: chartOptions('streams', lS, hDay)
+  });
+}
+
+function chartOptions(type, labels, hDay) {
+  const plugins = {
+    legend: { display: false },
+    tooltip: {
+      mode: 'index', intersect: false,
+      callbacks: type === 'streams' ? { label: c => c.dataset.label + ': ' + fmtN(c.raw) } : {}
+    },
+  };
+  if (hDay && hDay <= labels.length) {
+    plugins.annotation = undefined; // Chart.js annotation plugin not loaded, use vertical line via afterDraw
+  }
+  return {
+    responsive: true, maintainAspectRatio: false,
+    scales: {
+      y: type === 'rank'
+        ? { reverse: true, min: 1, ticks: { font: { size: 11 }, color: '#918e86' }, grid: { color: '#e6e2db' } }
+        : { ticks: { font: { size: 11 }, color: '#918e86', callback: v => fmtN(v) }, grid: { color: '#e6e2db' } },
+      x: { ticks: { font: { size: 10 }, color: '#918e86', maxTicksLimit: 20 }, grid: { display: false } }
+    },
+    plugins,
+  };
+}
+
+// ── Day table ─────────────────────────────────────────────────────────────────────
+function renderDayTable(e1, e2, song1, song2) {
+  const maxLen = Math.max(e1.length, e2.length);
+  const hDay = state.highlightDay;
+
+  let thead, tbody;
+  if (state.align === 'relative') {
+    document.getElementById('day-thead').innerHTML = `<tr>
+      <th>Jour</th>
+      <th class="s1-col">Date (${song1.split(' ')[0]})</th>
+      <th class="s1-col">Rang A</th>
+      <th class="s1-col">Streams A</th>
+      <th></th>
+      <th class="s2-col">Rang B</th>
+      <th class="s2-col">Streams B</th>
+      <th class="s2-col">Date (${song2.split(' ')[0]})</th>
+    </tr>`;
+
+    document.getElementById('day-tbody').innerHTML = Array.from({ length: maxLen }, (_, i) => {
+      const day = i + 1;
+      const a = e1[i], b = e2[i];
+      const rankWin = a && b ? (a.rank <= b.rank ? 'A' : 'B') : null;
+      const streamWin = a && b ? (a.streams >= b.streams ? 'A' : 'B') : null;
+      const highlight = hDay && day === hDay;
+
+      return `<tr${highlight ? ' class="highlight"' : ''}>
+        <td class="day-num">${highlight ? '<b>J' + day + '</b>' : 'J' + day}</td>
+        <td class="s1-col" style="font-size:11px;color:var(--muted)">${a ? a.date : '—'}</td>
+        <td><span class="rk ${rankWin==='A'?'better s1-col':''}">${a ? '#' + (a.rank || '—') : '—'}</span></td>
+        <td class="${streamWin==='A'?'better s1-col':''}">${a ? fmtN(a.streams) : '—'}</td>
+        <td style="color:var(--muted);font-size:11px;text-align:center">${rankWin ? (rankWin === 'A' ? '&#8592; rang' : 'rang &#8594;') : ''}</td>
+        <td><span class="rk ${rankWin==='B'?'better s2-col':''}">${b ? '#' + (b.rank || '—') : '—'}</span></td>
+        <td class="${streamWin==='B'?'better s2-col':''}">${b ? fmtN(b.streams) : '—'}</td>
+        <td class="s2-col" style="font-size:11px;color:var(--muted)">${b ? b.date : '—'}</td>
+      </tr>`;
+    }).join('');
+  } else {
+    // Calendar mode
+    const allDates = [...new Set([...e1.map(e => e.date), ...e2.map(e => e.date)])].sort().reverse();
+    const map1 = Object.fromEntries(e1.map((e, i) => [e.date, { ...e, day: i + 1 }]));
+    const map2 = Object.fromEntries(e2.map((e, i) => [e.date, { ...e, day: i + 1 }]));
+
+    document.getElementById('day-thead').innerHTML = `<tr>
+      <th>Date</th>
+      <th class="s1-col">Jour A</th>
+      <th class="s1-col">Rang A</th>
+      <th class="s1-col">Streams A</th>
+      <th></th>
+      <th class="s2-col">Rang B</th>
+      <th class="s2-col">Streams B</th>
+      <th class="s2-col">Jour B</th>
+    </tr>`;
+
+    document.getElementById('day-tbody').innerHTML = allDates.map(date => {
+      const a = map1[date], b = map2[date];
+      const rankWin = a && b ? (a.rank <= b.rank ? 'A' : 'B') : null;
+      const streamWin = a && b ? (a.streams >= b.streams ? 'A' : 'B') : null;
+      return `<tr>
+        <td style="font-size:12px;color:var(--muted)">${date}</td>
+        <td class="s1-col day-num">${a ? 'J' + a.day : '—'}</td>
+        <td><span class="rk ${rankWin==='A'?'better s1-col':''}">${a ? '#' + (a.rank || '—') : '—'}</span></td>
+        <td class="${streamWin==='A'?'better s1-col':''}">${a ? fmtN(a.streams) : '—'}</td>
+        <td style="color:var(--muted);font-size:11px;text-align:center">${rankWin ? (rankWin === 'A' ? '&#8592;' : '&#8594;') : ''}</td>
+        <td><span class="rk ${rankWin==='B'?'better s2-col':''}">${b ? '#' + (b.rank || '—') : '—'}</span></td>
+        <td class="${streamWin==='B'?'better s2-col':''}">${b ? fmtN(b.streams) : '—'}</td>
+        <td class="s2-col day-num">${b ? 'J' + b.day : '—'}</td>
+      </tr>`;
+    }).join('');
+  }
+}
+
+// ── Text report ───────────────────────────────────────────────────────────────────
+let lastText = '';
+
+function renderTextSection(e1, e2, song1, song2, src1, src2) {
+  lastText = generateText(e1, e2, song1, song2, src1, src2);
+  document.getElementById('text-pre').textContent = lastText;
+}
+
+function generateText(e1, e2, song1, song2, src1, src2) {
+  const W = 60;
+  const hr = '-'.repeat(W);
+  const HR = '='.repeat(W);
+  const alignLabel = state.align === 'relative' ? 'Jours au chart' : 'Date calendaire';
+  const today = new Date().toISOString().slice(0, 10);
+
+  const statsOf = (entries) => {
+    let bestRank = Infinity, bestRankDate = '', bestStreams = 0, bestStreamsDate = '';
+    for (const e of entries) {
+      if (e.rank && e.rank < bestRank)       { bestRank = e.rank; bestRankDate = e.date; }
+      if (e.streams && e.streams > bestStreams) { bestStreams = e.streams; bestStreamsDate = e.date; }
+    }
+    return { bestRank, bestRankDate, bestStreams, bestStreamsDate, days: entries.length, firstDate: entries[0]?.date || '' };
+  };
+
+  const s1 = statsOf(e1), s2 = statsOf(e2);
+  // strip narrow no-break spaces from toLocaleString
+  const pn = n => n ? parseInt(n).toLocaleString('fr-FR').replace(/\u202f|\u00a0/g, ' ') : '—';
+  const pad  = (s, n, right = false) => right ? String(s).padStart(n) : String(s).padEnd(n);
+
+  const songBlock = (song, src, s, other) => {
+    const w = (flag) => flag ? ' (*)' : '';
+    return [
+      `  ${song}  [${SRC_LABELS[src]}]`,
+      `    Pic            : #${s.bestRank === Infinity ? '?' : s.bestRank}${w(s.bestRank <= other.bestRank)}   (${s.bestRankDate})`,
+      `    Max streams    : ${pn(s.bestStreams)}${w(s.bestStreams >= other.bestStreams)}   (${s.bestStreamsDate})`,
+      `    Jours au chart : ${s.days}${w(s.days >= other.days)}`,
+      `    Entree         : ${s.firstDate}`,
+    ].join('\n');
+  };
+
+  const lines = [
+    HR,
+    '  COMPARAISON TAYLOR SWIFT - SPOTIFY CHARTS',
+    HR,
+    '',
+    `A : ${song1}  [${SRC_LABELS[src1]}]`,
+    `B : ${song2}  [${SRC_LABELS[src2]}]`,
+    `Alignement : ${alignLabel}`,
+    `Genere le  : ${today}`,
+    '',
+    hr,
+    'STATS GENERALES  (* = meilleur des deux)',
+    hr,
+    '',
+    songBlock(song1, src1, s1, s2),
+    '',
+    songBlock(song2, src2, s2, s1),
+    '',
+    `  Jours communs : ${Math.min(e1.length, e2.length)}`,
+    '',
+    hr,
+    `JOUR PAR JOUR — ${alignLabel.toUpperCase()}`,
+    hr,
+    '',
+  ];
+
+  if (state.align === 'relative') {
+    lines.push(` ${'Jour'.padEnd(5)}  ${'Date A'.padEnd(10)}  ${'#A'.padStart(5)}  ${'Streams A'.padEnd(13)}  ${'':1}  ${'#B'.padStart(5)}  ${'Streams B'.padEnd(13)}  Date B`);
+    lines.push(` ${'—'.repeat(5)}  ${'—'.repeat(10)}  ${'—'.repeat(5)}  ${'—'.repeat(13)}  ${'':1}  ${'—'.repeat(5)}  ${'—'.repeat(13)}  ${'—'.repeat(10)}`);
+    const maxLen = Math.max(e1.length, e2.length);
+    for (let i = 0; i < maxLen; i++) {
+      const a = e1[i], b = e2[i];
+      const day  = ('J' + (i + 1)).padEnd(5);
+      const aDate = pad(a ? a.date : '—', 10);
+      const bDate = a ? (b ? b.date : '—') : '—';
+      const aRank = pad(a ? '#' + a.rank : '—', 5, true);
+      const bRank = pad(b ? '#' + b.rank : '—', 5, true);
+      const aStr  = pad(a ? pn(a.streams) : '—', 13);
+      const bStr  = pad(b ? pn(b.streams) : '—', 13);
+      const dir   = (a && b) ? (a.rank < b.rank ? '<' : a.rank > b.rank ? '>' : '=') : ' ';
+      lines.push(` ${day}  ${aDate}  ${aRank}  ${aStr}  ${dir}  ${bRank}  ${bStr}  ${bDate}`);
+    }
+  } else {
+    const allDates = [...new Set([...e1.map(e => e.date), ...e2.map(e => e.date)])].sort().reverse();
+    const map1 = Object.fromEntries(e1.map((e, i) => [e.date, { ...e, day: i + 1 }]));
+    const map2 = Object.fromEntries(e2.map((e, i) => [e.date, { ...e, day: i + 1 }]));
+    lines.push(` ${'Date'.padEnd(10)}  ${'JA'.padStart(5)}  ${'#A'.padStart(5)}  ${'Streams A'.padEnd(13)}  ${'':1}  ${'#B'.padStart(5)}  ${'Streams B'.padEnd(13)}  JB`);
+    lines.push(` ${'—'.repeat(10)}  ${'—'.repeat(5)}  ${'—'.repeat(5)}  ${'—'.repeat(13)}  ${'':1}  ${'—'.repeat(5)}  ${'—'.repeat(13)}  ${'—'.repeat(5)}`);
+    for (const date of allDates) {
+      const a = map1[date], b = map2[date];
+      const aDay  = pad(a ? 'J' + a.day : '—', 5, true);
+      const bDay  = b ? 'J' + b.day : '—';
+      const aRank = pad(a ? '#' + a.rank : '—', 5, true);
+      const bRank = pad(b ? '#' + b.rank : '—', 5, true);
+      const aStr  = pad(a ? pn(a.streams) : '—', 13);
+      const bStr  = pad(b ? pn(b.streams) : '—', 13);
+      const dir   = (a && b) ? (a.rank < b.rank ? '<' : a.rank > b.rank ? '>' : '=') : ' ';
+      lines.push(` ${date}  ${aDay}  ${aRank}  ${aStr}  ${dir}  ${bRank}  ${bStr}  ${bDay}`);
+    }
+  }
+
+  lines.push('');
+  lines.push(`  < = rang A meilleur   > = rang B meilleur   = = egal`);
+  lines.push(HR);
+  return lines.join('\n');
+}
+
+function txtFilename() {
+  const a = (state.song1 || 'A').replace(/[^a-zA-Z0-9]/g, '_').slice(0, 30);
+  const b = (state.song2 || 'B').replace(/[^a-zA-Z0-9]/g, '_').slice(0, 30);
+  const today = new Date().toISOString().slice(0, 10);
+  return `comparaison_${a}_vs_${b}_${today}.txt`;
+}
+
+function downloadTxt() {
+  if (!lastText) return;
+  const blob = new Blob([lastText], { type: 'text/plain;charset=utf-8' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = txtFilename();
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+function copyTxt() {
+  if (!lastText) return;
+  navigator.clipboard.writeText(lastText).catch(() => {
+    const ta = document.createElement('textarea');
+    ta.value = lastText;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+  });
+}
+
+async function saveTxt() {
+  if (!lastText) return;
+  try {
+    const r = await fetch('/save/comparaison', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ filename: txtFilename(), content: lastText }),
+    });
+    if (!r.ok) throw new Error(r.status);
+    const el = document.getElementById('save-status');
+    el.classList.add('show');
+    setTimeout(() => el.classList.remove('show'), 2500);
+  } catch(e) {
+    alert('Erreur de sauvegarde : ' + e);
+  }
+}
+
+// ── Helpers ───────────────────────────────────────────────────────────────────────
+const fmtN = n => (n || n === 0) ? parseInt(n).toLocaleString('fr-FR') : '—';
+const fmtD = d => d ? d.slice(5) : '—';
+const escQ = s => s.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+
+init();
+</script>
+</body>
+</html>
