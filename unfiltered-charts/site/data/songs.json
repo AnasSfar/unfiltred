@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 348,
-    "total_combined_streams": 121468254590,
+    "songs_updated_on_latest_date": 349,
+    "total_combined_streams": 121468479928,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -2937,7 +2937,7 @@
         "1GwMQaZz6Au3QLDbjbMdme"
       ],
       "rank_total": 52,
-      "rank_daily": 53
+      "rank_daily": 52
     },
     {
       "track_id": "1VPHQriwOsy5aGHLwwZyho",
@@ -5616,7 +5616,7 @@
         "2F3N9tdombb64aW6VtZOdo"
       ],
       "rank_total": 61,
-      "rank_daily": 52
+      "rank_daily": 51
     },
     {
       "track_id": "6oVxXO5oQ4pTpO8RSnkzvv",
@@ -6617,7 +6617,7 @@
         "5hQSXkFgbxjZo9uCwd11so"
       ],
       "rank_total": 97,
-      "rank_daily": 59
+      "rank_daily": 58
     },
     {
       "track_id": "03bTIHJElXZ0O0jqOQvAbY",
@@ -10014,7 +10014,7 @@
         "2NmsngXHeC1GQ9wWrzhOMf"
       ],
       "rank_total": 47,
-      "rank_daily": 57
+      "rank_daily": 56
     },
     {
       "track_id": "560uQyz3p5G9WdnMX39xc6",
@@ -10657,7 +10657,7 @@
         "45R112Jz5hQeKgITXgSXzs"
       ],
       "rank_total": 25,
-      "rank_daily": 51
+      "rank_daily": 50
     },
     {
       "track_id": "4i6cwNY6oIUU2XZxPIw82Y",
@@ -12813,7 +12813,7 @@
         "3rWDp9tBPQR9z6U5YyRSK4"
       ],
       "rank_total": 33,
-      "rank_daily": 55
+      "rank_daily": 54
     },
     {
       "track_id": "6LZaxlycSWrJZ4Volb25qx",
@@ -14593,7 +14593,7 @@
         "045ZeOHPIzhxxsm8bq5kyE"
       ],
       "rank_total": 148,
-      "rank_daily": 56
+      "rank_daily": 55
     },
     {
       "track_id": "4y5bvROuBDPr5fuwXbIBZR",
@@ -14638,7 +14638,7 @@
         "4y5bvROuBDPr5fuwXbIBZR"
       ],
       "rank_total": 34,
-      "rank_daily": 58
+      "rank_daily": 57
     },
     {
       "track_id": "5tWxKWq1DSP1s9WQ5PWuqu",
@@ -17898,7 +17898,7 @@
         "0P9wLFurlgumLXuqFEpw52"
       ],
       "rank_total": 40,
-      "rank_daily": 50
+      "rank_daily": 49
     },
     {
       "track_id": "4EF6IyONolQy0bIQXm2EmX",
@@ -20073,7 +20073,7 @@
         "22bPsP2jCgbLUvh82U0Z3M"
       ],
       "rank_total": 50,
-      "rank_daily": 54
+      "rank_daily": 53
     },
     {
       "track_id": "7kt9e9LFSpN1zQtYEl19o1",
@@ -20081,9 +20081,9 @@
       "title_key": "this is me trying",
       "spotify_url": "https://open.spotify.com/intl-fr/track/7kt9e9LFSpN1zQtYEl19o1",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27395f754318336a07e85ec59bc",
-      "streams": 567416488,
-      "daily_streams": 262975,
-      "last_updated": "2026-03-13",
+      "streams": 567641826,
+      "daily_streams": 225338,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -20092,7 +20092,7 @@
       "current_milestone_label": "500M",
       "next_milestone": 600000000,
       "next_milestone_label": "600M",
-      "remaining_to_next_milestone": 32583512,
+      "remaining_to_next_milestone": 32358174,
       "appearances": [
         {
           "source_type": "album",
@@ -20118,7 +20118,7 @@
         "7kt9e9LFSpN1zQtYEl19o1"
       ],
       "rank_total": 54,
-      "rank_daily": 48
+      "rank_daily": 59
     },
     {
       "track_id": "1gaLZjPrDnHQWJds2Jg4KT",
@@ -21781,7 +21781,7 @@
         "0lx2cLdOt3piJbcaXIV74f"
       ],
       "rank_total": 21,
-      "rank_daily": 49
+      "rank_daily": 48
     },
     {
       "track_id": "77p4fRpoeiZMtUy3P9kN21",
