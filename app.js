@@ -34,6 +34,50 @@ const state = {
    GENERIC HELPERS
 ========================= */
 
+function normalizeAlbumName(name) {
+  if (!name) return "";
+
+  return name
+    .toLowerCase()
+    .replace(/\(taylor'?s version\)/gi, "")
+    .replace(/[^\w\s]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function getAlbumSectionPriority(sectionName) {
+  if (!sectionName) return 50;
+
+  const name = sectionName.toLowerCase();
+
+  if (name.includes("standard")) return 0;
+  if (name.includes("deluxe")) return 10;
+  if (name.includes("edition")) return 20;
+  if (name.includes("bonus")) return 80;
+  if (name.includes("extra")) return 90;
+  if (name.includes("vault")) return 70;
+
+  return 40;
+}
+
+function getAlbumCover(album) {
+  if (!album) return "";
+
+  const targetTitle = String(album.album || "").trim().toLowerCase();
+  if (!targetTitle) return album.image_url || "";
+
+  for (const value of Object.values(state.albumCovers || {})) {
+    if (!value) continue;
+
+    const title = String(value.title || "").trim().toLowerCase();
+    if (title === targetTitle) {
+      return value.cover_url || album.image_url || "";
+    }
+  }
+
+  return album.image_url || "";
+}
+
 function renderFocusModal() {
   return "";
 }
@@ -69,11 +113,11 @@ function formatPercent(v) {
 
 
 function withCacheBuster(url) {
-  if (!url) return "";
+  if (!url || typeof url !== "string") return "";
+
   const sep = url.includes("?") ? "&" : "?";
   return `${url}${sep}v=${Date.now()}`;
 }
-
 
 function persistSelectedDate() {
   if (state.selectedDate) {
@@ -133,6 +177,40 @@ function formatArtistAlbum(song) {
   return `${formatArtists(song)} / ${song.primary_album || "Unknown album"}`;
 }
 
+function sortDisplayBlocks(blocks) {
+  function normalize(value) {
+    return String(value || "")
+      .trim()
+      .toLowerCase();
+  }
+
+  function getRank(block) {
+    const key = normalize(block.key);
+    const name = normalize(block.name);
+
+    if (
+      key.includes("standard") ||
+      name.includes("standard")
+    ) return 0;
+
+    if (
+      key.includes("extra") ||
+      name.includes("extra")
+    ) return 99;
+
+    return 10;
+  }
+
+  return [...blocks].sort((a, b) => {
+    const rankDiff = getRank(a) - getRank(b);
+    if (rankDiff !== 0) return rankDiff;
+
+    const aLabel = normalize(a.name || a.key);
+    const bLabel = normalize(b.name || b.key);
+
+    return aLabel.localeCompare(bLabel);
+  });
+}
 
 /* =========================
    SEARCH NORMALIZATION
@@ -173,20 +251,43 @@ async function loadHistory(date) {
 ========================= */
 
 function getCombineKey(song) {
-
-  const base =
+  const explicit =
     song.song_family ||
     song.base_title ||
     song.title_key ||
-    song.title_clean ||
-    song.title ||
-    song.track_id;
+    song.title_clean;
 
-  return String(base)
+  if (explicit && String(explicit).trim()) {
+    return String(explicit)
+      .toLowerCase()
+      .normalize("NFKD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/\(taylor'?s version\)/gi, "")
+      .replace(/\(from the vault\)/gi, "")
+      .replace(/\(([^)]*version[^)]*)\)/gi, "")
+      .replace(/\[(.*?)\]/g, "")
+      .replace(/\bfrom the vault\b/gi, "")
+      .replace(/\btaylor'?s version\b/gi, "")
+      .replace(/\b(feat|ft|featuring)\.?\s+.+$/gi, "")
+      .replace(/\b(deluxe|standard|edition|bonus track|bonus|remix|acoustic|live|demo|karaoke|instrumental|radio edit)\b/gi, "")
+      .replace(/[^\w\s]/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+  return String(song.title || song.track_id || "")
     .toLowerCase()
-    .replace(/\([^)]*\)|\[[^\]]*\]/g, "")
-    .replace(/\b(feat|ft|featuring)\.?\s+[^\-–—,]+/g, "")
-    .replace(/\b(live|remix|acoustic|version|edit|demo|instrumental|karaoke|deluxe)\b/g, "")
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/\(taylor'?s version\)/gi, "")
+    .replace(/\(from the vault\)/gi, "")
+    .replace(/\(([^)]*version[^)]*)\)/gi, "")
+    .replace(/\[(.*?)\]/g, "")
+    .replace(/\bfrom the vault\b/gi, "")
+    .replace(/\btaylor'?s version\b/gi, "")
+    .replace(/\b(feat|ft|featuring)\.?\s+.+$/gi, "")
+    .replace(/\b(deluxe|standard|edition|bonus track|bonus|remix|acoustic|live|demo|karaoke|instrumental|radio edit)\b/gi, "")
+    .replace(/[^\w\s]/g, " ")
     .replace(/\s+/g, " ")
     .trim();
 }
@@ -1160,7 +1261,9 @@ function renderHome(container){
 
   const filtered = filterSongsByQuery(ranked);
   const sorted = sortSongs(filtered,state.sortMode);
-
+  const streamsActive = state.albumSortMode === "streams" ? "active" : "";
+  const dailyActive = state.albumSortMode === "daily" ? "active" : "";
+  const combineActive = state.combineVersions ? "active" : "";
   container.innerHTML = `
     ${renderTopbar()}
     ${renderNewsSection(ranked,state.selectedDate)}
@@ -1384,20 +1487,56 @@ function albumRow(album){
 function renderAlbums(container) {
   const rowsForDate = enrichSongsForDate(state.selectedDate);
 
-  const albums = state.albums.map(album => {
-    let albumSongs = rowsForDate.filter(song =>
-      (song.appearances || []).some(app => app.album === album.album)
-    );
+  const validAlbums = state.albums.filter(album => {
+    const name = String(album.album || "").trim().toLowerCase();
+    const kind = String(album.kind || "").trim().toLowerCase();
+    return name !== "misc" && kind !== "misc";
+  });
 
-    if (state.combineVersions) {
-      albumSongs = combineSongVersions(albumSongs);
+  const albumGroups = new Map();
+
+  for (const album of validAlbums) {
+    const key = state.combineVersions
+      ? normalizeAlbumName(album.album)
+      : String(album.album || "");
+
+    if (!albumGroups.has(key)) {
+      albumGroups.set(key, {
+        key,
+        label: album.album,
+        representative: album,
+      });
+    } else {
+      const existing = albumGroups.get(key);
+
+      const existingName = String(existing.representative.album || "");
+      const currentName = String(album.album || "");
+
+      if (
+        /\(taylor'?s version\)/i.test(existingName) &&
+        !/\(taylor'?s version\)/i.test(currentName)
+      ) {
+        existing.label = album.album;
+        existing.representative = album;
+      }
     }
+  }
+
+  const albums = [...albumGroups.values()].map(group => {
+    const albumSongs = rowsForDate.filter(song => {
+      const songAlbum = String(song.primary_album || "");
+      return state.combineVersions
+        ? normalizeAlbumName(songAlbum) === group.key
+        : songAlbum === group.label;
+    });
 
     return {
-      ...album,
+      ...group.representative,
+      album: group.label,
       daily_streams: albumSongs.reduce((sum, song) => sum + (song.daily_streams || 0), 0),
       streams: albumSongs.reduce((sum, song) => sum + (song.streams || 0), 0),
-      stream_change: albumSongs.reduce((sum, song) => sum + (song.total_change || 0), 0)
+      stream_change: albumSongs.reduce((sum, song) => sum + (song.total_change || 0), 0),
+      track_count: albumSongs.length,
     };
   });
 
@@ -1418,6 +1557,10 @@ function renderAlbums(container) {
     album.rank = i + 1;
   });
 
+  const streamsActive = state.albumSortMode === "streams" ? "active" : "";
+  const dailyActive = state.albumSortMode === "daily" ? "active" : "";
+  const combineActive = state.combineVersions ? "active" : "";
+
   container.innerHTML = `
     ${renderTopbar()}
 
@@ -1429,21 +1572,15 @@ function renderAlbums(container) {
         </div>
 
         <div class="toolbar">
-          <button
-            id="sortAlbumStreamsBtn"
-            class="${state.albumSortMode === "streams" ? "active" : ""}">
+          <button id="sortAlbumStreamsBtn" class="${streamsActive}">
             Total streams
           </button>
 
-          <button
-            id="sortAlbumDailyBtn"
-            class="${state.albumSortMode === "daily" ? "active" : ""}">
+          <button id="sortAlbumDailyBtn" class="${dailyActive}">
             Daily streams
           </button>
 
-          <button
-            id="albumsCombineBtn"
-            class="${state.combineVersions ? "active" : ""}">
+          <button id="albumsCombineBtn" class="${combineActive}">
             Combine
           </button>
         </div>
@@ -1460,7 +1597,6 @@ function renderAlbums(container) {
               <th>Change</th>
             </tr>
           </thead>
-
           <tbody>
             ${sorted.map(albumRow).join("")}
           </tbody>
@@ -1519,27 +1655,36 @@ function renderAlbumPage(container) {
 
   const groups = new Map();
 
-  for (const song of albumSongs) {
-    const appearance =
-      (song.appearances || []).find(app => app.album === albumName) || null;
+for (const song of albumSongs) {
+  const appearance =
+    (song.appearances || []).find(app => app.album === albumName) || null;
 
-    const sectionName = appearance?.display_section || "Other";
-    const sectionOrder = appearance?.display_order ?? 9999;
+  const sectionName = appearance?.display_section || "Other";
+  const songOrder = appearance?.display_order ?? 9999;
 
-    if (!groups.has(sectionName)) {
-      groups.set(sectionName, {
-        name: sectionName,
-        order: sectionOrder,
-        songs: []
-      });
-    }
-
-    groups.get(sectionName).songs.push(song);
+  if (!groups.has(sectionName)) {
+    groups.set(sectionName, {
+      name: sectionName,
+      firstSongOrder: songOrder,
+      songs: []
+    });
   }
 
-  let blocks = [...groups.values()]
-    .sort((a, b) => a.order - b.order || a.name.localeCompare(b.name))
-    .map(block => {
+  const group = groups.get(sectionName);
+  group.firstSongOrder = Math.min(group.firstSongOrder, songOrder);
+  group.songs.push(song);
+}
+
+let blocks = [...groups.values()]
+  .sort((a, b) => {
+    const pa = getAlbumSectionPriority(a.name);
+    const pb = getAlbumSectionPriority(b.name);
+
+    if (pa !== pb) return pa - pb;
+
+    return a.firstSongOrder - b.firstSongOrder || a.name.localeCompare(b.name);
+  })
+  .map(block => {
       let songs = [...block.songs];
 
       if (state.combineVersions) {
@@ -1832,8 +1977,7 @@ function milestoneProgressBar(item) {
   return `
     <div class="milestone-fancy-progress">
       <div class="milestone-fancy-track">
-        <div class="milestone-fancy-percent">${Math.round(p)}%</div>
-        <div class="milestone-fancy-bar-shell">
+        <div class="milestone-fancy-percent">${p.toFixed(2).replace(".", ",")} %</div>        <div class="milestone-fancy-bar-shell">
           <div class="milestone-fancy-bar-fill" style="width:${p}%"></div>
         </div>
       </div>
@@ -1855,6 +1999,7 @@ function getMilestonePercent(item) {
 }
 
 function milestoneRow(item) {
+  const daysLeft = item.forecast?.days_left ?? null;
   if (!item?.forecast?.expected_date) return "";
 
   const song = state.songs.find(s => s.track_id === item.track_id);
@@ -1896,6 +2041,7 @@ function milestoneRow(item) {
           <span>Total streams <strong>${formatFull(currentStreams)}</strong></span>
           <span>Avg daily <strong>${formatFull(avgDaily)}</strong></span>
           <span>Remaining <strong>${formatFull(remaining)}</strong></span>
+          <span>Days left <strong>${daysLeft !== null ? daysLeft : "—"}</strong></span>
         </div>
 
         ${milestoneProgressBar(item)}
