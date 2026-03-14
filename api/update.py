@@ -7,13 +7,14 @@ class handler(BaseHTTPRequestHandler):
     def do_POST(self):
         try:
             result = subprocess.run(
-                ["python", "scripts/update_streams.py"],
+                ["python", "unfiltered-charts/scripts/update_streams.py"],
                 capture_output=True,
                 text=True
             )
 
             response = {
                 "status": "ok",
+                "message": result.stdout.strip() or "Streams updated successfully",
                 "stdout": result.stdout,
                 "stderr": result.stderr
             }
@@ -21,7 +22,7 @@ class handler(BaseHTTPRequestHandler):
             self.send_response(200)
 
         except Exception as e:
-            response = {"error": str(e)}
+            response = {"status": "error", "message": str(e), "error": str(e)}
             self.send_response(500)
 
         self.send_header("Content-Type", "application/json")

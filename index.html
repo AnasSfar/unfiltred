@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Taylor Swift Museum</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #f7f6f3;
+      font-family: 'DM Sans', sans-serif;
+      gap: 0;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      letter-spacing: -0.5px;
+      color: #18180f;
+      margin-bottom: 48px;
+      text-align: center;
+    }
+
+    h1 span {
+      font-style: italic;
+      color: #918e86;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0 24px;
+    }
+
+    .btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 280px;
+      height: 180px;
+      border-radius: 12px;
+      text-decoration: none;
+      border: 1.5px solid #e6e2db;
+      background: #fff;
+      color: #18180f;
+      box-shadow: 0 1px 2px rgba(0,0,0,.05), 0 4px 12px rgba(0,0,0,.04);
+      transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+      cursor: pointer;
+      gap: 12px;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 8px rgba(0,0,0,.08), 0 12px 24px rgba(0,0,0,.08);
+      border-color: #18180f;
+    }
+
+    .btn-icon {
+      font-size: 2.4rem;
+    }
+
+    .btn-label {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 500;
+      letter-spacing: -0.2px;
+    }
+
+    .btn-sub {
+      font-size: 11px;
+      color: #918e86;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <h1>The Taylor Swift <span>Museum</span></h1>
+  <div class="buttons">
+    <a class="btn" href="spotify-charts/ts_tracker.html">
+      <span class="btn-icon">🎵</span>
+      <span class="btn-label">Spotify Charts</span>
+      <span class="btn-sub">Daily tracking</span>
+    </a>
+    <a class="btn" href="unfiltered-charts/index.html">
+      <span class="btn-icon">📊</span>
+      <span class="btn-label">Unfiltered Charts</span>
+      <span class="btn-sub">Stream analytics</span>
+    </a>
+  </div>
+</body>
+</html>
