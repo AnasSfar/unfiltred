@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 120,
-    "total_combined_streams": 121446519429,
+    "songs_updated_on_latest_date": 122,
+    "total_combined_streams": 121446821605,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -202,7 +202,7 @@
         "1Ygm9KdH3wbzDekO8JgxcW"
       ],
       "rank_total": 355,
-      "rank_daily": 370
+      "rank_daily": 369
     },
     {
       "track_id": "4twNUyTpLMPWokYmCdFDCH",
@@ -1607,9 +1607,9 @@
       "title_key": "back to december - acoustic",
       "spotify_url": "https://open.spotify.com/intl-fr/track/6IH2Z54gYPLqgJtxZjX80i",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2732e4ec3175d848eca7b76b07f",
-      "streams": 81431875,
-      "daily_streams": 7103,
-      "last_updated": "2026-03-13",
+      "streams": 81438763,
+      "daily_streams": 6888,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -1618,7 +1618,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 18568125,
+      "remaining_to_next_milestone": 18561237,
       "appearances": [
         {
           "source_type": "misc",
@@ -1656,7 +1656,7 @@
         "6IH2Z54gYPLqgJtxZjX80i"
       ],
       "rank_total": 288,
-      "rank_daily": 368
+      "rank_daily": 371
     },
     {
       "track_id": "1IsquhJFJ0qcFZI7FeAEuN",
@@ -6057,9 +6057,9 @@
       "title_key": "enchanted",
       "spotify_url": "https://open.spotify.com/intl-fr/track/04S1pkp1VaIqjg8zZqknR5",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273d0eae3c1661a96570f0ca7bd",
-      "streams": 1004536011,
-      "daily_streams": 291035,
-      "last_updated": "2026-03-13",
+      "streams": 1004831299,
+      "daily_streams": 295288,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -6068,7 +6068,7 @@
       "current_milestone_label": "1B",
       "next_milestone": 1100000000,
       "next_milestone_label": "1.1B",
-      "remaining_to_next_milestone": 95463989,
+      "remaining_to_next_milestone": 95168701,
       "appearances": [
         {
           "source_type": "album",
@@ -6094,7 +6094,7 @@
         "04S1pkp1VaIqjg8zZqknR5"
       ],
       "rank_total": 27,
-      "rank_daily": 44
+      "rank_daily": 43
     },
     {
       "track_id": "3sW3oSbzsfecv9XoUdGs7h",
@@ -12044,7 +12044,7 @@
         "2msvOEbkK50foYf9BMXr2X"
       ],
       "rank_total": 353,
-      "rank_daily": 369
+      "rank_daily": 368
     },
     {
       "track_id": "4lD3RXyvHpJsM3BhIEC4aA",
@@ -19271,7 +19271,7 @@
         "2wtHlpYSgC7xEdD3DrSHNL"
       ],
       "rank_total": 328,
-      "rank_daily": 371
+      "rank_daily": 370
     },
     {
       "track_id": "4e5ayHsOLJNLTGfjau2mEw",
@@ -21679,7 +21679,7 @@
         "1K39ty6o1sHwwlZwO6a7wK"
       ],
       "rank_total": 24,
-      "rank_daily": 43
+      "rank_daily": 44
     },
     {
       "track_id": "5VDHMi7own9vDZjiwDES1e",
