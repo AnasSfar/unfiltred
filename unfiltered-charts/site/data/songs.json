@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 155,
-    "total_combined_streams": 121449224375,
+    "songs_updated_on_latest_date": 156,
+    "total_combined_streams": 121449271846,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -8057,9 +8057,9 @@
       "title_key": "haunted (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/4tMzIAFTFdqGBQLdfbPces",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2730b04da4f224b51ff86e0a481",
-      "streams": 125471380,
-      "daily_streams": 48538,
-      "last_updated": "2026-03-13",
+      "streams": 125518851,
+      "daily_streams": 47471,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -8068,7 +8068,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 74528620,
+      "remaining_to_next_milestone": 74481149,
       "appearances": [
         {
           "source_type": "album",
@@ -8094,7 +8094,7 @@
         "4tMzIAFTFdqGBQLdfbPces"
       ],
       "rank_total": 247,
-      "rank_daily": 214
+      "rank_daily": 215
     },
     {
       "track_id": "62rlxI6g2PNaWsHoiRryto",
@@ -18034,7 +18034,7 @@
         "6INztpNwOTlfSKTuPo0HOP"
       ],
       "rank_total": 269,
-      "rank_daily": 215
+      "rank_daily": 214
     },
     {
       "track_id": "3pHkh7d0lzM2AldUtz2x37",
