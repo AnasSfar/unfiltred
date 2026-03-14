@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 351,
-    "total_combined_streams": 121468681981,
+    "songs_updated_on_latest_date": 354,
+    "total_combined_streams": 121468929970,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -304,7 +304,7 @@
         "2ULNeSomDxVNmdDy8VxEBU"
       ],
       "rank_total": 71,
-      "rank_daily": 130
+      "rank_daily": 129
     },
     {
       "track_id": "3yII7UwgLF6K5zW3xad3MP",
@@ -5048,7 +5048,7 @@
         "2dgFqt3w9xIQRjhPtwNk3D"
       ],
       "rank_total": 95,
-      "rank_daily": 129
+      "rank_daily": 128
     },
     {
       "track_id": "3oF7Or7T35yhQbGxbCGvRX",
@@ -9360,7 +9360,7 @@
         "3hlGuz3loYoLfI3bpwieWq"
       ],
       "rank_total": 196,
-      "rank_daily": 128
+      "rank_daily": 127
     },
     {
       "track_id": "6AtZLIzUINvExIUy4QhdjP",
@@ -10337,9 +10337,9 @@
       "title_key": "is it over now? (taylor's version) (from the vault)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/6IG3sQ8s9nfk6TUlVzRhbN",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273dc2bacae1dca83d26e2b1949",
-      "streams": 577627386,
-      "daily_streams": 140172,
-      "last_updated": "2026-03-13",
+      "streams": 577766252,
+      "daily_streams": 138866,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -10348,7 +10348,7 @@
       "current_milestone_label": "500M",
       "next_milestone": 600000000,
       "next_milestone_label": "600M",
-      "remaining_to_next_milestone": 22372614,
+      "remaining_to_next_milestone": 22233748,
       "appearances": [
         {
           "source_type": "album",
@@ -10512,14 +10512,14 @@
       "rank_daily": 169
     },
     {
-      "track_id": "6WWvcA62QlnRguluWAk6bv",
+      "track_id": "08gavXombT6KR0af88i9tA",
       "title": "Jump Then Fall",
       "title_key": "jump then fall",
-      "spotify_url": "https://open.spotify.com/intl-fr/track/6WWvcA62QlnRguluWAk6bv",
-      "image_url": "https://i.scdn.co/image/ab67616d0000b27373b565ab9d713e8d5586aac2",
-      "streams": 28710459,
-      "daily_streams": 5406,
-      "last_updated": "2026-03-13",
+      "spotify_url": "https://open.spotify.com/intl-fr/track/08gavXombT6KR0af88i9tA",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b27334e5885465afc8a497ac1b7e",
+      "streams": 28715860,
+      "daily_streams": 5401,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -10528,7 +10528,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 71289541,
+      "remaining_to_next_milestone": 71284140,
       "appearances": [
         {
           "source_type": "album",
@@ -15817,14 +15817,14 @@
       "rank_daily": 337
     },
     {
-      "track_id": "6KJqZcs9XDgVck7Lg9QOTC",
+      "track_id": "2vJ7QvyCiR4DaHxwO58izA",
       "title": "seven",
       "title_key": "seven",
-      "spotify_url": "https://open.spotify.com/intl-fr/track/6KJqZcs9XDgVck7Lg9QOTC",
-      "image_url": "https://i.scdn.co/image/ab67616d0000b27395f754318336a07e85ec59bc",
-      "streams": 402617090,
-      "daily_streams": 105661,
-      "last_updated": "2026-03-13",
+      "spotify_url": "https://open.spotify.com/intl-fr/track/2vJ7QvyCiR4DaHxwO58izA",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273045514e3ed4e1767a7c3ece5",
+      "streams": 402720812,
+      "daily_streams": 103722,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -15833,7 +15833,7 @@
       "current_milestone_label": "400M",
       "next_milestone": 500000000,
       "next_milestone_label": "500M",
-      "remaining_to_next_milestone": 97382910,
+      "remaining_to_next_milestone": 97279188,
       "appearances": [
         {
           "source_type": "album",
@@ -15872,7 +15872,7 @@
         "6KJqZcs9XDgVck7Lg9QOTC"
       ],
       "rank_total": 88,
-      "rank_daily": 127
+      "rank_daily": 130
     },
     {
       "track_id": "4cOWq0cVsKjxaQpRMbDoH1",
