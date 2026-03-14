@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 186,
-    "total_combined_streams": 121451998034,
+    "songs_updated_on_latest_date": 187,
+    "total_combined_streams": 121452016856,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -7069,8 +7069,8 @@
       "title_key": "forever & always (piano version) (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/01QdEx6kFr78ZejhQtWR5m",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273a48964b5d9a3d6968ae3e0de",
-      "streams": 68631854,
-      "daily_streams": 18804,
+      "streams": 68650676,
+      "daily_streams": 18822,
       "last_updated": "2026-03-13",
       "primary_artist": "Taylor Swift",
       "artists": [
@@ -7080,7 +7080,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 31368146,
+      "remaining_to_next_milestone": 31349324,
       "appearances": [
         {
           "source_type": "album",
