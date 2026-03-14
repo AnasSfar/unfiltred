@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 208,
-    "total_combined_streams": 121454635713,
+    "songs_updated_on_latest_date": 210,
+    "total_combined_streams": 121454697886,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -3252,9 +3252,9 @@
       "title_key": "cassandra",
       "spotify_url": "https://open.spotify.com/intl-fr/track/0g4fMVo4JjwnIpTfFfLdxS",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2738ecc33f195df6aa257c39eaa",
-      "streams": 121890285,
-      "daily_streams": 56878,
-      "last_updated": "2026-03-13",
+      "streams": 121947157,
+      "daily_streams": 56872,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -3263,7 +3263,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 78109715,
+      "remaining_to_next_milestone": 78052843,
       "appearances": [
         {
           "source_type": "album",
@@ -8479,7 +8479,7 @@
         "0QTBsdoJhamY3Aid3fOsOd"
       ],
       "rank_total": 391,
-      "rank_daily": 385
+      "rank_daily": 384
     },
     {
       "track_id": "5d2Kn9oAAh9S2EbyCo1i52",
@@ -10567,7 +10567,7 @@
         "6WWvcA62QlnRguluWAk6bv"
       ],
       "rank_total": 357,
-      "rank_daily": 384
+      "rank_daily": 383
     },
     {
       "track_id": "2m3ObD945KvpE5y9A1eUWm",
@@ -12723,7 +12723,7 @@
         "3tGq7hWDCtrnL83y5OGual"
       ],
       "rank_total": 368,
-      "rank_daily": 383
+      "rank_daily": 382
     },
     {
       "track_id": "3z6XUommYDWPHeFhmhhT6j",
@@ -15917,7 +15917,7 @@
         "4cOWq0cVsKjxaQpRMbDoH1"
       ],
       "rank_total": 385,
-      "rank_daily": 382
+      "rank_daily": 381
     },
     {
       "track_id": "0cqRj7pUJDkTCEsJkx8snD",
@@ -20876,7 +20876,7 @@
         "6ovFJkdau79DuXEvQjPaNH"
       ],
       "rank_total": 363,
-      "rank_daily": 381
+      "rank_daily": 380
     },
     {
       "track_id": "0tQ9vBYpldCuikPsbgOVKA",
@@ -21898,14 +21898,14 @@
       "rank_daily": 391
     },
     {
-      "track_id": "77d7q9TNbsIDmRTDPkPv3L",
+      "track_id": "0U0etHtpARihOUUY8Akc7y",
       "title": "willow - lonely witch version",
       "title_key": "willow - lonely witch version",
-      "spotify_url": "https://open.spotify.com/intl-fr/track/77d7q9TNbsIDmRTDPkPv3L",
-      "image_url": "https://i.scdn.co/image/ab67616d0000b2738312c50a6b9046d7dea5de12",
-      "streams": 19715643,
-      "daily_streams": 5676,
-      "last_updated": "2026-03-13",
+      "spotify_url": "https://open.spotify.com/intl-fr/track/0U0etHtpARihOUUY8Akc7y",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b27373008bd7709ea6419803264f",
+      "streams": 19720944,
+      "daily_streams": 5301,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -21914,7 +21914,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 80284357,
+      "remaining_to_next_milestone": 80279056,
       "appearances": [
         {
           "source_type": "misc",
@@ -21977,7 +21977,7 @@
         "77d7q9TNbsIDmRTDPkPv3L"
       ],
       "rank_total": 378,
-      "rank_daily": 380
+      "rank_daily": 385
     },
     {
       "track_id": "5XkJj6sV2XLMaURdmdXgNx",
