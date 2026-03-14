@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 264,
-    "total_combined_streams": 121458815206,
+    "songs_updated_on_latest_date": 265,
+    "total_combined_streams": 121458826013,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -15765,9 +15765,9 @@
       "title_key": "september - recorded at the tracking room nashville",
       "spotify_url": "https://open.spotify.com/track/5eGX87IiKsGuzS3iw4CfCX",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273bae8f095c58e137855f6d230",
-      "streams": 81384212,
-      "daily_streams": 11216,
-      "last_updated": "2026-03-13",
+      "streams": 81395019,
+      "daily_streams": 10807,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -15776,7 +15776,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 18615788,
+      "remaining_to_next_milestone": 18604981,
       "appearances": [
         {
           "source_type": "misc",
