@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 275,
-    "total_combined_streams": 121461432542,
+    "songs_updated_on_latest_date": 276,
+    "total_combined_streams": 121461580805,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -19901,9 +19901,9 @@
       "title_key": "the tortured poets department",
       "spotify_url": "https://open.spotify.com/intl-fr/track/3NMrVbIVWT3fPXBj0rNDKG",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2735076e4160d018e378f488c33",
-      "streams": 325844475,
-      "daily_streams": 150278,
-      "last_updated": "2026-03-13",
+      "streams": 325992738,
+      "daily_streams": 148263,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -19912,7 +19912,7 @@
       "current_milestone_label": "300M",
       "next_milestone": 400000000,
       "next_milestone_label": "400M",
-      "remaining_to_next_milestone": 74155525,
+      "remaining_to_next_milestone": 74007262,
       "appearances": [
         {
           "source_type": "album",
