@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 290,
-    "total_combined_streams": 121462471234,
+    "songs_updated_on_latest_date": 292,
+    "total_combined_streams": 121462535881,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -100,7 +100,7 @@
         "6sQckd3Z8NPxVVKUnavY1F"
       ],
       "rank_total": 110,
-      "rank_daily": 185
+      "rank_daily": 184
     },
     {
       "track_id": "2yLa0QULdQr0qAIvVwN6B5",
@@ -1201,7 +1201,7 @@
         "4YrpqEBNuz7IMsZtUP6bNQ"
       ],
       "rank_total": 413,
-      "rank_daily": 423
+      "rank_daily": 422
     },
     {
       "track_id": "2oWpe2L8ypC080BxpDVuTY",
@@ -6049,7 +6049,7 @@
         "3r9fAceWmaDFvbNiTnFiLr"
       ],
       "rank_total": 446,
-      "rank_daily": 424
+      "rank_daily": 423
     },
     {
       "track_id": "04S1pkp1VaIqjg8zZqknR5",
@@ -6670,9 +6670,9 @@
       "title_key": "father figure - track by track",
       "spotify_url": "https://open.spotify.com/intl-fr/track/2NGGvVcfb2m2NbVaXHC3gb",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2737e0698e1398b6473de43f901",
-      "streams": 1282907,
-      "daily_streams": 1979,
-      "last_updated": "2026-03-13",
+      "streams": 1284491,
+      "daily_streams": 1584,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -6681,7 +6681,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 98717093,
+      "remaining_to_next_milestone": 98715509,
       "appearances": [
         {
           "source_type": "misc",
@@ -6719,7 +6719,7 @@
         "2NGGvVcfb2m2NbVaXHC3gb"
       ],
       "rank_total": 448,
-      "rank_daily": 421
+      "rank_daily": 426
     },
     {
       "track_id": "6zV8AVM9eVfdG7Qahwd64R",
@@ -9021,7 +9021,7 @@
         "2PGIFYRG1XWsPqNG14hgD1"
       ],
       "rank_total": 432,
-      "rank_daily": 426
+      "rank_daily": 425
     },
     {
       "track_id": "5chnRTB9qMK3W1M41SnU9s",
@@ -11340,7 +11340,7 @@
         "7kjSmkSo15pHlkb0mOQtfj"
       ],
       "rank_total": 435,
-      "rank_daily": 425
+      "rank_daily": 424
     },
     {
       "track_id": "3YkNIrAvbKNrrwwEd7NVLl",
@@ -12154,9 +12154,9 @@
       "title_key": "mad woman",
       "spotify_url": "https://open.spotify.com/intl-fr/track/2QDyYdZyhlP2fp79KZX8Bi",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27395f754318336a07e85ec59bc",
-      "streams": 271366345,
-      "daily_streams": 63900,
-      "last_updated": "2026-03-13",
+      "streams": 271429408,
+      "daily_streams": 63063,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -12165,7 +12165,7 @@
       "current_milestone_label": "200M",
       "next_milestone": 300000000,
       "next_milestone_label": "300M",
-      "remaining_to_next_milestone": 28633655,
+      "remaining_to_next_milestone": 28570592,
       "appearances": [
         {
           "source_type": "album",
@@ -12191,7 +12191,7 @@
         "2QDyYdZyhlP2fp79KZX8Bi"
       ],
       "rank_total": 138,
-      "rank_daily": 184
+      "rank_daily": 185
     },
     {
       "track_id": "04xrhDrQ2WOW8GLwu7kbc0",
@@ -14311,7 +14311,7 @@
         "5SkuikJwvwfEvNyCepGkq3"
       ],
       "rank_total": 447,
-      "rank_daily": 422
+      "rank_daily": 421
     },
     {
       "track_id": "15DeqWWQB4dcEWzJg15VrN",
