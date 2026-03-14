@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 14,
-    "total_combined_streams": 121433069975,
+    "songs_updated_on_latest_date": 15,
+    "total_combined_streams": 121433225041,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -6147,8 +6147,8 @@
       "title_key": "end game",
       "spotify_url": "https://open.spotify.com/intl-fr/track/2x0WlnmfG39ZuDmstl9xfX",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273da5d5aeeabacacc1263c0f4b",
-      "streams": 618948670,
-      "daily_streams": 156960,
+      "streams": 619103736,
+      "daily_streams": 155066,
       "last_updated": "2026-03-13",
       "primary_artist": "Taylor Swift",
       "artists": [
@@ -6158,7 +6158,7 @@
       "current_milestone_label": "600M",
       "next_milestone": 700000000,
       "next_milestone_label": "700M",
-      "remaining_to_next_milestone": 81051330,
+      "remaining_to_next_milestone": 80896264,
       "appearances": [
         {
           "source_type": "album",
