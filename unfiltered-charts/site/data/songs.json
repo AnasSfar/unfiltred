@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 227,
-    "total_combined_streams": 121455483857,
+    "songs_updated_on_latest_date": 228,
+    "total_combined_streams": 121455490798,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -1656,7 +1656,7 @@
         "6IH2Z54gYPLqgJtxZjX80i"
       ],
       "rank_total": 288,
-      "rank_daily": 371
+      "rank_daily": 372
     },
     {
       "track_id": "1IsquhJFJ0qcFZI7FeAEuN",
@@ -3568,9 +3568,9 @@
       "title_key": "christmas tree farm",
       "spotify_url": "https://open.spotify.com/intl-fr/track/4mKye6Z1kXuKolzMkJoKFA",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2733b86fc3447e27df6630ce0d8",
-      "streams": 287895902,
-      "daily_streams": 6840,
-      "last_updated": "2026-03-13",
+      "streams": 287902843,
+      "daily_streams": 6941,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -3579,7 +3579,7 @@
       "current_milestone_label": "200M",
       "next_milestone": 300000000,
       "next_milestone_label": "300M",
-      "remaining_to_next_milestone": 12104098,
+      "remaining_to_next_milestone": 12097157,
       "appearances": [
         {
           "source_type": "album",
@@ -3629,7 +3629,7 @@
         "4mKye6Z1kXuKolzMkJoKFA"
       ],
       "rank_total": 126,
-      "rank_daily": 373
+      "rank_daily": 371
     },
     {
       "track_id": "50ho0AOvkm8E5l8zf7OfJI",
@@ -7449,7 +7449,7 @@
       "image_url": "https://i.scdn.co/image/ab67616d0000b2735076e4160d018e378f488c33",
       "streams": 248826166,
       "daily_streams": 151181,
-      "last_updated": "2026-03-13",
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -18840,7 +18840,7 @@
         "6mqyTq948oap5AkyTsd6XF"
       ],
       "rank_total": 373,
-      "rank_daily": 372
+      "rank_daily": 373
     },
     {
       "track_id": "4ojxSyrEraN7d46BMBPThZ",
