@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 233,
-    "total_combined_streams": 121455726647,
+    "songs_updated_on_latest_date": 235,
+    "total_combined_streams": 121455842917,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -3706,9 +3706,9 @@
       "title_key": "christmas tree farm - recorded live at the 2019 iheartradio jingle ball",
       "spotify_url": "https://open.spotify.com/intl-fr/track/1alAo6dYalSx8yZUn17JxF",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2733b86fc3447e27df6630ce0d8",
-      "streams": 2921459,
-      "daily_streams": 319,
-      "last_updated": "2026-03-13",
+      "streams": 2921733,
+      "daily_streams": 274,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -3717,7 +3717,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 97078541,
+      "remaining_to_next_milestone": 97078267,
       "appearances": [
         {
           "source_type": "album",
@@ -3767,7 +3767,7 @@
         "1alAo6dYalSx8yZUn17JxF"
       ],
       "rank_total": 439,
-      "rank_daily": 453
+      "rank_daily": 455
     },
     {
       "track_id": "1g09DZjQ7yBommCT6POY2n",
@@ -5207,7 +5207,7 @@
         "5Iadj8IBPrt634WW0yGPRI"
       ],
       "rank_total": 456,
-      "rank_daily": 454
+      "rank_daily": 453
     },
     {
       "track_id": "1Fj0T1XKuhRu7EZzJ7NJIK",
@@ -5480,7 +5480,7 @@
         "5JtXBqKLdfzwedmlUjjqAm"
       ],
       "rank_total": 454,
-      "rank_daily": 455
+      "rank_daily": 454
     },
     {
       "track_id": "4uuEGH5SVuzkkSFjo2DEiY",
@@ -14781,9 +14781,9 @@
       "title_key": "peter",
       "spotify_url": "https://open.spotify.com/intl-fr/track/3zMDGj4D8ogaYgAIZPeU7S",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2738ecc33f195df6aa257c39eaa",
-      "streams": 167923218,
-      "daily_streams": 112405,
-      "last_updated": "2026-03-13",
+      "streams": 168039214,
+      "daily_streams": 115996,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -14792,7 +14792,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 32076782,
+      "remaining_to_next_milestone": 31960786,
       "appearances": [
         {
           "source_type": "album",
@@ -14818,7 +14818,7 @@
         "3zMDGj4D8ogaYgAIZPeU7S"
       ],
       "rank_total": 197,
-      "rank_daily": 117
+      "rank_daily": 116
     },
     {
       "track_id": "32mVHdy0bi1XKgr0ajsBlG",
@@ -18647,7 +18647,7 @@
         "2VuqMjgoKaOHNM8HpxtXKx"
       ],
       "rank_total": 94,
-      "rank_daily": 116
+      "rank_daily": 117
     },
     {
       "track_id": "3wx2iW1rJGgdNln2I64HNh",
