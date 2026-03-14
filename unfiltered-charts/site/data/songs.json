@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 220,
-    "total_combined_streams": 121455088027,
+    "songs_updated_on_latest_date": 221,
+    "total_combined_streams": 121455119781,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -3902,7 +3902,7 @@
         "4bXCcoesMt8u99xMsbLr9U"
       ],
       "rank_total": 174,
-      "rank_daily": 252
+      "rank_daily": 253
     },
     {
       "track_id": "0lKUBmEyQfzsQHozyeXzES",
@@ -6888,9 +6888,9 @@
       "title_key": "fifteen (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/2nqio0SfWg6gh2eCtfuMa5",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273a48964b5d9a3d6968ae3e0de",
-      "streams": 132215014,
-      "daily_streams": 31386,
-      "last_updated": "2026-03-13",
+      "streams": 132246768,
+      "daily_streams": 31754,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -6899,7 +6899,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 67784986,
+      "remaining_to_next_milestone": 67753232,
       "appearances": [
         {
           "source_type": "album",
@@ -6925,7 +6925,7 @@
         "2nqio0SfWg6gh2eCtfuMa5"
       ],
       "rank_total": 243,
-      "rank_daily": 254
+      "rank_daily": 252
     },
     {
       "track_id": "3ZVFcD8Wlw9T9klGqmJf9F",
@@ -8254,7 +8254,7 @@
         "550erGcdD9n6PnwxrvYqZT"
       ],
       "rank_total": 257,
-      "rank_daily": 253
+      "rank_daily": 254
     },
     {
       "track_id": "1SztNGCwEHJEVFx90E5g7D",
