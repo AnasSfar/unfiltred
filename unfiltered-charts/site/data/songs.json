@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 261,
-    "total_combined_streams": 121458295886,
+    "songs_updated_on_latest_date": 262,
+    "total_combined_streams": 121458793390,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -676,7 +676,7 @@
         "5enxwA8aAbwZbf5qCHORXi"
       ],
       "rank_total": 13,
-      "rank_daily": 15
+      "rank_daily": 14
     },
     {
       "track_id": "1u4HUiREUR6vX1W1RYG2Tm",
@@ -5386,9 +5386,9 @@
       "title_key": "don't blame me",
       "spotify_url": "https://open.spotify.com/intl-fr/track/1R0a2iXumgCiFb7HEZ7gUE",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273da5d5aeeabacacc1263c0f4b",
-      "streams": 1571196613,
-      "daily_streams": 503704,
-      "last_updated": "2026-03-13",
+      "streams": 1571694117,
+      "daily_streams": 497504,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -5397,7 +5397,7 @@
       "current_milestone_label": "1.5B",
       "next_milestone": 1600000000,
       "next_milestone_label": "1.6B",
-      "remaining_to_next_milestone": 28803387,
+      "remaining_to_next_milestone": 28305883,
       "appearances": [
         {
           "source_type": "album",
@@ -5423,7 +5423,7 @@
         "1R0a2iXumgCiFb7HEZ7gUE"
       ],
       "rank_total": 10,
-      "rank_daily": 14
+      "rank_daily": 15
     },
     {
       "track_id": "5JtXBqKLdfzwedmlUjjqAm",
@@ -21980,11 +21980,11 @@
       "rank_daily": 385
     },
     {
-      "track_id": "5F7hpFKLmWgMHGxQuwssuv",
+      "track_id": "5XkJj6sV2XLMaURdmdXgNx",
       "title": "willow - moonlit witch version",
       "title_key": "willow - moonlit witch version",
-      "spotify_url": "https://open.spotify.com/intl-fr/track/5F7hpFKLmWgMHGxQuwssuv",
-      "image_url": "https://i.scdn.co/image/ab67616d0000b2738312c50a6b9046d7dea5de12",
+      "spotify_url": "https://open.spotify.com/intl-fr/track/5XkJj6sV2XLMaURdmdXgNx",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273ec07f0fc562d46804df394b4",
       "streams": 10647852,
       "daily_streams": 2232,
       "last_updated": "2026-03-14",
