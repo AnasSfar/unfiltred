@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 41,
-    "total_combined_streams": 121437072677,
+    "songs_updated_on_latest_date": 44,
+    "total_combined_streams": 121437349614,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -492,9 +492,9 @@
       "title_key": "afterglow",
       "spotify_url": "https://open.spotify.com/intl-fr/track/1SymEzIT3H8UZfibCs3TYi",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273e787cffec20aa2a396a61647",
-      "streams": 503295279,
-      "daily_streams": 167328,
-      "last_updated": "2026-03-13",
+      "streams": 503453483,
+      "daily_streams": 158204,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -503,7 +503,7 @@
       "current_milestone_label": "500M",
       "next_milestone": 600000000,
       "next_milestone_label": "600M",
-      "remaining_to_next_milestone": 96704721,
+      "remaining_to_next_milestone": 96546517,
       "appearances": [
         {
           "source_type": "album",
@@ -529,7 +529,7 @@
         "1SymEzIT3H8UZfibCs3TYi"
       ],
       "rank_total": 64,
-      "rank_daily": 87
+      "rank_daily": 93
     },
     {
       "track_id": "4P9Q0GojKVXpRTJCaL3kyy",
@@ -537,9 +537,9 @@
       "title_key": "all of the girls you loved before",
       "spotify_url": "https://open.spotify.com/intl-fr/track/4P9Q0GojKVXpRTJCaL3kyy",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2738481d8f15859aa5bae75ee17",
-      "streams": 475362834,
-      "daily_streams": 108236,
-      "last_updated": "2026-03-13",
+      "streams": 475469214,
+      "daily_streams": 106380,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -548,7 +548,7 @@
       "current_milestone_label": "400M",
       "next_milestone": 500000000,
       "next_milestone_label": "500M",
-      "remaining_to_next_milestone": 24637166,
+      "remaining_to_next_milestone": 24530786,
       "appearances": [
         {
           "source_type": "misc",
@@ -586,7 +586,7 @@
         "4P9Q0GojKVXpRTJCaL3kyy"
       ],
       "rank_total": 68,
-      "rank_daily": 125
+      "rank_daily": 128
     },
     {
       "track_id": "4XMP3zVxrnr58T0tjIHvpR",
@@ -1554,7 +1554,7 @@
         "5l6GqSxplqnZbLg0LTPQeG"
       ],
       "rank_total": 66,
-      "rank_daily": 88
+      "rank_daily": 87
     },
     {
       "track_id": "79uDOz0zuuWS7HWxzMmTa2",
@@ -2594,7 +2594,7 @@
         "45wMBGri1PORPjM9PwFfrS"
       ],
       "rank_total": 102,
-      "rank_daily": 91
+      "rank_daily": 90
     },
     {
       "track_id": "0yisH8r0f3Mkq34kjzUlCV",
@@ -4321,7 +4321,7 @@
         "12M5uqx0ZuwkpLp5rJim1a"
       ],
       "rank_total": 77,
-      "rank_daily": 93
+      "rank_daily": 92
     },
     {
       "track_id": "3fGnrtrtL1IHSX9t4DKOYf",
@@ -5832,7 +5832,7 @@
         "2JHzTARFUispsjZHKhrxxO"
       ],
       "rank_total": 436,
-      "rank_daily": 330
+      "rank_daily": 329
     },
     {
       "track_id": "4e3ZNTAV6PCrdYMUrUlMpQ",
@@ -6971,7 +6971,7 @@
         "3ZVFcD8Wlw9T9klGqmJf9F"
       ],
       "rank_total": 116,
-      "rank_daily": 89
+      "rank_daily": 88
     },
     {
       "track_id": "4s8BIKx4Zh6ryAEz8RTlaU",
@@ -9360,7 +9360,7 @@
         "3hlGuz3loYoLfI3bpwieWq"
       ],
       "rank_total": 196,
-      "rank_daily": 127
+      "rank_daily": 126
     },
     {
       "track_id": "6AtZLIzUINvExIUy4QhdjP",
@@ -10104,7 +10104,7 @@
         "1kcwpPDQnqEqmezzXdJTCP"
       ],
       "rank_total": 154,
-      "rank_daily": 90
+      "rank_daily": 89
     },
     {
       "track_id": "3kfgJql90tzgoxByioAMXR",
@@ -10239,7 +10239,7 @@
         "5OOd01o2YS1QFwdpVLds3r"
       ],
       "rank_total": 334,
-      "rank_daily": 331
+      "rank_daily": 330
     },
     {
       "track_id": "6VsvKPJ4xjVNKpI8VVZ3SV",
@@ -16856,7 +16856,7 @@
         "786NsUYn4GGUf8AOt0SQhP"
       ],
       "rank_total": 303,
-      "rank_daily": 332
+      "rank_daily": 331
     },
     {
       "track_id": "5jAIouBES8LWMiriuNq170",
@@ -17511,7 +17511,7 @@
         "2L09RYwH5Pjzca6PmbUAw3"
       ],
       "rank_total": 100,
-      "rank_daily": 126
+      "rank_daily": 125
     },
     {
       "track_id": "0RFCHlNuTeUHIB36VuVbOL",
@@ -20355,7 +20355,7 @@
         "4WBEj8TeGtRPNJdOmT3WJW"
       ],
       "rank_total": 99,
-      "rank_daily": 92
+      "rank_daily": 91
     },
     {
       "track_id": "6K0CJLVXqbGMeJSmJ4ENKK",
@@ -20363,9 +20363,9 @@
       "title_key": "tied together with a smile",
       "spotify_url": "https://open.spotify.com/intl-fr/track/6K0CJLVXqbGMeJSmJ4ENKK",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2732f8c0fd72a80a93f8c53b96c",
-      "streams": 44838400,
-      "daily_streams": 12537,
-      "last_updated": "2026-03-13",
+      "streams": 44850753,
+      "daily_streams": 12353,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -20374,7 +20374,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 55161600,
+      "remaining_to_next_milestone": 55149247,
       "appearances": [
         {
           "source_type": "album",
@@ -20400,7 +20400,7 @@
         "6K0CJLVXqbGMeJSmJ4ENKK"
       ],
       "rank_total": 337,
-      "rank_daily": 329
+      "rank_daily": 332
     },
     {
       "track_id": "0Om9WAB5RS09L80DyOfTNa",
@@ -21012,7 +21012,7 @@
         "1xwAWUI6Dj0WGC3KiUPN0O"
       ],
       "rank_total": 62,
-      "rank_daily": 128
+      "rank_daily": 127
     },
     {
       "track_id": "7AEAGTc8cReDqcbPoY9gwo",
