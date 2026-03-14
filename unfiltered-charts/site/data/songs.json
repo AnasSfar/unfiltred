@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 293,
-    "total_combined_streams": 121462603000,
+    "songs_updated_on_latest_date": 294,
+    "total_combined_streams": 121462628053,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -4607,7 +4607,7 @@
         "37jfioVu3Bd2Du9bteXNDU"
       ],
       "rank_total": 338,
-      "rank_daily": 272
+      "rank_daily": 271
     },
     {
       "track_id": "0ISHfeb30gj4CSWUZYuesj",
@@ -11475,7 +11475,7 @@
         "6XDBA3QWX51lDJ0oZbaJJN"
       ],
       "rank_total": 261,
-      "rank_daily": 273
+      "rank_daily": 272
     },
     {
       "track_id": "4hqJ4bSlYJOXb6Z4SRmzxs",
@@ -15583,9 +15583,9 @@
       "title_key": "safe & sound (feat. joy williams and john paul white) (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/2RJnNdu4pb3MypbBroHU0T",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2734f719ea76d1b7048664b8fec",
-      "streams": 82221402,
-      "daily_streams": 25953,
-      "last_updated": "2026-03-13",
+      "streams": 82246455,
+      "daily_streams": 25053,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift",
@@ -15596,7 +15596,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 17778598,
+      "remaining_to_next_milestone": 17753545,
       "appearances": [
         {
           "source_type": "misc",
@@ -15622,7 +15622,7 @@
         "2RJnNdu4pb3MypbBroHU0T"
       ],
       "rank_total": 286,
-      "rank_daily": 270
+      "rank_daily": 276
     },
     {
       "track_id": "0z9UVN8VBHJ9HdfYsOuuNf",
@@ -16619,7 +16619,7 @@
         "7dXKdjpOaH2iwfFKmUj7aq"
       ],
       "rank_total": 208,
-      "rank_daily": 271
+      "rank_daily": 270
     },
     {
       "track_id": "5xXqyjLicvEpch72qEryFT",
@@ -17840,7 +17840,7 @@
         "7eResoqEJJAVTkQYSqvO3P"
       ],
       "rank_total": 268,
-      "rank_daily": 276
+      "rank_daily": 275
     },
     {
       "track_id": "0P9wLFurlgumLXuqFEpw52",
@@ -19508,7 +19508,7 @@
         "0NRHj8hDwwmSPaA41o379r"
       ],
       "rank_total": 274,
-      "rank_daily": 275
+      "rank_daily": 274
     },
     {
       "track_id": "1yDJcXc549N6AabNBzFAku",
@@ -22343,7 +22343,7 @@
         "4A2LfnduSTsE8u0ecYROxE"
       ],
       "rank_total": 211,
-      "rank_daily": 274
+      "rank_daily": 273
     },
     {
       "track_id": "0TyGh27YQ5LknmiDhCzJiT",
