@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 232,
-    "total_combined_streams": 121455699406,
+    "songs_updated_on_latest_date": 233,
+    "total_combined_streams": 121455726647,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -7217,9 +7217,9 @@
       "title_key": "forever winter (taylor's version) (from the vault)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/3oGVx9RBmiYGv5ZCecWLkx",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273318443aab3531a0558e79a4d",
-      "streams": 121880592,
-      "daily_streams": 28132,
-      "last_updated": "2026-03-13",
+      "streams": 121907833,
+      "daily_streams": 27241,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -7228,7 +7228,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 78119408,
+      "remaining_to_next_milestone": 78092167,
       "appearances": [
         {
           "source_type": "album",
@@ -7254,7 +7254,7 @@
         "3oGVx9RBmiYGv5ZCecWLkx"
       ],
       "rank_total": 252,
-      "rank_daily": 261
+      "rank_daily": 262
     },
     {
       "track_id": "2OzhQlSqBEmt7hmkYxfT6m",
@@ -7530,7 +7530,7 @@
         "2bzUVEvpZ7At5cYz1kOLI9"
       ],
       "rank_total": 281,
-      "rank_daily": 262
+      "rank_daily": 261
     },
     {
       "track_id": "0VE4kBnHJUgtMf0dy6DRmW",
