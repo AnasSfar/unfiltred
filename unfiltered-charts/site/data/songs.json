@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 21,
-    "total_combined_streams": 121434453948,
+    "songs_updated_on_latest_date": 22,
+    "total_combined_streams": 121434526806,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -7775,9 +7775,9 @@
       "title_key": "gold rush",
       "spotify_url": "https://open.spotify.com/intl-fr/track/5BK0uqwY9DNfZ630STAEaq",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27333b8541201f1ef38941024be",
-      "streams": 357107950,
-      "daily_streams": 75205,
-      "last_updated": "2026-03-13",
+      "streams": 357180808,
+      "daily_streams": 72858,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -7786,7 +7786,7 @@
       "current_milestone_label": "300M",
       "next_milestone": 400000000,
       "next_milestone_label": "400M",
-      "remaining_to_next_milestone": 42892050,
+      "remaining_to_next_milestone": 42819192,
       "appearances": [
         {
           "source_type": "album",
@@ -7812,7 +7812,7 @@
         "5BK0uqwY9DNfZ630STAEaq"
       ],
       "rank_total": 105,
-      "rank_daily": 166
+      "rank_daily": 167
     },
     {
       "track_id": "1ZY1PqizIl78geGM4xWlEA",
@@ -13686,7 +13686,7 @@
         "3RaT22zZsxVYxxKR7TAaYF"
       ],
       "rank_total": 107,
-      "rank_daily": 167
+      "rank_daily": 166
     },
     {
       "track_id": "01K4zKU104LyJ8gMb7227B",
