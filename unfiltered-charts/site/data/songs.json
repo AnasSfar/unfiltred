@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 135,
-    "total_combined_streams": 121447731645,
+    "songs_updated_on_latest_date": 137,
+    "total_combined_streams": 121447938230,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -811,7 +811,7 @@
         "3nsfB1vus2qaloUdcBZvDu"
       ],
       "rank_total": 93,
-      "rank_daily": 67
+      "rank_daily": 68
     },
     {
       "track_id": "6aLOekfwbytwWvQftxTEF0",
@@ -1709,9 +1709,9 @@
       "title_key": "bad blood",
       "spotify_url": "https://open.spotify.com/intl-fr/track/2NlmmAjGYrrjAp0MED5rGx",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27352b2a3824413eefe9e33817a",
-      "streams": 734745798,
-      "daily_streams": 202719,
-      "last_updated": "2026-03-13",
+      "streams": 734950874,
+      "daily_streams": 205076,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -1720,7 +1720,7 @@
       "current_milestone_label": "700M",
       "next_milestone": 800000000,
       "next_milestone_label": "800M",
-      "remaining_to_next_milestone": 65254202,
+      "remaining_to_next_milestone": 65049126,
       "appearances": [
         {
           "source_type": "album",
@@ -1746,7 +1746,7 @@
         "2NlmmAjGYrrjAp0MED5rGx"
       ],
       "rank_total": 42,
-      "rank_daily": 68
+      "rank_daily": 66
     },
     {
       "track_id": "6xsEAm6w9oMQYYg3jkEkMT",
@@ -13075,7 +13075,7 @@
         "5jQyGzcwqAxwT5QUIMivoX"
       ],
       "rank_total": 53,
-      "rank_daily": 66
+      "rank_daily": 67
     },
     {
       "track_id": "2yceD2hx5HhOLgkm1CITCi",
@@ -16525,9 +16525,9 @@
       "title_key": "sparks fly - live/2011",
       "spotify_url": "https://open.spotify.com/intl-fr/track/1aBJNc2thaKyh5THWzIqHX",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273be4ec62353ee75fa11f6d6f7",
-      "streams": 10231761,
-      "daily_streams": 1520,
-      "last_updated": "2026-03-13",
+      "streams": 10233270,
+      "daily_streams": 1509,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -16536,7 +16536,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 89768239,
+      "remaining_to_next_milestone": 89766730,
       "appearances": [
         {
           "source_type": "misc",
