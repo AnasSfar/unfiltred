@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 228,
-    "total_combined_streams": 121455490798,
+    "songs_updated_on_latest_date": 229,
+    "total_combined_streams": 121455499639,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -17519,9 +17519,9 @@
       "title_key": "sweeter than fiction - from \"one chance\" soundtrack",
       "spotify_url": "https://open.spotify.com/intl-fr/track/0RFCHlNuTeUHIB36VuVbOL",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273a8d770d373f0bb3f0818526c",
-      "streams": 25511867,
-      "daily_streams": 8672,
-      "last_updated": "2026-03-13",
+      "streams": 25520708,
+      "daily_streams": 8841,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -17530,7 +17530,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 74488133,
+      "remaining_to_next_milestone": 74479292,
       "appearances": [
         {
           "source_type": "misc",
@@ -17556,7 +17556,7 @@
         "0RFCHlNuTeUHIB36VuVbOL"
       ],
       "rank_total": 366,
-      "rank_daily": 353
+      "rank_daily": 352
     },
     {
       "track_id": "4pJi1rVt9GNegU9kywjg4z",
@@ -20535,7 +20535,7 @@
         "4pFvEWbjBpPUdYRQly0THs"
       ],
       "rank_total": 349,
-      "rank_daily": 352
+      "rank_daily": 353
     },
     {
       "track_id": "2JoJrsEV15OzbijS47lids",
