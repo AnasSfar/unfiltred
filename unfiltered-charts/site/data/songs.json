@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 243,
-    "total_combined_streams": 121456046434,
+    "songs_updated_on_latest_date": 245,
+    "total_combined_streams": 121456185116,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -1509,7 +1509,7 @@
         "0v4z1tuZvn6LGknom9Qx7d"
       ],
       "rank_total": 201,
-      "rank_daily": 210
+      "rank_daily": 209
     },
     {
       "track_id": "5l6GqSxplqnZbLg0LTPQeG",
@@ -4386,9 +4386,9 @@
       "title_key": "cowboy like me",
       "spotify_url": "https://open.spotify.com/intl-fr/track/1XjHRolIXL2M1EEOUsGGR4",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27333b8541201f1ef38941024be",
-      "streams": 255485283,
-      "daily_streams": 88247,
-      "last_updated": "2026-03-13",
+      "streams": 255574048,
+      "daily_streams": 88765,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -4397,7 +4397,7 @@
       "current_milestone_label": "200M",
       "next_milestone": 300000000,
       "next_milestone_label": "300M",
-      "remaining_to_next_milestone": 44514717,
+      "remaining_to_next_milestone": 44425952,
       "appearances": [
         {
           "source_type": "album",
@@ -6777,7 +6777,7 @@
         "6zV8AVM9eVfdG7Qahwd64R"
       ],
       "rank_total": 224,
-      "rank_daily": 213
+      "rank_daily": 212
     },
     {
       "track_id": "77sMIMlNaSURUAXq5coCxE",
@@ -7016,7 +7016,7 @@
         "4s8BIKx4Zh6ryAEz8RTlaU"
       ],
       "rank_total": 239,
-      "rank_daily": 212
+      "rank_daily": 211
     },
     {
       "track_id": "1zxrcAk6eiytfavqriMcKT",
@@ -8299,7 +8299,7 @@
         "1SztNGCwEHJEVFx90E5g7D"
       ],
       "rank_total": 182,
-      "rank_daily": 211
+      "rank_daily": 210
     },
     {
       "track_id": "60hGQrn24APqEFSLObLeDc",
@@ -15198,9 +15198,9 @@
       "title_key": "robin",
       "spotify_url": "https://open.spotify.com/intl-fr/track/2CnjDMdpRjlWv04Xk3s6MW",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2738ecc33f195df6aa257c39eaa",
-      "streams": 93097100,
-      "daily_streams": 51974,
-      "last_updated": "2026-03-13",
+      "streams": 93147017,
+      "daily_streams": 49917,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -15209,7 +15209,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 6902900,
+      "remaining_to_next_milestone": 6852983,
       "appearances": [
         {
           "source_type": "album",
@@ -15235,7 +15235,7 @@
         "2CnjDMdpRjlWv04Xk3s6MW"
       ],
       "rank_total": 277,
-      "rank_daily": 209
+      "rank_daily": 213
     },
     {
       "track_id": "0Nw8hv79MLJa1yjtsEgz08",
