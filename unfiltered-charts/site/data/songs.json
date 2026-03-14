@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 159,
-    "total_combined_streams": 121449303908,
+    "songs_updated_on_latest_date": 160,
+    "total_combined_streams": 121449404275,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -2120,7 +2120,7 @@
         "4OmFmE0fzcMG6g0Y8p4eSD"
       ],
       "rank_total": 181,
-      "rank_daily": 135
+      "rank_daily": 134
     },
     {
       "track_id": "1By2VQkUN0Frd8mKNV5NYC",
@@ -18843,14 +18843,14 @@
       "rank_daily": 372
     },
     {
-      "track_id": "4ojxSyrEraN7d46BMBPThZ",
+      "track_id": "2Eeur20xVqfUoM3Q7EFPFt",
       "title": "the last great american dynasty",
       "title_key": "the last great american dynasty",
-      "spotify_url": "https://open.spotify.com/intl-fr/track/4ojxSyrEraN7d46BMBPThZ",
-      "image_url": "https://i.scdn.co/image/ab67616d0000b273045514e3ed4e1767a7c3ece5",
-      "streams": 454708306,
-      "daily_streams": 101912,
-      "last_updated": "2026-03-13",
+      "spotify_url": "https://open.spotify.com/intl-fr/track/2Eeur20xVqfUoM3Q7EFPFt",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b27395f754318336a07e85ec59bc",
+      "streams": 454808673,
+      "daily_streams": 100367,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -18859,7 +18859,7 @@
       "current_milestone_label": "400M",
       "next_milestone": 500000000,
       "next_milestone_label": "500M",
-      "remaining_to_next_milestone": 45291694,
+      "remaining_to_next_milestone": 45191327,
       "appearances": [
         {
           "source_type": "album",
@@ -18898,7 +18898,7 @@
         "4ojxSyrEraN7d46BMBPThZ"
       ],
       "rank_total": 74,
-      "rank_daily": 134
+      "rank_daily": 136
     },
     {
       "track_id": "7vvIpJZye5cRR6De1LKM0m",
@@ -22239,7 +22239,7 @@
         "4txojlesMFQZGWxwz2EeqB"
       ],
       "rank_total": 104,
-      "rank_daily": 136
+      "rank_daily": 135
     },
     {
       "track_id": "4CHpVfAhuxNJ3ibExe6kxO",
