@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 241,
-    "total_combined_streams": 121456019923,
+    "songs_updated_on_latest_date": 243,
+    "total_combined_streams": 121456046434,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -4130,14 +4130,14 @@
       "rank_daily": 195
     },
     {
-      "track_id": "4pl5zcqCv4vc3cB7M4MZ6f",
+      "track_id": "0cEG04R5cldkTLzK6phlcn",
       "title": "Come In With The Rain",
       "title_key": "come in with the rain",
-      "spotify_url": "https://open.spotify.com/intl-fr/track/4pl5zcqCv4vc3cB7M4MZ6f",
-      "image_url": "https://i.scdn.co/image/ab67616d0000b27334e5885465afc8a497ac1b7e",
-      "streams": 19116153,
-      "daily_streams": 3642,
-      "last_updated": "2026-03-13",
+      "spotify_url": "https://open.spotify.com/intl-fr/track/0cEG04R5cldkTLzK6phlcn",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b27373b565ab9d713e8d5586aac2",
+      "streams": 19119696,
+      "daily_streams": 3543,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -4146,7 +4146,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 80883847,
+      "remaining_to_next_milestone": 80880304,
       "appearances": [
         {
           "source_type": "album",
@@ -4185,7 +4185,7 @@
         "4pl5zcqCv4vc3cB7M4MZ6f"
       ],
       "rank_total": 380,
-      "rank_daily": 400
+      "rank_daily": 401
     },
     {
       "track_id": "1n2wszmJyVkw6FHqyLnQsY",
@@ -4329,9 +4329,9 @@
       "title_key": "cornelia street - live from paris",
       "spotify_url": "https://open.spotify.com/intl-fr/track/3fGnrtrtL1IHSX9t4DKOYf",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273eec5bf14fcf7c92ec8166027",
-      "streams": 83074872,
-      "daily_streams": 23025,
-      "last_updated": "2026-03-13",
+      "streams": 83097840,
+      "daily_streams": 22968,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -4340,7 +4340,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 16925128,
+      "remaining_to_next_milestone": 16902160,
       "appearances": [
         {
           "source_type": "misc",
@@ -4377,7 +4377,7 @@
       "merged_track_ids": [
         "3fGnrtrtL1IHSX9t4DKOYf"
       ],
-      "rank_total": 285,
+      "rank_total": 284,
       "rank_daily": 288
     },
     {
@@ -19418,7 +19418,7 @@
         "7FKbTRXXIWVFQmPH8zGfU0"
       ],
       "rank_total": 369,
-      "rank_daily": 401
+      "rank_daily": 400
     },
     {
       "track_id": "1DTRUYVd8rYpla9hhVVwjo",
@@ -20027,7 +20027,7 @@
       "merged_track_ids": [
         "77VotUUL79U10TAnYdqwvr"
       ],
-      "rank_total": 284,
+      "rank_total": 285,
       "rank_daily": 281
     },
     {
