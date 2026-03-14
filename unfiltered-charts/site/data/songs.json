@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 35,
-    "total_combined_streams": 121436289143,
+    "songs_updated_on_latest_date": 37,
+    "total_combined_streams": 121436620749,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -402,9 +402,9 @@
       "title_key": "a place in this world",
       "spotify_url": "https://open.spotify.com/intl-fr/track/73OX8GdpOeGzKC6OvGSbsv",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2732f8c0fd72a80a93f8c53b96c",
-      "streams": 56439193,
-      "daily_streams": 17671,
-      "last_updated": "2026-03-13",
+      "streams": 56456500,
+      "daily_streams": 17307,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -413,7 +413,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 43560807,
+      "remaining_to_next_milestone": 43543500,
       "appearances": [
         {
           "source_type": "album",
@@ -439,7 +439,7 @@
         "73OX8GdpOeGzKC6OvGSbsv"
       ],
       "rank_total": 318,
-      "rank_daily": 310
+      "rank_daily": 312
     },
     {
       "track_id": "2x3mwb96B6TquRqMtbxUE1",
@@ -3039,7 +3039,7 @@
         "1appZ3c336FkPvCuywfmrs"
       ],
       "rank_total": 176,
-      "rank_daily": 38
+      "rank_daily": 37
     },
     {
       "track_id": "7zcnlq38eqNWyUF6eNaB5Z",
@@ -7538,9 +7538,9 @@
       "title_key": "getaway car",
       "spotify_url": "https://open.spotify.com/intl-fr/track/0VE4kBnHJUgtMf0dy6DRmW",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273da5d5aeeabacacc1263c0f4b",
-      "streams": 901521741,
-      "daily_streams": 323937,
-      "last_updated": "2026-03-13",
+      "streams": 901836040,
+      "daily_streams": 314299,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -7549,7 +7549,7 @@
       "current_milestone_label": "900M",
       "next_milestone": 1000000000,
       "next_milestone_label": "1B",
-      "remaining_to_next_milestone": 98478259,
+      "remaining_to_next_milestone": 98163960,
       "appearances": [
         {
           "source_type": "album",
@@ -7575,7 +7575,7 @@
         "0VE4kBnHJUgtMf0dy6DRmW"
       ],
       "rank_total": 30,
-      "rank_daily": 36
+      "rank_daily": 38
     },
     {
       "track_id": "7bdyzcQ0onk60hfsxDCd2X",
@@ -12371,7 +12371,7 @@
         "2QrQCMel6v2JiLxqrg4p2O"
       ],
       "rank_total": 308,
-      "rank_daily": 312
+      "rank_daily": 311
     },
     {
       "track_id": "1QQii3pa5m8MEda0nbkjfw",
@@ -21736,7 +21736,7 @@
         "5VDHMi7own9vDZjiwDES1e"
       ],
       "rank_total": 388,
-      "rank_daily": 311
+      "rank_daily": 310
     },
     {
       "track_id": "0lx2cLdOt3piJbcaXIV74f",
@@ -22900,7 +22900,7 @@
         "4D7BCuvgdJlYvlX5WlN54t"
       ],
       "rank_total": 32,
-      "rank_daily": 37
+      "rank_daily": 36
     }
   ]
 }
