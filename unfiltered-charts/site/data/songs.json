@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 432,
-    "total_combined_streams": 121477966442,
+    "songs_updated_on_latest_date": 434,
+    "total_combined_streams": 121478179409,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -7722,7 +7722,7 @@
         "0DMVrlMUn01M0IcpDbwgu7"
       ],
       "rank_total": 291,
-      "rank_daily": 296
+      "rank_daily": 295
     },
     {
       "track_id": "7C0w28EsX0Um2FrZs9gso2",
@@ -10284,7 +10284,7 @@
         "6VsvKPJ4xjVNKpI8VVZ3SV"
       ],
       "rank_total": 60,
-      "rank_daily": 70
+      "rank_daily": 69
     },
     {
       "track_id": "5KByGq0JijSSDcy0qzuINs",
@@ -12326,7 +12326,7 @@
         "3eX0NZfLtGzoLUxPNvRfqm"
       ],
       "rank_total": 48,
-      "rank_daily": 71
+      "rank_daily": 70
     },
     {
       "track_id": "2QrQCMel6v2JiLxqrg4p2O",
@@ -15190,7 +15190,7 @@
         "3zwMVvkBe2qIKDObWgXw4N"
       ],
       "rank_total": 67,
-      "rank_daily": 72
+      "rank_daily": 71
     },
     {
       "track_id": "2CnjDMdpRjlWv04Xk3s6MW",
@@ -18042,9 +18042,9 @@
       "title_key": "the archer",
       "spotify_url": "https://open.spotify.com/intl-fr/track/3pHkh7d0lzM2AldUtz2x37",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273e787cffec20aa2a396a61647",
-      "streams": 546178423,
-      "daily_streams": 198264,
-      "last_updated": "2026-03-13",
+      "streams": 546370481,
+      "daily_streams": 192058,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -18053,7 +18053,7 @@
       "current_milestone_label": "500M",
       "next_milestone": 600000000,
       "next_milestone_label": "600M",
-      "remaining_to_next_milestone": 53821577,
+      "remaining_to_next_milestone": 53629519,
       "appearances": [
         {
           "source_type": "album",
@@ -18079,7 +18079,7 @@
         "3pHkh7d0lzM2AldUtz2x37"
       ],
       "rank_total": 58,
-      "rank_daily": 69
+      "rank_daily": 72
     },
     {
       "track_id": "2fgiBCtbWo8pijF6M7pN1i",
@@ -19791,7 +19791,7 @@
         "3lXekiVK1ZPZbKconsys73"
       ],
       "rank_total": 200,
-      "rank_daily": 295
+      "rank_daily": 294
     },
     {
       "track_id": "6dTA6y0C2ReQklntzZl8l3",
@@ -22247,9 +22247,9 @@
       "title_key": "you all over me (feat. maren morris) (taylor's version) (from the vault)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/4CHpVfAhuxNJ3ibExe6kxO",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273a48964b5d9a3d6968ae3e0de",
-      "streams": 132405782,
-      "daily_streams": 21527,
-      "last_updated": "2026-03-13",
+      "streams": 132426691,
+      "daily_streams": 20909,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift",
@@ -22259,7 +22259,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 67594218,
+      "remaining_to_next_milestone": 67573309,
       "appearances": [
         {
           "source_type": "album",
@@ -22298,7 +22298,7 @@
         "5pcjystBtalYeqaiXCcgEY"
       ],
       "rank_total": 242,
-      "rank_daily": 294
+      "rank_daily": 296
     },
     {
       "track_id": "4A2LfnduSTsE8u0ecYROxE",
