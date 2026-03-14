@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 179,
-    "total_combined_streams": 121451648055,
+    "songs_updated_on_latest_date": 180,
+    "total_combined_streams": 121451670900,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -4378,7 +4378,7 @@
         "3fGnrtrtL1IHSX9t4DKOYf"
       ],
       "rank_total": 285,
-      "rank_daily": 289
+      "rank_daily": 288
     },
     {
       "track_id": "1XjHRolIXL2M1EEOUsGGR4",
@@ -4913,7 +4913,7 @@
         "3K2es3gElMRJ3qvmPW442g"
       ],
       "rank_total": 219,
-      "rank_daily": 288
+      "rank_daily": 287
     },
     {
       "track_id": "1zU8j1x3yi9xalMF96pzKp",
@@ -5525,7 +5525,7 @@
         "4uuEGH5SVuzkkSFjo2DEiY"
       ],
       "rank_total": 278,
-      "rank_daily": 287
+      "rank_daily": 286
     },
     {
       "track_id": "670fUmXf4KQekzbEgaXyPA",
@@ -10612,7 +10612,7 @@
         "2m3ObD945KvpE5y9A1eUWm"
       ],
       "rank_total": 292,
-      "rank_daily": 286
+      "rank_daily": 285
     },
     {
       "track_id": "45R112Jz5hQeKgITXgSXzs",
@@ -16864,9 +16864,9 @@
       "title_key": "state of grace (acoustic version) (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/5jAIouBES8LWMiriuNq170",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273318443aab3531a0558e79a4d",
-      "streams": 71753428,
-      "daily_streams": 23627,
-      "last_updated": "2026-03-13",
+      "streams": 71776273,
+      "daily_streams": 22845,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -16875,7 +16875,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 28246572,
+      "remaining_to_next_milestone": 28223727,
       "appearances": [
         {
           "source_type": "album",
@@ -16901,7 +16901,7 @@
         "5jAIouBES8LWMiriuNq170"
       ],
       "rank_total": 299,
-      "rank_daily": 285
+      "rank_daily": 289
     },
     {
       "track_id": "6lzc0Al0zfZOIFsFvBS1ki",
