@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 229,
-    "total_combined_streams": 121455499639,
+    "songs_updated_on_latest_date": 230,
+    "total_combined_streams": 121455619486,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -18234,8 +18234,8 @@
       "title_key": "the black dog",
       "spotify_url": "https://open.spotify.com/intl-fr/track/62E2nR0od0M5HYxuYLaDz7",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2738ecc33f195df6aa257c39eaa",
-      "streams": 209184479,
-      "daily_streams": 119922,
+      "streams": 209304326,
+      "daily_streams": 119847,
       "last_updated": "2026-03-13",
       "primary_artist": "Taylor Swift",
       "artists": [
@@ -18245,7 +18245,7 @@
       "current_milestone_label": "200M",
       "next_milestone": 300000000,
       "next_milestone_label": "300M",
-      "remaining_to_next_milestone": 90815521,
+      "remaining_to_next_milestone": 90695674,
       "appearances": [
         {
           "source_type": "album",
