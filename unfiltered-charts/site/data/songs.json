@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 140,
-    "total_combined_streams": 121448047499,
+    "songs_updated_on_latest_date": 141,
+    "total_combined_streams": 121448048835,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -15280,7 +15280,7 @@
         "0Nw8hv79MLJa1yjtsEgz08"
       ],
       "rank_total": 424,
-      "rank_daily": 431
+      "rank_daily": 430
     },
     {
       "track_id": "7nWui6jiMM2m9qFmET1Mtj",
@@ -19844,9 +19844,9 @@
       "title_key": "the story of us - live",
       "spotify_url": "https://open.spotify.com/intl-fr/track/72GIZuUXo14oyrS0si3Rgc",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273be4ec62353ee75fa11f6d6f7",
-      "streams": 8096617,
-      "daily_streams": 1428,
-      "last_updated": "2026-03-13",
+      "streams": 8097953,
+      "daily_streams": 1336,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -19855,7 +19855,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 91903383,
+      "remaining_to_next_milestone": 91902047,
       "appearances": [
         {
           "source_type": "misc",
@@ -19893,7 +19893,7 @@
         "72GIZuUXo14oyrS0si3Rgc"
       ],
       "rank_total": 419,
-      "rank_daily": 430
+      "rank_daily": 431
     },
     {
       "track_id": "3NMrVbIVWT3fPXBj0rNDKG",
