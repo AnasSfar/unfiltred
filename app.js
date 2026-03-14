@@ -943,7 +943,6 @@ function songRow(song){
                   <div class="row-song-title">
                     ${song.title_clean || song.title}
                   </div>
-
                   <div class="row-song-sub">
                     ${formatArtistAlbum(song)}
                   </div>
@@ -1820,32 +1819,40 @@ function renderSongPage(container){
    MILESTONE PROGRESS BAR
 ========================= */
 
-function milestoneProgressBar(percent){
-
-  const p = Math.max(0, Math.min(100, percent || 0));
-
-  return `
-  <div class="milestone-progress">
-
-    <div class="milestone-progress-track">
-      <div
-        class="milestone-progress-bar"
-        style="width:${p}%">
-      </div>
-    </div>
-
-    <div class="milestone-progress-label">
-      ${p.toFixed(2)}%
-    </div>
-
-  </div>
-  `;
+function getMilestoneBarClass(percent) {
+  if (percent >= 80) return "is-hot";
+  if (percent >= 60) return "is-purple";
+  if (percent >= 40) return "is-blue";
+  return "is-teal";
 }
 
+function milestoneProgressBar(item) {
+  const p = getMilestonePercent(item);
+
+  return `
+    <div class="milestone-fancy-progress">
+      <div class="milestone-fancy-track">
+        <div class="milestone-fancy-percent">${Math.round(p)}%</div>
+        <div class="milestone-fancy-bar-shell">
+          <div class="milestone-fancy-bar-fill" style="width:${p}%"></div>
+        </div>
+      </div>
+    </div>
+  `;
+}
 
 /* =========================
    MILESTONE ROW
 ========================= */
+
+function getMilestonePercent(item) {
+  const current = Number(item.current_streams ?? item.streams ?? 0);
+  const target = Number(item.next_milestone ?? item.progress?.target ?? 0);
+
+  if (!current || !target) return 0;
+
+  return Math.max(0, Math.min(100, (current / target) * 100));
+}
 
 function milestoneRow(item) {
   if (!item?.forecast?.expected_date) return "";
@@ -1853,31 +1860,49 @@ function milestoneRow(item) {
   const song = state.songs.find(s => s.track_id === item.track_id);
   if (!song) return "";
 
+  const currentStreams = item.current_streams ?? song.streams ?? 0;
+  const avgDaily =
+    item.estimated_base_daily ??
+    item.latest_daily_streams ??
+    item.daily_streams ??
+    0;
+
+  const remaining = item.progress?.remaining ?? 0;
+
+  console.log(
+    item.title || song.title,
+    getMilestonePercent(item),
+    item.progress
+  );
+
   return `
-  <div class="milestone-highlight-item">
-    <img
-      class="milestone-highlight-cover"
-      src="${withCacheBuster(song.image_url)}"
-      alt="${song.title}"
-    >
+    <div class="milestone-highlight-item">
+      <img
+        class="milestone-highlight-cover"
+        src="${withCacheBuster(song.image_url)}"
+        alt="${song.title}"
+      >
 
-    <div class="milestone-highlight-content">
-      <div class="milestone-highlight-title">
-        ${song.title_clean || song.title}
+      <div class="milestone-highlight-content">
+        <div class="milestone-highlight-title">
+          ${song.title_clean || song.title}
+        </div>
+
+        <div class="milestone-highlight-text">
+          ${item.next_milestone_label} milestone expected <strong>${item.forecast.expected_date}</strong>
+        </div>
+
+        <div class="milestone-inline-stats">
+          <span>Total streams <strong>${formatFull(currentStreams)}</strong></span>
+          <span>Avg daily <strong>${formatFull(avgDaily)}</strong></span>
+          <span>Remaining <strong>${formatFull(remaining)}</strong></span>
+        </div>
+
+        ${milestoneProgressBar(item)}
       </div>
-
-      <div class="milestone-highlight-text">
-        ${item.next_milestone_label}
-        milestone expected
-        <strong>${item.forecast.expected_date}</strong>
-      </div>
-
-      ${milestoneProgressBar(item.progress?.progress_percent || 0)}
     </div>
-  </div>
   `;
 }
-
 
 /* =========================
    MILESTONES PAGE

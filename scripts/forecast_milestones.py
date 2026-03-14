@@ -1,19 +1,27 @@
 from __future__ import annotations
 
 import json
-import math
 from datetime import date, datetime, timedelta
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE_DATA_DIR = ROOT / "site" / "data"
+HISTORY_DIR = ROOT / "site" / "history"
+HISTORY_INDEX_PATH = HISTORY_DIR / "index.json"
 
 SONGS_PATH = SITE_DATA_DIR / "songs.json"
-HISTORY_PATH = SITE_DATA_DIR / "history.json"
 OUTPUT_PATH = SITE_DATA_DIR / "expected_milestones.json"
 
 DEFAULT_MILESTONES = [
+    100_000_000,
+    200_000_000,
+    300_000_000,
+    400_000_000,
+    500_000_000,
+    600_000_000,
+    700_000_000,
+    800_000_000,
     900_000_000,
     1_000_000_000,
     1_500_000_000,
@@ -38,7 +46,7 @@ def format_milestone_label(value: int) -> str:
     return f"{int(value / 1_000_000)}M"
 
 
-def safe_float(value, default=0.0) -> float:
+def safe_float(value, default: float = 0.0) -> float:
     try:
         if value is None or value == "":
             return default
@@ -47,11 +55,11 @@ def safe_float(value, default=0.0) -> float:
         return default
 
 
-def safe_int(value, default=0) -> int:
+def safe_int(value, default: int = 0) -> int:
     try:
         if value is None or value == "":
             return default
-        return int(value)
+        return int(float(value))
     except Exception:
         return default
 
@@ -60,8 +68,28 @@ def parse_iso_date(value: str) -> date:
     return datetime.strptime(value, "%Y-%m-%d").date()
 
 
-def load_json(path: Path) -> dict:
+def load_json(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def load_history_bundle() -> dict:
+    if not HISTORY_INDEX_PATH.exists():
+        return {"dates": [], "by_date": {}}
+
+    index_data = load_json(HISTORY_INDEX_PATH)
+    dates = index_data.get("dates", [])
+    by_date = {}
+
+    for d in dates:
+        day_path = HISTORY_DIR / f"{d}.json"
+        if not day_path.exists():
+            continue
+        by_date[d] = load_json(day_path) or {}
+
+    return {
+        "dates": dates,
+        "by_date": by_date,
+    }
 
 
 def weighted_average(values: list[float], weights: list[float]) -> float:
@@ -110,11 +138,17 @@ def get_track_history_series(track_id: str, history_by_date: dict, dates: list[s
 
         streams = safe_int(row.get("streams"))
         daily_streams = row.get("daily_streams")
+
         if daily_streams in (None, ""):
             continue
 
         daily_streams = safe_int(daily_streams)
-        if streams <= 0 or daily_streams < 0:
+
+        if streams <= 0:
+            continue
+
+        # on ignore les daily <= 0 pour éviter les faux zéros
+        if daily_streams <= 0:
             continue
 
         series.append(
@@ -137,7 +171,11 @@ def estimate_future_daily_streams(series: list[dict]) -> dict:
         }
 
     recent = series[-RECENT_WINDOW:]
-    daily_values = [max(0, safe_float(row["daily_streams"])) for row in recent]
+    daily_values = [
+        safe_float(row["daily_streams"])
+        for row in recent
+        if safe_float(row["daily_streams"]) > 0
+    ]
 
     if not daily_values:
         return {
@@ -146,33 +184,21 @@ def estimate_future_daily_streams(series: list[dict]) -> dict:
             "projected_next_daily": 0,
         }
 
-    weights = [i + 1 for i in range(len(daily_values))]
-    recent_weighted_avg = weighted_average(daily_values, weights)
+    last_7 = daily_values[-7:] if len(daily_values) >= 7 else daily_values
+    last_14 = daily_values[-14:] if len(daily_values) >= 14 else daily_values
 
-    shorter = daily_values[-7:] if len(daily_values) >= 7 else daily_values
-    shortest = daily_values[-3:] if len(daily_values) >= 3 else daily_values
+    avg_7 = sum(last_7) / len(last_7)
+    avg_14 = sum(last_14) / len(last_14)
 
-    avg_7 = sum(shorter) / len(shorter)
-    avg_3 = sum(shortest) / len(shortest)
+    slope = linear_regression_slope(last_14)
 
-    slope = linear_regression_slope(daily_values)
+    projected_next = avg_7 * 0.7 + avg_14 * 0.3 + slope * 1.5
+    projected_next = max(1.0, projected_next)
 
-    projected_next = (
-        recent_weighted_avg * 0.55 +
-        avg_7 * 0.25 +
-        avg_3 * 0.20 +
-        slope * 2.0
-    )
-
-    floor_bound = max(0.0, recent_weighted_avg * 0.55)
-    ceil_bound = max(recent_weighted_avg * 1.8, avg_3 * 1.8, 1.0)
-
-    projected_next = clamp(projected_next, floor_bound, ceil_bound)
-
-    trend_per_day = clamp(slope * 0.35, -recent_weighted_avg * 0.025, recent_weighted_avg * 0.025)
+    trend_per_day = clamp(slope, -avg_7 * 0.03, avg_7 * 0.03)
 
     return {
-        "base_daily": int(round(recent_weighted_avg)),
+        "base_daily": int(round(avg_7)),
         "trend_per_day": trend_per_day,
         "projected_next_daily": int(round(projected_next)),
     }
@@ -208,6 +234,7 @@ def project_milestone_date(
 
     for day_index in range(1, MAX_FORECAST_DAYS + 1):
         projected_streams += max(daily, 0)
+
         if projected_streams >= milestone:
             eta_date = current_date + timedelta(days=day_index)
             return {
@@ -225,28 +252,11 @@ def project_milestone_date(
 
 
 def compute_progress(current_streams: int, target: int) -> dict:
-    previous_major = 0
-
-    if target >= 1_000_000_000:
-        step = 500_000_000 if target % 1_000_000_000 != 0 else 1_000_000_000
-
-        if target == 1_500_000_000:
-            previous_major = 1_000_000_000
-        elif target == 2_500_000_000:
-            previous_major = 2_000_000_000
-        elif target == 3_500_000_000:
-            previous_major = 3_000_000_000
-        else:
-            previous_major = target - step
-    else:
-        previous_major = max(0, target - 100_000_000)
-
-    span = max(1, target - previous_major)
-    raw_progress = (current_streams - previous_major) / span
-    progress_ratio = clamp(raw_progress, 0.0, 1.0)
+    target = max(1, target)
+    progress_ratio = clamp(current_streams / target, 0.0, 1.0)
 
     return {
-        "previous_reference": previous_major,
+        "previous_reference": 0,
         "target": target,
         "remaining": max(0, target - current_streams),
         "progress_ratio": progress_ratio,
@@ -256,7 +266,7 @@ def compute_progress(current_streams: int, target: int) -> dict:
 
 def build_forecasts() -> dict:
     songs_data = load_json(SONGS_PATH)
-    history_data = load_json(HISTORY_PATH)
+    history_data = load_history_bundle()
 
     songs = songs_data.get("songs", [])
     dates = history_data.get("dates", [])
@@ -293,13 +303,13 @@ def build_forecasts() -> dict:
         projection_inputs = estimate_future_daily_streams(series)
 
         if len(series) < MIN_REQUIRED_HISTORY_POINTS:
-            projected_daily = max(safe_int(last_row["daily_streams"]), 0)
+            projected_daily = max(safe_int(last_row["daily_streams"]), 1)
             trend_per_day = 0.0
             base_daily = projected_daily
         else:
-            projected_daily = projection_inputs["projected_next_daily"]
+            projected_daily = max(projection_inputs["projected_next_daily"], 1)
             trend_per_day = projection_inputs["trend_per_day"]
-            base_daily = projection_inputs["base_daily"]
+            base_daily = max(projection_inputs["base_daily"], 1)
 
         projection = project_milestone_date(
             current_streams=current_streams,
