@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 57,
-    "total_combined_streams": 121439546514,
+    "songs_updated_on_latest_date": 58,
+    "total_combined_streams": 121439750805,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -774,9 +774,9 @@
       "title_key": "all too well (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/3nsfB1vus2qaloUdcBZvDu",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273318443aab3531a0558e79a4d",
-      "streams": 376979326,
-      "daily_streams": 190756,
-      "last_updated": "2026-03-13",
+      "streams": 377183617,
+      "daily_streams": 204291,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -785,7 +785,7 @@
       "current_milestone_label": "300M",
       "next_milestone": 400000000,
       "next_milestone_label": "400M",
-      "remaining_to_next_milestone": 23020674,
+      "remaining_to_next_milestone": 22816383,
       "appearances": [
         {
           "source_type": "album",
@@ -811,7 +811,7 @@
         "3nsfB1vus2qaloUdcBZvDu"
       ],
       "rank_total": 93,
-      "rank_daily": 72
+      "rank_daily": 67
     },
     {
       "track_id": "6aLOekfwbytwWvQftxTEF0",
@@ -1746,7 +1746,7 @@
         "2NlmmAjGYrrjAp0MED5rGx"
       ],
       "rank_total": 42,
-      "rank_daily": 68
+      "rank_daily": 69
     },
     {
       "track_id": "6xsEAm6w9oMQYYg3jkEkMT",
@@ -12326,7 +12326,7 @@
         "3eX0NZfLtGzoLUxPNvRfqm"
       ],
       "rank_total": 48,
-      "rank_daily": 69
+      "rank_daily": 70
     },
     {
       "track_id": "2QrQCMel6v2JiLxqrg4p2O",
@@ -14998,7 +14998,7 @@
         "4OAuvHryIVv4kMDNSLuPt6"
       ],
       "rank_total": 79,
-      "rank_daily": 67
+      "rank_daily": 68
     },
     {
       "track_id": "4mqgn90sCeVSYqcoftTQTd",
@@ -18079,7 +18079,7 @@
         "3pHkh7d0lzM2AldUtz2x37"
       ],
       "rank_total": 58,
-      "rank_daily": 70
+      "rank_daily": 71
     },
     {
       "track_id": "2fgiBCtbWo8pijF6M7pN1i",
@@ -19701,7 +19701,7 @@
         "18WFFUIsewmA8g31KAeo3e"
       ],
       "rank_total": 144,
-      "rank_daily": 71
+      "rank_daily": 72
     },
     {
       "track_id": "4GBbcyrbDzwRtQjrsDRywK",
