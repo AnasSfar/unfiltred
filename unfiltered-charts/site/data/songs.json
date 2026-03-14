@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 344,
-    "total_combined_streams": 121467818284,
+    "songs_updated_on_latest_date": 346,
+    "total_combined_streams": 121468014159,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -4321,7 +4321,7 @@
         "12M5uqx0ZuwkpLp5rJim1a"
       ],
       "rank_total": 77,
-      "rank_daily": 76
+      "rank_daily": 77
     },
     {
       "track_id": "3fGnrtrtL1IHSX9t4DKOYf",
@@ -7958,7 +7958,7 @@
       "merged_track_ids": [
         "0W0iAC1VGlB82PI6elxFYf"
       ],
-      "rank_total": 56,
+      "rank_total": 57,
       "rank_daily": 23
     },
     {
@@ -9887,9 +9887,9 @@
       "title_key": "if this was a movie",
       "spotify_url": "https://open.spotify.com/intl-fr/track/0vvt4IZOMkRug195S4MUq0",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2732e4ec3175d848eca7b76b07f",
-      "streams": 49047881,
-      "daily_streams": 8565,
-      "last_updated": "2026-03-13",
+      "streams": 49056443,
+      "daily_streams": 8562,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -9898,7 +9898,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 50952119,
+      "remaining_to_next_milestone": 50943557,
       "appearances": [
         {
           "source_type": "album",
@@ -13128,9 +13128,9 @@
       "title_key": "miss americana & the heartbreak prince",
       "spotify_url": "https://open.spotify.com/intl-fr/track/214nt20w5wOxJnY462klLw",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273e787cffec20aa2a396a61647",
-      "streams": 552553574,
-      "daily_streams": 177193,
-      "last_updated": "2026-03-13",
+      "streams": 552740887,
+      "daily_streams": 187313,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -13139,7 +13139,7 @@
       "current_milestone_label": "500M",
       "next_milestone": 600000000,
       "next_milestone_label": "600M",
-      "remaining_to_next_milestone": 47446426,
+      "remaining_to_next_milestone": 47259113,
       "appearances": [
         {
           "source_type": "album",
@@ -13164,8 +13164,8 @@
       "merged_track_ids": [
         "214nt20w5wOxJnY462klLw"
       ],
-      "rank_total": 57,
-      "rank_daily": 77
+      "rank_total": 56,
+      "rank_daily": 74
     },
     {
       "track_id": "2CYVETnhM9aytqrazYYwrK",
@@ -16381,7 +16381,7 @@
         "3Vevii7qKqrmW8CcyzBHDl"
       ],
       "rank_total": 85,
-      "rank_daily": 74
+      "rank_daily": 75
     },
     {
       "track_id": "4AYtqFyFbX0Xkc2wtcygTr",
@@ -19701,7 +19701,7 @@
         "18WFFUIsewmA8g31KAeo3e"
       ],
       "rank_total": 144,
-      "rank_daily": 75
+      "rank_daily": 76
     },
     {
       "track_id": "4GBbcyrbDzwRtQjrsDRywK",
