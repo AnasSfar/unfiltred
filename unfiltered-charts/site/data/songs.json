@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 466,
-    "total_combined_streams": 121483768901,
+    "songs_updated_on_latest_date": 467,
+    "total_combined_streams": 121483794530,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -7393,7 +7393,7 @@
         "1gejz5ROvJBUb6WJzkMAcc"
       ],
       "rank_total": 345,
-      "rank_daily": 268
+      "rank_daily": 267
     },
     {
       "track_id": "7pM01Cfj8vt7z3qI2TveNT",
@@ -16811,7 +16811,7 @@
         "7A2cNLRT0YJc1yjxHlKihs"
       ],
       "rank_total": 275,
-      "rank_daily": 266
+      "rank_daily": 265
     },
     {
       "track_id": "786NsUYn4GGUf8AOt0SQhP",
@@ -17138,7 +17138,7 @@
         "7eQj6r5PIdYKEIZjucBMcq"
       ],
       "rank_total": 264,
-      "rank_daily": 267
+      "rank_daily": 266
     },
     {
       "track_id": "0ug5NqcwcFR2xrfTkc7k8e",
@@ -22761,9 +22761,9 @@
       "title_key": "you're not sorry (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/6iiAfo4wTA2CVC3Uwx9uh8",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273a48964b5d9a3d6968ae3e0de",
-      "streams": 97760125,
-      "daily_streams": 26963,
-      "last_updated": "2026-03-13",
+      "streams": 97785754,
+      "daily_streams": 25629,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -22772,7 +22772,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 2239875,
+      "remaining_to_next_milestone": 2214246,
       "appearances": [
         {
           "source_type": "album",
@@ -22798,7 +22798,7 @@
         "6iiAfo4wTA2CVC3Uwx9uh8"
       ],
       "rank_total": 271,
-      "rank_daily": 265
+      "rank_daily": 268
     },
     {
       "track_id": "4VbErhGDMTnvPAnt5z70DL",
