@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 346,
-    "total_combined_streams": 121468014159,
+    "songs_updated_on_latest_date": 347,
+    "total_combined_streams": 121468242624,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -3380,7 +3380,7 @@
         "0sY6ZUTh4yoctD8VIXz339"
       ],
       "rank_total": 36,
-      "rank_daily": 59
+      "rank_daily": 60
     },
     {
       "track_id": "0RdcBnAXyH2YZZvcBVu2k6",
@@ -6617,7 +6617,7 @@
         "5hQSXkFgbxjZo9uCwd11so"
       ],
       "rank_total": 97,
-      "rank_daily": 58
+      "rank_daily": 59
     },
     {
       "track_id": "03bTIHJElXZ0O0jqOQvAbY",
@@ -9977,9 +9977,9 @@
       "title_key": "illicit affairs",
       "spotify_url": "https://open.spotify.com/intl-fr/track/2NmsngXHeC1GQ9wWrzhOMf",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27395f754318336a07e85ec59bc",
-      "streams": 606747024,
-      "daily_streams": 223913,
-      "last_updated": "2026-03-13",
+      "streams": 606975489,
+      "daily_streams": 228465,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -9988,7 +9988,7 @@
       "current_milestone_label": "600M",
       "next_milestone": 700000000,
       "next_milestone_label": "700M",
-      "remaining_to_next_milestone": 93252976,
+      "remaining_to_next_milestone": 93024511,
       "appearances": [
         {
           "source_type": "album",
@@ -10014,7 +10014,7 @@
         "2NmsngXHeC1GQ9wWrzhOMf"
       ],
       "rank_total": 47,
-      "rank_daily": 60
+      "rank_daily": 57
     },
     {
       "track_id": "560uQyz3p5G9WdnMX39xc6",
@@ -14638,7 +14638,7 @@
         "4y5bvROuBDPr5fuwXbIBZR"
       ],
       "rank_total": 34,
-      "rank_daily": 57
+      "rank_daily": 58
     },
     {
       "track_id": "5tWxKWq1DSP1s9WQ5PWuqu",
