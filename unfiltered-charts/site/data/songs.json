@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 447,
-    "total_combined_streams": 121482884139,
+    "songs_updated_on_latest_date": 448,
+    "total_combined_streams": 121482907797,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -2801,7 +2801,7 @@
         "7HC7R2D8WjXVcUHJyEGjRs"
       ],
       "rank_total": 280,
-      "rank_daily": 279
+      "rank_daily": 278
     },
     {
       "track_id": "74sZKiwaGtSEEyjhDmi99y",
@@ -4377,7 +4377,7 @@
       "merged_track_ids": [
         "3fGnrtrtL1IHSX9t4DKOYf"
       ],
-      "rank_total": 284,
+      "rank_total": 285,
       "rank_daily": 286
     },
     {
@@ -11475,7 +11475,7 @@
         "6XDBA3QWX51lDJ0oZbaJJN"
       ],
       "rank_total": 261,
-      "rank_daily": 280
+      "rank_daily": 279
     },
     {
       "track_id": "4hqJ4bSlYJOXb6Z4SRmzxs",
@@ -19511,11 +19511,11 @@
       "rank_daily": 272
     },
     {
-      "track_id": "0xvsgzM8AtBtRHZm5rav8A",
+      "track_id": "1yDJcXc549N6AabNBzFAku",
       "title": "The Other Side Of The Door",
       "title_key": "the other side of the door",
-      "spotify_url": "https://open.spotify.com/intl-fr/track/0xvsgzM8AtBtRHZm5rav8A",
-      "image_url": "https://i.scdn.co/image/ab67616d0000b27334e5885465afc8a497ac1b7e",
+      "spotify_url": "https://open.spotify.com/intl-fr/track/1yDJcXc549N6AabNBzFAku",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b27373b565ab9d713e8d5586aac2",
       "streams": 17885972,
       "daily_streams": 5232,
       "last_updated": "2026-03-14",
@@ -19991,9 +19991,9 @@
       "title_key": "the way i loved you",
       "spotify_url": "https://open.spotify.com/intl-fr/track/77VotUUL79U10TAnYdqwvr",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27334e5885465afc8a497ac1b7e",
-      "streams": 83094902,
-      "daily_streams": 24185,
-      "last_updated": "2026-03-13",
+      "streams": 83118560,
+      "daily_streams": 23658,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -20002,7 +20002,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 16905098,
+      "remaining_to_next_milestone": 16881440,
       "appearances": [
         {
           "source_type": "album",
@@ -20027,8 +20027,8 @@
       "merged_track_ids": [
         "77VotUUL79U10TAnYdqwvr"
       ],
-      "rank_total": 285,
-      "rank_daily": 278
+      "rank_total": 284,
+      "rank_daily": 281
     },
     {
       "track_id": "22bPsP2jCgbLUvh82U0Z3M",
@@ -21385,7 +21385,7 @@
         "4jPtq9shRdUv8Zjr0a5xkD"
       ],
       "rank_total": 248,
-      "rank_daily": 281
+      "rank_daily": 280
     },
     {
       "track_id": "5YL553x8sHderRBDlm3NM3",
