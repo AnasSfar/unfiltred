@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 330,
-    "total_combined_streams": 121466182672,
+    "songs_updated_on_latest_date": 331,
+    "total_combined_streams": 121466366083,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -16381,7 +16381,7 @@
         "3Vevii7qKqrmW8CcyzBHDl"
       ],
       "rank_total": 85,
-      "rank_daily": 75
+      "rank_daily": 74
     },
     {
       "track_id": "4AYtqFyFbX0Xkc2wtcygTr",
@@ -19664,9 +19664,9 @@
       "title_key": "the prophecy",
       "spotify_url": "https://open.spotify.com/intl-fr/track/18WFFUIsewmA8g31KAeo3e",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2738ecc33f195df6aa257c39eaa",
-      "streams": 262161834,
-      "daily_streams": 191840,
-      "last_updated": "2026-03-13",
+      "streams": 262345245,
+      "daily_streams": 183411,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -19675,7 +19675,7 @@
       "current_milestone_label": "200M",
       "next_milestone": 300000000,
       "next_milestone_label": "300M",
-      "remaining_to_next_milestone": 37838166,
+      "remaining_to_next_milestone": 37654755,
       "appearances": [
         {
           "source_type": "album",
@@ -19701,7 +19701,7 @@
         "18WFFUIsewmA8g31KAeo3e"
       ],
       "rank_total": 144,
-      "rank_daily": 72
+      "rank_daily": 75
     },
     {
       "track_id": "4GBbcyrbDzwRtQjrsDRywK",
@@ -21057,7 +21057,7 @@
         "7AEAGTc8cReDqcbPoY9gwo"
       ],
       "rank_total": 39,
-      "rank_daily": 73
+      "rank_daily": 72
     },
     {
       "track_id": "5YqltLsjdqFtvqE7Nrysvs",
@@ -22536,7 +22536,7 @@
         "6RRNNciQGZEXnqk8SQ9yv5"
       ],
       "rank_total": 18,
-      "rank_daily": 74
+      "rank_daily": 73
     },
     {
       "track_id": "7Bjf96uNizpvXLvNyOJpst",
