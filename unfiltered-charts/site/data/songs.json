@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 156,
-    "total_combined_streams": 121449271846,
+    "songs_updated_on_latest_date": 158,
+    "total_combined_streams": 121449275012,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -1315,7 +1315,7 @@
         "4XiypEn8iKbeP1TbTqdfk5"
       ],
       "rank_total": 434,
-      "rank_daily": 418
+      "rank_daily": 417
     },
     {
       "track_id": "3hUxzQpSfdDqwM3ZTFQY0K",
@@ -2320,9 +2320,9 @@
       "title_key": "betty - live from the 2020 academy of country music awards",
       "spotify_url": "https://open.spotify.com/intl-fr/track/4GS68CE8nKLIKjjapiSm2I",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2736761ef4b8f9e8b2007f4d8c3",
-      "streams": 11313404,
-      "daily_streams": 2141,
-      "last_updated": "2026-03-13",
+      "streams": 11315391,
+      "daily_streams": 1987,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -2331,7 +2331,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 88686596,
+      "remaining_to_next_milestone": 88684609,
       "appearances": [
         {
           "source_type": "misc",
@@ -2369,7 +2369,7 @@
         "4GS68CE8nKLIKjjapiSm2I"
       ],
       "rank_total": 407,
-      "rank_daily": 417
+      "rank_daily": 420
     },
     {
       "track_id": "1mh5dObNoOvCfHmXnhvDEK",
@@ -4664,7 +4664,7 @@
         "0ISHfeb30gj4CSWUZYuesj"
       ],
       "rank_total": 449,
-      "rank_daily": 435
+      "rank_daily": 436
     },
     {
       "track_id": "7I7JbDv63ZJJsSi24DyJrz",
@@ -5321,7 +5321,7 @@
         "6SYwJcqaltK2WFRmD1unUV"
       ],
       "rank_total": 415,
-      "rank_daily": 420
+      "rank_daily": 419
     },
     {
       "track_id": "2Sy2oGjP5RYB4cLVoDU0Gz",
@@ -16672,9 +16672,9 @@
       "title_key": "speak now - live/2011",
       "spotify_url": "https://open.spotify.com/intl-fr/track/3QFB14MOUf3imlyISNmrbT",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273be4ec62353ee75fa11f6d6f7",
-      "streams": 6953644,
-      "daily_streams": 1141,
-      "last_updated": "2026-03-13",
+      "streams": 6954823,
+      "daily_streams": 1179,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -16683,7 +16683,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 93046356,
+      "remaining_to_next_milestone": 93045177,
       "appearances": [
         {
           "source_type": "misc",
@@ -16721,7 +16721,7 @@
         "3QFB14MOUf3imlyISNmrbT"
       ],
       "rank_total": 428,
-      "rank_daily": 436
+      "rank_daily": 435
     },
     {
       "track_id": "0vqI4ZIMuifeKeItGiWbPj",
@@ -18602,7 +18602,7 @@
         "5k9RjjuYyOMCLL81U8FaHT"
       ],
       "rank_total": 444,
-      "rank_daily": 419
+      "rank_daily": 418
     },
     {
       "track_id": "2VuqMjgoKaOHNM8HpxtXKx",
