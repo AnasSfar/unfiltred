@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 431,
-    "total_combined_streams": 121477921439,
+    "songs_updated_on_latest_date": 432,
+    "total_combined_streams": 121477966442,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -2210,7 +2210,7 @@
         "0NwGC0v03ysCYINtg6ns58"
       ],
       "rank_total": 189,
-      "rank_daily": 217
+      "rank_daily": 216
     },
     {
       "track_id": "6505MLhnqTDDg4tjoUz2Wp",
@@ -8094,7 +8094,7 @@
         "4tMzIAFTFdqGBQLdfbPces"
       ],
       "rank_total": 247,
-      "rank_daily": 216
+      "rank_daily": 215
     },
     {
       "track_id": "62rlxI6g2PNaWsHoiRryto",
@@ -9540,7 +9540,7 @@
         "1ULabO0PEsdJekqVH6G10G"
       ],
       "rank_total": 259,
-      "rank_daily": 219
+      "rank_daily": 218
     },
     {
       "track_id": "4JQm7ebhsrt10wmrP6AfXL",
@@ -17273,7 +17273,7 @@
         "6M9ppdfFjR1AbpUl3Y8DcV"
       ],
       "rank_total": 213,
-      "rank_daily": 218
+      "rank_daily": 217
     },
     {
       "track_id": "2R7C9dDqv1UPycvepBFziA",
@@ -17996,9 +17996,9 @@
       "title_key": "the alcott (feat. taylor swift)",
       "spotify_url": "https://open.spotify.com/track/6INztpNwOTlfSKTuPo0HOP",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273364c819937072957a9220847",
-      "streams": 99928611,
-      "daily_streams": 47624,
-      "last_updated": "2026-03-13",
+      "streams": 99973614,
+      "daily_streams": 45003,
+      "last_updated": "2026-03-14",
       "primary_artist": "The National",
       "artists": [
         "The National",
@@ -18008,7 +18008,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 71389,
+      "remaining_to_next_milestone": 26386,
       "appearances": [
         {
           "source_type": "misc",
@@ -18034,7 +18034,7 @@
         "6INztpNwOTlfSKTuPo0HOP"
       ],
       "rank_total": 269,
-      "rank_daily": 215
+      "rank_daily": 220
     },
     {
       "track_id": "3pHkh7d0lzM2AldUtz2x37",
@@ -20490,7 +20490,7 @@
         "1HCdems7PQZRj42QDWLA0A"
       ],
       "rank_total": 246,
-      "rank_daily": 220
+      "rank_daily": 219
     },
     {
       "track_id": "4pFvEWbjBpPUdYRQly0THs",
