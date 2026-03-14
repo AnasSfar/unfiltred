@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 15,
-    "total_combined_streams": 121433225041,
+    "songs_updated_on_latest_date": 16,
+    "total_combined_streams": 121433297461,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -10472,9 +10472,9 @@
       "title_key": "ivy",
       "spotify_url": "https://open.spotify.com/intl-fr/track/19CSr8rwW05VJL2F91KFNK",
       "image_url": "https://i.scdn.co/image/ab67616d0000b27333b8541201f1ef38941024be",
-      "streams": 284487010,
-      "daily_streams": 71047,
-      "last_updated": "2026-03-13",
+      "streams": 284559430,
+      "daily_streams": 72420,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -10483,7 +10483,7 @@
       "current_milestone_label": "200M",
       "next_milestone": 300000000,
       "next_milestone_label": "300M",
-      "remaining_to_next_milestone": 15512990,
+      "remaining_to_next_milestone": 15440570,
       "appearances": [
         {
           "source_type": "album",
