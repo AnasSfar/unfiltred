@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 465,
-    "total_combined_streams": 121483761138,
+    "songs_updated_on_latest_date": 466,
+    "total_combined_streams": 121483768901,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -3154,7 +3154,7 @@
         "2hmafYGj1CXYKIYcMnX4lj"
       ],
       "rank_total": 330,
-      "rank_daily": 363
+      "rank_daily": 362
     },
     {
       "track_id": "12xIjI9A9UlB6zEc7kyZ06",
@@ -4082,7 +4082,7 @@
         "4qyalTRMRH5YuEntvvMvq0"
       ],
       "rank_total": 331,
-      "rank_daily": 361
+      "rank_daily": 360
     },
     {
       "track_id": "4pNApnaUWAL2J4KO2eqokq",
@@ -13120,7 +13120,7 @@
         "2yceD2hx5HhOLgkm1CITCi"
       ],
       "rank_total": 370,
-      "rank_daily": 362
+      "rank_daily": 361
     },
     {
       "track_id": "214nt20w5wOxJnY462klLw",
@@ -22698,14 +22698,14 @@
       "rank_daily": 88
     },
     {
-      "track_id": "6HWYtS215rxaaMjvpyG18W",
+      "track_id": "4N419mmxYybTfAECy5j4dw",
       "title": "You're Not Sorry",
       "title_key": "you're not sorry",
-      "spotify_url": "https://open.spotify.com/intl-fr/track/6HWYtS215rxaaMjvpyG18W",
-      "image_url": "https://i.scdn.co/image/ab67616d0000b27334e5885465afc8a497ac1b7e",
-      "streams": 51148580,
-      "daily_streams": 8222,
-      "last_updated": "2026-03-13",
+      "spotify_url": "https://open.spotify.com/intl-fr/track/4N419mmxYybTfAECy5j4dw",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273516c279fe91ae3f6a79b23da",
+      "streams": 51156343,
+      "daily_streams": 7763,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -22714,7 +22714,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 48851420,
+      "remaining_to_next_milestone": 48843657,
       "appearances": [
         {
           "source_type": "album",
@@ -22753,7 +22753,7 @@
         "6HWYtS215rxaaMjvpyG18W"
       ],
       "rank_total": 324,
-      "rank_daily": 360
+      "rank_daily": 363
     },
     {
       "track_id": "6iiAfo4wTA2CVC3Uwx9uh8",
