@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 90,
-    "total_combined_streams": 121443441255,
+    "songs_updated_on_latest_date": 91,
+    "total_combined_streams": 121443529482,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -3910,9 +3910,9 @@
       "title_key": "clean (taylor's version)",
       "spotify_url": "https://open.spotify.com/intl-fr/track/0lKUBmEyQfzsQHozyeXzES",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273dc2bacae1dca83d26e2b1949",
-      "streams": 175159552,
-      "daily_streams": 89543,
-      "last_updated": "2026-03-13",
+      "streams": 175247779,
+      "daily_streams": 88227,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -3921,7 +3921,7 @@
       "current_milestone_label": "100M",
       "next_milestone": 200000000,
       "next_milestone_label": "200M",
-      "remaining_to_next_milestone": 24840448,
+      "remaining_to_next_milestone": 24752221,
       "appearances": [
         {
           "source_type": "album",
@@ -3947,7 +3947,7 @@
         "0lKUBmEyQfzsQHozyeXzES"
       ],
       "rank_total": 193,
-      "rank_daily": 148
+      "rank_daily": 150
     },
     {
       "track_id": "35rdVq36LMHQX0Suw9a6tK",
@@ -4423,7 +4423,7 @@
         "1XjHRolIXL2M1EEOUsGGR4"
       ],
       "rank_total": 147,
-      "rank_daily": 150
+      "rank_daily": 149
     },
     {
       "track_id": "5vyxXfD5gLlyPxGZMEjtmd",
@@ -14548,7 +14548,7 @@
         "0qUnBLZ8bJqUNEeQgayL9t"
       ],
       "rank_total": 101,
-      "rank_daily": 149
+      "rank_daily": 148
     },
     {
       "track_id": "045ZeOHPIzhxxsm8bq5kyE",
