@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 328,
-    "total_combined_streams": 121465981277,
+    "songs_updated_on_latest_date": 329,
+    "total_combined_streams": 121466154520,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -55,7 +55,7 @@
         "0CD7DzeCsuPJygddqlUVYa"
       ],
       "rank_total": 78,
-      "rank_daily": 81
+      "rank_daily": 80
     },
     {
       "track_id": "6sQckd3Z8NPxVVKUnavY1F",
@@ -6822,7 +6822,7 @@
         "77sMIMlNaSURUAXq5coCxE"
       ],
       "rank_total": 75,
-      "rank_daily": 84
+      "rank_daily": 83
     },
     {
       "track_id": "4yf9OivCH2lmQWN8mzpCC6",
@@ -6971,7 +6971,7 @@
         "3ZVFcD8Wlw9T9klGqmJf9F"
       ],
       "rank_total": 116,
-      "rank_daily": 83
+      "rank_daily": 82
     },
     {
       "track_id": "4s8BIKx4Zh6ryAEz8RTlaU",
@@ -10850,7 +10850,7 @@
         "4bBDkw2KBMX0tcgAaXC83Q"
       ],
       "rank_total": 90,
-      "rank_daily": 80
+      "rank_daily": 79
     },
     {
       "track_id": "2IprIjGNRlj3TfqUWCAo0C",
@@ -13165,7 +13165,7 @@
         "214nt20w5wOxJnY462klLw"
       ],
       "rank_total": 57,
-      "rank_daily": 78
+      "rank_daily": 77
     },
     {
       "track_id": "2CYVETnhM9aytqrazYYwrK",
@@ -17951,9 +17951,9 @@
       "title_key": "the alchemy",
       "spotify_url": "https://open.spotify.com/intl-fr/track/1tuNqJOtRQVHvONR8Lg3MZ",
       "image_url": "https://i.scdn.co/image/ab67616d0000b2738ecc33f195df6aa257c39eaa",
-      "streams": 273398712,
-      "daily_streams": 179575,
-      "last_updated": "2026-03-13",
+      "streams": 273571955,
+      "daily_streams": 173243,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -17962,7 +17962,7 @@
       "current_milestone_label": "200M",
       "next_milestone": 300000000,
       "next_milestone_label": "300M",
-      "remaining_to_next_milestone": 26601288,
+      "remaining_to_next_milestone": 26428045,
       "appearances": [
         {
           "source_type": "album",
@@ -17988,7 +17988,7 @@
         "1tuNqJOtRQVHvONR8Lg3MZ"
       ],
       "rank_total": 137,
-      "rank_daily": 77
+      "rank_daily": 84
     },
     {
       "track_id": "6INztpNwOTlfSKTuPo0HOP",
@@ -19746,7 +19746,7 @@
         "4GBbcyrbDzwRtQjrsDRywK"
       ],
       "rank_total": 112,
-      "rank_daily": 79
+      "rank_daily": 78
     },
     {
       "track_id": "3lXekiVK1ZPZbKconsys73",
@@ -20967,7 +20967,7 @@
         "0hhzNPE68LWLfgZwdpxVdR"
       ],
       "rank_total": 131,
-      "rank_daily": 82
+      "rank_daily": 81
     },
     {
       "track_id": "1xwAWUI6Dj0WGC3KiUPN0O",
