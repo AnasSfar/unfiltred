@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 395,
-    "total_combined_streams": 121472417371,
+    "songs_updated_on_latest_date": 396,
+    "total_combined_streams": 121474606887,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -13830,9 +13830,9 @@
       "title_key": "opalite",
       "spotify_url": "https://open.spotify.com/intl-fr/track/3yWuTOYDztXjZxdE2cIRUa",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273d7812467811a7da6e6a44902",
-      "streams": 609628881,
-      "daily_streams": 2142398,
-      "last_updated": "2026-03-13",
+      "streams": 611818397,
+      "daily_streams": 2189516,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -13841,7 +13841,7 @@
       "current_milestone_label": "600M",
       "next_milestone": 700000000,
       "next_milestone_label": "700M",
-      "remaining_to_next_milestone": 90371119,
+      "remaining_to_next_milestone": 88181603,
       "appearances": [
         {
           "source_type": "album",
