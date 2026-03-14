@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 466,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 168,
-    "total_combined_streams": 121449656317,
+    "songs_updated_on_latest_date": 169,
+    "total_combined_streams": 121449714563,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -6286,7 +6286,7 @@
         "08fa9LFcFBTcilB3iq2e2A"
       ],
       "rank_total": 162,
-      "rank_daily": 194
+      "rank_daily": 193
     },
     {
       "track_id": "4yyKppX85ZkmlGOC2toBZA",
@@ -18701,9 +18701,9 @@
       "title_key": "the lakes - bonus track",
       "spotify_url": "https://open.spotify.com/intl-fr/track/0eFQWVz0qIxDOvhLpZ40P7",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273c288028c2592f400dd0b9233",
-      "streams": 208978369,
-      "daily_streams": 59441,
-      "last_updated": "2026-03-13",
+      "streams": 209036615,
+      "daily_streams": 58246,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -18712,7 +18712,7 @@
       "current_milestone_label": "200M",
       "next_milestone": 300000000,
       "next_milestone_label": "300M",
-      "remaining_to_next_milestone": 91021631,
+      "remaining_to_next_milestone": 90963385,
       "appearances": [
         {
           "source_type": "album",
@@ -18738,7 +18738,7 @@
         "0eFQWVz0qIxDOvhLpZ40P7"
       ],
       "rank_total": 178,
-      "rank_daily": 193
+      "rank_daily": 194
     },
     {
       "track_id": "0UAdDYrkCvVQftaKpL6q5f",
