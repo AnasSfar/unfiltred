@@ -7,8 +7,8 @@
     "songs_with_daily_streams": 467,
     "history_dates_count": 5,
     "latest_date": "2026-03-13",
-    "songs_updated_on_latest_date": 398,
-    "total_combined_streams": 121474887334,
+    "songs_updated_on_latest_date": 399,
+    "total_combined_streams": 121474942364,
     "milestones_crossed_on_latest_date": 0
   },
   "songs": [
@@ -856,7 +856,7 @@
         "6aLOekfwbytwWvQftxTEF0"
       ],
       "rank_total": 157,
-      "rank_daily": 224
+      "rank_daily": 225
     },
     {
       "track_id": "6GXgd1BPD9bUpqw5AntGV5",
@@ -1509,7 +1509,7 @@
         "0v4z1tuZvn6LGknom9Qx7d"
       ],
       "rank_total": 201,
-      "rank_daily": 209
+      "rank_daily": 210
     },
     {
       "track_id": "5l6GqSxplqnZbLg0LTPQeG",
@@ -2210,7 +2210,7 @@
         "0NwGC0v03ysCYINtg6ns58"
       ],
       "rank_total": 189,
-      "rank_daily": 216
+      "rank_daily": 217
     },
     {
       "track_id": "6505MLhnqTDDg4tjoUz2Wp",
@@ -4276,7 +4276,7 @@
         "3k7ne7VmH43ZPWxPdvPUgR"
       ],
       "rank_total": 163,
-      "rank_daily": 205
+      "rank_daily": 206
     },
     {
       "track_id": "12M5uqx0ZuwkpLp5rJim1a",
@@ -4958,7 +4958,7 @@
         "1zU8j1x3yi9xalMF96pzKp"
       ],
       "rank_total": 222,
-      "rank_daily": 223
+      "rank_daily": 224
     },
     {
       "track_id": "10GRRCR5fctuOF4GFmATJI",
@@ -6777,7 +6777,7 @@
         "6zV8AVM9eVfdG7Qahwd64R"
       ],
       "rank_total": 224,
-      "rank_daily": 213
+      "rank_daily": 214
     },
     {
       "track_id": "77sMIMlNaSURUAXq5coCxE",
@@ -7016,7 +7016,7 @@
         "4s8BIKx4Zh6ryAEz8RTlaU"
       ],
       "rank_total": 239,
-      "rank_daily": 210
+      "rank_daily": 211
     },
     {
       "track_id": "1zxrcAk6eiytfavqriMcKT",
@@ -8094,7 +8094,7 @@
         "4tMzIAFTFdqGBQLdfbPces"
       ],
       "rank_total": 247,
-      "rank_daily": 215
+      "rank_daily": 216
     },
     {
       "track_id": "62rlxI6g2PNaWsHoiRryto",
@@ -8299,7 +8299,7 @@
         "1SztNGCwEHJEVFx90E5g7D"
       ],
       "rank_total": 182,
-      "rank_daily": 211
+      "rank_daily": 212
     },
     {
       "track_id": "60hGQrn24APqEFSLObLeDc",
@@ -8749,7 +8749,7 @@
         "733OhaXQIHY7BKtY3vnSkn"
       ],
       "rank_total": 255,
-      "rank_daily": 207
+      "rank_daily": 208
     },
     {
       "track_id": "5VwFkx7JOimOGTYfha5rs1",
@@ -8839,7 +8839,7 @@
         "2r9CbjYgFhtAmcFv1cSquB"
       ],
       "rank_total": 249,
-      "rank_daily": 230
+      "rank_daily": 231
     },
     {
       "track_id": "4CkgMiMqZ5JzW9iYXSTMTL",
@@ -9540,7 +9540,7 @@
         "1ULabO0PEsdJekqVH6G10G"
       ],
       "rank_total": 259,
-      "rank_daily": 218
+      "rank_daily": 219
     },
     {
       "track_id": "4JQm7ebhsrt10wmrP6AfXL",
@@ -10464,7 +10464,7 @@
         "1kdWw77ZpYOkhxeuhzU1j6"
       ],
       "rank_total": 223,
-      "rank_daily": 232
+      "rank_daily": 233
     },
     {
       "track_id": "19CSr8rwW05VJL2F91KFNK",
@@ -11987,7 +11987,7 @@
         "3i9UVldZOE0aD0JnyfAZZ0"
       ],
       "rank_total": 113,
-      "rank_daily": 225
+      "rank_daily": 226
     },
     {
       "track_id": "2msvOEbkK50foYf9BMXr2X",
@@ -12858,7 +12858,7 @@
         "6LZaxlycSWrJZ4Volb25qx"
       ],
       "rank_total": 150,
-      "rank_daily": 221
+      "rank_daily": 222
     },
     {
       "track_id": "7G0gBu6nLdhFDPRLc0HdDG",
@@ -13932,9 +13932,9 @@
       "title_key": "opalite - chris lake remix",
       "spotify_url": "https://open.spotify.com/intl-fr/track/0ttGLmxI0mAkMblE6iRm2S",
       "image_url": "https://i.scdn.co/image/ab67616d0000b273156ba090375f53d5c8fac5c3",
-      "streams": 1685868,
-      "daily_streams": 39392,
-      "last_updated": "2026-03-13",
+      "streams": 1740898,
+      "daily_streams": 55030,
+      "last_updated": "2026-03-14",
       "primary_artist": "Taylor Swift",
       "artists": [
         "Taylor Swift"
@@ -13943,7 +13943,7 @@
       "current_milestone_label": null,
       "next_milestone": 100000000,
       "next_milestone_label": "100M",
-      "remaining_to_next_milestone": 98314132,
+      "remaining_to_next_milestone": 98259102,
       "appearances": [
         {
           "source_type": "misc",
@@ -13981,7 +13981,7 @@
         "0ttGLmxI0mAkMblE6iRm2S"
       ],
       "rank_total": 443,
-      "rank_daily": 233
+      "rank_daily": 204
     },
     {
       "track_id": "5t1wMjV9ldVDdYs4l7mG2g",
@@ -15235,7 +15235,7 @@
         "2CnjDMdpRjlWv04Xk3s6MW"
       ],
       "rank_total": 277,
-      "rank_daily": 212
+      "rank_daily": 213
     },
     {
       "track_id": "0Nw8hv79MLJa1yjtsEgz08",
@@ -15575,7 +15575,7 @@
         "73qMN9bXy7MSPwwGfH3wQr"
       ],
       "rank_total": 240,
-      "rank_daily": 226
+      "rank_daily": 227
     },
     {
       "track_id": "2RJnNdu4pb3MypbBroHU0T",
@@ -16472,7 +16472,7 @@
         "46NGAvL695VnbcSeTmQWmM"
       ],
       "rank_total": 179,
-      "rank_daily": 231
+      "rank_daily": 232
     },
     {
       "track_id": "3MytWN8L7shNYzGl4tAKRp",
@@ -16664,7 +16664,7 @@
         "5xXqyjLicvEpch72qEryFT"
       ],
       "rank_total": 228,
-      "rank_daily": 220
+      "rank_daily": 221
     },
     {
       "track_id": "3QFB14MOUf3imlyISNmrbT",
@@ -16946,7 +16946,7 @@
         "6lzc0Al0zfZOIFsFvBS1ki"
       ],
       "rank_total": 209,
-      "rank_daily": 222
+      "rank_daily": 223
     },
     {
       "track_id": "5G9AVKld9q7DCrmoY42raf",
@@ -17273,7 +17273,7 @@
         "6M9ppdfFjR1AbpUl3Y8DcV"
       ],
       "rank_total": 213,
-      "rank_daily": 217
+      "rank_daily": 218
     },
     {
       "track_id": "2R7C9dDqv1UPycvepBFziA",
@@ -17646,7 +17646,7 @@
         "7zMcNqs55Mxer82bvZFkpg"
       ],
       "rank_total": 143,
-      "rank_daily": 208
+      "rank_daily": 209
     },
     {
       "track_id": "6vLpy7UPYuOa75Bkqocrcw",
@@ -18034,7 +18034,7 @@
         "6INztpNwOTlfSKTuPo0HOP"
       ],
       "rank_total": 269,
-      "rank_daily": 214
+      "rank_daily": 215
     },
     {
       "track_id": "3pHkh7d0lzM2AldUtz2x37",
@@ -18693,7 +18693,7 @@
         "3wx2iW1rJGgdNln2I64HNh"
       ],
       "rank_total": 167,
-      "rank_daily": 229
+      "rank_daily": 230
     },
     {
       "track_id": "0eFQWVz0qIxDOvhLpZ40P7",
@@ -19836,7 +19836,7 @@
         "6dTA6y0C2ReQklntzZl8l3"
       ],
       "rank_total": 227,
-      "rank_daily": 206
+      "rank_daily": 207
     },
     {
       "track_id": "72GIZuUXo14oyrS0si3Rgc",
@@ -20490,7 +20490,7 @@
         "1HCdems7PQZRj42QDWLA0A"
       ],
       "rank_total": 246,
-      "rank_daily": 219
+      "rank_daily": 220
     },
     {
       "track_id": "4pFvEWbjBpPUdYRQly0THs",
@@ -20921,7 +20921,7 @@
         "0tQ9vBYpldCuikPsbgOVKA"
       ],
       "rank_total": 283,
-      "rank_daily": 228
+      "rank_daily": 229
     },
     {
       "track_id": "0hhzNPE68LWLfgZwdpxVdR",
@@ -21589,7 +21589,7 @@
         "1qwClaxDb5fCrLjXaAmB35"
       ],
       "rank_total": 403,
-      "rank_daily": 227
+      "rank_daily": 228
     },
     {
       "track_id": "4A4A6dwl5DqdqrZaEtKGPR",
@@ -22149,7 +22149,7 @@
         "6HRsJu8vcnzYDN4t0570FY"
       ],
       "rank_total": 254,
-      "rank_daily": 204
+      "rank_daily": 205
     },
     {
       "track_id": "5ylJtmaWPJ33cW3En7WOu0",
