@@ -52,12 +52,6 @@ SLEEP_SECONDS = 0.20
 TS_NAME = "Taylor Swift"
 CHART_ID = "regional-fr-daily"
 
-VIDEO_LINKS = {
-    "the fate of ophelia": "https://x.com/4k_taylorr_/status/2025554501789491204/video/1",
-    "opalite": "https://x.com/taylornation13/status/2020483269406466203/video/1",
-    "elizabeth taylor": "https://x.com/evermorevelyn7/status/1990271086001606677/video/1",
-}
-
 
 def norm(s):
     return re.sub(r"\s+", " ", (s or "").strip().lower())
@@ -429,15 +423,13 @@ def _fmt_date(chart_date: str) -> str:
 
 
 def generate_tweet(ts_df, ts_pop, chart_date, ts_history) -> str:
-    lines = [f"Taylor Swift on {_fmt_date(chart_date)}", "", "Spotify France :", ""]
-    top_track = None
+    header = f"Taylor Swift on {_fmt_date(chart_date)}"
+    lines = [header, "", "Spotify France :", ""]
 
     present_today = set(ts_df["track_name"].astype(str).tolist())
     dropped_out = get_songs_present_yesterday(chart_date, ts_history) - present_today
 
     for _, row in ts_df.sort_values("rank").iterrows():
-        if top_track is None:
-            top_track = str(row["track_name"])
         lines.append(_fmt_ts_song_line(row, chart_date, ts_history))
 
     for track in sorted(dropped_out):
@@ -452,11 +444,10 @@ def generate_tweet(ts_df, ts_pop, chart_date, ts_history) -> str:
         for _, row in ts_pop.sort_values("pop_rank").iterrows():
             lines.append(_fmt_ts_pop_line(row))
 
-    video = VIDEO_LINKS.get(norm(top_track)) if top_track else None
-    if video:
-        lines += ["", f"  {video}"]
-
-    return "\n".join(lines)
+    full = "\n".join(lines)
+    if len(full) <= 280:
+        return full
+    return header
 
 
 def process_one(chart_date: str, db, ts_history):
