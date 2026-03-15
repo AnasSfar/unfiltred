@@ -1,2 +1,22 @@
-# Spotify Charts raw CSV files (source data, not needed in git)
-spotify-charts/**/*.csv
+# Raw CSV chart files (source data, not needed in git)
+collectors/spotify/charts/**/*.csv
+
+# Browser profiles (large, auto-generated)
+chrome_profile/
+**/chrome_profile/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Session files (sensitive)
+**/spotify_session.json
+**/twitter_session.json
+**/cookies_twitter.json
+
+# Logs
+*.log
+
+# Lock files (posted markers — regenerated automatically)
+**/posted.lock
