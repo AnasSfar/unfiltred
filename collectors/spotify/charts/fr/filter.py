@@ -309,6 +309,7 @@ def scrape_chart_rows(chart_date: str) -> list[dict]:
                         "--disable-blink-features=AutomationControlled",
                         "--disable-dev-shm-usage",
                         "--no-sandbox",
+                        "--window-position=-32000,-32000",
                     ],
                 )
 
@@ -539,6 +540,16 @@ def process_one(chart_date: str, db, ts_history):
     ts_df.to_csv(out_dir / "ts_all_songs.csv", index=False)
     if not ts_pop.empty:
         ts_pop.to_csv(out_dir / "ts_pop_songs.csv", index=False)
+
+    # JSON pour generate_chart_image.py
+    ts_rows_json = [
+        {k: (None if (isinstance(v, float) and str(v) == "nan") else v)
+         for k, v in r.items()}
+        for r in ts_df.to_dict(orient="records")
+    ]
+    (out_dir / f"ts_chart_{chart_date}.json").write_text(
+        json.dumps(ts_rows_json, ensure_ascii=False), encoding="utf-8"
+    )
 
     log = Logger()
     write_log(log, ts_df, ts_pop, chart_date, ts_history)

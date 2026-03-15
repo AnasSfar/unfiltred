@@ -92,6 +92,7 @@ def page_available(d: date) -> bool:
                     "--disable-blink-features=AutomationControlled",
                     "--disable-dev-shm-usage",
                     "--no-sandbox",
+                    "--window-position=-32000,-32000",
                 ],
             )
 

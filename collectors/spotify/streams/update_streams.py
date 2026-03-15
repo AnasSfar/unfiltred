@@ -970,6 +970,58 @@ def live_progress(i, total, title, result):
         print(f"{prefix} {status.upper()} | ETA {eta}")
 
 
+def _probe_on_page(probe_tracks: list[dict], page) -> dict:
+    results = []
+    successful_probes = 0
+    updated_probes = 0
+
+    for track in probe_tracks:
+        title = track["title"]
+        url = track["spotify_url"]
+        total, raw, scrape_status, _ = scrape_track_total(page, title, url)
+
+        if scrape_status == "ok" and total is not None:
+            successful_probes += 1
+            last_total = get_last_history_total(track["track_id"])
+            updated = has_real_update(last_total, total)
+            if updated:
+                updated_probes += 1
+
+            results.append(
+                {
+                    "title": title,
+                    "status": "ok",
+                    "streams": total,
+                    "previous_streams": last_total,
+                    "updated": updated,
+                    "raw": raw,
+                }
+            )
+        else:
+            results.append(
+                {
+                    "title": title,
+                    "status": scrape_status,
+                    "streams": None,
+                    "previous_streams": get_last_history_total(track["track_id"]),
+                    "updated": False,
+                    "raw": None,
+                }
+            )
+
+    can_start_full_run = (
+        successful_probes >= MIN_SUCCESSFUL_PROBES
+        and updated_probes >= MIN_UPDATED_PROBES_TO_START
+    )
+
+    return {
+        "can_start_full_run": can_start_full_run,
+        "successful_probes": successful_probes,
+        "updated_probes": updated_probes,
+        "results": results,
+    }
+
+
 def run_probe(tracks: list[dict]) -> dict:
     track_lookup = build_track_lookup(tracks)
     probe_tracks: list[dict] = []
@@ -994,59 +1046,11 @@ def run_probe(tracks: list[dict]) -> dict:
     page = context.new_page()
     page.route("**/*", block_unneeded)
 
-    results = []
-    successful_probes = 0
-    updated_probes = 0
-
     try:
-        for track in probe_tracks:
-            title = track["title"]
-            url = track["spotify_url"]
-            total, raw, scrape_status, _ = scrape_track_total(page, title, url)
-
-            if scrape_status == "ok" and total is not None:
-                successful_probes += 1
-                last_total = get_last_history_total(track["track_id"])
-                updated = has_real_update(last_total, total)
-                if updated:
-                    updated_probes += 1
-
-                results.append(
-                    {
-                        "title": title,
-                        "status": "ok",
-                        "streams": total,
-                        "previous_streams": last_total,
-                        "updated": updated,
-                        "raw": raw,
-                    }
-                )
-            else:
-                results.append(
-                    {
-                        "title": title,
-                        "status": scrape_status,
-                        "streams": None,
-                        "previous_streams": get_last_history_total(track["track_id"]),
-                        "updated": False,
-                        "raw": None,
-                    }
-                )
+        return _probe_on_page(probe_tracks, page)
     finally:
         browser.close()
         p.stop()
-
-    can_start_full_run = (
-        successful_probes >= MIN_SUCCESSFUL_PROBES
-        and updated_probes >= MIN_UPDATED_PROBES_TO_START
-    )
-
-    return {
-        "can_start_full_run": can_start_full_run,
-        "successful_probes": successful_probes,
-        "updated_probes": updated_probes,
-        "results": results,
-    }
 
 
 def _worker(
@@ -1416,32 +1420,55 @@ def main():
     should_run_probe = done_tracks_before_run == 0
 
     if should_run_probe:
-        print("Running probe check...")
+        track_lookup = build_track_lookup(tracks)
+        probe_tracks: list[dict] = []
+        for title in PROBE_TITLES:
+            matches = track_lookup.get(normalize_title(title), [])
+            if len(matches) == 1:
+                probe_tracks.append(matches[0])
 
-        probe = run_probe(tracks)
+        if not probe_tracks:
+            print("Probe skipped: no probe tracks found in database.")
+        else:
+            _p = sync_playwright().start()
+            _browser = launch_browser(_p)
+            _context = _browser.new_context()
+            _page = _context.new_page()
+            _page.route("**/*", block_unneeded)
 
-        print(
-            f"Probe result | successful={probe['successful_probes']} | "
-            f"updated={probe['updated_probes']} | "
-            f"start_full_run={probe['can_start_full_run']}"
-        )
+            try:
+                while True:
+                    print("Running probe check...")
 
-        for row in probe["results"]:
-            if row["status"] == "ok":
-                print(
-                    f"PROBE {row['title']} | "
-                    f"current={format_int(row['streams'])} | "
-                    f"previous={format_int(row['previous_streams'])} | "
-                    f"updated={'yes' if row['updated'] else 'no'}"
-                )
-            else:
-                print(f"PROBE {row['title']} | status={row['status']}")
+                    probe = _probe_on_page(probe_tracks, _page)
 
-        if not probe["can_start_full_run"]:
-            print()
-            print("Spotify does not appear to have started the next daily update yet.")
-            print("Full scrape cancelled.")
-            return
+                    print(
+                        f"Probe result | successful={probe['successful_probes']} | "
+                        f"updated={probe['updated_probes']} | "
+                        f"start_full_run={probe['can_start_full_run']}"
+                    )
+
+                    for row in probe["results"]:
+                        if row["status"] == "ok":
+                            print(
+                                f"PROBE {row['title']} | "
+                                f"current={format_int(row['streams'])} | "
+                                f"previous={format_int(row['previous_streams'])} | "
+                                f"updated={'yes' if row['updated'] else 'no'}"
+                            )
+                        else:
+                            print(f"PROBE {row['title']} | status={row['status']}")
+
+                    if probe["can_start_full_run"]:
+                        break
+
+                    print()
+                    print("Spotify does not appear to have started the next daily update yet.")
+                    print("Retrying in 1 minute...")
+                    time.sleep(60)
+            finally:
+                _browser.close()
+                _p.stop()
     elif done_tracks_before_run < total_tracks:
         print("Partial progress already exists for this stats date.")
         print("Skipping probe and resuming unfinished tracks.")
