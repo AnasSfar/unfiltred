@@ -1,16 +1,11 @@
 #!/usr/bin/env python3
 """
-daily.py - Global
-Scrape la page Spotify Charts du jour cible, filtre TS, met a jour ts_history, et poste le tweet.
-Usage : python daily.py [YYYY-MM-DD]
+daily_test.py - Global (DRY RUN — sans publication Twitter)
 
-Logique :
-- cible toujours la date d'hier
-- fixe la date une seule fois au lancement
-- attend que la page de cette date soit disponible
-- lance filter.py
-- lance rebuild.py
-- poste sur Twitter
+Identique à daily.py mais ne poste JAMAIS sur Twitter.
+Génère tweet.txt + chart_image.png et ouvre l'image pour inspection visuelle.
+
+Usage : python daily_test.py [YYYY-MM-DD]
 """
 import re
 import subprocess
@@ -19,19 +14,16 @@ import time
 from datetime import date, datetime, timedelta
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).parent.parent))
-from core.twitter import post_thread, post_with_image, split_tweets
 from playwright.sync_api import sync_playwright
 
 ROOT = Path(__file__).parent
 CHART_ID = "regional-global-daily"
-TWITTER_SESSION       = ROOT / "twitter_session.json"
 SPOTIFY_SESSION       = ROOT / "spotify_session.json"
 FILTER_SCRIPT         = ROOT / "filter.py"
 REBUILD_SCRIPT        = ROOT / "rebuild.py"
 GENERATE_IMAGE_SCRIPT = ROOT / "generate_chart_image.py"
 
-RETRY_SECONDS = 60 
+RETRY_SECONDS = 60
 
 
 def log(level: str, message: str):
@@ -45,26 +37,7 @@ def chart_date() -> date:
         except ValueError:
             log("ERROR", f"Date invalide '{sys.argv[1]}', format attendu : YYYY-MM-DD")
             sys.exit(1)
-
-    now = datetime.now()
-    return now.date() - timedelta(days=1)
-
-
-def lock_path(d: date) -> Path:
-    return ROOT / str(d.year) / f"{d.month:02d}" / str(d) / "posted.lock"
-
-
-def already_posted(d: date) -> bool:
-    exists = lock_path(d).exists()
-    log("DEBUG", f"posted.lock pour {d}: {'oui' if exists else 'non'}")
-    return exists
-
-
-def mark_posted(d: date):
-    p = lock_path(d)
-    p.parent.mkdir(parents=True, exist_ok=True)
-    p.touch()
-    log("INFO", f"posted.lock créé: {p}")
+    return datetime.now().date() - timedelta(days=1)
 
 
 def scraped_csv_path(d: date) -> Path:
@@ -76,6 +49,11 @@ def scrape_exists(d: date) -> bool:
     exists = p.exists()
     log("DEBUG", f"CSV scrape pour {d}: {'trouvé' if exists else 'absent'} -> {p}")
     return exists
+
+
+def ts_chart_exists(d: date) -> bool:
+    p = ROOT / str(d.year) / f"{d.month:02d}" / str(d) / f"ts_chart_{d}.json"
+    return p.exists()
 
 
 def page_available(d: date) -> bool:
@@ -124,23 +102,12 @@ def page_available(d: date) -> bool:
                 log("CHECK", "Session Spotify expirée ou non connectée")
                 return False
 
-            body_text = (page.locator("body").inner_text() or "").strip()
+            body_text       = (page.locator("body").inner_text() or "").strip()
             body_text_lower = body_text.lower()
 
-            log("CHECK", f"Longueur texte: {len(body_text)}")
-
-            # présence d'un vrai nombre de streams
-            has_streams = bool(re.search(r"\b\d{1,3},\d{3},\d{3}\b", body_text))
-
-            # présence d'un en-tête de tableau réel
-            has_chart_header = ("track" in body_text_lower and "streams" in body_text_lower)
-
-            # présence d'au moins un rang sur ligne seule
-            has_rank_line = bool(re.search(r"(?m)^\s*1\s*$", body_text))
-
-            log("CHECK", f"has_streams={has_streams}")
-            log("CHECK", f"has_chart_header={has_chart_header}")
-            log("CHECK", f"has_rank_line={has_rank_line}")
+            has_streams      = bool(re.search(r"\b\d{1,3},\d{3},\d{3}\b", body_text))
+            has_chart_header = "track" in body_text_lower and "streams" in body_text_lower
+            has_rank_line    = bool(re.search(r"(?m)^\s*1\s*$", body_text))
 
             available = has_streams and has_chart_header and has_rank_line
             log("CHECK", f"Page exploitable: {'oui' if available else 'non'}")
@@ -149,7 +116,6 @@ def page_available(d: date) -> bool:
         except Exception as e:
             log("CHECK", f"Erreur: {e}")
             return False
-
         finally:
             try:
                 if context:
@@ -171,21 +137,17 @@ def run_filter(d: date) -> str | None:
         text=True,
         cwd=str(ROOT),
     )
-
     if result.stdout:
         print(result.stdout, flush=True)
     if result.stderr:
         print(result.stderr, flush=True)
 
     log("STEP", f"filter.py terminé avec code {result.returncode}")
-
     if result.returncode != 0:
-        log("ERROR", f"filter.py a échoué (code {result.returncode})")
+        log("ERROR", "filter.py a échoué")
         return None
 
     tweet_path = ROOT / str(d.year) / f"{d.month:02d}" / str(d) / "tweet.txt"
-    log("DEBUG", f"Recherche de tweet.txt: {tweet_path}")
-
     if not tweet_path.exists():
         log("ERROR", "tweet.txt introuvable après filter.py")
         return None
@@ -195,20 +157,57 @@ def run_filter(d: date) -> str | None:
     return content
 
 
+def run_image_gen(d: date) -> Path | None:
+    image_path = ROOT / str(d.year) / f"{d.month:02d}" / str(d) / "chart_image.png"
+    log("STEP", "Génération de l'image du chart")
+    result = subprocess.run(
+        [sys.executable, str(GENERATE_IMAGE_SCRIPT), str(d)],
+        capture_output=True,
+        text=True,
+        cwd=str(ROOT),
+    )
+    if result.stdout:
+        print(result.stdout, flush=True)
+    if result.stderr:
+        print(result.stderr, flush=True)
+    if result.returncode != 0:
+        log("ERROR", "Génération d'image échouée")
+        return None
+    return image_path if image_path.exists() else None
+
+
+def open_image(path: Path):
+    """Ouvre l'image avec le visualiseur par défaut du système."""
+    import os
+    try:
+        os.startfile(str(path))          # Windows
+    except AttributeError:
+        import subprocess as sp
+        try:
+            sp.run(["open", str(path)])  # macOS
+        except Exception:
+            sp.run(["xdg-open", str(path)])  # Linux
+
+
 def main():
     d = chart_date()
 
-    log("INFO", f"Heure locale: {datetime.now()}")
-    log("INFO", f"Date cible: {d}")
-    log("INFO", f"Script: {Path(__file__).name}")
-    log("INFO", f"Répertoire: {ROOT}")
+    log("INFO", f"[DRY RUN] Date cible : {d}")
+    print(f"\n{'=' * 50}\n  daily_test.py (Global) — DRY RUN — {d}\n{'=' * 50}\n", flush=True)
 
-    print(f"\n{'=' * 50}\n  daily.py (Global) - charts du {d}\n{'=' * 50}\n", flush=True)
-
-    if already_posted(d):
-        log("INFO", f"Déjà posté pour {d}")
+    # Si ts_chart_{d}.json existe déjà, on saute le scrape et génère juste l'image
+    if ts_chart_exists(d):
+        log("INFO", f"ts_chart_{d}.json trouvé — génération image directe (pas de re-scrape)")
+        image_path = run_image_gen(d)
+        if image_path:
+            log("INFO", f"Image prête : {image_path}")
+            open_image(image_path)
+        else:
+            log("ERROR", "Génération d'image échouée")
+            sys.exit(1)
         return
 
+    # Sinon, pipeline complet (scrape → filter → image) sans post Twitter
     if not scrape_exists(d):
         log("INFO", f"En attente de la page Spotify Charts pour {d}")
         attempt = 1
@@ -217,11 +216,7 @@ def main():
             if page_available(d):
                 log("INFO", f"Page de {d} détectée")
                 break
-
-            log(
-                "WAIT",
-                f"Page {d} pas encore exploitable, retry #{attempt} dans {RETRY_SECONDS // 60} min",
-            )
+            log("WAIT", f"Page {d} pas encore dispo, retry dans {RETRY_SECONDS // 60} min")
             attempt += 1
             time.sleep(RETRY_SECONDS)
     else:
@@ -232,42 +227,16 @@ def main():
         log("ERROR", "Traitement échoué")
         sys.exit(1)
 
-    twitter_post_path = ROOT / "twitter_post.txt"
-    twitter_post_path.write_text(tweet_content, encoding="utf-8")
-    log("INFO", f"twitter_post.txt mis à jour: {twitter_post_path}")
+    print(f"\n--- Tweet (non publié) ---\n{tweet_content}\n---\n", flush=True)
 
-    print(f"\nPost :\n{tweet_content}\n", flush=True)
-
-    # Generate chart image
-    image_path = ROOT / str(d.year) / f"{d.month:02d}" / str(d) / "chart_image.png"
-    log("STEP", "Génération de l'image du chart")
-    img_result = subprocess.run(
-        [sys.executable, str(GENERATE_IMAGE_SCRIPT), str(d)],
-        capture_output=True,
-        text=True,
-        cwd=str(ROOT),
-    )
-    if img_result.stdout:
-        print(img_result.stdout, flush=True)
-    if img_result.stderr:
-        print(img_result.stderr, flush=True)
-    if img_result.returncode != 0:
-        log("WARN", "Génération d'image échouée — publication sans image")
-        image_path = None
-
-    # Post with image if available, otherwise text-only thread
-    log("STEP", "Publication Twitter")
-    if image_path and image_path.exists():
-        posted = post_with_image(tweet_content, image_path, TWITTER_SESSION)
+    image_path = run_image_gen(d)
+    if image_path:
+        log("INFO", f"Image prête : {image_path}")
+        open_image(image_path)
     else:
-        posted = post_thread(split_tweets(tweet_content), TWITTER_SESSION)
+        log("WARN", "Image non générée")
 
-    if posted:
-        mark_posted(d)
-        log("INFO", "Terminé avec succès")
-    else:
-        log("ERROR", "Publication Twitter échouée, posted.lock non créé")
-        sys.exit(1)
+    log("INFO", "[DRY RUN] Terminé — rien n'a été posté sur Twitter")
 
 
 if __name__ == "__main__":

@@ -187,6 +187,70 @@ def post_thread(tweets: list[str], session_file: Path) -> bool:
         return success
 
 
+def post_with_image(tweet: str, image_path: Path, session_file: Path) -> bool:
+    """Post a single tweet with one image attached."""
+    session_file = Path(session_file)
+    image_path   = Path(image_path)
+    profile_dir  = _profile_dir(session_file)
+
+    if not (profile_dir / "Default").exists():
+        print("Aucun profil Twitter trouvé. Connexion initiale requise...")
+        setup_session(session_file)
+
+    with sync_playwright() as p:
+        context = _launch(p, profile_dir)
+        page    = context.new_page()
+        try:
+            page.goto("https://x.com/home", wait_until="domcontentloaded")
+            time.sleep(2)
+
+            if "login" in page.url:
+                print("Session expirée. Reconnexion automatique...")
+                credentials = _load_credentials(session_file)
+                if credentials:
+                    _auto_login(page, credentials["username"], credentials["password"], credentials.get("email", ""))
+                else:
+                    context.close()
+                    setup_session(session_file)
+                    context = _launch(p, profile_dir)
+                    page    = context.new_page()
+                page.goto("https://x.com/home", wait_until="domcontentloaded")
+                time.sleep(2)
+
+            page.goto("https://x.com/compose/post", wait_until="domcontentloaded")
+            time.sleep(2)
+
+            # Attach image via hidden file input
+            file_input = page.locator("input[type='file'][accept*='image']")
+            file_input.set_input_files(str(image_path))
+            time.sleep(3)
+
+            # Add tweet text
+            editor = page.locator("[data-testid='tweetTextarea_0']").first
+            editor.click(timeout=10_000)
+            editor.fill(tweet)
+            time.sleep(1)
+
+            # Post
+            page.locator(
+                "[data-testid='tweetButton'], [data-testid='tweetButtonInline']"
+            ).first.click(timeout=10_000)
+            try:
+                page.wait_for_url("**status**", timeout=8_000)
+            except PlaywrightTimeout:
+                time.sleep(3)
+
+            print("OK Tweet avec image publié")
+            return True
+
+        except Exception as e:
+            print(f"X Erreur post_with_image: {e}")
+            return False
+
+        finally:
+            context.close()
+
+
 def split_tweets(content: str, max_len: int = 280) -> list[str]:
     if len(content) <= max_len:
         return [content]

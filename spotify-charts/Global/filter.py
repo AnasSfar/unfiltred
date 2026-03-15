@@ -11,6 +11,7 @@ Usage :
     python filter.py --relog
 """
 import io
+import json
 import re
 import sys
 import time
@@ -103,6 +104,7 @@ def parse_chart_text(body_text: str) -> list[dict]:
                 "streams": clean_int(match.group("streams")),
                 "previous_rank": clean_int(match.group("prev")),
                 "peak_rank": clean_int(match.group("peak")),
+                "streak": clean_int(match.group("streak")),
             }
         )
 
@@ -186,6 +188,47 @@ def scrape_chart_rows(chart_date: str) -> list[dict]:
                     (debug_dir / "debug_page.html").write_text(page.content(), encoding="utf-8")
                     (debug_dir / "debug_body.txt").write_text(body_text, encoding="utf-8")
                     raise RuntimeError("Aucune ligne détectée")
+
+                # Extract album art URLs and map to rows by position
+                try:
+                    img_els = page.locator("img[src*='i.scdn.co']").all()
+                    img_urls = [el.get_attribute("src") for el in img_els]
+                    img_urls = [u for u in img_urls if u]
+                    for i, row in enumerate(rows):
+                        if i < len(img_urls):
+                            row["image_url"] = img_urls[i]
+                    print(f"  {len(img_urls)} images extraites")
+                except Exception as img_err:
+                    print(f"  Extraction images ignoree: {img_err}")
+
+                # Extract total_days on chart for TS songs by expanding each row
+                for row in rows:
+                    if TS_NAME.lower() not in str(row.get("artist_names", "")).lower():
+                        continue
+                    track = row["track_name"]
+                    try:
+                        # Click on the track name to expand its detail row
+                        el = page.get_by_text(track, exact=True).first
+                        el.click(timeout=5000)
+                        page.wait_for_timeout(1500)
+                        # Look for the "Total days on chart" label element, then grab its sibling value
+                        td_label = page.get_by_text("Total days on chart", exact=True)
+                        if td_label.count() > 0:
+                            # Get parent container text which includes label + value
+                            container_text = td_label.first.locator("xpath=..").inner_text()
+                            m = re.search(r"(\d+)", container_text)
+                            if m:
+                                row["total_days"] = int(m.group(1))
+                                print(f"  total_days {track}: {row['total_days']}")
+                            else:
+                                print(f"  total_days non parsé pour {track}: {container_text!r}")
+                        else:
+                            print(f"  'Total days on chart' non trouvé dans DOM pour {track}")
+                        # Collapse by clicking again
+                        el.click(timeout=3000)
+                        page.wait_for_timeout(400)
+                    except Exception as td_err:
+                        print(f"  total_days ignoré pour {track}: {td_err}")
 
                 return rows
 
@@ -301,6 +344,16 @@ def process_one(chart_date: str, ts_history):
     out_dir.mkdir(parents=True, exist_ok=True)
     ts_df.to_csv(out_dir / "ts_all_songs.csv", index=False)
 
+    # Save TS rows as JSON (with image_url + streak) for image generation
+    ts_rows_json = [
+        {k: (None if (hasattr(v, "__class__") and v.__class__.__name__ == "float" and str(v) == "nan") else v)
+         for k, v in r.items()}
+        for r in ts_df.to_dict(orient="records")
+    ]
+    (out_dir / f"ts_chart_{chart_date}.json").write_text(
+        json.dumps(ts_rows_json, ensure_ascii=False), encoding="utf-8"
+    )
+
     log = Logger()
     write_log(log, ts_df, chart_date, ts_history)
 
@@ -389,9 +442,8 @@ def main():
         raise RuntimeError("Donne une date: python filter.py YYYY-MM-DD")
 
     process_one(target, h)
-    history = rebuild_from_ts_csvs(ROOT)
-    save(history, ROOT / "ts_history.json")
-    print(f"ts_history rebuilt - {len(history)} chansons")
+    save(h, ROOT / "ts_history.json")
+    print(f"ts_history updated - {len(h)} chansons")
 
 
 if __name__ == "__main__":

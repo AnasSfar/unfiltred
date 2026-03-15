@@ -28,7 +28,7 @@ DISCOGRAPHY_DIR = ROOT / "discography"
 ARTIST_PATH = DATA_DIR / "artist.json"
 ARTIST_URL = "https://open.spotify.com/artist/06HL4z0CvFAxyc27GXpf02"
 
-HEADLESS = False
+HEADLESS = True
 MAX_PARALLEL_PAGES = 6
 PAGE_GOTO_TIMEOUT_MS = 45_000
 DEBUG_PAGE_PREVIEW = False
@@ -43,7 +43,7 @@ PROBE_TITLES = [
 MIN_SUCCESSFUL_PROBES = 2
 MIN_UPDATED_PROBES_TO_START = 1
 
-PENDING_RETRY_SLEEP_SECONDS = 10 * 60
+PENDING_RETRY_SLEEP_SECONDS = 5 * 60
 MIN_PENDING_TRACKS_FOR_RETRY = 3
 MAX_PENDING_RETRY_ROUNDS = 6
 INCREMENTAL_PUBLISH_ON_UPDATE = False
@@ -830,7 +830,7 @@ def scrape_track_total(page, title: str, url: str) -> tuple[int | None, str | No
     for attempt in range(3):
         try:
             page.goto(clean_url, wait_until="commit", timeout=PAGE_GOTO_TIMEOUT_MS)
-            page.wait_for_timeout(3500)
+            page.wait_for_timeout(2000)
             maybe_accept_cookies(page)
 
             if DEBUG_PAGE_PREVIEW:
