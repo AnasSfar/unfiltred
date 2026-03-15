@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 """
 daily.py - Fr
-Scrape la page Spotify Charts du jour cible, filtre TS, met a jour ts_history, et poste le tweet.
+Scrape la page Spotify Charts, filtre TS, met a jour ts_history, et poste le tweet.
 Usage : python daily.py [YYYY-MM-DD]
 
 Logique :
-- cible toujours la date d'hier
-- fixe la date une seule fois au lancement
-- attend que la page de cette date soit disponible
-- lance filter.py
-- lance rebuild.py
+- cherche toutes les dates non-postées des 7 derniers jours
+- attend que la page la plus récente soit disponible (cutoff à 15h)
+- lance filter.py pour chaque date manquante
+- si plusieurs dates : génère une image combinée et un tweet condensé
 - poste sur Twitter
 """
+import re
 import subprocess
 import sys
 import time
@@ -27,26 +27,15 @@ CHART_ID              = "regional-fr-daily"
 TWITTER_SESSION       = ROOT / "twitter_session.json"
 SPOTIFY_SESSION       = ROOT / "spotify_session.json"
 FILTER_SCRIPT         = ROOT / "filter.py"
-REBUILD_SCRIPT        = ROOT / "rebuild.py"
 GENERATE_IMAGE_SCRIPT = ROOT / "generate_chart_image.py"
 
 RETRY_SECONDS = 60
+CUTOFF_HOUR   = 15  # abandon si page non dispo à 15h
+LOOKBACK_DAYS = 7   # fenêtre de détection des jours manquants
 
 
 def log(level: str, message: str):
     print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] [{level}] {message}", flush=True)
-
-
-def chart_date() -> date:
-    if len(sys.argv) > 1:
-        try:
-            return datetime.strptime(sys.argv[1], "%Y-%m-%d").date()
-        except ValueError:
-            log("ERROR", f"Date invalide '{sys.argv[1]}', format attendu : YYYY-MM-DD")
-            sys.exit(1)
-
-    now = datetime.now()
-    return now.date() - timedelta(days=1)
 
 
 def lock_path(d: date) -> Path:
@@ -66,8 +55,23 @@ def mark_posted(d: date):
     log("INFO", f"posted.lock créé: {p}")
 
 
+def get_unposted_dates() -> list[date]:
+    """Retourne les dates non-postées des LOOKBACK_DAYS derniers jours, du plus ancien au plus récent."""
+    today = date.today()
+    unposted = [
+        today - timedelta(days=i)
+        for i in range(1, LOOKBACK_DAYS + 1)
+        if not already_posted(today - timedelta(days=i))
+    ]
+    unposted.sort()
+    return unposted
+
+
+def past_cutoff() -> bool:
+    return datetime.now().hour >= CUTOFF_HOUR
+
+
 def page_available(d: date) -> bool:
-    import re
     url = f"https://charts.spotify.com/charts/view/{CHART_ID}/{d}"
     log("CHECK", f"Ouverture {url}")
 
@@ -119,9 +123,9 @@ def page_available(d: date) -> bool:
 
             log("CHECK", f"Longueur texte: {len(body_text)}")
 
-            has_streams = bool(re.search(r"\b\d{1,3},\d{3},\d{3}\b", body_text))
-            has_chart_header = ("track" in body_text_lower and "streams" in body_text_lower)
-            has_rank_line = bool(re.search(r"(?m)^\s*1\s*$", body_text))
+            has_streams      = bool(re.search(r"\b\d{1,3},\d{3},\d{3}\b", body_text))
+            has_chart_header = "track" in body_text_lower and "streams" in body_text_lower
+            has_rank_line    = bool(re.search(r"(?m)^\s*1\s*$", body_text))
 
             log("CHECK", f"has_streams={has_streams}")
             log("CHECK", f"has_chart_header={has_chart_header}")
@@ -149,7 +153,7 @@ def page_available(d: date) -> bool:
 
 
 def run_filter(d: date) -> str | None:
-    log("STEP", "Lancement de filter.py")
+    log("STEP", f"Lancement de filter.py pour {d}")
     result = subprocess.run(
         [sys.executable, str(FILTER_SCRIPT), str(d)],
         capture_output=True,
@@ -169,8 +173,6 @@ def run_filter(d: date) -> str | None:
         return None
 
     tweet_path = ROOT / str(d.year) / f"{d.month:02d}" / str(d) / "tweet.txt"
-    log("DEBUG", f"Recherche de tweet.txt: {tweet_path}")
-
     if not tweet_path.exists():
         log("ERROR", "tweet.txt introuvable après filter.py")
         return None
@@ -180,55 +182,88 @@ def run_filter(d: date) -> str | None:
     return content
 
 
+def build_multi_tweet(dates: list[date]) -> str:
+    parts = [datetime.strptime(str(d), "%Y-%m-%d").strftime("%B %d") for d in dates]
+    year  = dates[-1].year
+    return f"Taylor Swift on {' & '.join(parts)}, {year}"
+
+
 def main():
-    d = chart_date()
+    # Mode manuel : python daily.py YYYY-MM-DD
+    if len(sys.argv) > 1:
+        try:
+            unposted = [datetime.strptime(sys.argv[1], "%Y-%m-%d").date()]
+        except ValueError:
+            log("ERROR", f"Date invalide '{sys.argv[1]}', format attendu : YYYY-MM-DD")
+            sys.exit(1)
+    else:
+        unposted = get_unposted_dates()
 
     log("INFO", f"Heure locale: {datetime.now()}")
-    log("INFO", f"Date cible: {d}")
     log("INFO", f"Script: {Path(__file__).name}")
     log("INFO", f"Répertoire: {ROOT}")
 
-    print(f"\n{'=' * 50}\n  daily.py (Fr) - charts du {d}\n{'=' * 50}\n", flush=True)
+    print(f"\n{'=' * 50}\n  daily.py (Fr)\n{'=' * 50}\n", flush=True)
 
-    if already_posted(d):
-        log("INFO", f"Déjà posté pour {d}")
+    if not unposted:
+        log("INFO", "Tout est déjà posté")
         return
 
-    log("INFO", f"En attente de la page Spotify Charts pour {d}")
+    log("INFO", f"Dates à poster: {[str(d) for d in unposted]}")
+    target = unposted[-1]  # la plus récente débloquera les autres
+
+    # Attendre que la page cible soit disponible (cutoff à CUTOFF_HOUR)
     attempt = 1
     while True:
-        log("WAIT", f"Vérification tentative #{attempt} pour {d}")
-        if page_available(d):
-            log("INFO", f"Page de {d} détectée")
+        if past_cutoff():
+            log("WARN", f"{CUTOFF_HOUR}h00 atteint — page {target} toujours indisponible, abandon")
+            return
+
+        log("WAIT", f"Vérification tentative #{attempt} pour {target}")
+        if page_available(target):
+            log("INFO", f"Page de {target} détectée")
             break
 
-        log(
-            "WAIT",
-            f"Page {d} pas encore exploitable, retry #{attempt} dans {RETRY_SECONDS // 60} min",
-        )
+        log("WAIT", f"Page {target} pas encore exploitable, retry #{attempt} dans {RETRY_SECONDS // 60} min")
         attempt += 1
         time.sleep(RETRY_SECONDS)
 
-    tweet_content = run_filter(d)
-    if not tweet_content:
-        log("ERROR", "Traitement échoué")
+    # Traiter chaque date non-postée
+    results: dict[date, str] = {}
+    for d in unposted:
+        content = run_filter(d)
+        if content:
+            results[d] = content
+        else:
+            log("WARN", f"filter.py a échoué pour {d}, date ignorée")
+
+    if not results:
+        log("ERROR", "Aucun traitement réussi")
         sys.exit(1)
 
-    twitter_post_path = ROOT / "twitter_post.txt"
-    twitter_post_path.write_text(tweet_content, encoding="utf-8")
-    log("INFO", f"twitter_post.txt mis à jour: {twitter_post_path}")
+    processed = sorted(results.keys())
 
+    # Contenu du tweet
+    if len(processed) == 1:
+        tweet_content = results[processed[0]]
+    else:
+        tweet_content = build_multi_tweet(processed)
+
+    (ROOT / "twitter_post.txt").write_text(tweet_content, encoding="utf-8")
+    log("INFO", "twitter_post.txt mis à jour")
     print(f"\nPost :\n{tweet_content}\n", flush=True)
 
-    # Generate chart image
-    image_path = ROOT / str(d.year) / f"{d.month:02d}" / str(d) / "chart_image.png"
+    # Générer l'image (simple ou combinée)
     log("STEP", "Génération de l'image du chart")
-    img_result = subprocess.run(
-        [sys.executable, str(GENERATE_IMAGE_SCRIPT), str(d)],
-        capture_output=True,
-        text=True,
-        cwd=str(ROOT),
-    )
+    if len(processed) == 1:
+        d = processed[0]
+        image_path = ROOT / str(d.year) / f"{d.month:02d}" / str(d) / "chart_image.png"
+        img_args = [sys.executable, str(GENERATE_IMAGE_SCRIPT), str(d)]
+    else:
+        image_path = ROOT / "chart_image_multi.png"
+        img_args = [sys.executable, str(GENERATE_IMAGE_SCRIPT)] + [str(d) for d in processed]
+
+    img_result = subprocess.run(img_args, capture_output=True, text=True, cwd=str(ROOT))
     if img_result.stdout:
         print(img_result.stdout, flush=True)
     if img_result.stderr:
@@ -237,7 +272,7 @@ def main():
         log("WARN", "Génération d'image échouée — publication sans image")
         image_path = None
 
-    # Post with image if available, otherwise text-only thread
+    # Poster
     log("STEP", "Publication Twitter")
     if image_path and image_path.exists():
         posted = post_with_image(tweet_content, image_path, TWITTER_SESSION)
@@ -245,8 +280,9 @@ def main():
         posted = post_thread(split_tweets(tweet_content), TWITTER_SESSION)
 
     if posted:
-        mark_posted(d)
-        log("INFO", "Terminé avec succès")
+        for d in processed:
+            mark_posted(d)
+        log("INFO", f"Terminé avec succès ({len(processed)} date(s) postée(s))")
     else:
         log("ERROR", "Publication Twitter échouée, posted.lock non créé")
         sys.exit(1)

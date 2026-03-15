@@ -298,6 +298,15 @@ body{
 }
 .ftr-handle{font-size:11px;color:#1db954;font-weight:700}
 .ftr-date{font-size:11px;color:#667085;font-weight:500}
+/* Day separator (multi-date) */
+.day-hdr{
+  padding:6px 14px;
+  font-size:10px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.07em;color:#344054;
+  background:rgba(29,185,84,.06);
+  border-top:2px solid rgba(29,185,84,.20);
+  border-bottom:1px solid rgba(16,24,40,.07);
+}
 """
 
 SPOTIFY_SVG = """<svg class="hdr-logo" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
@@ -528,26 +537,122 @@ def generate_all_headers(chart_date: str) -> list[Path]:
     return results
 
 
+def generate_multi(chart_dates: list[str], header_img: Path | None = None) -> Path:
+    """Génère une seule image PNG combinant plusieurs dates (séparées par un bandeau)."""
+    out_path = ROOT / "chart_image_multi.png"
+
+    history         = load_json(TS_HISTORY_PATH) if TS_HISTORY_PATH.exists() else {}
+    cover_map       = build_cover_map()
+    track_album_map = build_track_album_map()
+
+    combined_rows_html = ""
+    valid_dates = []
+    for chart_date in chart_dates:
+        date_dir  = ROOT / chart_date[:4] / chart_date[5:7] / chart_date
+        json_path = date_dir / f"ts_chart_{chart_date}.json"
+        if not json_path.exists():
+            print(f"  JSON introuvable pour {chart_date}, ignoré")
+            continue
+        rows = load_json(json_path)
+        if not rows:
+            continue
+        valid_dates.append(chart_date)
+        date_label = datetime.strptime(chart_date, "%Y-%m-%d").strftime("%B %d, %Y")
+        combined_rows_html += f'<div class="day-hdr">{date_label}</div>\n'
+        combined_rows_html += build_rows_html(rows, history, chart_date, track_album_map, cover_map)
+
+    if not valid_dates:
+        raise ValueError("Aucun JSON trouvé pour les dates fournies")
+
+    if header_img is None:
+        header_img = pick_header_image()
+    handle_color = "#1db954"
+
+    first_fmt = datetime.strptime(valid_dates[0],  "%Y-%m-%d").strftime("%B %d")
+    last_fmt  = datetime.strptime(valid_dates[-1], "%Y-%m-%d").strftime("%B %d, %Y")
+    subtitle  = f"Daily Chart · {first_fmt} – {last_fmt}"
+
+    if header_img:
+        handle_color = get_dominant_color(header_img)
+        img_url      = header_img.as_posix()
+        hdr_style    = (
+            f'style="background-image: linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),'
+            f'url(\'file:///{img_url}\'); background-size:100% 100%;"'
+        )
+    else:
+        hdr_style = 'style="background:linear-gradient(135deg,#1db954 0%,#17a34a 100%);"'
+
+    html = f"""<!DOCTYPE html>
+<html><head><meta charset="utf-8"><style>{CSS}</style></head>
+<body>
+<div class="container">
+  <div class="hdr" {hdr_style}>
+    {SPOTIFY_SVG}
+    <div>
+      <div class="hdr-title">Taylor Swift · Global Spotify</div>
+      <div class="hdr-sub">{subtitle}</div>
+    </div>
+  </div>
+  <div class="col-heads">
+    <span>Pos</span>
+    <span>Chg</span>
+    <span>Track</span>
+    <span class="right">Streams</span>
+    <span class="right">Daily</span>
+    <span class="right">Weekly</span>
+    <span class="right">Streak</span>
+    <span class="right">Total</span>
+  </div>
+  {combined_rows_html}
+  <div class="ftr">
+    <span class="ftr-handle" style="color:{handle_color}">{HANDLE}</span>
+    <span class="ftr-date">{last_fmt}</span>
+  </div>
+</div>
+</body></html>"""
+
+    html_tmp = ROOT / "_chart_tmp.html"
+    html_tmp.write_text(html, encoding="utf-8")
+
+    try:
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True)
+            page    = browser.new_page(viewport={"width": 800, "height": 200}, device_scale_factor=2)
+            page.goto(f"file:///{html_tmp.as_posix()}", wait_until="load")
+            page.wait_for_timeout(2000)
+            page.locator("body").screenshot(path=str(out_path))
+            browser.close()
+    finally:
+        if html_tmp.exists():
+            html_tmp.unlink()
+
+    print(f"OK image multi: {out_path}")
+    return out_path
+
+
 def main():
     args = sys.argv[1:]
     if not args:
         print("Usage:")
-        print("  python generate_chart_image.py YYYY-MM-DD")
-        print("  python generate_chart_image.py YYYY-MM-DD --all-headers   # une image par photo")
-        print("  python generate_chart_image.py YYYY-MM-DD photo.jpg       # photo précise")
+        print("  python generate_chart_image.py YYYY-MM-DD [YYYY-MM-DD ...]")
+        print("  python generate_chart_image.py YYYY-MM-DD --all-headers")
+        print("  python generate_chart_image.py YYYY-MM-DD photo.jpg")
         sys.exit(1)
 
-    chart_date = args[0]
+    dates     = [a for a in args if re.match(r"^\d{4}-\d{2}-\d{2}$", a)]
+    non_dates = [a for a in args if not re.match(r"^\d{4}-\d{2}-\d{2}$", a)]
 
-    if "--all-headers" in args:
-        generate_all_headers(chart_date)
-    elif len(args) >= 2 and not args[1].startswith("--"):
-        header_path = Path(args[1])
+    if len(dates) > 1:
+        generate_multi(dates)
+    elif "--all-headers" in non_dates:
+        generate_all_headers(dates[0])
+    elif non_dates and not non_dates[0].startswith("--"):
+        header_path = Path(non_dates[0])
         if not header_path.is_absolute():
             header_path = ROOT / "headers" / header_path
-        generate(chart_date, header_img=header_path)
+        generate(dates[0], header_img=header_path)
     else:
-        generate(chart_date)
+        generate(dates[0])
 
 
 if __name__ == "__main__":
