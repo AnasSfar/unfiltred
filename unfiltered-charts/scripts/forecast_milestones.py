@@ -376,7 +376,7 @@ def build_forecasts() -> dict:
 def main() -> None:
     output = build_forecasts()
     OUTPUT_PATH.write_text(
-        json.dumps(output, ensure_ascii=False, indent=2),
+        json.dumps(output, ensure_ascii=False),
         encoding="utf-8",
     )
     print(f"Written: {OUTPUT_PATH}")

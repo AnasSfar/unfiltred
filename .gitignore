@@ -1,0 +1,2 @@
+# Spotify Charts raw CSV files (source data, not needed in git)
+spotify-charts/**/*.csv

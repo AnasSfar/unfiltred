@@ -19,9 +19,9 @@ MISC_DIR = DISCOGRAPHY_DIR / "misc"
 COVERS_JSON_PATH = ALBUMS_DIR / "covers.json"
 
 SITE_DATA_DIR = ROOT / "site" / "data"
+SITE_HISTORY_DIR = ROOT / "site" / "history"
 SONGS_JSON_PATH = SITE_DATA_DIR / "songs.json"
 ALBUMS_JSON_PATH = SITE_DATA_DIR / "albums.json"
-HISTORY_JSON_PATH = SITE_DATA_DIR / "history.json"
 
 TRACK_ID_RE = re.compile(r"track/([A-Za-z0-9]+)")
 
@@ -123,7 +123,7 @@ def next_milestone(streams: int | None) -> int | None:
 
 def write_json(path: Path, payload) -> None:
     path.write_text(
-        json.dumps(payload, ensure_ascii=False, indent=2),
+        json.dumps(payload, ensure_ascii=False),
         encoding="utf-8",
     )
 
@@ -800,13 +800,7 @@ def export_for_web() -> None:
     print(f"HISTORY_CSV_PATH = {HISTORY_CSV_PATH}")
     raw_songs = load_db_songs()
     dates, raw_history_by_date = load_raw_history()
-    print(f"ROOT = {ROOT}")
-    print(f"HISTORY_CSV_PATH = {HISTORY_CSV_PATH}")
-    print(f"HISTORY_JSON_PATH = {HISTORY_JSON_PATH}")
     print(f"Last 10 dates found: {dates[-10:]}")
-    print(f"Rows on 2026-03-11: {len(raw_history_by_date.get('2026-03-11', {}))}")
-    print(f"Last 10 dates found: {dates[-10:]}")
-    print(f"Rows on 2026-03-10: {len(raw_history_by_date.get('2026-03-10', {}))}")
     track_appearances_by_id, albums_payload_raw = build_discography_index()
 
     for song in raw_songs:
@@ -938,24 +932,22 @@ def export_for_web() -> None:
         "albums": albums_payload,
     }
 
-    history_payload = {
-        "summary": {
-            "latest_date": latest_date,
-            "dates_count": len(dates),
-        },
-        "dates": dates,
-        "by_date": history_by_date,
-    }
-
     write_json(SONGS_JSON_PATH, songs_payload)
     write_json(ALBUMS_JSON_PATH, albums_payload_out)
-    print(f"history latest_date to write = {latest_date}")
-    print(f"history dates to write = {dates[-5:]}")
-    write_json(HISTORY_JSON_PATH, history_payload)
+
+    SITE_HISTORY_DIR.mkdir(parents=True, exist_ok=True)
+    for date_str, day_data in history_by_date.items():
+        (SITE_HISTORY_DIR / f"{date_str}.json").write_text(
+            json.dumps(day_data, ensure_ascii=False), encoding="utf-8"
+        )
+    existing_dates = sorted(p.stem for p in SITE_HISTORY_DIR.glob("*.json") if p.stem != "index")
+    (SITE_HISTORY_DIR / "index.json").write_text(
+        json.dumps({"dates": existing_dates}, ensure_ascii=False), encoding="utf-8"
+    )
 
     print(f"Exported songs:   {SONGS_JSON_PATH}")
     print(f"Exported albums:  {ALBUMS_JSON_PATH}")
-    print(f"Exported history: {HISTORY_JSON_PATH}")
+    print(f"Exported history: {len(existing_dates)} per-date files in {SITE_HISTORY_DIR}")
     print(f"Songs exported:   {len(deduped_songs)}")
     print(f"Albums exported:  {len(albums_payload)}")
     print(f"Dates exported:   {len(dates)}")

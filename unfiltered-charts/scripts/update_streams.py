@@ -1526,19 +1526,6 @@ def main():
     export_for_web.export_for_web()
     print("Web export done.")
 
-    print("Splitting history into per-date files...")
-    subprocess.run(
-        [sys.executable, str(ROOT / "scripts" / "split_history.py")],
-        cwd=ROOT,
-        check=True,
-    )
-    subprocess.run(
-        [sys.executable, str(ROOT / "scripts" / "generate_history_index.py")],
-        cwd=ROOT,
-        check=True,
-    )
-    print("History split done.")
-
     print("Rebuilding expected milestones forecast...")
     subprocess.run(
         [sys.executable, str(ROOT / "scripts" / "forecast_milestones.py")],
