@@ -1476,6 +1476,10 @@ def main():
         )
         if not_found_ids:
             print(f"Skipping {len(not_found_ids)} not-found track(s) on this retry.")
+
+        print("Committing partial progress before retry...")
+        git_commit_and_push(f"partial export {summary['stats_date']} (before retry {retry_round})")
+
         print(
             f"Waiting {PENDING_RETRY_SLEEP_SECONDS // 60} minutes before retry "
             f"({retry_round}/{MAX_PENDING_RETRY_ROUNDS})..."
