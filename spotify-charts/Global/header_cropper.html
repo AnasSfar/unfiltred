@@ -170,7 +170,7 @@
 <body>
 
 <h1>Header Cropper</h1>
-<p class="sub">Découpe tes photos en 1656 × 160 px pour les headers du chart (2× pour rendu net). Glisse le cadre vert sur la zone voulue.</p>
+<p class="sub">Découpe tes photos en 1536 × 300 px pour les headers du chart (2× pour rendu net). Glisse le cadre vert sur la zone voulue.</p>
 
 <div class="drop-zone" id="drop-zone">
   <input type="file" id="file-input" accept="image/*" multiple>
@@ -184,7 +184,7 @@
   <div class="canvas-wrap" id="canvas-wrap">
     <img id="main-img" draggable="false">
     <div class="crop-window" id="crop-win">
-      <span class="crop-label">1656×160</span>
+      <span class="crop-label">1536×300</span>
     </div>
   </div>
 
@@ -197,12 +197,12 @@
 
   <div id="preview-wrap">
     <p>Aperçu 828×80px :</p>
-    <canvas id="preview-canvas" width="1656" height="160" style="max-width:100%;height:auto;"></canvas>
+    <canvas id="preview-canvas" width="1536" height="300" style="max-width:100%;height:auto;"></canvas>
   </div>
 </div>
 
 <script>
-const CROP_W = 1656, CROP_H = 160;
+const CROP_W = 1536, CROP_H = 300;
 
 let files = [];       // {name, url, img} per loaded file
 let activeIdx = 0;
@@ -365,8 +365,8 @@ function updatePreview() {
   previewWrap.style.display = 'block';
   const ctx = previewCanvas.getContext('2d');
   const img = files[activeIdx].img;
-  ctx.clearRect(0, 0, 1656, 160);
-  ctx.drawImage(img, cropX, cropY, CROP_W, CROP_H, 0, 0, 1656, 160);
+  ctx.clearRect(0, 0, 1536, 300);
+  ctx.drawImage(img, cropX, cropY, CROP_W, CROP_H, 0, 0, 1536, 300);
 }
 
 // --- Save ---

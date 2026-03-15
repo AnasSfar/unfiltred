@@ -202,7 +202,7 @@ body{
     radial-gradient(circle at 12% 18%, rgba(29,185,84,.13), transparent 30%),
     radial-gradient(circle at 84% 16%, rgba(126,87,255,.10), transparent 32%),
     linear-gradient(180deg,#f4f7f8 0%,#edf3f4 100%);
-  width:860px;
+  width:800px;
   padding:16px;
   color:#101828;
 }
@@ -213,12 +213,12 @@ body{
 }
 /* Header */
 .hdr{
-  padding:18px 22px;
-  display:flex;align-items:center;gap:14px;
+  padding:49px 22px;
+  display:flex;align-items:center;gap:16px;
 }
-.hdr-logo{width:44px;height:44px;flex-shrink:0}
-.hdr-title{color:#fff;font-size:20px;font-weight:800;letter-spacing:-.3px}
-.hdr-sub{color:rgba(255,255,255,.85);font-size:12px;margin-top:3px}
+.hdr-logo{width:52px;height:52px;flex-shrink:0}
+.hdr-title{color:#fff;font-size:22px;font-weight:800;letter-spacing:-.3px}
+.hdr-sub{color:rgba(255,255,255,.85);font-size:13px;margin-top:4px}
 /* Column headers */
 .col-heads{
   display:grid;
@@ -468,7 +468,7 @@ def generate(chart_date: str, header_img: Path | None = None) -> Path:
     try:
         with sync_playwright() as p:
             browser = p.chromium.launch(headless=True)
-            page    = browser.new_page(viewport={"width": 860, "height": 200}, device_scale_factor=2)
+            page    = browser.new_page(viewport={"width": 800, "height": 200}, device_scale_factor=2)
             page.goto(f"file:///{html_tmp.as_posix()}", wait_until="load")
             page.wait_for_timeout(2000)
             page.locator("body").screenshot(path=str(out_path))
