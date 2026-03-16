@@ -76,10 +76,10 @@ def parse_chart_text(body_text: str) -> list[dict]:
     pattern = re.compile(
         r"""
         ^\s*(?P<rank>\d{1,3})\s*$\n
-        ^\s*(?P<delta>\d{1,3}|[–—-])\s*$\n
+        ^\s*(?P<delta>.+?)\s*$\n
         ^\s*(?P<track>.+?)\s*$\n
         ^\s*(?P<artist>.+?)\s*$\n
-        ^\s*(?P<peak>\d{1,3})\s+(?P<prev>\d{1,3})\s+(?P<streak>\d{1,4})\s+(?P<streams>\d{1,3}(?:,\d{3})+)\s*$
+        ^\s*(?P<peak>\d{1,3})\s+(?P<prev>\d{1,3}|[–—-])\s+(?P<streak>\d{1,4})\s+(?P<streams>\d{1,3}(?:,\d{3})+)\s*$
         """,
         re.MULTILINE | re.VERBOSE,
     )
@@ -131,7 +131,7 @@ def scrape_chart_rows(chart_date: str) -> list[dict]:
         try:
             with sync_playwright() as p:
                 browser = p.chromium.launch(
-                    headless=False,
+                    headless=True,
                     args=[
                         "--disable-blink-features=AutomationControlled",
                         "--disable-dev-shm-usage",
@@ -166,15 +166,30 @@ def scrape_chart_rows(chart_date: str) -> list[dict]:
                 if "Log in with Spotify" in body_text:
                     raise RuntimeError("Session Spotify non valide")
 
-                for _ in range(18):
-                    page.mouse.wheel(0, 2500)
-                    page.wait_for_timeout(700)
+                prev_height = 0
+                stable_count = 0
+                while stable_count < 3:
+                    page.mouse.wheel(0, 3000)
+                    page.wait_for_timeout(800)
+                    new_height = page.evaluate("document.body.scrollHeight")
+                    if new_height == prev_height:
+                        stable_count += 1
+                    else:
+                        stable_count = 0
+                    prev_height = new_height
 
                 body_text = (page.locator("body").inner_text() or "").strip()
                 rows = parse_chart_text(body_text)
-                print(f"  {len(rows)} lignes parsees")
+                all_ranks = [r["rank"] for r in rows]
+                print(f"  {len(rows)} lignes parsees (rangs: {all_ranks[:5]}...{all_ranks[-5:] if len(all_ranks) > 5 else ''})")
                 if rows:
                     print("  Apercu :", rows[:3])
+
+                if len(rows) < 195:
+                    debug_dir = get_out_dir(chart_date)
+                    debug_dir.mkdir(parents=True, exist_ok=True)
+                    (debug_dir / "debug_body.txt").write_text(body_text, encoding="utf-8")
+                    print(f"  DEBUG: {len(rows)} lignes seulement — debug_body.txt sauvegarde")
 
                 if not rows:
                     debug_dir = get_out_dir(chart_date)

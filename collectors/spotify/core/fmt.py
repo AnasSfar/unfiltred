@@ -11,13 +11,18 @@ def fmt_streams(s) -> str:
         return "—"
 
 
-def fmt_delta(rank, previous_rank, peak_rank=None) -> str:
+def fmt_delta(rank, previous_rank, peak_rank=None, total_days=None) -> str:
     """Retourne NEW / RE / +3 / -2 / 0"""
     try:
         prev = int(previous_rank)
     except (TypeError, ValueError):
         prev = 0
     if prev <= 0:
+        try:
+            if total_days and int(total_days) > 0:
+                return "RE"
+        except (TypeError, ValueError):
+            pass
         try:
             if int(peak_rank) > 0 and int(peak_rank) != int(rank):
                 return "RE"

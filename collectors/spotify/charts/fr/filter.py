@@ -44,7 +44,8 @@ MUSICBRAINZ_HEADERS = {
     "Accept": "application/json",
 }
 
-ROOT = Path(__file__).parent
+ROOT     = Path(__file__).parent
+DATA_DIR = ROOT / "data"
 SESSION_FILE = ROOT / "spotify_session.json"
 LOCAL_DB_FILE = ROOT / "songs_db.json"
 
@@ -58,7 +59,7 @@ def norm(s):
 
 
 def get_out_dir(chart_date: str) -> Path:
-    return ROOT / chart_date[:4] / chart_date[5:7] / chart_date
+    return DATA_DIR / chart_date[:4] / chart_date[5:7] / chart_date
 
 
 def get_songs_present_yesterday(chart_date, ts_history):
@@ -247,10 +248,10 @@ def parse_chart_text(body_text: str) -> list[dict]:
     pattern = re.compile(
         r"""
         ^\s*(?P<rank>\d{1,3})\s*$\n
-        ^\s*(?P<delta>\d{1,3}|[–—-])\s*$\n
+        ^\s*(?P<delta>.+?)\s*$\n
         ^\s*(?P<track>.+?)\s*$\n
         ^\s*(?P<artist>.+?)\s*$\n
-        ^\s*(?P<peak>\d{1,3})\s+(?P<prev>\d{1,3})\s+(?P<streak>\d{1,4})\s+(?P<streams>\d{1,3}(?:,\d{3})+)\s*$
+        ^\s*(?P<peak>\d{1,3})\s+(?P<prev>\d{1,3}|[–—-])\s+(?P<streak>\d{1,4})\s+(?P<streams>\d{1,3}(?:,\d{3})+)\s*$
         """,
         re.MULTILINE | re.VERBOSE,
     )
@@ -269,6 +270,7 @@ def parse_chart_text(body_text: str) -> list[dict]:
                 "streams": clean_int(match.group("streams")),
                 "previous_rank": clean_int(match.group("prev")),
                 "peak_rank": clean_int(match.group("peak")),
+                "streak": clean_int(match.group("streak")),
             }
         )
 
@@ -303,7 +305,6 @@ def scrape_chart_rows(chart_date: str) -> list[dict]:
                         "--disable-blink-features=AutomationControlled",
                         "--disable-dev-shm-usage",
                         "--no-sandbox",
-                        "--window-position=-32000,-32000",
                     ],
                 )
 
@@ -334,16 +335,30 @@ def scrape_chart_rows(chart_date: str) -> list[dict]:
                 if "Log in with Spotify" in body_text:
                     raise RuntimeError("Session Spotify non valide")
 
-                for _ in range(18):
-                    page.mouse.wheel(0, 2500)
-                    page.wait_for_timeout(700)
+                prev_height = 0
+                stable_count = 0
+                while stable_count < 3:
+                    page.mouse.wheel(0, 3000)
+                    page.wait_for_timeout(800)
+                    new_height = page.evaluate("document.body.scrollHeight")
+                    if new_height == prev_height:
+                        stable_count += 1
+                    else:
+                        stable_count = 0
+                    prev_height = new_height
 
                 body_text = (page.locator("body").inner_text() or "").strip()
                 rows = parse_chart_text(body_text)
-
-                print(f"  {len(rows)} lignes parsees")
+                all_ranks = [r["rank"] for r in rows]
+                print(f"  {len(rows)} lignes parsees (rangs: {all_ranks[:5]}...{all_ranks[-5:] if len(all_ranks) > 5 else ''})")
                 if rows:
                     print("  Apercu :", rows[:3])
+
+                if len(rows) < 195:
+                    debug_dir = get_out_dir(chart_date)
+                    debug_dir.mkdir(parents=True, exist_ok=True)
+                    (debug_dir / "debug_body.txt").write_text(body_text, encoding="utf-8")
+                    print(f"  DEBUG: {len(rows)} lignes seulement — debug_body.txt sauvegarde")
 
                 if not rows:
                     debug_dir = get_out_dir(chart_date)
@@ -351,6 +366,43 @@ def scrape_chart_rows(chart_date: str) -> list[dict]:
                     (debug_dir / "debug_page.html").write_text(page.content(), encoding="utf-8")
                     (debug_dir / "debug_body.txt").write_text(body_text, encoding="utf-8")
                     raise RuntimeError("Aucune ligne détectée")
+
+                # Extract album art URLs
+                try:
+                    img_els = page.locator("img[src*='i.scdn.co']").all()
+                    img_urls = [el.get_attribute("src") for el in img_els]
+                    img_urls = [u for u in img_urls if u]
+                    for i, row in enumerate(rows):
+                        if i < len(img_urls):
+                            row["image_url"] = img_urls[i]
+                    print(f"  {len(img_urls)} images extraites")
+                except Exception as img_err:
+                    print(f"  Extraction images ignoree: {img_err}")
+
+                # Extract total_days on chart for TS songs by expanding each row
+                for row in rows:
+                    if TS_NAME.lower() not in str(row.get("artist_names", "")).lower():
+                        continue
+                    track = row["track_name"]
+                    try:
+                        el = page.get_by_text(track, exact=True).first
+                        el.click(timeout=5000)
+                        page.wait_for_timeout(1500)
+                        td_label = page.get_by_text("Total days on chart", exact=True)
+                        if td_label.count() > 0:
+                            container_text = td_label.first.locator("xpath=..").inner_text()
+                            m = re.search(r"(\d+)", container_text)
+                            if m:
+                                row["total_days"] = int(m.group(1))
+                                print(f"  total_days {track}: {row['total_days']}")
+                            else:
+                                print(f"  total_days non parsé pour {track}: {container_text!r}")
+                        else:
+                            print(f"  'Total days on chart' non trouvé dans DOM pour {track}")
+                        el.click(timeout=3000)
+                        page.wait_for_timeout(400)
+                    except Exception as td_err:
+                        print(f"  total_days ignoré pour {track}: {td_err}")
 
                 return rows
 
@@ -388,7 +440,14 @@ def _fmt_ts_song_line(row, chart_date, ts_history) -> str:
 
 def _fmt_ts_pop_line(row) -> str:
     track = str(row["track_name"])
-    dp = fmt_delta(row["pop_rank"], row.get("previous_pop_rank"))
+    pop_total = row.get("pop_total_days")
+    try:
+        import math
+        if isinstance(pop_total, float) and math.isnan(pop_total):
+            pop_total = None
+    except Exception:
+        pass
+    dp = fmt_delta(row["pop_rank"], row.get("previous_pop_rank"), total_days=pop_total)
     return f"- #{int(row['pop_rank'])} ({dp}) {track}"
 
 
@@ -528,19 +587,52 @@ def process_one(chart_date: str, db, ts_history):
     ts_df = df[df["artist_names"].astype(str).str.contains(TS_NAME, case=False, na=False)].copy()
     ts_pop = pop_df[pop_df["artist_names"].astype(str).str.contains(TS_NAME, case=False, na=False)].copy()
 
+    # Pop history : déterminer NEW vs RE-ENTRY
+    ts_pop_history_path = ROOT / "ts_pop_history.json"
+    try:
+        ts_pop_history = json.loads(ts_pop_history_path.read_text(encoding="utf-8")) if ts_pop_history_path.exists() else {}
+    except Exception:
+        ts_pop_history = {}
+
+    if not ts_pop.empty:
+        pop_total_days_list = []
+        for _, row in ts_pop.iterrows():
+            track = str(row["track_name"])
+            past = sum(1 for d in ts_pop_history.get(track, []) if d < chart_date)
+            pop_total_days_list.append(past)
+        ts_pop = ts_pop.copy()
+        ts_pop["pop_total_days"] = pop_total_days_list
+
+        # Mettre à jour l'historique pop
+        for _, row in ts_pop.iterrows():
+            track = str(row["track_name"])
+            if track not in ts_pop_history:
+                ts_pop_history[track] = []
+            if chart_date not in ts_pop_history[track]:
+                ts_pop_history[track].append(chart_date)
+        ts_pop_history_path.write_text(
+            json.dumps(ts_pop_history, ensure_ascii=False, indent=2), encoding="utf-8"
+        )
+
     ts_df.to_csv(out_dir / "ts_all_songs.csv", index=False)
     if not ts_pop.empty:
         ts_pop.to_csv(out_dir / "ts_pop_songs.csv", index=False)
 
-    # JSON pour generate_chart_image.py
-    ts_rows_json = [
-        {k: (None if (isinstance(v, float) and str(v) == "nan") else v)
-         for k, v in r.items()}
-        for r in ts_df.to_dict(orient="records")
-    ]
+    def _clean_row(r):
+        return {k: (None if (isinstance(v, float) and str(v) == "nan") else v) for k, v in r.items()}
+
+    # JSON streaming pour generate_chart_image.py
+    ts_rows_json = [_clean_row(r) for r in ts_df.to_dict(orient="records")]
     (out_dir / f"ts_chart_{chart_date}.json").write_text(
         json.dumps(ts_rows_json, ensure_ascii=False), encoding="utf-8"
     )
+
+    # JSON pop pour generate_chart_image.py
+    if not ts_pop.empty:
+        ts_pop_rows_json = [_clean_row(r) for r in ts_pop.to_dict(orient="records")]
+        (out_dir / f"ts_pop_{chart_date}.json").write_text(
+            json.dumps(ts_pop_rows_json, ensure_ascii=False), encoding="utf-8"
+        )
 
     log = Logger()
     write_log(log, ts_df, ts_pop, chart_date, ts_history)
@@ -575,7 +667,7 @@ def rebuild_from_ts_csvs(root: Path) -> dict:
 
 def discover_dates():
     dates = []
-    for year_dir in sorted(ROOT.iterdir()):
+    for year_dir in sorted(DATA_DIR.iterdir()):
         if not year_dir.is_dir() or not re.match(r"^\d{4}$", year_dir.name):
             continue
         for month_dir in sorted(year_dir.iterdir()):
@@ -597,7 +689,13 @@ def main():
     h = load(ROOT / "ts_history.json")
 
     if run_relog:
-        for year_dir in sorted(ROOT.iterdir()):
+        ts_pop_history_path = ROOT / "ts_pop_history.json"
+        try:
+            ts_pop_history = json.loads(ts_pop_history_path.read_text(encoding="utf-8")) if ts_pop_history_path.exists() else {}
+        except Exception:
+            ts_pop_history = {}
+
+        for year_dir in sorted(DATA_DIR.iterdir()):
             if not year_dir.is_dir() or not re.match(r"^\d{4}$", year_dir.name):
                 continue
             for month_dir in sorted(year_dir.iterdir()):
@@ -613,6 +711,15 @@ def main():
                     ts_pop = None
                     if (day_dir / "ts_pop_songs.csv").exists():
                         ts_pop = pd.read_csv(day_dir / "ts_pop_songs.csv")
+                        if ts_pop is not None and not ts_pop.empty:
+                            chart_date = day_dir.name
+                            pop_total_days_list = []
+                            for _, row in ts_pop.iterrows():
+                                track = str(row["track_name"])
+                                past = sum(1 for d in ts_pop_history.get(track, []) if d < chart_date)
+                                pop_total_days_list.append(past)
+                            ts_pop = ts_pop.copy()
+                            ts_pop["pop_total_days"] = pop_total_days_list
 
                     log = Logger()
                     write_log(log, ts_df, ts_pop, day_dir.name, h)
@@ -637,7 +744,7 @@ def main():
             except Exception as e:
                 print(f"  X {d} - {e}")
 
-        history = rebuild_from_ts_csvs(ROOT)
+        history = rebuild_from_ts_csvs(DATA_DIR)
         save(history, ROOT / "ts_history.json")
         print(f"  ts_history rebuilt - {len(history)} chansons")
         return
@@ -647,7 +754,7 @@ def main():
 
     process_one(target, db, h)
     save_db(db)
-    history = rebuild_from_ts_csvs(ROOT)
+    history = rebuild_from_ts_csvs(DATA_DIR)
     save(history, ROOT / "ts_history.json")
     print(f"  ts_history rebuilt - {len(history)} chansons")
 

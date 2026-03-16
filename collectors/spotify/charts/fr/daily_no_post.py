@@ -1,15 +1,10 @@
 #!/usr/bin/env python3
 """
-daily.py - Fr
-Scrape la page Spotify Charts, filtre TS, met a jour ts_history, et poste le tweet.
-Usage : python daily.py [YYYY-MM-DD]
+daily_no_post.py - Fr
+Identique à daily.py mais sans poster sur Twitter et sans créer posted.lock.
+Utile pour régénérer les données (filter, historique, image) sans publier.
 
-Logique :
-- cherche toutes les dates non-postées des 7 derniers jours
-- attend que la page la plus récente soit disponible (cutoff à 15h)
-- lance filter.py pour chaque date manquante
-- si plusieurs dates : génère une image combinée et un tweet condensé
-- poste sur Twitter
+Usage : python daily_no_post.py [YYYY-MM-DD]
 """
 import re
 import subprocess
@@ -19,26 +14,18 @@ from datetime import date, datetime, timedelta
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
-from core.twitter import post_thread, post_with_image, split_tweets
-from core.notify import send as notify
 from playwright.sync_api import sync_playwright
 
 ROOT                  = Path(__file__).parent
 DATA_DIR              = ROOT / "data"
 CHART_ID              = "regional-fr-daily"
-TWITTER_SESSION       = ROOT / "twitter_session.json"
 SPOTIFY_SESSION       = ROOT / "spotify_session.json"
 FILTER_SCRIPT         = ROOT / "filter.py"
 GENERATE_IMAGE_SCRIPT = ROOT / "generate_chart_image.py"
 
-try:
-    from config import NTFY_TOPIC
-except Exception:
-    NTFY_TOPIC = ""
-
 RETRY_SECONDS = 60
-CUTOFF_HOUR   = 15  # abandon si page non dispo à 15h le lendemain
-LOOKBACK_DAYS = 7   # fenêtre de détection des jours manquants
+CUTOFF_HOUR   = 15
+LOOKBACK_DAYS = 7
 
 _SCRIPT_START = datetime.now()
 
@@ -57,15 +44,7 @@ def already_posted(d: date) -> bool:
     return exists
 
 
-def mark_posted(d: date):
-    p = lock_path(d)
-    p.parent.mkdir(parents=True, exist_ok=True)
-    p.touch()
-    log("INFO", f"posted.lock créé: {p}")
-
-
 def get_unposted_dates() -> list[date]:
-    """Retourne les dates non-postées des LOOKBACK_DAYS derniers jours, du plus ancien au plus récent."""
     today = date.today()
     unposted = [
         today - timedelta(days=i)
@@ -198,7 +177,6 @@ def build_multi_tweet(dates: list[date]) -> str:
 
 
 def main():
-    # Mode manuel : python daily.py YYYY-MM-DD
     if len(sys.argv) > 1:
         try:
             unposted = [datetime.strptime(sys.argv[1], "%Y-%m-%d").date()]
@@ -212,16 +190,15 @@ def main():
     log("INFO", f"Script: {Path(__file__).name}")
     log("INFO", f"Répertoire: {ROOT}")
 
-    print(f"\n{'=' * 50}\n  daily.py (Fr)\n{'=' * 50}\n", flush=True)
+    print(f"\n{'=' * 50}\n  daily_no_post.py (Fr)\n{'=' * 50}\n", flush=True)
 
     if not unposted:
-        log("INFO", "Tout est déjà posté")
+        log("INFO", "Aucune date non-postée")
         return
 
-    log("INFO", f"Dates à poster: {[str(d) for d in unposted]}")
-    target = unposted[-1]  # la plus récente débloquera les autres
+    log("INFO", f"Dates à traiter: {[str(d) for d in unposted]}")
+    target = unposted[-1]
 
-    # Attendre que la page cible soit disponible (cutoff à CUTOFF_HOUR)
     attempt = 1
     while True:
         if past_cutoff():
@@ -237,7 +214,6 @@ def main():
         attempt += 1
         time.sleep(RETRY_SECONDS)
 
-    # Traiter chaque date non-postée
     results: dict[date, str] = {}
     for d in unposted:
         content = run_filter(d)
@@ -252,7 +228,6 @@ def main():
 
     processed = sorted(results.keys())
 
-    # Contenu du tweet
     if len(processed) == 1:
         tweet_content = results[processed[0]]
     else:
@@ -260,9 +235,8 @@ def main():
 
     (ROOT / "twitter_post.txt").write_text(tweet_content, encoding="utf-8")
     log("INFO", "twitter_post.txt mis à jour")
-    print(f"\nPost :\n{tweet_content}\n", flush=True)
+    print(f"\nPost préparé :\n{tweet_content}\n", flush=True)
 
-    # Générer l'image (simple ou combinée)
     log("STEP", "Génération de l'image du chart")
     if len(processed) == 1:
         d = processed[0]
@@ -278,36 +252,15 @@ def main():
     if img_result.stderr:
         print(img_result.stderr, flush=True)
     if img_result.returncode != 0:
-        log("WARN", "Génération d'image échouée — publication sans image")
+        log("WARN", "Génération d'image échouée")
         image_path = None
 
-    # Poster
-    log("STEP", "Publication Twitter")
     if image_path and image_path.exists():
-        posted = post_with_image(tweet_content, image_path, TWITTER_SESSION)
+        log("INFO", f"Image prête : {image_path}")
     else:
-        posted = post_thread(split_tweets(tweet_content), TWITTER_SESSION)
+        log("WARN", "Pas d'image disponible")
 
-    if posted:
-        for d in processed:
-            mark_posted(d)
-        log("INFO", f"Terminé avec succès ({len(processed)} date(s) postée(s))")
-        notify(
-            NTFY_TOPIC,
-            tweet_content,
-            title="Taylor Swift FR - Posté",
-            tags="white_check_mark,musical_note",
-        )
-    else:
-        log("ERROR", "Publication Twitter échouée, posted.lock non créé")
-        notify(
-            NTFY_TOPIC,
-            "La publication Twitter a échoué.",
-            title="Taylor Swift FR - Erreur",
-            tags="x,warning",
-            priority="high",
-        )
-        sys.exit(1)
+    log("INFO", f"Terminé ({len(processed)} date(s) traitée(s)) — Twitter non publié, posted.lock non créé")
 
 
 if __name__ == "__main__":

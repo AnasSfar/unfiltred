@@ -20,6 +20,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 from core.twitter import post_thread, post_with_image, split_tweets
+from core.notify import send as notify
 from playwright.sync_api import sync_playwright
 
 ROOT                  = Path(__file__).parent
@@ -80,12 +81,11 @@ def page_available(d: date) -> bool:
         context = None
         try:
             browser = p.chromium.launch(
-                headless=False,
+                headless=True,
                 args=[
                     "--disable-blink-features=AutomationControlled",
                     "--disable-dev-shm-usage",
                     "--no-sandbox",
-                    "--window-position=-32000,-32000",
                 ],
             )
 
@@ -123,7 +123,7 @@ def page_available(d: date) -> bool:
 
             log("CHECK", f"Longueur texte: {len(body_text)}")
 
-            has_streams      = bool(re.search(r"\b\d{1,3},\d{3},\d{3}\b", body_text))
+            has_streams      = bool(re.search(r"\b\d{1,3}[,.\s]\d{3}[,.\s]\d{3}\b", body_text))
             has_chart_header = "track" in body_text_lower and "streams" in body_text_lower
             has_rank_line    = bool(re.search(r"(?m)^\s*1\s*$", body_text))
 

@@ -221,7 +221,7 @@ def post_with_image(tweet: str, image_path: Path, session_file: Path) -> bool:
             time.sleep(2)
 
             # Attach image via hidden file input
-            file_input = page.locator("input[type='file'][accept*='image']")
+            file_input = page.locator("input[type='file'][accept*='image']").first
             file_input.set_input_files(str(image_path))
             time.sleep(3)
 

@@ -168,15 +168,17 @@ def get_pct(today, ref):
     return (today - ref) / ref * 100
 
 
-def rank_change(rank, previous_rank):
+def rank_change(rank, previous_rank, total_days=None):
     if previous_rank is None:
+        if total_days and int(total_days) > 0:
+            return "RE-ENTRY", "chg-re"
         return "NEW", "chg-new"
     delta = int(previous_rank) - int(rank)
     if delta > 0:
         return f"▲{delta}", "chg-up"
     elif delta < 0:
         return f"▼{abs(delta)}", "chg-dn"
-    return "—", "chg-eq"
+    return "=", "chg-eq"
 
 
 def nan_to_none(v):
@@ -263,7 +265,8 @@ body{
 .chg-up{color:#067647}
 .chg-dn{color:#b42318}
 .chg-eq{color:#9ca3af}
-.chg-new{color:#1db954;font-size:10px;font-weight:800}
+.chg-new{color:#5bbde4;font-size:10px;font-weight:800}
+.chg-re{color:#5bbde4;font-size:10px;font-weight:800}
 /* Song */
 .col-song{display:flex;align-items:center;gap:10px;min-width:0}
 .art{
@@ -329,17 +332,18 @@ def build_rows_html(
     for i, row in enumerate(rows):
         track      = str(row.get("track_name") or "")
         artist     = str(row.get("artist_names") or "")
-        rank       = nan_to_none(row.get("rank"))
-        prev_rank  = nan_to_none(row.get("previous_rank"))
-        streams    = nan_to_none(row.get("streams"))
-        streak     = nan_to_none(row.get("streak"))
+        rank        = nan_to_none(row.get("rank"))
+        prev_rank   = nan_to_none(row.get("previous_rank"))
+        streams     = nan_to_none(row.get("streams"))
+        streak      = nan_to_none(row.get("streak"))
+        total_days  = nan_to_none(row.get("total_days"))
         scraped_img = row.get("image_url") or ""
 
         if rank is None:
             continue
         rank = int(rank)
 
-        chg_text, chg_css = rank_change(rank, int(prev_rank) if prev_rank else None)
+        chg_text, chg_css = rank_change(rank, int(prev_rank) if prev_rank else None, total_days)
 
         # Album cover: discography lookup → fallback to scraped CDN URL
         cover_url = get_album_cover(track, track_album_map, cover_map, scraped_img)
@@ -353,7 +357,6 @@ def build_rows_html(
         daily_pct  = get_pct(streams_int, prev_streams)
         weekly_pct = get_pct(streams_int, week_streams)
 
-        total_days  = nan_to_none(row.get("total_days"))
         streams_fmt = fmt_streams(streams_int)
         daily_txt   = fmt_pct(daily_pct)
         weekly_txt  = fmt_pct(weekly_pct)

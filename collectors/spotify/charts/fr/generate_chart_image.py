@@ -25,12 +25,14 @@ try:
 except ImportError:
     _PIL = False
 
-ROOT             = Path(__file__).parent
-TS_HISTORY_PATH  = ROOT / "ts_history.json"
+ROOT                = Path(__file__).parent
+DATA_DIR            = ROOT / "data"
+TS_HISTORY_PATH     = ROOT / "ts_history.json"
+POP_HISTORY_PATH    = ROOT / "ts_pop_history.json"
 DISCOGRAPHY_ROOT = ROOT.parent.parent.parent.parent / "website" / "discography"
 COVERS_PATH      = DISCOGRAPHY_ROOT / "albums" / "covers.json"
 HEADERS_DIR      = ROOT / "headers"
-HANDLE           = "@swiftiescharts"
+HANDLE           = "@thefateofanas"
 
 
 # ---------------------------------------------------------------------------
@@ -168,15 +170,17 @@ def get_pct(today, ref):
     return (today - ref) / ref * 100
 
 
-def rank_change(rank, previous_rank):
+def rank_change(rank, previous_rank, total_days=None):
     if previous_rank is None:
+        if total_days and int(total_days) > 0:
+            return "RE-ENTRY", "chg-re"
         return "NEW", "chg-new"
     delta = int(previous_rank) - int(rank)
     if delta > 0:
         return f"▲{delta}", "chg-up"
     elif delta < 0:
         return f"▼{abs(delta)}", "chg-dn"
-    return "—", "chg-eq"
+    return "=", "chg-eq"
 
 
 def nan_to_none(v):
@@ -188,6 +192,24 @@ def nan_to_none(v):
         pass
     return v
 
+
+def enrich_pop_rows(pop_rows: list, chart_date: str) -> list:
+    """Fill pop_total_days from ts_pop_history.json where the field is missing/zero."""
+    if not pop_rows:
+        return pop_rows
+    try:
+        import math
+        pop_history = json.loads(POP_HISTORY_PATH.read_text(encoding="utf-8")) if POP_HISTORY_PATH.exists() else {}
+    except Exception:
+        return pop_rows
+    for row in pop_rows:
+        v = row.get("pop_total_days")
+        missing = v is None or v == "" or (isinstance(v, float) and math.isnan(v)) or v == 0
+        if missing:
+            track = str(row.get("track_name") or "")
+            past = sum(1 for d in pop_history.get(track, []) if d < chart_date)
+            row["pop_total_days"] = past if past > 0 else None
+    return pop_rows
 
 
 # ---------------------------------------------------------------------------
@@ -263,7 +285,8 @@ body{
 .chg-up{color:#067647}
 .chg-dn{color:#b42318}
 .chg-eq{color:#9ca3af}
-.chg-new{color:#1db954;font-size:10px;font-weight:800}
+.chg-new{color:#5bbde4;font-size:10px;font-weight:800}
+.chg-re{color:#5bbde4;font-size:10px;font-weight:800}
 /* Song */
 .col-song{display:flex;align-items:center;gap:10px;min-width:0}
 .art{
@@ -307,6 +330,12 @@ body{
   border-top:2px solid rgba(29,185,84,.20);
   border-bottom:1px solid rgba(16,24,40,.07);
 }
+/* Section separator (FR streaming vs FR Pop) */
+.section-hdr{
+  padding:8px 14px;
+  font-size:11px;font-weight:800;text-transform:uppercase;
+  letter-spacing:.08em;color:#fff;
+}
 """
 
 SPOTIFY_SVG = """<svg class="hdr-logo" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
@@ -329,17 +358,18 @@ def build_rows_html(
     for i, row in enumerate(rows):
         track      = str(row.get("track_name") or "")
         artist     = str(row.get("artist_names") or "")
-        rank       = nan_to_none(row.get("rank"))
-        prev_rank  = nan_to_none(row.get("previous_rank"))
-        streams    = nan_to_none(row.get("streams"))
-        streak     = nan_to_none(row.get("streak"))
+        rank        = nan_to_none(row.get("rank"))
+        prev_rank   = nan_to_none(row.get("previous_rank"))
+        streams     = nan_to_none(row.get("streams"))
+        streak      = nan_to_none(row.get("streak"))
+        total_days  = nan_to_none(row.get("total_days"))
         scraped_img = row.get("image_url") or ""
 
         if rank is None:
             continue
         rank = int(rank)
 
-        chg_text, chg_css = rank_change(rank, int(prev_rank) if prev_rank else None)
+        chg_text, chg_css = rank_change(rank, int(prev_rank) if prev_rank else None, total_days)
 
         # Album cover: discography lookup → fallback to scraped CDN URL
         cover_url = get_album_cover(track, track_album_map, cover_map, scraped_img)
@@ -353,7 +383,6 @@ def build_rows_html(
         daily_pct  = get_pct(streams_int, prev_streams)
         weekly_pct = get_pct(streams_int, week_streams)
 
-        total_days  = nan_to_none(row.get("total_days"))
         streams_fmt = fmt_streams(streams_int)
         daily_txt   = fmt_pct(daily_pct)
         weekly_txt  = fmt_pct(weekly_pct)
@@ -392,6 +421,94 @@ def build_rows_html(
     return html
 
 
+def build_pop_rows_html(
+    pop_rows,
+    history,
+    chart_date: str,
+    track_album_map: dict,
+    cover_map: dict,
+) -> str:
+    date_obj  = datetime.strptime(chart_date, "%Y-%m-%d").date()
+    yesterday = str(date_obj - timedelta(days=1))
+    week_ago  = str(date_obj - timedelta(days=7))
+
+    html = ""
+    for i, row in enumerate(pop_rows):
+        track       = str(row.get("track_name") or "")
+        artist      = str(row.get("artist_names") or "")
+        pop_rank    = nan_to_none(row.get("pop_rank"))
+        prev_pop    = nan_to_none(row.get("previous_pop_rank"))
+        streams     = nan_to_none(row.get("streams"))
+        streak      = nan_to_none(row.get("streak"))
+        pop_total   = nan_to_none(row.get("pop_total_days"))
+        scraped_img = row.get("image_url") or ""
+
+        if pop_rank is None:
+            continue
+        pop_rank = int(pop_rank)
+
+        chg_text, chg_css = rank_change(pop_rank, int(prev_pop) if prev_pop else None, pop_total)
+
+        cover_url = get_album_cover(track, track_album_map, cover_map, scraped_img)
+
+        track_hist   = history.get(track, {})
+        prev_streams = (track_hist.get(yesterday) or {}).get("streams")
+        week_streams = (track_hist.get(week_ago)  or {}).get("streams")
+        streams_int  = int(streams) if streams else None
+
+        daily_pct  = get_pct(streams_int, prev_streams)
+        weekly_pct = get_pct(streams_int, week_streams)
+
+        streams_fmt = fmt_streams(streams_int)
+        daily_txt   = fmt_pct(daily_pct)
+        weekly_txt  = fmt_pct(weekly_pct)
+        consec_txt  = str(int(streak)) + "d" if streak else "—"
+        pop_tot_txt = str(int(pop_total)) + "d" if pop_total else "—"
+
+        art_html = (
+            f'<img class="art" src="{cover_url}" />'
+            if cover_url
+            else '<div class="art-ph"></div>'
+        )
+
+        card_cls = "song-card"
+        if pop_rank == 1:
+            card_cls += " row-gold"
+        elif i % 2 != 0:
+            card_cls += " row-odd"
+
+        html += f"""<div class="{card_cls}">
+  <div class="col-rank">#{pop_rank}</div>
+  <div class="col-chg {chg_css}">{chg_text}</div>
+  <div class="col-song">
+    {art_html}
+    <div class="song-info">
+      <div class="song-title">{track}</div>
+      <div class="song-artist">{artist}</div>
+    </div>
+  </div>
+  <div class="col-num">{streams_fmt}</div>
+  <div class="col-num {pct_cls(daily_pct)}">{daily_txt}</div>
+  <div class="col-num {pct_cls(weekly_pct)}">{weekly_txt}</div>
+  <div class="col-num">{consec_txt}</div>
+  <div class="col-num">{pop_tot_txt}</div>
+</div>
+"""
+    return html
+
+
+COL_HEADS_HTML = """<div class="col-heads">
+    <span>Pos</span>
+    <span>Chg</span>
+    <span>Track</span>
+    <span class="right">Streams</span>
+    <span class="right">Daily</span>
+    <span class="right">Weekly</span>
+    <span class="right">Streak</span>
+    <span class="right">Total</span>
+  </div>"""
+
+
 def build_html(
     rows,
     history,
@@ -399,9 +516,9 @@ def build_html(
     track_album_map: dict,
     cover_map: dict,
     header_img: Path | None = None,
+    pop_rows=None,
 ) -> str:
-    date_fmt  = datetime.strptime(chart_date, "%Y-%m-%d").strftime("%B %d, %Y")
-    rows_html = build_rows_html(rows, history, chart_date, track_album_map, cover_map)
+    date_fmt = datetime.strptime(chart_date, "%Y-%m-%d").strftime("%B %d, %Y")
 
     if header_img is None:
         header_img = pick_header_image()
@@ -409,13 +526,24 @@ def build_html(
 
     if header_img:
         handle_color = get_dominant_color(header_img)
-        img_url      = header_img.as_posix()
-        hdr_style    = (
+        img_url   = header_img.as_posix()
+        hdr_style = (
             f'style="background-image: linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),'
             f'url(\'file:///{img_url}\'); background-size:100% 100%;"'
         )
     else:
         hdr_style = 'style="background:linear-gradient(135deg,#1db954 0%,#17a34a 100%);"'
+
+    sec_style = f'style="background:{handle_color};border-top:2px solid {handle_color};"'
+
+    rows_html = build_rows_html(rows, history, chart_date, track_album_map, cover_map)
+
+    pop_section_html = ""
+    if pop_rows:
+        pop_html = build_pop_rows_html(pop_rows, history, chart_date, track_album_map, cover_map)
+        pop_section_html = f"""<div class="section-hdr" {sec_style}>France Pop Chart</div>
+{COL_HEADS_HTML}
+{pop_html}"""
 
     return f"""<!DOCTYPE html>
 <html><head><meta charset="utf-8"><style>{CSS}</style></head>
@@ -428,17 +556,10 @@ def build_html(
       <div class="hdr-sub">Daily Chart · {date_fmt}</div>
     </div>
   </div>
-  <div class="col-heads">
-    <span>Pos</span>
-    <span>Chg</span>
-    <span>Track</span>
-    <span class="right">Streams</span>
-    <span class="right">Daily</span>
-    <span class="right">Weekly</span>
-    <span class="right">Streak</span>
-    <span class="right">Total</span>
-  </div>
+  <div class="section-hdr" {sec_style}>France Chart</div>
+  {COL_HEADS_HTML}
   {rows_html}
+  {pop_section_html}
   <div class="ftr">
     <span class="ftr-handle" style="color:{handle_color}">{HANDLE}</span>
     <span class="ftr-date">{date_fmt}</span>
@@ -452,7 +573,7 @@ def build_html(
 # ---------------------------------------------------------------------------
 
 def generate(chart_date: str, header_img: Path | None = None) -> Path:
-    date_dir  = ROOT / chart_date[:4] / chart_date[5:7] / chart_date
+    date_dir  = DATA_DIR / chart_date[:4] / chart_date[5:7] / chart_date
     json_path = date_dir / f"ts_chart_{chart_date}.json"
     out_path  = date_dir / "chart_image.png"
 
@@ -465,10 +586,13 @@ def generate(chart_date: str, header_img: Path | None = None) -> Path:
     if not rows:
         raise ValueError(f"Aucune chanson TS dans {json_path}")
 
+    pop_json_path = date_dir / f"ts_pop_{chart_date}.json"
+    pop_rows = enrich_pop_rows(load_json(pop_json_path) if pop_json_path.exists() else [], chart_date)
+
     cover_map       = build_cover_map()
     track_album_map = build_track_album_map()
 
-    html     = build_html(rows, history, chart_date, track_album_map, cover_map, header_img=header_img)
+    html     = build_html(rows, history, chart_date, track_album_map, cover_map, header_img=header_img, pop_rows=pop_rows)
     html_tmp = date_dir / "_chart_tmp.html"
     html_tmp.write_text(html, encoding="utf-8")
 
@@ -500,13 +624,15 @@ def generate_all_headers(chart_date: str) -> list[Path]:
         print("Aucune photo dans headers/")
         return []
 
-    date_dir  = ROOT / chart_date[:4] / chart_date[5:7] / chart_date
+    date_dir  = DATA_DIR / chart_date[:4] / chart_date[5:7] / chart_date
     json_path = date_dir / f"ts_chart_{chart_date}.json"
     if not json_path.exists():
         raise FileNotFoundError(f"ts_chart_{chart_date}.json introuvable: {json_path}")
 
     rows    = load_json(json_path)
     history = load_json(TS_HISTORY_PATH) if TS_HISTORY_PATH.exists() else {}
+    pop_json_path = date_dir / f"ts_pop_{chart_date}.json"
+    pop_rows = enrich_pop_rows(load_json(pop_json_path) if pop_json_path.exists() else [], chart_date)
     cover_map       = build_cover_map()
     track_album_map = build_track_album_map()
 
@@ -515,7 +641,7 @@ def generate_all_headers(chart_date: str) -> list[Path]:
         browser = p.chromium.launch(headless=True)
         for img_path in imgs:
             out_path = date_dir / f"chart_image_{img_path.stem}.png"
-            html     = build_html(rows, history, chart_date, track_album_map, cover_map, header_img=img_path)
+            html     = build_html(rows, history, chart_date, track_album_map, cover_map, header_img=img_path, pop_rows=pop_rows)
             html_tmp = date_dir / "_chart_tmp.html"
             html_tmp.write_text(html, encoding="utf-8")
             try:
@@ -544,9 +670,10 @@ def generate_multi(chart_dates: list[str], header_img: Path | None = None) -> Pa
     track_album_map = build_track_album_map()
 
     combined_rows_html = ""
+    combined_pop_html  = ""
     valid_dates = []
     for chart_date in chart_dates:
-        date_dir  = ROOT / chart_date[:4] / chart_date[5:7] / chart_date
+        date_dir  = DATA_DIR / chart_date[:4] / chart_date[5:7] / chart_date
         json_path = date_dir / f"ts_chart_{chart_date}.json"
         if not json_path.exists():
             print(f"  JSON introuvable pour {chart_date}, ignoré")
@@ -559,6 +686,13 @@ def generate_multi(chart_dates: list[str], header_img: Path | None = None) -> Pa
         combined_rows_html += f'<div class="day-hdr">{date_label}</div>\n'
         combined_rows_html += build_rows_html(rows, history, chart_date, track_album_map, cover_map)
 
+        pop_json_path = date_dir / f"ts_pop_{chart_date}.json"
+        if pop_json_path.exists():
+            pop_rows = enrich_pop_rows(load_json(pop_json_path), chart_date)
+            if pop_rows:
+                combined_pop_html += f'<div class="day-hdr">{date_label}</div>\n'
+                combined_pop_html += build_pop_rows_html(pop_rows, history, chart_date, track_album_map, cover_map)
+
     if not valid_dates:
         raise ValueError("Aucun JSON trouvé pour les dates fournies")
 
@@ -566,19 +700,25 @@ def generate_multi(chart_dates: list[str], header_img: Path | None = None) -> Pa
         header_img = pick_header_image()
     handle_color = "#1db954"
 
-    first_fmt = datetime.strptime(valid_dates[0],  "%Y-%m-%d").strftime("%B %d")
-    last_fmt  = datetime.strptime(valid_dates[-1], "%Y-%m-%d").strftime("%B %d, %Y")
-    subtitle  = f"Daily Chart · {first_fmt} – {last_fmt}"
-
     if header_img:
         handle_color = get_dominant_color(header_img)
-        img_url      = header_img.as_posix()
-        hdr_style    = (
+        img_url   = header_img.as_posix()
+        hdr_style = (
             f'style="background-image: linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),'
             f'url(\'file:///{img_url}\'); background-size:100% 100%;"'
         )
     else:
         hdr_style = 'style="background:linear-gradient(135deg,#1db954 0%,#17a34a 100%);"'
+
+    sec_style = f'style="background:{handle_color};border-top:2px solid {handle_color};"'
+
+    pop_section_html = ""
+    if combined_pop_html:
+        pop_section_html = f'<div class="section-hdr" {sec_style}>France Pop Chart</div>\n{COL_HEADS_HTML}\n{combined_pop_html}'
+
+    first_fmt = datetime.strptime(valid_dates[0],  "%Y-%m-%d").strftime("%B %d")
+    last_fmt  = datetime.strptime(valid_dates[-1], "%Y-%m-%d").strftime("%B %d, %Y")
+    subtitle  = f"Daily Chart · {first_fmt} – {last_fmt}"
 
     html = f"""<!DOCTYPE html>
 <html><head><meta charset="utf-8"><style>{CSS}</style></head>
@@ -591,17 +731,10 @@ def generate_multi(chart_dates: list[str], header_img: Path | None = None) -> Pa
       <div class="hdr-sub">{subtitle}</div>
     </div>
   </div>
-  <div class="col-heads">
-    <span>Pos</span>
-    <span>Chg</span>
-    <span>Track</span>
-    <span class="right">Streams</span>
-    <span class="right">Daily</span>
-    <span class="right">Weekly</span>
-    <span class="right">Streak</span>
-    <span class="right">Total</span>
-  </div>
+  <div class="section-hdr" {sec_style}>France Chart</div>
+  {COL_HEADS_HTML}
   {combined_rows_html}
+  {pop_section_html}
   <div class="ftr">
     <span class="ftr-handle" style="color:{handle_color}">{HANDLE}</span>
     <span class="ftr-date">{last_fmt}</span>
