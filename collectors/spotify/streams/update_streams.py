@@ -8,7 +8,7 @@ import subprocess
 import threading
 import time
 import unicodedata
-from datetime import date, datetime, timedelta
+from datetime import date, timedelta
 from pathlib import Path
 from queue import Empty, Queue
 import sys
@@ -30,7 +30,7 @@ DISCOGRAPHY_DIR = ROOT / "discography"
 ARTIST_PATH = DATA_DIR / "artist.json"
 ARTIST_URL = "https://open.spotify.com/artist/06HL4z0CvFAxyc27GXpf02"
 
-HEADLESS = True
+HEADLESS = False
 MAX_PARALLEL_PAGES = 6
 PAGE_GOTO_TIMEOUT_MS = 45_000
 DEBUG_PAGE_PREVIEW = False
@@ -61,14 +61,7 @@ def get_scrape_date_str() -> str:
 
 
 def get_stats_date_str() -> str:
-    now = datetime.now()
-
-    if now.hour < 15:
-        stats_date = now.date() - timedelta(days=2)
-    else:
-        stats_date = now.date() - timedelta(days=1)
-
-    return stats_date.isoformat()
+    return (date.today() - timedelta(days=1)).isoformat()
 
 
 def format_int(value: int | None) -> str:
@@ -1231,11 +1224,11 @@ def _worker(
         p.stop()
 
 
-def run_update(on_progress=None, skip_track_ids: set | None = None):
+def run_update(on_progress=None, skip_track_ids: set | None = None, stats_date_override: str | None = None):
     ensure_history_file()
 
     scrape_date = get_scrape_date_str()
-    stats_date = get_stats_date_str()
+    stats_date = stats_date_override or get_stats_date_str()
 
     skip_track_ids = skip_track_ids or set()
 
@@ -1405,7 +1398,16 @@ def main():
 
     ensure_history_file()
 
-    stats_date = get_stats_date_str()
+    stats_date_override = None
+    if len(sys.argv) > 1:
+        try:
+            date.fromisoformat(sys.argv[1])
+            stats_date_override = sys.argv[1]
+        except ValueError:
+            print(f"Invalid date '{sys.argv[1]}', expected YYYY-MM-DD")
+            sys.exit(1)
+
+    stats_date = stats_date_override or get_stats_date_str()
     print(f"Target stats date: {stats_date}")
 
     active_track_ids = load_active_track_ids_from_discography()
@@ -1417,7 +1419,7 @@ def main():
 
     print(f"Current progress for {stats_date}: {done_tracks_before_run}/{total_tracks}")
 
-    should_run_probe = done_tracks_before_run == 0
+    should_run_probe = done_tracks_before_run == 0 and stats_date_override is None
 
     if should_run_probe:
         track_lookup = build_track_lookup(tracks)
@@ -1481,7 +1483,7 @@ def main():
     print("Full run")
     print("=" * 70)
 
-    summary = run_update(on_progress=live_progress)
+    summary = run_update(on_progress=live_progress, stats_date_override=stats_date_override)
     print_summary_block(summary)
 
     # Accumulate not_found track IDs so retries skip them entirely
@@ -1519,7 +1521,7 @@ def main():
         print(f"Retry round {retry_round}")
         print("=" * 70)
 
-        summary = run_update(on_progress=live_progress, skip_track_ids=not_found_ids)
+        summary = run_update(on_progress=live_progress, skip_track_ids=not_found_ids, stats_date_override=stats_date_override)
         not_found_ids.update(
             r["track_id"] for r in summary["failed_results"] if r["status"] == "not_found"
         )
