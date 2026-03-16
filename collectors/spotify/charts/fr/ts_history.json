@@ -6,6 +6,24 @@
       "previous_rank": 26,
       "peak_rank": 2
     },
+    "2026-03-10": {
+      "rank": 23,
+      "streams": 157197,
+      "previous_rank": 24,
+      "peak_rank": 2
+    },
+    "2026-03-11": {
+      "rank": 25,
+      "streams": 161902,
+      "previous_rank": 23,
+      "peak_rank": 2
+    },
+    "2026-03-12": {
+      "rank": 22,
+      "streams": 155693,
+      "previous_rank": 25,
+      "peak_rank": 2
+    },
     "2026-03-13": {
       "rank": 44,
       "streams": 166500,
@@ -29,6 +47,24 @@
     "2026-03-09": {
       "rank": 175,
       "streams": 59905,
+      "peak_rank": 8
+    },
+    "2026-03-10": {
+      "rank": 173,
+      "streams": 61407,
+      "previous_rank": 175,
+      "peak_rank": 8
+    },
+    "2026-03-11": {
+      "rank": 180,
+      "streams": 62284,
+      "previous_rank": 173,
+      "peak_rank": 8
+    },
+    "2026-03-12": {
+      "rank": 165,
+      "streams": 62587,
+      "previous_rank": 180,
       "peak_rank": 8
     },
     "2026-03-14": {
