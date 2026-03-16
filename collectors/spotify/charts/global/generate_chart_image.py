@@ -10,6 +10,7 @@ Ecrit: {date_dir}/chart_image.png
 Usage: python generate_chart_image.py YYYY-MM-DD
 """
 import colorsys
+import csv
 import json
 import random
 import re
@@ -151,9 +152,12 @@ def fmt_streams(n) -> str:
 
 def fmt_pct(pct) -> str:
     if pct is None:
-        return "—"
+        return "--"
     sign = "+" if pct >= 0 else ""
-    return f"{sign}{pct:.1f}%"
+    formatted = f"{sign}{pct:.1f}%"
+    if formatted == "-0.0%":
+        return "+0.0%"
+    return formatted
 
 
 def pct_cls(pct) -> str:
@@ -310,11 +314,109 @@ body{
   border-top:2px solid rgba(29,185,84,.20);
   border-bottom:1px solid rgba(16,24,40,.07);
 }
+/* OUT section */
+.out-hdr{
+  padding:6px 14px;
+  font-size:10px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.07em;color:#b42318;
+  background:rgba(180,35,24,.05);
+  border-top:2px solid rgba(180,35,24,.25);
+  border-bottom:1px solid rgba(180,35,24,.10);
+}
+.out-card{
+  display:grid;
+  grid-template-columns:52px 60px minmax(180px,1fr) 112px;
+  column-gap:8px;
+  align-items:center;
+  padding:9px 14px;
+  background:rgba(240,240,240,.60);
+  border-bottom:1px solid rgba(16,24,40,.05);
+  opacity:0.80;
+}
+.col-out-badge{
+  font-size:10px;font-weight:800;color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  background:#b42318;border-radius:4px;padding:3px 6px;
+  width:fit-content;margin:auto;
+}
+.col-out-last{
+  font-size:12px;font-weight:600;color:#9ca3af;
+  display:flex;align-items:center;justify-content:center;
+}
 """
 
 SPOTIFY_SVG = """<svg class="hdr-logo" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
   <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
 </svg>"""
+
+
+def get_out_songs(chart_date: str, current_rows: list[dict]) -> list[dict]:
+    """Returns TS songs from yesterday's CSV that are not in today's chart."""
+    date_obj  = datetime.strptime(chart_date, "%Y-%m-%d").date()
+    yesterday = str(date_obj - timedelta(days=1))
+    csv_path  = ROOT / yesterday[:4] / yesterday[5:7] / yesterday / "ts_all_songs.csv"
+    if not csv_path.exists():
+        return []
+    try:
+        current_names = {str(r.get("track_name", "")).lower() for r in current_rows}
+        out_rows = []
+        with open(csv_path, newline="", encoding="utf-8") as f:
+            for row in csv.DictReader(f):
+                name = str(row.get("track_name", ""))
+                if name.lower() not in current_names:
+                    try:
+                        row["rank"] = int(float(row["rank"])) if row.get("rank") else None
+                    except (ValueError, TypeError):
+                        row["rank"] = None
+                    try:
+                        row["streams"] = int(float(row["streams"])) if row.get("streams") else None
+                    except (ValueError, TypeError):
+                        row["streams"] = None
+                    out_rows.append(row)
+        return out_rows
+    except Exception:
+        return []
+
+
+def build_out_rows_html(
+    out_songs: list[dict],
+    track_album_map: dict,
+    cover_map: dict,
+    chart_date: str,
+) -> str:
+    if not out_songs:
+        return ""
+    date_obj  = datetime.strptime(chart_date, "%Y-%m-%d").date()
+    yesterday = str(date_obj - timedelta(days=1))
+    html = '<div class="out-hdr">📉 Left the chart</div>\n'
+    for row in out_songs:
+        track      = str(row.get("track_name") or "")
+        artist     = str(row.get("artist_names") or "")
+        rank       = row.get("rank")
+        streams    = row.get("streams")
+        scraped_img = row.get("image_url") or ""
+        cover_url  = get_album_cover(track, track_album_map, cover_map, scraped_img)
+        art_html   = (
+            f'<img class="art" src="{cover_url}" />'
+            if cover_url
+            else '<div class="art-ph"></div>'
+        )
+        rank_txt    = f"#{int(rank)}" if rank else "—"
+        streams_txt = fmt_streams(int(streams)) if streams else "—"
+        html += f"""<div class="out-card">
+  <div class="col-out-badge">OUT</div>
+  <div class="col-out-last">{rank_txt}</div>
+  <div class="col-song">
+    {art_html}
+    <div class="song-info">
+      <div class="song-title">{track}</div>
+      <div class="song-artist">{artist} · last: {yesterday}</div>
+    </div>
+  </div>
+  <div class="col-num" style="color:#9ca3af">{streams_txt}</div>
+</div>
+"""
+    return html
 
 
 def build_rows_html(
@@ -404,9 +506,11 @@ def build_html(
     track_album_map: dict,
     cover_map: dict,
     header_img: Path | None = None,
+    out_songs: list | None = None,
 ) -> str:
     date_fmt  = datetime.strptime(chart_date, "%Y-%m-%d").strftime("%B %d, %Y")
     rows_html = build_rows_html(rows, history, chart_date, track_album_map, cover_map)
+    rows_html += build_out_rows_html(out_songs or [], track_album_map, cover_map, chart_date)
 
     if header_img is None:
         header_img = pick_header_image()
@@ -472,8 +576,9 @@ def generate(chart_date: str, header_img: Path | None = None) -> Path:
 
     cover_map       = build_cover_map()
     track_album_map = build_track_album_map()
+    out_songs       = get_out_songs(chart_date, rows)
 
-    html     = build_html(rows, history, chart_date, track_album_map, cover_map, header_img=header_img)
+    html     = build_html(rows, history, chart_date, track_album_map, cover_map, header_img=header_img, out_songs=out_songs)
     html_tmp = date_dir / "_chart_tmp.html"
     html_tmp.write_text(html, encoding="utf-8")
 
@@ -563,6 +668,7 @@ def generate_multi(chart_dates: list[str], header_img: Path | None = None) -> Pa
         date_label = datetime.strptime(chart_date, "%Y-%m-%d").strftime("%B %d, %Y")
         combined_rows_html += f'<div class="day-hdr">{date_label}</div>\n'
         combined_rows_html += build_rows_html(rows, history, chart_date, track_album_map, cover_map)
+        combined_rows_html += build_out_rows_html(get_out_songs(chart_date, rows), track_album_map, cover_map, chart_date)
 
     if not valid_dates:
         raise ValueError("Aucun JSON trouvé pour les dates fournies")

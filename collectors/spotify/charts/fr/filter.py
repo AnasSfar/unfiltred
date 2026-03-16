@@ -64,7 +64,31 @@ def get_out_dir(chart_date: str) -> Path:
 
 def get_songs_present_yesterday(chart_date, ts_history):
     yesterday = str(parse_date(chart_date) - timedelta(days=1))
+    csv_path = DATA_DIR / yesterday[:4] / yesterday[5:7] / yesterday / "ts_all_songs.csv"
+    if csv_path.exists():
+        try:
+            df = pd.read_csv(csv_path)
+            return set(df["track_name"].astype(str).tolist())
+        except Exception:
+            pass
     return {track for track, entries in ts_history.items() if yesterday in entries}
+
+
+def update_total_days_file(ts_df) -> None:
+    path = ROOT / "total_days.json"
+    try:
+        data = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+    except Exception:
+        data = {}
+    for _, row in ts_df.iterrows():
+        track = str(row.get("track_name") or "")
+        td = row.get("total_days")
+        if track and td is not None and str(td) not in ("", "nan"):
+            try:
+                data[track] = int(float(td))
+            except (ValueError, TypeError):
+                pass
+    path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
 def clean_int(value):
@@ -615,6 +639,7 @@ def process_one(chart_date: str, db, ts_history):
         )
 
     ts_df.to_csv(out_dir / "ts_all_songs.csv", index=False)
+    update_total_days_file(ts_df)
     if not ts_pop.empty:
         ts_pop.to_csv(out_dir / "ts_pop_songs.csv", index=False)
 
