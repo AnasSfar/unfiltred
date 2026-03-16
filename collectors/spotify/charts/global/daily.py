@@ -30,6 +30,11 @@ SPOTIFY_SESSION       = ROOT / "spotify_session.json"
 FILTER_SCRIPT         = ROOT / "filter.py"
 GENERATE_IMAGE_SCRIPT = ROOT / "generate_chart_image.py"
 
+try:
+    from config import NTFY_TOPIC
+except Exception:
+    NTFY_TOPIC = ""
+
 RETRY_SECONDS = 60
 CUTOFF_HOUR   = 15  # abandon si page non dispo à 15h
 LOOKBACK_DAYS = 7   # fenêtre de détection des jours manquants
