@@ -39,6 +39,8 @@ RETRY_SECONDS = 60
 CUTOFF_HOUR   = 15  # abandon si page non dispo à 15h
 LOOKBACK_DAYS = 7   # fenêtre de détection des jours manquants
 
+_SCRIPT_START = datetime.now()
+
 
 def log(level: str, message: str):
     print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] [{level}] {message}", flush=True)
@@ -74,7 +76,8 @@ def get_unposted_dates() -> list[date]:
 
 
 def past_cutoff() -> bool:
-    return datetime.now().hour >= CUTOFF_HOUR
+    now = datetime.now()
+    return now.date() > _SCRIPT_START.date() and now.hour >= CUTOFF_HOUR
 
 
 def page_available(d: date) -> bool:
