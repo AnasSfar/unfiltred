@@ -325,7 +325,7 @@ body{
 }
 .out-card{
   display:grid;
-  grid-template-columns:52px 60px minmax(180px,1fr) 112px;
+  grid-template-columns:52px 60px minmax(180px,1fr);
   column-gap:8px;
   align-items:center;
   padding:9px 14px;
@@ -388,12 +388,11 @@ def build_out_rows_html(
         return ""
     date_obj  = datetime.strptime(chart_date, "%Y-%m-%d").date()
     yesterday = str(date_obj - timedelta(days=1))
-    html = '<div class="out-hdr">📉 Left the chart</div>\n'
+    html = ""
     for row in out_songs:
         track      = str(row.get("track_name") or "")
         artist     = str(row.get("artist_names") or "")
         rank       = row.get("rank")
-        streams    = row.get("streams")
         scraped_img = row.get("image_url") or ""
         cover_url  = get_album_cover(track, track_album_map, cover_map, scraped_img)
         art_html   = (
@@ -401,8 +400,7 @@ def build_out_rows_html(
             if cover_url
             else '<div class="art-ph"></div>'
         )
-        rank_txt    = f"#{int(rank)}" if rank else "—"
-        streams_txt = fmt_streams(int(streams)) if streams else "—"
+        rank_txt = f"#{int(rank)}" if rank else "—"
         html += f"""<div class="out-card">
   <div class="col-out-badge">OUT</div>
   <div class="col-out-last">{rank_txt}</div>
@@ -413,7 +411,6 @@ def build_out_rows_html(
       <div class="song-artist">{artist} · last: {yesterday}</div>
     </div>
   </div>
-  <div class="col-num" style="color:#9ca3af">{streams_txt}</div>
 </div>
 """
     return html

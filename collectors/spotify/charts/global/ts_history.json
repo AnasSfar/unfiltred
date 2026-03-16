@@ -5004,6 +5004,11 @@
       "rank": 200,
       "streams": 1206988,
       "previous_rank": 180
+    },
+    "2026-03-14": {
+      "rank": 181,
+      "streams": 1290227,
+      "peak_rank": 2
     }
   },
   "The Fate of Ophelia": {
@@ -5809,12 +5814,14 @@
     "2026-03-09": {
       "rank": 10,
       "streams": 4037302,
-      "previous_rank": 10
+      "previous_rank": 10,
+      "peak_rank": 1
     },
     "2026-03-12": {
       "rank": 8,
       "streams": 3962747,
-      "previous_rank": 9
+      "previous_rank": 9,
+      "peak_rank": 1
     },
     "2026-03-14": {
       "rank": 8,
@@ -6632,12 +6639,14 @@
     "2026-03-09": {
       "rank": 47,
       "streams": 2136611,
-      "previous_rank": 44
+      "previous_rank": 44,
+      "peak_rank": 2
     },
     "2026-03-12": {
       "rank": 44,
       "streams": 2111658,
-      "previous_rank": 47
+      "previous_rank": 47,
+      "peak_rank": 2
     },
     "2026-03-14": {
       "rank": 42,
@@ -8308,12 +8317,14 @@
     "2026-03-09": {
       "rank": 188,
       "streams": 1243379,
-      "previous_rank": 188
+      "previous_rank": 188,
+      "peak_rank": 12
     },
     "2026-03-12": {
       "rank": 166,
       "streams": 1264107,
-      "previous_rank": 187
+      "previous_rank": 187,
+      "peak_rank": 12
     },
     "2026-03-14": {
       "rank": 178,

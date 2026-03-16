@@ -34,25 +34,20 @@ def log(level: str, message: str):
     print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] [{level}] {message}", flush=True)
 
 
-def lock_path(d: date) -> Path:
-    return DATA_DIR / str(d.year) / f"{d.month:02d}" / str(d) / "posted.lock"
+def has_data(d: date) -> bool:
+    base = DATA_DIR / str(d.year) / f"{d.month:02d}" / str(d)
+    return (base / "ts_all_songs.csv").exists() or (base / "no_ts.lock").exists()
 
 
-def already_posted(d: date) -> bool:
-    exists = lock_path(d).exists()
-    log("DEBUG", f"posted.lock pour {d}: {'oui' if exists else 'non'}")
-    return exists
-
-
-def get_unposted_dates() -> list[date]:
+def get_dates_to_process() -> list[date]:
     today = date.today()
-    unposted = [
+    missing = [
         today - timedelta(days=i)
         for i in range(1, LOOKBACK_DAYS + 1)
-        if not already_posted(today - timedelta(days=i))
+        if not has_data(today - timedelta(days=i))
     ]
-    unposted.sort()
-    return unposted
+    missing.sort()
+    return missing
 
 
 def past_cutoff() -> bool:
@@ -184,7 +179,7 @@ def main():
             log("ERROR", f"Date invalide '{sys.argv[1]}', format attendu : YYYY-MM-DD")
             sys.exit(1)
     else:
-        unposted = get_unposted_dates()
+        unposted = get_dates_to_process()
 
     log("INFO", f"Heure locale: {datetime.now()}")
     log("INFO", f"Script: {Path(__file__).name}")
@@ -193,7 +188,7 @@ def main():
     print(f"\n{'=' * 50}\n  daily_no_post.py (Fr)\n{'=' * 50}\n", flush=True)
 
     if not unposted:
-        log("INFO", "Aucune date non-postée")
+        log("INFO", "Aucune date à traiter (toutes les données sont présentes)")
         return
 
     log("INFO", f"Dates à traiter: {[str(d) for d in unposted]}")

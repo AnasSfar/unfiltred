@@ -1,5 +1,11 @@
 {
   "The Fate of Ophelia": {
+    "2026-03-09": {
+      "rank": 24,
+      "streams": 154677,
+      "previous_rank": 26,
+      "peak_rank": 2
+    },
     "2026-03-13": {
       "rank": 44,
       "streams": 166500,
@@ -20,6 +26,11 @@
     }
   },
   "Opalite": {
+    "2026-03-09": {
+      "rank": 175,
+      "streams": 59905,
+      "peak_rank": 8
+    },
     "2026-03-14": {
       "rank": 186,
       "streams": 69952,
