@@ -19,7 +19,8 @@
       ],
       "title_clean": "Hits Different",
       "song_family": "hits_different",
-      "version_tag": "standalone"
+      "version_tag": "standalone",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273fa747621a53c8e2cc436dee0"
     },
     {
       "title": "Snow On The Beach (feat. More Lana Del Rey)",
@@ -40,7 +41,8 @@
       ],
       "title_clean": "Snow On The Beach",
       "song_family": "snow_on_the_beach",
-      "version_tag": "featured__feature"
+      "version_tag": "featured__feature",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273fa747621a53c8e2cc436dee0"
     },
     {
       "title": "Karma (feat. Ice Spice)",
@@ -61,7 +63,8 @@
       ],
       "title_clean": "Karma",
       "song_family": "karma",
-      "version_tag": "featured__feature"
+      "version_tag": "featured__feature",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273fa747621a53c8e2cc436dee0"
     }
   ]
 }

@@ -19,7 +19,8 @@
       ],
       "title_clean": "All Too Well (10 Minute Version)",
       "song_family": "all_too_well_10_minute_version",
-      "version_tag": "vault__taylors_version__standalone"
+      "version_tag": "vault__taylors_version__standalone",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273318443aab3531a0558e79a4d"
     },
     {
       "title": "Babe (Taylor's Version) (From The Vault)",
@@ -37,7 +38,8 @@
       ],
       "title_clean": "Babe",
       "song_family": "babe",
-      "version_tag": "vault__taylors_version__standalone"
+      "version_tag": "vault__taylors_version__standalone",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273318443aab3531a0558e79a4d"
     },
     {
       "title": "Better Man (Taylor's Version) (From The Vault)",
@@ -55,7 +57,8 @@
       ],
       "title_clean": "Better Man",
       "song_family": "better_man",
-      "version_tag": "vault__taylors_version__standalone"
+      "version_tag": "vault__taylors_version__standalone",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273318443aab3531a0558e79a4d"
     },
     {
       "title": "Forever Winter (Taylor's Version) (From The Vault)",
@@ -73,7 +76,8 @@
       ],
       "title_clean": "Forever Winter",
       "song_family": "forever_winter",
-      "version_tag": "vault__taylors_version__standalone"
+      "version_tag": "vault__taylors_version__standalone",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273318443aab3531a0558e79a4d"
     },
     {
       "title": "I Bet You Think About Me (feat. Chris Stapleton) (Taylor's Version) (From The Vault)",
@@ -94,7 +98,8 @@
       ],
       "title_clean": "I Bet You Think About Me",
       "song_family": "i_bet_you_think_about_me",
-      "version_tag": "featured__vault__taylors_version__feature"
+      "version_tag": "featured__vault__taylors_version__feature",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273318443aab3531a0558e79a4d"
     },
     {
       "title": "Message In A Bottle (Taylor's Version) (From The Vault)",
@@ -112,7 +117,8 @@
       ],
       "title_clean": "Message In A Bottle",
       "song_family": "message_in_a_bottle",
-      "version_tag": "vault__taylors_version__standalone"
+      "version_tag": "vault__taylors_version__standalone",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273318443aab3531a0558e79a4d"
     },
     {
       "title": "Nothing New (feat. Phoebe Bridgers) (Taylor's Version) (From The Vault)",
@@ -133,7 +139,8 @@
       ],
       "title_clean": "Nothing New",
       "song_family": "nothing_new",
-      "version_tag": "featured__vault__taylors_version__feature"
+      "version_tag": "featured__vault__taylors_version__feature",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273318443aab3531a0558e79a4d"
     },
     {
       "title": "Run (feat. Ed Sheeran) (Taylor's Version) (From The Vault)",
@@ -154,7 +161,8 @@
       ],
       "title_clean": "Run",
       "song_family": "run",
-      "version_tag": "featured__vault__taylors_version__feature"
+      "version_tag": "featured__vault__taylors_version__feature",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273318443aab3531a0558e79a4d"
     },
     {
       "title": "The Very First Night (Taylor's Version) (From The Vault)",
@@ -172,7 +180,8 @@
       ],
       "title_clean": "The Very First Night",
       "song_family": "the_very_first_night",
-      "version_tag": "vault__taylors_version__standalone"
+      "version_tag": "vault__taylors_version__standalone",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273318443aab3531a0558e79a4d"
     },
     {
       "title": "State Of Grace (Acoustic Version) (Taylor's Version)",
@@ -190,7 +199,8 @@
       ],
       "title_clean": "State Of Grace (Acoustic Version)",
       "song_family": "state_of_grace_acoustic_version",
-      "version_tag": "acoustic__taylors_version__standalone"
+      "version_tag": "acoustic__taylors_version__standalone",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273318443aab3531a0558e79a4d"
     }
   ]
 }

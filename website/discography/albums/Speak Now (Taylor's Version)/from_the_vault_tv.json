@@ -22,7 +22,8 @@
       ],
       "title_clean": "Castles Crumbling",
       "song_family": "castles_crumbling",
-      "version_tag": "featured__vault__taylors_version__feature"
+      "version_tag": "featured__vault__taylors_version__feature",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b2730b04da4f224b51ff86e0a481"
     },
     {
       "title": "Electric Touch (feat. Fall Out Boy) (Taylor's Version) (From The Vault)",
@@ -43,7 +44,8 @@
       ],
       "title_clean": "Electric Touch",
       "song_family": "electric_touch",
-      "version_tag": "featured__vault__taylors_version__feature"
+      "version_tag": "featured__vault__taylors_version__feature",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b2730b04da4f224b51ff86e0a481"
     },
     {
       "title": "Foolish One (Taylor's Version) (From The Vault)",
@@ -61,7 +63,8 @@
       ],
       "title_clean": "Foolish One",
       "song_family": "foolish_one",
-      "version_tag": "vault__taylors_version__standalone"
+      "version_tag": "vault__taylors_version__standalone",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b2730b04da4f224b51ff86e0a481"
     },
     {
       "title": "I Can See You (Taylor's Version) (From The Vault)",
@@ -79,7 +82,8 @@
       ],
       "title_clean": "I Can See You",
       "song_family": "i_can_see_you",
-      "version_tag": "vault__taylors_version__standalone"
+      "version_tag": "vault__taylors_version__standalone",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b2730b04da4f224b51ff86e0a481"
     },
     {
       "title": "Timeless (Taylor's Version) (From The Vault)",
@@ -97,7 +101,8 @@
       ],
       "title_clean": "Timeless",
       "song_family": "timeless",
-      "version_tag": "vault__taylors_version__standalone"
+      "version_tag": "vault__taylors_version__standalone",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b2730b04da4f224b51ff86e0a481"
     },
     {
       "title": "When Emma Falls in Love (Taylor's Version) (From The Vault)",
@@ -115,7 +120,8 @@
       ],
       "title_clean": "When Emma Falls in Love",
       "song_family": "when_emma_falls_in_love",
-      "version_tag": "vault__taylors_version__standalone"
+      "version_tag": "vault__taylors_version__standalone",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b2730b04da4f224b51ff86e0a481"
     }
   ]
 }

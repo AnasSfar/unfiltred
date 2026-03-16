@@ -409,190 +409,143 @@ function renderAlbumPage(container) {
   );
 
   const groups = new Map();
-
-for (const song of albumSongs) {
-  const appearance =
-    (song.appearances || []).find(app => app.album === albumName) || null;
-
-  const sectionName = appearance?.display_section || "Other";
-  const songOrder = appearance?.display_order ?? 9999;
-
-  if (!groups.has(sectionName)) {
-    groups.set(sectionName, {
-      name: sectionName,
-      firstSongOrder: songOrder,
-      songs: []
-    });
+  for (const song of albumSongs) {
+    const appearance = (song.appearances || []).find(app => app.album === albumName) || null;
+    const sectionName = appearance?.display_section || "Other";
+    const songOrder = appearance?.display_order ?? 9999;
+    if (!groups.has(sectionName)) {
+      groups.set(sectionName, { name: sectionName, firstSongOrder: songOrder, songs: [] });
+    }
+    const group = groups.get(sectionName);
+    group.firstSongOrder = Math.min(group.firstSongOrder, songOrder);
+    group.songs.push(song);
   }
 
-  const group = groups.get(sectionName);
-  group.firstSongOrder = Math.min(group.firstSongOrder, songOrder);
-  group.songs.push(song);
-}
-
-let blocks = [...groups.values()]
-  .sort((a, b) => {
-    const pa = getAlbumSectionPriority(a.name);
-    const pb = getAlbumSectionPriority(b.name);
-
-    if (pa !== pb) return pa - pb;
-
-    return a.firstSongOrder - b.firstSongOrder || a.name.localeCompare(b.name);
-  })
-  .map(block => {
+  let blocks = [...groups.values()]
+    .sort((a, b) => {
+      const pa = getAlbumSectionPriority(a.name);
+      const pb = getAlbumSectionPriority(b.name);
+      if (pa !== pb) return pa - pb;
+      return a.firstSongOrder - b.firstSongOrder || a.name.localeCompare(b.name);
+    })
+    .map(block => {
       let songs = [...block.songs];
-
-      if (state.combineVersions) {
-        songs = combineSongVersions(songs);
-      }
-
+      if (state.combineVersions) songs = combineSongVersions(songs);
       songs.sort((a, b) =>
         state.albumSortMode === "daily"
-          ? ((b.daily_streams || 0) - (a.daily_streams || 0)) ||
-            ((b.streams || 0) - (a.streams || 0)) ||
-            a.title.localeCompare(b.title)
-          : ((b.streams || 0) - (a.streams || 0)) ||
-            ((b.daily_streams || 0) - (a.daily_streams || 0)) ||
-            a.title.localeCompare(b.title)
+          ? ((b.daily_streams || 0) - (a.daily_streams || 0)) || ((b.streams || 0) - (a.streams || 0)) || a.title.localeCompare(b.title)
+          : ((b.streams || 0) - (a.streams || 0)) || ((b.daily_streams || 0) - (a.daily_streams || 0)) || a.title.localeCompare(b.title)
       );
-
       return { ...block, songs };
     });
 
-  const totalStreams = blocks.reduce(
-    (sum, block) => sum + block.songs.reduce((s, song) => s + (song.streams || 0), 0),
-    0
-  );
+  const totalStreams = blocks.reduce((s, b) => s + b.songs.reduce((ss, song) => ss + (song.streams || 0), 0), 0);
+  const totalDaily  = blocks.reduce((s, b) => s + b.songs.reduce((ss, song) => ss + (song.daily_streams || 0), 0), 0);
+  const totalPrevDaily = blocks.reduce((s, b) => s + b.songs.reduce((ss, song) => ss + (song.previous_daily_streams || 0), 0), 0);
+  const totalPct = totalPrevDaily ? ((totalDaily - totalPrevDaily) / totalPrevDaily * 100) : null;
 
-  const totalDaily = blocks.reduce(
-    (sum, block) => sum + block.songs.reduce((s, song) => s + (song.daily_streams || 0), 0),
-    0
-  );
+  // Header image — looks for discography/albums/headers/{albumName}.{ext}
+  const coverUrl  = withCacheBuster(getAlbumCover(album));
+  const _hdrBase  = `discography/albums/headers/${encodeURIComponent(albumName)}`;
+  // Try jpg first, browser will ignore missing urls gracefully via onerror
+  const headerImg = `${_hdrBase}.jpg`;
+  const hdrStyle  = `background-image:linear-gradient(rgba(0,0,0,.52),rgba(0,0,0,.52)),url('${headerImg}');background-size:cover;background-position:center top;background-color:#0d1117;`;
+
+  // Date label
+  const dateLabel = state.selectedDate
+    ? new Date(state.selectedDate + "T12:00:00").toLocaleDateString("en-US", { year:"numeric", month:"long", day:"numeric" })
+    : "";
+
+  function pctHtml(pct) {
+    if (pct === null || pct === undefined) return '<span class="alb-neutral">—</span>';
+    const cls = pct >= 0 ? "alb-pos" : "alb-neg";
+    return `<span class="${cls}">${pct >= 0 ? "+" : ""}${pct.toFixed(1)}%</span>`;
+  }
+
+  function blocksHtml() {
+    return blocks.map(block => {
+      const secStreams    = block.songs.reduce((s, sg) => s + (sg.streams || 0), 0);
+      const secDaily     = block.songs.reduce((s, sg) => s + (sg.daily_streams || 0), 0);
+      const secPrevDaily = block.songs.reduce((s, sg) => s + (sg.previous_daily_streams || 0), 0);
+      const secPct       = secPrevDaily ? ((secDaily - secPrevDaily) / secPrevDaily * 100) : null;
+      const secDailySign = secDaily >= 0 ? "+" : "";
+
+      const rows = block.songs.map((song, i) => {
+        const pct    = song.percent_change ?? null;
+        const art    = song.image_url
+          ? `<img class="alb-art" src="${withCacheBuster(song.image_url)}" loading="lazy" alt="">`
+          : `<div class="alb-art-ph"></div>`;
+        const sub    = state.combineVersions && (song.combined_versions_count || 1) > 1
+          ? `${song.combined_versions_count} versions`
+          : (song.version_tag || "");
+        const rowCls = i === 0 ? "alb-row alb-row-gold" : (i % 2 !== 0 ? "alb-row alb-row-odd" : "alb-row");
+        return `
+        <div class="${rowCls}">
+          <div class="alb-col-num">${i + 1}</div>
+          <div class="alb-col-song">
+            ${art}
+            <div class="alb-song-text">
+              <div class="alb-song-title">${song.title_clean || song.title}</div>
+              ${sub ? `<div class="alb-song-sub">${sub}</div>` : ""}
+            </div>
+          </div>
+          <div class="alb-col-num alb-right">${formatFull(song.streams)}</div>
+          <div class="alb-col-num alb-right">${formatFull(song.daily_streams)}</div>
+          <div class="alb-col-num alb-right">${pctHtml(pct)}</div>
+        </div>`;
+      }).join("");
+
+      return `
+      <div class="alb-section-hdr">${block.name}</div>
+      ${rows}
+      <div class="alb-section-total">
+        <span class="alb-total-label">${block.name} — Total</span>
+        <span class="alb-total-streams">${formatFull(secStreams)}</span>
+        <span class="alb-total-daily">${secDailySign}${formatFull(secDaily)}</span>
+        <span>${pctHtml(secPct)}</span>
+      </div>`;
+    }).join("");
+  }
 
   container.innerHTML = `
     ${renderTopbar()}
+    <div class="alb-wrap">
 
-    <section class="section-card">
-      <div class="section-head album-hero-head">
-        <div class="album-hero">
-          <img
-            class="album-cover-small"
-            src="${withCacheBuster(getAlbumCover(album))}"
-            alt="${album.album}"
-          >
-
-          <div>
-            <h2>${album.album}</h2>
-            <div class="mini-song-sub">${album.primary_artist || "Taylor Swift"}</div>
-            <div class="mini-song-sub">
-              ${formatFull(totalStreams)} total streams • ${formatFull(totalDaily)} daily streams
-            </div>
+      <div class="alb-hdr" style="${hdrStyle}">
+        <img class="alb-cover" src="${coverUrl}" alt="${albumName}">
+        <div class="alb-hdr-info">
+          <div class="alb-title">${albumName}</div>
+          <div class="alb-hdr-sub">Taylor Swift &middot; ${dateLabel}</div>
+          <div class="alb-hdr-total">
+            ${formatFull(totalStreams)} streams &nbsp;&middot;&nbsp;
+            <span class="${totalPct !== null ? (totalPct >= 0 ? "alb-pos" : "alb-neg") : "alb-neutral"}">
+              ${totalPct !== null ? (totalPct >= 0 ? "+" : "") + totalPct.toFixed(1) + "%" : ""} today
+            </span>
           </div>
         </div>
-
-        <div class="toolbar">
-          <button
-            id="albumSortStreamsBtn"
-            class="${state.albumSortMode === "streams" ? "active" : ""}">
-            Total streams
-          </button>
-
-          <button
-            id="albumSortDailyBtn"
-            class="${state.albumSortMode === "daily" ? "active" : ""}">
-            Daily streams
-          </button>
-
-          <button
-            id="albumCombineBtn"
-            class="${state.combineVersions ? "active" : ""}">
-            Combine
-          </button>
+        <div class="alb-toolbar">
+          <button id="albumSortStreamsBtn" class="${state.albumSortMode === "streams" ? "active" : ""}">Total</button>
+          <button id="albumSortDailyBtn"  class="${state.albumSortMode === "daily"   ? "active" : ""}">Daily</button>
+          <button id="albumCombineBtn"    class="${state.combineVersions             ? "active" : ""}">Combine</button>
         </div>
       </div>
 
-      ${blocks.map(block => `
-        <div class="subsection-head">
-          <h3>${block.name}</h3>
-        </div>
+      <div class="alb-col-heads">
+        <span>#</span>
+        <span>Song</span>
+        <span class="alb-right">Streams</span>
+        <span class="alb-right">Daily</span>
+        <span class="alb-right">Change</span>
+      </div>
 
-        ${
-          block.songs.length
-            ? `
-              <div class="table-wrap">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>#</th>
-                      <th>Song</th>
-                      <th>Daily</th>
-                      <th>Total</th>
-                      <th>Change</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    ${block.songs.map((song, i) => `
-                      <tr>
-                        <td>${i + 1}</td>
-                        <td>
-                          <div class="mini-song">
-                            <img
-                              src="${song.image_url ? withCacheBuster(song.image_url) : ""}"
-                              alt="${song.title}"
-                            >
-                            <div>
-                              <div><strong>${song.title_clean || song.title}</strong></div>
-                              <div class="mini-song-sub">
-                                ${
-                                  state.combineVersions && (song.combined_versions_count || 1) > 1
-                                    ? `${song.combined_versions_count} versions combined`
-                                    : (song.version_tag || formatArtistAlbum(song))
-                                }
-                              </div>
-                            </div>
-                          </div>
-                        </td>
-                        <td>${formatFull(song.daily_streams)}</td>
-                        <td>${formatFull(song.streams)}</td>
-                        <td>
-                          ${renderStreamChange(song.total_change)}
-                          <div class="sub-delta">${renderPercentChange(song.percent_change)}</div>
-                        </td>
-                      </tr>
-                    `).join("")}
-                  </tbody>
-                </table>
-              </div>
-            `
-            : `<div class="empty">No songs in ${block.name}.</div>`
-        }
-      `).join("")}
-    </section>
+      ${blocksHtml()}
+
+    </div>
   `;
 
-  const albumSortStreamsBtn = document.getElementById("albumSortStreamsBtn");
-  if (albumSortStreamsBtn) {
-    albumSortStreamsBtn.onclick = () => {
-      state.albumSortMode = "streams";
-      renderPage();
-    };
-  }
-
-  const albumSortDailyBtn = document.getElementById("albumSortDailyBtn");
-  if (albumSortDailyBtn) {
-    albumSortDailyBtn.onclick = () => {
-      state.albumSortMode = "daily";
-      renderPage();
-    };
-  }
-
-  const albumCombineBtn = document.getElementById("albumCombineBtn");
-  if (albumCombineBtn) {
-    albumCombineBtn.onclick = () => {
-      state.combineVersions = !state.combineVersions;
-      renderPage();
-    };
-  }
+  document.getElementById("albumSortStreamsBtn")?.addEventListener("click", () => { state.albumSortMode = "streams"; renderPage(); });
+  document.getElementById("albumSortDailyBtn") ?.addEventListener("click", () => { state.albumSortMode = "daily";   renderPage(); });
+  document.getElementById("albumCombineBtn")   ?.addEventListener("click", () => { state.combineVersions = !state.combineVersions; renderPage(); });
 }
 
 

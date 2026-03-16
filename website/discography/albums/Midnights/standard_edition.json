@@ -19,7 +19,8 @@
       ],
       "title_clean": "Lavender Haze",
       "song_family": "lavender_haze",
-      "version_tag": "standard"
+      "version_tag": "standard",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273fa747621a53c8e2cc436dee0"
     },
     {
       "title": "Maroon",
@@ -37,7 +38,8 @@
       ],
       "title_clean": "Maroon",
       "song_family": "maroon",
-      "version_tag": "standard"
+      "version_tag": "standard",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273bb54dde68cd23e2a268ae0f5"
     },
     {
       "title": "Anti-Hero",
@@ -55,7 +57,8 @@
       ],
       "title_clean": "Anti-Hero",
       "song_family": "anti_hero",
-      "version_tag": "standard"
+      "version_tag": "standard",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273fa747621a53c8e2cc436dee0"
     },
     {
       "title": "Snow On The Beach (feat. Lana Del Rey)",
@@ -76,7 +79,8 @@
       ],
       "title_clean": "Snow On The Beach",
       "song_family": "snow_on_the_beach",
-      "version_tag": "featured__feature"
+      "version_tag": "featured__feature",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273bb54dde68cd23e2a268ae0f5"
     },
     {
       "title": "You're On Your Own, Kid",
@@ -94,7 +98,8 @@
       ],
       "title_clean": "You're On Your Own, Kid",
       "song_family": "you_re_on_your_own_kid",
-      "version_tag": "standard"
+      "version_tag": "standard",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273bb54dde68cd23e2a268ae0f5"
     },
     {
       "title": "Midnight Rain",
@@ -112,7 +117,8 @@
       ],
       "title_clean": "Midnight Rain",
       "song_family": "midnight_rain",
-      "version_tag": "standard"
+      "version_tag": "standard",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273bb54dde68cd23e2a268ae0f5"
     },
     {
       "title": "Question...?",
@@ -130,7 +136,8 @@
       ],
       "title_clean": "Question...?",
       "song_family": "question",
-      "version_tag": "standard"
+      "version_tag": "standard",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273bb54dde68cd23e2a268ae0f5"
     },
     {
       "title": "Vigilante Shit",
@@ -148,7 +155,8 @@
       ],
       "title_clean": "Vigilante Shit",
       "song_family": "vigilante_shit",
-      "version_tag": "standard"
+      "version_tag": "standard",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273bb54dde68cd23e2a268ae0f5"
     },
     {
       "title": "Bejeweled",
@@ -166,7 +174,8 @@
       ],
       "title_clean": "Bejeweled",
       "song_family": "bejeweled",
-      "version_tag": "standard"
+      "version_tag": "standard",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273bb54dde68cd23e2a268ae0f5"
     },
     {
       "title": "Labyrinth",
@@ -184,7 +193,8 @@
       ],
       "title_clean": "Labyrinth",
       "song_family": "labyrinth",
-      "version_tag": "standard"
+      "version_tag": "standard",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273fa747621a53c8e2cc436dee0"
     },
     {
       "title": "Karma",
@@ -202,7 +212,8 @@
       ],
       "title_clean": "Karma",
       "song_family": "karma",
-      "version_tag": "standard"
+      "version_tag": "standard",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273fa747621a53c8e2cc436dee0"
     },
     {
       "title": "Sweet Nothing",
@@ -220,7 +231,8 @@
       ],
       "title_clean": "Sweet Nothing",
       "song_family": "sweet_nothing",
-      "version_tag": "standard"
+      "version_tag": "standard",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273fa747621a53c8e2cc436dee0"
     },
     {
       "title": "Mastermind",
@@ -238,7 +250,8 @@
       ],
       "title_clean": "Mastermind",
       "song_family": "mastermind",
-      "version_tag": "standard"
+      "version_tag": "standard",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273fa747621a53c8e2cc436dee0"
     }
   ]
 }

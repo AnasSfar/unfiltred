@@ -19,7 +19,8 @@
       ],
       "title_clean": "Bye Bye Baby",
       "song_family": "bye_bye_baby",
-      "version_tag": "vault__taylors_version__standalone"
+      "version_tag": "vault__taylors_version__standalone",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273a48964b5d9a3d6968ae3e0de"
     },
     {
       "title": "Don't You (Taylor's Version) (From The Vault)",
@@ -37,7 +38,8 @@
       ],
       "title_clean": "Don't You",
       "song_family": "don_t_you",
-      "version_tag": "vault__taylors_version__standalone"
+      "version_tag": "vault__taylors_version__standalone",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273a48964b5d9a3d6968ae3e0de"
     },
     {
       "title": "Mr. Perfectly Fine (Taylor's Version) (From The Vault)",
@@ -55,7 +57,8 @@
       ],
       "title_clean": "Mr. Perfectly Fine",
       "song_family": "mr_perfectly_fine",
-      "version_tag": "vault__taylors_version__standalone"
+      "version_tag": "vault__taylors_version__standalone",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273a48964b5d9a3d6968ae3e0de"
     },
     {
       "title": "That's When (feat. Keith Urban) (Taylor's Version) (From The Vault)",
@@ -76,7 +79,8 @@
       ],
       "title_clean": "That's When",
       "song_family": "that_s_when",
-      "version_tag": "featured__vault__taylors_version__feature"
+      "version_tag": "featured__vault__taylors_version__feature",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273a48964b5d9a3d6968ae3e0de"
     },
     {
       "title": "We Were Happy (Taylor's Version) (From The Vault)",
@@ -94,7 +98,8 @@
       ],
       "title_clean": "We Were Happy",
       "song_family": "we_were_happy",
-      "version_tag": "vault__taylors_version__standalone"
+      "version_tag": "vault__taylors_version__standalone",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273a48964b5d9a3d6968ae3e0de"
     },
     {
       "title": "You All Over Me (feat. Maren Morris) (Taylor's Version) (From The Vault)",
@@ -115,7 +120,8 @@
       ],
       "title_clean": "You All Over Me",
       "song_family": "you_all_over_me",
-      "version_tag": "featured__vault__taylors_version__feature"
+      "version_tag": "featured__vault__taylors_version__feature",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273a48964b5d9a3d6968ae3e0de"
     },
     {
       "title": "Forever & Always (Piano Version) (Taylor's Version)",
@@ -133,7 +139,8 @@
       ],
       "title_clean": "Forever & Always (Piano Version)",
       "song_family": "forever_always_piano_version",
-      "version_tag": "taylors_version__standalone"
+      "version_tag": "taylors_version__standalone",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273a48964b5d9a3d6968ae3e0de"
     }
   ]
 }

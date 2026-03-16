@@ -19,7 +19,8 @@
       ],
       "title_clean": "The Great War",
       "song_family": "the_great_war",
-      "version_tag": "standalone"
+      "version_tag": "standalone",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273fa747621a53c8e2cc436dee0"
     },
     {
       "title": "Bigger Than The Whole Sky",
@@ -37,7 +38,8 @@
       ],
       "title_clean": "Bigger Than The Whole Sky",
       "song_family": "bigger_than_the_whole_sky",
-      "version_tag": "standalone"
+      "version_tag": "standalone",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273fa747621a53c8e2cc436dee0"
     },
     {
       "title": "Paris",
@@ -55,7 +57,8 @@
       ],
       "title_clean": "Paris",
       "song_family": "paris",
-      "version_tag": "standalone"
+      "version_tag": "standalone",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273fa747621a53c8e2cc436dee0"
     },
     {
       "title": "High Infidelity",
@@ -73,7 +76,8 @@
       ],
       "title_clean": "High Infidelity",
       "song_family": "high_infidelity",
-      "version_tag": "standalone"
+      "version_tag": "standalone",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273fa747621a53c8e2cc436dee0"
     },
     {
       "title": "Glitch",
@@ -91,7 +95,8 @@
       ],
       "title_clean": "Glitch",
       "song_family": "glitch",
-      "version_tag": "standalone"
+      "version_tag": "standalone",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273fa747621a53c8e2cc436dee0"
     },
     {
       "title": "Would've, Could've, Should've",
@@ -109,7 +114,8 @@
       ],
       "title_clean": "Would've, Could've, Should've",
       "song_family": "would_ve_could_ve_should_ve",
-      "version_tag": "standalone"
+      "version_tag": "standalone",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273fa747621a53c8e2cc436dee0"
     },
     {
       "title": "Dear Reader",
@@ -127,7 +133,8 @@
       ],
       "title_clean": "Dear Reader",
       "song_family": "dear_reader",
-      "version_tag": "standalone"
+      "version_tag": "standalone",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273fa747621a53c8e2cc436dee0"
     }
   ]
 }

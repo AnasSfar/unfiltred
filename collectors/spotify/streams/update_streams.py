@@ -1567,6 +1567,13 @@ def main():
         check=True,
     )
     print("Expected milestones forecast done.")
+
+    print("Refreshing image URLs + track_covers.json...")
+    subprocess.run(
+        [sys.executable, str(_REPO_ROOT / "scripts" / "fill_images.py")],
+        check=True,
+    )
+    print("Image URLs done.")
     print("Git commit and push...")
     git_commit_and_push(f"daily final export {summary['stats_date']}")
 
