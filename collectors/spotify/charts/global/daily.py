@@ -288,8 +288,21 @@ def main():
         for d in processed:
             mark_posted(d)
         log("INFO", f"Terminé avec succès ({len(processed)} date(s) postée(s))")
+        notify(
+            NTFY_TOPIC,
+            tweet_content,
+            title="Taylor Swift Global - Posté",
+            tags="white_check_mark,earth_globe_europe-africa",
+        )
     else:
         log("ERROR", "Publication Twitter échouée, posted.lock non créé")
+        notify(
+            NTFY_TOPIC,
+            "La publication Twitter a échoué.",
+            title="Taylor Swift Global - Erreur",
+            tags="x,warning",
+            priority="high",
+        )
         sys.exit(1)
 
 

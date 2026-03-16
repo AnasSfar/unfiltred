@@ -18,6 +18,10 @@ from playwright.sync_api import sync_playwright
 
 import export_for_web
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from core.notify import send as notify
+
+NTFY_TOPIC = "taylormuseum-streams"
 
 _SCRIPT_DIR = Path(__file__).resolve().parent
 _REPO_ROOT  = _SCRIPT_DIR.parents[2]
@@ -1571,6 +1575,14 @@ def main():
     print(f"Finished in {int(elapsed // 60)}m {int(elapsed % 60)}s")
     print(f"Done: {summary['done_tracks']}/{summary['total_tracks']}")
     print(f"Remaining: {summary['remaining_tracks']}")
+
+    notify(
+        NTFY_TOPIC,
+        f"{summary['done_tracks']}/{summary['total_tracks']} tracks mis à jour ({summary['stats_date']})\n"
+        f"Durée : {int(elapsed // 60)}m {int(elapsed % 60)}s",
+        title="Taylor Swift - Streams mis à jour",
+        tags="white_check_mark,chart_increasing",
+    )
     
 
 if __name__ == "__main__":
