@@ -26,5 +26,11 @@ const state = {
   focusFamily: null,
   albumCovers: {},
 
-  expectedMilestones: []
+  expectedMilestones: [],
+
+  lastRunState: null,
+  notFoundStreak: null,
+
+  billboard: null,
+  billboardTab: "hot_100"
 };

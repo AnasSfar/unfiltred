@@ -806,3 +806,215 @@ function renderMilestones(container) {
     </section>
   `;
 }
+
+
+/* =========================
+   ADMIN
+========================= */
+
+function renderAdmin(container) {
+
+  if (!state.lastRunState) {
+    container.innerHTML = `
+      ${renderTopbar()}
+      <section class="section-card">
+        <div class="section-head"><div><h2>Admin</h2><p>Pipeline monitoring</p></div></div>
+        <div class="empty">No run state data yet — run the update pipeline first.</div>
+      </section>
+    `;
+    return;
+  }
+
+  const statuses = Object.values(state.lastRunState);
+  const counts = { updated: 0, ok: 0, timeout: 0, not_found: 0, pending: 0 };
+  statuses.forEach(s => { if (counts[s] !== undefined) counts[s]++; else counts.pending++; });
+
+  const songById = {};
+  (state.songs || []).forEach(s => { songById[s.track_id] = s; });
+
+  const problemTracks = Object.entries(state.lastRunState)
+    .filter(([, v]) => v === "timeout" || v === "not_found")
+    .map(([id, status]) => ({ id, status, song: songById[id] }));
+
+  const streakEntries = state.notFoundStreak
+    ? Object.entries(state.notFoundStreak).map(([id, days]) => ({ id, days, song: songById[id] }))
+      .sort((a, b) => b.days - a.days)
+    : [];
+
+  const latestDate = state.dates[state.dates.length - 1] || "N/A";
+
+  container.innerHTML = `
+    ${renderTopbar()}
+
+    <section class="section-card">
+      <div class="section-head"><div><h2>Admin</h2><p>Pipeline monitoring</p></div></div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">Updated</div>
+          <div class="stat-value admin-status-updated">${counts.updated}</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">OK (no change)</div>
+          <div class="stat-value">${counts.ok}</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Timeout</div>
+          <div class="stat-value admin-status-timeout">${counts.timeout}</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Not found</div>
+          <div class="stat-value admin-status-not_found">${counts.not_found}</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Pending</div>
+          <div class="stat-value admin-status-pending">${counts.pending}</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Total tracks</div>
+          <div class="stat-value">${statuses.length}</div>
+        </div>
+      </div>
+    </section>
+
+    ${problemTracks.length ? `
+    <section class="section-card">
+      <div class="section-head"><div><h2>Problem tracks</h2><p>Timeout or not found on last run</p></div></div>
+      <div class="table-wrap">
+        <table class="table">
+          <thead><tr><th>Song</th><th>Album</th><th>Track ID</th><th>Status</th></tr></thead>
+          <tbody>
+            ${problemTracks.map(({ id, status, song }) => `
+            <tr>
+              <td>${song ? (song.title_clean || song.title) : "Unknown"}</td>
+              <td>${song ? (song.primary_album || song.album || "") : ""}</td>
+              <td style="font-size:11px;font-family:monospace">${id}</td>
+              <td><span class="admin-status-${status}">${status}</span></td>
+            </tr>`).join("")}
+          </tbody>
+        </table>
+      </div>
+    </section>` : ""}
+
+    ${streakEntries.length ? `
+    <section class="section-card">
+      <div class="section-head"><div><h2>Not-found streaks</h2><p>Auto-deleted after 7 consecutive days</p></div></div>
+      <div class="table-wrap">
+        <table class="table">
+          <thead><tr><th>Song</th><th>Album</th><th>Days missing</th><th>Days left</th></tr></thead>
+          <tbody>
+            ${streakEntries.map(({ id, days, song }) => `
+            <tr>
+              <td>${song ? (song.title_clean || song.title) : id}</td>
+              <td>${song ? (song.primary_album || song.album || "") : ""}</td>
+              <td class="${days >= 5 ? "admin-streak-danger" : ""}">${days}</td>
+              <td class="${(7 - days) <= 2 ? "admin-streak-danger" : ""}">${Math.max(0, 7 - days)}</td>
+            </tr>`).join("")}
+          </tbody>
+        </table>
+      </div>
+    </section>` : ""}
+
+    <section class="section-card">
+      <div class="section-head"><div><h2>Update</h2><p>Last update: ${latestDate} &nbsp;•&nbsp; Next: 14:05 UTC / 15:05 CET (daily)</p></div></div>
+      <div style="display:flex;flex-direction:column;gap:12px;padding:0 4px 4px">
+        <button id="updateBtn" class="update-btn">Refresh data</button>
+        <div class="${state.updateLogClass}">${state.updateLogText || ""}</div>
+        <pre class="admin-log-pre" id="adminLog">${state.updateLogText || "No recent log."}</pre>
+      </div>
+    </section>
+  `;
+}
+
+
+/* =========================
+   BILLBOARD
+========================= */
+
+function renderBillboard(container) {
+
+  if (!state.billboard) {
+    container.innerHTML = `
+      ${renderTopbar()}
+      <section class="section-card">
+        <div class="section-head"><div><h2>Billboard</h2><p>Taylor Swift chart entries</p></div></div>
+        <div class="empty">No Billboard data available yet — run scrape_billboard.py first.</div>
+      </section>
+    `;
+    return;
+  }
+
+  const tabs = [
+    { key: "hot_100",          label: "Hot 100" },
+    { key: "billboard_200",    label: "Billboard 200" },
+    { key: "ts_chart_history", label: "TS Chart History" },
+  ];
+
+  const activeTab = state.billboardTab;
+  const rows = state.billboard[activeTab] || [];
+  const scrapedAt = state.billboard.scraped_at
+    ? state.billboard.scraped_at.replace("T", " ").slice(0, 16)
+    : "recently";
+
+  const greatestArtists = state.billboard.greatest_artists;
+
+  container.innerHTML = `
+    ${renderTopbar()}
+
+    <section class="section-card">
+      <div class="section-head">
+        <div>
+          <h2>Billboard Charts</h2>
+          <p>Taylor Swift entries &nbsp;•&nbsp; Scraped ${scrapedAt}</p>
+        </div>
+        <div class="toolbar">
+          ${tabs.map(t =>
+            `<button id="bbTab_${t.key}"
+               class="${activeTab === t.key ? "active" : ""}">
+               ${t.label}
+             </button>`
+          ).join("")}
+        </div>
+      </div>
+
+      ${greatestArtists ? `
+      <div class="admin-greatest-badge">
+        Greatest of All Time Artists: <strong>#${greatestArtists.rank}</strong>
+      </div>` : ""}
+
+      ${rows.length === 0 ? `<div class="empty">No entries for this chart.</div>` : `
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th style="width:52px">#</th>
+              <th>Title</th>
+              <th>Artist</th>
+              <th style="width:130px">Weeks on Chart</th>
+              <th style="width:100px">Peak Rank</th>
+              ${activeTab === "ts_chart_history" ? "<th>Chart</th>" : ""}
+            </tr>
+          </thead>
+          <tbody>
+            ${rows.map(r => `
+            <tr>
+              <td>${r.rank ?? "-"}</td>
+              <td>${r.title ?? "-"}</td>
+              <td>${r.artist ?? "Taylor Swift"}</td>
+              <td>${r.weeks_on_chart ?? "-"}</td>
+              <td>${r.peak_rank ?? "-"}</td>
+              ${activeTab === "ts_chart_history" ? `<td>${r.chart ?? "-"}</td>` : ""}
+            </tr>`).join("")}
+          </tbody>
+        </table>
+      </div>`}
+    </section>
+  `;
+
+  tabs.forEach(t => {
+    document.getElementById(`bbTab_${t.key}`)?.addEventListener("click", () => {
+      state.billboardTab = t.key;
+      renderPage();
+    });
+  });
+}

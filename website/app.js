@@ -132,6 +132,10 @@ async function renderPage() {
     renderSongPage(container);
   } else if (state.page === "milestones") {
     renderMilestones(container);
+  } else if (state.page === "admin") {
+    renderAdmin(container);
+  } else if (state.page === "billboard") {
+    renderBillboard(container);
   }
 
   bindThemeSwitcher();
@@ -152,13 +156,19 @@ async function loadData() {
     albumsData,
     artistData,
     expectedMilestonesData,
-    albumCoversData
+    albumCoversData,
+    lastRunStateData,
+    notFoundStreakData,
+    billboardData
   ] = await Promise.all([
     fetchJSON("site/data/songs.json"),
     fetchJSON("site/data/albums.json"),
     fetchJSON("site/data/artist.json").catch(() => null),
     fetchJSON("site/data/expected_milestones.json").catch(() => null),
-    fetchJSON("discography/albums/covers.json").catch(() => ({}))
+    fetchJSON("discography/albums/covers.json").catch(() => ({})),
+    fetchJSON("site/data/last_run_state.json").catch(() => null),
+    fetchJSON("site/data/not_found_streak.json").catch(() => null),
+    fetchJSON("site/data/billboard.json").catch(() => null)
   ]);
 
   state.songs = songsData.songs || [];
@@ -166,6 +176,9 @@ async function loadData() {
   state.artist = artistData || null;
   state.expectedMilestones = expectedMilestonesData?.forecasts || [];
   state.albumCovers = albumCoversData || {};
+  state.lastRunState   = lastRunStateData   || null;
+  state.notFoundStreak = notFoundStreakData || null;
+  state.billboard      = billboardData      || null;
 
   state.history = {};
 

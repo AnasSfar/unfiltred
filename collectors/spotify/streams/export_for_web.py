@@ -3,6 +3,7 @@ from __future__ import annotations
 import csv
 import json
 import re
+import shutil
 import sqlite3
 from collections import defaultdict
 from pathlib import Path
@@ -24,6 +25,9 @@ SITE_DATA_DIR = ROOT / "site" / "data"
 SITE_HISTORY_DIR = ROOT / "site" / "history"
 SONGS_JSON_PATH = SITE_DATA_DIR / "songs.json"
 ALBUMS_JSON_PATH = SITE_DATA_DIR / "albums.json"
+
+LAST_RUN_STATE_SRC   = ROOT / "data" / "last_run_state.json"
+NOT_FOUND_STREAK_SRC = ROOT / "data" / "not_found_streak.json"
 
 TRACK_ID_RE = re.compile(r"track/([A-Za-z0-9]+)")
 
@@ -936,6 +940,13 @@ def export_for_web() -> None:
 
     write_json(SONGS_JSON_PATH, songs_payload)
     write_json(ALBUMS_JSON_PATH, albums_payload_out)
+
+    for src, dst in [
+        (LAST_RUN_STATE_SRC,   SITE_DATA_DIR / "last_run_state.json"),
+        (NOT_FOUND_STREAK_SRC, SITE_DATA_DIR / "not_found_streak.json"),
+    ]:
+        if src.exists():
+            shutil.copy2(src, dst)
 
     SITE_HISTORY_DIR.mkdir(parents=True, exist_ok=True)
     for date_str, day_data in history_by_date.items():

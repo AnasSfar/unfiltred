@@ -1574,6 +1574,15 @@ def main():
         check=True,
     )
     print("Image URLs done.")
+
+    print("Scraping Billboard charts...")
+    _BILLBOARD_SCRIPT = _REPO_ROOT / "collectors" / "billboard" / "scrape_billboard.py"
+    if _BILLBOARD_SCRIPT.exists():
+        subprocess.run([sys.executable, str(_BILLBOARD_SCRIPT)], check=False)
+        print("Billboard scrape done.")
+    else:
+        print("Billboard scraper not found, skipping.")
+
     print("Git commit and push...")
     git_commit_and_push(f"daily final export {summary['stats_date']}")
 

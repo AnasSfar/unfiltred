@@ -24,6 +24,17 @@ function renderNav(){
         Milestones
       </a>
 
+      <a href="billboard.html"
+        class="${state.page==="billboard"?"active":""}">
+        Billboard
+      </a>
+
+      <a href="admin.html"
+        class="${state.page==="admin"?"active":""}"
+        style="opacity:0.55;font-size:12px">
+        Admin
+      </a>
+
     </nav>
 
     ${renderThemeSwitcher()}

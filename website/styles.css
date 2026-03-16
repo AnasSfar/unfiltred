@@ -2634,3 +2634,45 @@ body[data-theme="dark"] .alb-total-daily { color: #e8ecf3; }
   }
   .alb-total-daily { display: none; }
 }
+
+
+/* =========================
+   ADMIN PAGE
+========================= */
+
+.admin-status-updated  { color: var(--success, #067647); font-weight: 700; }
+.admin-status-timeout  { color: #b27400; font-weight: 700; }
+.admin-status-not_found { color: var(--danger, #b42318); font-weight: 700; }
+.admin-status-pending  { color: var(--muted, #888); }
+.admin-streak-danger   { color: var(--danger, #b42318); font-weight: 800; }
+
+.admin-log-pre {
+  font-family: monospace;
+  font-size: 12px;
+  white-space: pre-wrap;
+  background: var(--surface-2, #f3f4f6);
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin-top: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+  color: var(--text, #111);
+}
+
+.admin-greatest-badge {
+  display: inline-block;
+  background: var(--surface-2, #f3f4f6);
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: 13px;
+  margin: 0 0 12px 4px;
+  color: var(--text, #111);
+}
+
+[data-theme="dark"] .admin-status-updated  { color: #1ed760; }
+[data-theme="dark"] .admin-status-timeout  { color: #f0a500; }
+[data-theme="dark"] .admin-status-not_found { color: #ff6b6b; }
+[data-theme="dark"] .admin-status-pending  { color: #aaa; }
+[data-theme="dark"] .admin-streak-danger   { color: #ff6b6b; }
+[data-theme="dark"] .admin-log-pre         { background: #1e2130; color: #e0e0e0; }
+[data-theme="dark"] .admin-greatest-badge  { background: #1e2130; color: #e0e0e0; }
