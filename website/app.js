@@ -181,7 +181,7 @@ async function loadData() {
   const storedDate = localStorage.getItem("site-selected-date");
   const latestDate = state.dates[state.dates.length - 1] || null;
 
-  if (storedDate && state.dates.includes(storedDate)) {
+  if (storedDate && storedDate === latestDate) {
     state.selectedDate = storedDate;
   } else {
     state.selectedDate = latestDate;
