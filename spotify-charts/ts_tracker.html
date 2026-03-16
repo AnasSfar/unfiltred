@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spotify Charts · Taylor Swift</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+:root {
+  --bg:#f4f7f8;
+  --bg-2:#edf3f4;
+  --surface:rgba(255,255,255,.78);
+  --surface-2:rgba(255,255,255,.54);
+  --surface-3:rgba(255,255,255,.96);
+  --text:#101828;
+  --muted:#667085;
+  --line:rgba(16,24,40,.08);
+  --accent:#1db954;
+  --accent-2:#17a34a;
+  --shadow:0 10px 30px rgba(16,24,40,.08);
+  --shadow-soft:0 6px 18px rgba(16,24,40,.05);
+  --shadow-hover:0 18px 38px rgba(16,24,40,.14);
+  --glass-blur:blur(18px);
+  --radius:20px;
+  --gold-1:#fff7d6;--gold-2:#f4d46b;--gold-3:#c99700;
+  --up:#2d7a4d;--down:#c44030;
+  --up-bg:#e8f5ec;--down-bg:#fde8e6;
+  --fr:#2d5a3d;--global:#b85c20;
+  --border:rgba(16,24,40,.08);
+}
+body[data-theme="dark"] {
+  --bg:#0f1117;
+  --bg-2:#161b25;
+  --surface:rgba(22,27,37,.85);
+  --surface-2:rgba(22,27,37,.60);
+  --surface-3:rgba(22,27,37,.98);
+  --text:#e8eaf0;
+  --muted:#8892a4;
+  --line:rgba(255,255,255,.08);
+  --shadow:0 10px 30px rgba(0,0,0,.35);
+  --shadow-soft:0 6px 18px rgba(0,0,0,.22);
+  --shadow-hover:0 18px 38px rgba(0,0,0,.45);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+body {
+  background:
+    radial-gradient(circle at 12% 18%,rgba(29,185,84,.10),transparent 28%),
+    radial-gradient(circle at 84% 16%,rgba(184,92,32,.10),transparent 30%),
+    linear-gradient(180deg,var(--bg) 0%,var(--bg-2) 100%);
+  background-attachment:fixed;
+  color:var(--text);
+  font-family:Inter,system-ui,sans-serif;
+  font-size:14px;line-height:1.5;min-height:100vh;
+  transition:background-color .2s,color .2s;
+}
+body::before {
+  content:"";position:fixed;inset:-20%;z-index:0;pointer-events:none;opacity:.65;
+  background:
+    radial-gradient(circle at 20% 30%,rgba(29,185,84,.12),transparent 24%),
+    radial-gradient(circle at 75% 22%,rgba(184,92,32,.12),transparent 26%),
+    radial-gradient(circle at 55% 80%,rgba(29,185,84,.07),transparent 28%);
+  filter:blur(28px);
+}
+.page{max-width:1180px;margin:0 auto;padding:36px 28px 80px;position:relative;z-index:2}
+
+/* ── Header ─────────────────────────────────────────────────────── */
+header{display:flex;align-items:center;justify-content:space-between;margin-bottom:32px;padding-bottom:18px;border-bottom:1px solid var(--line);gap:12px;flex-wrap:wrap}
+.header-left{display:flex;align-items:center;gap:14px}
+.back-link{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);text-decoration:none;padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:var(--surface-2);backdrop-filter:var(--glass-blur) saturate(160%);-webkit-backdrop-filter:var(--glass-blur) saturate(160%);box-shadow:var(--shadow-soft);transition:transform .15s,box-shadow .15s,color .15s}
+.back-link:hover{transform:translateY(-1px);box-shadow:var(--shadow-hover);color:var(--text)}
+.logo{font-size:18px;font-weight:600;letter-spacing:-.3px;color:var(--text)}
+.logo span{color:var(--muted);font-size:12px;font-style:italic;margin-left:8px;font-weight:400}
+.header-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.last-update{font-size:11px;color:var(--muted);letter-spacing:.04em}
+.icon-btn{
+  padding:7px 16px;font-size:12px;font-weight:500;font-family:Inter,system-ui,sans-serif;
+  background:var(--surface-2);backdrop-filter:var(--glass-blur) saturate(160%);-webkit-backdrop-filter:var(--glass-blur) saturate(160%);
+  border:1px solid var(--line);border-radius:999px;cursor:pointer;color:var(--text);
+  box-shadow:var(--shadow-soft);transition:transform .18s,box-shadow .18s;
+}
+.icon-btn:hover{transform:translateY(-1px);box-shadow:var(--shadow-hover)}
+.theme-btn{font-size:15px;padding:7px 10px}
+
+/* ── Source pills ───────────────────────────────────────────────── */
+.source-bar{display:flex;gap:6px;margin-bottom:24px;align-items:center}
+.src-pill{
+  display:flex;align-items:center;gap:6px;padding:7px 16px;font-size:12px;font-weight:500;
+  background:var(--surface);backdrop-filter:var(--glass-blur) saturate(160%);-webkit-backdrop-filter:var(--glass-blur) saturate(160%);
+  border:1px solid var(--line);border-radius:999px;cursor:pointer;color:var(--muted);
+  font-family:Inter,system-ui,sans-serif;box-shadow:var(--shadow-soft);transition:all .18s;
+}
+.src-pill:hover{transform:translateY(-1px);box-shadow:var(--shadow-hover);color:var(--text)}
+.src-pill.fr.on{background:linear-gradient(135deg,#2d5a3d 0%,#1e3d29 100%);color:#fff;border-color:transparent;box-shadow:0 10px 24px rgba(45,90,61,.28)}
+.src-pill.global.on{background:linear-gradient(135deg,#b85c20 0%,#8f4416 100%);color:#fff;border-color:transparent;box-shadow:0 10px 24px rgba(184,92,32,.28)}
+.src-pill.off{opacity:.3;cursor:not-allowed;pointer-events:none}
+.dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.dot.fr{background:var(--fr)}.dot.global{background:var(--global)}
+.src-pill.fr.on .dot,.src-pill.global.on .dot{background:#fff}
+.src-sep{width:1px;height:20px;background:var(--line);margin:0 4px}
+
+/* ── Tabs ───────────────────────────────────────────────────────── */
+.tabs{display:flex;gap:6px;margin-bottom:28px;flex-wrap:wrap}
+.tab{
+  padding:7px 16px;font-size:13px;font-weight:500;font-family:Inter,system-ui,sans-serif;
+  background:var(--surface-2);backdrop-filter:var(--glass-blur) saturate(160%);-webkit-backdrop-filter:var(--glass-blur) saturate(160%);
+  border:1px solid var(--line);border-radius:999px;
+  color:var(--muted);cursor:pointer;box-shadow:var(--shadow-soft);transition:all .18s;
+}
+.tab:hover:not(.on){transform:translateY(-1px);box-shadow:var(--shadow-hover);color:var(--text)}
+.tab.on{background:linear-gradient(135deg,#1db954 0%,#17a34a 100%);color:#fff;border-color:transparent;box-shadow:0 10px 24px rgba(29,185,84,.22)}
+.panel{display:none}.panel.on{display:block}
+
+/* ── Toolbar ────────────────────────────────────────────────────── */
+.toolbar{display:flex;align-items:center;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.toolbar-sep{width:1px;height:20px;background:var(--line);margin:0 4px}
+.toolbar label{font-size:11px;color:var(--muted);letter-spacing:.04em;white-space:nowrap}
+.toolbar select,.toolbar-search input{
+  font-size:12px;font-family:Inter,system-ui,sans-serif;
+  border:1px solid var(--line);border-radius:999px;padding:5px 12px;
+  background:var(--surface);color:var(--text);cursor:pointer;outline:none;
+  backdrop-filter:var(--glass-blur) saturate(160%);-webkit-backdrop-filter:var(--glass-blur) saturate(160%);
+  box-shadow:var(--shadow-soft);transition:border-color .15s,box-shadow .15s;
+}
+.toolbar select:focus,.toolbar-search input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(29,185,84,.12)}
+.toolbar-search-wrap{position:relative;display:flex;align-items:center}
+.toolbar-search input{min-width:160px;padding-right:28px}
+.search-clear{position:absolute;right:8px;background:none;border:none;cursor:pointer;color:var(--muted);font-size:13px;line-height:1;padding:0;display:none}
+.view-toggle,.grp-toggle{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;box-shadow:var(--shadow-soft);background:var(--surface-2)}
+.vt-btn{
+  padding:5px 14px;font-size:12px;font-family:Inter,system-ui,sans-serif;
+  border:none;background:transparent;color:var(--muted);cursor:pointer;transition:all .15s;
+}
+.vt-btn:not(:last-child){border-right:1px solid var(--line)}
+.vt-btn.on{background:linear-gradient(135deg,#1db954,#17a34a);color:#fff;border-radius:999px}
+
+/* ── KPI row ────────────────────────────────────────────────────── */
+.kpi-row{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:22px}
+.kpi{
+  background:var(--surface);backdrop-filter:var(--glass-blur) saturate(160%);-webkit-backdrop-filter:var(--glass-blur) saturate(160%);
+  border:1px solid var(--line);border-radius:var(--radius);padding:15px 16px;box-shadow:var(--shadow);
+}
+.kpi-label{font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.kpi-val{font-size:20px;font-weight:700;line-height:1.15;color:var(--text)}
+.kpi-sub{font-size:11px;color:var(--muted);margin-top:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* ── Cards / Table ──────────────────────────────────────────────── */
+.card{
+  background:var(--surface);backdrop-filter:var(--glass-blur) saturate(160%);-webkit-backdrop-filter:var(--glass-blur) saturate(160%);
+  border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;margin-bottom:20px;
+}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead th{
+  text-align:left;font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--muted);padding:11px 13px;border-bottom:1px solid var(--line);
+  background:var(--surface-2);white-space:nowrap;cursor:pointer;user-select:none;
+}
+thead th:hover{color:var(--text)}
+thead th .sort-arrow{opacity:.3;font-size:9px;margin-left:3px}
+thead th.sort-asc .sort-arrow::after{content:'↑';opacity:1}
+thead th.sort-desc .sort-arrow::after{content:'↓';opacity:1}
+tbody td{padding:9px 13px;border-bottom:1px solid var(--line);vertical-align:middle}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover td{background:rgba(29,185,84,.04)}
+.song-name{font-weight:500}
+.rk{font-size:15px;font-weight:600}
+.sub{font-size:11px;color:var(--muted)}
+.num{font-variant-numeric:tabular-nums}
+
+/* ── Song row with art ──────────────────────────────────────────── */
+.song-art{width:36px;height:36px;border-radius:6px;object-fit:cover;flex-shrink:0;background:var(--line)}
+.song-art-ph{width:36px;height:36px;border-radius:6px;background:var(--line);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:14px}
+.song-cell{display:flex;align-items:center;gap:10px}
+.song-cell-text{display:flex;flex-direction:column;gap:1px}
+.song-cell-title{font-weight:500;font-size:13px;line-height:1.3}
+.song-cell-sub{font-size:11px;color:var(--muted)}
+
+/* ── Delta badges ───────────────────────────────────────────────── */
+.delta-badge{display:inline-flex;align-items:center;font-size:11px;font-weight:500;padding:2px 8px;border-radius:999px;margin-left:4px;vertical-align:middle}
+.delta-badge.up{color:var(--up);background:var(--up-bg)}
+.delta-badge.down{color:var(--down);background:var(--down-bg)}
+.delta-badge.flat{color:var(--muted);background:rgba(16,24,40,.06)}
+.delta-badge.new{color:#7a5a00;background:#fff8e1}
+.delta-badge.re{color:#5a3a7a;background:#f3eeff}
+.delta-badge.out{color:#888;background:rgba(0,0,0,.06)}
+
+/* ── Album grouping ─────────────────────────────────────────────── */
+.album-header-row td{
+  background:var(--surface-2);border-bottom:1px solid var(--line);padding:8px 13px;cursor:pointer;
+}
+.album-header-row:hover td{background:rgba(29,185,84,.05)}
+.album-hdr-inner{display:flex;align-items:center;gap:10px}
+.album-hdr-arrow{font-size:11px;color:var(--muted);transition:transform .15s;display:inline-block;width:12px}
+.album-hdr-name{font-size:13px;font-weight:600}
+.album-hdr-count{font-size:11px;color:var(--muted)}
+.album-hdr-streams{margin-left:auto;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+
+/* ── Tweet preview ──────────────────────────────────────────────── */
+.tweet-preview{
+  background:var(--surface);backdrop-filter:var(--glass-blur) saturate(160%);-webkit-backdrop-filter:var(--glass-blur) saturate(160%);
+  border:1px solid var(--line);border-radius:var(--radius);padding:16px 20px;margin-bottom:18px;box-shadow:var(--shadow);
+  display:flex;gap:14px;align-items:flex-start;
+}
+.tweet-icon{font-size:20px;flex-shrink:0;margin-top:2px}
+.tweet-inner{flex:1;min-width:0}
+.tweet-preview-label{font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.tweet-pre{font-size:13px;line-height:1.75;white-space:pre-wrap;font-family:inherit}
+.tweet-pre.loading{color:var(--muted);font-style:italic}
+
+/* ── Charts ─────────────────────────────────────────────────────── */
+.section-h{font-size:15px;font-weight:600;margin-bottom:12px;margin-top:26px;color:var(--text)}
+.section-h:first-child{margin-top:0}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.chip{
+  padding:4px 13px;font-size:12px;font-weight:500;
+  border:1px solid var(--line);border-radius:999px;
+  background:var(--surface-2);backdrop-filter:var(--glass-blur) saturate(160%);-webkit-backdrop-filter:var(--glass-blur) saturate(160%);
+  cursor:pointer;color:var(--muted);box-shadow:var(--shadow-soft);transition:all .18s;
+}
+.chip:hover{transform:translateY(-1px);box-shadow:var(--shadow-hover);color:var(--text)}
+.chart-card{
+  background:var(--surface);backdrop-filter:var(--glass-blur) saturate(160%);-webkit-backdrop-filter:var(--glass-blur) saturate(160%);
+  border:1px solid var(--line);border-radius:var(--radius);padding:20px 20px 16px;box-shadow:var(--shadow);margin-bottom:20px;
+}
+.chart-wrap{position:relative;height:240px}
+.chart-toolbar{display:flex;align-items:center;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+.chart-toolbar label{font-size:11px;color:var(--muted)}
+.chart-toolbar input[type=date]{
+  font-size:12px;font-family:Inter,system-ui,sans-serif;
+  border:1px solid var(--line);border-radius:999px;padding:5px 12px;
+  background:var(--surface);color:var(--text);outline:none;
+  box-shadow:var(--shadow-soft);backdrop-filter:var(--glass-blur) saturate(160%);-webkit-backdrop-filter:var(--glass-blur) saturate(160%);
+}
+
+/* ── Top performances ───────────────────────────────────────────── */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.col-title{font-size:14px;font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:8px;color:var(--text)}
+.perf-card{
+  background:var(--surface);backdrop-filter:var(--glass-blur) saturate(160%);-webkit-backdrop-filter:var(--glass-blur) saturate(160%);
+  border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);margin-bottom:14px;
+}
+.perf-title{font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.perf-row{display:flex;justify-content:space-between;align-items:baseline;padding:5px 0;border-bottom:1px solid var(--line);font-size:13px;gap:8px}
+.perf-row:last-child{border-bottom:none}
+.perf-song{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:500}
+.perf-val{color:var(--muted);font-size:12px;flex-shrink:0;font-variant-numeric:tabular-nums}
+.perf-date{color:var(--line);font-size:11px;margin-left:4px}
+
+/* ── History ────────────────────────────────────────────────────── */
+.hist-toolbar{display:flex;align-items:center;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.hist-toolbar label{font-size:11px;color:var(--muted)}
+.hist-toolbar select,.hist-toolbar input[type=date]{
+  font-size:12px;font-family:Inter,system-ui,sans-serif;
+  border:1px solid var(--line);border-radius:999px;padding:5px 12px;
+  background:var(--surface);color:var(--text);outline:none;
+  box-shadow:var(--shadow-soft);backdrop-filter:var(--glass-blur) saturate(160%);-webkit-backdrop-filter:var(--glass-blur) saturate(160%);
+}
+.hist-grid{display:flex;flex-direction:column}
+.hist-day{padding:11px 0;border-bottom:1px solid var(--line)}
+.hist-day:last-child{border-bottom:none}
+.hist-date{font-size:10px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.hist-songs{display:flex;flex-direction:column;gap:3px}
+.hist-row{display:flex;align-items:center;gap:8px;font-size:13px;padding:1px 0}
+.hist-rk{font-weight:500;min-width:36px;font-variant-numeric:tabular-nums}
+.hist-name{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:pointer}
+.hist-name:hover{text-decoration:underline;color:var(--accent)}
+.hist-streams{color:var(--muted);font-size:12px;font-variant-numeric:tabular-nums;flex-shrink:0;min-width:72px;text-align:right}
+.hist-pct{font-size:11px;font-variant-numeric:tabular-nums;flex-shrink:0;min-width:40px;text-align:right}
+.hist-row.out .hist-name{color:var(--muted);font-style:italic}
+.hist-row.out .hist-rk{color:var(--muted)}
+
+/* ── Source badge on history rows ───────────────────────────────── */
+.src-badge{
+  display:inline-block;font-size:9px;font-weight:700;padding:1px 6px;border-radius:999px;
+  vertical-align:middle;letter-spacing:.04em;
+}
+.src-badge.fr{background:rgba(45,90,61,.12);color:var(--fr)}
+.src-badge.global{background:rgba(184,92,32,.12);color:var(--global)}
+
+/* ── Song detail modal ──────────────────────────────────────────── */
+.modal-bg{position:fixed;inset:0;background:rgba(10,14,22,.45);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;z-index:1000;padding:20px}
+.modal{
+  background:var(--surface-3);backdrop-filter:var(--glass-blur) saturate(160%);-webkit-backdrop-filter:var(--glass-blur) saturate(160%);
+  border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:0 28px 64px rgba(10,14,22,.20);
+  max-width:660px;width:100%;max-height:85vh;overflow:auto;padding:26px 28px;
+}
+.modal-head{display:flex;gap:14px;align-items:flex-start;margin-bottom:20px}
+.modal-art{width:60px;height:60px;border-radius:10px;object-fit:cover;flex-shrink:0;background:var(--line)}
+.modal-art-ph{width:60px;height:60px;border-radius:10px;background:var(--line);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:22px}
+.modal-title-area{flex:1}
+.modal-close{margin-left:auto;background:none;border:none;font-size:18px;cursor:pointer;color:var(--muted);padding:2px}
+.modal-title{font-size:18px;font-weight:700;margin-bottom:3px;color:var(--text)}
+.modal-sub{font-size:12px;color:var(--muted)}
+.modal-stat-row{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:20px}
+.modal-stat{
+  background:var(--surface-2);border:1px solid var(--line);border-radius:14px;padding:12px 14px;
+}
+.modal-stat-label{font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.modal-stat-val{font-size:17px;font-weight:700;color:var(--text)}
+.modal-stat-sub{font-size:11px;color:var(--muted);margin-top:2px}
+.modal-section-title{font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.modal-hist-row{display:flex;align-items:center;gap:10px;padding:5px 0;border-bottom:1px solid var(--line);font-size:13px}
+.modal-hist-row:last-child{border-bottom:none}
+.modal-hist-date{min-width:82px;color:var(--muted);font-size:12px}
+.modal-hist-rk{font-weight:600;min-width:36px}
+.modal-hist-streams{color:var(--muted);font-size:12px;margin-left:auto;font-variant-numeric:tabular-nums}
+
+.no-data{color:var(--muted);font-size:13px;padding:18px 0;font-style:italic}
+
+/* ── Streak badge ───────────────────────────────────────────────── */
+.streak-badge{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:600;padding:2px 8px;border-radius:999px;background:rgba(29,185,84,.1);color:var(--accent-2);letter-spacing:.02em}
+.peak-badge{display:inline-flex;align-items:center;font-size:10px;font-weight:600;padding:2px 8px;border-radius:999px;background:var(--gold-1);color:var(--gold-3)}
+
+/* ── Responsive ─────────────────────────────────────────────────── */
+@media(max-width:960px){.kpi-row{grid-template-columns:repeat(3,1fr)}.two-col{grid-template-columns:1fr}}
+@media(max-width:640px){.page{padding:18px 14px 60px}.kpi-row{grid-template-columns:1fr 1fr}.toolbar{flex-direction:column;align-items:flex-start}.header-left{flex-wrap:wrap}}
+
+/* ── Skeleton shimmer ───────────────────────────────────────────── */
+.skeleton{background:linear-gradient(90deg,var(--line) 25%,rgba(255,255,255,.06) 50%,var(--line) 75%);background-size:200% 100%;animation:shimmer 1.4s infinite;border-radius:6px}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <header>
+    <div class="header-left">
+      <a class="back-link" href="../index.html">← Home</a>
+      <div class="logo">Spotify Charts <span>Taylor Swift tracker</span></div>
+    </div>
+    <div class="header-right">
+      <span class="last-update" id="last-update"></span>
+      <button class="icon-btn" onclick="loadAll()">↻ Refresh</button>
+      <button class="icon-btn theme-btn" id="theme-btn" onclick="toggleTheme()" title="Toggle dark mode">🌙</button>
+    </div>
+  </header>
+
+  <!-- Source pills -->
+  <div class="source-bar">
+    <button class="src-pill fr on" id="pill-fr" onclick="toggleSource('fr')">
+      <span class="dot fr"></span> 🇫🇷 France
+    </button>
+    <button class="src-pill global on" id="pill-global" onclick="toggleSource('global')">
+      <span class="dot global"></span> 🌍 Global
+    </button>
+  </div>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <button class="tab on" onclick="switchTab('table',this)">📋 Songs</button>
+    <button class="tab" onclick="switchTab('charts',this)">📈 Charts</button>
+    <button class="tab" onclick="switchTab('top',this)">🏆 Top performances</button>
+    <button class="tab" onclick="switchTab('history',this)">🗓 History</button>
+  </div>
+
+  <!-- ═══ SONGS TAB ═══ -->
+  <div class="panel on" id="tab-table">
+    <div class="toolbar">
+      <label>Search</label>
+      <div class="toolbar-search-wrap">
+        <input type="text" id="search-input" placeholder="Filter by title…" oninput="onSearch(this.value)" style="font-size:12px;font-family:Inter,system-ui,sans-serif;border:1px solid var(--line);border-radius:999px;padding:5px 28px 5px 12px;background:var(--surface);color:var(--text);outline:none;box-shadow:var(--shadow-soft);backdrop-filter:var(--glass-blur) saturate(160%);min-width:160px">
+        <button class="search-clear" id="search-clear" onclick="clearSearch()">✕</button>
+      </div>
+      <div class="toolbar-sep"></div>
+      <label>Date</label>
+      <select id="date-select" onchange="onDateChange(this.value)"></select>
+      <div class="toolbar-sep"></div>
+      <label>View</label>
+      <div class="view-toggle">
+        <button class="vt-btn" id="vt-summary" onclick="setViewMode('summary')">Summary</button>
+        <button class="vt-btn on" id="vt-snapshot" onclick="setViewMode('snapshot')">Snapshot</button>
+      </div>
+      <div class="toolbar-sep"></div>
+      <label>Group</label>
+      <div class="grp-toggle">
+        <button class="vt-btn on" id="grp-songs" onclick="setGroupMode('songs')">Songs</button>
+        <button class="vt-btn" id="grp-albums" onclick="setGroupMode('albums')">Albums</button>
+      </div>
+    </div>
+
+    <div class="kpi-row" id="kpi-row"></div>
+
+    <div class="tweet-preview" id="tweet-preview" style="display:none">
+      <span class="tweet-icon">🐦</span>
+      <div class="tweet-inner">
+        <div class="tweet-preview-label">Tweet of the day</div>
+        <div class="tweet-pre loading" id="tweet-content">Loading…</div>
+      </div>
+    </div>
+
+    <div class="card" id="songs-card">
+      <table id="songs-table">
+        <thead id="songs-thead"><tr></tr></thead>
+        <tbody id="table-body"><tr><td colspan="8" class="no-data" style="padding:24px 14px">Loading…</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ═══ CHARTS TAB ═══ -->
+  <div class="panel" id="tab-charts">
+    <div class="chart-toolbar">
+      <button class="src-pill fr on" id="chart-pill-fr" onclick="setChartSrc('fr')"><span class="dot fr"></span> France</button>
+      <button class="src-pill global" id="chart-pill-global" onclick="setChartSrc('global')"><span class="dot global"></span> Global</button>
+      <div class="toolbar-sep"></div>
+      <label>From</label>
+      <input type="date" id="chart-from" onchange="renderCharts(chartSrc)">
+      <label>to</label>
+      <input type="date" id="chart-to" onchange="renderCharts(chartSrc)">
+      <button class="icon-btn" onclick="resetChartRange()" style="padding:5px 12px;font-size:11px">All dates</button>
+    </div>
+    <div class="section-h">Rank over time</div>
+    <div class="chips" id="rank-chips"></div>
+    <div class="chart-card"><div class="chart-wrap"><canvas id="rank-chart"></canvas></div></div>
+    <div class="section-h">Daily streams over time</div>
+    <div class="chips" id="streams-chips"></div>
+    <div class="chart-card"><div class="chart-wrap"><canvas id="streams-chart"></canvas></div></div>
+  </div>
+
+  <!-- ═══ TOP PERFORMANCES TAB ═══ -->
+  <div class="panel" id="tab-top">
+    <div class="two-col">
+      <div>
+        <div class="col-title"><span class="dot fr"></span> France</div>
+        <div id="top-fr"><div class="no-data">Loading…</div></div>
+      </div>
+      <div>
+        <div class="col-title"><span class="dot global"></span> Global</div>
+        <div id="top-global"><div class="no-data">Loading…</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ HISTORY TAB ═══ -->
+  <div class="panel" id="tab-history">
+    <div class="hist-toolbar">
+      <button class="src-pill fr on" id="hist-pill-fr" onclick="setHistSrc('fr')"><span class="dot fr"></span> France</button>
+      <button class="src-pill global" id="hist-pill-global" onclick="setHistSrc('global')"><span class="dot global"></span> Global</button>
+      <div class="toolbar-sep"></div>
+      <label>Song</label>
+      <select id="hist-song-filter" onchange="renderHistory(histSrc)"><option value="">All songs</option></select>
+      <div class="toolbar-sep"></div>
+      <label>From</label>
+      <input type="date" id="hist-from" onchange="renderHistory(histSrc)">
+      <label>to</label>
+      <input type="date" id="hist-to" onchange="renderHistory(histSrc)">
+      <button class="icon-btn" onclick="resetHistRange()" style="padding:5px 12px;font-size:11px">All dates</button>
+    </div>
+    <div class="card" style="padding:4px 20px" id="history-list">
+      <div class="no-data" style="padding:20px 0">Loading…</div>
+    </div>
+  </div>
+
+</div><!-- /.page -->
+
+<!-- ═══ SONG DETAIL MODAL ═══ -->
+<div class="modal-bg" id="modal-bg" style="display:none" onclick="closeModal(event)">
+  <div class="modal" id="modal">
+    <div class="modal-head">
+      <div id="modal-art-wrap"></div>
+      <div class="modal-title-area">
+        <div class="modal-title" id="modal-song-name"></div>
+        <div class="modal-sub" id="modal-song-sub"></div>
+      </div>
+      <button class="modal-close" onclick="closeModalDirect()">✕</button>
+    </div>
+    <div class="modal-stat-row" id="modal-stats"></div>
+    <div class="modal-section-title">History</div>
+    <div id="modal-hist"></div>
+  </div>
+</div>
+
+<script>
+// ════════════════════════════════════════════════════════════════
+//  CONFIG
+// ════════════════════════════════════════════════════════════════
+const BASE = {
+  fr:     '../collectors/spotify/charts/fr',
+  global: '../collectors/spotify/charts/global'
+};
+const DATA_SUB = { fr: 'data', global: '' }; // fr uses data/ subfolder
+
+const COLORS = [
+  '#1db954','#b85c20','#2d5a3d','#4a7fa5','#7a4a9a',
+  '#5a8a3d','#c43050','#3d7a8a','#a07030','#2a6a7a','#8a4a60'
+];
+
+// ════════════════════════════════════════════════════════════════
+//  STATE
+// ════════════════════════════════════════════════════════════════
+const DATA   = { fr: null, global: null }; // ts_history.json per source
+const COVERS = { fr: {}, global: {} };     // song → image_url from per-date JSON
+let activeSources = new Set(['fr', 'global']);
+let chartSrc = 'fr', histSrc = 'fr';
+let rankChart = null, streamsChart = null;
+let activeRankSongs = new Set(), activeStreamsSongs = new Set();
+let selectedDate = null;
+let viewMode = 'snapshot';
+let groupMode = 'songs';
+let searchQuery = '';
+let sortCol = null, sortDir = 1;
+let tweetCache = {};
+let themeMode = localStorage.getItem('charts-theme') || 'light';
+
+// ════════════════════════════════════════════════════════════════
+//  THEME
+// ════════════════════════════════════════════════════════════════
+function applyTheme() {
+  document.body.dataset.theme = themeMode;
+  document.getElementById('theme-btn').textContent = themeMode === 'dark' ? '☀️' : '🌙';
+}
+function toggleTheme() {
+  themeMode = themeMode === 'light' ? 'dark' : 'light';
+  localStorage.setItem('charts-theme', themeMode);
+  applyTheme();
+}
+applyTheme();
+
+// ════════════════════════════════════════════════════════════════
+//  DATA LOADING
+// ════════════════════════════════════════════════════════════════
+function datePath(src, date) {
+  const [y, m] = date.split('-');
+  return src === 'fr'
+    ? `${BASE.fr}/data/${y}/${m}/${date}`
+    : `${BASE.global}/${y}/${m}/${date}`;
+}
+
+async function fetchHistory(src) {
+  try {
+    const r = await fetch(`${BASE[src]}/ts_history.json?v=${Date.now()}`);
+    if (!r.ok) throw new Error(r.status);
+    DATA[src] = await r.json();
+  } catch { DATA[src] = null; }
+}
+
+async function fetchCoversForDate(src, date) {
+  try {
+    const r = await fetch(`${datePath(src, date)}/ts_chart_${date}.json`);
+    if (!r.ok) return;
+    const rows = await r.json();
+    rows.forEach(row => {
+      if (row.track_name && row.image_url)
+        COVERS[src][row.track_name] = row.image_url;
+    });
+  } catch { /* best effort */ }
+}
+
+async function fetchTweet(src, date) {
+  const key = `${src}/${date}`;
+  if (tweetCache[key] !== undefined) return tweetCache[key];
+  try {
+    const r = await fetch(`${datePath(src, date)}/tweet.txt`);
+    tweetCache[key] = r.ok ? await r.text() : '';
+  } catch { tweetCache[key] = ''; }
+  return tweetCache[key];
+}
+
+async function loadAll() {
+  document.getElementById('table-body').innerHTML =
+    '<tr><td colspan="8" class="no-data" style="padding:24px 14px">Loading data…</td></tr>';
+  await Promise.all(['fr', 'global'].map(fetchHistory));
+
+  const dates = getAllUnionDates();
+  if (dates.length) {
+    selectedDate = dates[dates.length - 1];
+    populateDateSelector(dates);
+    const el = document.getElementById('last-update');
+    el.textContent = 'Updated: ' + selectedDate;
+    // Preload covers for the latest date in background
+    ['fr', 'global'].forEach(s => fetchCoversForDate(s, selectedDate));
+  }
+
+  ['fr', 'global'].forEach(src => {
+    const pill = document.getElementById('pill-' + src);
+    if (!DATA[src]) { pill.classList.add('off'); activeSources.delete(src); }
+    else pill.classList.remove('off');
+  });
+
+  renderAll();
+}
+
+// ════════════════════════════════════════════════════════════════
+//  HELPERS
+// ════════════════════════════════════════════════════════════════
+const fmtN  = n => (n || n === 0) ? parseInt(n).toLocaleString('en-US') : '—';
+const fmtD  = d => d ? new Date(d + 'T00:00').toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' }) : '—';
+const fmtDS = d => d ? d.slice(5) : '—';
+const fmtDF = d => d ? new Date(d + 'T00:00').toLocaleDateString('en-US', { weekday:'short', day:'numeric', month:'long', year:'numeric' }) : '—';
+const escQ  = s => s.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+
+function getSongs(src) { return DATA[src] ? Object.keys(DATA[src]) : []; }
+
+function getAllDates(src) {
+  if (!DATA[src]) return [];
+  const s = new Set();
+  Object.values(DATA[src]).forEach(e => Object.keys(e).forEach(d => s.add(d)));
+  return [...s].sort();
+}
+
+function getAllUnionDates() {
+  return [...new Set([...getAllDates('fr'), ...getAllDates('global')])].sort();
+}
+
+function getStats(src, song) {
+  const entries = (DATA[src] || {})[song] || {};
+  const dates = Object.keys(entries).sort();
+  if (!dates.length) return null;
+  let bestRank = Infinity, bestRankDate = null, bestStreams = 0, bestStreamsDate = null;
+  for (const d of dates) {
+    const e = entries[d];
+    if (e.rank && e.rank < bestRank) { bestRank = e.rank; bestRankDate = d; }
+    if (e.streams && e.streams > bestStreams) { bestStreams = e.streams; bestStreamsDate = d; }
+  }
+  const allDates = getAllDates(src);
+  let streak = 0;
+  for (let i = allDates.length - 1; i >= 0; i--) {
+    if (entries[allDates[i]]) streak++; else break;
+  }
+  const lastDate = dates[dates.length - 1];
+  const lastEntry = entries[lastDate];
+  const isActive = lastDate === allDates[allDates.length - 1];
+  return {
+    bestRank, bestRankDate, bestStreams, bestStreamsDate,
+    lastRank: lastEntry?.rank, lastStreams: lastEntry?.streams,
+    lastEntry, lastDate, days: dates.length, firstDate: dates[0],
+    streak, isActive
+  };
+}
+
+function fmtDelta(entry) {
+  if (!entry) return '';
+  const { previous_rank: prev, rank, peak_rank: peak } = entry;
+  if (!prev || prev <= 0) {
+    if (peak && peak > 0 && peak !== rank) return '<span class="delta-badge re">RE</span>';
+    return '<span class="delta-badge new">NEW</span>';
+  }
+  const d = prev - rank;
+  if (d > 0) return `<span class="delta-badge up">+${d}</span>`;
+  if (d < 0) return `<span class="delta-badge down">${d}</span>`;
+  return '<span class="delta-badge flat">–</span>';
+}
+
+function fmtPct(cur, prev) {
+  if (!cur || !prev || prev === 0) return '';
+  const pct = (cur - prev) / prev * 100;
+  const sign = pct >= 0 ? '+' : '';
+  const color = pct >= 0 ? 'var(--up)' : 'var(--down)';
+  return `<span class="hist-pct" style="color:${color}">${sign}${pct.toFixed(1)}%</span>`;
+}
+
+function getCover(src, song) {
+  return COVERS[src][song] || COVERS['fr'][song] || COVERS['global'][song] || null;
+}
+
+function artHtml(src, song, size = 34) {
+  const url = getCover(src, song);
+  return url
+    ? `<img class="song-art" src="${url}" width="${size}" height="${size}" loading="lazy" alt="">`
+    : `<div class="song-art-ph" style="width:${size}px;height:${size}px">🎵</div>`;
+}
+
+// ════════════════════════════════════════════════════════════════
+//  DATE SELECTOR & NAVIGATION
+// ════════════════════════════════════════════════════════════════
+function populateDateSelector(dates) {
+  const sel = document.getElementById('date-select');
+  sel.innerHTML = dates.slice().reverse().map(d =>
+    `<option value="${d}"${d === selectedDate ? ' selected' : ''}>${fmtD(d)}</option>`
+  ).join('');
+}
+
+async function onDateChange(val) {
+  selectedDate = val;
+  ['fr', 'global'].forEach(s => fetchCoversForDate(s, val));
+  renderTable();
+  if (viewMode === 'snapshot') loadAndShowTweet();
+}
+
+// ════════════════════════════════════════════════════════════════
+//  VIEW / GROUP / SEARCH
+// ════════════════════════════════════════════════════════════════
+function setViewMode(mode) {
+  viewMode = mode;
+  document.getElementById('vt-summary').classList.toggle('on', mode === 'summary');
+  document.getElementById('vt-snapshot').classList.toggle('on', mode === 'snapshot');
+  const tp = document.getElementById('tweet-preview');
+  tp.style.display = mode === 'snapshot' ? '' : 'none';
+  if (mode === 'snapshot') loadAndShowTweet();
+  renderTable();
+}
+
+function setGroupMode(mode) {
+  groupMode = mode;
+  document.getElementById('grp-songs').classList.toggle('on', mode === 'songs');
+  document.getElementById('grp-albums').classList.toggle('on', mode === 'albums');
+  renderTable();
+}
+
+function onSearch(val) {
+  searchQuery = val.toLowerCase();
+  document.getElementById('search-clear').style.display = val ? 'block' : 'none';
+  renderTable();
+}
+
+function clearSearch() {
+  document.getElementById('search-input').value = '';
+  onSearch('');
+}
+
+function toggleSource(src) {
+  if (!DATA[src]) return;
+  const pill = document.getElementById('pill-' + src);
+  if (activeSources.has(src) && activeSources.size > 1) {
+    activeSources.delete(src); pill.classList.remove('on');
+  } else if (!activeSources.has(src)) {
+    activeSources.add(src); pill.classList.add('on');
+  }
+  renderTable();
+}
+
+// ════════════════════════════════════════════════════════════════
+//  TWEET
+// ════════════════════════════════════════════════════════════════
+async function loadAndShowTweet() {
+  if (!selectedDate) return;
+  const el = document.getElementById('tweet-content');
+  el.className = 'tweet-pre loading';
+  el.textContent = 'Loading…';
+
+  // Try FR first, then global
+  for (const src of ['fr', 'global']) {
+    if (!DATA[src]) continue;
+    const text = await fetchTweet(src, selectedDate);
+    if (text) {
+      el.textContent = text;
+      el.className = 'tweet-pre';
+      return;
+    }
+  }
+  el.textContent = 'No tweet found for this date.';
+}
+
+// ════════════════════════════════════════════════════════════════
+//  RENDER ALL
+// ════════════════════════════════════════════════════════════════
+function renderAll() {
+  renderTable();
+  renderCharts(chartSrc);
+  renderTop();
+  renderHistory(histSrc);
+  updateHistSongFilter();
+}
+
+// ════════════════════════════════════════════════════════════════
+//  SONGS TABLE
+// ════════════════════════════════════════════════════════════════
+function renderTable() {
+  viewMode === 'snapshot' ? renderSnapshot() : renderSummary();
+}
+
+/* ── Snapshot (selected date) ─────────────────────────────── */
+function renderSnapshot() {
+  // Header
+  document.getElementById('songs-thead').innerHTML = `<tr>
+    <th onclick="sortTable('rank')" class="${sortColClass('rank')}"># <span class="sort-arrow"></span></th>
+    <th onclick="sortTable('song')" class="${sortColClass('song')}">Song <span class="sort-arrow"></span></th>
+    <th>Source</th>
+    <th>Delta</th>
+    <th onclick="sortTable('streams')" class="${sortColClass('streams')}">Streams <span class="sort-arrow"></span></th>
+    <th>Change</th>
+    <th>Peak</th>
+    <th>Streak</th>
+  </tr>`;
+
+  let rows = [];
+  for (const src of activeSources) {
+    if (!DATA[src]) continue;
+    for (const [song, entries] of Object.entries(DATA[src])) {
+      if (searchQuery && !song.toLowerCase().includes(searchQuery)) continue;
+      const entry = entries[selectedDate];
+      if (!entry) continue;
+      const songDates = Object.keys(entries).sort();
+      const idx = songDates.indexOf(selectedDate);
+      const prevDate = idx > 0 ? songDates[idx - 1] : null;
+      const prevEntry = prevDate ? entries[prevDate] : null;
+      const existing = rows.find(r => r.song.toLowerCase() === song.toLowerCase());
+      if (existing) existing.sources[src] = { entry, prevEntry };
+      else rows.push({ song, sources: { [src]: { entry, prevEntry } } });
+    }
+  }
+
+  // KPI
+  const totalStreams = {};
+  rows.forEach(r => {
+    for (const [src, { entry }] of Object.entries(r.sources)) {
+      totalStreams[src] = (totalStreams[src] || 0) + (entry.streams || 0);
+    }
+  });
+  const totalStr = Object.entries(totalStreams)
+    .map(([src, v]) => `<span class="dot ${src}" style="vertical-align:middle;margin-right:5px"></span>${fmtN(v)}`)
+    .join(' ');
+  const bestRankRow = rows.reduce((b, r) => {
+    const v = Math.min(...Object.values(r.sources).map(s => s.entry.rank || 999));
+    const bv = b ? Math.min(...Object.values(b.sources).map(s => s.entry.rank || 999)) : 999;
+    return v < bv ? r : b;
+  }, null);
+  document.getElementById('kpi-row').innerHTML = `
+    <div class="kpi"><div class="kpi-label">Date</div><div class="kpi-val" style="font-size:14px">${fmtDF(selectedDate)}</div></div>
+    <div class="kpi"><div class="kpi-label">Songs in chart</div><div class="kpi-val">${rows.length}</div></div>
+    <div class="kpi"><div class="kpi-label">Total streams</div><div class="kpi-val" style="font-size:12px;line-height:1.5">${totalStr || '—'}</div></div>
+    <div class="kpi"><div class="kpi-label">Best position</div><div class="kpi-val">#${bestRankRow ? Math.min(...Object.values(bestRankRow.sources).map(s=>s.entry.rank||999)) : '—'}</div><div class="kpi-sub">${bestRankRow?.song || ''}</div></div>
+    <div class="kpi"><div class="kpi-label">Sources</div><div class="kpi-val" style="font-size:12px;line-height:1.5">${[...activeSources].map(s=>`<span class="dot ${s}" style="vertical-align:middle;margin-right:5px"></span>${s==='fr'?'France':'Global'}`).join('<br>')}</div></div>`;
+
+  // Sort
+  if (!sortCol || sortCol === 'rank') {
+    rows.sort((a, b) => (Math.min(...Object.values(a.sources).map(s=>s.entry.rank||999)) - Math.min(...Object.values(b.sources).map(s=>s.entry.rank||999))) * sortDir);
+  } else if (sortCol === 'song') {
+    rows.sort((a, b) => a.song.localeCompare(b.song) * sortDir);
+  } else if (sortCol === 'streams') {
+    rows.sort((a, b) => (Math.max(...Object.values(b.sources).map(s=>s.entry.streams||0)) - Math.max(...Object.values(a.sources).map(s=>s.entry.streams||0))) * sortDir);
+  }
+
+  if (groupMode === 'albums') renderSnapshotAlbums(rows);
+  else document.getElementById('table-body').innerHTML = rows.map(snapshotRow).join('') || noDataRow(8);
+
+  document.getElementById('tweet-preview').style.display = viewMode === 'snapshot' ? '' : 'none';
+  if (viewMode === 'snapshot') loadAndShowTweet();
+}
+
+function snapshotRow({ song, sources }) {
+  const primarySrc = [...activeSources].find(s => sources[s]);
+  const primaryEntry = sources[primarySrc]?.entry;
+  const rank = primaryEntry?.rank || '—';
+
+  // Collect cells per active source
+  const srcCells = [...activeSources].filter(s => sources[s]).map(src => {
+    const { entry, prevEntry } = sources[src];
+    return `
+      <span class="dot ${src}" style="vertical-align:middle;margin-right:3px"></span>
+      <span class="rk">#${entry.rank||'—'}</span>`;
+  });
+
+  const deltaCells = [...activeSources].filter(s => sources[s]).map(src => {
+    return fmtDelta(sources[src].entry);
+  });
+
+  const streamsCells = [...activeSources].filter(s => sources[s]).map(src => {
+    const { entry } = sources[src];
+    return `<span class="dot ${src}" style="vertical-align:middle;margin-right:3px"></span><span class="num">${fmtN(entry.streams)}</span>`;
+  });
+
+  const changeCells = [...activeSources].filter(s => sources[s]).map(src => {
+    const { entry, prevEntry } = sources[src];
+    return fmtPct(entry.streams, prevEntry?.streams);
+  });
+
+  const peakCell = [...activeSources].filter(s => sources[s]).map(src => {
+    const e = sources[src].entry;
+    return e.peak_rank ? `<span class="peak-badge">#${e.peak_rank}</span>` : '';
+  }).filter(Boolean).join(' ');
+
+  const streakCell = [...activeSources].filter(s => sources[s]).map(src => {
+    const e = sources[src].entry;
+    return e.streak ? `<span class="streak-badge" title="days in chart">🔥 ${e.streak}d</span>` : '';
+  }).filter(Boolean).join(' ');
+
+  const cover = artHtml(primarySrc, song);
+
+  return `<tr onclick="openModal('${escQ(song)}')" style="cursor:pointer">
+    <td>${srcCells.join('<br>')}</td>
+    <td>
+      <div class="song-cell">
+        ${cover}
+        <div class="song-cell-text">
+          <div class="song-cell-title">${song}</div>
+        </div>
+      </div>
+    </td>
+    <td><span style="font-size:11px;color:var(--muted)">${[...activeSources].filter(s=>sources[s]).map(s=>`<span class="dot ${s}" style="vertical-align:middle;margin-right:2px"></span>`).join(' ')}</span></td>
+    <td>${deltaCells.join('<br>')}</td>
+    <td>${streamsCells.join('<br>')}</td>
+    <td>${changeCells.join('<br>')}</td>
+    <td>${peakCell}</td>
+    <td>${streakCell}</td>
+  </tr>`;
+}
+
+function renderSnapshotAlbums(rows) {
+  // No album metadata for charts data, just render without grouping but sorted
+  document.getElementById('table-body').innerHTML = rows.map(snapshotRow).join('') || noDataRow(8);
+}
+
+/* ── Summary (all-time) ───────────────────────────────────── */
+function renderSummary() {
+  document.getElementById('songs-thead').innerHTML = `<tr>
+    <th onclick="sortTable('song')" class="${sortColClass('song')}">Song <span class="sort-arrow"></span></th>
+    <th>Art</th>
+    <th onclick="sortTable('rank')" class="${sortColClass('rank')}">Last pos. <span class="sort-arrow"></span></th>
+    <th onclick="sortTable('streams')" class="${sortColClass('streams')}">Last streams <span class="sort-arrow"></span></th>
+    <th onclick="sortTable('bestRank')" class="${sortColClass('bestRank')}">Peak <span class="sort-arrow"></span></th>
+    <th onclick="sortTable('bestStreams')" class="${sortColClass('bestStreams')}">Best streams <span class="sort-arrow"></span></th>
+    <th onclick="sortTable('streak')" class="${sortColClass('streak')}">Streak <span class="sort-arrow"></span></th>
+    <th onclick="sortTable('days')" class="${sortColClass('days')}">Days <span class="sort-arrow"></span></th>
+    <th>Status</th>
+  </tr>`;
+
+  let allSongs = buildMerged();
+
+  // KPI
+  const totalDays = getAllUnionDates().length;
+  const activeNow = allSongs.filter(r => Object.values(r.sources).some(s => s?.isActive)).length;
+  const topRank = allSongs.reduce((b, r) => {
+    const v = Math.min(...Object.values(r.sources).map(s => s?.bestRank ?? 999));
+    const bv = b ? Math.min(...Object.values(b.sources).map(s => s?.bestRank ?? 999)) : 999;
+    return v < bv ? r : b;
+  }, null);
+  const topStreams = allSongs.reduce((b, r) => {
+    const v = Math.max(...Object.values(r.sources).map(s => s?.bestStreams ?? 0));
+    const bv = b ? Math.max(...Object.values(b.sources).map(s => s?.bestStreams ?? 0)) : 0;
+    return v > bv ? r : b;
+  }, null);
+  document.getElementById('kpi-row').innerHTML = `
+    <div class="kpi"><div class="kpi-label">Tracked days</div><div class="kpi-val">${totalDays}</div></div>
+    <div class="kpi"><div class="kpi-label">Songs tracked</div><div class="kpi-val">${allSongs.length}</div><div class="kpi-sub">${activeNow} currently in chart</div></div>
+    <div class="kpi"><div class="kpi-label">Best position ever</div><div class="kpi-val">#${topRank ? Math.min(...Object.values(topRank.sources).map(s=>s?.bestRank??999)) : '—'}</div><div class="kpi-sub">${topRank?.song || ''}</div></div>
+    <div class="kpi"><div class="kpi-label">Stream record</div><div class="kpi-val" style="font-size:14px">${topStreams ? fmtN(Math.max(...Object.values(topStreams.sources).map(s=>s?.bestStreams??0))) : '—'}</div><div class="kpi-sub">${topStreams?.song || ''}</div></div>
+    <div class="kpi"><div class="kpi-label">Sources</div><div class="kpi-val" style="font-size:12px;line-height:1.6">${[...activeSources].map(s=>`<span class="dot ${s}" style="vertical-align:middle;margin-right:5px"></span>${s==='fr'?'France':'Global'}`).join('<br>')}</div></div>`;
+
+  allSongs = sortSongsSummary(allSongs);
+  document.getElementById('table-body').innerHTML = allSongs.map(summaryRow).join('') || noDataRow(9);
+  document.getElementById('tweet-preview').style.display = 'none';
+}
+
+function buildMerged() {
+  const merged = {};
+  for (const src of activeSources) {
+    if (!DATA[src]) continue;
+    for (const song of getSongs(src)) {
+      const key = song.toLowerCase();
+      if (!merged[key]) merged[key] = { song, sources: {} };
+      merged[key].sources[src] = getStats(src, song);
+    }
+  }
+  return Object.values(merged).filter(r =>
+    !searchQuery || r.song.toLowerCase().includes(searchQuery)
+  );
+}
+
+function summaryRow({ song, sources }) {
+  const frS = sources.fr, glS = sources.global;
+  const main = frS || glS;
+  if (!main) return '';
+
+  const primarySrc = frS ? 'fr' : 'global';
+  const cover = artHtml(primarySrc, song, 32);
+
+  const rankCell = [...activeSources].filter(s=>sources[s]).map(src => {
+    const s = sources[src];
+    return `<span class="dot ${src}" style="vertical-align:middle;margin-right:3px"></span><span class="rk">#${s.lastRank||'—'}</span>${fmtDelta(s.lastEntry)}`;
+  }).join('<br>');
+
+  const streamsCell = [...activeSources].filter(s=>sources[s]).map(src => {
+    const s = sources[src];
+    return `<span class="dot ${src}" style="vertical-align:middle;margin-right:3px"></span>${fmtN(s.lastStreams)}`;
+  }).join('<br>');
+
+  const peakCell = [...activeSources].filter(s=>sources[s]).map(src => {
+    const s = sources[src];
+    return `<span class="dot ${src}" style="vertical-align:middle;margin-right:3px"></span><span class="peak-badge">#${s.bestRank}</span> <span class="sub">${fmtDS(s.bestRankDate)}</span>`;
+  }).join('<br>');
+
+  const bestStCell = [...activeSources].filter(s=>sources[s]).map(src => {
+    const s = sources[src];
+    return `<span class="dot ${src}" style="vertical-align:middle;margin-right:3px"></span>${fmtN(s.bestStreams)}`;
+  }).join('<br>');
+
+  const streakCell = [...activeSources].filter(s=>sources[s]).map(src => {
+    const s = sources[src];
+    return s.streak ? `<span class="streak-badge">🔥 ${s.streak}d${s.isActive ? ' ●' : ''}</span>` : '—';
+  }).join(' ');
+
+  const daysCell = [...activeSources].filter(s=>sources[s]).map(src => {
+    const s = sources[src];
+    return `<span class="dot ${src}" style="vertical-align:middle;margin-right:3px"></span>${s.days}`;
+  }).join('<br>');
+
+  const statusCell = main.isActive
+    ? '<span style="color:var(--up);font-size:11px;font-weight:600">● active</span>'
+    : `<span class="sub">last: ${fmtDS(main.lastDate)}</span>`;
+
+  return `<tr onclick="openModal('${escQ(song)}')" style="cursor:pointer">
+    <td class="song-name">${song}</td>
+    <td>${cover}</td>
+    <td>${rankCell}</td>
+    <td>${streamsCell}</td>
+    <td>${peakCell}</td>
+    <td>${bestStCell}</td>
+    <td>${streakCell}</td>
+    <td style="font-size:12px">${daysCell}</td>
+    <td>${statusCell}</td>
+  </tr>`;
+}
+
+function noDataRow(cols) {
+  return `<tr><td colspan="${cols}" class="no-data" style="padding:22px 14px">No data for this selection.</td></tr>`;
+}
+
+// ════════════════════════════════════════════════════════════════
+//  SORTING
+// ════════════════════════════════════════════════════════════════
+function sortColClass(col) {
+  return sortCol === col ? (sortDir === 1 ? 'sort-asc' : 'sort-desc') : '';
+}
+function sortTable(col) {
+  sortDir = sortCol === col ? sortDir * -1 : 1;
+  sortCol = col;
+  renderTable();
+}
+function sortSongsSummary(songs) {
+  const col = sortCol || 'bestRank';
+  return [...songs].sort((a, b) => {
+    let av, bv;
+    if (col === 'song') return a.song.localeCompare(b.song) * sortDir;
+    if (col === 'rank') {
+      av = Math.min(...Object.values(a.sources).filter(Boolean).map(s=>s.lastRank||999));
+      bv = Math.min(...Object.values(b.sources).filter(Boolean).map(s=>s.lastRank||999));
+    } else if (col === 'streams') {
+      av = Math.max(...Object.values(a.sources).filter(Boolean).map(s=>s.lastStreams||0));
+      bv = Math.max(...Object.values(b.sources).filter(Boolean).map(s=>s.lastStreams||0));
+      return (bv - av) * sortDir;
+    } else if (col === 'bestRank') {
+      av = Math.min(...Object.values(a.sources).filter(Boolean).map(s=>s.bestRank||999));
+      bv = Math.min(...Object.values(b.sources).filter(Boolean).map(s=>s.bestRank||999));
+    } else if (col === 'bestStreams') {
+      av = Math.max(...Object.values(a.sources).filter(Boolean).map(s=>s.bestStreams||0));
+      bv = Math.max(...Object.values(b.sources).filter(Boolean).map(s=>s.bestStreams||0));
+      return (bv - av) * sortDir;
+    } else if (col === 'days') {
+      av = Math.max(...Object.values(a.sources).filter(Boolean).map(s=>s.days||0));
+      bv = Math.max(...Object.values(b.sources).filter(Boolean).map(s=>s.days||0));
+      return (bv - av) * sortDir;
+    } else if (col === 'streak') {
+      av = Math.max(...Object.values(a.sources).filter(Boolean).map(s=>s.streak||0));
+      bv = Math.max(...Object.values(b.sources).filter(Boolean).map(s=>s.streak||0));
+      return (bv - av) * sortDir;
+    } else if (col === 'first') {
+      av = Math.min(...Object.values(a.sources).filter(Boolean).map(s=>s.firstDate||'9999'));
+      bv = Math.min(...Object.values(b.sources).filter(Boolean).map(s=>s.firstDate||'9999'));
+      return av.localeCompare(bv) * sortDir;
+    }
+    return (av - bv) * sortDir;
+  });
+}
+
+// ════════════════════════════════════════════════════════════════
+//  SONG DETAIL MODAL
+// ════════════════════════════════════════════════════════════════
+function openModal(song) {
+  document.getElementById('modal-song-name').textContent = song;
+  document.getElementById('modal-song-sub').textContent = 'Taylor Swift';
+
+  // Album art
+  const url = getCover('fr', song) || getCover('global', song);
+  const artWrap = document.getElementById('modal-art-wrap');
+  artWrap.innerHTML = url
+    ? `<img class="modal-art" src="${url}" alt="">`
+    : '<div class="modal-art-ph">🎵</div>';
+
+  // Stat cards per source
+  const statHtml = ['fr', 'global'].map(src => {
+    const stats = getStats(src, song);
+    if (!stats) return '';
+    return `<div class="modal-stat" style="border-top:3px solid var(--${src})">
+      <div class="modal-stat-label">${src === 'fr' ? '🇫🇷 France' : '🌍 Global'}</div>
+      <div class="modal-stat-val">#${stats.bestRank}</div>
+      <div class="modal-stat-sub">peak position · ${fmtD(stats.bestRankDate)}</div>
+      <div style="margin-top:8px;font-size:12px;color:var(--muted);display:flex;flex-direction:column;gap:2px">
+        <span>${fmtN(stats.bestStreams)} best streams</span>
+        <span>${stats.days} days in chart · ${stats.streak}d current streak</span>
+        <span>First seen: ${fmtD(stats.firstDate)}</span>
+      </div>
+    </div>`;
+  }).filter(Boolean).join('');
+  document.getElementById('modal-stats').innerHTML = statHtml || '<div class="no-data">No data.</div>';
+
+  // History table
+  const allEntries = [];
+  for (const src of ['fr', 'global']) {
+    if (!DATA[src]?.[song]) continue;
+    for (const [d, e] of Object.entries(DATA[src][song])) {
+      const ex = allEntries.find(x => x.date === d);
+      if (ex) ex[src] = e; else { const row = { date: d }; row[src] = e; allEntries.push(row); }
+    }
+  }
+  allEntries.sort((a, b) => b.date.localeCompare(a.date));
+
+  const histHtml = allEntries.slice(0, 90).map(row => {
+    const cells = ['fr', 'global'].map(src => {
+      const e = row[src];
+      if (!e) return null;
+      return `<span class="src-badge ${src}">${src === 'fr' ? 'FR' : 'GL'}</span> #${e.rank||'—'} ${fmtDelta(e)} <span style="color:var(--muted);font-size:11px">${fmtN(e.streams)}</span>`;
+    }).filter(Boolean).join(' &nbsp;');
+    return `<div class="modal-hist-row">
+      <span class="modal-hist-date">${row.date}</span>
+      <span style="font-size:13px;line-height:1.7">${cells}</span>
+    </div>`;
+  }).join('');
+  document.getElementById('modal-hist').innerHTML = histHtml || '<div class="no-data">No history.</div>';
+  document.getElementById('modal-bg').style.display = 'flex';
+}
+
+function closeModal(e) { if (e.target === document.getElementById('modal-bg')) closeModalDirect(); }
+function closeModalDirect() { document.getElementById('modal-bg').style.display = 'none'; }
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModalDirect(); });
+
+// ════════════════════════════════════════════════════════════════
+//  CHARTS TAB
+// ════════════════════════════════════════════════════════════════
+function setChartSrc(src) {
+  if (!DATA[src]) return;
+  chartSrc = src;
+  document.getElementById('chart-pill-fr').className = 'src-pill fr' + (src === 'fr' ? ' on' : '');
+  document.getElementById('chart-pill-global').className = 'src-pill global' + (src === 'global' ? ' on' : '');
+  activeRankSongs = new Set(); activeStreamsSongs = new Set();
+  renderCharts(src);
+}
+
+function resetChartRange() {
+  document.getElementById('chart-from').value = '';
+  document.getElementById('chart-to').value = '';
+  renderCharts(chartSrc);
+}
+
+function getChartDates(src) {
+  let dates = getAllDates(src);
+  const from = document.getElementById('chart-from').value;
+  const to   = document.getElementById('chart-to').value;
+  if (from) dates = dates.filter(d => d >= from);
+  if (to)   dates = dates.filter(d => d <= to);
+  return dates;
+}
+
+function renderChips(id, songs, activeSet, type) {
+  document.getElementById(id).innerHTML = songs.map((s, i) => {
+    const on = activeSet.has(s);
+    const c  = COLORS[i % COLORS.length];
+    return `<button class="chip" onclick="toggleChip('${escQ(s)}','${type}')"
+      style="${on ? `background:${c};color:#fff;border-color:${c};box-shadow:0 6px 16px ${c}44` : ''}">${s}</button>`;
+  }).join('');
+}
+
+function toggleChip(song, type) {
+  const set = type === 'rank' ? activeRankSongs : activeStreamsSongs;
+  if (set.has(song)) set.delete(song); else set.add(song);
+  renderChips(type + '-chips', getSongs(chartSrc), set, type);
+  drawChart(type, chartSrc);
+}
+
+function drawChart(type, src) {
+  const h = DATA[src], songs = getSongs(src), dates = getChartDates(src);
+  const activeSet = type === 'rank' ? activeRankSongs : activeStreamsSongs;
+  const datasets = [...activeSet].map(song => ({
+    label: song,
+    data: dates.map(d => h[song]?.[d]?.[type === 'streams' ? 'streams' : 'rank'] ?? null),
+    borderColor: COLORS[songs.indexOf(song) % COLORS.length],
+    backgroundColor: 'transparent', borderWidth: 2,
+    pointRadius: 0, pointHoverRadius: 4, tension: 0.25, spanGaps: false
+  }));
+
+  const gridColor = themeMode === 'dark' ? 'rgba(255,255,255,.06)' : 'rgba(16,24,40,.06)';
+  const tickColor = themeMode === 'dark' ? '#6b7280' : '#918e86';
+
+  if (type === 'rank' && rankChart) { rankChart.destroy(); rankChart = null; }
+  if (type === 'streams' && streamsChart) { streamsChart.destroy(); streamsChart = null; }
+
+  const chart = new Chart(document.getElementById(type + '-chart'), {
+    type: 'line', data: { labels: dates.map(fmtDS), datasets },
+    options: {
+      responsive: true, maintainAspectRatio: false, animation: { duration: 300 },
+      scales: {
+        y: type === 'rank'
+          ? { reverse: true, min: 1, ticks: { font: { size: 11 }, color: tickColor }, grid: { color: gridColor } }
+          : { ticks: { font: { size: 11 }, color: tickColor, callback: v => fmtN(v) }, grid: { color: gridColor } },
+        x: { ticks: { font: { size: 10 }, color: tickColor, maxTicksLimit: 16 }, grid: { display: false } }
+      },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          mode: 'index', intersect: false,
+          callbacks: type === 'streams' ? { label: c => `${c.dataset.label}: ${fmtN(c.raw)}` } : {}
+        }
+      }
+    }
+  });
+  if (type === 'rank') rankChart = chart; else streamsChart = chart;
+}
+
+function renderCharts(src) {
+  if (!DATA[src]) return;
+  const songs = getSongs(src), top5 = songs.slice(0, Math.min(5, songs.length));
+  if (!activeRankSongs.size) top5.forEach(s => activeRankSongs.add(s));
+  if (!activeStreamsSongs.size) top5.forEach(s => activeStreamsSongs.add(s));
+  renderChips('rank-chips', songs, activeRankSongs, 'rank');
+  renderChips('streams-chips', songs, activeStreamsSongs, 'streams');
+  drawChart('rank', src);
+  drawChart('streams', src);
+}
+
+// ════════════════════════════════════════════════════════════════
+//  TOP PERFORMANCES TAB
+// ════════════════════════════════════════════════════════════════
+function renderTop() {
+  ['fr', 'global'].forEach(src => {
+    const el = document.getElementById('top-' + src);
+    if (!DATA[src]) { el.innerHTML = '<div class="no-data">Data unavailable.</div>'; return; }
+    const allStats = getSongs(src).map(s => ({ song: s, stats: getStats(src, s) })).filter(x => x.stats);
+    const byRank    = [...allStats].sort((a,b)=>a.stats.bestRank-b.stats.bestRank).slice(0,8);
+    const byStreams  = [...allStats].sort((a,b)=>b.stats.bestStreams-a.stats.bestStreams).slice(0,8);
+    const byDays    = [...allStats].sort((a,b)=>b.stats.days-a.stats.days).slice(0,6);
+    const byStreak  = allStats.filter(x=>x.stats.streak>0).sort((a,b)=>b.stats.streak-a.stats.streak).slice(0,6);
+    el.innerHTML = `
+      <div class="perf-card">
+        <div class="perf-title">🏅 Best positions</div>
+        ${byRank.map(x=>`<div class="perf-row"><div class="perf-song">${x.song}</div><div class="perf-val"><span class="peak-badge">#${x.stats.bestRank}</span> <span class="perf-date">${fmtDS(x.stats.bestRankDate)}</span></div></div>`).join('')}
+      </div>
+      <div class="perf-card">
+        <div class="perf-title">🔊 Best single-day streams</div>
+        ${byStreams.map(x=>`<div class="perf-row"><div class="perf-song">${x.song}</div><div class="perf-val">${fmtN(x.stats.bestStreams)} <span class="perf-date">${fmtDS(x.stats.bestStreamsDate)}</span></div></div>`).join('')}
+      </div>
+      <div class="perf-card">
+        <div class="perf-title">📆 Most days in chart</div>
+        ${byDays.map(x=>`<div class="perf-row"><div class="perf-song">${x.song}</div><div class="perf-val">${x.stats.days}d</div></div>`).join('')}
+      </div>
+      <div class="perf-card">
+        <div class="perf-title">🔥 Current streak</div>
+        ${byStreak.length ? byStreak.map(x=>`<div class="perf-row"><div class="perf-song">${x.song}</div><div class="perf-val"><span class="streak-badge">🔥 ${x.stats.streak}d</span>${x.stats.isActive?' <span style="color:var(--up);font-size:10px">●</span>':''}</div></div>`).join('') : '<div class="no-data" style="padding:6px 0">—</div>'}
+      </div>`;
+  });
+}
+
+// ════════════════════════════════════════════════════════════════
+//  HISTORY TAB
+// ════════════════════════════════════════════════════════════════
+function setHistSrc(src) {
+  if (!DATA[src]) return;
+  histSrc = src;
+  document.getElementById('hist-pill-fr').className = 'src-pill fr' + (src === 'fr' ? ' on' : '');
+  document.getElementById('hist-pill-global').className = 'src-pill global' + (src === 'global' ? ' on' : '');
+  updateHistSongFilter();
+  renderHistory(src);
+}
+
+function resetHistRange() {
+  document.getElementById('hist-from').value = '';
+  document.getElementById('hist-to').value = '';
+  renderHistory(histSrc);
+}
+
+function updateHistSongFilter() {
+  const sel = document.getElementById('hist-song-filter');
+  const prev = sel.value;
+  const songs = getSongs(histSrc).sort();
+  sel.innerHTML = '<option value="">All songs</option>' +
+    songs.map(s => `<option value="${escQ(s)}"${s === prev ? ' selected' : ''}>${s}</option>`).join('');
+}
+
+function renderHistory(src) {
+  const el = document.getElementById('history-list');
+  if (!DATA[src]) { el.innerHTML = '<div class="no-data" style="padding:16px 0">Data unavailable.</div>'; return; }
+  const h = DATA[src];
+  let allDates = getAllDates(src).reverse();
+  const from = document.getElementById('hist-from').value;
+  const to   = document.getElementById('hist-to').value;
+  if (from) allDates = allDates.filter(d => d >= from);
+  if (to)   allDates = allDates.filter(d => d <= to);
+
+  const songFilter = document.getElementById('hist-song-filter').value;
+  const dates = allDates.slice(0, 120);
+  const allDatesFwd = getAllDates(src);
+
+  el.innerHTML = '<div class="hist-grid">' + dates.map(d => {
+    const present = Object.entries(h)
+      .filter(([song, e]) => e[d] && (!songFilter || song === songFilter))
+      .map(([song, e]) => {
+        const songDates = Object.keys(e).sort();
+        const idx = songDates.indexOf(d);
+        const prevDate = idx > 0 ? songDates[idx - 1] : null;
+        return { song, entry: e[d], prevEntry: prevDate ? e[prevDate] : null, out: false };
+      })
+      .sort((a,b) => (a.entry.rank||999) - (b.entry.rank||999));
+
+    const yesterday = allDatesFwd[allDatesFwd.indexOf(d) - 1];
+    const outSongs = (!songFilter && yesterday)
+      ? Object.entries(h)
+          .filter(([, e]) => e[yesterday] && !e[d])
+          .map(([song, e]) => ({ song, entry: e[yesterday], prevEntry: null, out: true }))
+      : [];
+
+    const all = [...present, ...outSongs];
+    if (!all.length) return '';
+
+    return `<div class="hist-day">
+      <div class="hist-date">${d}</div>
+      <div class="hist-songs">
+        ${all.map(({ song, entry, prevEntry, out }) => `
+          <div class="hist-row${out ? ' out' : ''}">
+            <span class="hist-rk">${out ? '—' : '#' + (entry.rank || '—')}</span>
+            ${out ? '<span class="delta-badge out">OUT</span>' : fmtDelta(entry)}
+            <span class="hist-name" onclick="openModal('${escQ(song)}')">${song}</span>
+            <span class="hist-streams">${out ? '—' : fmtN(entry.streams)}</span>
+            ${!out && prevEntry ? fmtPct(entry.streams, prevEntry.streams) : ''}
+          </div>`).join('')}
+      </div>
+    </div>`;
+  }).join('') + '</div>';
+}
+
+// ════════════════════════════════════════════════════════════════
+//  TAB SWITCHING
+// ════════════════════════════════════════════════════════════════
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab').forEach(b => b.classList.remove('on'));
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('on'));
+  btn.classList.add('on');
+  document.getElementById('tab-' + name).classList.add('on');
+  if (name === 'charts') setTimeout(() => { rankChart?.resize(); streamsChart?.resize(); }, 60);
+}
+
+// ════════════════════════════════════════════════════════════════
+//  INIT
+// ════════════════════════════════════════════════════════════════
+loadAll();
+</script>
+</body>
+</html>
