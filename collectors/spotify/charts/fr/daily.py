@@ -254,10 +254,9 @@ def main():
     processed = sorted(results.keys())
 
     # Contenu du tweet
-    if len(processed) == 1:
-        tweet_content = results[processed[0]]
-    else:
-        tweet_content = build_multi_tweet(processed)
+    _last_date = processed[-1]
+    _date_fmt  = _last_date.strftime("%B %d, %Y")
+    tweet_content = f"Taylor Swift on Spotify France Charts yesterday ({_date_fmt}) :"
 
     (ROOT / "twitter_post.txt").write_text(tweet_content, encoding="utf-8")
     log("INFO", "twitter_post.txt mis à jour")

@@ -30,8 +30,8 @@ ROOT                = Path(__file__).parent
 DATA_DIR            = ROOT / "data"
 TS_HISTORY_PATH     = ROOT / "ts_history.json"
 POP_HISTORY_PATH    = ROOT / "ts_pop_history.json"
-DISCOGRAPHY_ROOT = ROOT.parent.parent.parent.parent / "website" / "discography"
-COVERS_PATH      = DISCOGRAPHY_ROOT / "albums" / "covers.json"
+DISCOGRAPHY_ROOT = ROOT.parent.parent.parent.parent / "db" / "discography"
+COVERS_PATH      = DISCOGRAPHY_ROOT / "covers.json"
 HEADERS_DIR      = ROOT / "headers"
 HANDLE           = "@thefateofanas"
 
@@ -100,21 +100,21 @@ def build_cover_map() -> dict:
 
 
 def build_track_album_map() -> dict:
-    """Scans all discography album JSONs → {normalized_track_title → album_title}."""
-    albums_dir = DISCOGRAPHY_ROOT / "albums"
+    """Reads albums.json + songs.json → {normalized_track_title → album_title}."""
     result = {}
-    if not albums_dir.exists():
-        return result
-    for json_file in albums_dir.rglob("*.json"):
-        if json_file.name == "covers.json":
+    for json_file in [DISCOGRAPHY_ROOT / "albums.json", DISCOGRAPHY_ROOT / "songs.json"]:
+        if not json_file.exists():
             continue
         try:
-            data = json.loads(json_file.read_text(encoding="utf-8"))
-            album_name = data.get("album", "")
-            for track in data.get("tracks", []):
-                title = track.get("title", "")
-                if title:
-                    result[_norm(title)] = album_name
+            sections = json.loads(json_file.read_text(encoding="utf-8"))
+            for section in sections:
+                album_name = section.get("album", "")
+                if not album_name:
+                    continue
+                for track in section.get("tracks", []):
+                    title = track.get("title", "")
+                    if title:
+                        result[_norm(title)] = album_name
         except Exception:
             pass
     return result

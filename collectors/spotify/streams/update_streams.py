@@ -1532,7 +1532,7 @@ def main():
     while (
         not debug_mode
         and not summary["all_done"]
-        and summary["pending_this_run"] >= MIN_PENDING_TRACKS_FOR_RETRY
+        and summary["pending_this_run"] > summary["total_groups"] // 2
         and retry_round < MAX_PENDING_RETRY_ROUNDS
     ):
         retry_round += 1
