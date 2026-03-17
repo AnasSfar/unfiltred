@@ -358,10 +358,9 @@ const fmtPct = p =>
 
 const pCls = p => p == null ? '' : p >= 0 ? 'up' : 'dn';
 
-function chgLabel(rgn, name, rank, prevRank, date) {
+function chgLabel(rank, prevRank, totalDays) {
   if (prevRank == null) {
-    const before = Object.keys(S[rgn].hist[name] || {}).some(d => d < date);
-    return before ? ['RE', 'chg-re'] : ['NEW', 'chg-new'];
+    return (totalDays != null && totalDays > 0) ? ['RE', 'chg-re'] : ['NEW', 'chg-new'];
   }
   const d = Math.round(prevRank) - Math.round(rank);
   if (d > 0) return [`▲${d}`, 'chg-up'];
@@ -500,7 +499,8 @@ function buildChart(rgn, date, songs, outSongs, extra) {
 
   songs.forEach((s, i) => {
     const ex = extra[s.name] || {};
-    const [ct, cc] = chgLabel(rgn, s.name, s.rank, s.previous_rank, date);
+    const prevRank = ex.previous_rank != null ? ex.previous_rank : s.previous_rank;
+    const [ct, cc] = chgLabel(s.rank, prevRank, ex.total_days);
     const ts = s.streams;
     const d1 = prevStream(rgn, s.name, date, 1);
     const d7 = prevStream(rgn, s.name, date, 7);
