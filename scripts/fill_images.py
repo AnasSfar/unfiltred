@@ -28,7 +28,7 @@ from pathlib import Path
 
 ROOT       = Path(__file__).parent.parent
 DISCO_DIR  = ROOT / "website" / "discography" / "albums"
-SONGS_JSON = ROOT / "website" / "data" / "songs.json"
+SONGS_JSON = ROOT / "website" / "site" / "data" / "songs.json"
 COVERS_JSON = DISCO_DIR / "covers.json"
 HIST_JSON  = ROOT / "collectors" / "spotify" / "charts" / "global" / "ts_history.json"
 OUT_COVERS = ROOT / "spotify-charts" / "track_covers.json"
