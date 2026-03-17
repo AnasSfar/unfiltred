@@ -500,7 +500,10 @@ function buildChart(rgn, date, songs, outSongs, extra) {
   songs.forEach((s, i) => {
     const ex = extra[s.name] || {};
     const prevRank = ex.previous_rank != null ? ex.previous_rank : s.previous_rank;
-    const [ct, cc] = chgLabel(s.rank, prevRank, ex.total_days);
+    // For old dates without per-day JSON, infer re-entry from ts_history.json
+    const exTotalDays = ex.total_days != null ? ex.total_days
+      : (Object.keys(S[rgn].hist[s.name] || {}).some(d => d < date) ? 2 : null);
+    const [ct, cc] = chgLabel(s.rank, prevRank, exTotalDays);
     const ts = s.streams;
     const d1 = prevStream(rgn, s.name, date, 1);
     const d7 = prevStream(rgn, s.name, date, 7);
@@ -555,7 +558,7 @@ function buildChart(rgn, date, songs, outSongs, extra) {
     </div>
     <div class="col-heads">
       <span>POS</span><span>CHG</span><span>TRACK</span>
-      <span class="r">STREAMS</span><span class="r">DAILY</span><span class="r">WEEKLY</span>
+      <span class="r">STREAMS</span><span class="r">D%</span><span class="r">W%</span>
       <span class="r">STREAK</span><span class="r">TOTAL</span><span class="r">PEAK</span>
     </div>
     ${body}
@@ -694,14 +697,14 @@ async function renderSong(rgn, name) {
       : rd < 0 ? `<span style="color:var(--dn)">▼${Math.abs(rd)}</span>`
       : `<span style="color:var(--muted)">═</span>`;
     const sp   = prev?.streams;
-    const dpct = (entry.streams && sp) ? (entry.streams - sp) / sp * 100 : null;
+    const dpct = (entry.streams != null && sp != null) ? entry.streams - sp : null;
     const pk   = entry.peak_rank ? `#${entry.peak_rank}` : '—';
     histHtml += `
     <div class="hist-row ${i === 0 && act ? 'hl' : ''}">
       <span>${entry.date}</span>
       <span style="text-align:center;display:block">#${entry.rank}</span>
       <span class="r">${fmtN(entry.streams)}</span>
-      <span class="r ${pCls(dpct)}">${fmtPct(dpct)}</span>
+      <span class="r ${pCls(dpct)}">${dpct == null ? '—' : (dpct >= 0 ? '+' : '') + fmtN(dpct)}</span>
       <span class="r">${rdH}</span>
       <span style="text-align:center;display:block">${pk}</span>
     </div>`;
