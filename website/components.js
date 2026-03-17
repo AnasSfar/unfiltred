@@ -192,103 +192,41 @@ export function renderTopbar(){
 
   <div class="topbar">
 
-    <div class="hero-left">
-
-      <div class="artist-hero-card">
-
-        ${
-          artistImg
-          ? `<img class="artist-hero-photo"
-               src="${withCacheBuster(artistImg)}">`
-          : `<div class="artist-hero-photo artist-hero-photo-placeholder">${artist[0]}</div>`
-        }
-
-        <div class="artist-hero-content">
-
-          <div class="artist-hero-name">${artist}</div>
-
-          <div class="artist-daily-highlight">
-
-            <div class="artist-daily-big number-update">
-              +${formatFull(dailyStreams)}
-            </div>
-
-            <div class="artist-daily-label">
-              Daily streams
-            </div>
-
-            <div class="artist-total-line">
-              ${formatFull(totalStreams)} total streams
-            </div>
-
-          </div>
-
-          <div class="artist-monthly-box">
-
-            <div class="artist-monthly-text">
-
-              <div class="artist-monthly-label">
-                Monthly listeners
-              </div>
-
-              <div class="artist-monthly-value">
-                ${monthlyListeners!==null?formatFull(monthlyListeners):"N/A"}
-              </div>
-
-            </div>
-
-            <div class="artist-rank-badge">
-              ${monthlyRank!==null?`#${monthlyRank}`:"N/A"}
-            </div>
-
-          </div>
-
-          <div class="quick-meta-row">
-
-            <span class="quick-meta-chip">
-              Updated tracks: ${updatedTracks}/${state.songs.length}
-            </span>
-
-            <span class="quick-meta-chip">
-              Date: ${selected||"N/A"}
-            </span>
-
-          </div>
-
-          ${renderSparkline(sparklineData)}
-
+    <div class="tb-artist">
+      ${artistImg
+        ? `<img class="tb-photo" src="${withCacheBuster(artistImg)}">`
+        : `<div class="tb-photo tb-photo-ph">${artist[0]}</div>`
+      }
+      <div class="tb-info">
+        <div class="tb-name">${artist}</div>
+        <div class="tb-daily number-update">+${formatFull(dailyStreams)}</div>
+        <div class="tb-daily-lbl">daily streams</div>
+        <div class="tb-meta">
+          <span>${formatFull(totalStreams)} total</span>
+          ${monthlyListeners !== null
+            ? `<span class="tb-sep">·</span><span>${formatFull(monthlyListeners)} listeners</span>`
+            : ""}
+          ${monthlyRank !== null
+            ? `<span class="tb-rank">#${monthlyRank}</span>`
+            : ""}
         </div>
-
       </div>
-
     </div>
 
-    <div class="date-panel">
-
+    <div class="tb-right">
+      <div class="tb-chips">
+        <span class="tb-chip">${updatedTracks}/${state.songs.length} updated</span>
+        <span class="tb-chip">${selected}</span>
+      </div>
+      ${renderSparkline(sparklineData)}
       <div class="date-controls">
-
         <button id="prevDayBtn">←</button>
-
-        <input
-          id="dateInput"
-          type="date"
-          value="${selected}"
-          min="${state.dates[0]||""}"
-          max="${latest}"
-        >
-
+        <input id="dateInput" type="date" value="${selected}"
+          min="${state.dates[0]||""}" max="${latest}">
         <button id="nextDayBtn">→</button>
-
       </div>
-
-      <button id="updateBtn" class="update-btn">
-        Refresh data
-      </button>
-
-      <div class="${state.updateLogClass}">
-        ${state.updateLogText||""}
-      </div>
-
+      <button id="updateBtn" class="update-btn">Refresh data</button>
+      <div class="${state.updateLogClass}">${state.updateLogText||""}</div>
     </div>
 
   </div>

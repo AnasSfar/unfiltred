@@ -59,13 +59,18 @@ def slugify(text: str) -> str:
 
 def clean_title(title: str) -> str:
     """Normalise les apostrophes/guillemets mal encodés depuis Kworb."""
-    # Mojibake : U+FFFD + \x80\x99  →  '  (U+2019 mal décodé)
-    title = title.replace("\ufffd\x80\x99", "'")
-    title = title.replace("\ufffd\x80\x98", "'")
-    # Caractères de contrôle résiduels
+    # Mojibake: octets UTF-8 de U+2019 (â\x80\x99) lus en Latin-1
+    title = title.replace("\xe2\x80\x99", "'")   # ' right single quote
+    title = title.replace("\xe2\x80\x98", "'")   # ' left single quote
+    title = title.replace("\xe2\x80\x9c", '"')   # " left double quote
+    title = title.replace("\xe2\x80\x9d", '"')   # " right double quote
+    # Cas résiduel : \xe2 seul devant s/t/d (apostrophe coupée)
+    title = re.sub(r"\xe2(?=[stdnlST])", "'", title)
+    # Autres caractères de contrôle résiduels
     title = re.sub(r"[\x80-\x9f]", "", title)
-    # Normalise les guillemets typographiques en apostrophe droite
+    # Normalise les guillemets typographiques Unicode
     title = title.replace("\u2019", "'").replace("\u2018", "'")
+    title = title.replace("\u201c", '"').replace("\u201d", '"')
     return title.strip()
 
 
