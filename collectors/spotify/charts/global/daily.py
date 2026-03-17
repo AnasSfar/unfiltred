@@ -24,6 +24,7 @@ from core.notify import send as notify
 from playwright.sync_api import sync_playwright
 
 ROOT                  = Path(__file__).parent
+_REPO_ROOT            = ROOT.parents[3]
 CHART_ID              = "regional-global-daily"
 TWITTER_SESSION       = ROOT / "twitter_session.json"
 SPOTIFY_SESSION       = ROOT / "spotify_session.json"
@@ -304,6 +305,29 @@ def main():
             log("WARN", f"migrate_charts_to_csv.py a échoué (code {migrate_result.returncode})")
         else:
             log("INFO", "CSV charts history mis à jour")
+
+        log("STEP", "Git commit et push")
+        try:
+            subprocess.run(
+                ["git", "add", "collectors/spotify/charts/global/", "db/charts_history_global.csv"],
+                cwd=str(_REPO_ROOT), check=True,
+            )
+            diff = subprocess.run(
+                ["git", "diff", "--cached", "--quiet"],
+                cwd=str(_REPO_ROOT), check=False,
+            )
+            if diff.returncode != 0:
+                today = date.today().isoformat()
+                subprocess.run(
+                    ["git", "commit", "-m", f"charts global {today}"],
+                    cwd=str(_REPO_ROOT), check=True,
+                )
+                subprocess.run(["git", "push"], cwd=str(_REPO_ROOT), check=True)
+                log("INFO", "Git commit + push done.")
+            else:
+                log("INFO", "Rien à commit.")
+        except subprocess.CalledProcessError as e:
+            log("WARN", f"Git commit/push échoué : {e}")
 
         notify(
             NTFY_TOPIC,

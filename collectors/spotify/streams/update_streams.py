@@ -599,18 +599,21 @@ def purge_stale_tracks(streak: dict, tracks: list[dict]) -> list[str]:
 
 def git_commit_and_push(message: str | None = None) -> None:
     try:
-        subprocess.run(["git", "add", "."], check=True)
+        subprocess.run(
+            ["git", "add", "db/", "website/site/data/", "website/site/history/"],
+            cwd=str(_REPO_ROOT), check=True,
+        )
         diff = subprocess.run(
             ["git", "diff", "--cached", "--quiet"],
-            check=False,
+            cwd=str(_REPO_ROOT), check=False,
         )
         if diff.returncode == 0:
             print("No git changes to commit.")
             return
 
         msg = message or f"daily update {date.today().isoformat()}"
-        subprocess.run(["git", "commit", "-m", msg], check=True)
-        subprocess.run(["git", "push"], check=True)
+        subprocess.run(["git", "commit", "-m", msg], cwd=str(_REPO_ROOT), check=True)
+        subprocess.run(["git", "push"], cwd=str(_REPO_ROOT), check=True)
         print("Git commit + push done.")
     except subprocess.CalledProcessError as e:
         print(f"Git commit/push failed: {e}")
@@ -1410,14 +1413,29 @@ def main():
 
     ensure_history_file()
 
+    # ── Argument parsing ───────────────────────────────────────────────────────
+    # Usage:
+    #   python update_streams.py                   → run normal (with probe)
+    #   python update_streams.py 2025-10-02        → force stats date
+    #   python update_streams.py --debug           → skip probe, use today's date
+    #   python update_streams.py --debug 2025-10-02 → skip probe, force date
+    debug_mode = "--debug" in sys.argv
+    remaining_args = [a for a in sys.argv[1:] if a != "--debug"]
+
     stats_date_override = None
-    if len(sys.argv) > 1:
+    if remaining_args:
         try:
-            date.fromisoformat(sys.argv[1])
-            stats_date_override = sys.argv[1]
+            date.fromisoformat(remaining_args[0])
+            stats_date_override = remaining_args[0]
         except ValueError:
-            print(f"Invalid date '{sys.argv[1]}', expected YYYY-MM-DD")
+            print(f"Invalid date '{remaining_args[0]}', expected YYYY-MM-DD")
             sys.exit(1)
+
+    # En mode debug, si aucune date forcée, on utilise la date courante
+    # (pas d-1 comme en run normal) pour scraper sans attendre la mise à jour Spotify
+    if debug_mode and stats_date_override is None:
+        stats_date_override = date.today().isoformat()
+        print("[DEBUG] Mode debug activé — probe désactivé, date = aujourd'hui")
 
     stats_date = stats_date_override or get_stats_date_str()
     print(f"Target stats date: {stats_date}")
@@ -1431,7 +1449,7 @@ def main():
 
     print(f"Current progress for {stats_date}: {done_tracks_before_run}/{total_tracks}")
 
-    should_run_probe = done_tracks_before_run == 0 and stats_date_override is None
+    should_run_probe = done_tracks_before_run == 0 and stats_date_override is None and not debug_mode
 
     if should_run_probe:
         track_lookup = build_track_lookup(tracks)
@@ -1575,6 +1593,13 @@ def main():
         check=False,
     )
     print("Streams history CSV done.")
+
+    print("Posting streams image to Twitter...")
+    subprocess.run(
+        [sys.executable, str(_SCRIPT_DIR / "post_streams_twitter.py"), summary["stats_date"]],
+        check=False,
+    )
+    print("Twitter post done.")
 
     print("Rebuilding expected milestones forecast...")
     subprocess.run(
