@@ -44,10 +44,11 @@ MUSICBRAINZ_HEADERS = {
     "Accept": "application/json",
 }
 
-ROOT     = Path(__file__).parent
-DATA_DIR = ROOT / "data"
-SESSION_FILE = ROOT / "spotify_session.json"
+ROOT        = Path(__file__).parent
+DATA_DIR    = ROOT / "data"
+SESSION_FILE  = ROOT / "spotify_session.json"
 LOCAL_DB_FILE = ROOT / "songs_db.json"
+ARCHIVE_CSV   = Path(__file__).resolve().parents[4] / "db" / "charts_history_fr.csv"
 
 SLEEP_SECONDS = 0.20
 TS_NAME = "Taylor Swift"
