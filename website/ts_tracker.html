@@ -336,7 +336,7 @@ const REGIONS = {
     histUrl: () => '../collectors/spotify/charts/fr/ts_history.json',
     dayUrl:  d  => { const [y,m]=d.split('-'); return `../collectors/spotify/charts/fr/data/${y}/${m}/${d}/ts_chart_${d}.json`; },
     title:      'France Spotify',
-    coversUrl:  null,
+    coversUrl:  '../spotify-charts/track_covers.json',
   },
 };
 
