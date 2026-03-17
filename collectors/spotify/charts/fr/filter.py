@@ -670,8 +670,38 @@ def process_one(chart_date: str, db, ts_history):
     return new_calls
 
 
-def rebuild_from_ts_csvs(root: Path) -> dict:
+def seed_from_archive_csv() -> dict:
+    """Charge db/charts_history_fr.csv comme base historique initiale."""
+    import csv as _csv
     history = {}
+    if not ARCHIVE_CSV.exists():
+        print(f"  Avertissement: archive CSV introuvable ({ARCHIVE_CSV})")
+        return history
+    try:
+        with ARCHIVE_CSV.open(newline="", encoding="utf-8") as f:
+            for row in _csv.DictReader(f):
+                date = (row.get("date") or "").strip()
+                name = (row.get("song_name") or "").strip()
+                if not date or not name:
+                    continue
+                try:
+                    rank = int(row["rank"])
+                except (ValueError, TypeError, KeyError):
+                    continue
+                update(
+                    history, name, date, rank,
+                    row.get("streams"),
+                    previous_rank=row.get("previous_rank"),
+                    peak_rank=row.get("peak_rank"),
+                )
+        print(f"  Archive CSV: {sum(len(v) for v in history.values())} entrées chargées ({len(history)} chansons)")
+    except Exception as e:
+        print(f"  Avertissement: impossible de lire l'archive CSV: {e}")
+    return history
+
+
+def rebuild_from_ts_csvs(root: Path, initial: dict = None) -> dict:
+    history = {k: dict(v) for k, v in (initial or {}).items()}
     for csv_file in sorted(root.rglob("ts_all_songs.csv")):
         try:
             chart_date = csv_file.parent.name
@@ -770,7 +800,7 @@ def main():
             except Exception as e:
                 print(f"  X {d} - {e}")
 
-        history = rebuild_from_ts_csvs(DATA_DIR)
+        history = rebuild_from_ts_csvs(DATA_DIR, initial=seed_from_archive_csv())
         save(history, ROOT / "ts_history.json")
         print(f"  ts_history rebuilt - {len(history)} chansons")
         return
@@ -780,7 +810,7 @@ def main():
 
     process_one(target, db, h)
     save_db(db)
-    history = rebuild_from_ts_csvs(DATA_DIR)
+    history = rebuild_from_ts_csvs(DATA_DIR, initial=seed_from_archive_csv())
     save(history, ROOT / "ts_history.json")
     print(f"  ts_history rebuilt - {len(history)} chansons")
 
