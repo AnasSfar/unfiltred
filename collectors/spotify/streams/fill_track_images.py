@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+import json
 import sqlite3
+import sys
 import threading
 import time
 from pathlib import Path
@@ -9,11 +11,15 @@ from queue import Empty, Queue
 from playwright.sync_api import TimeoutError as PlaywrightTimeoutError
 from playwright.sync_api import sync_playwright
 
+sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-_SCRIPT_DIR = Path(__file__).resolve().parent
-_REPO_ROOT  = _SCRIPT_DIR.parents[2]
-ROOT        = _REPO_ROOT / "website"
-DB_PATH     = _REPO_ROOT / "db" / "songs.db"
+_SCRIPT_DIR   = Path(__file__).resolve().parent
+_REPO_ROOT    = _SCRIPT_DIR.parents[2]
+ROOT          = _REPO_ROOT / "website"
+DB_PATH       = _REPO_ROOT / "db" / "songs.db"
+DISCO_DIR     = _REPO_ROOT / "db" / "discography"
+SITE_SONGS    = ROOT / "site" / "data" / "songs.json"
+_DISCO_FILES  = ["albums.json", "songs.json"]
 
 HEADLESS = True
 MAX_PARALLEL_PAGES = 4
@@ -223,6 +229,44 @@ def run_fill_images(on_progress=None):
     return [r for r in results if r is not None]
 
 
+def propagate_to_jsons(found: dict[str, str]) -> None:
+    """Propagate track_id → image_url to discography JSONs and website songs.json."""
+    if not found:
+        return
+
+    # db/discography/albums.json and songs.json (list-of-sections format)
+    for fname in _DISCO_FILES:
+        path = DISCO_DIR / fname
+        if not path.exists():
+            continue
+        data = json.loads(path.read_text(encoding="utf-8"))
+        changed = False
+        sections = data if isinstance(data, list) else [data]
+        for section in sections:
+            for track in section.get("tracks", []):
+                url = track.get("url", "")
+                m = __import__("re").search(r"/track/([A-Za-z0-9]+)", url)
+                if m and m.group(1) in found:
+                    track["image_url"] = found[m.group(1)]
+                    changed = True
+        if changed:
+            path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+            print(f"Updated {path.name} ({len(found)} track(s))")
+
+    # website/site/data/songs.json (dict with "songs" list)
+    if SITE_SONGS.exists():
+        data = json.loads(SITE_SONGS.read_text(encoding="utf-8"))
+        changed = False
+        for song in data.get("songs", []):
+            tid = song.get("track_id")
+            if tid and tid in found:
+                song["image_url"] = found[tid]
+                changed = True
+        if changed:
+            SITE_SONGS.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+            print(f"Updated {SITE_SONGS.name}")
+
+
 def main():
     global START_TIME
     START_TIME = time.perf_counter()
@@ -232,6 +276,10 @@ def main():
     elapsed = time.perf_counter() - START_TIME
     updated = sum(1 for r in results if r["status"] == "updated")
     not_found = sum(1 for r in results if r["status"] == "not_found")
+
+    # Propagate found images to all JSONs
+    found = {r["track_id"]: r["image_url"] for r in results if r["status"] == "updated"}
+    propagate_to_jsons(found)
 
     print()
     print(f"Finished in {int(elapsed // 60)}m {int(elapsed % 60)}s")

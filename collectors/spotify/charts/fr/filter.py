@@ -324,7 +324,7 @@ def scrape_chart_rows(chart_date: str) -> list[dict]:
         try:
             with sync_playwright() as p:
                 browser = p.chromium.launch(
-                    headless=False,
+                    headless=True,
                     args=[
                         "--disable-blink-features=AutomationControlled",
                         "--disable-dev-shm-usage",

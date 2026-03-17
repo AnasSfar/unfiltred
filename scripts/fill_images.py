@@ -20,21 +20,28 @@ Usage:
 """
 import json
 import re
+import ssl
 import sys
 import time
 import urllib.request
 import urllib.error
 from pathlib import Path
 
-ROOT       = Path(__file__).parent.parent
-DISCO_DIR  = ROOT / "website" / "discography" / "albums"
-SONGS_JSON = ROOT / "website" / "site" / "data" / "songs.json"
+_SSL_CTX = ssl.create_default_context()
+_SSL_CTX.check_hostname = False
+_SSL_CTX.verify_mode = ssl.CERT_NONE
+
+sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
+ROOT        = Path(__file__).parent.parent
+DISCO_DIR   = ROOT / "db" / "discography"
+SONGS_JSON  = ROOT / "website" / "site" / "data" / "songs.json"
 COVERS_JSON = DISCO_DIR / "covers.json"
 HIST_JSON  = ROOT / "collectors" / "spotify" / "charts" / "global" / "ts_history.json"
 OUT_COVERS = ROOT / "spotify-charts" / "track_covers.json"
 
 FORCE  = "--force"  in sys.argv
-OEMBED = "--oembed" in sys.argv
+OEMBED = True  # always fetch via oEmbed for tracks missing image_url
 
 # ── helpers ────────────────────────────────────────────────────────────────
 
@@ -49,7 +56,7 @@ def oembed_image(track_url: str) -> str | None:
     api = f"https://open.spotify.com/oembed?url={track_url}"
     try:
         req = urllib.request.Request(api, headers={"User-Agent": "Mozilla/5.0"})
-        with urllib.request.urlopen(req, timeout=10) as r:
+        with urllib.request.urlopen(req, timeout=10, context=_SSL_CTX) as r:
             data = json.loads(r.read())
             thumb = data.get("thumbnail_url", "")
             # oEmbed gives a smaller size; upgrade to full 640x640
@@ -98,7 +105,8 @@ if ttpd_cover:
 
 # ── process discography JSONs ──────────────────────────────────────────────
 
-edition_files = [p for p in DISCO_DIR.rglob("*.json") if p.name != "covers.json"]
+_SKIP_FILES   = {"covers.json", "artist.json"}
+edition_files = [p for p in DISCO_DIR.rglob("*.json") if p.name not in _SKIP_FILES]
 edition_files.sort()
 
 total_tracks  = 0
@@ -114,7 +122,9 @@ for path in edition_files:
     with open(path, encoding="utf-8") as f:
         data = json.load(f)
 
-    tracks = data.get("tracks", [])
+    # Support both list-of-sections format and single dict-with-tracks format
+    sections = data if isinstance(data, list) else [data]
+    tracks = [t for section in sections for t in section.get("tracks", [])]
     changed = False
 
     for track in tracks:

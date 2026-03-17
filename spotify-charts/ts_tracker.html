@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Taylor Swift · Global Spotify Charts</title>
+  <title>Taylor Swift · Spotify Charts Tracker</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <style>
@@ -300,15 +300,18 @@
 <body>
 
 <nav class="nav">
-  <a class="nav-brand" href="#chart">
+  <a class="nav-brand" href="#global/chart">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
       <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
     </svg>
-    <div class="nav-title">Taylor Swift <span>· Global Charts</span></div>
+    <div class="nav-title">Taylor Swift <span>· Spotify Charts</span></div>
   </a>
   <div class="nav-links">
-    <a class="nav-link" href="#chart"   id="nl-chart">Today</a>
-    <a class="nav-link" href="#history" id="nl-history">History</a>
+    <a class="nav-link" href="#global/chart" id="nl-global">🌍 Global</a>
+    <a class="nav-link" href="#fr/chart"     id="nl-fr">🇫🇷 France</a>
+    <span style="width:1px;background:var(--border);margin:0 4px;align-self:stretch;display:inline-block"></span>
+    <a class="nav-link" id="nl-chart">Today</a>
+    <a class="nav-link" id="nl-history">History</a>
   </div>
 </nav>
 
@@ -318,15 +321,31 @@
 
 <script>
 /* ════════════════════════════════════════
-   CONFIG / STATE
+   CONFIG
 ════════════════════════════════════════ */
-const BASE = '../collectors/spotify/charts/global';
+const REGIONS = {
+  global: {
+    histUrl: () => '../collectors/spotify/charts/global/ts_history.json',
+    dayUrl:  d  => { const [y,m]=d.split('-'); return `../collectors/spotify/charts/global/${y}/${m}/${d}/ts_chart_${d}.json`; },
+    title:      'Global Spotify',
+    coversUrl:  'track_covers.json',
+  },
+  fr: {
+    histUrl: () => '../collectors/spotify/charts/fr/ts_history.json',
+    dayUrl:  d  => { const [y,m]=d.split('-'); return `../collectors/spotify/charts/fr/data/${y}/${m}/${d}/ts_chart_${d}.json`; },
+    title:      'France Spotify',
+    coversUrl:  null,
+  },
+};
 
-let hist     = {};   // {songName: {date: {rank, streams, previous_rank, peak_rank}}}
-let avail    = [];   // sorted list of all dates
-let imgCache = {};   // {songName: imageUrl}
-let dayCache = {};   // {date: [rows]}
-let cjs      = [];   // chart.js instances
+/* ════════════════════════════════════════
+   STATE (per region)
+════════════════════════════════════════ */
+const S = {
+  global: { hist:{}, avail:[], imgCache:{}, dayCache:{}, loaded:false },
+  fr:     { hist:{}, avail:[], imgCache:{}, dayCache:{}, loaded:false },
+};
+let cjs = [];
 
 /* ════════════════════════════════════════
    UTILS
@@ -339,9 +358,9 @@ const fmtPct = p =>
 
 const pCls = p => p == null ? '' : p >= 0 ? 'up' : 'dn';
 
-function chgLabel(name, rank, prevRank, date) {
+function chgLabel(rgn, name, rank, prevRank, date) {
   if (prevRank == null) {
-    const before = Object.keys(hist[name] || {}).some(d => d < date);
+    const before = Object.keys(S[rgn].hist[name] || {}).some(d => d < date);
     return before ? ['RE', 'chg-re'] : ['NEW', 'chg-new'];
   }
   const d = Math.round(prevRank) - Math.round(rank);
@@ -350,10 +369,10 @@ function chgLabel(name, rank, prevRank, date) {
   return ['=', 'chg-eq'];
 }
 
-function prevStream(name, date, days) {
+function prevStream(rgn, name, date, days) {
   const d = new Date(date + 'T00:00:00');
   d.setDate(d.getDate() - days);
-  return hist[name]?.[d.toISOString().slice(0,10)]?.streams ?? null;
+  return S[rgn].hist[name]?.[d.toISOString().slice(0,10)]?.streams ?? null;
 }
 
 const fmtDate = s => new Date(s + 'T00:00:00').toLocaleDateString('en-US',
@@ -364,43 +383,56 @@ function killCharts() {
   cjs = [];
 }
 
-function navActive(page) {
-  document.getElementById('nl-chart')  ?.classList.toggle('active', page === 'chart');
-  document.getElementById('nl-history')?.classList.toggle('active', page === 'history');
+function parseHash() {
+  const raw = decodeURIComponent(location.hash.slice(1)) || 'global/chart';
+  const parts = raw.split('/');
+  let rgn = 'global', rest = raw;
+  if (parts[0] === 'global' || parts[0] === 'fr') {
+    rgn  = parts[0];
+    rest = parts.slice(1).join('/') || 'chart';
+  }
+  return { rgn, rest };
+}
+
+function navActive(rgn, page) {
+  document.getElementById('nl-global') ?.classList.toggle('active', rgn === 'global');
+  document.getElementById('nl-fr')     ?.classList.toggle('active', rgn === 'fr');
+  const nlChart   = document.getElementById('nl-chart');
+  const nlHistory = document.getElementById('nl-history');
+  if (nlChart)   { nlChart.href   = `#${rgn}/chart`;   nlChart.classList.toggle('active',   page === 'chart'); }
+  if (nlHistory) { nlHistory.href = `#${rgn}/history`; nlHistory.classList.toggle('active', page === 'history'); }
 }
 
 /* ════════════════════════════════════════
    DATA LOADING
 ════════════════════════════════════════ */
-async function loadHist() {
-  const [rh, rc] = await Promise.all([
-    fetch(`${BASE}/ts_history.json`),
-    fetch('track_covers.json').catch(() => null),
-  ]);
-  if (!rh.ok) throw new Error('Cannot load ts_history.json');
-  hist = await rh.json();
-  // Pre-populate imgCache with curated album covers (takes priority over scraped CDN URLs)
-  if (rc?.ok) {
-    const covers = await rc.json();
-    Object.assign(imgCache, covers);
-  }
+async function loadHist(rgn) {
+  if (S[rgn].loaded) return;
+  const cfg = REGIONS[rgn];
+  const proms = [fetch(cfg.histUrl())];
+  if (cfg.coversUrl) proms.push(fetch(cfg.coversUrl).catch(() => null));
+  else               proms.push(Promise.resolve(null));
+  const [rh, rc] = await Promise.all(proms);
+  if (!rh.ok) throw new Error(`Cannot load ts_history.json (${rgn})`);
+  S[rgn].hist = await rh.json();
+  if (rc?.ok) Object.assign(S[rgn].imgCache, await rc.json());
   const s = new Set();
-  for (const dates of Object.values(hist))
+  for (const dates of Object.values(S[rgn].hist))
     for (const d of Object.keys(dates)) s.add(d);
-  avail = [...s].sort();
+  S[rgn].avail  = [...s].sort();
+  S[rgn].loaded = true;
 }
 
-async function loadDay(date) {
-  if (dayCache[date]) return dayCache[date];
-  const [y, m] = date.split('-');
+async function loadDay(rgn, date) {
+  if (S[rgn].dayCache[date]) return S[rgn].dayCache[date];
   try {
-    const r = await fetch(`${BASE}/${y}/${m}/${date}/ts_chart_${date}.json`);
+    const r = await fetch(REGIONS[rgn].dayUrl(date));
     if (!r.ok) return null;
     const data = await r.json();
-    dayCache[date] = data;
+    S[rgn].dayCache[date] = data;
     for (const row of data)
-      if (row.image_url && row.track_name && !imgCache[row.track_name])
-        imgCache[row.track_name] = row.image_url;
+      if (row.image_url && row.track_name && !S[rgn].imgCache[row.track_name])
+        S[rgn].imgCache[row.track_name] = row.image_url;
     return data;
   } catch { return null; }
 }
@@ -408,32 +440,32 @@ async function loadDay(date) {
 /* ════════════════════════════════════════
    COMPUTATIONS
 ════════════════════════════════════════ */
-function songsOn(date) {
+function songsOn(rgn, date) {
   const out = [];
-  for (const [name, dates] of Object.entries(hist)) {
+  for (const [name, dates] of Object.entries(S[rgn].hist)) {
     const e = dates[date];
     if (e) out.push({ name, ...e });
   }
   return out.sort((a, b) => a.rank - b.rank);
 }
 
-function outs(date) {
+function outs(rgn, date) {
   const d = new Date(date + 'T00:00:00');
   d.setDate(d.getDate() - 1);
   const yest = d.toISOString().slice(0, 10);
-  const today = new Set(songsOn(date).map(s => s.name));
-  return songsOn(yest).filter(s => !today.has(s.name));
+  const today = new Set(songsOn(rgn, date).map(s => s.name));
+  return songsOn(rgn, yest).filter(s => !today.has(s.name));
 }
 
-function tierDays(name) {
-  const vals = Object.values(hist[name] || {});
+function tierDays(rgn, name) {
+  const vals = Object.values(S[rgn].hist[name] || {});
   return Object.fromEntries(
     [5,10,15,20,30,50,100,200].map(t => [t, vals.filter(v => v.rank <= t).length])
   );
 }
 
-function songStats(name) {
-  const entries = Object.entries(hist[name] || {});
+function songStats(rgn, name) {
+  const entries = Object.entries(S[rgn].hist[name] || {});
   if (!entries.length) return null;
   let peak = Infinity, best = 0;
   for (const [, v] of entries) {
@@ -443,14 +475,14 @@ function songStats(name) {
   return { peak, best, total: entries.length };
 }
 
-function songHist(name) {
-  return Object.entries(hist[name] || {})
+function songHist(rgn, name) {
+  return Object.entries(S[rgn].hist[name] || {})
     .map(([date, v]) => ({ date, ...v }))
     .sort((a, b) => a.date.localeCompare(b.date));
 }
 
-function isActive(name) {
-  const h = songHist(name);
+function isActive(rgn, name) {
+  const h = songHist(rgn, name);
   if (!h.length) return false;
   return Date.now() - new Date(h[h.length-1].date + 'T00:00:00').getTime() < 10 * 86400_000;
 }
@@ -462,23 +494,22 @@ const SPOTIFY_SVG = `<svg width="46" height="46" viewBox="0 0 24 24" fill="white
   <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
 </svg>`;
 
-function buildChart(date, songs, outSongs, extra) {
-  // extra = {trackName: {image_url, streak, total_days}}
+function buildChart(rgn, date, songs, outSongs, extra) {
   const df = fmtDate(date);
   let body = '';
 
   songs.forEach((s, i) => {
     const ex = extra[s.name] || {};
-    const [ct, cc] = chgLabel(s.name, s.rank, s.previous_rank, date);
+    const [ct, cc] = chgLabel(rgn, s.name, s.rank, s.previous_rank, date);
     const ts = s.streams;
-    const d1 = prevStream(s.name, date, 1);
-    const d7 = prevStream(s.name, date, 7);
+    const d1 = prevStream(rgn, s.name, date, 1);
+    const d7 = prevStream(rgn, s.name, date, 7);
     const dp = (ts && d1) ? (ts - d1) / d1 * 100 : null;
     const wp = (ts && d7) ? (ts - d7) / d7 * 100 : null;
     const strk = ex.streak    ? `${Math.round(ex.streak)}d`     : '—';
     const tot  = ex.total_days ? `${Math.round(ex.total_days)}d` : '—';
     const pk   = s.peak_rank;
-    const img  = imgCache[s.name] || ex.image_url;
+    const img  = S[rgn].imgCache[s.name] || ex.image_url;
     const art  = img
       ? `<img class="track-art" src="${img}" loading="lazy" alt="">`
       : `<div class="track-art-ph">♪</div>`;
@@ -486,7 +517,7 @@ function buildChart(date, songs, outSongs, extra) {
       ? `<span class="peak-pill${pk === 1 ? ' p1' : ''}">#${pk}</span>` : '—';
     const cls  = s.rank === 1 ? 'gold' : (i % 2 !== 0 ? 'odd' : '');
 
-    body += `<a class="song-row ${cls}" href="#song/${encodeURIComponent(s.name)}">
+    body += `<a class="song-row ${cls}" href="#${rgn}/song/${encodeURIComponent(s.name)}">
       <div class="col-pos">#${s.rank}</div>
       <div class="col-chg ${cc}">${ct}</div>
       <div class="col-track">${art}<div><div class="track-name">${s.name}</div><div class="track-artist">Taylor Swift</div></div></div>
@@ -502,7 +533,7 @@ function buildChart(date, songs, outSongs, extra) {
   if (outSongs.length) {
     body += `<div class="out-sep">↩ Left the chart</div>`;
     outSongs.forEach(s => {
-      const img = imgCache[s.name];
+      const img = S[rgn].imgCache[s.name];
       const art = img
         ? `<img class="track-art" src="${img}" loading="lazy" alt="">`
         : `<div class="track-art-ph">♪</div>`;
@@ -518,7 +549,7 @@ function buildChart(date, songs, outSongs, extra) {
     <div class="chart-hdr">
       ${SPOTIFY_SVG}
       <div>
-        <div class="chart-hdr-title">Taylor Swift · Global Spotify</div>
+        <div class="chart-hdr-title">Taylor Swift · ${REGIONS[rgn].title}</div>
         <div class="chart-hdr-sub">Daily Chart · ${df}</div>
       </div>
     </div>
@@ -540,33 +571,36 @@ function buildChart(date, songs, outSongs, extra) {
 ════════════════════════════════════════ */
 function route() {
   killCharts();
-  const hash = decodeURIComponent(location.hash.slice(1)) || 'chart';
-  if      (hash.startsWith('song/'))   renderSong(hash.slice(5));
-  else if (hash.startsWith('history')) renderHistory(hash.split('/')[1] || avail[avail.length - 1]);
-  else                                 renderToday();
+  const { rgn, rest } = parseHash();
+  if      (rest.startsWith('song/'))   renderSong(rgn, rest.slice(5));
+  else if (rest.startsWith('history')) renderHistory(rgn, rest.split('/')[1] || S[rgn].avail[S[rgn].avail.length - 1]);
+  else                                 renderToday(rgn);
 }
 
 /* ════════════════════════════════════════
    PAGE: TODAY
 ════════════════════════════════════════ */
-async function renderToday() {
-  navActive('chart');
+async function renderToday(rgn) {
+  navActive(rgn, 'chart');
   const app = document.getElementById('app');
   app.innerHTML = `<div class="loading"><div class="spinner"></div> Loading…</div>`;
 
-  const date    = avail[avail.length - 1];
-  const dayData = await loadDay(date);
+  await loadHist(rgn);
+  const date    = S[rgn].avail[S[rgn].avail.length - 1];
+  const dayData = await loadDay(rgn, date);
   const extra   = {};
   if (dayData) for (const r of dayData) extra[r.track_name] = r;
 
-  app.innerHTML = buildChart(date, songsOn(date), outs(date), extra);
+  app.innerHTML = buildChart(rgn, date, songsOn(rgn, date), outs(rgn, date), extra);
 }
 
 /* ════════════════════════════════════════
    PAGE: HISTORY
 ════════════════════════════════════════ */
-async function renderHistory(date) {
-  navActive('history');
+async function renderHistory(rgn, date) {
+  navActive(rgn, 'history');
+  await loadHist(rgn);
+  const avail = S[rgn].avail;
   if (!date || !avail.includes(date)) date = avail[avail.length - 1];
   const app = document.getElementById('app');
 
@@ -597,41 +631,41 @@ async function renderHistory(date) {
     const nearest = avail.includes(v) ? v
       : avail.reduce((a, b) =>
           Math.abs(new Date(b) - new Date(v)) < Math.abs(new Date(a) - new Date(v)) ? b : a);
-    location.hash = `history/${nearest}`;
+    location.hash = `${rgn}/history/${nearest}`;
   });
-  if (prev) document.getElementById('hprev').onclick = () => { location.hash = `history/${prev}`; };
-  if (next) document.getElementById('hnext').onclick = () => { location.hash = `history/${next}`; };
+  if (prev) document.getElementById('hprev').onclick = () => { location.hash = `${rgn}/history/${prev}`; };
+  if (next) document.getElementById('hnext').onclick = () => { location.hash = `${rgn}/history/${next}`; };
 
-  const dayData = await loadDay(date);
+  const dayData = await loadDay(rgn, date);
   const extra = {};
   if (dayData) for (const r of dayData) extra[r.track_name] = r;
 
   document.getElementById('hchart').innerHTML =
-    buildChart(date, songsOn(date), outs(date), extra);
+    buildChart(rgn, date, songsOn(rgn, date), outs(rgn, date), extra);
 }
 
 /* ════════════════════════════════════════
    PAGE: SONG
 ════════════════════════════════════════ */
-async function renderSong(name) {
-  navActive('');
+async function renderSong(rgn, name) {
+  navActive(rgn, '');
+  await loadHist(rgn);
   const app = document.getElementById('app');
   app.innerHTML = `<div class="loading"><div class="spinner"></div> Loading…</div>`;
 
-  const h = songHist(name);
+  const h = songHist(rgn, name);
   if (!h.length) {
     app.innerHTML = `<div class="empty">Song not found: <em>${name}</em></div>`;
     return;
   }
 
-  // ensure image is cached
-  if (!imgCache[name]) await loadDay(h[h.length - 1].date);
+  if (!S[rgn].imgCache[name]) await loadDay(rgn, h[h.length - 1].date);
 
-  const st  = songStats(name);
-  const tr  = tierDays(name);
-  const act = isActive(name);
+  const st  = songStats(rgn, name);
+  const tr  = tierDays(rgn, name);
+  const act = isActive(rgn, name);
   const last = h[h.length - 1];
-  const img  = imgCache[name];
+  const img  = S[rgn].imgCache[name];
 
   const art = img
     ? `<img class="song-art" src="${img}" alt="${name}">`
@@ -675,7 +709,7 @@ async function renderSong(name) {
 
   app.innerHTML = `
   <div class="breadcrumb">
-    <a href="#chart">Charts</a> <span>›</span> <span>${name}</span>
+    <a href="#${rgn}/chart">Charts</a> <span>›</span> <span>${name}</span>
   </div>
 
   <div class="song-hdr">
@@ -797,7 +831,8 @@ async function renderSong(name) {
 ════════════════════════════════════════ */
 async function init() {
   try {
-    await loadHist();
+    const { rgn } = parseHash();
+    await loadHist(rgn);
     window.addEventListener('hashchange', route);
     route();
   } catch(e) {

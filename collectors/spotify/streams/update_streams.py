@@ -1626,6 +1626,13 @@ def main():
         )
         print("Image URLs done.")
 
+        print("Fetching missing track cover images from Spotify...")
+        subprocess.run(
+            [sys.executable, str(_SCRIPT_DIR / "fill_track_images.py")],
+            check=False,
+        )
+        print("Track cover images done.")
+
         print("Scraping Billboard charts...")
         _BILLBOARD_SCRIPT = _REPO_ROOT / "collectors" / "billboard" / "scrape_billboard.py"
         if _BILLBOARD_SCRIPT.exists():
