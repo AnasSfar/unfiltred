@@ -17,6 +17,8 @@ export function renderNav() {
 
     <nav class="nav">
 
+      <a href="../index.html" title="Home" style="margin-right:4px">🏠</a>
+
       <a href="index.html"
         class="${state.page==="home"?"active":""}">
         Top Songs
