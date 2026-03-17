@@ -902,6 +902,7 @@ def try_apply_track_update(
     stats_date: str,
     lock: threading.Lock,
     publish_lock: threading.Lock,
+    debug_mode: bool = False,
 ) -> dict:
     track_id = track["track_id"]
     last_total = get_last_history_total(track_id)
@@ -910,7 +911,9 @@ def try_apply_track_update(
 
     update_song_in_db(track_id, total, daily, scrape_date)
 
-    if real_update or last_total is None:
+    # En mode debug on ne touche pas à streams_history — on veut juste
+    # peupler le DB sans polluer les dates avant l'update officiel Spotify.
+    if not debug_mode and (real_update or last_total is None):
         row = [stats_date, track_id, total, daily if daily is not None else ""]
         with lock:
             append_history_row(row)
@@ -1072,6 +1075,7 @@ def _worker(
     track_lookup,
     processed_track_ids,
     processed_title_keys,
+    debug_mode=False,
 ):
     p = sync_playwright().start()
     browser = launch_browser(p)
@@ -1184,6 +1188,7 @@ def _worker(
                         stats_date=stats_date,
                         lock=lock,
                         publish_lock=publish_lock,
+                        debug_mode=debug_mode,
                     )
                     group_result["raw"] = raw
                     group_results.append(group_result)
@@ -1223,6 +1228,7 @@ def _worker(
                             stats_date=stats_date,
                             lock=lock,
                             publish_lock=publish_lock,
+                            debug_mode=debug_mode,
                         )
 
             with lock:
@@ -1239,7 +1245,7 @@ def _worker(
         p.stop()
 
 
-def run_update(on_progress=None, skip_track_ids: set | None = None, stats_date_override: str | None = None):
+def run_update(on_progress=None, skip_track_ids: set | None = None, stats_date_override: str | None = None, debug_mode: bool = False):
     ensure_history_file()
 
     scrape_date = get_scrape_date_str()
@@ -1321,6 +1327,7 @@ def run_update(on_progress=None, skip_track_ids: set | None = None, stats_date_o
                     track_lookup,
                     processed_track_ids,
                     processed_title_keys,
+                    debug_mode,
                 ),
                 daemon=True,
             )
@@ -1431,11 +1438,8 @@ def main():
             print(f"Invalid date '{remaining_args[0]}', expected YYYY-MM-DD")
             sys.exit(1)
 
-    # En mode debug, si aucune date forcée, on utilise la date courante
-    # (pas d-1 comme en run normal) pour scraper sans attendre la mise à jour Spotify
-    if debug_mode and stats_date_override is None:
-        stats_date_override = date.today().isoformat()
-        print("[DEBUG] Mode debug activé — probe désactivé, date = aujourd'hui")
+    if debug_mode:
+        print("[DEBUG] Mode debug activé — probe désactivé, pas de date associée")
 
     stats_date = stats_date_override or get_stats_date_str()
     print(f"Target stats date: {stats_date}")
@@ -1443,11 +1447,14 @@ def main():
     active_track_ids = load_active_track_ids_from_discography()
     tracks = load_tracks_from_db(active_track_ids)
 
-    already_done_for_stats_date = load_today_history_track_ids(stats_date)
+    already_done_for_stats_date = set() if debug_mode else load_today_history_track_ids(stats_date)
     done_tracks_before_run = len(already_done_for_stats_date)
     total_tracks = len(tracks)
 
-    print(f"Current progress for {stats_date}: {done_tracks_before_run}/{total_tracks}")
+    if debug_mode:
+        print(f"[DEBUG] Scraping {total_tracks} tracks (aucune date associée)")
+    else:
+        print(f"Current progress for {stats_date}: {done_tracks_before_run}/{total_tracks}")
 
     should_run_probe = done_tracks_before_run == 0 and stats_date_override is None and not debug_mode
 
@@ -1513,7 +1520,7 @@ def main():
     print("Full run")
     print("=" * 70)
 
-    summary = run_update(on_progress=live_progress, stats_date_override=stats_date_override)
+    summary = run_update(on_progress=live_progress, stats_date_override=stats_date_override, debug_mode=debug_mode)
     print_summary_block(summary)
 
     # Accumulate not_found track IDs so retries skip them entirely
@@ -1523,7 +1530,8 @@ def main():
 
     retry_round = 0
     while (
-        not summary["all_done"]
+        not debug_mode
+        and not summary["all_done"]
         and summary["pending_this_run"] >= MIN_PENDING_TRACKS_FOR_RETRY
         and retry_round < MAX_PENDING_RETRY_ROUNDS
     ):
@@ -1594,34 +1602,37 @@ def main():
     )
     print("Streams history CSV done.")
 
-    print("Posting streams image to Twitter...")
-    subprocess.run(
-        [sys.executable, str(_SCRIPT_DIR / "post_streams_twitter.py"), summary["stats_date"]],
-        check=False,
-    )
-    print("Twitter post done.")
-
-    print("Rebuilding expected milestones forecast...")
-    subprocess.run(
-        [sys.executable, str(_SCRIPT_DIR / "forecast_milestones.py")],
-        check=True,
-    )
-    print("Expected milestones forecast done.")
-
-    print("Refreshing image URLs + track_covers.json...")
-    subprocess.run(
-        [sys.executable, str(_REPO_ROOT / "scripts" / "fill_images.py")],
-        check=True,
-    )
-    print("Image URLs done.")
-
-    print("Scraping Billboard charts...")
-    _BILLBOARD_SCRIPT = _REPO_ROOT / "collectors" / "billboard" / "scrape_billboard.py"
-    if _BILLBOARD_SCRIPT.exists():
-        subprocess.run([sys.executable, str(_BILLBOARD_SCRIPT)], check=False)
-        print("Billboard scrape done.")
+    if debug_mode:
+        print("[DEBUG] Skip : Twitter, forecast, images, Billboard, notify.")
     else:
-        print("Billboard scraper not found, skipping.")
+        print("Posting streams image to Twitter...")
+        subprocess.run(
+            [sys.executable, str(_SCRIPT_DIR / "post_streams_twitter.py"), summary["stats_date"]],
+            check=False,
+        )
+        print("Twitter post done.")
+
+        print("Rebuilding expected milestones forecast...")
+        subprocess.run(
+            [sys.executable, str(_SCRIPT_DIR / "forecast_milestones.py")],
+            check=True,
+        )
+        print("Expected milestones forecast done.")
+
+        print("Refreshing image URLs + track_covers.json...")
+        subprocess.run(
+            [sys.executable, str(_REPO_ROOT / "scripts" / "fill_images.py")],
+            check=True,
+        )
+        print("Image URLs done.")
+
+        print("Scraping Billboard charts...")
+        _BILLBOARD_SCRIPT = _REPO_ROOT / "collectors" / "billboard" / "scrape_billboard.py"
+        if _BILLBOARD_SCRIPT.exists():
+            subprocess.run([sys.executable, str(_BILLBOARD_SCRIPT)], check=False)
+            print("Billboard scrape done.")
+        else:
+            print("Billboard scraper not found, skipping.")
 
     print("Git commit and push...")
     git_commit_and_push(f"daily final export {summary['stats_date']}")
@@ -1632,13 +1643,14 @@ def main():
     print(f"Done: {summary['done_tracks']}/{summary['total_tracks']}")
     print(f"Remaining: {summary['remaining_tracks']}")
 
-    notify(
-        NTFY_TOPIC,
-        f"{summary['done_tracks']}/{summary['total_tracks']} tracks mis à jour ({summary['stats_date']})\n"
-        f"Durée : {int(elapsed // 60)}m {int(elapsed % 60)}s",
-        title="Taylor Swift - Streams mis à jour",
-        tags="white_check_mark,chart_increasing",
-    )
+    if not debug_mode:
+        notify(
+            NTFY_TOPIC,
+            f"{summary['done_tracks']}/{summary['total_tracks']} tracks mis à jour ({summary['stats_date']})\n"
+            f"Durée : {int(elapsed // 60)}m {int(elapsed % 60)}s",
+            title="Taylor Swift - Streams mis à jour",
+            tags="white_check_mark,chart_increasing",
+        )
     
 
 if __name__ == "__main__":
