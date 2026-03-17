@@ -110,58 +110,101 @@ a{
   z-index:5;
 }
 
-.nav-row{
+/* ─── SITE NAV ─── */
+.site-nav{
+  position:sticky;
+  top:0;
+  z-index:500;
+  background:rgba(255,255,255,.97);
+  backdrop-filter:blur(18px) saturate(160%);
+  -webkit-backdrop-filter:blur(18px) saturate(160%);
+  border-bottom:1px solid rgba(16,24,40,.09);
+  box-shadow:0 1px 8px rgba(16,24,40,.07);
+  /* break out of .page padding */
+  margin:-24px -24px 24px;
+}
+
+.site-nav-inner{
+  max-width:1540px;
+  margin:0 auto;
+  padding:0 24px;
+  height:56px;
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  gap:16px;
-  margin-bottom:18px;
-  position:relative;
-  z-index:300;
+  gap:0;
 }
 
-.nav{
+.site-nav-brand{
   display:flex;
-  gap:10px;
-  flex-wrap:wrap;
+  align-items:center;
+  gap:9px;
+  text-decoration:none;
+  color:#101828;
+  font-size:14px;
+  font-weight:800;
+  letter-spacing:-0.02em;
+  margin-right:28px;
+  flex-shrink:0;
+  transition:opacity .15s;
+}
+.site-nav-brand:hover{ opacity:.75; }
+
+.site-nav-brand svg{ color:var(--accent); flex-shrink:0; }
+
+.site-nav-brand em{
+  font-style:normal;
+  font-weight:500;
+  color:#6b7280;
+  margin-left:3px;
 }
 
-.nav a{
+.site-nav-links{
+  display:flex;
+  gap:2px;
+  flex:1;
+}
+
+.site-nav-links a{
   display:inline-flex;
   align-items:center;
-  justify-content:center;
-  min-height:42px;
-  padding:10px 16px;
-  border-radius:999px;
-  font-weight:800;
+  padding:7px 13px;
+  border-radius:8px;
   font-size:13px;
-  text-transform:uppercase;
-  letter-spacing:0.05em;
-  background:var(--surface);
-  backdrop-filter:var(--glass-blur) saturate(160%);
-  -webkit-backdrop-filter:var(--glass-blur) saturate(160%);
-  border:1px solid var(--line);
-  box-shadow:var(--shadow-soft);
-  transition:
-    transform .18s ease,
-    box-shadow .18s ease,
-    border-color .18s ease,
-    background .18s ease,
-    color .18s ease;
+  font-weight:600;
+  color:#6b7280;
+  text-decoration:none;
+  transition:background .14s,color .14s;
+  white-space:nowrap;
 }
-
-.nav a:hover{
-  transform:translateY(-1px);
-  box-shadow:var(--shadow);
-  border-color:var(--hover-border);
+.site-nav-links a:hover{
+  background:#f3f4f6;
+  color:#101828;
 }
-
-.nav a.active{
-  background:linear-gradient(135deg,var(--accent) 0%, var(--accent-2) 100%);
+.site-nav-links a.active{
+  background:#101828;
   color:#fff;
-  border-color:transparent;
-  box-shadow:0 10px 24px rgba(196,70,21,.26);
 }
+.site-nav-links a.nav-home{
+  opacity:.6;
+  font-size:14px;
+}
+
+.site-nav-end{
+  margin-left:auto;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+/* dark mode */
+body[data-theme="dark"] .site-nav{
+  background:rgba(15,20,35,.97);
+  border-bottom-color:rgba(255,255,255,.08);
+}
+body[data-theme="dark"] .site-nav-brand{ color:#e8ecf3; }
+body[data-theme="dark"] .site-nav-links a{ color:#8892a4; }
+body[data-theme="dark"] .site-nav-links a:hover{ background:#1f2937; color:#e8ecf3; }
+body[data-theme="dark"] .site-nav-links a.active{ background:#e8ecf3; color:#111827; }
 
 .theme-switcher{
   position:relative;
@@ -170,26 +213,30 @@ a{
 }
 
 .theme-toggle-btn{
-  border:1px solid rgba(16,24,40,.08);
-  background:var(--surface);
+  border:1px solid rgba(16,24,40,.10);
+  background:transparent;
   color:var(--text);
-  border-radius:999px;
-  padding:10px 14px;
+  border-radius:8px;
+  padding:7px 12px;
   font:inherit;
-  font-weight:800;
+  font-size:13px;
+  font-weight:600;
   cursor:pointer;
-  box-shadow:var(--shadow-soft);
-  transition:
-    transform .18s ease,
-    box-shadow .18s ease,
-    border-color .18s ease,
-    background .18s ease;
+  transition:background .14s,border-color .14s;
 }
 
 .theme-toggle-btn:hover{
-  transform:translateY(-1px);
-  box-shadow:var(--shadow);
-  border-color:var(--hover-border);
+  background:#f3f4f6;
+  border-color:rgba(16,24,40,.18);
+}
+
+body[data-theme="dark"] .theme-toggle-btn{
+  border-color:rgba(255,255,255,.12);
+  color:#e8ecf3;
+}
+body[data-theme="dark"] .theme-toggle-btn:hover{
+  background:#1f2937;
+  border-color:rgba(255,255,255,.22);
 }
 
 .theme-menu{
@@ -2515,6 +2562,8 @@ body{
 }
 .alb-toolbar button:hover { background: rgba(255,255,255,.25); }
 .alb-toolbar button.active { background: rgba(196,70,21,.80); border-color: transparent; }
+.alb-dl-btn { background: rgba(29,185,84,.18) !important; border-color: rgba(29,185,84,.35) !important; }
+.alb-dl-btn:hover { background: rgba(29,185,84,.30) !important; }
 
 /* Column headers */
 .alb-col-heads {

@@ -15,6 +15,227 @@ import {
 } from "./components.js";
 
 /* =========================
+   ALBUM IMAGE DOWNLOAD
+========================= */
+
+function _loadImg(url) {
+  return new Promise((res, rej) => {
+    const img = new Image();
+    img.crossOrigin = "anonymous";
+    img.onload  = () => res(img);
+    img.onerror = rej;
+    img.src = url;
+  });
+}
+
+function _rrect(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y);
+  ctx.arcTo(x + w, y,     x + w, y + r,     r);
+  ctx.lineTo(x + w, y + h - r);
+  ctx.arcTo(x + w, y + h, x + w - r, y + h, r);
+  ctx.lineTo(x + r, y + h);
+  ctx.arcTo(x, y + h,     x, y + h - r,     r);
+  ctx.lineTo(x, y + r);
+  ctx.arcTo(x, y,         x + r, y,         r);
+  ctx.closePath();
+}
+
+function _clip(ctx, x, y, w, h, r) {
+  _rrect(ctx, x, y, w, h, r);
+  ctx.clip();
+}
+
+function _ellipsis(ctx, text, maxW) {
+  if (ctx.measureText(text).width <= maxW) return text;
+  let t = text;
+  while (t.length && ctx.measureText(t + "…").width > maxW) t = t.slice(0, -1);
+  return t + "…";
+}
+
+async function downloadAlbumImage(albumName, blocks, totalStreams, totalDaily, dateLabel, coverUrl) {
+  const W = 800, SCALE = 2;
+  const PAD = 16, HDR_H = 132, COL_H = 36, ROW_H = 52, FTR_H = 44;
+
+  const songs = blocks
+    .flatMap(b => b.songs)
+    .sort((a, b) => (b.daily_streams || 0) - (a.daily_streams || 0))
+    .slice(0, 10);
+
+  const H = PAD + HDR_H + COL_H + songs.length * ROW_H + FTR_H + PAD;
+
+  const canvas = document.createElement("canvas");
+  canvas.width  = W * SCALE;
+  canvas.height = H * SCALE;
+  const ctx = canvas.getContext("2d");
+  ctx.scale(SCALE, SCALE);
+
+  /* — background — */
+  const bgGrad = ctx.createLinearGradient(0, 0, 0, H);
+  bgGrad.addColorStop(0, "#f4f7f8");
+  bgGrad.addColorStop(1, "#edf3f4");
+  ctx.fillStyle = bgGrad;
+  ctx.fillRect(0, 0, W, H);
+
+  /* — card shadow + white bg — */
+  const cx = PAD, cy = PAD, cw = W - PAD * 2, ch = H - PAD * 2;
+  ctx.fillStyle = "#fff";
+  _rrect(ctx, cx, cy, cw, ch, 18);
+  ctx.fill();
+
+  /* — header dark bg — */
+  ctx.save();
+  ctx.beginPath();
+  ctx.moveTo(cx + 18, cy);
+  ctx.lineTo(cx + cw - 18, cy);
+  ctx.arcTo(cx + cw, cy,     cx + cw, cy + 18, 18);
+  ctx.lineTo(cx + cw, cy + HDR_H);
+  ctx.lineTo(cx, cy + HDR_H);
+  ctx.lineTo(cx, cy + 18);
+  ctx.arcTo(cx, cy,     cx + 18, cy, 18);
+  ctx.closePath();
+  ctx.clip();
+
+  const hGrad = ctx.createLinearGradient(cx, cy, cx + cw, cy + HDR_H);
+  hGrad.addColorStop(0, "#0d1117");
+  hGrad.addColorStop(0.55, "#131e15");
+  hGrad.addColorStop(1, "#0e1c24");
+  ctx.fillStyle = hGrad;
+  ctx.fillRect(cx, cy, cw, HDR_H);
+
+  /* green ambient */
+  const g1 = ctx.createRadialGradient(cx + cw * .75, cy + HDR_H * .5, 0, cx + cw * .75, cy + HDR_H * .5, 160);
+  g1.addColorStop(0, "rgba(29,185,84,.18)"); g1.addColorStop(1, "transparent");
+  ctx.fillStyle = g1; ctx.fillRect(cx, cy, cw, HDR_H);
+
+  /* — album cover — */
+  const SZ = 92, ax = cx + 20, ay = cy + (HDR_H - SZ) / 2;
+  try {
+    const img = await _loadImg(coverUrl);
+    ctx.save(); _clip(ctx, ax, ay, SZ, SZ, 10);
+    ctx.drawImage(img, ax, ay, SZ, SZ);
+    ctx.restore();
+  } catch {
+    ctx.fillStyle = "#1f2937"; _rrect(ctx, ax, ay, SZ, SZ, 10); ctx.fill();
+  }
+  ctx.restore();
+
+  /* — header text — */
+  const tx = ax + SZ + 20;
+  ctx.fillStyle = "#fff";
+  ctx.font = "800 21px Inter,system-ui,sans-serif";
+  ctx.textBaseline = "alphabetic";
+  ctx.fillText(_ellipsis(ctx, albumName, cw - SZ - 60), tx, cy + 42);
+
+  ctx.fillStyle = "rgba(255,255,255,.6)";
+  ctx.font = "500 12.5px Inter,system-ui,sans-serif";
+  ctx.fillText("Taylor Swift · " + dateLabel, tx, cy + 64);
+
+  ctx.fillStyle = "#e8e8e8";
+  ctx.font = "700 15px Inter,system-ui,sans-serif";
+  ctx.fillText(formatFull(totalStreams) + " total streams", tx, cy + 90);
+
+  ctx.fillStyle = "#1db954";
+  ctx.font = "700 15px Inter,system-ui,sans-serif";
+  ctx.fillText("+" + formatFull(totalDaily) + " daily streams", tx, cy + 114);
+
+  /* — column headers — */
+  const hY = cy + HDR_H;
+  ctx.fillStyle = "#f1f5f6";
+  ctx.fillRect(cx, hY, cw, COL_H);
+  ctx.fillStyle = "rgba(16,24,40,.07)";
+  ctx.fillRect(cx, hY + COL_H - 1, cw, 1);
+
+  ctx.fillStyle = "#667085";
+  ctx.font = "700 9.5px Inter,system-ui,sans-serif";
+  ctx.textBaseline = "middle";
+  const mh = hY + COL_H / 2;
+  ctx.textAlign = "left";
+  ctx.fillText("#",      cx + 20,  mh);
+  ctx.fillText("TRACK",  cx + 106, mh);
+  ctx.textAlign = "right";
+  ctx.fillText("DAILY",  cx + cw - 110, mh);
+  ctx.fillText("TOTAL",  cx + cw - 16,  mh);
+
+  /* — song rows — */
+  for (let i = 0; i < songs.length; i++) {
+    const s  = songs[i];
+    const rY = cy + HDR_H + COL_H + i * ROW_H;
+    const mr = rY + ROW_H / 2;
+
+    /* row bg */
+    if (i === 0) {
+      const gg = ctx.createLinearGradient(cx, rY, cx + cw, rY);
+      gg.addColorStop(0, "#fff8d0"); gg.addColorStop(.35, "#fffbee"); gg.addColorStop(1, "#fff");
+      ctx.fillStyle = gg; ctx.fillRect(cx, rY, cw, ROW_H);
+      ctx.fillStyle = "#e8b91a"; ctx.fillRect(cx, rY, 3, ROW_H);
+    } else {
+      ctx.fillStyle = i % 2 !== 0 ? "#f8fafc" : "#fff";
+      ctx.fillRect(cx, rY, cw, ROW_H);
+    }
+    ctx.fillStyle = "rgba(16,24,40,.05)"; ctx.fillRect(cx, rY + ROW_H - 1, cw, 1);
+
+    /* rank */
+    ctx.fillStyle = "#0b1f44";
+    ctx.font = "900 16px Inter,system-ui,sans-serif";
+    ctx.textAlign = "center"; ctx.textBaseline = "middle";
+    ctx.fillText(`#${i + 1}`, cx + 36, mr);
+
+    /* artwork 42×42 */
+    const imgX = cx + 60, imgY = rY + (ROW_H - 42) / 2;
+    try {
+      const a = await _loadImg(s.image_url);
+      ctx.save(); _clip(ctx, imgX, imgY, 42, 42, 6);
+      ctx.drawImage(a, imgX, imgY, 42, 42);
+      ctx.restore();
+    } catch {
+      ctx.fillStyle = "#dde3ea"; _rrect(ctx, imgX, imgY, 42, 42, 6); ctx.fill();
+    }
+
+    /* title + artist */
+    const nameX = imgX + 48;
+    const maxW  = cw - (nameX - cx) - 220;
+    ctx.textAlign = "left";
+    ctx.fillStyle = "#101828";
+    ctx.font = "700 13px Inter,system-ui,sans-serif";
+    ctx.fillText(_ellipsis(ctx, s.title_clean || s.title, maxW), nameX, mr - 7);
+    ctx.fillStyle = "#667085";
+    ctx.font = "500 11px Inter,system-ui,sans-serif";
+    ctx.fillText("Taylor Swift", nameX, mr + 9);
+
+    /* streams */
+    ctx.textAlign = "right"; ctx.textBaseline = "middle";
+    ctx.fillStyle = "#344054";
+    ctx.font = "500 12px Inter,system-ui,sans-serif";
+    ctx.fillText(formatFull(s.daily_streams), cx + cw - 110, mr);
+    ctx.fillText(formatFull(s.streams),       cx + cw - 16,  mr);
+  }
+
+  /* — footer — */
+  const fY = cy + HDR_H + COL_H + songs.length * ROW_H;
+  ctx.fillStyle = "#f1f5f6"; ctx.fillRect(cx, fY, cw, FTR_H);
+  ctx.fillStyle = "rgba(16,24,40,.07)"; ctx.fillRect(cx, fY, cw, 1);
+
+  ctx.fillStyle = "#1db954";
+  ctx.font = "700 11px Inter,system-ui,sans-serif";
+  ctx.textAlign = "left"; ctx.textBaseline = "middle";
+  ctx.fillText("@swiftiescharts", cx + 16, fY + FTR_H / 2);
+
+  ctx.fillStyle = "#667085";
+  ctx.font = "500 11px Inter,system-ui,sans-serif";
+  ctx.textAlign = "right";
+  ctx.fillText(dateLabel, cx + cw - 16, fY + FTR_H / 2);
+
+  /* — download — */
+  const link = document.createElement("a");
+  link.download = `${albumName.replace(/[^a-z0-9]/gi, "_")}_${state.selectedDate}.png`;
+  link.href = canvas.toDataURL("image/png");
+  link.click();
+}
+
+
+/* =========================
    HOME PAGE
 ========================= */
 
@@ -491,6 +712,7 @@ export function renderAlbumPage(container) {
           <button id="albumSortStreamsBtn" class="${state.albumSortMode === "streams" ? "active" : ""}">Total</button>
           <button id="albumSortDailyBtn"  class="${state.albumSortMode === "daily"   ? "active" : ""}">Daily</button>
           <button id="albumCombineBtn"    class="${state.combineVersions             ? "active" : ""}">Combine</button>
+          <button id="albumDownloadBtn" class="alb-dl-btn" title="Download image">⬇ Image</button>
         </div>
       </div>
 
@@ -510,6 +732,16 @@ export function renderAlbumPage(container) {
   document.getElementById("albumSortStreamsBtn")?.addEventListener("click", () => { state.albumSortMode = "streams"; window.dispatchEvent(new Event("site:render")); });
   document.getElementById("albumSortDailyBtn") ?.addEventListener("click", () => { state.albumSortMode = "daily";   window.dispatchEvent(new Event("site:render")); });
   document.getElementById("albumCombineBtn")   ?.addEventListener("click", () => { state.combineVersions = !state.combineVersions; window.dispatchEvent(new Event("site:render")); });
+
+  document.getElementById("albumDownloadBtn")?.addEventListener("click", async () => {
+    const btn = document.getElementById("albumDownloadBtn");
+    if (btn) { btn.textContent = "⏳ …"; btn.disabled = true; }
+    try {
+      await downloadAlbumImage(albumName, blocks, totalStreams, totalDaily, dateLabel, coverUrl);
+    } finally {
+      if (btn) { btn.textContent = "⬇ Image"; btn.disabled = false; }
+    }
+  });
 }
 
 

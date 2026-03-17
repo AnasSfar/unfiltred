@@ -57,6 +57,26 @@ def slugify(text: str) -> str:
     return text
 
 
+def clean_title(title: str) -> str:
+    """Normalise les apostrophes/guillemets mal encodés depuis Kworb."""
+    # Mojibake : U+FFFD + \x80\x99  →  '  (U+2019 mal décodé)
+    title = title.replace("\ufffd\x80\x99", "'")
+    title = title.replace("\ufffd\x80\x98", "'")
+    # Caractères de contrôle résiduels
+    title = re.sub(r"[\x80-\x9f]", "", title)
+    # Normalise les guillemets typographiques en apostrophe droite
+    title = title.replace("\u2019", "'").replace("\u2018", "'")
+    return title.strip()
+
+
+_SYMBOL_RE = re.compile(r"[$@#%^*~`|]|[\u2000-\u303f]", re.UNICODE)
+
+
+def has_bad_symbols(title: str) -> bool:
+    """Retourne True si le titre contient des symboles/émojis non désirés."""
+    return bool(_SYMBOL_RE.search(title))
+
+
 def fetch(url: str) -> str:
     r = requests.get(url, headers=HEADERS, timeout=20)
     r.raise_for_status()
@@ -83,7 +103,9 @@ def parse_songs_page(html: str) -> list[dict]:
             continue
         seen.add(track_id)
 
-        title = a.get_text(strip=True)
+        title = clean_title(a.get_text(strip=True))
+        if has_bad_symbols(title):
+            continue
         # Détecte feature : le texte brut de la cellule parente commence par *
         parent_text = a.parent.get_text(strip=True) if a.parent else ""
         is_feature = parent_text.startswith("*")

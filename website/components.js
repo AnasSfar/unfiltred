@@ -13,43 +13,37 @@ import { renderThemeSwitcher } from "./theme.js";
 export function renderNav() {
 
   return `
-  <div class="nav-row">
+  <header class="site-nav">
+    <div class="site-nav-inner">
 
-    <nav class="nav">
-
-      <a href="../index.html" title="Home" style="margin-right:4px">🏠</a>
-
-      <a href="index.html"
-        class="${state.page==="home"?"active":""}">
-        Top Songs
+      <a class="site-nav-brand" href="index.html">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 3v10.55A4 4 0 1014 17V7h4V3h-6z"/>
+        </svg>
+        <span>Taylor Swift <em>Streams</em></span>
       </a>
 
-      <a href="albums.html"
-        class="${state.page==="albums"||state.page==="album"?"active":""}">
-        Albums
-      </a>
+      <nav class="site-nav-links">
+        <a href="../index.html" class="nav-home">🏠 Home</a>
+        <a href="index.html"
+          class="${state.page==="home"?"active":""}">Top Songs</a>
+        <a href="albums.html"
+          class="${state.page==="albums"||state.page==="album"?"active":""}">Albums</a>
+        <a href="milestones.html"
+          class="${state.page==="milestones"?"active":""}">Milestones</a>
+        <a href="billboard.html"
+          class="${state.page==="billboard"?"active":""}">Billboard</a>
+        <a href="admin.html"
+          class="${state.page==="admin"?"active":""}"
+          style="opacity:.5;font-size:12px">Admin</a>
+      </nav>
 
-      <a href="milestones.html"
-        class="${state.page==="milestones"?"active":""}">
-        Milestones
-      </a>
+      <div class="site-nav-end">
+        ${renderThemeSwitcher()}
+      </div>
 
-      <a href="billboard.html"
-        class="${state.page==="billboard"?"active":""}">
-        Billboard
-      </a>
-
-      <a href="admin.html"
-        class="${state.page==="admin"?"active":""}"
-        style="opacity:0.55;font-size:12px">
-        Admin
-      </a>
-
-    </nav>
-
-    ${renderThemeSwitcher()}
-
-  </div>
+    </div>
+  </header>
   `;
 
 }
@@ -194,6 +188,8 @@ export function renderTopbar(){
   }));
 
   return `
+  ${renderNav()}
+
   <div class="topbar">
 
     <div class="hero-left">
@@ -296,8 +292,6 @@ export function renderTopbar(){
     </div>
 
   </div>
-
-  ${renderNav()}
   `;
 
 }
