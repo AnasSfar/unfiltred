@@ -666,8 +666,54 @@ def process_one(chart_date: str, db, ts_history):
     tweet = generate_tweet(ts_df, ts_pop, chart_date, ts_history)
     (out_dir / "tweet.txt").write_text(tweet, encoding="utf-8")
 
+    append_to_archive_csv(chart_date, ts_df)
     print(f"  OK {chart_date} -> {out_dir}/")
     return new_calls
+
+
+def _date_in_archive_csv(chart_date: str) -> bool:
+    if not ARCHIVE_CSV.exists():
+        return False
+    try:
+        prefix = (chart_date + ",").encode("utf-8")
+        with ARCHIVE_CSV.open("rb") as f:
+            for line in f:
+                if line.startswith(prefix):
+                    return True
+    except Exception:
+        pass
+    return False
+
+
+def append_to_archive_csv(chart_date: str, ts_df) -> None:
+    """Appende les données TS du jour dans db/charts_history_fr.csv si absentes."""
+    if ts_df is None or ts_df.empty or _date_in_archive_csv(chart_date):
+        return
+    import csv as _csv
+
+    def _v(val):
+        if val is None:
+            return ""
+        if isinstance(val, float) and str(val) == "nan":
+            return ""
+        return val
+
+    write_header = not ARCHIVE_CSV.exists()
+    with ARCHIVE_CSV.open("a", newline="", encoding="utf-8") as f:
+        w = _csv.writer(f)
+        if write_header:
+            w.writerow(["date", "song_name", "rank", "streams", "previous_rank", "peak_rank", "total_days"])
+        for _, row in ts_df.iterrows():
+            w.writerow([
+                chart_date,
+                _v(row.get("track_name")),
+                _v(row.get("rank")),
+                _v(row.get("streams")),
+                _v(row.get("previous_rank")),
+                _v(row.get("peak_rank")),
+                _v(row.get("total_days")),
+            ])
+    print(f"  Archive CSV mise à jour pour {chart_date} ({len(ts_df)} chansons)")
 
 
 def seed_from_archive_csv() -> dict:

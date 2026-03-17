@@ -327,14 +327,14 @@
 ════════════════════════════════════════ */
 const REGIONS = {
   global: {
-    histUrl: () => '../collectors/spotify/charts/global/ts_history.json',
-    dayUrl:  d  => { const [y,m]=d.split('-'); return `../collectors/spotify/charts/global/${y}/${m}/${d}/ts_chart_${d}.json`; },
+    csvUrl:    () => '../db/charts_history_global.csv',
+    dayUrl:    d  => { const [y,m]=d.split('-'); return `../collectors/spotify/charts/global/${y}/${m}/${d}/ts_chart_${d}.json`; },
     title:      'Global Spotify',
     coversUrl:  '../spotify-charts/track_covers.json',
   },
   fr: {
-    histUrl: () => '../collectors/spotify/charts/fr/ts_history.json',
-    dayUrl:  d  => { const [y,m]=d.split('-'); return `../collectors/spotify/charts/fr/data/${y}/${m}/${d}/ts_chart_${d}.json`; },
+    csvUrl:    () => '../db/charts_history_fr.csv',
+    dayUrl:    d  => { const [y,m]=d.split('-'); return `../collectors/spotify/charts/fr/data/${y}/${m}/${d}/ts_chart_${d}.json`; },
     title:      'France Spotify',
     coversUrl:  '../spotify-charts/track_covers.json',
   },
@@ -405,18 +405,72 @@ function navActive(rgn, page) {
 }
 
 /* ════════════════════════════════════════
+   CSV PARSING
+════════════════════════════════════════ */
+function parseCSVLine(line) {
+  const result = [];
+  let cur = '', inQ = false;
+  for (let i = 0; i < line.length; i++) {
+    const c = line[i];
+    if (c === '"') {
+      if (inQ && line[i+1] === '"') { cur += '"'; i++; }
+      else inQ = !inQ;
+    } else if (c === ',' && !inQ) {
+      result.push(cur); cur = '';
+    } else {
+      cur += c;
+    }
+  }
+  result.push(cur);
+  return result;
+}
+
+function parseCSV(text) {
+  const lines = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n');
+  let headers = null;
+  const rows = [];
+  for (const line of lines) {
+    if (!line.trim()) continue;
+    const vals = parseCSVLine(line);
+    if (!headers) { headers = vals; continue; }
+    const row = {};
+    headers.forEach((h, i) => row[h] = (vals[i] ?? '').trim());
+    rows.push(row);
+  }
+  return rows;
+}
+
+function csvToHist(rows) {
+  const hist = {};
+  for (const row of rows) {
+    const date = row.date;
+    const name = row.song_name;
+    if (!date || !name) continue;
+    const rank = parseInt(row.rank);
+    if (!rank) continue;
+    if (!hist[name]) hist[name] = {};
+    const entry = { rank, streams: parseInt(row.streams) || 0 };
+    const pr = parseInt(row.previous_rank); if (pr > 0) entry.previous_rank = pr;
+    const pk = parseInt(row.peak_rank);     if (pk > 0) entry.peak_rank = pk;
+    const td = parseInt(row.total_days);    if (td > 0) entry.total_days = td;
+    hist[name][date] = entry;
+  }
+  return hist;
+}
+
+/* ════════════════════════════════════════
    DATA LOADING
 ════════════════════════════════════════ */
 async function loadHist(rgn) {
   if (S[rgn].loaded) return;
   const cfg = REGIONS[rgn];
-  const proms = [fetch(cfg.histUrl())];
+  const proms = [fetch(cfg.csvUrl())];
   if (cfg.coversUrl) proms.push(fetch(cfg.coversUrl).catch(() => null));
   else               proms.push(Promise.resolve(null));
-  const [rh, rc] = await Promise.all(proms);
-  if (!rh.ok) throw new Error(`Cannot load ts_history.json (${rgn})`);
-  S[rgn].hist = await rh.json();
-  if (rc?.ok) Object.assign(S[rgn].imgCache, await rc.json());
+  const [rc, rcovers] = await Promise.all(proms);
+  if (!rc.ok) throw new Error(`Cannot load CSV (${rgn})`);
+  S[rgn].hist = csvToHist(parseCSV(await rc.text()));
+  if (rcovers?.ok) Object.assign(S[rgn].imgCache, await rcovers.json());
   const s = new Set();
   for (const dates of Object.values(S[rgn].hist))
     for (const d of Object.keys(dates)) s.add(d);
@@ -503,8 +557,7 @@ function buildChart(rgn, date, songs, outSongs, extra) {
     const ex = extra[s.name] || {};
     const prevRank = ex.previous_rank != null ? ex.previous_rank : s.previous_rank;
     // For old dates without per-day JSON, infer re-entry from ts_history.json
-    const exTotalDays = ex.total_days != null ? ex.total_days
-      : (Object.keys(S[rgn].hist[s.name] || {}).some(d => d < date) ? 2 : null);
+    const exTotalDays = ex.total_days != null ? ex.total_days : (s.total_days ?? null);
     const [ct, cc] = chgLabel(s.rank, prevRank, exTotalDays);
     const ts = s.streams;
     const d1 = prevStream(rgn, s.name, date, 1);
@@ -512,7 +565,7 @@ function buildChart(rgn, date, songs, outSongs, extra) {
     const dp = (ts && d1) ? (ts - d1) / d1 * 100 : null;
     const wp = (ts && d7) ? (ts - d7) / d7 * 100 : null;
     const strk = ex.streak    ? `${Math.round(ex.streak)}d`     : '—';
-    const tot  = ex.total_days ? `${Math.round(ex.total_days)}d` : '—';
+    const tot  = (ex.total_days ?? s.total_days) ? `${Math.round(ex.total_days ?? s.total_days)}d` : '—';
     const pk   = s.peak_rank;
     const img  = S[rgn].imgCache[s.name] || ex.image_url;
     const art  = img
