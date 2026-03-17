@@ -1,8 +1,16 @@
+import { state } from "./state.js";
+import {
+  formatFull, formatSigned, withCacheBuster,
+  getDayData, getPreviousDate, formatArtists, formatArtistAlbum
+} from "./utils.js";
+import { getCombineKey } from "./data.js";
+import { renderThemeSwitcher } from "./theme.js";
+
 /* =========================
    NAVIGATION
 ========================= */
 
-function renderNav(){
+export function renderNav() {
 
   return `
   <div class="nav-row">
@@ -49,7 +57,7 @@ function renderNav(){
    SPARKLINE
 ========================= */
 
-function renderSparkline(values){
+export function renderSparkline(values){
 
   if(!values.length) return "";
 
@@ -76,7 +84,7 @@ function renderSparkline(values){
    AMBIENT EFFECTS
 ========================= */
 
-function renderAmbientEffects(){
+export function renderAmbientEffects(){
 
   return `
   <div class="ambient-layer">
@@ -108,7 +116,7 @@ function renderAmbientEffects(){
 }
 
 
-function bindCursorGlow(){
+export function bindCursorGlow(){
 
   const glow = document.getElementById("cursorGlow");
   if(!glow || glow.dataset.bound==="1") return;
@@ -150,7 +158,7 @@ function bindCursorGlow(){
    TOPBAR
 ========================= */
 
-function renderTopbar(){
+export function renderTopbar(){
 
   const latest = state.dates[state.dates.length-1]||"";
   const selected = state.selectedDate || latest;
@@ -295,7 +303,7 @@ function renderTopbar(){
    SEARCH BAR
 ========================= */
 
-function renderSearchBar(placeholder="Search songs..."){
+export function renderSearchBar(placeholder="Search songs..."){
   return `
   <label class="toolbar-search">
     <span>🔎</span>
@@ -315,7 +323,7 @@ function renderSearchBar(placeholder="Search songs..."){
    DELTA RENDERERS
 ========================= */
 
-function renderRankChange(change){
+export function renderRankChange(change){
 
   if(change==null) return `<span class="delta neutral">• 0</span>`;
   if(change>0) return `<span class="delta up">↑ ${change}</span>`;
@@ -325,7 +333,7 @@ function renderRankChange(change){
 }
 
 
-function renderStreamChange(change){
+export function renderStreamChange(change){
 
   if(change==null) return `<span class="delta neutral">-</span>`;
   if(change>0) return `<span class="delta up">+${formatFull(change)}</span>`;
@@ -335,7 +343,7 @@ function renderStreamChange(change){
 }
 
 
-function renderPercentChange(change){
+export function renderPercentChange(change){
 
   if(change==null || Number.isNaN(change))
     return `<span class="delta neutral">-</span>`;
@@ -353,7 +361,7 @@ function renderPercentChange(change){
    SONG ROW
 ========================= */
 
-function songRow(song){
+export function songRow(song){
 
   const gold = song.crossed_milestone_today ? " song-row-gold":"";
 
@@ -479,7 +487,7 @@ function songRow(song){
    STATS BLOCK
 ========================= */
 
-function renderStats(rows){
+export function renderStats(rows){
 
   const totalCombined =
     rows.reduce((s,r)=>s+(r.streams||0),0);
@@ -523,7 +531,7 @@ function renderStats(rows){
    NEWS SECTION
 ========================= */
 
-function renderNewsSection(rows,date){
+export function renderNewsSection(rows,date){
 
   const gainer =
     [...rows]

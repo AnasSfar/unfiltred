@@ -2,7 +2,7 @@
    STATE
 ========================= */
 
-const state = {
+export const state = {
   songs: [],
   albums: [],
   history: {},
@@ -27,6 +27,9 @@ const state = {
   albumCovers: {},
 
   expectedMilestones: [],
+
+  songByTrackId: new Map(),
+  _dataGen: 0,
 
   lastRunState: null,
   notFoundStreak: null,

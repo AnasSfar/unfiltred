@@ -12,22 +12,25 @@ from pathlib import Path
 _SCRIPT_DIR = Path(__file__).resolve().parent
 _REPO_ROOT  = _SCRIPT_DIR.parents[2]
 ROOT        = _REPO_ROOT / "website"
+_DB_ROOT    = _REPO_ROOT / "db"
 
-DB_PATH = ROOT / "data" / "songs.db"
-HISTORY_CSV_PATH = ROOT / "data" / "history.csv"
+DB_PATH          = _DB_ROOT / "songs.db"
+HISTORY_CSV_PATH = _DB_ROOT / "streams_history.csv"
 
-DISCOGRAPHY_DIR = ROOT / "discography"
-ALBUMS_DIR = DISCOGRAPHY_DIR / "albums"
-MISC_DIR = DISCOGRAPHY_DIR / "misc"
-COVERS_JSON_PATH = ALBUMS_DIR / "covers.json"
+DISCOGRAPHY_DIR  = _DB_ROOT / "discography"
+ALBUMS_JSON_SRC  = DISCOGRAPHY_DIR / "albums.json"
+MISC_JSON_SRC    = DISCOGRAPHY_DIR / "songs.json"
+COVERS_JSON_PATH = DISCOGRAPHY_DIR / "covers.json"
 
-SITE_DATA_DIR = ROOT / "site" / "data"
+SITE_DATA_DIR    = ROOT / "site" / "data"
 SITE_HISTORY_DIR = ROOT / "site" / "history"
-SONGS_JSON_PATH = SITE_DATA_DIR / "songs.json"
+SONGS_JSON_PATH  = SITE_DATA_DIR / "songs.json"
 ALBUMS_JSON_PATH = SITE_DATA_DIR / "albums.json"
 
 LAST_RUN_STATE_SRC   = ROOT / "data" / "last_run_state.json"
 NOT_FOUND_STREAK_SRC = ROOT / "data" / "not_found_streak.json"
+BILLBOARD_CSV_PATH   = _DB_ROOT / "billboard_history.csv"
+BILLBOARD_JSON_PATH  = SITE_DATA_DIR / "billboard.json"
 
 TRACK_ID_RE = re.compile(r"track/([A-Za-z0-9]+)")
 
@@ -441,238 +444,232 @@ def build_discography_index() -> tuple[dict, list[dict]]:
     albums_payload: list[dict] = []
     album_map: dict[str, dict] = {}
 
-    if ALBUMS_DIR.exists():
-        for album_dir in sorted([p for p in ALBUMS_DIR.iterdir() if p.is_dir()], key=lambda p: p.name.casefold()):
-            album_name = album_dir.name
-            album_track_ids_ordered = []
-            album_sections = []
+    # ── Albums ────────────────────────────────────────────────────────────────
+    if ALBUMS_JSON_SRC.exists():
+        raw_editions: list[dict] = json.loads(
+            ALBUMS_JSON_SRC.read_text(encoding="utf-8")
+        )
 
-            for json_file in sorted(album_dir.glob("*.json"), key=lambda p: p.name.casefold()):
-                try:
-                    data = read_json(json_file)
-                except Exception:
-                    continue
+        # Group sections by album name while preserving insertion order
+        albums_order: list[str] = []
+        albums_data: dict[str, list[dict]] = {}
+        for data in raw_editions:
+            aname = data.get("album", "")
+            if aname not in albums_data:
+                albums_order.append(aname)
+                albums_data[aname] = []
+            albums_data[aname].append(data)
 
-                file_tracks = []
-                section_name = data.get("section") or json_file.stem
+        for album_name in sorted(albums_order, key=str.casefold):
+            album_track_ids_ordered: list[str] = []
+            album_sections: list[dict] = []
 
+            for data in sorted(albums_data[album_name],
+                               key=lambda d: d.get("section", "").casefold()):
+                section_name = data.get("section") or ""
+                file_name    = section_name + ".json"
+                source_path  = f"discography/albums/{album_name}/{file_name}"
+
+                file_tracks: list[dict] = []
                 for track in data.get("tracks", []):
-                    track_id = extract_track_id(track.get("url") or track.get("spotify_url"))
+                    track_id = extract_track_id(
+                        track.get("url") or track.get("spotify_url")
+                    )
                     if not track_id:
                         continue
 
-                    track_type = track.get("type")
-                    edition = track.get("edition")
+                    track_type    = track.get("type")
+                    edition       = track.get("edition")
                     display_section = track.get("display_section")
                     display_order = track.get("display_order")
-                    base_title = track.get("base_title")
+                    base_title    = track.get("base_title")
 
-                    file_tracks.append(
-                        {
-                            "track_id": track_id,
-                            "title": track.get("title"),
-                            "type": track_type,
-                            "edition": edition,
-                            "display_section": display_section,
-                            "display_order": display_order,
-                            "base_title": base_title,
-                            "section": section_name,
-                            "source_file": json_file.name,
-                        }
-                    )
+                    file_tracks.append({
+                        "track_id":       track_id,
+                        "title":          track.get("title"),
+                        "type":           track_type,
+                        "edition":        edition,
+                        "display_section": display_section,
+                        "display_order":  display_order,
+                        "base_title":     base_title,
+                        "section":        section_name,
+                        "source_file":    file_name,
+                    })
                     album_track_ids_ordered.append(track_id)
 
-                    track_appearances_by_id[track_id].append(
-                        {
-                            "source_type": "album",
-                            "album": album_name,
-                            "section": section_name,
-                            "group": None,
-                            "source_path": str(json_file.relative_to(ROOT)),
-                            "type": track_type,
-                            "edition": edition,
-                            "display_section": display_section,
-                            "display_order": display_order,
-                            "base_title": base_title,
-                        }
-                    )
+                    track_appearances_by_id[track_id].append({
+                        "source_type":    "album",
+                        "album":          album_name,
+                        "section":        section_name,
+                        "group":          None,
+                        "source_path":    source_path,
+                        "type":           track_type,
+                        "edition":        edition,
+                        "display_section": display_section,
+                        "display_order":  display_order,
+                        "base_title":     base_title,
+                    })
 
-                album_sections.append(
-                    {
-                        "name": section_name,
-                        "file": json_file.name,
-                        "tracks": file_tracks,
-                        "track_ids": [t["track_id"] for t in file_tracks],
-                        "track_count": len(file_tracks),
-                    }
-                )
+                album_sections.append({
+                    "name":        section_name,
+                    "file":        file_name,
+                    "tracks":      file_tracks,
+                    "track_ids":   [t["track_id"] for t in file_tracks],
+                    "track_count": len(file_tracks),
+                })
 
-            unique_ids = []
-            seen = set()
-            for tid in album_track_ids_ordered:
-                if tid not in seen:
-                    seen.add(tid)
-                    unique_ids.append(tid)
-
+            unique_ids = list(dict.fromkeys(album_track_ids_ordered))
             album_payload = {
-                "album": album_name,
-                "kind": "album",
-                "sections": album_sections,
-                "track_ids": unique_ids,
+                "album":       album_name,
+                "kind":        "album",
+                "sections":    album_sections,
+                "track_ids":   unique_ids,
                 "track_count": len(unique_ids),
             }
-
             albums_payload.append(album_payload)
             album_map[album_name] = album_payload
 
-    misc_groups = []
-    misc_all_track_ids = []
+    # ── Misc ──────────────────────────────────────────────────────────────────
+    misc_groups: list[dict] = []
+    misc_all_track_ids: list[str] = []
 
-    if MISC_DIR.exists():
-        for misc_group_dir in sorted([p for p in MISC_DIR.iterdir() if p.is_dir()], key=lambda p: p.name.casefold()):
-            group_name = misc_group_dir.name
-            group_sections = []
-            group_track_ids = []
+    if MISC_JSON_SRC.exists():
+        raw_misc: list[dict] = json.loads(
+            MISC_JSON_SRC.read_text(encoding="utf-8")
+        )
 
-            for json_file in sorted(misc_group_dir.glob("*.json"), key=lambda p: p.name.casefold()):
-                try:
-                    data = read_json(json_file)
-                except Exception:
-                    continue
+        groups_order: list[str] = []
+        groups_data: dict[str, list[dict]] = {}
+        for data in raw_misc:
+            gname = data.get("album", "")
+            if gname not in groups_data:
+                groups_order.append(gname)
+                groups_data[gname] = []
+            groups_data[gname].append(data)
 
-                section_name = data.get("section") or json_file.stem
-                section_tracks = []
+        for group_name in sorted(groups_order, key=str.casefold):
+            group_sections: list[dict] = []
+            group_track_ids: list[str] = []
 
+            for data in sorted(groups_data[group_name],
+                               key=lambda d: d.get("section", "").casefold()):
+                section_name = data.get("section") or ""
+                file_name    = section_name + ".json"
+                source_path  = f"discography/misc/{group_name}/{file_name}"
+
+                section_tracks: list[dict] = []
                 for track in data.get("tracks", []):
-                    track_id = extract_track_id(track.get("url") or track.get("spotify_url"))
+                    track_id = extract_track_id(
+                        track.get("url") or track.get("spotify_url")
+                    )
                     if not track_id:
                         continue
 
-                    track_type = track.get("type")
-                    edition = track.get("edition")
+                    track_type    = track.get("type")
+                    edition       = track.get("edition")
                     display_section = track.get("display_section")
                     display_order = track.get("display_order")
-                    base_title = track.get("base_title")
+                    base_title    = track.get("base_title")
 
                     track_entry = {
-                        "track_id": track_id,
-                        "title": track.get("title"),
-                        "type": track_type,
-                        "edition": edition,
+                        "track_id":       track_id,
+                        "title":          track.get("title"),
+                        "type":           track_type,
+                        "edition":        edition,
                         "display_section": display_section,
-                        "display_order": display_order,
-                        "base_title": base_title,
-                        "section": section_name,
-                        "source_file": json_file.name,
+                        "display_order":  display_order,
+                        "base_title":     base_title,
+                        "section":        section_name,
+                        "source_file":    file_name,
                     }
 
                     section_tracks.append(track_entry)
                     group_track_ids.append(track_id)
                     misc_all_track_ids.append(track_id)
 
-                    track_appearances_by_id[track_id].append(
-                        {
-                            "source_type": "misc",
-                            "album": "Misc",
-                            "section": section_name,
-                            "group": group_name,
-                            "source_path": str(json_file.relative_to(ROOT)),
-                            "type": track_type,
-                            "edition": edition,
-                            "display_section": display_section,
-                            "display_order": display_order,
-                            "base_title": base_title,
-                        }
-                    )
+                    track_appearances_by_id[track_id].append({
+                        "source_type":    "misc",
+                        "album":          "Misc",
+                        "section":        section_name,
+                        "group":          group_name,
+                        "source_path":    source_path,
+                        "type":           track_type,
+                        "edition":        edition,
+                        "display_section": display_section,
+                        "display_order":  display_order,
+                        "base_title":     base_title,
+                    })
 
                     if group_name in album_map:
-                        album_sections = album_map[group_name]["sections"]
+                        alb_sections = album_map[group_name]["sections"]
                         existing_section = next(
-                            (
-                                s for s in album_sections
-                                if s.get("name") == section_name and s.get("file") == json_file.name
-                            ),
+                            (s for s in alb_sections
+                             if s.get("name") == section_name
+                             and s.get("file") == file_name),
                             None,
                         )
-
                         if existing_section is None:
                             existing_section = {
-                                "name": section_name,
-                                "file": json_file.name,
-                                "tracks": [],
-                                "track_ids": [],
+                                "name":        section_name,
+                                "file":        file_name,
+                                "tracks":      [],
+                                "track_ids":   [],
                                 "track_count": 0,
                             }
-                            album_sections.append(existing_section)
+                            alb_sections.append(existing_section)
 
                         if track_id not in existing_section["track_ids"]:
                             existing_section["tracks"].append(track_entry)
                             existing_section["track_ids"].append(track_id)
-                            existing_section["track_count"] = len(existing_section["track_ids"])
+                            existing_section["track_count"] = len(
+                                existing_section["track_ids"]
+                            )
 
                         album_map[group_name]["track_ids"] = list(
-                            dict.fromkeys(album_map[group_name]["track_ids"] + [track_id])
+                            dict.fromkeys(
+                                album_map[group_name]["track_ids"] + [track_id]
+                            )
                         )
-                        album_map[group_name]["track_count"] = len(album_map[group_name]["track_ids"])
-
-                        track_appearances_by_id[track_id].append(
-                            {
-                                "source_type": "album",
-                                "album": group_name,
-                                "section": section_name,
-                                "group": "misc",
-                                "source_path": str(json_file.relative_to(ROOT)),
-                                "type": track_type,
-                                "edition": edition,
-                                "display_section": display_section,
-                                "display_order": display_order,
-                                "base_title": base_title,
-                            }
+                        album_map[group_name]["track_count"] = len(
+                            album_map[group_name]["track_ids"]
                         )
 
-                group_sections.append(
-                    {
-                        "name": section_name,
-                        "file": json_file.name,
-                        "tracks": section_tracks,
-                        "track_ids": [t["track_id"] for t in section_tracks],
-                        "track_count": len(section_tracks),
-                    }
-                )
+                        track_appearances_by_id[track_id].append({
+                            "source_type":    "album",
+                            "album":          group_name,
+                            "section":        section_name,
+                            "group":          "misc",
+                            "source_path":    source_path,
+                            "type":           track_type,
+                            "edition":        edition,
+                            "display_section": display_section,
+                            "display_order":  display_order,
+                            "base_title":     base_title,
+                        })
 
-            unique_group_ids = []
-            seen_group = set()
-            for tid in group_track_ids:
-                if tid not in seen_group:
-                    seen_group.add(tid)
-                    unique_group_ids.append(tid)
+                group_sections.append({
+                    "name":        section_name,
+                    "file":        file_name,
+                    "tracks":      section_tracks,
+                    "track_ids":   [t["track_id"] for t in section_tracks],
+                    "track_count": len(section_tracks),
+                })
 
-            misc_groups.append(
-                {
-                    "name": group_name,
-                    "sections": group_sections,
-                    "track_ids": unique_group_ids,
-                    "track_count": len(unique_group_ids),
-                }
-            )
+            misc_groups.append({
+                "name":        group_name,
+                "sections":    group_sections,
+                "track_ids":   list(dict.fromkeys(group_track_ids)),
+                "track_count": len(list(dict.fromkeys(group_track_ids))),
+            })
 
     if misc_groups:
-        unique_misc_ids = []
-        seen_misc = set()
-        for tid in misc_all_track_ids:
-            if tid not in seen_misc:
-                seen_misc.add(tid)
-                unique_misc_ids.append(tid)
-
-        albums_payload.append(
-            {
-                "album": "Misc",
-                "kind": "misc",
-                "groups": misc_groups,
-                "track_ids": unique_misc_ids,
-                "track_count": len(unique_misc_ids),
-            }
-        )
+        albums_payload.append({
+            "album":       "Misc",
+            "kind":        "misc",
+            "groups":      misc_groups,
+            "track_ids":   list(dict.fromkeys(misc_all_track_ids)),
+            "track_count": len(list(dict.fromkeys(misc_all_track_ids))),
+        })
 
     return dict(track_appearances_by_id), albums_payload
 
@@ -799,11 +796,73 @@ def build_summary(
     }
 
 
+def _load_billboard_from_csv() -> dict | None:
+    """Read the latest date from billboard_history.csv and return a billboard.json structure."""
+    if not BILLBOARD_CSV_PATH.exists():
+        return None
+
+    with open(BILLBOARD_CSV_PATH, newline="", encoding="utf-8") as f:
+        rows = list(csv.DictReader(f))
+
+    if not rows:
+        return None
+
+    latest_date = max(r["date"] for r in rows if r.get("date"))
+    today = [r for r in rows if r["date"] == latest_date]
+
+    def _int(v):
+        try:
+            return int(v) if v not in (None, "", "None") else None
+        except (ValueError, TypeError):
+            return None
+
+    scraped_at = next((r["scraped_at"] for r in today if r.get("scraped_at")), latest_date)
+    result = {
+        "scraped_at": scraped_at,
+        "hot_100": [],
+        "billboard_200": [],
+        "ts_chart_history": [],
+        "greatest_artists": None,
+    }
+
+    for r in today:
+        ct = r["chart_type"]
+        if ct in ("hot_100", "billboard_200"):
+            result[ct].append({
+                "rank": _int(r["rank"]), "title": r["title"],
+                "artist": r["artist"], "weeks_on_chart": _int(r["weeks_on_chart"]),
+                "peak_rank": _int(r["peak_rank"]),
+            })
+        elif ct == "ts_chart_history":
+            result["ts_chart_history"].append({
+                "rank": _int(r["rank"]), "title": r["title"],
+                "chart": r.get("chart_label", ""),
+                "weeks_on_chart": _int(r["weeks_on_chart"]),
+                "peak_rank": _int(r["peak_rank"]),
+            })
+        elif ct == "greatest_artists":
+            result["greatest_artists"] = {"rank": _int(r["rank"]), "name": r["title"]}
+
+    return result
+
+
+def export_billboard_from_csv() -> None:
+    data = _load_billboard_from_csv()
+    if not data:
+        return
+    BILLBOARD_JSON_PATH.parent.mkdir(parents=True, exist_ok=True)
+    BILLBOARD_JSON_PATH.write_text(
+        json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+    total = sum(len(data[k]) for k in ("hot_100", "billboard_200", "ts_chart_history"))
+    print(f"  Billboard JSON written ({total} entries) → {BILLBOARD_JSON_PATH}")
+
+
 def export_for_web() -> None:
     SITE_DATA_DIR.mkdir(parents=True, exist_ok=True)
-    print(f"ROOT = {ROOT}")
-    print(f"DB_PATH = {DB_PATH}")
-    print(f"HISTORY_CSV_PATH = {HISTORY_CSV_PATH}")
+    print(f"ROOT     = {ROOT}")
+    print(f"DB_PATH  = {DB_PATH}")
+    print(f"HISTORY  = {HISTORY_CSV_PATH}")
     raw_songs = load_db_songs()
     dates, raw_history_by_date = load_raw_history()
     print(f"Last 10 dates found: {dates[-10:]}")
@@ -957,6 +1016,8 @@ def export_for_web() -> None:
     (SITE_HISTORY_DIR / "index.json").write_text(
         json.dumps({"dates": existing_dates}, ensure_ascii=False), encoding="utf-8"
     )
+
+    export_billboard_from_csv()
 
     print(f"Exported songs:   {SONGS_JSON_PATH}")
     print(f"Exported albums:  {ALBUMS_JSON_PATH}")

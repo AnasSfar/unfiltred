@@ -1,3 +1,16 @@
+import { state } from "./state.js";
+import {
+  fetchJSON, normalize, persistSelectedDate,
+  getPreviousDate, getNextDate
+} from "./utils.js";
+import { loadHistory, getCombineKey } from "./data.js";
+import { applyTheme, bindThemeSwitcher } from "./theme.js";
+import { renderAmbientEffects, bindCursorGlow } from "./components.js";
+import {
+  renderHome, renderAlbums, renderAlbumPage,
+  renderSongPage, renderMilestones, renderAdmin, renderBillboard
+} from "./pages.js";
+
 /* =========================
    DATE CONTROLS
 ========================= */
@@ -138,12 +151,15 @@ async function renderPage() {
     renderBillboard(container);
   }
 
-  bindThemeSwitcher();
+  bindThemeSwitcher(renderPage);
   bindCursorGlow();
   bindDateControls();
   bindSearch();
   bindUpdateButton();
 }
+
+// Listen for re-render requests from page modules (avoids circular imports)
+window.addEventListener("site:render", () => renderPage());
 
 
 /* =========================
@@ -172,6 +188,18 @@ async function loadData() {
   ]);
 
   state.songs = songsData.songs || [];
+
+  // Pre-compute per-song cache keys to avoid 13+ regex per render
+  state.songs.forEach(s => {
+    s._combineKey = getCombineKey(s);
+    s._searchText = normalize([
+      s.title, s.title_clean, s.primary_album, s.primary_artist,
+      Array.isArray(s.artists) ? s.artists.join(" ") : (s.primary_artist || ""),
+      s.version_tag, s.edition, s.type
+    ].join(" "));
+  });
+  state.songByTrackId = new Map(state.songs.map(s => [s.track_id, s]));
+
   state.albums = albumsData.albums || [];
   state.artist = artistData || null;
   state.expectedMilestones = expectedMilestonesData?.forecasts || [];
@@ -179,6 +207,9 @@ async function loadData() {
   state.lastRunState   = lastRunStateData   || null;
   state.notFoundStreak = notFoundStreakData || null;
   state.billboard      = billboardData      || null;
+
+  // Increment generation counter so partial-render guards know data changed
+  state._dataGen = (state._dataGen || 0) + 1;
 
   state.history = {};
 

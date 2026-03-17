@@ -1,169 +1,133 @@
+import { state } from "./state.js";
+import {
+  formatFull, formatSigned, withCacheBuster, getDayData, getPreviousDate,
+  formatArtists, formatArtistAlbum, normalizeAlbumName, getAlbumSectionPriority,
+  getAlbumCover, filterSongsByQuery, normalize, persistSelectedDate,
+  getQueryParam, sortDisplayBlocks, renderFocusModal
+} from "./utils.js";
+import {
+  loadHistory, getCombineKey, enrichSongsForDate, sortSongs,
+  combineSongVersions, withRankChanges
+} from "./data.js";
+import {
+  renderTopbar, renderSearchBar, renderNewsSection, renderRankChange,
+  renderStreamChange, renderPercentChange, songRow, renderStats
+} from "./components.js";
+
 /* =========================
    HOME PAGE
 ========================= */
 
-function renderHome(container){
-
-  const raw = enrichSongsForDate(state.selectedDate);
-
-  const base =
-    state.combineVersions
-      ? combineSongVersions(raw)
-      : raw;
-
-  const ranked =
-    withRankChanges(base,state.selectedDate,state.sortMode);
-
+function _buildHomeRows() {
+  const raw    = enrichSongsForDate(state.selectedDate);
+  const base   = state.combineVersions ? combineSongVersions(raw) : raw;
+  const ranked = withRankChanges(base, state.selectedDate, state.sortMode);
   const filtered = filterSongsByQuery(ranked);
-  const sorted = sortSongs(filtered,state.sortMode);
-  const streamsActive = state.albumSortMode === "streams" ? "active" : "";
-  const dailyActive = state.albumSortMode === "daily" ? "active" : "";
-  const combineActive = state.combineVersions ? "active" : "";
+  const sorted   = sortSongs(filtered, state.sortMode);
+  return { ranked, filtered, sorted };
+}
+
+function _bindHomeButtons() {
+  document.getElementById("sortStreamsBtn")?.addEventListener("click", () => {
+    state.sortMode = "streams"; _updateHomeTable();
+  });
+  document.getElementById("sortDailyBtn")?.addEventListener("click", () => {
+    state.sortMode = "daily"; _updateHomeTable();
+  });
+  document.getElementById("combineBtn")?.addEventListener("click", () => {
+    state.combineVersions = !state.combineVersions; _updateHomeTable();
+  });
+}
+
+function _updateHomeTable() {
+  const { filtered, sorted } = _buildHomeRows();
+
+  const tbody = document.getElementById("home-songs-body");
+  if (tbody) tbody.innerHTML = sorted.map(songRow).join("");
+
+  const desc = document.getElementById("home-sort-desc");
+  if (desc) {
+    desc.textContent = `${state.selectedDate} • sorted by ${state.sortMode === "daily" ? "daily streams" : "total streams"} • ${filtered.length} result${filtered.length !== 1 ? "s" : ""}`;
+  }
+
+  const btns = {
+    sortStreamsBtn: state.sortMode === "streams",
+    sortDailyBtn:  state.sortMode === "daily",
+    combineBtn:    state.combineVersions,
+  };
+  for (const [id, active] of Object.entries(btns)) {
+    const el = document.getElementById(id);
+    if (el) el.className = active ? "active" : "";
+  }
+
+  const si = document.getElementById("searchInput");
+  if (si && document.activeElement !== si) si.value = state.searchQuery;
+}
+
+export function renderHome(container) {
+  const shell = document.getElementById("home-shell");
+
+  // Partial update: date and data-generation unchanged → only refresh table
+  // (sort/search/combine trigger _updateHomeTable() directly; renderPage() forces full re-render via generation bump)
+  if (shell && shell.dataset.date === state.selectedDate && shell.dataset.gen === String(state._dataGen || 0)) {
+    _updateHomeTable();
+    return; // topbar/controls preserved in DOM, already bound
+  }
+
+  // Full render (first load or date changed)
+  const { ranked, filtered, sorted } = _buildHomeRows();
+
   container.innerHTML = `
-    ${renderTopbar()}
-    ${renderNewsSection(ranked,state.selectedDate)}
+    <div id="home-shell" data-date="${state.selectedDate}" data-gen="${state._dataGen || 0}">
+      ${renderTopbar()}
+      ${renderNewsSection(ranked, state.selectedDate)}
 
-    <section class="section-card">
-
-      <div class="section-head">
-
-        <div>
-          <h2>Main Ranking</h2>
-          <p>
-            ${state.selectedDate} • sorted by
-            ${state.sortMode==="daily"?"daily streams":"total streams"}
-            • ${filtered.length} result${filtered.length>1?"s":""}
-          </p>
+      <section class="section-card">
+        <div class="section-head">
+          <div>
+            <h2>Main Ranking</h2>
+            <p id="home-sort-desc">
+              ${state.selectedDate} • sorted by
+              ${state.sortMode === "daily" ? "daily streams" : "total streams"}
+              • ${filtered.length} result${filtered.length !== 1 ? "s" : ""}
+            </p>
+          </div>
+          <div class="toolbar">
+            ${renderSearchBar()}
+            <button id="sortStreamsBtn" class="${state.sortMode === "streams" ? "active" : ""}">Total streams</button>
+            <button id="sortDailyBtn"  class="${state.sortMode === "daily"   ? "active" : ""}">Daily streams</button>
+            <button id="combineBtn"    class="${state.combineVersions        ? "active" : ""}">Combine</button>
+          </div>
         </div>
 
-        <div class="toolbar">
-
-          ${renderSearchBar()}
-
-          <button
-            id="sortStreamsBtn"
-            class="${state.sortMode==="streams"?"active":""}">
-            Total streams
-          </button>
-
-          <button
-            id="sortDailyBtn"
-            class="${state.sortMode==="daily"?"active":""}">
-            Daily streams
-          </button>
-
-          <button
-            id="combineBtn"
-            class="${state.combineVersions?"active":""}">
-            Combine
-          </button>
-
+        <div class="table-wrap ranking-wrap">
+          <table class="table ranking-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Rank change</th>
+                <th>Song</th>
+                <th class="sortable" data-sort="daily">Daily</th>
+                <th class="sortable" data-sort="streams">Total</th>
+                <th>Streams change</th>
+              </tr>
+            </thead>
+            <tbody id="home-songs-body">
+              ${sorted.map(songRow).join("")}
+            </tbody>
+          </table>
         </div>
+      </section>
 
-      </div>
-
-      <div class="table-wrap ranking-wrap">
-
-        <table class="table ranking-table">
-
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Rank change</th>
-              <th>Song</th>
-              <th class="sortable" data-sort="daily">Daily</th>
-              <th class="sortable" data-sort="streams">Total</th>
-              <th>Streams change</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            ${sorted.map(songRow).join("")}
-          </tbody>
-
-        </table>
-
-      </div>
-
-    </section>
-
-    ${renderFocusModal()}
+      ${renderFocusModal()}
+    </div>
   `;
 
- const sortStreamsBtn = document.getElementById("sortStreamsBtn");
-if (sortStreamsBtn) {
-  sortStreamsBtn.onclick = () => {
-    state.sortMode = "streams";
-    renderPage();
-  };
-}
-
-const sortDailyBtn = document.getElementById("sortDailyBtn");
-if (sortDailyBtn) {
-  sortDailyBtn.onclick = () => {
-    state.sortMode = "daily";
-    renderPage();
-  };
-}
-
-const combineBtn = document.getElementById("combineBtn");
-if (combineBtn) {
-  combineBtn.onclick = () => {
-    state.combineVersions = !state.combineVersions;
-    renderPage();
-  };
-}
-
+  _bindHomeButtons();
 }
 /* =========================
    ALBUM CARD
 ========================= */
-async function loadData() {
-  const [
-    songsData,
-    albumsData,
-    artistData,
-    expectedMilestonesData,
-    albumCoversData
-  ] = await Promise.all([
-    fetchJSON("site/data/songs.json"),
-    fetchJSON("site/data/albums.json"),
-    fetchJSON("site/data/artist.json").catch(() => null),
-    fetchJSON("site/data/expected_milestones.json").catch(() => null),
-    fetchJSON("discography/albums/covers.json").catch(() => ({}))
-  ]);
-
-  state.songs = songsData.songs || [];
-  state.albums = albumsData.albums || [];
-  state.artist = artistData || null;
-  state.expectedMilestones = expectedMilestonesData?.forecasts || [];
-  state.albumCovers = albumCoversData || {};
-
-  state.history = {};
-
-  let allDates = songsData.dates || expectedMilestonesData?.dates || [];
-
-  if (!allDates.length) {
-    const r = await fetchJSON("site/history/index.json");
-    allDates = r.dates || [];
-  }
-
-  state.dates = allDates;
-
-  const storedDate = localStorage.getItem("site-selected-date");
-  const latestDate = state.dates[state.dates.length - 1] || null;
-
-  if (storedDate && state.dates.includes(storedDate)) {
-    state.selectedDate = storedDate;
-  } else {
-    state.selectedDate = latestDate;
-    persistSelectedDate();
-  }
-
-  if (state.selectedDate) {
-    await loadHistory(state.selectedDate);
-  }
-}
 
 function albumRow(album){
 
@@ -239,7 +203,7 @@ function albumRow(album){
    ALBUMS PAGE
 ========================= */
 
-function renderAlbums(container) {
+export function renderAlbums(container) {
   const rowsForDate = enrichSongsForDate(state.selectedDate);
 
   const validAlbums = state.albums.filter(album => {
@@ -364,7 +328,7 @@ function renderAlbums(container) {
   if (sortAlbumStreamsBtn) {
     sortAlbumStreamsBtn.onclick = () => {
       state.albumSortMode = "streams";
-      renderPage();
+      window.dispatchEvent(new Event("site:render"));
     };
   }
 
@@ -372,7 +336,7 @@ function renderAlbums(container) {
   if (sortAlbumDailyBtn) {
     sortAlbumDailyBtn.onclick = () => {
       state.albumSortMode = "daily";
-      renderPage();
+      window.dispatchEvent(new Event("site:render"));
     };
   }
 
@@ -380,7 +344,7 @@ function renderAlbums(container) {
   if (albumsCombineBtn) {
     albumsCombineBtn.onclick = () => {
       state.combineVersions = !state.combineVersions;
-      renderPage();
+      window.dispatchEvent(new Event("site:render"));
     };
   }
 }
@@ -390,7 +354,7 @@ function renderAlbums(container) {
    ALBUM DETAIL PAGE
 ========================= */
 
-function renderAlbumPage(container) {
+export function renderAlbumPage(container) {
   const albumName = getQueryParam("album");
   const album = state.albums.find(a => a.album === albumName);
 
@@ -543,9 +507,9 @@ function renderAlbumPage(container) {
     </div>
   `;
 
-  document.getElementById("albumSortStreamsBtn")?.addEventListener("click", () => { state.albumSortMode = "streams"; renderPage(); });
-  document.getElementById("albumSortDailyBtn") ?.addEventListener("click", () => { state.albumSortMode = "daily";   renderPage(); });
-  document.getElementById("albumCombineBtn")   ?.addEventListener("click", () => { state.combineVersions = !state.combineVersions; renderPage(); });
+  document.getElementById("albumSortStreamsBtn")?.addEventListener("click", () => { state.albumSortMode = "streams"; window.dispatchEvent(new Event("site:render")); });
+  document.getElementById("albumSortDailyBtn") ?.addEventListener("click", () => { state.albumSortMode = "daily";   window.dispatchEvent(new Event("site:render")); });
+  document.getElementById("albumCombineBtn")   ?.addEventListener("click", () => { state.combineVersions = !state.combineVersions; window.dispatchEvent(new Event("site:render")); });
 }
 
 
@@ -553,7 +517,7 @@ function renderAlbumPage(container) {
    SONG PAGE
 ========================= */
 
-function renderSongPage(container){
+export function renderSongPage(container){
 
   const family = decodeURIComponent(getQueryParam("family")||"");
 
@@ -710,7 +674,7 @@ function milestoneRow(item) {
   const daysLeft = item.forecast?.days_left ?? null;
   if (!item?.forecast?.expected_date) return "";
 
-  const song = state.songs.find(s => s.track_id === item.track_id);
+  const song = state.songByTrackId?.get(item.track_id) || state.songs.find(s => s.track_id === item.track_id);
   if (!song) return "";
 
   const currentStreams = item.current_streams ?? song.streams ?? 0;
@@ -762,7 +726,7 @@ function milestoneRow(item) {
    MILESTONES PAGE
 ========================= */
 
-function renderMilestones(container) {
+export function renderMilestones(container) {
   const rows = (state.expectedMilestones || [])
     .filter(item => item?.forecast?.expected_date)
     .slice()
@@ -812,7 +776,7 @@ function renderMilestones(container) {
    ADMIN
 ========================= */
 
-function renderAdmin(container) {
+export function renderAdmin(container) {
 
   if (!state.lastRunState) {
     container.innerHTML = `
@@ -829,15 +793,12 @@ function renderAdmin(container) {
   const counts = { updated: 0, ok: 0, timeout: 0, not_found: 0, pending: 0 };
   statuses.forEach(s => { if (counts[s] !== undefined) counts[s]++; else counts.pending++; });
 
-  const songById = {};
-  (state.songs || []).forEach(s => { songById[s.track_id] = s; });
-
   const problemTracks = Object.entries(state.lastRunState)
     .filter(([, v]) => v === "timeout" || v === "not_found")
-    .map(([id, status]) => ({ id, status, song: songById[id] }));
+    .map(([id, status]) => ({ id, status, song: state.songByTrackId?.get(id) }));
 
   const streakEntries = state.notFoundStreak
-    ? Object.entries(state.notFoundStreak).map(([id, days]) => ({ id, days, song: songById[id] }))
+    ? Object.entries(state.notFoundStreak).map(([id, days]) => ({ id, days, song: state.songByTrackId?.get(id) }))
       .sort((a, b) => b.days - a.days)
     : [];
 
@@ -931,7 +892,7 @@ function renderAdmin(container) {
    BILLBOARD
 ========================= */
 
-function renderBillboard(container) {
+export function renderBillboard(container) {
 
   if (!state.billboard) {
     container.innerHTML = `
@@ -1014,7 +975,7 @@ function renderBillboard(container) {
   tabs.forEach(t => {
     document.getElementById(`bbTab_${t.key}`)?.addEventListener("click", () => {
       state.billboardTab = t.key;
-      renderPage();
+      window.dispatchEvent(new Event("site:render"));
     });
   });
 }

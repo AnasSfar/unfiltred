@@ -1,0 +1,2707 @@
+[
+  {
+    "album": "1989",
+    "section": "remixes",
+    "track_count": 1,
+    "tracks": [
+      {
+        "title": "Wildest Dreams - R3hab Remix",
+        "url": "https://open.spotify.com/intl-fr/track/5VDHMi7own9vDZjiwDES1e",
+        "type": "remix",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 1,
+        "base_title": "Wildest Dreams",
+        "album": "1989",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Wildest Dreams - R3hab Remix",
+        "song_family": "wildest_dreams",
+        "version_tag": "remix"
+      }
+    ]
+  },
+  {
+    "album": "1989",
+    "section": "voice_memos",
+    "track_count": 3,
+    "tracks": [
+      {
+        "title": "Blank Space - Voice Memo",
+        "url": "https://open.spotify.com/intl-fr/track/0yisH8r0f3Mkq34kjzUlCV",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 1,
+        "base_title": "Blank Space - Voice Memo",
+        "album": "1989",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Blank Space - Voice Memo",
+        "song_family": "blank_space_voice_memo",
+        "version_tag": "standalone"
+      },
+      {
+        "title": "I Know Places - Voice Memo",
+        "url": "https://open.spotify.com/intl-fr/track/4JQm7ebhsrt10wmrP6AfXL",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 2,
+        "base_title": "I Know Places - Voice Memo",
+        "album": "1989",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "I Know Places - Voice Memo",
+        "song_family": "i_know_places_voice_memo",
+        "version_tag": "standalone"
+      },
+      {
+        "title": "I Wish You Would - Voice Memo",
+        "url": "https://open.spotify.com/intl-fr/track/4TtyvyI42C0KFnbDZvNC8Y",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 3,
+        "base_title": "I Wish You Would - Voice Memo",
+        "album": "1989",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "I Wish You Would - Voice Memo",
+        "song_family": "i_wish_you_would_voice_memo",
+        "version_tag": "standalone"
+      }
+    ]
+  },
+  {
+    "album": "evermore",
+    "section": "bonus_versions",
+    "track_count": 2,
+    "tracks": [
+      {
+        "title": "willow - lonely witch version",
+        "url": "https://open.spotify.com/intl-fr/track/0U0etHtpARihOUUY8Akc7y",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 1,
+        "base_title": "willow",
+        "album": "evermore",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "willow - lonely witch version",
+        "song_family": "willow",
+        "version_tag": "standalone"
+      },
+      {
+        "title": "willow - moonlit witch version",
+        "url": "https://open.spotify.com/intl-fr/track/5XkJj6sV2XLMaURdmdXgNx",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 2,
+        "base_title": "willow",
+        "album": "evermore",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "willow - moonlit witch version",
+        "song_family": "willow",
+        "version_tag": "standalone"
+      }
+    ]
+  },
+  {
+    "album": "evermore",
+    "section": "remixes",
+    "track_count": 5,
+    "tracks": [
+      {
+        "title": "willow - 90's trend remix",
+        "url": "https://open.spotify.com/intl-fr/track/77p4fRpoeiZMtUy3P9kN21",
+        "type": "remix",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 1,
+        "base_title": "willow",
+        "album": "evermore",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "willow - 90's trend remix",
+        "song_family": "willow",
+        "version_tag": "remix"
+      },
+      {
+        "title": "willow - dancing witch version (Elvira remix)",
+        "url": "https://open.spotify.com/intl-fr/track/2NnrAdjE9cPdMklonMBuAv",
+        "type": "remix",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 2,
+        "base_title": "willow",
+        "album": "evermore",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "willow - dancing witch version (Elvira remix)",
+        "song_family": "willow",
+        "version_tag": "remix"
+      },
+      {
+        "title": "willow - lonely witch version",
+        "url": "https://open.spotify.com/intl-fr/track/77d7q9TNbsIDmRTDPkPv3L",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 3,
+        "base_title": "willow",
+        "album": "evermore",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "willow - lonely witch version",
+        "song_family": "willow",
+        "version_tag": "standalone"
+      },
+      {
+        "title": "willow - moonlit witch version",
+        "url": "https://open.spotify.com/intl-fr/track/5F7hpFKLmWgMHGxQuwssuv",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 4,
+        "base_title": "willow",
+        "album": "evermore",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "willow - moonlit witch version",
+        "song_family": "willow",
+        "version_tag": "standalone"
+      }
+    ]
+  },
+  {
+    "album": "Fearless",
+    "section": "remixes",
+    "track_count": 1,
+    "tracks": [
+      {
+        "title": "Love Story - Digital Dog Remix",
+        "url": "https://open.spotify.com/intl-fr/track/3RNDw7yywLNyawDKV99hTx",
+        "type": "remix",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 1,
+        "base_title": "Love Story",
+        "album": "Fearless",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Love Story - Digital Dog Remix",
+        "song_family": "love_story",
+        "version_tag": "remix"
+      },
+      {
+        "title": "You're Not Sorry - CSI Remix",
+        "url": "https://open.spotify.com/intl-fr/track/4VbErhGDMTnvPAnt5z70DL",
+        "type": "remix",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 2,
+        "base_title": "You're Not Sorry",
+        "album": "Fearless",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "You're Not Sorry - CSI Remix",
+        "song_family": "you_re_not_sorry",
+        "version_tag": "remix"
+      }
+    ]
+  },
+  {
+    "album": "Fearless (Taylor's Version)",
+    "section": "remixes",
+    "track_count": 2,
+    "tracks": [
+      {
+        "title": "Love Story (Taylor's Version) - Elvira Remix",
+        "url": "https://open.spotify.com/intl-fr/track/5RaBeejGtdPEszYEKYECs2",
+        "type": "remix",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 1,
+        "base_title": "Love Story",
+        "album": "Fearless (Taylor's Version)",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Love Story - Elvira Remix",
+        "song_family": "love_story",
+        "version_tag": "remix__taylors_version"
+      }
+    ]
+  },
+  {
+    "album": "folklore",
+    "section": "extras",
+    "track_count": 1,
+    "tracks": [
+      {
+        "title": "the lakes - original version",
+        "url": "https://open.spotify.com/track/0UAdDYrkCvVQftaKpL6q5f",
+        "type": "standalone",
+        "edition": "other editions",
+        "display_section": "deluxe edition",
+        "display_order": 1,
+        "base_title": "the lakes",
+        "album": "folklore",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "the lakes - original version",
+        "song_family": "the_lakes",
+        "version_tag": "deluxe__standalone"
+      }
+    ]
+  },
+  {
+    "album": "folklore",
+    "section": "remixes_and_live",
+    "track_count": 2,
+    "tracks": [
+      {
+        "title": "betty - Live from the 2020 Academy of Country Music Awards",
+        "url": "https://open.spotify.com/intl-fr/track/4GS68CE8nKLIKjjapiSm2I",
+        "type": "alternate_version",
+        "edition": "live",
+        "display_section": "Other Editions",
+        "display_order": 1,
+        "base_title": "betty",
+        "album": "folklore",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "betty - Live from the 2020 Academy of Country Music Awards",
+        "song_family": "betty",
+        "version_tag": "live__alternate_version"
+      },
+      {
+        "title": "cardigan - cabin in candlelight version",
+        "url": "https://open.spotify.com/intl-fr/track/2hmafYGj1CXYKIYcMnX4lj",
+        "type": "alternate_version",
+        "edition": "live",
+        "display_section": "Other Editions",
+        "display_order": 2,
+        "base_title": "cardigan",
+        "album": "folklore",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "cardigan - cabin in candlelight version",
+        "song_family": "cardigan",
+        "version_tag": "alternate_version"
+      }
+    ]
+  },
+  {
+    "album": "Lover",
+    "section": "cruel_summer_single",
+    "track_count": 4,
+    "tracks": [
+      {
+        "title": "Cruel Summer",
+        "url": "https://open.spotify.com/intl-fr/track/1kHVme7OVyPqhtdiLj2SI4",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 1,
+        "base_title": "Cruel Summer",
+        "album": "Lover",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Cruel Summer",
+        "song_family": "cruel_summer",
+        "version_tag": "standalone"
+      },
+      {
+        "title": "Cruel Summer - Live from TS",
+        "url": "The Eras Tour",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 2,
+        "base_title": "Cruel Summer",
+        "album": "Lover",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Cruel Summer - Live from TS",
+        "song_family": "cruel_summer",
+        "version_tag": "live__standalone"
+      },
+      {
+        "title": "Cruel Summer - LP Giobbi Remix",
+        "url": "https://open.spotify.com/intl-fr/track/37jfioVu3Bd2Du9bteXNDU",
+        "type": "remix",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 3,
+        "base_title": "Cruel Summer",
+        "album": "Lover",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Cruel Summer - LP Giobbi Remix",
+        "song_family": "cruel_summer",
+        "version_tag": "remix"
+      },
+      {
+        "title": "Cruel Summer - LP Giobbi Remix - Extended Version",
+        "url": "https://open.spotify.com/intl-fr/track/0ISHfeb30gj4CSWUZYuesj",
+        "type": "remix",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 4,
+        "base_title": "Cruel Summer",
+        "album": "Lover",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Cruel Summer - LP Giobbi Remix - Extended Version",
+        "song_family": "cruel_summer",
+        "version_tag": "remix"
+      }
+    ]
+  },
+  {
+    "album": "Lover",
+    "section": "remixes",
+    "track_count": 11,
+    "tracks": [
+      {
+        "title": "Lover (Remix) [feat. Shawn Mendes]",
+        "url": "https://open.spotify.com/intl-fr/track/3i9UVldZOE0aD0JnyfAZZ0",
+        "type": "remix",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 1,
+        "base_title": "Lover (Remix) [feat. Shawn Mendes]",
+        "album": "Lover",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Lover [feat. Shawn Mendes]",
+        "song_family": "lover_feat_shawn_mendes",
+        "version_tag": "remix"
+      },
+      {
+        "title": "Lover - First Dance Remix",
+        "url": "https://open.spotify.com/intl-fr/track/2msvOEbkK50foYf9BMXr2X",
+        "type": "remix",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 2,
+        "base_title": "Lover",
+        "album": "Lover",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Lover - First Dance Remix",
+        "song_family": "lover",
+        "version_tag": "remix"
+      },
+      {
+        "title": "Lover - Live From Paris",
+        "url": "https://open.spotify.com/intl-fr/track/4lD3RXyvHpJsM3BhIEC4aA",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 3,
+        "base_title": "Lover",
+        "album": "Lover",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Lover - Live From Paris",
+        "song_family": "lover",
+        "version_tag": "live__standalone"
+      },
+      {
+        "title": "You Need To Calm Down - Clean Bandit Remix",
+        "url": "https://open.spotify.com/intl-fr/track/7Bjf96uNizpvXLvNyOJpst",
+        "type": "remix",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 4,
+        "base_title": "You Need To Calm Down",
+        "album": "Lover",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "You Need To Calm Down - Clean Bandit Remix",
+        "song_family": "you_need_to_calm_down",
+        "version_tag": "remix"
+      },
+      {
+        "title": "You Need To Calm Down - Live From Paris",
+        "url": "https://open.spotify.com/intl-fr/track/36a08nLG1xazGaaVKK0vv7",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 5,
+        "base_title": "You Need To Calm Down",
+        "album": "Lover",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "You Need To Calm Down - Live From Paris",
+        "song_family": "you_need_to_calm_down",
+        "version_tag": "live__standalone"
+      },
+      {
+        "title": "Cornelia Street - Live From Paris",
+        "url": "https://open.spotify.com/intl-fr/track/3fGnrtrtL1IHSX9t4DKOYf",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 6,
+        "base_title": "Cornelia Street",
+        "album": "Lover",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Cornelia Street - Live From Paris",
+        "song_family": "cornelia_street",
+        "version_tag": "live__standalone"
+      },
+      {
+        "title": "Daylight - Live From Paris",
+        "url": "https://open.spotify.com/intl-fr/track/7ryS0xBZNYjQqql34GCkDp",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 7,
+        "base_title": "Daylight",
+        "album": "Lover",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Daylight - Live From Paris",
+        "song_family": "daylight",
+        "version_tag": "live__standalone"
+      },
+      {
+        "title": "Death By A Thousand Cuts - Live From Paris",
+        "url": "https://open.spotify.com/intl-fr/track/3oF7Or7T35yhQbGxbCGvRX",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 8,
+        "base_title": "Death By A Thousand Cuts",
+        "album": "Lover",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Death By A Thousand Cuts - Live From Paris",
+        "song_family": "death_by_a_thousand_cuts",
+        "version_tag": "live__standalone"
+      },
+      {
+        "title": "The Archer - Live From Paris",
+        "url": "https://open.spotify.com/intl-fr/track/2fgiBCtbWo8pijF6M7pN1i",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 9,
+        "base_title": "The Archer",
+        "album": "Lover",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "The Archer - Live From Paris",
+        "song_family": "the_archer",
+        "version_tag": "live__standalone"
+      },
+      {
+        "title": "The Man - Live From Paris",
+        "url": "https://open.spotify.com/intl-fr/track/7FKbTRXXIWVFQmPH8zGfU0",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 10,
+        "base_title": "The Man",
+        "album": "Lover",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "The Man - Live From Paris",
+        "song_family": "the_man",
+        "version_tag": "live__standalone"
+      },
+      {
+        "title": "ME! - Live From Paris",
+        "url": "https://open.spotify.com/intl-fr/track/5fOV54t6mMYv3H9CsnvU81",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 11,
+        "base_title": "ME!",
+        "album": "Lover",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "ME! - Live From Paris",
+        "song_family": "me",
+        "version_tag": "live__standalone"
+      }
+    ]
+  },
+  {
+    "album": "Lover",
+    "section": "standalone",
+    "track_count": 1,
+    "tracks": [
+      {
+        "title": "All Of The Girls You Loved Before",
+        "url": "https://open.spotify.com/intl-fr/track/4P9Q0GojKVXpRTJCaL3kyy",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 1,
+        "base_title": "All Of The Girls You Loved Before",
+        "album": "Lover",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "All Of The Girls You Loved Before",
+        "song_family": "all_of_the_girls_you_loved_before",
+        "version_tag": "standalone"
+      }
+    ]
+  },
+  {
+    "album": "Midnights",
+    "section": "remixes",
+    "track_count": 11,
+    "tracks": [
+      {
+        "title": "Anti-Hero",
+        "url": "https://open.spotify.com/intl-fr/track/2wMKBH2p5kIDFkRWjS9IOW",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 1,
+        "base_title": "Anti-Hero",
+        "album": "Midnights",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Anti-Hero",
+        "song_family": "anti_hero",
+        "version_tag": "standalone"
+      },
+      {
+        "title": "Anti-Hero (feat. Bleachers)",
+        "url": "https://open.spotify.com/intl-fr/track/16M9Rxid0nXhVmme7lzVwN",
+        "type": "feature",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 2,
+        "base_title": "Anti-Hero (feat. Bleachers)",
+        "album": "Midnights",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [
+          "Bleachers"
+        ],
+        "artists": [
+          "Taylor Swift",
+          "Bleachers"
+        ],
+        "title_clean": "Anti-Hero",
+        "song_family": "anti_hero",
+        "version_tag": "featured__feature"
+      },
+      {
+        "title": "Anti-Hero - ILLENIUM Remix",
+        "url": "https://open.spotify.com/intl-fr/track/6C0H8ts9M6deezz0yYR6LK",
+        "type": "remix",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 3,
+        "base_title": "Anti-Hero",
+        "album": "Midnights",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Anti-Hero - ILLENIUM Remix",
+        "song_family": "anti_hero",
+        "version_tag": "remix"
+      },
+      {
+        "title": "Anti-Hero - Jayda G Remix",
+        "url": "https://open.spotify.com/intl-fr/track/4YrpqEBNuz7IMsZtUP6bNQ",
+        "type": "remix",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 4,
+        "base_title": "Anti-Hero",
+        "album": "Midnights",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Anti-Hero - Jayda G Remix",
+        "song_family": "anti_hero",
+        "version_tag": "remix"
+      },
+      {
+        "title": "Anti-Hero - Kungs Remix",
+        "url": "https://open.spotify.com/intl-fr/track/2oWpe2L8ypC080BxpDVuTY",
+        "type": "remix",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 5,
+        "base_title": "Anti-Hero",
+        "album": "Midnights",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Anti-Hero - Kungs Remix",
+        "song_family": "anti_hero",
+        "version_tag": "remix"
+      },
+      {
+        "title": "Anti-Hero - Roosevelt Remix",
+        "url": "https://open.spotify.com/intl-fr/track/4XiypEn8iKbeP1TbTqdfk5",
+        "type": "remix",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 6,
+        "base_title": "Anti-Hero",
+        "album": "Midnights",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Anti-Hero - Roosevelt Remix",
+        "song_family": "anti_hero",
+        "version_tag": "remix"
+      },
+      {
+        "title": "Anti-Hero - Acoustic Version",
+        "url": "https://open.spotify.com/intl-fr/track/2d3d9xZutJjmUpntiyHt3F",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 7,
+        "base_title": "Anti-Hero",
+        "album": "Midnights",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Anti-Hero - Acoustic Version",
+        "song_family": "anti_hero",
+        "version_tag": "acoustic__standalone"
+      },
+      {
+        "title": "Anti-Hero (feat. Bleachers)",
+        "url": "https://open.spotify.com/intl-fr/track/0j0gJqxitjhmmkrW56dtQH",
+        "type": "feature",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 8,
+        "base_title": "Anti-Hero (feat. Bleachers)",
+        "album": "Midnights",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [
+          "Bleachers"
+        ],
+        "artists": [
+          "Taylor Swift",
+          "Bleachers"
+        ],
+        "title_clean": "Anti-Hero",
+        "song_family": "anti_hero",
+        "version_tag": "featured__feature"
+      },
+      {
+        "title": "Lavender Haze",
+        "url": "https://open.spotify.com/intl-fr/track/5NlYplrGsjUDFZ6x3HeVyT",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 9,
+        "base_title": "Lavender Haze",
+        "album": "Midnights",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Lavender Haze",
+        "song_family": "lavender_haze",
+        "version_tag": "standalone"
+      },
+      {
+        "title": "Lavender Haze - Felix Jaehn Remix",
+        "url": "https://open.spotify.com/intl-fr/track/2M4tVhRXucLE9M3STv21Yi",
+        "type": "remix",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 10,
+        "base_title": "Lavender Haze",
+        "album": "Midnights",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Lavender Haze - Felix Jaehn Remix",
+        "song_family": "lavender_haze",
+        "version_tag": "remix"
+      },
+      {
+        "title": "Lavender Haze - Jungle Remix",
+        "url": "https://open.spotify.com/intl-fr/track/0ThxqUZ9PwS6n0UT5i1XH6",
+        "type": "remix",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 11,
+        "base_title": "Lavender Haze",
+        "album": "Midnights",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Lavender Haze - Jungle Remix",
+        "song_family": "lavender_haze",
+        "version_tag": "remix"
+      },
+      {
+        "title": "Lavender Haze - Snakehips Remix",
+        "url": "https://open.spotify.com/intl-fr/track/6F67FNdOBNMFzxdj1CQ5pL",
+        "type": "remix",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 12,
+        "base_title": "Lavender Haze",
+        "album": "Midnights",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Lavender Haze - Snakehips Remix",
+        "song_family": "lavender_haze",
+        "version_tag": "remix"
+      },
+      {
+        "title": "Lavender Haze - Tensnake Remix",
+        "url": "https://open.spotify.com/intl-fr/track/7kjSmkSo15pHlkb0mOQtfj",
+        "type": "remix",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 13,
+        "base_title": "Lavender Haze",
+        "album": "Midnights",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Lavender Haze - Tensnake Remix",
+        "song_family": "lavender_haze",
+        "version_tag": "remix"
+      }
+    ]
+  },
+  {
+    "album": "Red",
+    "section": "demos_and_acoustic",
+    "track_count": 3,
+    "tracks": [
+      {
+        "title": "Red - Original Demo Recording",
+        "url": "https://open.spotify.com/intl-fr/track/4mqgn90sCeVSYqcoftTQTd",
+        "type": "alternate_version",
+        "edition": "acoustic",
+        "display_section": "Other Editions",
+        "display_order": 1,
+        "base_title": "Red",
+        "album": "Red",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Red - Original Demo Recording",
+        "song_family": "red",
+        "version_tag": "demo__alternate_version"
+      },
+      {
+        "title": "Treacherous - Original Demo Recording",
+        "url": "https://open.spotify.com/intl-fr/track/7BT9K9BDqq6HI2oWH5UMZQ",
+        "type": "alternate_version",
+        "edition": "acoustic",
+        "display_section": "Other Editions",
+        "display_order": 2,
+        "base_title": "Treacherous",
+        "album": "Red",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Treacherous - Original Demo Recording",
+        "song_family": "treacherous",
+        "version_tag": "demo__alternate_version"
+      },
+      {
+        "title": "State Of Grace - Acoustic",
+        "url": "https://open.spotify.com/intl-fr/track/5G9AVKld9q7DCrmoY42raf",
+        "type": "alternate_version",
+        "edition": "acoustic",
+        "display_section": "Other Editions",
+        "display_order": 3,
+        "base_title": "State Of Grace",
+        "album": "Red",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "State Of Grace - Acoustic",
+        "song_family": "state_of_grace",
+        "version_tag": "acoustic__alternate_version"
+      }
+    ]
+  },
+  {
+    "album": "Red",
+    "section": "remixes_and_extras",
+    "track_count": 2,
+    "tracks": [
+      {
+        "title": "Message In A Bottle (Fat Max G Remix) (Taylor's Version)",
+        "url": "https://open.spotify.com/intl-fr/track/3tGq7hWDCtrnL83y5OGual",
+        "type": "remix",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 1,
+        "base_title": "Message In A Bottle (Fat Max G Remix)",
+        "album": "Red",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Message In A Bottle (Fat Max G Remix)",
+        "song_family": "message_in_a_bottle_fat_max_g_remix",
+        "version_tag": "remix__taylors_version"
+      }
+    ]
+  },
+  {
+    "album": "reputation",
+    "section": "extras",
+    "track_count": 1,
+    "tracks": [
+      {
+        "title": "September - Recorded at The Tracking Room Nashville",
+        "url": "https://open.spotify.com/track/5eGX87IiKsGuzS3iw4CfCX",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 1,
+        "base_title": "September - Recorded at The Tracking Room Nashville",
+        "album": "reputation",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "September - Recorded at The Tracking Room Nashville",
+        "song_family": "september_recorded_at_the_tracking_room_nashville",
+        "version_tag": "standalone"
+      }
+    ]
+  },
+  {
+    "album": "reputation",
+    "section": "karaoke",
+    "track_count": 15,
+    "tracks": [
+      {
+        "title": "...Ready For It? - Karaoke Version",
+        "url": "https://open.spotify.com/intl-fr/track/4twNUyTpLMPWokYmCdFDCH",
+        "type": "alternate_version",
+        "edition": "karaoke",
+        "display_section": "Other Editions",
+        "display_order": 1,
+        "base_title": "...Ready For It?",
+        "album": "reputation",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "...Ready For It? - Karaoke Version",
+        "song_family": "ready_for_it",
+        "version_tag": "alternate_version"
+      },
+      {
+        "title": "Call It What You Want - Karaoke Version",
+        "url": "https://open.spotify.com/intl-fr/track/1VPHQriwOsy5aGHLwwZyho",
+        "type": "alternate_version",
+        "edition": "karaoke",
+        "display_section": "Other Editions",
+        "display_order": 2,
+        "base_title": "Call It What You Want",
+        "album": "reputation",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Call It What You Want - Karaoke Version",
+        "song_family": "call_it_what_you_want",
+        "version_tag": "alternate_version"
+      },
+      {
+        "title": "Dancing With Our Hands Tied - Karaoke Version",
+        "url": "https://open.spotify.com/intl-fr/track/3ZfvKQxJp4zZshiJsRPoD1",
+        "type": "alternate_version",
+        "edition": "karaoke",
+        "display_section": "Other Editions",
+        "display_order": 3,
+        "base_title": "Dancing With Our Hands Tied",
+        "album": "reputation",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Dancing With Our Hands Tied - Karaoke Version",
+        "song_family": "dancing_with_our_hands_tied",
+        "version_tag": "alternate_version"
+      },
+      {
+        "title": "Delicate - Karaoke Version",
+        "url": "https://open.spotify.com/intl-fr/track/5Iadj8IBPrt634WW0yGPRI",
+        "type": "alternate_version",
+        "edition": "karaoke",
+        "display_section": "Other Editions",
+        "display_order": 4,
+        "base_title": "Delicate",
+        "album": "reputation",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Delicate - Karaoke Version",
+        "song_family": "delicate",
+        "version_tag": "alternate_version"
+      },
+      {
+        "title": "Don't Blame Me - Karaoke Version",
+        "url": "https://open.spotify.com/intl-fr/track/5JtXBqKLdfzwedmlUjjqAm",
+        "type": "alternate_version",
+        "edition": "karaoke",
+        "display_section": "Other Editions",
+        "display_order": 5,
+        "base_title": "Don't Blame Me",
+        "album": "reputation",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Don't Blame Me - Karaoke Version",
+        "song_family": "don_t_blame_me",
+        "version_tag": "alternate_version"
+      },
+      {
+        "title": "Dress - Karaoke Version",
+        "url": "https://open.spotify.com/intl-fr/track/2k0w1FGqvzVPgQ9VdTaJpe",
+        "type": "alternate_version",
+        "edition": "karaoke",
+        "display_section": "Other Editions",
+        "display_order": 6,
+        "base_title": "Dress",
+        "album": "reputation",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Dress - Karaoke Version",
+        "song_family": "dress",
+        "version_tag": "alternate_version"
+      },
+      {
+        "title": "End Game - Karaoke Version",
+        "url": "https://open.spotify.com/intl-fr/track/4cag67C3v9ToeFivUwDUsE",
+        "type": "alternate_version",
+        "edition": "karaoke",
+        "display_section": "Other Editions",
+        "display_order": 7,
+        "base_title": "End Game",
+        "album": "reputation",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "End Game - Karaoke Version",
+        "song_family": "end_game",
+        "version_tag": "alternate_version"
+      },
+      {
+        "title": "Getaway Car - Karaoke Version",
+        "url": "https://open.spotify.com/intl-fr/track/7bdyzcQ0onk60hfsxDCd2X",
+        "type": "alternate_version",
+        "edition": "karaoke",
+        "display_section": "Other Editions",
+        "display_order": 8,
+        "base_title": "Getaway Car",
+        "album": "reputation",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Getaway Car - Karaoke Version",
+        "song_family": "getaway_car",
+        "version_tag": "alternate_version"
+      },
+      {
+        "title": "Gorgeous - Karaoke Version",
+        "url": "https://open.spotify.com/intl-fr/track/3ZHTwJzCNDFvjLpVQiqpH6",
+        "type": "alternate_version",
+        "edition": "karaoke",
+        "display_section": "Other Editions",
+        "display_order": 9,
+        "base_title": "Gorgeous",
+        "album": "reputation",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Gorgeous - Karaoke Version",
+        "song_family": "gorgeous",
+        "version_tag": "alternate_version"
+      },
+      {
+        "title": "I Did Something Bad - Karaoke Version",
+        "url": "https://open.spotify.com/intl-fr/track/2hecdut2HWM5JMHqLTWThq",
+        "type": "alternate_version",
+        "edition": "karaoke",
+        "display_section": "Other Editions",
+        "display_order": 10,
+        "base_title": "I Did Something Bad",
+        "album": "reputation",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "I Did Something Bad - Karaoke Version",
+        "song_family": "i_did_something_bad",
+        "version_tag": "alternate_version"
+      },
+      {
+        "title": "King Of My Heart - Karaoke Version",
+        "url": "https://open.spotify.com/intl-fr/track/5EsfyTD26nlVQ0DtYo16uJ",
+        "type": "alternate_version",
+        "edition": "karaoke",
+        "display_section": "Other Editions",
+        "display_order": 11,
+        "base_title": "King Of My Heart",
+        "album": "reputation",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "King Of My Heart - Karaoke Version",
+        "song_family": "king_of_my_heart",
+        "version_tag": "alternate_version"
+      },
+      {
+        "title": "Look What You Made Me Do - Karaoke Version",
+        "url": "https://open.spotify.com/intl-fr/track/1zz0XSmHCFd57ne04UAp38",
+        "type": "alternate_version",
+        "edition": "karaoke",
+        "display_section": "Other Editions",
+        "display_order": 12,
+        "base_title": "Look What You Made Me Do",
+        "album": "reputation",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Look What You Made Me Do - Karaoke Version",
+        "song_family": "look_what_you_made_me_do",
+        "version_tag": "alternate_version"
+      },
+      {
+        "title": "New Year's Day - Karaoke Version",
+        "url": "https://open.spotify.com/intl-fr/track/13tYZVTtzLUJTlM7m1ivbi",
+        "type": "alternate_version",
+        "edition": "karaoke",
+        "display_section": "Other Editions",
+        "display_order": 13,
+        "base_title": "New Year's Day",
+        "album": "reputation",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "New Year's Day - Karaoke Version",
+        "song_family": "new_year_s_day",
+        "version_tag": "alternate_version"
+      },
+      {
+        "title": "So It Goes... - Karaoke Version",
+        "url": "https://open.spotify.com/intl-fr/track/5oJUjUsBZcqyEhOdpif37h",
+        "type": "alternate_version",
+        "edition": "karaoke",
+        "display_section": "Other Editions",
+        "display_order": 14,
+        "base_title": "So It Goes...",
+        "album": "reputation",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "So It Goes... - Karaoke Version",
+        "song_family": "so_it_goes",
+        "version_tag": "alternate_version"
+      },
+      {
+        "title": "This Is Why We Can't Have Nice Things - Karaoke Version",
+        "url": "https://open.spotify.com/intl-fr/track/0MtU9ETYyVX8YPBDCYPdMb",
+        "type": "alternate_version",
+        "edition": "karaoke",
+        "display_section": "Other Editions",
+        "display_order": 15,
+        "base_title": "This Is Why We Can't Have Nice Things",
+        "album": "reputation",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "This Is Why We Can't Have Nice Things - Karaoke Version",
+        "song_family": "this_is_why_we_can_t_have_nice_things",
+        "version_tag": "alternate_version"
+      }
+    ]
+  },
+  {
+    "album": "reputation",
+    "section": "remixes",
+    "track_count": 4,
+    "tracks": [
+      {
+        "title": "...Ready For It? - BloodPop® Remix",
+        "url": "https://open.spotify.com/intl-fr/track/1Ygm9KdH3wbzDekO8JgxcW",
+        "type": "remix",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 1,
+        "base_title": "...Ready For It?",
+        "album": "reputation",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "...Ready For It? - BloodPop® Remix",
+        "song_family": "ready_for_it",
+        "version_tag": "remix"
+      },
+      {
+        "title": "Delicate - Seeb Remix",
+        "url": "https://open.spotify.com/intl-fr/track/2Sy2oGjP5RYB4cLVoDU0Gz",
+        "type": "remix",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 2,
+        "base_title": "Delicate",
+        "album": "reputation",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Delicate - Seeb Remix",
+        "song_family": "delicate",
+        "version_tag": "remix"
+      },
+      {
+        "title": "Delicate - Recorded at The Tracking Room Nashville",
+        "url": "https://open.spotify.com/intl-fr/track/1Fj0T1XKuhRu7EZzJ7NJIK",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 3,
+        "base_title": "Delicate - Recorded at The Tracking Room Nashville",
+        "album": "reputation",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Delicate - Recorded at The Tracking Room Nashville",
+        "song_family": "delicate_recorded_at_the_tracking_room_nashville",
+        "version_tag": "standalone"
+      },
+      {
+        "title": "Delicate - Sawyr And Ryan Tedder Mix",
+        "url": "https://open.spotify.com/intl-fr/track/6SYwJcqaltK2WFRmD1unUV",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 4,
+        "base_title": "Delicate - Sawyr And Ryan Tedder Mix",
+        "album": "reputation",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Delicate - Sawyr And Ryan Tedder Mix",
+        "song_family": "delicate_sawyr_and_ryan_tedder_mix",
+        "version_tag": "standalone"
+      }
+    ]
+  },
+  {
+    "album": "reputation",
+    "section": "standalone",
+    "track_count": 1,
+    "tracks": [
+      {
+        "title": "I Don't Wanna Live Forever (Fifty Shades Darker)",
+        "url": "https://open.spotify.com/intl-fr/track/2y5aJvzXhHPA94U5GFAcXe",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 1,
+        "base_title": "I Don't Wanna Live Forever (Fifty Shades Darker)",
+        "album": "reputation",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "I Don't Wanna Live Forever (Fifty Shades Darker)",
+        "song_family": "i_don_t_wanna_live_forever_fifty_shades_darker",
+        "version_tag": "live__standalone"
+      }
+    ]
+  },
+  {
+    "album": "Speak Now",
+    "section": "extras_and_live",
+    "track_count": 11,
+    "tracks": [
+      {
+        "title": "Mine - POP Mix",
+        "url": "https://open.spotify.com/intl-fr/track/0GxW5K0qzrq7L1jwSY5OmY",
+        "type": "alternate_version",
+        "edition": "live",
+        "display_section": "Other Editions",
+        "display_order": 1,
+        "base_title": "Mine - POP Mix",
+        "album": "Speak Now",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Mine - POP Mix",
+        "song_family": "mine_pop_mix",
+        "version_tag": "alternate_version"
+      },
+      {
+        "title": "Back To December - Acoustic",
+        "url": "https://open.spotify.com/intl-fr/track/6IH2Z54gYPLqgJtxZjX80i",
+        "type": "alternate_version",
+        "edition": "live",
+        "display_section": "Other Editions",
+        "display_order": 2,
+        "base_title": "Back To December",
+        "album": "Speak Now",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Back To December - Acoustic",
+        "song_family": "back_to_december",
+        "version_tag": "acoustic__alternate_version"
+      },
+      {
+        "title": "Haunted - Acoustic Version",
+        "url": "https://open.spotify.com/intl-fr/track/62rlxI6g2PNaWsHoiRryto",
+        "type": "alternate_version",
+        "edition": "live",
+        "display_section": "Other Editions",
+        "display_order": 3,
+        "base_title": "Haunted",
+        "album": "Speak Now",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Haunted - Acoustic Version",
+        "song_family": "haunted",
+        "version_tag": "acoustic__alternate_version"
+      },
+      {
+        "title": "Better Than Revenge - Live/2011",
+        "url": "https://open.spotify.com/intl-fr/track/6505MLhnqTDDg4tjoUz2Wp",
+        "type": "alternate_version",
+        "edition": "live",
+        "display_section": "Other Editions",
+        "display_order": 4,
+        "base_title": "Better Than Revenge",
+        "album": "Speak Now",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Better Than Revenge - Live/2011",
+        "song_family": "better_than_revenge",
+        "version_tag": "live__alternate_version"
+      },
+      {
+        "title": "Last Kiss - Live/2011",
+        "url": "https://open.spotify.com/intl-fr/track/6hH37tyeRdyan1mAppmVor",
+        "type": "alternate_version",
+        "edition": "live",
+        "display_section": "Other Editions",
+        "display_order": 5,
+        "base_title": "Last Kiss",
+        "album": "Speak Now",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Last Kiss - Live/2011",
+        "song_family": "last_kiss",
+        "version_tag": "live__alternate_version"
+      },
+      {
+        "title": "Mean - Live/2011",
+        "url": "https://open.spotify.com/intl-fr/track/7mFiEij8AXPUZB7aKLbUlQ",
+        "type": "alternate_version",
+        "edition": "live",
+        "display_section": "Other Editions",
+        "display_order": 6,
+        "base_title": "Mean",
+        "album": "Speak Now",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Mean - Live/2011",
+        "song_family": "mean",
+        "version_tag": "live__alternate_version"
+      },
+      {
+        "title": "Mine - Live/2011",
+        "url": "https://open.spotify.com/intl-fr/track/7yndkPYP6YQQLBpPsizDfh",
+        "type": "alternate_version",
+        "edition": "live",
+        "display_section": "Other Editions",
+        "display_order": 7,
+        "base_title": "Mine",
+        "album": "Speak Now",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Mine - Live/2011",
+        "song_family": "mine",
+        "version_tag": "live__alternate_version"
+      },
+      {
+        "title": "Ours - Live/2011",
+        "url": "https://open.spotify.com/intl-fr/track/68QyrSzpnoU04AAhE5z8lj",
+        "type": "alternate_version",
+        "edition": "live",
+        "display_section": "Other Editions",
+        "display_order": 8,
+        "base_title": "Ours",
+        "album": "Speak Now",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Ours - Live/2011",
+        "song_family": "ours",
+        "version_tag": "live__alternate_version"
+      },
+      {
+        "title": "Sparks Fly - Live/2011",
+        "url": "https://open.spotify.com/intl-fr/track/1aBJNc2thaKyh5THWzIqHX",
+        "type": "alternate_version",
+        "edition": "live",
+        "display_section": "Other Editions",
+        "display_order": 9,
+        "base_title": "Sparks Fly",
+        "album": "Speak Now",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Sparks Fly - Live/2011",
+        "song_family": "sparks_fly",
+        "version_tag": "live__alternate_version"
+      },
+      {
+        "title": "Speak Now - Live/2011",
+        "url": "https://open.spotify.com/intl-fr/track/3QFB14MOUf3imlyISNmrbT",
+        "type": "alternate_version",
+        "edition": "live",
+        "display_section": "Other Editions",
+        "display_order": 10,
+        "base_title": "Speak Now",
+        "album": "Speak Now",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Speak Now - Live/2011",
+        "song_family": "speak_now",
+        "version_tag": "live__alternate_version"
+      },
+      {
+        "title": "The Story Of Us - Live",
+        "url": "https://open.spotify.com/intl-fr/track/72GIZuUXo14oyrS0si3Rgc",
+        "type": "alternate_version",
+        "edition": "live",
+        "display_section": "Other Editions",
+        "display_order": 11,
+        "base_title": "The Story Of Us",
+        "album": "Speak Now",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "The Story Of Us - Live",
+        "song_family": "the_story_of_us",
+        "version_tag": "live__alternate_version"
+      }
+    ]
+  },
+  {
+    "album": "Standalone & Extras",
+    "section": "collabs_and_features",
+    "track_count": 10,
+    "tracks": [
+      {
+        "title": "Renegade",
+        "url": "https://open.spotify.com/intl-fr/track/73W5aXorr5vxrySFcoZqIN",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 1,
+        "base_title": "Renegade",
+        "album": "Standalone & Extras",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Renegade",
+        "song_family": "renegade",
+        "version_tag": "standalone"
+      },
+      {
+        "title": "Renegade - Pop Version",
+        "url": "https://open.spotify.com/intl-fr/track/06zIBqLC9ZRm5i0iMf0kHI",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 2,
+        "base_title": "Renegade",
+        "album": "Standalone & Extras",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Renegade - Pop Version",
+        "song_family": "renegade",
+        "version_tag": "standalone"
+      },
+      {
+        "title": "The Joker And The Queen (feat. Taylor Swift)",
+        "url": "https://open.spotify.com/intl-fr/track/3wx2iW1rJGgdNln2I64HNh",
+        "type": "feature",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 3,
+        "base_title": "The Joker And The Queen (feat. Taylor Swift)",
+        "album": "Standalone & Extras",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [
+          "Taylor Swift"
+        ],
+        "artists": [
+          "Taylor Swift",
+          "Taylor Swift"
+        ],
+        "title_clean": "The Joker And The Queen",
+        "song_family": "the_joker_and_the_queen",
+        "version_tag": "featured__feature"
+      },
+      {
+        "title": "Gasoline (feat. Taylor Swift)",
+        "url": "https://open.spotify.com/intl-fr/track/2bzUVEvpZ7At5cYz1kOLI9",
+        "type": "feature",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 4,
+        "base_title": "Gasoline (feat. Taylor Swift)",
+        "album": "Standalone & Extras",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [
+          "Taylor Swift"
+        ],
+        "artists": [
+          "Taylor Swift",
+          "Taylor Swift"
+        ],
+        "title_clean": "Gasoline",
+        "song_family": "gasoline",
+        "version_tag": "featured__feature"
+      },
+      {
+        "title": "Both of Us (feat. Taylor Swift)",
+        "url": "https://open.spotify.com/intl-fr/track/3r9bgSJlJz2zlevcBRYXko",
+        "type": "feature",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 5,
+        "base_title": "Both of Us (feat. Taylor Swift)",
+        "album": "Standalone & Extras",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [
+          "Taylor Swift"
+        ],
+        "artists": [
+          "Taylor Swift",
+          "Taylor Swift"
+        ],
+        "title_clean": "Both of Us",
+        "song_family": "both_of_us",
+        "version_tag": "featured__feature"
+      },
+      {
+        "title": "Two Is Better Than One (feat. Taylor Swift)",
+        "url": "https://open.spotify.com/intl-fr/track/1MaqkdFNIKPdpQGDzme5ss",
+        "type": "feature",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 6,
+        "base_title": "Two Is Better Than One (feat. Taylor Swift)",
+        "album": "Standalone & Extras",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [
+          "Taylor Swift"
+        ],
+        "artists": [
+          "Taylor Swift",
+          "Taylor Swift"
+        ],
+        "title_clean": "Two Is Better Than One",
+        "song_family": "two_is_better_than_one",
+        "version_tag": "featured__feature"
+      },
+      {
+        "title": "Highway Don't Care",
+        "url": "https://open.spotify.com/intl-fr/track/60hGQrn24APqEFSLObLeDc",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 7,
+        "base_title": "Highway Don't Care",
+        "album": "Standalone & Extras",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Highway Don't Care",
+        "song_family": "highway_don_t_care",
+        "version_tag": "standalone"
+      },
+      {
+        "title": "Babe (feat. Taylor Swift)",
+        "url": "https://open.spotify.com/track/40PXEOFLJc7UIpLMrhSfW1",
+        "type": "feature",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 8,
+        "base_title": "Babe (feat. Taylor Swift)",
+        "album": "Standalone & Extras",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [
+          "Taylor Swift"
+        ],
+        "artists": [
+          "Taylor Swift",
+          "Taylor Swift"
+        ],
+        "title_clean": "Babe",
+        "song_family": "babe",
+        "version_tag": "featured__feature"
+      },
+      {
+        "title": "The Alcott (feat. Taylor Swift)",
+        "url": "https://open.spotify.com/track/6INztpNwOTlfSKTuPo0HOP",
+        "type": "feature",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 9,
+        "base_title": "The Alcott (feat. Taylor Swift)",
+        "album": "Standalone & Extras",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [
+          "Taylor Swift"
+        ],
+        "artists": [
+          "Taylor Swift",
+          "Taylor Swift"
+        ],
+        "title_clean": "The Alcott",
+        "song_family": "the_alcott",
+        "version_tag": "featured__feature"
+      },
+      {
+        "title": "us. (feat. Taylor Swift)",
+        "url": "https://open.spotify.com/track/0hhzNPE68LWLfgZwdpxVdR",
+        "type": "feature",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 10,
+        "base_title": "us. (feat. Taylor Swift)",
+        "album": "Standalone & Extras",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [
+          "Taylor Swift"
+        ],
+        "artists": [
+          "Taylor Swift",
+          "Taylor Swift"
+        ],
+        "title_clean": "us.",
+        "song_family": "us",
+        "version_tag": "featured__feature"
+      }
+    ]
+  },
+  {
+    "album": "Standalone & Extras",
+    "section": "misc_standalone",
+    "track_count": 8,
+    "tracks": [
+      {
+        "title": "Birch",
+        "url": "https://open.spotify.com/intl-fr/track/7wo2UNeQBowm28hfAJsEMz",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 1,
+        "base_title": "Birch",
+        "album": "Standalone & Extras",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Birch",
+        "song_family": "birch",
+        "version_tag": "standalone"
+      },
+      {
+        "title": "Ronan",
+        "url": "https://open.spotify.com/intl-fr/track/0Nw8hv79MLJa1yjtsEgz08",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 2,
+        "base_title": "Ronan",
+        "album": "Standalone & Extras",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Ronan",
+        "song_family": "ronan",
+        "version_tag": "standalone"
+      },
+      {
+        "title": "Today Was A Fairytale",
+        "url": "https://open.spotify.com/intl-fr/track/4pFvEWbjBpPUdYRQly0THs",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 3,
+        "base_title": "Today Was A Fairytale",
+        "album": "Standalone & Extras",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Today Was A Fairytale",
+        "song_family": "today_was_a_fairytale",
+        "version_tag": "standalone"
+      },
+      {
+        "title": "Back To December/Apologize/You're Not Sorry - Live/2011/Medley",
+        "url": "https://open.spotify.com/intl-fr/track/1IsquhJFJ0qcFZI7FeAEuN",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 4,
+        "base_title": "Back To December/Apologize/You're Not Sorry",
+        "album": "Standalone & Extras",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Back To December/Apologize/You're Not Sorry - Live/2011/Medley",
+        "song_family": "back_to_december_apologize_you_re_not_sorry",
+        "version_tag": "live__standalone"
+      }
+    ]
+  },
+  {
+    "album": "Standalone & Extras",
+    "section": "soundtracks",
+    "track_count": 9,
+    "tracks": [
+      {
+        "title": "Carolina - \"Where The Crawdads Sing\" - Video Edition",
+        "url": "https://open.spotify.com/intl-fr/track/12xIjI9A9UlB6zEc7kyZ06",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 1,
+        "base_title": "Carolina - \"Where The Crawdads Sing\" - Video Edition",
+        "album": "Standalone & Extras",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Carolina - \"Where The Crawdads Sing\" - Video Edition",
+        "song_family": "carolina_where_the_crawdads_sing_video_edition",
+        "version_tag": "standalone"
+      },
+      {
+        "title": "Carolina - From The Motion Picture “Where The Crawdads Sing”",
+        "url": "https://open.spotify.com/intl-fr/track/4axSuOg3BqsowKjRpj59RU",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 2,
+        "base_title": "Carolina - From The Motion Picture “Where The Crawdads Sing”",
+        "album": "Standalone & Extras",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Carolina - From The Motion Picture “Where The Crawdads Sing”",
+        "song_family": "carolina_from_the_motion_picture_where_the_crawdads_sing",
+        "version_tag": "standalone"
+      },
+      {
+        "title": "Sweeter Than Fiction - From \"One Chance\" Soundtrack",
+        "url": "https://open.spotify.com/intl-fr/track/0RFCHlNuTeUHIB36VuVbOL",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 3,
+        "base_title": "Sweeter Than Fiction - From \"One Chance\" Soundtrack",
+        "album": "Standalone & Extras",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Sweeter Than Fiction - From \"One Chance\" Soundtrack",
+        "song_family": "sweeter_than_fiction_from_one_chance_soundtrack",
+        "version_tag": "standalone"
+      },
+      {
+        "title": "Eyes Open (Taylor's Version)",
+        "url": "https://open.spotify.com/intl-fr/track/2NIBaWXdjaTDmytjjwbEfP",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 4,
+        "base_title": "Eyes Open",
+        "album": "Standalone & Extras",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Eyes Open",
+        "song_family": "eyes_open",
+        "version_tag": "taylors_version__standalone"
+      },
+      {
+        "title": "Safe & Sound (feat. Joy Williams and John Paul White) (Taylor's Version)",
+        "url": "https://open.spotify.com/intl-fr/track/2RJnNdu4pb3MypbBroHU0T",
+        "type": "feature",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 5,
+        "base_title": "Safe & Sound (feat. Joy Williams and John Paul White)",
+        "album": "Standalone & Extras",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [
+          "Joy Williams",
+          "John Paul White"
+        ],
+        "artists": [
+          "Taylor Swift",
+          "Joy Williams",
+          "John Paul White"
+        ],
+        "title_clean": "Safe & Sound",
+        "song_family": "safe_sound",
+        "version_tag": "featured__taylors_version__feature"
+      },
+      {
+        "title": "Only The Young - Featured in Miss Americana",
+        "url": "https://open.spotify.com/intl-fr/track/2slqvGLwzZZYsT4K4Y1GBC",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 6,
+        "base_title": "Only The Young - Featured in Miss Americana",
+        "album": "Standalone & Extras",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Only The Young - Featured in Miss Americana",
+        "song_family": "only_the_young_featured_in_miss_americana",
+        "version_tag": "standalone"
+      },
+      {
+        "title": "Safe & Sound - from The Hunger Games Soundtrack",
+        "url": "https://open.spotify.com/track/0z9UVN8VBHJ9HdfYsOuuNf",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 7,
+        "base_title": "Safe & Sound - from The Hunger Games Soundtrack",
+        "album": "Standalone & Extras",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Safe & Sound - from The Hunger Games Soundtrack",
+        "song_family": "safe_sound_from_the_hunger_games_soundtrack",
+        "version_tag": "standalone"
+      },
+      {
+        "title": "Beautiful Ghosts - From The Motion Picture Soundtrack \"Cats\"",
+        "url": "https://open.spotify.com/track/2evEoQAhIMaa9PfjTT5skG",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 8,
+        "base_title": "Beautiful Ghosts - From The Motion Picture Soundtrack \"Cats\"",
+        "album": "Standalone & Extras",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Beautiful Ghosts - From The Motion Picture Soundtrack \"Cats\"",
+        "song_family": "beautiful_ghosts_from_the_motion_picture_soundtrack_cats",
+        "version_tag": "standalone"
+      },
+      {
+        "title": "Macavity - From The Motion Picture Soundtrack \"Cats\"",
+        "url": "https://open.spotify.com/track/5zOKuItOTZhRCGtPrDYmlj",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 9,
+        "base_title": "Macavity - From The Motion Picture Soundtrack \"Cats\"",
+        "album": "Standalone & Extras",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Macavity - From The Motion Picture Soundtrack \"Cats\"",
+        "song_family": "macavity_from_the_motion_picture_soundtrack_cats",
+        "version_tag": "standalone"
+      }
+    ]
+  },
+  {
+    "album": "Standalone & Extras",
+    "section": "taylor_versions_standalone",
+    "track_count": 8,
+    "tracks": [
+      {
+        "title": "If This Was A Movie (Taylor's Version)",
+        "url": "https://open.spotify.com/intl-fr/track/0kAZ3H6G9Zac4PMpmobMkj",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 1,
+        "base_title": "If This Was A Movie",
+        "album": "Standalone & Extras",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "If This Was A Movie",
+        "song_family": "if_this_was_a_movie",
+        "version_tag": "taylors_version__standalone"
+      },
+      {
+        "title": "You All Over Me (feat. Maren Morris) (Taylor's Version) (From The Vault)",
+        "url": "https://open.spotify.com/intl-fr/track/5pcjystBtalYeqaiXCcgEY",
+        "type": "feature",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 2,
+        "base_title": "You All Over Me (feat. Maren Morris) (Taylor's Version) (From The Vault)",
+        "album": "Standalone & Extras",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [
+          "Maren Morris"
+        ],
+        "artists": [
+          "Taylor Swift",
+          "Maren Morris"
+        ],
+        "title_clean": "You All Over Me",
+        "song_family": "you_all_over_me",
+        "version_tag": "featured__vault__taylors_version__feature"
+      },
+      {
+        "title": "All Too Well (10 Minute Version) (The Short Film)",
+        "url": "https://open.spotify.com/intl-fr/track/1u4HUiREUR6vX1W1RYG2Tm",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 3,
+        "base_title": "All Too Well (10 Minute Version) (The Short Film)",
+        "album": "Standalone & Extras",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "All Too Well (10 Minute Version) (The Short Film)",
+        "song_family": "all_too_well_10_minute_version_the_short_film",
+        "version_tag": "standalone"
+      },
+      {
+        "title": "All Too Well (Sad Girl Autumn Version) - Recorded at Long Pond Studios",
+        "url": "https://open.spotify.com/intl-fr/track/1n3b9Eekoy3S9ZSZ5DmTW1",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 4,
+        "base_title": "All Too Well (Sad Girl Autumn Version) - Recorded at Long Pond Studios",
+        "album": "Standalone & Extras",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "All Too Well (Sad Girl Autumn Version) - Recorded at Long Pond Studios",
+        "song_family": "all_too_well_sad_girl_autumn_version_recorded_at_long_pond_studios",
+        "version_tag": "standalone"
+      }
+    ]
+  },
+  {
+    "album": "Taylor Swift",
+    "section": "extras",
+    "track_count": 1,
+    "tracks": [
+      {
+        "title": "Crazier",
+        "url": "https://open.spotify.com/intl-fr/track/5vyxXfD5gLlyPxGZMEjtmd",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 1,
+        "base_title": "Crazier",
+        "album": "Taylor Swift",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Crazier",
+        "song_family": "crazier",
+        "version_tag": "standalone"
+      }
+    ]
+  },
+  {
+    "album": "The Life of a Showgirl",
+    "section": "acoustic_edition",
+    "track_count": 5,
+    "tracks": [
+      {
+        "title": "Wi$h Li$t - Settled Down Acoustic Version",
+        "url": "https://open.spotify.com/track/1qwClaxDb5fCrLjXaAmB35",
+        "type": "alternate_version",
+        "edition": "acoustic",
+        "display_section": "Other Editions",
+        "display_order": 1,
+        "base_title": "Wi$h Li$t",
+        "album": "The Life of a Showgirl",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Wi$h Li$t - Settled Down Acoustic Version",
+        "song_family": "wi_h_li_t",
+        "version_tag": "acoustic__alternate_version"
+      },
+      {
+        "title": "Ruin The Friendship - My Advice Version",
+        "url": "https://open.spotify.com/track/6hKfPNnVlA2cgTgKj6Vgcw",
+        "type": "alternate_version",
+        "edition": "acoustic",
+        "display_section": "Other Editions",
+        "display_order": 2,
+        "base_title": "Ruin The Friendship",
+        "album": "The Life of a Showgirl",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Ruin The Friendship - My Advice Version",
+        "song_family": "ruin_the_friendship",
+        "version_tag": "alternate_version"
+      },
+      {
+        "title": "Eldest Daughter - Now You're Home Acoustic Version",
+        "url": "https://open.spotify.com/track/2JHzTARFUispsjZHKhrxxO",
+        "type": "alternate_version",
+        "edition": "acoustic",
+        "display_section": "Other Editions",
+        "display_order": 3,
+        "base_title": "Eldest Daughter",
+        "album": "The Life of a Showgirl",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Eldest Daughter - Now You're Home Acoustic Version",
+        "song_family": "eldest_daughter",
+        "version_tag": "acoustic__alternate_version"
+      },
+      {
+        "title": "Elizabeth Taylor - So Glamorous Cabaret Version",
+        "url": "https://open.spotify.com/track/4UBWugj5D20ZveyzdGpqvD",
+        "type": "alternate_version",
+        "edition": "acoustic",
+        "display_section": "Other Editions",
+        "display_order": 4,
+        "base_title": "Elizabeth Taylor",
+        "album": "The Life of a Showgirl",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Elizabeth Taylor - So Glamorous Cabaret Version",
+        "song_family": "elizabeth_taylor",
+        "version_tag": "alternate_version"
+      },
+      {
+        "title": "The Life of a Showgirl (feat. Sabrina Carpenter) - Dressing Room Rehearsal Version",
+        "url": "https://open.spotify.com/track/2DF2sUvgHFKJ5TQGjm6n3T",
+        "type": "alternate_version",
+        "edition": "acoustic",
+        "display_section": "Other Editions",
+        "display_order": 5,
+        "base_title": "The Life of a Showgirl (feat. Sabrina Carpenter)",
+        "album": "The Life of a Showgirl",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [
+          "Sabrina Carpenter"
+        ],
+        "artists": [
+          "Taylor Swift",
+          "Sabrina Carpenter"
+        ],
+        "title_clean": "The Life of a Showgirl - Dressing Room Rehearsal Version",
+        "song_family": "the_life_of_a_showgirl",
+        "version_tag": "featured__alternate_version"
+      }
+    ]
+  },
+  {
+    "album": "The Life of a Showgirl",
+    "section": "music_videos_extended",
+    "track_count": 2,
+    "tracks": [
+      {
+        "title": "Opalite - Official Music Video Extended Version Part 1",
+        "url": "https://open.spotify.com/intl-fr/track/7vf4GBEJmv0uXojpr5qPMX",
+        "type": "alternate_version",
+        "edition": "extended",
+        "display_section": "Extras",
+        "display_order": 1,
+        "base_title": "Opalite",
+        "album": "The Life of a Showgirl",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Opalite - Official Music Video Extended Version Part 1",
+        "song_family": "opalite",
+        "version_tag": "alternate_version"
+      },
+      {
+        "title": "Opalite - Official Music Video Extended Version Part 2",
+        "url": "https://open.spotify.com/intl-fr/track/7EWLNUpx0QWUCYfmBJS9qb",
+        "type": "alternate_version",
+        "edition": "extended",
+        "display_section": "Extras",
+        "display_order": 2,
+        "base_title": "Opalite",
+        "album": "The Life of a Showgirl",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Opalite - Official Music Video Extended Version Part 2",
+        "song_family": "opalite",
+        "version_tag": "alternate_version"
+      }
+    ]
+  },
+  {
+    "album": "The Life of a Showgirl",
+    "section": "remixes",
+    "track_count": 7,
+    "tracks": [
+      {
+        "title": "Opalite - BUNT. Remix",
+        "url": "https://open.spotify.com/intl-fr/track/0E3Vtmgzk067KASoo0HwzV",
+        "type": "remix",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 1,
+        "base_title": "Opalite",
+        "album": "The Life of a Showgirl",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Opalite - BUNT. Remix",
+        "song_family": "opalite",
+        "version_tag": "remix"
+      },
+      {
+        "title": "Opalite - Chris Lake Remix",
+        "url": "https://open.spotify.com/intl-fr/track/0ttGLmxI0mAkMblE6iRm2S",
+        "type": "remix",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 2,
+        "base_title": "Opalite",
+        "album": "The Life of a Showgirl",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Opalite - Chris Lake Remix",
+        "song_family": "opalite",
+        "version_tag": "remix"
+      },
+      {
+        "title": "Opalite - Ely Oaks Remix",
+        "url": "https://open.spotify.com/intl-fr/track/5t1wMjV9ldVDdYs4l7mG2g",
+        "type": "remix",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 3,
+        "base_title": "Opalite",
+        "album": "The Life of a Showgirl",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Opalite - Ely Oaks Remix",
+        "song_family": "opalite",
+        "version_tag": "remix"
+      },
+      {
+        "title": "Opalite - Skream Remix",
+        "url": "https://open.spotify.com/intl-fr/track/1VCcPLfDiR1S9PJaSp5qm5",
+        "type": "remix",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 4,
+        "base_title": "Opalite",
+        "album": "The Life of a Showgirl",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Opalite - Skream Remix",
+        "song_family": "opalite",
+        "version_tag": "remix"
+      },
+      {
+        "title": "The Fate of Ophelia",
+        "url": "https://open.spotify.com/intl-fr/track/5cKBWgDjB5IXZ5jnryewOH",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 5,
+        "base_title": "The Fate of Ophelia",
+        "album": "The Life of a Showgirl",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "The Fate of Ophelia",
+        "song_family": "the_fate_of_ophelia",
+        "version_tag": "standalone"
+      },
+      {
+        "title": "The Fate of Ophelia - Loud Luxury Remix",
+        "url": "https://open.spotify.com/intl-fr/track/6PlBKImSl4AZoxBU7F649D",
+        "type": "remix",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 6,
+        "base_title": "The Fate of Ophelia",
+        "album": "The Life of a Showgirl",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "The Fate of Ophelia - Loud Luxury Remix",
+        "song_family": "the_fate_of_ophelia",
+        "version_tag": "remix"
+      },
+      {
+        "title": "The Fate of Ophelia - The Chainsmokers Remix",
+        "url": "https://open.spotify.com/intl-fr/track/3JNaLxAymiSUMrmjOarjeo",
+        "type": "remix",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 7,
+        "base_title": "The Fate of Ophelia",
+        "album": "The Life of a Showgirl",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "The Fate of Ophelia - The Chainsmokers Remix",
+        "song_family": "the_fate_of_ophelia",
+        "version_tag": "remix"
+      }
+    ]
+  },
+  {
+    "album": "The Life of a Showgirl",
+    "section": "track_by_track",
+    "track_count": 5,
+    "tracks": [
+      {
+        "title": "Elizabeth Taylor - Track by Track",
+        "url": "https://open.spotify.com/intl-fr/track/3r9fAceWmaDFvbNiTnFiLr",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 1,
+        "base_title": "Elizabeth Taylor - Track by Track",
+        "album": "The Life of a Showgirl",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Elizabeth Taylor - Track by Track",
+        "song_family": "elizabeth_taylor_track_by_track",
+        "version_tag": "standalone"
+      },
+      {
+        "title": "Father Figure - Track by Track",
+        "url": "https://open.spotify.com/intl-fr/track/2NGGvVcfb2m2NbVaXHC3gb",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 2,
+        "base_title": "Father Figure - Track by Track",
+        "album": "The Life of a Showgirl",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Father Figure - Track by Track",
+        "song_family": "father_figure_track_by_track",
+        "version_tag": "standalone"
+      },
+      {
+        "title": "Opalite - Track by Track",
+        "url": "https://open.spotify.com/intl-fr/track/5SkuikJwvwfEvNyCepGkq3",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 3,
+        "base_title": "Opalite - Track by Track",
+        "album": "The Life of a Showgirl",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Opalite - Track by Track",
+        "song_family": "opalite_track_by_track",
+        "version_tag": "standalone"
+      },
+      {
+        "title": "The Fate of Ophelia - Track by Track",
+        "url": "https://open.spotify.com/intl-fr/track/5k9RjjuYyOMCLL81U8FaHT",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 4,
+        "base_title": "The Fate of Ophelia - Track by Track",
+        "album": "The Life of a Showgirl",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "The Fate of Ophelia - Track by Track",
+        "song_family": "the_fate_of_ophelia_track_by_track",
+        "version_tag": "standalone"
+      },
+      {
+        "title": "The Life of a Showgirl - Track by Track",
+        "url": "https://open.spotify.com/intl-fr/track/42TAweWJJ9YlQ47T5nesu5",
+        "type": "standalone",
+        "edition": "extras",
+        "display_section": "Extras",
+        "display_order": 5,
+        "base_title": "The Life of a Showgirl - Track by Track",
+        "album": "The Life of a Showgirl",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "The Life of a Showgirl - Track by Track",
+        "song_family": "the_life_of_a_showgirl_track_by_track",
+        "version_tag": "standalone"
+      }
+    ]
+  },
+  {
+    "album": "The Taylor Swift Holiday Collection",
+    "section": "christmas_tree_farm_single",
+    "track_count": 3,
+    "tracks": [
+      {
+        "title": "Christmas Tree Farm",
+        "url": "https://open.spotify.com/intl-fr/track/4mKye6Z1kXuKolzMkJoKFA",
+        "type": "standalone",
+        "edition": "standard edition",
+        "display_section": "standard edition",
+        "display_order": 1,
+        "base_title": "Christmas Tree Farm",
+        "album": "The Taylor Swift Holiday Collection",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Christmas Tree Farm",
+        "song_family": "christmas_tree_farm",
+        "version_tag": "standalone"
+      },
+      {
+        "title": "Christmas Tree Farm - Old Timey Version",
+        "url": "https://open.spotify.com/intl-fr/track/50ho0AOvkm8E5l8zf7OfJI",
+        "type": "standalone",
+        "edition": "standard edition",
+        "display_section": "standard edition",
+        "display_order": 2,
+        "base_title": "Christmas Tree Farm",
+        "album": "The Taylor Swift Holiday Collection",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Christmas Tree Farm - Old Timey Version",
+        "song_family": "christmas_tree_farm",
+        "version_tag": "standalone"
+      },
+      {
+        "title": "Christmas Tree Farm - Recorded Live at the 2019 iHeartRadio Jingle Ball",
+        "url": "https://open.spotify.com/intl-fr/track/1alAo6dYalSx8yZUn17JxF",
+        "type": "standalone",
+        "edition": "standard edition",
+        "display_section": "standard edition",
+        "display_order": 3,
+        "base_title": "Christmas Tree Farm",
+        "album": "The Taylor Swift Holiday Collection",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "Christmas Tree Farm - Recorded Live at the 2019 iHeartRadio Jingle Ball",
+        "song_family": "christmas_tree_farm",
+        "version_tag": "live__standalone"
+      }
+    ]
+  },
+  {
+    "album": "THE TORTURED POETS DEPARTMENT",
+    "section": "remixes_and_live",
+    "track_count": 5,
+    "tracks": [
+      {
+        "title": "Fortnight (feat. Post Malone) - BLOND:ISH Remix",
+        "url": "https://open.spotify.com/intl-fr/track/1gejz5ROvJBUb6WJzkMAcc",
+        "type": "remix",
+        "edition": "live",
+        "display_section": "Extras",
+        "display_order": 1,
+        "base_title": "Fortnight (feat. Post Malone)",
+        "album": "THE TORTURED POETS DEPARTMENT",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [
+          "Post Malone"
+        ],
+        "artists": [
+          "Taylor Swift",
+          "Post Malone"
+        ],
+        "title_clean": "Fortnight - BLOND:ISH Remix",
+        "song_family": "fortnight",
+        "version_tag": "featured__remix"
+      },
+      {
+        "title": "I Can Do It With a Broken Heart - Dombresky Remix",
+        "url": "https://open.spotify.com/intl-fr/track/0hFF0aqyjDwDh6SQwRbTyx",
+        "type": "remix",
+        "edition": "live",
+        "display_section": "Extras",
+        "display_order": 2,
+        "base_title": "I Can Do It With a Broken Heart",
+        "album": "THE TORTURED POETS DEPARTMENT",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "I Can Do It With a Broken Heart - Dombresky Remix",
+        "song_family": "i_can_do_it_with_a_broken_heart",
+        "version_tag": "remix"
+      },
+      {
+        "title": "I Can Do It With a Broken Heart - Instrumental",
+        "url": "https://open.spotify.com/intl-fr/track/2PGIFYRG1XWsPqNG14hgD1",
+        "type": "alternate_version",
+        "edition": "live",
+        "display_section": "Other Editions",
+        "display_order": 3,
+        "base_title": "I Can Do It With a Broken Heart",
+        "album": "THE TORTURED POETS DEPARTMENT",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "I Can Do It With a Broken Heart - Instrumental",
+        "song_family": "i_can_do_it_with_a_broken_heart",
+        "version_tag": "alternate_version"
+      },
+      {
+        "title": "Fortnight (feat. Post Malone) - Acoustic Version",
+        "url": "https://open.spotify.com/intl-fr/track/2BUTSRKPGRsyc9FnsC5Udd",
+        "type": "alternate_version",
+        "edition": "live",
+        "display_section": "Other Editions",
+        "display_order": 4,
+        "base_title": "Fortnight (feat. Post Malone)",
+        "album": "THE TORTURED POETS DEPARTMENT",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [
+          "Post Malone"
+        ],
+        "artists": [
+          "Taylor Swift",
+          "Post Malone"
+        ],
+        "title_clean": "Fortnight - Acoustic Version",
+        "song_family": "fortnight",
+        "version_tag": "featured__acoustic__alternate_version"
+      },
+      {
+        "title": "Fortnight (feat. Post Malone) - Cults Remix",
+        "url": "https://open.spotify.com/intl-fr/track/7pM01Cfj8vt7z3qI2TveNT",
+        "type": "remix",
+        "edition": "live",
+        "display_section": "Extras",
+        "display_order": 5,
+        "base_title": "Fortnight (feat. Post Malone)",
+        "album": "THE TORTURED POETS DEPARTMENT",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [
+          "Post Malone"
+        ],
+        "artists": [
+          "Taylor Swift",
+          "Post Malone"
+        ],
+        "title_clean": "Fortnight - Cults Remix",
+        "song_family": "fortnight",
+        "version_tag": "featured__remix"
+      }
+    ]
+  }
+]

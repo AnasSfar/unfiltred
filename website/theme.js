@@ -1,8 +1,10 @@
+import { state } from "./state.js";
+
 /* =========================
    THEME
 ========================= */
 
-function clearThemeVariables() {
+export function clearThemeVariables() {
   const root = document.documentElement.style;
 
   [
@@ -12,16 +14,16 @@ function clearThemeVariables() {
   ].forEach(p => root.removeProperty(p));
 }
 
-function applyLightTheme(){
+export function applyLightTheme(){
   document.body.dataset.theme = "light";
   clearThemeVariables();
 }
 
-function applyDarkTheme(){
+export function applyDarkTheme(){
   document.body.dataset.theme = "dark";
 }
 
-async function applyTheme(mode = state.themeMode){
+export async function applyTheme(mode = state.themeMode){
 
   state.themeMode = mode;
   localStorage.setItem("site-theme-mode", mode);
@@ -37,7 +39,7 @@ async function applyTheme(mode = state.themeMode){
    THEME SWITCHER UI
 ========================= */
 
-function renderThemeSwitcher(){
+export function renderThemeSwitcher(){
 
   const label = state.themeMode === "dark" ? "Dark" : "Light";
 
@@ -75,7 +77,10 @@ function renderThemeSwitcher(){
 }
 
 
-function bindThemeSwitcher(){
+/**
+ * @param {() => void} [onThemeChange] - callback to run after theme switches (e.g. renderPage)
+ */
+export function bindThemeSwitcher(onThemeChange){
 
   const toggle = document.getElementById("themeToggleBtn");
   const switcher = document.getElementById("themeSwitcher");
@@ -95,7 +100,7 @@ function bindThemeSwitcher(){
     btn.onclick = async ()=>{
       switcher.classList.remove("open");
       await applyTheme(btn.dataset.theme);
-      renderPage();
+      onThemeChange?.();
     };
   });
 

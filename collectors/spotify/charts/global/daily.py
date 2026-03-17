@@ -291,6 +291,20 @@ def main():
         for d in processed:
             mark_posted(d)
         log("INFO", f"Terminé avec succès ({len(processed)} date(s) postée(s))")
+
+        migrate_script = ROOT.parent / "migrate_charts_to_csv.py"
+        log("STEP", "Mise à jour du CSV charts history")
+        migrate_result = subprocess.run(
+            [sys.executable, str(migrate_script)],
+            capture_output=True, text=True,
+        )
+        if migrate_result.stdout:
+            print(migrate_result.stdout, flush=True)
+        if migrate_result.returncode != 0:
+            log("WARN", f"migrate_charts_to_csv.py a échoué (code {migrate_result.returncode})")
+        else:
+            log("INFO", "CSV charts history mis à jour")
+
         notify(
             NTFY_TOPIC,
             tweet_content,

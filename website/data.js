@@ -1,8 +1,11 @@
+import { state } from "./state.js";
+import { fetchJSON, getPreviousDate, getDayData } from "./utils.js";
+
 /* =========================
    DATA LOADING
 ========================= */
 
-async function loadHistory(date) {
+export async function loadHistory(date) {
   if (!date || state.history[date]) return;
 
   const data = await fetchJSON(`site/history/${date}.json`);
@@ -13,7 +16,10 @@ async function loadHistory(date) {
    COMBINE KEY
 ========================= */
 
-function getCombineKey(song) {
+export function getCombineKey(song) {
+  // Return pre-computed key if available (set once at load time)
+  if (song._combineKey !== undefined) return song._combineKey;
+
   const explicit =
     song.song_family ||
     song.base_title ||
@@ -60,7 +66,7 @@ function getCombineKey(song) {
    ENRICH SONGS FOR DATE
 ========================= */
 
-function enrichSongsForDate(date) {
+export function enrichSongsForDate(date) {
 
   const prevDate = getPreviousDate(date);
 
@@ -113,7 +119,7 @@ function enrichSongsForDate(date) {
    SORT HELPERS
 ========================= */
 
-function sortBy(rows, primary, secondary = "streams") {
+export function sortBy(rows, primary, secondary = "streams") {
 
   return [...rows].sort((a, b) =>
     (b[primary] || 0) - (a[primary] || 0) ||
@@ -124,7 +130,7 @@ function sortBy(rows, primary, secondary = "streams") {
 }
 
 
-function sortSongs(rows, mode = "streams") {
+export function sortSongs(rows, mode = "streams") {
 
   if (mode === "daily") {
     return sortBy(rows, "daily_streams", "streams");
@@ -139,7 +145,7 @@ function sortSongs(rows, mode = "streams") {
    RANK MAP
 ========================= */
 
-function computeRankMap(rows, mode) {
+export function computeRankMap(rows, mode) {
 
   const sorted = sortSongs(rows, mode);
   const map = new Map();
@@ -163,7 +169,7 @@ function computeRankMap(rows, mode) {
    COMBINE SONG VERSIONS
 ========================= */
 
-function combineSongVersions(rows) {
+export function combineSongVersions(rows) {
 
   const grouped = new Map();
 
@@ -244,7 +250,7 @@ function combineSongVersions(rows) {
    RANK CHANGES
 ========================= */
 
-function withRankChanges(rows, date, mode) {
+export function withRankChanges(rows, date, mode) {
 
   const prevDate = getPreviousDate(date);
 

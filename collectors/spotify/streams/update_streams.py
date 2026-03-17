@@ -26,12 +26,16 @@ NTFY_TOPIC = "taylormuseum-streams"
 _SCRIPT_DIR = Path(__file__).resolve().parent
 _REPO_ROOT  = _SCRIPT_DIR.parents[2]
 ROOT        = _REPO_ROOT / "website"
-DATA_DIR = ROOT / "data"
-DB_PATH = DATA_DIR / "songs.db"
-HISTORY_PATH = DATA_DIR / "history.csv"
-FAILED_PATH = DATA_DIR / "not_found_today.csv"
-DISCOGRAPHY_DIR = ROOT / "discography"
-ARTIST_PATH = DATA_DIR / "artist.json"
+DATA_DIR    = ROOT / "data"
+_DB_ROOT    = _REPO_ROOT / "db"
+
+DB_PATH          = _DB_ROOT / "songs.db"
+HISTORY_PATH     = _DB_ROOT / "streams_history.csv"
+FAILED_PATH      = DATA_DIR / "not_found_today.csv"
+DISCOGRAPHY_DIR  = _DB_ROOT / "discography"
+DB_ALBUMS_JSON   = DISCOGRAPHY_DIR / "albums.json"
+DB_SONGS_JSON    = DISCOGRAPHY_DIR / "songs.json"
+ARTIST_PATH      = DISCOGRAPHY_DIR / "artist.json"
 ARTIST_URL = "https://open.spotify.com/artist/06HL4z0CvFAxyc27GXpf02"
 
 HEADLESS = False
@@ -367,26 +371,25 @@ def update_artist_metadata() -> dict:
 def load_active_track_ids_from_discography() -> set[str]:
     active_track_ids = set()
 
-    if not DISCOGRAPHY_DIR.exists():
-        return active_track_ids
-
-    for path in DISCOGRAPHY_DIR.rglob("*.json"):
+    for db_file in [DB_ALBUMS_JSON, DB_SONGS_JSON]:
+        if not db_file.exists():
+            continue
         try:
-            data = json.loads(path.read_text(encoding="utf-8"))
+            sections = json.loads(db_file.read_text(encoding="utf-8"))
         except Exception:
             continue
-
-        for track in data.get("tracks", []):
-            url = (track.get("url") or track.get("spotify_url") or "").strip()
-            track_id = extract_track_id(url)
-            if track_id:
-                active_track_ids.add(track_id)
+        for data in sections:
+            for track in data.get("tracks", []):
+                url = (track.get("url") or track.get("spotify_url") or "").strip()
+                track_id = extract_track_id(url)
+                if track_id:
+                    active_track_ids.add(track_id)
 
     return active_track_ids
 
 
 def ensure_history_file() -> None:
-    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    HISTORY_PATH.parent.mkdir(parents=True, exist_ok=True)
 
     if not HISTORY_PATH.exists():
         with HISTORY_PATH.open("w", newline="", encoding="utf-8") as f:
@@ -547,26 +550,31 @@ def remove_track_from_db(track_id: str) -> None:
 
 
 def remove_track_from_discography(track_id: str) -> int:
-    """Remove a track from all discography JSON files. Returns number of files modified."""
+    """Remove a track from db/discography/albums.json and songs.json. Returns sections modified."""
     removed = 0
-    if not DISCOGRAPHY_DIR.exists():
-        return removed
-    for path in DISCOGRAPHY_DIR.rglob("*.json"):
+    for db_file in [DB_ALBUMS_JSON, DB_SONGS_JSON]:
+        if not db_file.exists():
+            continue
         try:
-            data = json.loads(path.read_text(encoding="utf-8"))
+            sections = json.loads(db_file.read_text(encoding="utf-8"))
         except Exception:
             continue
-        tracks = data.get("tracks", [])
-        new_tracks = [
-            t for t in tracks
-            if extract_track_id(t.get("url") or t.get("spotify_url") or "") != track_id
-        ]
-        if len(new_tracks) < len(tracks):
-            data["tracks"] = new_tracks
-            path.write_text(
-                json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8"
+        changed = False
+        for data in sections:
+            tracks = data.get("tracks", [])
+            new_tracks = [
+                t for t in tracks
+                if extract_track_id(t.get("url") or t.get("spotify_url") or "") != track_id
+            ]
+            if len(new_tracks) < len(tracks):
+                data["tracks"] = new_tracks
+                data["track_count"] = len(new_tracks)
+                changed = True
+                removed += 1
+        if changed:
+            db_file.write_text(
+                json.dumps(sections, ensure_ascii=False, indent=2), encoding="utf-8"
             )
-            removed += 1
     return removed
 
 
@@ -1560,6 +1568,13 @@ def main():
     print("Re-exporting web data...")
     export_for_web.export_for_web()
     print("Web export done.")
+
+    print("Updating streams history CSV...")
+    subprocess.run(
+        [sys.executable, str(_SCRIPT_DIR / "migrate_streams_to_csv.py")],
+        check=False,
+    )
+    print("Streams history CSV done.")
 
     print("Rebuilding expected milestones forecast...")
     subprocess.run(

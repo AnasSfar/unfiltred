@@ -1,8 +1,10 @@
+import { state } from "./state.js";
+
 /* =========================
    GENERIC HELPERS
 ========================= */
 
-function normalizeAlbumName(name) {
+export function normalizeAlbumName(name) {
   if (!name) return "";
 
   return name
@@ -13,7 +15,7 @@ function normalizeAlbumName(name) {
     .trim();
 }
 
-function getAlbumSectionPriority(sectionName) {
+export function getAlbumSectionPriority(sectionName) {
   if (!sectionName) return 50;
 
   const name = sectionName.toLowerCase();
@@ -28,7 +30,7 @@ function getAlbumSectionPriority(sectionName) {
   return 40;
 }
 
-function getAlbumCover(album) {
+export function getAlbumCover(album) {
   if (!album) return "";
 
   const targetTitle = String(album.album || "").trim().toLowerCase();
@@ -46,17 +48,17 @@ function getAlbumCover(album) {
   return album.image_url || "";
 }
 
-function renderFocusModal() {
+export function renderFocusModal() {
   return "";
 }
 
-async function fetchJSON(url) {
+export async function fetchJSON(url) {
   const r = await fetch(`${url}${url.includes("?") ? "&" : "?"}ts=${Date.now()}`);
   if (!r.ok) throw new Error(`Failed to fetch ${url}`);
   return r.json();
 }
 
-const normalize = v =>
+export const normalize = v =>
   String(v || "")
     .toLowerCase()
     .normalize("NFKD")
@@ -64,37 +66,37 @@ const normalize = v =>
     .trim();
 
 
-function formatFull(v) {
+export function formatFull(v) {
   if (v === null || v === undefined) return "N/A";
   return v.toLocaleString("en-US");
 }
 
-function formatSigned(v) {
+export function formatSigned(v) {
   if (v === null || v === undefined) return "N/A";
   return v > 0 ? `+${formatFull(v)}` : formatFull(v);
 }
 
-function formatPercent(v) {
+export function formatPercent(v) {
   if (v === null || v === undefined || Number.isNaN(v)) return "N/A";
   return `${v > 0 ? "+" : ""}${v.toFixed(2)}%`;
 }
 
 
-function withCacheBuster(url) {
+export function withCacheBuster(url) {
   if (!url || typeof url !== "string") return "";
 
   const sep = url.includes("?") ? "&" : "?";
   return `${url}${sep}v=${Date.now()}`;
 }
 
-function persistSelectedDate() {
+export function persistSelectedDate() {
   if (state.selectedDate) {
     localStorage.setItem("site-selected-date", state.selectedDate);
   }
 }
 
 
-function getQueryParam(name) {
+export function getQueryParam(name) {
   return new URL(window.location.href).searchParams.get(name);
 }
 
@@ -103,12 +105,12 @@ function getQueryParam(name) {
    DATE HELPERS
 ========================= */
 
-function getPreviousDate(date) {
+export function getPreviousDate(date) {
   const i = state.dates.indexOf(date);
   return i > 0 ? state.dates[i - 1] : null;
 }
 
-function getNextDate(date) {
+export function getNextDate(date) {
   const i = state.dates.indexOf(date);
   return i >= 0 && i < state.dates.length - 1
     ? state.dates[i + 1]
@@ -120,7 +122,7 @@ function getNextDate(date) {
    HISTORY ACCESS
 ========================= */
 
-function getDayData(trackId, date){
+export function getDayData(trackId, date){
   return state.history?.[date]?.[trackId] || null;
 }
 
@@ -129,7 +131,7 @@ function getDayData(trackId, date){
    ARTIST FORMATTING
 ========================= */
 
-function formatArtists(song) {
+export function formatArtists(song) {
   if (Array.isArray(song.artists) && song.artists.length) {
     return song.artists.join(", ");
   }
@@ -141,20 +143,20 @@ function formatArtists(song) {
   return "Unknown artist";
 }
 
-function formatArtistAlbum(song) {
+export function formatArtistAlbum(song) {
   return `${formatArtists(song)} / ${song.primary_album || "Unknown album"}`;
 }
 
-function sortDisplayBlocks(blocks) {
-  function normalize(value) {
+export function sortDisplayBlocks(blocks) {
+  function _normalize(value) {
     return String(value || "")
       .trim()
       .toLowerCase();
   }
 
   function getRank(block) {
-    const key = normalize(block.key);
-    const name = normalize(block.name);
+    const key = _normalize(block.key);
+    const name = _normalize(block.name);
 
     if (
       key.includes("standard") ||
@@ -173,8 +175,8 @@ function sortDisplayBlocks(blocks) {
     const rankDiff = getRank(a) - getRank(b);
     if (rankDiff !== 0) return rankDiff;
 
-    const aLabel = normalize(a.name || a.key);
-    const bLabel = normalize(b.name || b.key);
+    const aLabel = _normalize(a.name || a.key);
+    const bLabel = _normalize(b.name || b.key);
 
     return aLabel.localeCompare(bLabel);
   });
@@ -184,20 +186,16 @@ function sortDisplayBlocks(blocks) {
    SEARCH NORMALIZATION
 ========================= */
 
-function filterSongsByQuery(rows) {
+export function filterSongsByQuery(rows) {
   const q = normalize(state.searchQuery);
   if (!q) return rows;
 
-  return rows.filter(song =>
-    normalize([
-      song.title,
-      song.title_clean,
-      song.primary_album,
-      song.primary_artist,
-      formatArtists(song),
-      song.version_tag,
-      song.edition,
-      song.type
-    ].join(" ")).includes(q)
-  );
+  return rows.filter(song => {
+    // Use pre-computed search text when available (set at load time)
+    const text = song._searchText || normalize([
+      song.title, song.title_clean, song.primary_album, song.primary_artist,
+      formatArtists(song), song.version_tag, song.edition, song.type
+    ].join(" "));
+    return text.includes(q);
+  });
 }

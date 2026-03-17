@@ -13,8 +13,7 @@ from playwright.sync_api import sync_playwright
 _SCRIPT_DIR = Path(__file__).resolve().parent
 _REPO_ROOT  = _SCRIPT_DIR.parents[2]
 ROOT        = _REPO_ROOT / "website"
-DATA_DIR = ROOT / "data"
-DB_PATH = DATA_DIR / "songs.db"
+DB_PATH     = _REPO_ROOT / "db" / "songs.db"
 
 HEADLESS = True
 MAX_PARALLEL_PAGES = 4

@@ -1,6 +1,7 @@
-"""Scrape Taylor Swift chart data from Billboard and write billboard.json."""
+"""Scrape Taylor Swift chart data from Billboard and append to billboard_history.csv."""
 from __future__ import annotations
 
+import csv
 import json
 import sys
 from datetime import datetime
@@ -9,10 +10,10 @@ from pathlib import Path
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
 
 _SCRIPT_DIR = Path(__file__).resolve().parent
-_REPO_ROOT   = _SCRIPT_DIR.parents[2]
-OUTPUT_PATH  = _REPO_ROOT / "website" / "site" / "data" / "billboard.json"
+_REPO_ROOT   = _SCRIPT_DIR.parents[1]
 
-LIENS_PATH = _SCRIPT_DIR / "liens.json"
+BILLBOARD_CSV_PATH = _REPO_ROOT / "db" / "billboard_history.csv"
+LIENS_PATH = _REPO_ROOT / "config" / "links" / "billboard.json"
 liens = json.loads(LIENS_PATH.read_text(encoding="utf-8"))
 
 URL_HOT_100    = liens.get("billboard hot 100", "")
@@ -199,9 +200,55 @@ def _scrape_greatest_artists(page, url: str) -> dict | None:
     return None
 
 
-def main() -> None:
-    OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
+def _save_to_csv(result: dict) -> None:
+    """Append today's scrape to billboard_history.csv, replacing any existing rows for today."""
+    date = result["scraped_at"][:10]
+    scraped_at = result["scraped_at"]
 
+    fieldnames = ["date", "scraped_at", "chart_type", "rank", "title",
+                  "artist", "weeks_on_chart", "peak_rank", "chart_label"]
+
+    existing_rows: list[dict] = []
+    if BILLBOARD_CSV_PATH.exists():
+        with open(BILLBOARD_CSV_PATH, newline="", encoding="utf-8") as f:
+            existing_rows = [r for r in csv.DictReader(f) if r.get("date") != date]
+
+    new_rows: list[dict] = []
+    for ct, entries in [("hot_100", result["hot_100"]), ("billboard_200", result["billboard_200"])]:
+        for e in entries:
+            new_rows.append({
+                "date": date, "scraped_at": scraped_at, "chart_type": ct,
+                "rank": e.get("rank", ""), "title": e.get("title", ""),
+                "artist": e.get("artist", ""), "weeks_on_chart": e.get("weeks_on_chart", ""),
+                "peak_rank": e.get("peak_rank", ""), "chart_label": "",
+            })
+
+    for e in result.get("ts_chart_history", []):
+        new_rows.append({
+            "date": date, "scraped_at": scraped_at, "chart_type": "ts_chart_history",
+            "rank": e.get("rank", ""), "title": e.get("title", ""),
+            "artist": "Taylor Swift", "weeks_on_chart": e.get("weeks_on_chart", ""),
+            "peak_rank": e.get("peak_rank", ""), "chart_label": e.get("chart", ""),
+        })
+
+    ga = result.get("greatest_artists")
+    if ga:
+        new_rows.append({
+            "date": date, "scraped_at": scraped_at, "chart_type": "greatest_artists",
+            "rank": ga.get("rank", ""), "title": ga.get("name", "Taylor Swift"),
+            "artist": "Taylor Swift", "weeks_on_chart": "", "peak_rank": "", "chart_label": "",
+        })
+
+    BILLBOARD_CSV_PATH.parent.mkdir(parents=True, exist_ok=True)
+    with open(BILLBOARD_CSV_PATH, "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(existing_rows + new_rows)
+
+    print(f"\nSaved {len(new_rows)} rows to {BILLBOARD_CSV_PATH}", flush=True)
+
+
+def main() -> None:
     result: dict = {
         "scraped_at": datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S"),
         "hot_100": [],
@@ -259,11 +306,7 @@ def main() -> None:
 
         browser.close()
 
-    OUTPUT_PATH.write_text(
-        json.dumps(result, ensure_ascii=False, indent=2),
-        encoding="utf-8",
-    )
-    print(f"\nSaved to {OUTPUT_PATH}", flush=True)
+    _save_to_csv(result)
 
 
 if __name__ == "__main__":
