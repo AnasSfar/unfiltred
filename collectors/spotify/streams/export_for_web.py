@@ -1001,8 +1001,9 @@ def export_for_web() -> None:
     write_json(ALBUMS_JSON_PATH, albums_payload_out)
 
     for src, dst in [
-        (LAST_RUN_STATE_SRC,   SITE_DATA_DIR / "last_run_state.json"),
-        (NOT_FOUND_STREAK_SRC, SITE_DATA_DIR / "not_found_streak.json"),
+        (LAST_RUN_STATE_SRC,          SITE_DATA_DIR / "last_run_state.json"),
+        (NOT_FOUND_STREAK_SRC,        SITE_DATA_DIR / "not_found_streak.json"),
+        (DISCOGRAPHY_DIR / "artist.json", SITE_DATA_DIR / "artist.json"),
     ]:
         if src.exists():
             shutil.copy2(src, dst)

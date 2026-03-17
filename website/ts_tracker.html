@@ -371,8 +371,8 @@ function chgLabel(rank, prevRank, totalDays) {
 }
 
 function prevStream(rgn, name, date, days) {
-  const d = new Date(date + 'T00:00:00');
-  d.setDate(d.getDate() - days);
+  const d = new Date(date + 'T12:00:00Z');
+  d.setUTCDate(d.getUTCDate() - days);
   return S[rgn].hist[name]?.[d.toISOString().slice(0,10)]?.streams ?? null;
 }
 
@@ -485,7 +485,7 @@ function songHist(rgn, name) {
 function isActive(rgn, name) {
   const h = songHist(rgn, name);
   if (!h.length) return false;
-  return Date.now() - new Date(h[h.length-1].date + 'T00:00:00').getTime() < 10 * 86400_000;
+  return Date.now() - new Date(h[h.length-1].date).getTime() < 10 * 86400_000;
 }
 
 /* ════════════════════════════════════════
