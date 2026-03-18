@@ -38,7 +38,7 @@ DISCO_DIR   = ROOT / "db" / "discography"
 SONGS_JSON  = ROOT / "website" / "site" / "data" / "songs.json"
 COVERS_JSON = DISCO_DIR / "covers.json"
 HIST_JSON  = ROOT / "collectors" / "spotify" / "charts" / "global" / "ts_history.json"
-OUT_COVERS = ROOT / "spotify-charts" / "track_covers.json"
+OUT_COVERS = ROOT / "website" / "spotify-charts" / "track_covers.json"
 
 FORCE  = "--force"  in sys.argv
 OEMBED = True  # always fetch via oEmbed for tracks missing image_url
@@ -199,23 +199,27 @@ if chart_names:
         n = re.sub(r"\s+", " ", n).strip()
         return n
 
-    # Build title → image_url from songs.json (title_key for normalised matching)
+    # Build title → image_url from db/discography/songs.json + albums.json
     title_to_img: dict[str, str] = {}
-    for s in songs_data.get("songs", []):
-        img = s.get("image_url", "")
-        if not img:
+    for disco_file in [DISCO_DIR / "albums.json", DISCO_DIR / "songs.json"]:
+        if not disco_file.exists():
             continue
-        for raw in [
-            s.get("title_key", ""),
-            (s.get("title") or "").lower(),
-            (s.get("base_title") or "").lower(),
-        ]:
-            if raw:
-                # index under both original and normalized-apostrophe form
-                title_to_img[raw] = img
-                normed = norm_apos(raw)
-                if normed != raw:
-                    title_to_img[normed] = img
+        sections = json.loads(disco_file.read_text(encoding="utf-8"))
+        for section in (sections if isinstance(sections, list) else [sections]):
+            for t in section.get("tracks", []):
+                img = t.get("image_url", "")
+                if not img:
+                    continue
+                for raw in [
+                    (t.get("title") or "").lower(),
+                    (t.get("base_title") or "").lower(),
+                    (t.get("title_clean") or "").lower(),
+                ]:
+                    if raw:
+                        title_to_img[raw] = img
+                        normed = norm_apos(raw)
+                        if normed != raw:
+                            title_to_img[normed] = img
 
     track_covers: dict[str, str] = {}
     missing_names = []
