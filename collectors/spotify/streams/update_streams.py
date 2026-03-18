@@ -448,10 +448,21 @@ def get_last_history_total(track_id: str) -> int | None:
     return last
 
 
+MAX_DAILY_INCREASE = 50_000_000  # 50M streams/day is already extreme; more = scraping error
+
 def has_real_update(previous_streams: int | None, new_streams: int) -> bool:
     if previous_streams is None:
         return True
-    return new_streams > previous_streams
+    if new_streams <= previous_streams:
+        return False
+    if new_streams - previous_streams > MAX_DAILY_INCREASE:
+        print(
+            f"  [ANOMALY REJECTED] {new_streams:,} "
+            f"(prev={previous_streams:,}, delta=+{new_streams - previous_streams:,}) "
+            f"— exceeds {MAX_DAILY_INCREASE:,}/day cap, skipping"
+        )
+        return False
+    return True
 
 
 def load_tracks_from_discography(active_track_ids: set[str] | None = None) -> list[dict]:
@@ -503,13 +514,6 @@ def build_track_lookup(tracks: list[dict]) -> dict[str, list[dict]]:
         lookup.setdefault(key, []).append(track)
     return lookup
 
-
-def build_title_groups(tracks: list[dict]) -> dict[str, list[dict]]:
-    groups: dict[str, list[dict]] = {}
-    for track in tracks:
-        key = normalize_title(track["title"])
-        groups.setdefault(key, []).append(track)
-    return groups
 
 
 def save_failed_rows(rows: list[dict]) -> None:
@@ -931,12 +935,6 @@ def try_apply_track_update(
     }
 
 
-def build_log_title(group_tracks: list[dict], leader_track: dict) -> str:
-    suffix = leader_track["track_id"][-6:]
-    if len(group_tracks) > 1:
-        return f"{leader_track['title']} [{len(group_tracks)} ids | {suffix}]"
-    return f"{leader_track['title']} [{suffix}]"
-
 
 def live_progress(i, total, title, result):
     elapsed = time.perf_counter() - START_TIME if START_TIME else 0
@@ -1064,10 +1062,7 @@ def _worker(
     lock,
     publish_lock,
     on_progress,
-    total_groups,
-    track_lookup,
-    processed_track_ids,
-    processed_title_keys,
+    total_tracks,
     debug_mode=False,
 ):
     p = sync_playwright().start()
@@ -1084,158 +1079,78 @@ def _worker(
                 break
 
             i = item["index"]
-            title_key = item["title_key"]
-            group_tracks = item["group_tracks"]
-            leader_track = item["leader_track"]
+            track = item["track"]
             scrape_date = item["scrape_date"]
             stats_date = item["stats_date"]
-            log_title = item["log_title"]
-
-            with lock:
-                if title_key in processed_title_keys:
-                    results[i - 1] = {
-                        "track_id": leader_track["track_id"],
-                        "title": leader_track["title"],
-                        "spotify_url": leader_track["spotify_url"],
-                        "status": "skipped",
-                    }
-                    if on_progress:
-                        on_progress(i, total_groups, log_title, results[i - 1])
-                    queue.task_done()
-                    continue
-
-                processed_title_keys.add(title_key)
-                for track in group_tracks:
-                    processed_track_ids.add(track["track_id"])
+            log_title = f"{track['title']} [{track['track_id'][-6:]}]"
 
             if on_progress:
-                on_progress(i, total_groups, log_title, None)
+                on_progress(i, total_tracks, log_title, None)
 
-            total, raw, scrape_status, recs = scrape_track_total(
-                page,
-                leader_track["title"],
-                leader_track["spotify_url"],
+            total, raw, scrape_status, _ = scrape_track_total(
+                page, track["title"], track["spotify_url"]
             )
 
             if scrape_status == "timeout":
                 result = {
-                    "track_id": leader_track["track_id"],
-                    "title": leader_track["title"],
-                    "spotify_url": leader_track["spotify_url"],
+                    "track_id": track["track_id"],
+                    "title": track["title"],
+                    "spotify_url": track["spotify_url"],
                     "status": "timeout",
                 }
                 with lock:
-                    for track in group_tracks:
-                        failed_results.append(
-                            {
-                                "track_id": track["track_id"],
-                                "title": track["title"],
-                                "spotify_url": track["spotify_url"],
-                                "status": "timeout",
-                            }
-                        )
+                    failed_results.append(dict(result))
 
             elif scrape_status == "error":
                 result = {
-                    "track_id": leader_track["track_id"],
-                    "title": leader_track["title"],
-                    "spotify_url": leader_track["spotify_url"],
+                    "track_id": track["track_id"],
+                    "title": track["title"],
+                    "spotify_url": track["spotify_url"],
                     "status": "error",
                 }
                 with lock:
-                    for track in group_tracks:
-                        failed_results.append(
-                            {
-                                "track_id": track["track_id"],
-                                "title": track["title"],
-                                "spotify_url": track["spotify_url"],
-                                "status": "error",
-                            }
-                        )
+                    failed_results.append(dict(result))
 
             elif scrape_status == "not_found" or total is None:
                 result = {
-                    "track_id": leader_track["track_id"],
-                    "title": leader_track["title"],
-                    "spotify_url": leader_track["spotify_url"],
+                    "track_id": track["track_id"],
+                    "title": track["title"],
+                    "spotify_url": track["spotify_url"],
                     "status": "not_found",
                 }
                 with lock:
-                    for track in group_tracks:
-                        failed_results.append(
-                            {
-                                "track_id": track["track_id"],
-                                "title": track["title"],
-                                "spotify_url": track["spotify_url"],
-                                "status": "not_found",
-                            }
-                        )
+                    failed_results.append(dict(result))
 
             else:
-                group_results = []
-                for track in group_tracks:
-                    group_result = try_apply_track_update(
-                        track=track,
-                        total=total,
-                        scrape_date=scrape_date,
-                        stats_date=stats_date,
-                        lock=lock,
-                        publish_lock=publish_lock,
-                        debug_mode=debug_mode,
-                    )
-                    group_result["raw"] = raw
-                    group_results.append(group_result)
-
-                result = group_results[0]
-
-                for rec in recs:
-                    rec_key = normalize_title(rec["title"])
-
-                    with lock:
-                        if rec_key in processed_title_keys:
-                            continue
-
-                    matches = track_lookup.get(rec_key, [])
-                    if not matches:
-                        continue
-
-                    pending_matches = []
-                    with lock:
-                        for rec_track in matches:
-                            if rec_track["track_id"] in processed_track_ids:
-                                continue
-                            pending_matches.append(rec_track)
-
-                        if not pending_matches:
-                            continue
-
-                        processed_title_keys.add(rec_key)
-                        for rec_track in pending_matches:
-                            processed_track_ids.add(rec_track["track_id"])
-
-                    for rec_track in pending_matches:
-                        try_apply_track_update(
-                            track=rec_track,
-                            total=rec["streams"],
-                            scrape_date=scrape_date,
-                            stats_date=stats_date,
-                            lock=lock,
-                            publish_lock=publish_lock,
-                            debug_mode=debug_mode,
-                        )
+                result = try_apply_track_update(
+                    track=track,
+                    total=total,
+                    scrape_date=scrape_date,
+                    stats_date=stats_date,
+                    lock=lock,
+                    publish_lock=publish_lock,
+                    debug_mode=debug_mode,
+                )
+                result["raw"] = raw
 
             with lock:
                 results[i - 1] = result
 
             if on_progress:
-                on_progress(i, total_groups, log_title, result)
+                on_progress(i, total_tracks, log_title, result)
 
             queue.task_done()
 
     finally:
         print("Worker finished.")
-        browser.close()
-        p.stop()
+        try:
+            browser.close()
+        except Exception:
+            pass
+        try:
+            p.stop()
+        except Exception:
+            pass
 
 
 def run_update(on_progress=None, skip_track_ids: set | None = None, stats_date_override: str | None = None, debug_mode: bool = False):
@@ -1250,56 +1165,31 @@ def run_update(on_progress=None, skip_track_ids: set | None = None, stats_date_o
     tracks = load_tracks_from_discography(active_track_ids)
     total_tracks = len(tracks)
 
-    track_lookup = build_track_lookup(tracks)
-    title_groups = build_title_groups(tracks)
     already_done_for_stats_date = load_today_history_track_ids(stats_date)
 
     queue = Queue()
-    group_items: list[dict] = []
     failed_results: list[dict] = []
+    results = [None] * total_tracks
 
-    all_group_entries = list(title_groups.items())
-    total_groups = len(all_group_entries)
-    results = [None] * total_groups
-
-    processed_track_ids: set[str] = set(already_done_for_stats_date)
-    processed_title_keys: set[str] = set()
-
-    for index, (title_key, group_tracks) in enumerate(all_group_entries, 1):
-        pending_tracks = [
-            t for t in group_tracks
-            if t["track_id"] not in already_done_for_stats_date
-            and t["track_id"] not in skip_track_ids
-        ]
-        leader_track = pending_tracks[0] if pending_tracks else group_tracks[0]
-        log_title = build_log_title(group_tracks, leader_track)
-
-        if not pending_tracks:
+    for index, track in enumerate(tracks, 1):
+        log_title = f"{track['title']} [{track['track_id'][-6:]}]"
+        if track["track_id"] in already_done_for_stats_date or track["track_id"] in skip_track_ids:
             results[index - 1] = {
-                "track_id": leader_track["track_id"],
-                "title": leader_track["title"],
-                "spotify_url": leader_track["spotify_url"],
+                "track_id": track["track_id"],
+                "title": track["title"],
+                "spotify_url": track["spotify_url"],
                 "status": "skipped",
             }
-            processed_title_keys.add(title_key)
             if on_progress:
-                on_progress(index, total_groups, log_title, results[index - 1])
+                on_progress(index, total_tracks, log_title, results[index - 1])
             continue
 
-        group_items.append(
-            {
-                "index": index,
-                "title_key": title_key,
-                "group_tracks": pending_tracks,
-                "leader_track": leader_track,
-                "scrape_date": scrape_date,
-                "stats_date": stats_date,
-                "log_title": log_title,
-            }
-        )
-
-    for item in group_items:
-        queue.put(item)
+        queue.put({
+            "index": index,
+            "track": track,
+            "scrape_date": scrape_date,
+            "stats_date": stats_date,
+        })
 
     if queue.qsize() > 0:
         lock = threading.Lock()
@@ -1316,10 +1206,7 @@ def run_update(on_progress=None, skip_track_ids: set | None = None, stats_date_o
                     lock,
                     publish_lock,
                     on_progress,
-                    total_groups,
-                    track_lookup,
-                    processed_track_ids,
-                    processed_title_keys,
+                    total_tracks,
                     debug_mode,
                 ),
                 daemon=True,
@@ -1332,7 +1219,7 @@ def run_update(on_progress=None, skip_track_ids: set | None = None, stats_date_o
 
         print(f"Waiting for {worker_count} worker(s) to finish...")
         for w in workers:
-            w.join()
+            w.join(timeout=30)
         print("All worker threads joined.")
 
     final_done_for_stats_date = load_today_history_track_ids(stats_date)
@@ -1342,7 +1229,6 @@ def run_update(on_progress=None, skip_track_ids: set | None = None, stats_date_o
         "scrape_date": scrape_date,
         "stats_date": stats_date,
         "total_tracks": total_tracks,
-        "total_groups": total_groups,
         "done_tracks": len(final_done_for_stats_date),
         "remaining_tracks": max(total_tracks - len(final_done_for_stats_date), 0),
         "all_done": len(final_done_for_stats_date) >= total_tracks,
@@ -1398,7 +1284,6 @@ def print_summary_block(summary: dict) -> None:
     print(
         f"Progress {summary['stats_date']}: "
         f"{summary['done_tracks']}/{summary['total_tracks']} "
-        f"| groups={summary['total_groups']} "
         f"| remaining={summary['remaining_tracks']} "
         f"| pending={summary['pending_this_run']} "
         f"| timeout={summary['timeout_this_run']} "
@@ -1525,7 +1410,7 @@ def main():
     while (
         not debug_mode
         and not summary["all_done"]
-        and summary["pending_this_run"] > summary["total_groups"] // 2
+        and summary["pending_this_run"] > summary["total_tracks"] // 2
         and retry_round < MAX_PENDING_RETRY_ROUNDS
     ):
         retry_round += 1
@@ -1581,9 +1466,6 @@ def main():
         print("Full scrape finished, but not all tracks are done.")
         print("Publishing current data anyway.")
 
-    print("Updating artist metadata...")
-    update_artist_metadata()
-
     print("Re-exporting web data...")
     export_for_web.export_for_web()
     print("Web export done.")
@@ -1605,6 +1487,14 @@ def main():
         )
         print("Twitter post done.")
 
+    print("Updating artist metadata...")
+    update_artist_metadata()
+
+    print("Re-exporting web data (with artist metadata)...")
+    export_for_web.export_for_web()
+    print("Web export done.")
+
+    if not debug_mode:
         print("Rebuilding expected milestones forecast...")
         subprocess.run(
             [sys.executable, str(_SCRIPT_DIR / "forecast_milestones.py")],
@@ -1626,13 +1516,6 @@ def main():
         )
         print("Track cover images done.")
 
-        print("Scraping Billboard charts...")
-        _BILLBOARD_SCRIPT = _REPO_ROOT / "collectors" / "billboard" / "scrape_billboard.py"
-        if _BILLBOARD_SCRIPT.exists():
-            subprocess.run([sys.executable, str(_BILLBOARD_SCRIPT)], check=False)
-            print("Billboard scrape done.")
-        else:
-            print("Billboard scraper not found, skipping.")
 
     print("Git commit and push...")
     git_commit_and_push(f"daily final export {summary['stats_date']}")
