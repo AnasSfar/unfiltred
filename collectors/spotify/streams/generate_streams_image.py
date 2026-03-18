@@ -2,7 +2,7 @@
 """
 generate_streams_image.py — génère le PNG des 15 chansons les plus streamées daily.
 
-Lit  : db/streams_history.csv  +  db/songs.db  +  db/discography/covers.json
+Lit  : db/streams_history.csv  +  db/discography/songs.json  +  db/discography/covers.json
 Ecrit: collectors/spotify/streams/streams_image_{date}.png
 
 Usage:
@@ -13,7 +13,6 @@ import colorsys
 import csv
 import json
 import re
-import sqlite3
 import sys
 from datetime import date as date_cls, timedelta
 from pathlib import Path
@@ -33,7 +32,6 @@ except ImportError:
 SCRIPT_DIR   = Path(__file__).resolve().parent
 REPO_ROOT    = SCRIPT_DIR.parents[2]
 DB_DIR       = REPO_ROOT / "db"
-DB_PATH      = DB_DIR / "songs.db"
 HISTORY_PATH = DB_DIR / "streams_history.csv"
 COVERS_PATH  = DB_DIR / "discography" / "covers.json"
 SONGS_JSON   = DB_DIR / "discography" / "songs.json"
@@ -119,23 +117,31 @@ def load_track_album_map() -> dict:
 
 
 def load_song_db() -> dict:
-    """Returns {track_id: {title, primary_artist, image_url}} from songs.db."""
-    if not DB_PATH.exists():
-        return {}
+    """Returns {track_id: {title, artist, image_url}} from discography JSONs."""
+    import re as _re
     result = {}
-    try:
-        conn = sqlite3.connect(str(DB_PATH))
-        c = conn.cursor()
-        c.execute("SELECT track_id, title, primary_artist, image_url FROM songs")
-        for track_id, title, artist, image_url in c.fetchall():
-            result[track_id] = {
-                "title": title or "",
-                "artist": artist or "Taylor Swift",
-                "image_url": image_url or "",
-            }
-        conn.close()
-    except Exception as e:
-        print(f"Erreur songs.db: {e}")
+    for path in [DB_DIR / "discography" / "albums.json",
+                 DB_DIR / "discography" / "songs.json"]:
+        if not path.exists():
+            continue
+        try:
+            for section in json.loads(path.read_text(encoding="utf-8")):
+                for t in section.get("tracks", []):
+                    url = (t.get("url") or t.get("spotify_url") or "").strip()
+                    m = _re.search(r"track/([A-Za-z0-9]+)", url)
+                    if not m:
+                        continue
+                    track_id = m.group(1)
+                    if track_id in result:
+                        continue
+                    artists = t.get("artists") or []
+                    result[track_id] = {
+                        "title":     (t.get("title") or "").strip(),
+                        "artist":    t.get("primary_artist") or (artists[0] if artists else "Taylor Swift"),
+                        "image_url": (t.get("image_url") or "").strip(),
+                    }
+        except Exception as e:
+            print(f"Erreur {path.name}: {e}")
     return result
 
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Détecte les tracks Taylor Swift présents sur kworb mais absents de notre DB,
-et les ajoute dans songs.db + songs.json (section "kworb_extras").
+Détecte les tracks Taylor Swift présents sur kworb mais absents de songs.json,
+et les ajoute dans songs.json (section "kworb_extras").
 
 Usage :
     python backfill_from_kworb.py
@@ -12,7 +12,6 @@ from __future__ import annotations
 import argparse
 import json
 import re
-import sqlite3
 import sys
 import unicodedata
 from pathlib import Path
@@ -27,11 +26,10 @@ except ImportError:
 # ── Paths ──────────────────────────────────────────────────────────────────────
 _SCRIPT_DIR = Path(__file__).resolve().parent
 _REPO_ROOT  = _SCRIPT_DIR.parents[2]
-DB_ROOT     = _REPO_ROOT / "db"
-
-DB_PATH         = DB_ROOT / "songs.db"
+DB_ROOT         = _REPO_ROOT / "db"
 DISCOGRAPHY_DIR = DB_ROOT / "discography"
 SONGS_JSON_PATH = DISCOGRAPHY_DIR / "songs.json"
+ALBUMS_JSON_PATH = DISCOGRAPHY_DIR / "albums.json"
 
 # ── Config ─────────────────────────────────────────────────────────────────────
 ARTIST_ID       = "06HL4z0CvFAxyc27GXpf02"
@@ -124,37 +122,33 @@ def parse_songs_page(html: str) -> list[dict]:
     return results
 
 
-# ── DB + JSON ──────────────────────────────────────────────────────────────────
+# ── JSON helpers ───────────────────────────────────────────────────────────────
 
-def existing_track_ids(conn: sqlite3.Connection) -> set[str]:
-    return {row[0] for row in conn.execute("SELECT track_id FROM songs")}
+def existing_track_ids() -> set[str]:
+    ids: set[str] = set()
+    for path in [ALBUMS_JSON_PATH, SONGS_JSON_PATH]:
+        if not path.exists():
+            continue
+        for section in json.loads(path.read_text(encoding="utf-8")):
+            for t in section.get("tracks", []):
+                url = (t.get("url") or t.get("spotify_url") or "").strip()
+                m = TRACK_ID_RE.search(url)
+                if m:
+                    ids.add(m.group(1))
+    return ids
 
 
-def existing_title_slugs(conn: sqlite3.Connection) -> set[str]:
-    return {slugify(row[0]) for row in conn.execute("SELECT title FROM songs")}
-
-
-def insert_track(conn: sqlite3.Connection, track: dict) -> None:
-    spotify_url  = f"https://open.spotify.com/track/{track['track_id']}"
-    primary      = "Taylor Swift"
-    artists_json = json.dumps(["Taylor Swift"], ensure_ascii=False)
-
-    conn.execute(
-        """
-        INSERT OR IGNORE INTO songs
-            (track_id, title, spotify_url, image_url, streams, daily_streams,
-             last_updated, primary_artist, artists_json)
-        VALUES (?, ?, ?, NULL, NULL, NULL, NULL, ?, ?)
-        """,
-        (track["track_id"], track["title"], spotify_url, primary, artists_json),
-    )
-    conn.execute(
-        """
-        INSERT OR IGNORE INTO appearances (track_id, album, section)
-        VALUES (?, 'Standalone & Extras', 'kworb_extras')
-        """,
-        (track["track_id"],),
-    )
+def existing_title_slugs() -> set[str]:
+    slugs: set[str] = set()
+    for path in [ALBUMS_JSON_PATH, SONGS_JSON_PATH]:
+        if not path.exists():
+            continue
+        for section in json.loads(path.read_text(encoding="utf-8")):
+            for t in section.get("tracks", []):
+                title = (t.get("title") or "").strip()
+                if title:
+                    slugs.add(slugify(title))
+    return slugs
 
 
 def add_to_songs_json(new_tracks: list[dict]) -> int:
@@ -216,9 +210,8 @@ def run(dry_run: bool) -> None:
     kworb_tracks = parse_songs_page(html)
     print(f"{len(kworb_tracks)} tracks trouvés sur kworb.\n")
 
-    with sqlite3.connect(DB_PATH) as conn:
-        known_ids    = existing_track_ids(conn)
-        known_slugs  = existing_title_slugs(conn)
+    known_ids   = existing_track_ids()
+    known_slugs = existing_title_slugs()
 
     new_tracks = [
         t for t in kworb_tracks
@@ -227,7 +220,7 @@ def run(dry_run: bool) -> None:
     ]
 
     if not new_tracks:
-        print("Aucun track manquant. Notre DB est à jour.")
+        print("Aucun track manquant. songs.json est à jour.")
         return
 
     print(f"{len(new_tracks)} tracks manquants :")
@@ -239,16 +232,9 @@ def run(dry_run: bool) -> None:
         print("\n[DRY-RUN] Aucune écriture.")
         return
 
-    with sqlite3.connect(DB_PATH) as conn:
-        conn.execute("PRAGMA foreign_keys = ON")
-        for track in new_tracks:
-            insert_track(conn, track)
-        conn.commit()
-
     added = add_to_songs_json(new_tracks)
 
-    print(f"\n{len(new_tracks)} tracks insérés dans songs.db")
-    print(f"{added} tracks ajoutés à songs.json (section kworb_extras)")
+    print(f"\n{added} tracks ajoutés à songs.json (section kworb_extras)")
 
 
 def main() -> None:

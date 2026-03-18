@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import json
-import sqlite3
+import re
 import sys
 import threading
 import time
@@ -16,7 +16,6 @@ sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 _SCRIPT_DIR   = Path(__file__).resolve().parent
 _REPO_ROOT    = _SCRIPT_DIR.parents[2]
 ROOT          = _REPO_ROOT / "website"
-DB_PATH       = _REPO_ROOT / "db" / "songs.db"
 DISCO_DIR     = _REPO_ROOT / "db" / "discography"
 SITE_SONGS    = ROOT / "site" / "data" / "songs.json"
 _DISCO_FILES  = ["albums.json", "songs.json"]
@@ -61,32 +60,38 @@ def block_unneeded(route):
         route.continue_()
 
 
+def _track_id_from_url(url: str) -> str | None:
+    m = re.search(r"track/([A-Za-z0-9]+)", url)
+    return m.group(1) if m else None
+
+
 def load_tracks_missing_images() -> list[dict]:
-    with sqlite3.connect(DB_PATH) as conn:
-        conn.row_factory = sqlite3.Row
-        rows = conn.execute(
-            """
-            SELECT track_id, title, spotify_url, image_url
-            FROM songs
-            WHERE image_url IS NULL OR TRIM(image_url) = ''
-            ORDER BY title COLLATE NOCASE
-            """
-        ).fetchall()
-
-    return [dict(row) for row in rows]
-
-
-def update_image_in_db(track_id: str, image_url: str) -> None:
-    with sqlite3.connect(DB_PATH) as conn:
-        conn.execute(
-            """
-            UPDATE songs
-            SET image_url = ?
-            WHERE track_id = ?
-            """,
-            (image_url, track_id),
-        )
-        conn.commit()
+    seen: dict[str, dict] = {}
+    for fname in _DISCO_FILES:
+        path = DISCO_DIR / fname
+        if not path.exists():
+            continue
+        for section in json.loads(path.read_text(encoding="utf-8")):
+            for t in section.get("tracks", []):
+                url      = (t.get("url") or t.get("spotify_url") or "").strip()
+                track_id = _track_id_from_url(url)
+                title    = (t.get("title") or "").strip()
+                if not track_id or not title or track_id in seen:
+                    continue
+                image_url = (t.get("image_url") or "").strip()
+                if image_url:
+                    seen[track_id] = None  # already has image, skip
+                    continue
+                seen[track_id] = {
+                    "track_id":    track_id,
+                    "title":       title,
+                    "spotify_url": f"https://open.spotify.com/track/{track_id}",
+                    "image_url":   None,
+                }
+    return sorted(
+        [v for v in seen.values() if v is not None],
+        key=lambda x: x["title"].casefold(),
+    )
 
 
 def scrape_track_image(page, url: str) -> str | None:
@@ -169,7 +174,6 @@ def _worker(queue, results, lock, on_progress, total_tracks):
             image_url = scrape_track_image(page, url)
 
             if image_url:
-                update_image_in_db(track_id, image_url)
                 result = {
                     "track_id": track_id,
                     "title": title,

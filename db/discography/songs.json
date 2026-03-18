@@ -2844,100 +2844,43 @@
   {
     "album": "Standalone & Extras",
     "section": "kworb_extras",
-    "track_count": 47,
+    "track_count": 43,
     "tracks": [
       {
-        "title": "I Don't Wanna Live Forever (Fifty Shades Darker)",
-        "url": "https://open.spotify.com/intl-fr/track/55n9yjI6qqXh5F2mYvUc2y",
-        "type": "standalone",
-        "edition": "extras",
-        "display_section": "Kworb Extras",
-        "display_order": 9999,
-        "base_title": "I Donât Wanna Live Forever (Fifty Shades Darker)",
-        "album": "Standalone & Extras",
-        "primary_artist": "Taylor Swift",
-        "featured_artists": [],
-        "artists": [
-          "Taylor Swift"
-        ],
-        "title_clean": "I Donât Wanna Live Forever (Fifty Shades Darker)",
-        "song_family": "i_donat_wanna_live_forever_fifty_shades_darker",
-        "version_tag": null,
-        "image_url": "https://i.scdn.co/image/ab67616d0000b27363d77f99117b28af9f656918"
-      },
-      {
-        "title": "Whoâs Afraid of Little Old Me?",
-        "url": "https://open.spotify.com/intl-fr/track/36t6frENUtCYKuZus6aYDO",
-        "type": "standalone",
-        "edition": "extras",
-        "display_section": "Kworb Extras",
-        "display_order": 9999,
-        "base_title": "Whoâs Afraid of Little Old Me?",
-        "album": "Standalone & Extras",
-        "primary_artist": "Taylor Swift",
-        "featured_artists": [],
-        "artists": [
-          "Taylor Swift"
-        ],
-        "title_clean": "Whoâs Afraid of Little Old Me?",
-        "song_family": "whoas_afraid_of_little_old_me",
-        "version_tag": null,
-        "image_url": "https://i.scdn.co/image/ab67616d0000b2735076e4160d018e378f488c33"
-      },
-      {
-        "title": "âtis the damn season",
-        "url": "https://open.spotify.com/intl-fr/track/7dW84mWkdWE5a6lFWxJCBG",
-        "type": "standalone",
-        "edition": "extras",
-        "display_section": "Kworb Extras",
-        "display_order": 9999,
-        "base_title": "âtis the damn season",
-        "album": "Standalone & Extras",
-        "primary_artist": "Taylor Swift",
-        "featured_artists": [],
-        "artists": [
-          "Taylor Swift"
-        ],
-        "title_clean": "âtis the damn season",
-        "song_family": "atis_the_damn_season",
-        "version_tag": null,
-        "image_url": "https://i.scdn.co/image/ab67616d0000b27333b8541201f1ef38941024be"
-      },
-      {
-        "title": "If This Was A Movie (Taylorâs Version)",
+        "title": "If This Was A Movie (Taylor's Version)",
         "url": "https://open.spotify.com/intl-fr/track/0q6vsjvnCIWrtwRckCV7y0",
         "type": "standalone",
         "edition": "extras",
         "display_section": "Kworb Extras",
         "display_order": 9999,
-        "base_title": "If This Was A Movie (Taylorâs Version)",
+        "base_title": "If This Was A Movie (Taylor's Version)",
         "album": "Standalone & Extras",
         "primary_artist": "Taylor Swift",
         "featured_artists": [],
         "artists": [
           "Taylor Swift"
         ],
-        "title_clean": "If This Was A Movie (Taylorâs Version)",
-        "song_family": "if_this_was_a_movie_tayloras_version",
+        "title_clean": "If This Was A Movie (Taylor's Version)",
+        "song_family": "if_this_was_a_movie_taylors_version",
         "version_tag": null,
         "image_url": "https://i.scdn.co/image/ab67616d0000b2734beb2774135270cedfa28338"
       },
       {
-        "title": "Safe & Sound (feat. Joy Williams and John Paul White) (Taylorâs Version)",
+        "title": "Safe & Sound (feat. Joy Williams and John Paul White) (Taylor's Version)",
         "url": "https://open.spotify.com/intl-fr/track/6Q237Ts37YGYRIi5Vy5lVX",
         "type": "standalone",
         "edition": "extras",
         "display_section": "Kworb Extras",
         "display_order": 9999,
-        "base_title": "Safe & Sound (feat. Joy Williams and John Paul White) (Taylorâs Version)",
+        "base_title": "Safe & Sound (feat. Joy Williams and John Paul White) (Taylor's Version)",
         "album": "Standalone & Extras",
         "primary_artist": "Taylor Swift",
         "featured_artists": [],
         "artists": [
           "Taylor Swift"
         ],
-        "title_clean": "Safe & Sound (feat. Joy Williams and John Paul White) (Taylorâs Version)",
-        "song_family": "safe_sound_feat_joy_williams_and_john_paul_white_tayloras_version",
+        "title_clean": "Safe & Sound (feat. Joy Williams and John Paul White) (Taylor's Version)",
+        "song_family": "safe_sound_feat_joy_williams_and_john_paul_white_taylors_version",
         "version_tag": null,
         "image_url": "https://i.scdn.co/image/ab67616d0000b273e508c5f5080d8a6c9db576df"
       },
@@ -2959,25 +2902,6 @@
         "song_family": "exile_feat_bon_iver_the_long_pond_studio_sessions",
         "version_tag": null,
         "image_url": "https://i.scdn.co/image/ab67616d0000b273045514e3ed4e1767a7c3ece5"
-      },
-      {
-        "title": "Cruel Summer - Live from TS | The Eras Tour",
-        "url": "https://open.spotify.com/intl-fr/track/6EXHGKZ79AUTzCe9BMZjhT",
-        "type": "standalone",
-        "edition": "extras",
-        "display_section": "Kworb Extras",
-        "display_order": 9999,
-        "base_title": "Cruel Summer - Live from TS | The Eras Tour",
-        "album": "Standalone & Extras",
-        "primary_artist": "Taylor Swift",
-        "featured_artists": [],
-        "artists": [
-          "Taylor Swift"
-        ],
-        "title_clean": "Cruel Summer - Live from TS | The Eras Tour",
-        "song_family": "cruel_summer_live_from_ts_the_eras_tour",
-        "version_tag": null,
-        "image_url": "https://i.scdn.co/image/ab67616d0000b273905c0872bdf4e1787a6bb5da"
       },
       {
         "title": "Today Was A Fairytale - US Version",

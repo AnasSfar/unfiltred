@@ -3,7 +3,6 @@ from __future__ import annotations
 import csv
 import json
 import re
-import sqlite3
 import subprocess
 import threading
 import time
@@ -29,7 +28,6 @@ ROOT        = _REPO_ROOT / "website"
 DATA_DIR    = ROOT / "data"
 _DB_ROOT    = _REPO_ROOT / "db"
 
-DB_PATH          = _DB_ROOT / "songs.db"
 HISTORY_PATH     = _DB_ROOT / "streams_history.csv"
 FAILED_PATH      = DATA_DIR / "not_found_today.csv"
 DISCOGRAPHY_DIR  = _DB_ROOT / "discography"
@@ -368,6 +366,8 @@ def update_artist_metadata() -> dict:
     return merged
 
 
+
+
 def load_active_track_ids_from_discography() -> set[str]:
     active_track_ids = set()
 
@@ -454,34 +454,46 @@ def has_real_update(previous_streams: int | None, new_streams: int) -> bool:
     return new_streams > previous_streams
 
 
-def load_tracks_from_db(active_track_ids: set[str] | None = None) -> list[dict]:
-    with sqlite3.connect(DB_PATH) as conn:
-        conn.row_factory = sqlite3.Row
+def load_tracks_from_discography(active_track_ids: set[str] | None = None) -> list[dict]:
+    seen: dict[str, dict] = {}
 
-        if active_track_ids is None:
-            rows = conn.execute(
-                """
-                SELECT track_id, title, spotify_url, streams, daily_streams, last_updated
-                FROM songs
-                ORDER BY title COLLATE NOCASE
-                """
-            ).fetchall()
-        else:
-            if not active_track_ids:
-                return []
+    for db_file in [DB_ALBUMS_JSON, DB_SONGS_JSON]:
+        if not db_file.exists():
+            continue
+        try:
+            sections = json.loads(db_file.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        for section in sections:
+            for track in section.get("tracks", []):
+                url = (track.get("url") or track.get("spotify_url") or "").strip()
+                track_id = extract_track_id(url)
+                if not track_id or track_id in seen:
+                    continue
+                title = (track.get("title") or "").strip()
+                if not title:
+                    continue
+                if active_track_ids is not None and track_id not in active_track_ids:
+                    continue
+                spotify_url = f"https://open.spotify.com/track/{track_id}"
+                image_url = track.get("image_url") or None
+                artists = track.get("artists") or []
+                primary_artist = track.get("primary_artist") or (artists[0] if artists else None)
+                seen[track_id] = {
+                    "track_id": track_id,
+                    "title": title,
+                    "spotify_url": spotify_url,
+                    "streams": None,
+                    "daily_streams": None,
+                    "last_updated": None,
+                    "image_url": image_url,
+                    "primary_artist": primary_artist,
+                    "artists_json": json.dumps(artists),
+                }
 
-            placeholders = ",".join("?" for _ in active_track_ids)
-            rows = conn.execute(
-                f"""
-                SELECT track_id, title, spotify_url, streams, daily_streams, last_updated
-                FROM songs
-                WHERE track_id IN ({placeholders})
-                ORDER BY title COLLATE NOCASE
-                """,
-                tuple(sorted(active_track_ids)),
-            ).fetchall()
-
-    return [dict(row) for row in rows]
+    tracks = list(seen.values())
+    tracks.sort(key=lambda t: t["title"].casefold())
+    return tracks
 
 
 def build_track_lookup(tracks: list[dict]) -> dict[str, list[dict]]:
@@ -543,10 +555,6 @@ def update_not_found_streak(streak: dict, not_found_ids: set, updated_ids: set) 
         streak.pop(track_id, None)
 
 
-def remove_track_from_db(track_id: str) -> None:
-    with sqlite3.connect(DB_PATH) as conn:
-        conn.execute("DELETE FROM songs WHERE track_id = ?", (track_id,))
-        conn.commit()
 
 
 def remove_track_from_discography(track_id: str) -> int:
@@ -579,7 +587,7 @@ def remove_track_from_discography(track_id: str) -> int:
 
 
 def purge_stale_tracks(streak: dict, tracks: list[dict]) -> list[str]:
-    """Delete tracks that have been not_found for MAX_NOT_FOUND_DAYS consecutive days."""
+    """Remove tracks that have been not_found for MAX_NOT_FOUND_DAYS consecutive days from discography."""
     deleted = []
     for track_id, count in list(streak.items()):
         if count >= MAX_NOT_FOUND_DAYS:
@@ -588,9 +596,8 @@ def purge_stale_tracks(streak: dict, tracks: list[dict]) -> list[str]:
             )
             print(
                 f"AUTO-DELETE | {title} | track_id={track_id} | "
-                f"not found for {count} consecutive days — removing from DB and discography"
+                f"not found for {count} consecutive days — removing from discography"
             )
-            remove_track_from_db(track_id)
             remove_track_from_discography(track_id)
             del streak[track_id]
             deleted.append(track_id)
@@ -871,18 +878,6 @@ def scrape_track_total(page, title: str, url: str) -> tuple[int | None, str | No
     return None, None, "timeout", []
 
 
-def update_song_in_db(track_id: str, streams: int, daily_streams: int | None, scrape_date: str) -> None:
-    with sqlite3.connect(DB_PATH) as conn:
-        conn.execute(
-            """
-            UPDATE songs
-            SET streams = ?, daily_streams = ?, last_updated = ?
-            WHERE track_id = ?
-            """,
-            (streams, daily_streams, scrape_date, track_id),
-        )
-        conn.commit()
-
 
 def compute_daily(previous_streams: int | None, new_streams: int) -> int | None:
     if previous_streams is None:
@@ -909,10 +904,8 @@ def try_apply_track_update(
     daily = compute_daily(last_total, total)
     real_update = has_real_update(last_total, total)
 
-    update_song_in_db(track_id, total, daily, scrape_date)
-
     # En mode debug on ne touche pas à streams_history — on veut juste
-    # peupler le DB sans polluer les dates avant l'update officiel Spotify.
+    # peupler le CSV sans polluer les dates avant l'update officiel Spotify.
     if not debug_mode and (real_update or last_total is None):
         row = [stats_date, track_id, total, daily if daily is not None else ""]
         with lock:
@@ -1254,7 +1247,7 @@ def run_update(on_progress=None, skip_track_ids: set | None = None, stats_date_o
     skip_track_ids = skip_track_ids or set()
 
     active_track_ids = load_active_track_ids_from_discography()
-    tracks = load_tracks_from_db(active_track_ids)
+    tracks = load_tracks_from_discography(active_track_ids)
     total_tracks = len(tracks)
 
     track_lookup = build_track_lookup(tracks)
@@ -1367,7 +1360,7 @@ def run_update(on_progress=None, skip_track_ids: set | None = None, stats_date_o
 def get_update_state_for_stats_date() -> tuple[int, int]:
     stats_date = get_stats_date_str()
     active_track_ids = load_active_track_ids_from_discography()
-    total_tracks = len(load_tracks_from_db(active_track_ids))
+    total_tracks = len(load_tracks_from_discography(active_track_ids))
     done_tracks = len(load_today_history_track_ids(stats_date))
     return done_tracks, total_tracks
 
@@ -1445,7 +1438,7 @@ def main():
     print(f"Target stats date: {stats_date}")
 
     active_track_ids = load_active_track_ids_from_discography()
-    tracks = load_tracks_from_db(active_track_ids)
+    tracks = load_tracks_from_discography(active_track_ids)
 
     already_done_for_stats_date = set() if debug_mode else load_today_history_track_ids(stats_date)
     done_tracks_before_run = len(already_done_for_stats_date)
@@ -1570,7 +1563,7 @@ def main():
     save_failed_rows(summary["failed_results"])
 
     # Update per-track not-found streak and auto-delete tracks missing too many days
-    all_tracks = load_tracks_from_db(load_active_track_ids_from_discography())
+    all_tracks = load_tracks_from_discography()
     updated_ids: set[str] = {
         r["track_id"] for r in summary.get("results", [])
         if r and r.get("status") == "updated"

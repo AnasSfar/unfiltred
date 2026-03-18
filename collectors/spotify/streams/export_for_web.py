@@ -4,7 +4,6 @@ import csv
 import json
 import re
 import shutil
-import sqlite3
 from collections import defaultdict
 from pathlib import Path
 
@@ -14,7 +13,6 @@ _REPO_ROOT  = _SCRIPT_DIR.parents[2]
 ROOT        = _REPO_ROOT / "website"
 _DB_ROOT    = _REPO_ROOT / "db"
 
-DB_PATH          = _DB_ROOT / "songs.db"
 HISTORY_CSV_PATH = _DB_ROOT / "streams_history.csv"
 
 DISCOGRAPHY_DIR  = _DB_ROOT / "discography"
@@ -137,70 +135,51 @@ def write_json(path: Path, payload) -> None:
     )
 
 
-def load_db_songs() -> list[dict]:
-    if not DB_PATH.exists():
-        raise FileNotFoundError(f"Database not found: {DB_PATH}")
+def load_tracks_from_discography() -> list[dict]:
+    seen: dict[str, dict] = {}
 
-    with sqlite3.connect(DB_PATH) as conn:
-        conn.row_factory = sqlite3.Row
-        rows = conn.execute(
-    """
-    SELECT
-        track_id,
-        title,
-        spotify_url,
-        image_url,
-        streams,
-        daily_streams,
-        last_updated,
-        primary_artist,
-        artists_json
-    FROM songs
-    ORDER BY title COLLATE NOCASE, track_id
-    """
-).fetchall()
+    for db_file in [ALBUMS_JSON_SRC, MISC_JSON_SRC]:
+        if not db_file.exists():
+            continue
+        try:
+            sections = json.loads(db_file.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        for section in sections:
+            for track in section.get("tracks", []):
+                url = (track.get("url") or track.get("spotify_url") or "").strip()
+                track_id = extract_track_id(url)
+                if not track_id or track_id in seen:
+                    continue
+                title = (track.get("title") or "").strip()
+                if not title:
+                    continue
+                spotify_url = f"https://open.spotify.com/track/{track_id}"
+                image_url = track.get("image_url") or None
+                artists = track.get("artists") or []
+                primary_artist = track.get("primary_artist") or (artists[0] if artists else None)
 
-    songs = []
-    for row in rows:
-        streams = row["streams"]
-        current_ms = current_milestone(streams)
-        next_ms = next_milestone(streams)
-        remaining = None if streams is None or next_ms is None else max(next_ms - streams, 0)
+                seen[track_id] = {
+                    "track_id": track_id,
+                    "title": title,
+                    "title_key": normalize_title_for_site(title),
+                    "spotify_url": spotify_url,
+                    "image_url": image_url,
+                    "streams": None,
+                    "daily_streams": None,
+                    "last_updated": None,
+                    "primary_artist": primary_artist,
+                    "artists": artists,
+                    "artists_json": json.dumps(artists),
+                    "current_milestone": None,
+                    "current_milestone_label": None,
+                    "next_milestone": None,
+                    "next_milestone_label": None,
+                    "remaining_to_next_milestone": None,
+                    "appearances": [],
+                }
 
-        artists = []
-        if row["artists_json"]:
-            try:
-                artists = json.loads(row["artists_json"])
-            except Exception:
-                artists = []
-
-        primary_artist = row["primary_artist"] if row["primary_artist"] else (artists[0] if artists else None)
-
-        songs.append(
-            {
-                "track_id": row["track_id"],
-                "title": row["title"],
-                "title_key": normalize_title_for_site(row["title"]),
-                "spotify_url": row["spotify_url"],
-                "image_url": row["image_url"],
-                "streams": row["streams"],
-                "daily_streams": row["daily_streams"],
-                "last_updated": row["last_updated"],
-
-                "primary_artist": primary_artist,
-                "artists": artists,
-
-                "current_milestone": current_ms,
-                "current_milestone_label": format_milestone_label(current_ms),
-                "next_milestone": next_ms,
-                "next_milestone_label": format_milestone_label(next_ms),
-                "remaining_to_next_milestone": remaining,
-
-                "appearances": [],
-            }
-        )
-
-    return songs
+    return list(seen.values())
 
 
 def load_raw_history() -> tuple[list[str], dict[str, dict[str, dict]]]:
@@ -861,9 +840,8 @@ def export_billboard_from_csv() -> None:
 def export_for_web() -> None:
     SITE_DATA_DIR.mkdir(parents=True, exist_ok=True)
     print(f"ROOT     = {ROOT}")
-    print(f"DB_PATH  = {DB_PATH}")
     print(f"HISTORY  = {HISTORY_CSV_PATH}")
-    raw_songs = load_db_songs()
+    raw_songs = load_tracks_from_discography()
     dates, raw_history_by_date = load_raw_history()
     print(f"Last 10 dates found: {dates[-10:]}")
     track_appearances_by_id, albums_payload_raw = build_discography_index()
