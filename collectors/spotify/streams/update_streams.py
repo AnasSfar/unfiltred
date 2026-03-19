@@ -1382,6 +1382,16 @@ def main():
     stats_date = stats_date_override or get_stats_date_str()
     print(f"Target stats date: {stats_date}")
 
+    # Discover new kworbs extras before loading the track list
+    print("Checking kworbs for new extra tracks...")
+    try:
+        _backfill_cmd = [sys.executable, str(_SCRIPT_DIR / "backfill_from_kworb.py")]
+        if dry_run_mode:
+            _backfill_cmd.append("--dry-run")
+        subprocess.run(_backfill_cmd, check=False)
+    except Exception as e:
+        print(f"Kworbs backfill failed (non-fatal): {e}")
+
     active_track_ids = load_active_track_ids_from_discography()
     tracks = load_tracks_from_discography(active_track_ids)
 
@@ -1409,7 +1419,7 @@ def main():
         else:
             _p = sync_playwright().start()
             _browser = launch_browser(_p)
-            _context = _browser.new_context()
+            _context = _browser.new_context(locale="fr-FR")
             _page = _context.new_page()
             _page.route("**/*", block_unneeded)
 

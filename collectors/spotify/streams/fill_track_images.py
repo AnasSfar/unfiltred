@@ -153,7 +153,7 @@ def live_progress(i, total, title, result):
 def _worker(queue, results, lock, on_progress, total_tracks):
     p = sync_playwright().start()
     browser = p.chromium.launch(headless=HEADLESS)
-    context = browser.new_context()
+    context = browser.new_context(locale="fr-FR")
     page = context.new_page()
     page.route("**/*", block_unneeded)
 
