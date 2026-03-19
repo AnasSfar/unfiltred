@@ -37,7 +37,7 @@ ARTIST_PATH      = DISCOGRAPHY_DIR / "artist.json"
 ARTIST_URL = "https://open.spotify.com/artist/06HL4z0CvFAxyc27GXpf02"
 
 HEADLESS = False
-MAX_PARALLEL_PAGES = 6
+MAX_PARALLEL_PAGES = 10
 PAGE_GOTO_TIMEOUT_MS = 45_000
 DEBUG_PAGE_PREVIEW = False
 
@@ -55,6 +55,7 @@ PENDING_RETRY_SLEEP_SECONDS = 5 * 60
 MIN_PENDING_TRACKS_FOR_RETRY = 3
 MAX_PENDING_RETRY_ROUNDS = 6
 INCREMENTAL_PUBLISH_ON_UPDATE = False
+EARLY_TWITTER_THRESHOLD = 50  # post Twitter dès que N tracks sont mises à jour
 
 NOT_FOUND_STREAK_PATH = DATA_DIR / "not_found_streak.json"
 MAX_NOT_FOUND_DAYS = 7  # suppress + delete after this many consecutive not-found days
@@ -264,7 +265,7 @@ def scrape_artist_metadata() -> dict:
 
     p = sync_playwright().start()
     browser = launch_browser(p)
-    context = browser.new_context()
+    context = browser.new_context(locale="fr-FR")
     page = context.new_page()
     page.route("**/*", block_unneeded)
 
@@ -334,9 +335,9 @@ def save_artist_metadata(data: dict) -> None:
     )
 
 
-def update_artist_metadata() -> dict:
+def update_artist_metadata(pre_scraped: dict | None = None) -> dict:
     existing = load_existing_artist_metadata()
-    scraped = scrape_artist_metadata()
+    scraped = pre_scraped if pre_scraped is not None else scrape_artist_metadata()
 
     merged = {
         "name": scraped.get("name") or existing.get("name") or "Taylor Swift",
@@ -630,6 +631,36 @@ def git_commit_and_push(message: str | None = None) -> None:
         print(f"Git commit/push failed: {e}")
 
 
+def _load_track_priorities() -> dict[str, int]:
+    """Retourne {track_id: max daily_streams} depuis l'historique pour trier les tracks."""
+    result: dict[str, int] = {}
+    if not HISTORY_PATH.exists():
+        return result
+    with HISTORY_PATH.open(newline="", encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            tid = row.get("track_id", "")
+            ds_raw = row.get("daily_streams", "")
+            if tid and ds_raw:
+                try:
+                    ds = int(ds_raw)
+                    if ds > result.get(tid, 0):
+                        result[tid] = ds
+                except ValueError:
+                    pass
+    return result
+
+
+def _run_early_twitter(stats_date: str) -> None:
+    try:
+        print(f"\n[Twitter] Posting early top 15 after {EARLY_TWITTER_THRESHOLD} tracks done...")
+        export_for_web.export_for_web()
+        subprocess.run([sys.executable, str(_SCRIPT_DIR / "migrate_streams_to_csv.py")], check=False)
+        subprocess.run([sys.executable, str(_SCRIPT_DIR / "post_streams_twitter.py"), stats_date], check=False)
+        print("[Twitter] Early post done.")
+    except Exception as e:
+        print(f"[Twitter] Early post error: {e}")
+
+
 def incremental_publish_update(
     track: dict,
     stats_date: str,
@@ -851,13 +882,13 @@ def scrape_track_total(page, title: str, url: str) -> tuple[int | None, str | No
     for attempt in range(3):
         try:
             page.goto(clean_url, wait_until="commit", timeout=PAGE_GOTO_TIMEOUT_MS)
-            page.wait_for_timeout(2000)
+            page.wait_for_timeout(1000)
             maybe_accept_cookies(page)
 
             if DEBUG_PAGE_PREVIEW:
                 debug_page_preview(page, title, clean_url)
 
-            for wait_ms in (1500, 3000, 5000):
+            for wait_ms in (1000, 2000, 3000):
                 total, raw, recs = extract_page_data(page)
                 if total is not None:
                     return total, raw, "ok", recs
@@ -1044,7 +1075,7 @@ def run_probe(tracks: list[dict]) -> dict:
 
     p = sync_playwright().start()
     browser = launch_browser(p)
-    context = browser.new_context()
+    context = browser.new_context(locale="fr-FR")
     page = context.new_page()
     page.route("**/*", block_unneeded)
 
@@ -1064,10 +1095,11 @@ def _worker(
     on_progress,
     total_tracks,
     debug_mode=False,
+    early_twitter_trigger=None,
 ):
     p = sync_playwright().start()
     browser = launch_browser(p)
-    context = browser.new_context()
+    context = browser.new_context(locale="fr-FR")
     page = context.new_page()
     page.route("**/*", block_unneeded)
 
@@ -1132,6 +1164,8 @@ def _worker(
                     debug_mode=debug_mode,
                 )
                 result["raw"] = raw
+                if early_twitter_trigger:
+                    early_twitter_trigger()
 
             with lock:
                 results[i - 1] = result
@@ -1164,6 +1198,25 @@ def run_update(on_progress=None, skip_track_ids: set | None = None, stats_date_o
     active_track_ids = load_active_track_ids_from_discography()
     tracks = load_tracks_from_discography(active_track_ids)
     total_tracks = len(tracks)
+
+    # Trier par popularité : les tracks avec le plus de daily_streams en premier
+    priorities = _load_track_priorities()
+    tracks.sort(key=lambda t: -priorities.get(t["track_id"], 0))
+
+    # Trigger pour poster le top 15 tôt, dès EARLY_TWITTER_THRESHOLD tracks mises à jour
+    _early_fired = threading.Event()
+    _counter = [0]
+    _counter_lock = threading.Lock()
+
+    def early_twitter_trigger():
+        if _early_fired.is_set():
+            return
+        with _counter_lock:
+            _counter[0] += 1
+            if _counter[0] < EARLY_TWITTER_THRESHOLD or _early_fired.is_set():
+                return
+            _early_fired.set()
+        threading.Thread(target=_run_early_twitter, args=(stats_date,), daemon=True).start()
 
     already_done_for_stats_date = load_today_history_track_ids(stats_date)
 
@@ -1208,6 +1261,7 @@ def run_update(on_progress=None, skip_track_ids: set | None = None, stats_date_o
                     on_progress,
                     total_tracks,
                     debug_mode,
+                    early_twitter_trigger if not debug_mode else None,
                 ),
                 daemon=True,
             )
@@ -1218,8 +1272,9 @@ def run_update(on_progress=None, skip_track_ids: set | None = None, stats_date_o
             w.start()
 
         print(f"Waiting for {worker_count} worker(s) to finish...")
+        queue.join()
         for w in workers:
-            w.join(timeout=30)
+            w.join(timeout=5)
         print("All worker threads joined.")
 
     final_done_for_stats_date = load_today_history_track_ids(stats_date)
@@ -1304,8 +1359,10 @@ def main():
     #   python update_streams.py 2025-10-02        → force stats date
     #   python update_streams.py --debug           → skip probe, use today's date
     #   python update_streams.py --debug 2025-10-02 → skip probe, force date
+    #   python update_streams.py --dry-run         → scrape only, zéro modification
     debug_mode = "--debug" in sys.argv
-    remaining_args = [a for a in sys.argv[1:] if a != "--debug"]
+    dry_run_mode = "--dry-run" in sys.argv
+    remaining_args = [a for a in sys.argv[1:] if a not in ("--debug", "--dry-run")]
 
     stats_date_override = None
     if remaining_args:
@@ -1316,7 +1373,10 @@ def main():
             print(f"Invalid date '{remaining_args[0]}', expected YYYY-MM-DD")
             sys.exit(1)
 
-    if debug_mode:
+    if dry_run_mode:
+        print("[DRY-RUN] Scraping uniquement — aucune modification (CSV, git, Twitter)")
+        debug_mode = True  # réutilise la logique debug pour skip les writes CSV
+    elif debug_mode:
         print("[DEBUG] Mode debug activé — probe désactivé, pas de date associée")
 
     stats_date = stats_date_override or get_stats_date_str()
@@ -1398,6 +1458,14 @@ def main():
     print("Full run")
     print("=" * 70)
 
+    _artist_result: list[dict | None] = [None]
+
+    def _scrape_artist_bg():
+        _artist_result[0] = scrape_artist_metadata()
+
+    artist_thread = threading.Thread(target=_scrape_artist_bg, daemon=True)
+    artist_thread.start()
+
     summary = run_update(on_progress=live_progress, stats_date_override=stats_date_override, debug_mode=debug_mode)
     print_summary_block(summary)
 
@@ -1460,15 +1528,15 @@ def main():
         print(f"Auto-deleted {len(deleted)} stale track(s) not found for {MAX_NOT_FOUND_DAYS}+ days.")
     save_not_found_streak(streak)
 
+    if dry_run_mode:
+        print("[DRY-RUN] Scraping terminé — aucune modification appliquée.")
+        return
+
     if summary["all_done"]:
         print("All tracks updated.")
     else:
         print("Full scrape finished, but not all tracks are done.")
         print("Publishing current data anyway.")
-
-    print("Re-exporting web data...")
-    export_for_web.export_for_web()
-    print("Web export done.")
 
     print("Updating streams history CSV...")
     subprocess.run(
@@ -1487,8 +1555,13 @@ def main():
         )
         print("Twitter post done.")
 
+    print("Re-exporting web data...")
+    export_for_web.export_for_web()
+    print("Web export done.")
+
     print("Updating artist metadata...")
-    update_artist_metadata()
+    artist_thread.join(timeout=60)
+    update_artist_metadata(pre_scraped=_artist_result[0])
 
     print("Re-exporting web data (with artist metadata)...")
     export_for_web.export_for_web()
