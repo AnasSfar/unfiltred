@@ -1,16 +1,21 @@
 #!/usr/bin/env python3
 """
 daily.py - Global
-Scrape la page Spotify Charts, filtre TS, met a jour ts_history, et poste le tweet.
-Usage : python daily.py [YYYY-MM-DD]
+Scrape la page Spotify Charts, filtre TS, met à jour ts_history, et poste le tweet.
+
+Usage :
+    python daily.py [YYYY-MM-DD]
 
 Logique :
-- cherche toutes les dates non-postées des 7 derniers jours
-- attend que la page la plus récente soit disponible (cutoff à 15h)
+- cherche toutes les dates non postées des 7 derniers jours
+- attend que la page la plus récente soit disponible
 - lance filter.py pour chaque date manquante
-- si plusieurs dates : génère une image combinée et un tweet condensé
+- si plusieurs dates : génère une image combinée
 - poste sur Twitter
 """
+
+from __future__ import annotations
+
 import re
 import subprocess
 import sys
@@ -18,17 +23,20 @@ import time
 from datetime import date, datetime, timedelta
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).parent.parent.parent))
-from core.twitter import post_thread, post_with_image, split_tweets
-from core.notify import send as notify
+from playwright.sync_api import TimeoutError as PlaywrightTimeoutError
 from playwright.sync_api import sync_playwright
 
-ROOT                  = Path(__file__).parent
-_REPO_ROOT            = ROOT.parents[3]
-CHART_ID              = "regional-global-daily"
-TWITTER_SESSION       = ROOT / "twitter_session.json"
-SPOTIFY_SESSION       = ROOT / "spotify_session.json"
-FILTER_SCRIPT         = ROOT / "filter.py"
+sys.path.insert(0, str(Path(__file__).parent.parent.parent))
+from core.notify import send as notify
+from core.twitter import post_thread, post_with_image, split_tweets
+
+ROOT = Path(__file__).parent
+_REPO_ROOT = ROOT.parents[3]
+
+CHART_ID = "regional-global-daily"
+TWITTER_SESSION = ROOT / "twitter_session.json"
+SPOTIFY_SESSION = ROOT / "spotify_session.json"
+FILTER_SCRIPT = ROOT / "filter.py"
 GENERATE_IMAGE_SCRIPT = ROOT / "generate_chart_image.py"
 
 try:
@@ -37,18 +45,32 @@ except Exception:
     NTFY_TOPIC = ""
 
 RETRY_SECONDS = 60
-CUTOFF_HOUR   = 15  # abandon si page non dispo à 15h
-LOOKBACK_DAYS = 7   # fenêtre de détection des jours manquants
+CUTOFF_HOUR = 15
+LOOKBACK_DAYS = 7
+PAGE_TIMEOUT_MS = 120_000
+POST_GOTO_WAIT_MS = 6000
 
 _SCRIPT_START = datetime.now()
 
 
-def log(level: str, message: str):
+def log(level: str, message: str) -> None:
     print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] [{level}] {message}", flush=True)
 
 
 def lock_path(d: date) -> Path:
     return ROOT / str(d.year) / f"{d.month:02d}" / str(d) / "posted.lock"
+
+
+def tweet_path(d: date) -> Path:
+    return ROOT / str(d.year) / f"{d.month:02d}" / str(d) / "tweet.txt"
+
+
+def chart_csv_path(d: date) -> Path:
+    return ROOT / str(d.year) / f"{d.month:02d}" / str(d) / "ts_all_songs.csv"
+
+
+def no_ts_lock_path(d: date) -> Path:
+    return ROOT / str(d.year) / f"{d.month:02d}" / str(d) / "no_ts.lock"
 
 
 def already_posted(d: date) -> bool:
@@ -57,15 +79,20 @@ def already_posted(d: date) -> bool:
     return exists
 
 
-def mark_posted(d: date):
+def mark_posted(d: date) -> None:
     p = lock_path(d)
     p.parent.mkdir(parents=True, exist_ok=True)
     p.touch()
     log("INFO", f"posted.lock créé: {p}")
 
 
+def chart_already_processed(d: date) -> bool:
+    processed = chart_csv_path(d).exists() or no_ts_lock_path(d).exists()
+    log("DEBUG", f"chart déjà traité pour {d}: {'oui' if processed else 'non'}")
+    return processed
+
+
 def get_unposted_dates() -> list[date]:
-    """Retourne les dates non-postées des LOOKBACK_DAYS derniers jours, du plus ancien au plus récent."""
     today = date.today()
     unposted = [
         today - timedelta(days=i)
@@ -81,26 +108,109 @@ def past_cutoff() -> bool:
     return now.date() > _SCRIPT_START.date() and now.hour >= CUTOFF_HOUR
 
 
-def page_available(d: date) -> bool:
-    url = f"https://charts.spotify.com/charts/view/{CHART_ID}/{d}"
+def extract_date_from_url(url: str) -> date | None:
+    match = re.search(r"/(\d{4}-\d{2}-\d{2})(?:[/?#]|$)", url or "")
+    if not match:
+        return None
+    try:
+        return datetime.strptime(match.group(1), "%Y-%m-%d").date()
+    except ValueError:
+        return None
+
+
+def try_extract_chart_date_from_page(page) -> date | None:
+    try:
+        body_text = (page.locator("body").inner_text(timeout=5000) or "").strip()
+    except Exception:
+        body_text = ""
+
+    patterns = [
+        r"\b\d{4}-\d{2}-\d{2}\b",
+        r"\b[A-Z][a-z]+ \d{1,2}, \d{4}\b",
+    ]
+
+    for pattern in patterns:
+        match = re.search(pattern, body_text)
+        if not match:
+            continue
+        value = match.group(0)
+
+        if re.fullmatch(r"\d{4}-\d{2}-\d{2}", value):
+            try:
+                return datetime.strptime(value, "%Y-%m-%d").date()
+            except ValueError:
+                pass
+
+        try:
+            return datetime.strptime(value, "%B %d, %Y").date()
+        except ValueError:
+            pass
+
+    return extract_date_from_url(page.url)
+
+
+def page_has_exploitable_chart(body_text: str) -> bool:
+    body_text_lower = body_text.lower()
+
+    has_streams = bool(re.search(r"\b\d{1,3}(?:[,.\s]\d{3}){2,}\b", body_text))
+    has_chart_header = "track" in body_text_lower and "streams" in body_text_lower
+    has_rank_line = bool(re.search(r"(?m)^\s*1\s*$", body_text))
+
+    log("CHECK", f"has_streams={has_streams}")
+    log("CHECK", f"has_chart_header={has_chart_header}")
+    log("CHECK", f"has_rank_line={has_rank_line}")
+
+    return has_streams and has_chart_header and has_rank_line
+
+
+def open_chart_page(page, route_value: str) -> tuple[bool, date | None]:
+    url = f"https://charts.spotify.com/charts/view/{CHART_ID}/{route_value}"
     log("CHECK", f"Ouverture {url}")
+
+    page.goto(url, wait_until="domcontentloaded", timeout=PAGE_TIMEOUT_MS)
+    page.wait_for_timeout(POST_GOTO_WAIT_MS)
+
+    current_url = page.url.lower()
+    log("CHECK", f"URL finale: {page.url}")
+
+    if "login" in current_url or "accounts.spotify.com" in current_url:
+        log("CHECK", "Session Spotify expirée ou non connectée")
+        return False, None
+
+    body_text = (page.locator("body").inner_text() or "").strip()
+    if "Log in with Spotify" in body_text:
+        log("CHECK", "Session Spotify non valide")
+        return False, None
+
+    log("CHECK", f"Longueur texte: {len(body_text)}")
+
+    detected_date = try_extract_chart_date_from_page(page)
+    log("CHECK", f"Date détectée: {detected_date if detected_date else 'N/A'}")
+
+    available = page_has_exploitable_chart(body_text)
+    log("CHECK", f"Page exploitable: {'oui' if available else 'non'}")
+
+    return available, detected_date
+
+
+def page_available(target_date: date) -> bool:
+    if not SPOTIFY_SESSION.exists():
+        log("ERROR", f"Session Spotify introuvable: {SPOTIFY_SESSION}")
+        return False
 
     with sync_playwright() as p:
         browser = None
         context = None
+
         try:
             browser = p.chromium.launch(
-                headless=True,
+                headless=False,
                 args=[
                     "--disable-blink-features=AutomationControlled",
                     "--disable-dev-shm-usage",
                     "--no-sandbox",
                 ],
             )
-
-            if not SPOTIFY_SESSION.exists():
-                log("ERROR", f"Session Spotify introuvable: {SPOTIFY_SESSION}")
-                return False
 
             context = browser.new_context(
                 storage_state=str(SPOTIFY_SESSION),
@@ -114,38 +224,45 @@ def page_available(d: date) -> bool:
             )
 
             page = context.new_page()
-            page.set_default_navigation_timeout(60_000)
-            page.set_default_timeout(60_000)
+            page.set_default_navigation_timeout(PAGE_TIMEOUT_MS)
+            page.set_default_timeout(PAGE_TIMEOUT_MS)
 
-            page.goto(url, wait_until="domcontentloaded", timeout=60_000)
-            page.wait_for_timeout(6000)
+            try:
+                available, detected_date = open_chart_page(page, str(target_date))
+                if available:
+                    return True
+            except PlaywrightTimeoutError as e:
+                log("CHECK", f"Timeout route datée: {e}")
+            except Exception as e:
+                log("CHECK", f"Route datée échouée: {e}")
 
-            current_url = page.url.lower()
-            log("CHECK", f"URL finale: {page.url}")
+            log("CHECK", "Fallback vers latest ...")
 
-            if "login" in current_url or "accounts.spotify.com" in current_url:
-                log("CHECK", "Session Spotify expirée ou non connectée")
+            try:
+                available, detected_date = open_chart_page(page, "latest")
+            except PlaywrightTimeoutError as e:
+                log("CHECK", f"Timeout latest: {e}")
+                return False
+            except Exception as e:
+                log("CHECK", f"Erreur latest: {e}")
                 return False
 
-            body_text = (page.locator("body").inner_text() or "").strip()
-            body_text_lower = body_text.lower()
+            if not detected_date:
+                log("CHECK", "Impossible de détecter la date du chart latest")
+                return False
 
-            log("CHECK", f"Longueur texte: {len(body_text)}")
+            if chart_already_processed(detected_date):
+                log("CHECK", f"Latest ({detected_date}) déjà traité localement")
+                return False
 
-            has_streams      = bool(re.search(r"\b\d{1,3}[,.\s]\d{3}[,.\s]\d{3}\b", body_text))
-            has_chart_header = "track" in body_text_lower and "streams" in body_text_lower
-            has_rank_line    = bool(re.search(r"(?m)^\s*1\s*$", body_text))
+            if detected_date != target_date:
+                log("CHECK", f"Latest pointe vers {detected_date}, attendu {target_date}")
+                return False
 
-            log("CHECK", f"has_streams={has_streams}")
-            log("CHECK", f"has_chart_header={has_chart_header}")
-            log("CHECK", f"has_rank_line={has_rank_line}")
-
-            available = has_streams and has_chart_header and has_rank_line
-            log("CHECK", f"Page exploitable: {'oui' if available else 'non'}")
             return available
 
         except Exception as e:
-            log("CHECK", f"Erreur: {e}")
+            log("CHECK", f"Erreur générale: {e}")
             return False
 
         finally:
@@ -163,6 +280,7 @@ def page_available(d: date) -> bool:
 
 def run_filter(d: date) -> str | None:
     log("STEP", f"Lancement de filter.py pour {d}")
+
     result = subprocess.run(
         [sys.executable, str(FILTER_SCRIPT), str(d)],
         capture_output=True,
@@ -181,24 +299,110 @@ def run_filter(d: date) -> str | None:
         log("ERROR", f"filter.py a échoué (code {result.returncode})")
         return None
 
-    tweet_path = ROOT / str(d.year) / f"{d.month:02d}" / str(d) / "tweet.txt"
-    if not tweet_path.exists():
-        log("ERROR", "tweet.txt introuvable après filter.py")
+    tp = tweet_path(d)
+    if not tp.exists():
+        log("ERROR", f"tweet.txt introuvable après filter.py pour {d}")
         return None
 
-    content = tweet_path.read_text(encoding="utf-8")
+    content = tp.read_text(encoding="utf-8")
     log("INFO", f"tweet.txt chargé ({len(content)} caractères)")
     return content
 
 
-def build_multi_tweet(dates: list[date]) -> str:
-    parts = [datetime.strptime(str(d), "%Y-%m-%d").strftime("%B %d") for d in dates]
-    year  = dates[-1].year
-    return f"📈 | Taylor Swift on Daily Global 🌍 Spotify charts ({' & '.join(parts)}, {year}) :"
+def build_tweet_content(processed: list[date]) -> str:
+    if len(processed) == 1:
+        d = processed[0]
+        return f"Taylor Swift on Spotify Global Charts yesterday ({d.strftime('%B %d, %Y')}) :"
+
+    parts = [d.strftime("%B %d") for d in processed]
+    year = processed[-1].year
+    return f"Taylor Swift on Spotify Global Charts ({' / '.join(parts)}, {year}) :"
 
 
-def main():
-    # Mode manuel : python daily.py YYYY-MM-DD
+def generate_image(processed: list[date]) -> Path | None:
+    log("STEP", "Génération de l'image du chart")
+
+    if len(processed) == 1:
+        d = processed[0]
+        image_path = ROOT / str(d.year) / f"{d.month:02d}" / str(d) / "chart_image.png"
+        img_args = [sys.executable, str(GENERATE_IMAGE_SCRIPT), str(d)]
+    else:
+        image_path = ROOT / "chart_image_multi.png"
+        img_args = [sys.executable, str(GENERATE_IMAGE_SCRIPT)] + [str(d) for d in processed]
+
+    img_result = subprocess.run(
+        img_args,
+        capture_output=True,
+        text=True,
+        cwd=str(ROOT),
+    )
+
+    if img_result.stdout:
+        print(img_result.stdout, flush=True)
+    if img_result.stderr:
+        print(img_result.stderr, flush=True)
+
+    if img_result.returncode != 0:
+        log("WARN", "Génération d'image échouée — publication sans image")
+        return None
+
+    if not image_path.exists():
+        log("WARN", f"Image attendue introuvable: {image_path}")
+        return None
+
+    return image_path
+
+
+def git_commit_and_push() -> None:
+    log("STEP", "Git commit et push")
+    try:
+        subprocess.run(
+            ["git", "add", "collectors/spotify/charts/global/", "db/charts_history_global.csv"],
+            cwd=str(_REPO_ROOT),
+            check=True,
+        )
+        diff = subprocess.run(
+            ["git", "diff", "--cached", "--quiet"],
+            cwd=str(_REPO_ROOT),
+            check=False,
+        )
+        if diff.returncode != 0:
+            today = date.today().isoformat()
+            subprocess.run(
+                ["git", "commit", "-m", f"charts global {today}"],
+                cwd=str(_REPO_ROOT),
+                check=True,
+            )
+            subprocess.run(["git", "push"], cwd=str(_REPO_ROOT), check=True)
+            log("INFO", "Git commit + push done.")
+        else:
+            log("INFO", "Rien à commit.")
+    except subprocess.CalledProcessError as e:
+        log("WARN", f"Git commit/push échoué : {e}")
+
+
+def migrate_archive_csv() -> None:
+    migrate_script = ROOT.parent / "migrate_charts_to_csv.py"
+    log("STEP", "Mise à jour du CSV charts history")
+
+    migrate_result = subprocess.run(
+        [sys.executable, str(migrate_script)],
+        capture_output=True,
+        text=True,
+    )
+
+    if migrate_result.stdout:
+        print(migrate_result.stdout, flush=True)
+    if migrate_result.stderr:
+        print(migrate_result.stderr, flush=True)
+
+    if migrate_result.returncode != 0:
+        log("WARN", f"migrate_charts_to_csv.py a échoué (code {migrate_result.returncode})")
+    else:
+        log("INFO", "CSV charts history mis à jour")
+
+
+def main() -> None:
     if len(sys.argv) > 1:
         try:
             unposted = [datetime.strptime(sys.argv[1], "%Y-%m-%d").date()]
@@ -219,9 +423,8 @@ def main():
         return
 
     log("INFO", f"Dates à poster: {[str(d) for d in unposted]}")
-    target = unposted[-1]  # la plus récente débloquera les autres
+    target = unposted[-1]
 
-    # Attendre que la page cible soit disponible (cutoff à CUTOFF_HOUR)
     attempt = 1
     while True:
         if past_cutoff():
@@ -237,7 +440,6 @@ def main():
         attempt += 1
         time.sleep(RETRY_SECONDS)
 
-    # Traiter chaque date non-postée
     results: dict[date, str] = {}
     for d in unposted:
         content = run_filter(d)
@@ -252,37 +454,15 @@ def main():
 
     processed = sorted(results.keys())
 
-    # Contenu du tweet
-    _last_date = processed[-1]
-    _date_fmt  = _last_date.strftime("%B %d, %Y")
-    tweet_content = f"Taylor Swift on Spotify Global Charts yesterday ({_date_fmt}) :"
-
+    tweet_content = build_tweet_content(processed)
     (ROOT / "twitter_post.txt").write_text(tweet_content, encoding="utf-8")
     log("INFO", "twitter_post.txt mis à jour")
     print(f"\nPost :\n{tweet_content}\n", flush=True)
 
-    # Générer l'image (simple ou combinée)
-    log("STEP", "Génération de l'image du chart")
-    if len(processed) == 1:
-        d = processed[0]
-        image_path = ROOT / str(d.year) / f"{d.month:02d}" / str(d) / "chart_image.png"
-        img_args = [sys.executable, str(GENERATE_IMAGE_SCRIPT), str(d)]
-    else:
-        image_path = ROOT / "chart_image_multi.png"
-        img_args = [sys.executable, str(GENERATE_IMAGE_SCRIPT)] + [str(d) for d in processed]
+    image_path = generate_image(processed)
 
-    img_result = subprocess.run(img_args, capture_output=True, text=True, cwd=str(ROOT))
-    if img_result.stdout:
-        print(img_result.stdout, flush=True)
-    if img_result.stderr:
-        print(img_result.stderr, flush=True)
-    if img_result.returncode != 0:
-        log("WARN", "Génération d'image échouée — publication sans image")
-        image_path = None
-
-    # Poster
     log("STEP", "Publication Twitter")
-    if image_path and image_path.exists():
+    if image_path:
         posted = post_with_image(tweet_content, image_path, TWITTER_SESSION)
     else:
         posted = post_thread(split_tweets(tweet_content), TWITTER_SESSION)
@@ -290,59 +470,31 @@ def main():
     if posted:
         for d in processed:
             mark_posted(d)
+
         log("INFO", f"Terminé avec succès ({len(processed)} date(s) postée(s))")
 
-        migrate_script = ROOT.parent / "migrate_charts_to_csv.py"
-        log("STEP", "Mise à jour du CSV charts history")
-        migrate_result = subprocess.run(
-            [sys.executable, str(migrate_script)],
-            capture_output=True, text=True,
-        )
-        if migrate_result.stdout:
-            print(migrate_result.stdout, flush=True)
-        if migrate_result.returncode != 0:
-            log("WARN", f"migrate_charts_to_csv.py a échoué (code {migrate_result.returncode})")
-        else:
-            log("INFO", "CSV charts history mis à jour")
+        migrate_archive_csv()
+        git_commit_and_push()
 
-        log("STEP", "Git commit et push")
-        try:
-            subprocess.run(
-                ["git", "add", "collectors/spotify/charts/global/", "db/charts_history_global.csv"],
-                cwd=str(_REPO_ROOT), check=True,
+        if NTFY_TOPIC:
+            notify(
+                NTFY_TOPIC,
+                tweet_content,
+                title="Taylor Swift Global - Posté",
+                tags="white_check_mark,earth_globe_europe-africa",
             )
-            diff = subprocess.run(
-                ["git", "diff", "--cached", "--quiet"],
-                cwd=str(_REPO_ROOT), check=False,
-            )
-            if diff.returncode != 0:
-                today = date.today().isoformat()
-                subprocess.run(
-                    ["git", "commit", "-m", f"charts global {today}"],
-                    cwd=str(_REPO_ROOT), check=True,
-                )
-                subprocess.run(["git", "push"], cwd=str(_REPO_ROOT), check=True)
-                log("INFO", "Git commit + push done.")
-            else:
-                log("INFO", "Rien à commit.")
-        except subprocess.CalledProcessError as e:
-            log("WARN", f"Git commit/push échoué : {e}")
-
-        notify(
-            NTFY_TOPIC,
-            tweet_content,
-            title="Taylor Swift Global - Posté",
-            tags="white_check_mark,earth_globe_europe-africa",
-        )
     else:
         log("ERROR", "Publication Twitter échouée, posted.lock non créé")
-        notify(
-            NTFY_TOPIC,
-            "La publication Twitter a échoué.",
-            title="Taylor Swift Global - Erreur",
-            tags="x,warning",
-            priority="high",
-        )
+
+        if NTFY_TOPIC:
+            notify(
+                NTFY_TOPIC,
+                "La publication Twitter a échoué.",
+                title="Taylor Swift Global - Erreur",
+                tags="x,warning",
+                priority="high",
+            )
+
         sys.exit(1)
 
 

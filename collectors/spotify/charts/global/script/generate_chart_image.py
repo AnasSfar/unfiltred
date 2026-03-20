@@ -100,7 +100,7 @@ def build_cover_map() -> dict:
 def build_track_album_map() -> dict:
     """Reads albums.json + songs.json → {normalized_track_title → album_title}."""
     result = {}
-    for json_file in [DISCOGRAPHY_ROOT / "albums.json", DISCOGRAPHY_ROOT / "songs.json"]:
+    for json_file in [DISCOGRAPHY_ROOT / "albums.json"]:
         if not json_file.exists():
             continue
         try:
@@ -124,16 +124,16 @@ def get_album_cover(
     cover_map: dict,
     fallback_url: str = "",
 ) -> str:
-    """
-    Returns cover URL for a track.
-    Priority: discography covers.json > scraped Spotify CDN URL.
-    """
+    if fallback_url and str(fallback_url).startswith("http"):
+        return fallback_url
+
     album_name = track_album_map.get(_norm(track_name), "")
     if album_name:
         cover = cover_map.get(_norm(album_name), "")
-        if cover:
+        if cover and str(cover).startswith("http"):
             return cover
-    return fallback_url or ""
+
+    return ""
 
 
 # ---------------------------------------------------------------------------
@@ -463,6 +463,11 @@ def build_rows_html(
         consec_txt     = str(int(streak)) + "d" if streak else "—"
         # total_days scraped from Spotify expanded detail
         total_days_txt = str(int(total_days)) + "d" if total_days else "—"
+
+        print("TRACK:", track)
+        print("SCRAPED:", scraped_img)
+        print("FINAL  :", cover_url)
+        print("---")
 
         art_html = (
             f'<img class="art" src="{cover_url}" />'

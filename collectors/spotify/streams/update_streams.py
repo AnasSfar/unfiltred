@@ -23,17 +23,21 @@ from core.notify import send as notify
 NTFY_TOPIC = "taylormuseum-streams"
 
 _SCRIPT_DIR = Path(__file__).resolve().parent
-_REPO_ROOT  = _SCRIPT_DIR.parents[2]
-ROOT        = _REPO_ROOT / "website"
-DATA_DIR    = ROOT / "data"
-_DB_ROOT    = _REPO_ROOT / "db"
+_REPO_ROOT = _SCRIPT_DIR.parents[2]
+ROOT = _REPO_ROOT / "website"
+DATA_DIR = ROOT / "data"
+_DB_ROOT = _REPO_ROOT / "db"
 
-HISTORY_PATH     = _DB_ROOT / "streams_history.csv"
-FAILED_PATH      = DATA_DIR / "not_found_today.csv"
-DISCOGRAPHY_DIR  = _DB_ROOT / "discography"
-DB_ALBUMS_JSON   = DISCOGRAPHY_DIR / "albums.json"
-DB_SONGS_JSON    = DISCOGRAPHY_DIR / "songs.json"
-ARTIST_PATH      = DISCOGRAPHY_DIR / "artist.json"
+HISTORY_PATH = _DB_ROOT / "streams_history.csv"
+FAILED_PATH = DATA_DIR / "not_found_today.csv"
+PENDING_LOG_PATH = DATA_DIR / "pending_debug_today.csv"
+LAST_SUCCESSFUL_UPDATE_JSON = DATA_DIR / "last_successful_updates.json"
+LAST_UNFINISHED_UPDATE_JSON = DATA_DIR / "last_unfinished_updates.json"
+
+DISCOGRAPHY_DIR = _DB_ROOT / "discography"
+DB_ALBUMS_JSON = DISCOGRAPHY_DIR / "albums.json"
+DB_SONGS_JSON = DISCOGRAPHY_DIR / "songs.json"
+ARTIST_PATH = DISCOGRAPHY_DIR / "artist.json"
 ARTIST_URL = "https://open.spotify.com/artist/06HL4z0CvFAxyc27GXpf02"
 
 HEADLESS = False
@@ -52,15 +56,56 @@ MIN_SUCCESSFUL_PROBES = 2
 MIN_UPDATED_PROBES_TO_START = 1
 
 PENDING_RETRY_SLEEP_SECONDS = 5 * 60
-MIN_PENDING_TRACKS_FOR_RETRY = 3
 MAX_PENDING_RETRY_ROUNDS = 6
 INCREMENTAL_PUBLISH_ON_UPDATE = False
-EARLY_TWITTER_THRESHOLD = 50  # post Twitter dès que N tracks sont mises à jour
 
 NOT_FOUND_STREAK_PATH = DATA_DIR / "not_found_streak.json"
-MAX_NOT_FOUND_DAYS = 7  # suppress + delete after this many consecutive not-found days
+MAX_NOT_FOUND_DAYS = 7
+
+MAX_DAILY_INCREASE = 50_000_000
 
 START_TIME = None
+
+
+def print_help() -> None:
+    print(
+        """
+Usage:
+  python update_streams.py
+      Run normal for yesterday's stats date.
+
+  python update_streams.py YYYY-MM-DD
+      Run normal for a specific stats date.
+
+  python update_streams.py --debug-daily
+      Retry unfinished tracks for yesterday's stats date, writes to history,
+      but skips Twitter / git / forecast / images / notify.
+
+  python update_streams.py --debug-daily YYYY-MM-DD
+      Same as above for a specific stats date.
+
+  python update_streams.py --debug-total YYYY-MM-DD
+      Re-scrape totals and replace totals for the given date in streams_history.csv.
+      Recomputes daily_streams from the previous date. No Twitter / git / forecast / images / notify.
+
+  python update_streams.py --dry-run
+      Scrape only. No writes anywhere.
+
+  python update_streams.py --reset-last-date
+      Delete all rows for the latest date found in streams_history.csv before running.
+
+  python update_streams.py --reset-date YYYY-MM-DD
+      Delete all rows for that date before running.
+
+  python update_streams.py --help
+      Show this help.
+
+Notes:
+  - Normal mode writes official updates and can post/export/push.
+  - --debug-daily writes missing updates into history, but stays local/no posting.
+  - --debug-total rewrites an existing date's totals in history.
+        """.strip()
+    )
 
 
 def get_scrape_date_str() -> str:
@@ -69,6 +114,10 @@ def get_scrape_date_str() -> str:
 
 def get_stats_date_str() -> str:
     return (date.today() - timedelta(days=1)).isoformat()
+
+
+def get_previous_stats_date_str(stats_date: str) -> str:
+    return (date.fromisoformat(stats_date) - timedelta(days=1)).isoformat()
 
 
 def format_int(value: int | None) -> str:
@@ -367,8 +416,6 @@ def update_artist_metadata(pre_scraped: dict | None = None) -> dict:
     return merged
 
 
-
-
 def load_active_track_ids_from_discography() -> set[str]:
     active_track_ids = set()
 
@@ -398,38 +445,83 @@ def ensure_history_file() -> None:
             writer.writerow(["date", "track_id", "streams", "daily_streams"])
 
 
+def get_last_stats_date_in_history() -> str | None:
+    if not HISTORY_PATH.exists():
+        return None
+
+    last_date = None
+    with HISTORY_PATH.open("r", newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            d = (row.get("date") or "").strip()
+            if d:
+                last_date = d
+    return last_date
+
+
+def delete_history_rows_for_date(target_date: str) -> int:
+    if not HISTORY_PATH.exists():
+        return 0
+
+    with HISTORY_PATH.open("r", newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        rows = list(reader)
+        fieldnames = reader.fieldnames or ["date", "track_id", "streams", "daily_streams"]
+
+    kept_rows = [r for r in rows if (r.get("date") or "").strip() != target_date]
+    removed = len(rows) - len(kept_rows)
+
+    with HISTORY_PATH.open("w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(kept_rows)
+
+    return removed
+
+
 def append_history_row(row: list) -> None:
     with HISTORY_PATH.open("a", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
         writer.writerow(row)
 
 
-def load_today_history_track_ids(stats_date: str) -> set[str]:
+def load_history_rows() -> list[dict]:
+    if not HISTORY_PATH.exists():
+        return []
+
+    with HISTORY_PATH.open("r", newline="", encoding="utf-8") as f:
+        return list(csv.DictReader(f))
+
+
+def save_history_rows(rows: list[dict]) -> None:
+    HISTORY_PATH.parent.mkdir(parents=True, exist_ok=True)
+    fieldnames = ["date", "track_id", "streams", "daily_streams"]
+    with HISTORY_PATH.open("w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        for row in rows:
+            writer.writerow(
+                {
+                    "date": row.get("date", ""),
+                    "track_id": row.get("track_id", ""),
+                    "streams": row.get("streams", ""),
+                    "daily_streams": row.get("daily_streams", ""),
+                }
+            )
+
+
+def load_history_track_ids_for_date(stats_date: str) -> set[str]:
     if not HISTORY_PATH.exists():
         return set()
 
     done = set()
     with HISTORY_PATH.open("r", newline="", encoding="utf-8") as f:
         reader = csv.DictReader(f)
-
         for row in reader:
-            if row.get("date") != stats_date:
-                continue
-
-            track_id = row.get("track_id")
-            if not track_id:
-                continue
-
-            daily_raw = (row.get("daily_streams") or "").strip()
-            if not daily_raw:
-                continue
-
-            try:
-                if int(daily_raw) > 0:
+            if (row.get("date") or "").strip() == stats_date:
+                track_id = (row.get("track_id") or "").strip()
+                if track_id:
                     done.add(track_id)
-            except ValueError:
-                pass
-
     return done
 
 
@@ -449,7 +541,40 @@ def get_last_history_total(track_id: str) -> int | None:
     return last
 
 
-MAX_DAILY_INCREASE = 50_000_000  # 50M streams/day is already extreme; more = scraping error
+def get_previous_total_before_date(track_id: str, stats_date: str) -> int | None:
+    if not HISTORY_PATH.exists():
+        return None
+
+    target = date.fromisoformat(stats_date)
+    best_date = None
+    best_total = None
+
+    with HISTORY_PATH.open("r", newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            if (row.get("track_id") or "").strip() != track_id:
+                continue
+
+            d_raw = (row.get("date") or "").strip()
+            s_raw = (row.get("streams") or "").strip()
+            if not d_raw or not s_raw:
+                continue
+
+            try:
+                d = date.fromisoformat(d_raw)
+                total = int(s_raw)
+            except Exception:
+                continue
+
+            if d >= target:
+                continue
+
+            if best_date is None or d > best_date:
+                best_date = d
+                best_total = total
+
+    return best_total
+
 
 def has_real_update(previous_streams: int | None, new_streams: int) -> bool:
     if previous_streams is None:
@@ -466,6 +591,15 @@ def has_real_update(previous_streams: int | None, new_streams: int) -> bool:
     return True
 
 
+def compute_daily(previous_streams: int | None, new_streams: int) -> int | None:
+    if previous_streams is None:
+        return None
+    diff = new_streams - previous_streams
+    if diff < 0:
+        return None
+    return diff
+
+
 def load_tracks_from_discography(active_track_ids: set[str] | None = None) -> list[dict]:
     seen: dict[str, dict] = {}
 
@@ -476,21 +610,26 @@ def load_tracks_from_discography(active_track_ids: set[str] | None = None) -> li
             sections = json.loads(db_file.read_text(encoding="utf-8"))
         except Exception:
             continue
+
         for section in sections:
             for track in section.get("tracks", []):
                 url = (track.get("url") or track.get("spotify_url") or "").strip()
                 track_id = extract_track_id(url)
                 if not track_id or track_id in seen:
                     continue
+
                 title = (track.get("title") or "").strip()
                 if not title:
                     continue
+
                 if active_track_ids is not None and track_id not in active_track_ids:
                     continue
+
                 spotify_url = f"https://open.spotify.com/track/{track_id}"
                 image_url = track.get("image_url") or None
                 artists = track.get("artists") or []
                 primary_artist = track.get("primary_artist") or (artists[0] if artists else None)
+
                 seen[track_id] = {
                     "track_id": track_id,
                     "title": title,
@@ -516,6 +655,44 @@ def build_track_lookup(tracks: list[dict]) -> dict[str, list[dict]]:
     return lookup
 
 
+def load_track_priorities_from_specific_date(target_date: str) -> dict[str, int]:
+    result: dict[str, int] = {}
+
+    if not HISTORY_PATH.exists():
+        return result
+
+    with HISTORY_PATH.open("r", newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            if (row.get("date") or "").strip() != target_date:
+                continue
+
+            track_id = (row.get("track_id") or "").strip()
+            daily_raw = (row.get("daily_streams") or "").strip()
+
+            if not track_id or not daily_raw:
+                continue
+
+            try:
+                daily = int(daily_raw)
+            except ValueError:
+                continue
+
+            result[track_id] = daily
+
+    return result
+
+
+def get_priority_top_50_track_ids_from_previous_day(tracks: list[dict], stats_date: str) -> set[str]:
+    previous_date = get_previous_stats_date_str(stats_date)
+    priorities = load_track_priorities_from_specific_date(previous_date)
+
+    ordered = sorted(
+        tracks,
+        key=lambda t: (-priorities.get(t["track_id"], 0), t["title"].casefold())
+    )
+    return {t["track_id"] for t in ordered[:50]}
+
 
 def save_failed_rows(rows: list[dict]) -> None:
     if not rows:
@@ -537,6 +714,131 @@ def save_failed_rows(rows: list[dict]) -> None:
             )
 
 
+def save_pending_debug_rows(rows: list[dict]) -> None:
+    if not rows:
+        if PENDING_LOG_PATH.exists():
+            PENDING_LOG_PATH.unlink()
+        return
+
+    with PENDING_LOG_PATH.open("w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerow([
+            "title",
+            "track_id",
+            "spotify_url",
+            "previous_streams",
+            "new_streams",
+            "delta",
+            "reason",
+            "raw",
+        ])
+        for row in rows:
+            writer.writerow([
+                row.get("title", ""),
+                row.get("track_id", ""),
+                row.get("spotify_url", ""),
+                row.get("previous_streams", ""),
+                row.get("new_streams", ""),
+                row.get("delta", ""),
+                row.get("reason", ""),
+                row.get("raw", ""),
+            ])
+
+
+def save_last_successful_updates_json(stats_date: str, updated_results: list[dict]) -> None:
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    payload = {
+        "generated_at": get_scrape_date_str(),
+        "stats_date": stats_date,
+        "track_ids": [r["track_id"] for r in updated_results if r.get("track_id")],
+        "tracks": [
+            {
+                "track_id": r.get("track_id"),
+                "title": r.get("title"),
+                "spotify_url": r.get("spotify_url"),
+                "streams": r.get("streams"),
+                "daily_streams": r.get("daily_streams"),
+            }
+            for r in updated_results
+            if r.get("track_id")
+        ],
+    }
+    LAST_SUCCESSFUL_UPDATE_JSON.write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+
+
+def save_last_unfinished_updates_json(stats_date: str, results: list[dict], failed_results: list[dict]) -> None:
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+
+    unfinished_map: dict[str, dict] = {}
+
+    for r in results:
+        if not r:
+            continue
+        if r.get("status") in {"pending", "timeout", "error", "not_found"}:
+            tid = r.get("track_id")
+            if tid:
+                unfinished_map[tid] = {
+                    "track_id": r.get("track_id"),
+                    "title": r.get("title"),
+                    "spotify_url": r.get("spotify_url"),
+                    "status": r.get("status"),
+                    "streams": r.get("streams"),
+                    "daily_streams": r.get("daily_streams"),
+                    "previous_streams": r.get("previous_streams"),
+                    "delta": r.get("delta"),
+                    "reason": r.get("reason"),
+                    "raw": r.get("raw"),
+                }
+
+    for r in failed_results:
+        tid = r.get("track_id")
+        if tid:
+            unfinished_map[tid] = {
+                "track_id": r.get("track_id"),
+                "title": r.get("title"),
+                "spotify_url": r.get("spotify_url"),
+                "status": r.get("status"),
+                "streams": r.get("streams"),
+                "daily_streams": r.get("daily_streams"),
+                "previous_streams": r.get("previous_streams"),
+                "delta": r.get("delta"),
+                "reason": r.get("reason"),
+                "raw": r.get("raw"),
+            }
+
+    payload = {
+        "generated_at": get_scrape_date_str(),
+        "stats_date": stats_date,
+        "track_ids": list(unfinished_map.keys()),
+        "tracks": list(unfinished_map.values()),
+    }
+
+    LAST_UNFINISHED_UPDATE_JSON.write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+
+
+def load_last_unfinished_update_track_ids(stats_date: str | None = None) -> set[str]:
+    if not LAST_UNFINISHED_UPDATE_JSON.exists():
+        return set()
+
+    try:
+        payload = json.loads(LAST_UNFINISHED_UPDATE_JSON.read_text(encoding="utf-8"))
+    except Exception:
+        return set()
+
+    payload_date = payload.get("stats_date")
+    if stats_date is not None and payload_date and payload_date != stats_date:
+        return set()
+
+    track_ids = payload.get("track_ids") or []
+    return {tid for tid in track_ids if isinstance(tid, str) and tid}
+
+
 def load_not_found_streak() -> dict:
     if not NOT_FOUND_STREAK_PATH.exists():
         return {}
@@ -549,21 +851,19 @@ def load_not_found_streak() -> dict:
 def save_not_found_streak(streak: dict) -> None:
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     NOT_FOUND_STREAK_PATH.write_text(
-        json.dumps(streak, ensure_ascii=False, indent=2), encoding="utf-8"
+        json.dumps(streak, ensure_ascii=False, indent=2),
+        encoding="utf-8",
     )
 
 
-def update_not_found_streak(streak: dict, not_found_ids: set, updated_ids: set) -> None:
+def update_not_found_streak(streak: dict, not_found_ids: set[str], updated_ids: set[str]) -> None:
     for track_id in not_found_ids:
         streak[track_id] = streak.get(track_id, 0) + 1
     for track_id in updated_ids:
         streak.pop(track_id, None)
 
 
-
-
 def remove_track_from_discography(track_id: str) -> int:
-    """Remove a track from db/discography/albums.json and songs.json. Returns sections modified."""
     removed = 0
     for db_file in [DB_ALBUMS_JSON, DB_SONGS_JSON]:
         if not db_file.exists():
@@ -572,6 +872,7 @@ def remove_track_from_discography(track_id: str) -> int:
             sections = json.loads(db_file.read_text(encoding="utf-8"))
         except Exception:
             continue
+
         changed = False
         for data in sections:
             tracks = data.get("tracks", [])
@@ -584,21 +885,21 @@ def remove_track_from_discography(track_id: str) -> int:
                 data["track_count"] = len(new_tracks)
                 changed = True
                 removed += 1
+
         if changed:
             db_file.write_text(
-                json.dumps(sections, ensure_ascii=False, indent=2), encoding="utf-8"
+                json.dumps(sections, ensure_ascii=False, indent=2),
+                encoding="utf-8",
             )
+
     return removed
 
 
 def purge_stale_tracks(streak: dict, tracks: list[dict]) -> list[str]:
-    """Remove tracks that have been not_found for MAX_NOT_FOUND_DAYS consecutive days from discography."""
     deleted = []
     for track_id, count in list(streak.items()):
         if count >= MAX_NOT_FOUND_DAYS:
-            title = next(
-                (t["title"] for t in tracks if t["track_id"] == track_id), track_id
-            )
+            title = next((t["title"] for t in tracks if t["track_id"] == track_id), track_id)
             print(
                 f"AUTO-DELETE | {title} | track_id={track_id} | "
                 f"not found for {count} consecutive days — removing from discography"
@@ -613,11 +914,13 @@ def git_commit_and_push(message: str | None = None) -> None:
     try:
         subprocess.run(
             ["git", "add", "db/", "website/site/data/", "website/site/history/"],
-            cwd=str(_REPO_ROOT), check=True,
+            cwd=str(_REPO_ROOT),
+            check=True,
         )
         diff = subprocess.run(
             ["git", "diff", "--cached", "--quiet"],
-            cwd=str(_REPO_ROOT), check=False,
+            cwd=str(_REPO_ROOT),
+            check=False,
         )
         if diff.returncode == 0:
             print("No git changes to commit.")
@@ -631,28 +934,9 @@ def git_commit_and_push(message: str | None = None) -> None:
         print(f"Git commit/push failed: {e}")
 
 
-def _load_track_priorities() -> dict[str, int]:
-    """Retourne {track_id: max daily_streams} depuis l'historique pour trier les tracks."""
-    result: dict[str, int] = {}
-    if not HISTORY_PATH.exists():
-        return result
-    with HISTORY_PATH.open(newline="", encoding="utf-8") as f:
-        for row in csv.DictReader(f):
-            tid = row.get("track_id", "")
-            ds_raw = row.get("daily_streams", "")
-            if tid and ds_raw:
-                try:
-                    ds = int(ds_raw)
-                    if ds > result.get(tid, 0):
-                        result[tid] = ds
-                except ValueError:
-                    pass
-    return result
-
-
 def _run_early_twitter(stats_date: str) -> None:
     try:
-        print(f"\n[Twitter] Posting early top 15 after {EARLY_TWITTER_THRESHOLD} tracks done...")
+        print("\n[Twitter] Posting early top 15 after top-50 priority tracks are validated...")
         export_for_web.export_for_web()
         subprocess.run([sys.executable, str(_SCRIPT_DIR / "migrate_streams_to_csv.py")], check=False)
         subprocess.run([sys.executable, str(_SCRIPT_DIR / "post_streams_twitter.py"), stats_date], check=False)
@@ -913,35 +1197,35 @@ def scrape_track_total(page, title: str, url: str) -> tuple[int | None, str | No
     return None, None, "timeout", []
 
 
-
-def compute_daily(previous_streams: int | None, new_streams: int) -> int | None:
-    if previous_streams is None:
-        return None
-
-    diff = new_streams - previous_streams
-    if diff < 0:
-        return None
-
-    return diff
-
-
 def try_apply_track_update(
     track: dict,
     total: int,
-    scrape_date: str,
     stats_date: str,
     lock: threading.Lock,
     publish_lock: threading.Lock,
-    debug_mode: bool = False,
+    dry_run_mode: bool = False,
 ) -> dict:
     track_id = track["track_id"]
     last_total = get_last_history_total(track_id)
     daily = compute_daily(last_total, total)
-    real_update = has_real_update(last_total, total)
 
-    # En mode debug on ne touche pas à streams_history — on veut juste
-    # peupler le CSV sans polluer les dates avant l'update officiel Spotify.
-    if not debug_mode and (real_update or last_total is None):
+    if last_total is None:
+        reason = "first_seen"
+        real_update = True
+    elif total == last_total:
+        reason = "same_total"
+        real_update = False
+    elif total < last_total:
+        reason = "lower_than_previous"
+        real_update = False
+    elif total - last_total > MAX_DAILY_INCREASE:
+        reason = f"anomaly_delta_gt_{MAX_DAILY_INCREASE}"
+        real_update = False
+    else:
+        reason = "updated"
+        real_update = True
+
+    if not dry_run_mode and real_update:
         row = [stats_date, track_id, total, daily if daily is not None else ""]
         with lock:
             append_history_row(row)
@@ -963,13 +1247,14 @@ def try_apply_track_update(
         "status": status,
         "streams": total,
         "daily_streams": daily,
+        "previous_streams": last_total,
+        "delta": (total - last_total) if last_total is not None else None,
+        "reason": reason,
     }
-
 
 
 def live_progress(i, total, title, result):
     elapsed = time.perf_counter() - START_TIME if START_TIME else 0
-
     done = max(i - 1, 0) if result is None else i
     remaining = ((elapsed / done) * max(total - done, 0)) if done > 0 else 0
     eta = f"{int(remaining // 60)}m {int(remaining % 60)}s"
@@ -989,7 +1274,9 @@ def live_progress(i, total, title, result):
     elif status == "pending":
         print(
             f"{prefix} PENDING | total={format_int(result.get('streams'))} | "
-            f"no new streams yet | ETA {eta}"
+            f"prev={format_int(result.get('previous_streams'))} | "
+            f"delta={format_int(result.get('delta'))} | "
+            f"reason={result.get('reason')} | ETA {eta}"
         )
     elif status == "skipped":
         print(f"{prefix} SKIPPED | ETA {eta}")
@@ -1094,7 +1381,7 @@ def _worker(
     publish_lock,
     on_progress,
     total_tracks,
-    debug_mode=False,
+    dry_run_mode=False,
     early_twitter_trigger=None,
 ):
     p = sync_playwright().start()
@@ -1112,7 +1399,6 @@ def _worker(
 
             i = item["index"]
             track = item["track"]
-            scrape_date = item["scrape_date"]
             stats_date = item["stats_date"]
             log_title = f"{track['title']} [{track['track_id'][-6:]}]"
 
@@ -1157,15 +1443,14 @@ def _worker(
                 result = try_apply_track_update(
                     track=track,
                     total=total,
-                    scrape_date=scrape_date,
                     stats_date=stats_date,
                     lock=lock,
                     publish_lock=publish_lock,
-                    debug_mode=debug_mode,
+                    dry_run_mode=dry_run_mode,
                 )
                 result["raw"] = raw
                 if early_twitter_trigger:
-                    early_twitter_trigger()
+                    early_twitter_trigger(result)
 
             with lock:
                 results[i - 1] = result
@@ -1187,38 +1472,65 @@ def _worker(
             pass
 
 
-def run_update(on_progress=None, skip_track_ids: set | None = None, stats_date_override: str | None = None, debug_mode: bool = False):
+def run_update(
+    on_progress=None,
+    skip_track_ids: set[str] | None = None,
+    stats_date_override: str | None = None,
+    dry_run_mode: bool = False,
+    only_track_ids: set[str] | None = None,
+    enable_early_twitter: bool = False,
+):
     ensure_history_file()
 
-    scrape_date = get_scrape_date_str()
     stats_date = stats_date_override or get_stats_date_str()
-
     skip_track_ids = skip_track_ids or set()
 
     active_track_ids = load_active_track_ids_from_discography()
     tracks = load_tracks_from_discography(active_track_ids)
+    total_all_tracks = len(tracks)
+
+    previous_day_priorities = load_track_priorities_from_specific_date(
+        get_previous_stats_date_str(stats_date)
+    )
+    tracks.sort(
+        key=lambda t: (-previous_day_priorities.get(t["track_id"], 0), t["title"].casefold())
+    )
+
+    if only_track_ids is not None:
+        tracks = [t for t in tracks if t["track_id"] in only_track_ids]
+
     total_tracks = len(tracks)
 
-    # Trier par popularité : les tracks avec le plus de daily_streams en premier
-    priorities = _load_track_priorities()
-    tracks.sort(key=lambda t: -priorities.get(t["track_id"], 0))
+    priority_top_50_ids = get_priority_top_50_track_ids_from_previous_day(tracks, stats_date)
+    validated_priority_ids = set(load_history_track_ids_for_date(stats_date)) & priority_top_50_ids
 
-    # Trigger pour poster le top 15 tôt, dès EARLY_TWITTER_THRESHOLD tracks mises à jour
+    if priority_top_50_ids and len(priority_top_50_ids) < 50:
+        print(f"Warning: only {len(priority_top_50_ids)} priority track(s) found from previous day.")
+
     _early_fired = threading.Event()
-    _counter = [0]
-    _counter_lock = threading.Lock()
+    _priority_lock = threading.Lock()
 
-    def early_twitter_trigger():
+    def early_twitter_trigger(result: dict):
+        if not enable_early_twitter:
+            return
         if _early_fired.is_set():
             return
-        with _counter_lock:
-            _counter[0] += 1
-            if _counter[0] < EARLY_TWITTER_THRESHOLD or _early_fired.is_set():
-                return
-            _early_fired.set()
-        threading.Thread(target=_run_early_twitter, args=(stats_date,), daemon=True).start()
 
-    already_done_for_stats_date = load_today_history_track_ids(stats_date)
+        track_id = result.get("track_id")
+        status = result.get("status")
+
+        if status != "updated" or not track_id:
+            return
+
+        with _priority_lock:
+            if track_id in priority_top_50_ids:
+                validated_priority_ids.add(track_id)
+
+            if priority_top_50_ids and priority_top_50_ids.issubset(validated_priority_ids):
+                _early_fired.set()
+                threading.Thread(target=_run_early_twitter, args=(stats_date,), daemon=True).start()
+
+    already_done_for_stats_date = load_history_track_ids_for_date(stats_date)
 
     queue = Queue()
     failed_results: list[dict] = []
@@ -1226,6 +1538,7 @@ def run_update(on_progress=None, skip_track_ids: set | None = None, stats_date_o
 
     for index, track in enumerate(tracks, 1):
         log_title = f"{track['title']} [{track['track_id'][-6:]}]"
+
         if track["track_id"] in already_done_for_stats_date or track["track_id"] in skip_track_ids:
             results[index - 1] = {
                 "track_id": track["track_id"],
@@ -1240,7 +1553,6 @@ def run_update(on_progress=None, skip_track_ids: set | None = None, stats_date_o
         queue.put({
             "index": index,
             "track": track,
-            "scrape_date": scrape_date,
             "stats_date": stats_date,
         })
 
@@ -1260,8 +1572,8 @@ def run_update(on_progress=None, skip_track_ids: set | None = None, stats_date_o
                     publish_lock,
                     on_progress,
                     total_tracks,
-                    debug_mode,
-                    early_twitter_trigger if not debug_mode else None,
+                    dry_run_mode,
+                    early_twitter_trigger,
                 ),
                 daemon=True,
             )
@@ -1277,16 +1589,16 @@ def run_update(on_progress=None, skip_track_ids: set | None = None, stats_date_o
             w.join(timeout=5)
         print("All worker threads joined.")
 
-    final_done_for_stats_date = load_today_history_track_ids(stats_date)
+    final_done_for_stats_date = load_history_track_ids_for_date(stats_date)
     filtered_results = [r for r in results if r is not None]
 
     return {
-        "scrape_date": scrape_date,
         "stats_date": stats_date,
         "total_tracks": total_tracks,
+        "total_all_tracks": total_all_tracks,
         "done_tracks": len(final_done_for_stats_date),
-        "remaining_tracks": max(total_tracks - len(final_done_for_stats_date), 0),
-        "all_done": len(final_done_for_stats_date) >= total_tracks,
+        "remaining_tracks": max(total_tracks - len([r for r in filtered_results if r["status"] in {"updated", "skipped"}]), 0),
+        "all_done": len([r for r in filtered_results if r["status"] in {"updated", "skipped"}]) >= total_tracks,
         "updated_this_run": sum(1 for r in filtered_results if r["status"] == "updated"),
         "pending_this_run": sum(1 for r in filtered_results if r["status"] == "pending"),
         "skipped_this_run": sum(1 for r in filtered_results if r["status"] == "skipped"),
@@ -1296,14 +1608,6 @@ def run_update(on_progress=None, skip_track_ids: set | None = None, stats_date_o
         "results": filtered_results,
         "failed_results": failed_results,
     }
-
-
-def get_update_state_for_stats_date() -> tuple[int, int]:
-    stats_date = get_stats_date_str()
-    active_track_ids = load_active_track_ids_from_discography()
-    total_tracks = len(load_tracks_from_discography(active_track_ids))
-    done_tracks = len(load_today_history_track_ids(stats_date))
-    return done_tracks, total_tracks
 
 
 def print_remaining_details(summary: dict) -> None:
@@ -1317,7 +1621,9 @@ def print_remaining_details(summary: dict) -> None:
             remaining_details.append(
                 f"PENDING | {r['title']} | {r.get('track_id', '')} | "
                 f"total={format_int(r.get('streams'))} | "
-                f"daily={format_int(r.get('daily_streams'))}"
+                f"prev={format_int(r.get('previous_streams'))} | "
+                f"delta={format_int(r.get('delta'))} | "
+                f"reason={r.get('reason')}"
             )
 
     for r in summary["failed_results"]:
@@ -1338,13 +1644,118 @@ def print_summary_block(summary: dict) -> None:
     print()
     print(
         f"Progress {summary['stats_date']}: "
-        f"{summary['done_tracks']}/{summary['total_tracks']} "
-        f"| remaining={summary['remaining_tracks']} "
+        f"done={summary['done_tracks']} "
+        f"| run_total={summary['total_tracks']} "
+        f"| updated={summary['updated_this_run']} "
         f"| pending={summary['pending_this_run']} "
         f"| timeout={summary['timeout_this_run']} "
         f"| error={summary['error_this_run']} "
         f"| not_found={summary['not_found_this_run']}"
     )
+
+
+def update_json_logs_from_summary(summary: dict) -> None:
+    updated_results = [r for r in summary.get("results", []) if r and r.get("status") == "updated"]
+    save_last_successful_updates_json(summary["stats_date"], updated_results)
+    save_last_unfinished_updates_json(summary["stats_date"], summary.get("results", []), summary.get("failed_results", []))
+
+    pending_debug_rows = [
+        {
+            "title": r.get("title"),
+            "track_id": r.get("track_id"),
+            "spotify_url": r.get("spotify_url"),
+            "previous_streams": r.get("previous_streams"),
+            "new_streams": r.get("streams"),
+            "delta": r.get("delta"),
+            "reason": r.get("reason"),
+            "raw": r.get("raw"),
+        }
+        for r in summary.get("results", [])
+        if r and r.get("status") == "pending"
+    ]
+    save_pending_debug_rows(pending_debug_rows)
+    save_failed_rows(summary.get("failed_results", []))
+
+
+def run_debug_total_replace(stats_date: str) -> None:
+    ensure_history_file()
+
+    target_track_ids = load_history_track_ids_for_date(stats_date)
+    if not target_track_ids:
+        print(f"No rows found for {stats_date} in streams_history.csv.")
+        return
+
+    active_track_ids = load_active_track_ids_from_discography()
+    tracks = load_tracks_from_discography(active_track_ids)
+    tracks = [t for t in tracks if t["track_id"] in target_track_ids]
+    tracks.sort(key=lambda t: t["title"].casefold())
+
+    print(f"[DEBUG-TOTAL] Re-scraping {len(tracks)} track(s) for {stats_date}...")
+
+    summary = run_update(
+        on_progress=live_progress,
+        stats_date_override=stats_date,
+        dry_run_mode=True,
+        only_track_ids=target_track_ids,
+        enable_early_twitter=False,
+    )
+
+    rows = load_history_rows()
+    replacements: dict[str, dict] = {}
+
+    for r in summary["results"]:
+        if not r or r.get("status") not in {"updated", "pending"}:
+            continue
+
+        track_id = r.get("track_id")
+        new_total = r.get("streams")
+        if not track_id or new_total is None:
+            continue
+
+        prev_total = get_previous_total_before_date(track_id, stats_date)
+        new_daily = compute_daily(prev_total, new_total)
+
+        replacements[track_id] = {
+            "streams": str(new_total),
+            "daily_streams": "" if new_daily is None else str(new_daily),
+            "previous_streams": prev_total,
+        }
+
+    replaced_count = 0
+    for row in rows:
+        if (row.get("date") or "").strip() != stats_date:
+            continue
+        track_id = (row.get("track_id") or "").strip()
+        repl = replacements.get(track_id)
+        if not repl:
+            continue
+        row["streams"] = repl["streams"]
+        row["daily_streams"] = repl["daily_streams"]
+        replaced_count += 1
+
+    save_history_rows(rows)
+
+    log_path = DATA_DIR / f"debug_total_replace_{stats_date}.csv"
+    with log_path.open("w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerow(["title", "track_id", "previous_total_before_date", "new_total", "new_daily", "status", "reason"])
+        for r in summary["results"]:
+            if not r:
+                continue
+            track_id = r.get("track_id")
+            repl = replacements.get(track_id, {})
+            writer.writerow([
+                r.get("title", ""),
+                track_id or "",
+                repl.get("previous_streams", ""),
+                r.get("streams", ""),
+                repl.get("daily_streams", ""),
+                r.get("status", ""),
+                r.get("reason", ""),
+            ])
+
+    print(f"[DEBUG-TOTAL] Replaced {replaced_count} row(s) for {stats_date}.")
+    print(f"[DEBUG-TOTAL] Log written: {log_path}")
 
 
 def main():
@@ -1353,36 +1764,96 @@ def main():
 
     ensure_history_file()
 
-    # ── Argument parsing ───────────────────────────────────────────────────────
-    # Usage:
-    #   python update_streams.py                   → run normal (with probe)
-    #   python update_streams.py 2025-10-02        → force stats date
-    #   python update_streams.py --debug           → skip probe, use today's date
-    #   python update_streams.py --debug 2025-10-02 → skip probe, force date
-    #   python update_streams.py --dry-run         → scrape only, zéro modification
-    debug_mode = "--debug" in sys.argv
+    if "--help" in sys.argv or "-h" in sys.argv:
+        print_help()
+        return
+
+    debug_daily_mode = "--debug-daily" in sys.argv
+    debug_total_mode = "--debug-total" in sys.argv
     dry_run_mode = "--dry-run" in sys.argv
-    remaining_args = [a for a in sys.argv[1:] if a not in ("--debug", "--dry-run")]
+    reset_last_date_mode = "--reset-last-date" in sys.argv
+
+    if debug_daily_mode and debug_total_mode:
+        print("Use either --debug-daily or --debug-total, not both.")
+        sys.exit(1)
+
+    remaining_args = [
+        a for a in sys.argv[1:]
+        if a not in (
+            "--debug-daily",
+            "--debug-total",
+            "--dry-run",
+            "--reset-last-date",
+            "--help",
+            "-h",
+        )
+    ]
 
     stats_date_override = None
-    if remaining_args:
+    reset_date_override = None
+
+    i = 0
+    while i < len(remaining_args):
+        arg = remaining_args[i]
+
+        if arg == "--reset-date":
+            if i + 1 >= len(remaining_args):
+                print("Missing value after --reset-date (expected YYYY-MM-DD)")
+                sys.exit(1)
+            reset_date_override = remaining_args[i + 1]
+            i += 2
+            continue
+
         try:
-            date.fromisoformat(remaining_args[0])
-            stats_date_override = remaining_args[0]
+            date.fromisoformat(arg)
+            stats_date_override = arg
         except ValueError:
-            print(f"Invalid date '{remaining_args[0]}', expected YYYY-MM-DD")
+            print(f"Invalid argument '{arg}'")
             sys.exit(1)
 
+        i += 1
+
+    if reset_last_date_mode and reset_date_override:
+        print("Use either --reset-last-date or --reset-date YYYY-MM-DD, not both.")
+        sys.exit(1)
+
+    if reset_last_date_mode:
+        last_date = get_last_stats_date_in_history()
+        if not last_date:
+            print("No history date found to reset.")
+        else:
+            removed = delete_history_rows_for_date(last_date)
+            print(f"[RESET] Removed {removed} row(s) for last stats date: {last_date}")
+
+    if reset_date_override:
+        try:
+            date.fromisoformat(reset_date_override)
+        except ValueError:
+            print(f"Invalid reset date '{reset_date_override}', expected YYYY-MM-DD")
+            sys.exit(1)
+
+        removed = delete_history_rows_for_date(reset_date_override)
+        print(f"[RESET] Removed {removed} row(s) for stats date: {reset_date_override}")
+
     if dry_run_mode:
-        print("[DRY-RUN] Scraping uniquement — aucune modification (CSV, git, Twitter)")
-        debug_mode = True  # réutilise la logique debug pour skip les writes CSV
-    elif debug_mode:
-        print("[DEBUG] Mode debug activé — probe désactivé, pas de date associée")
+        print("[DRY-RUN] Scraping uniquement — aucune modification.")
+    elif debug_daily_mode:
+        print("[DEBUG-DAILY] Retry unfinished tracks, writes history, no Twitter/git/forecast/images/notify.")
+    elif debug_total_mode:
+        print("[DEBUG-TOTAL] Replace totals for an existing date in streams_history.csv.")
+    else:
+        print("[NORMAL] Official run mode.")
 
     stats_date = stats_date_override or get_stats_date_str()
     print(f"Target stats date: {stats_date}")
 
-    # Discover new kworbs extras before loading the track list
+    if debug_total_mode:
+        if stats_date_override is None:
+            print("--debug-total requires a date: python update_streams.py --debug-total YYYY-MM-DD")
+            sys.exit(1)
+        run_debug_total_replace(stats_date)
+        return
+
     print("Checking kworbs for new extra tracks...")
     try:
         _backfill_cmd = [sys.executable, str(_SCRIPT_DIR / "backfill_from_kworb.py")]
@@ -1395,16 +1866,33 @@ def main():
     active_track_ids = load_active_track_ids_from_discography()
     tracks = load_tracks_from_discography(active_track_ids)
 
-    already_done_for_stats_date = set() if debug_mode else load_today_history_track_ids(stats_date)
+    already_done_for_stats_date = load_history_track_ids_for_date(stats_date)
     done_tracks_before_run = len(already_done_for_stats_date)
     total_tracks = len(tracks)
 
-    if debug_mode:
-        print(f"[DEBUG] Scraping {total_tracks} tracks (aucune date associée)")
+    if debug_daily_mode:
+        unfinished_ids = load_last_unfinished_update_track_ids(stats_date)
+        if not unfinished_ids:
+            print("[DEBUG-DAILY] No matching unfinished track list found, fallback to all not-yet-done tracks.")
+            unfinished_ids = {t["track_id"] for t in tracks if t["track_id"] not in already_done_for_stats_date}
+        else:
+            print(f"[DEBUG-DAILY] Loaded {len(unfinished_ids)} unfinished track(s) from JSON.")
+    else:
+        unfinished_ids = None
+
+    if dry_run_mode:
+        print(f"[DRY-RUN] Scraping {total_tracks} tracks.")
+    elif debug_daily_mode:
+        print(f"[DEBUG-DAILY] Current progress for {stats_date}: {done_tracks_before_run}/{total_tracks}")
     else:
         print(f"Current progress for {stats_date}: {done_tracks_before_run}/{total_tracks}")
 
-    should_run_probe = done_tracks_before_run == 0 and stats_date_override is None and not debug_mode
+    should_run_probe = (
+        done_tracks_before_run == 0
+        and stats_date_override is None
+        and not dry_run_mode
+        and not debug_daily_mode
+    )
 
     if should_run_probe:
         track_lookup = build_track_lookup(tracks)
@@ -1426,7 +1914,6 @@ def main():
             try:
                 while True:
                     print("Running probe check...")
-
                     probe = _probe_on_page(probe_tracks, _page)
 
                     print(
@@ -1456,16 +1943,18 @@ def main():
             finally:
                 _browser.close()
                 _p.stop()
-    elif done_tracks_before_run < total_tracks:
+    elif done_tracks_before_run < total_tracks and not debug_daily_mode:
         print("Partial progress already exists for this stats date.")
         print("Skipping probe and resuming unfinished tracks.")
+    elif debug_daily_mode:
+        print("Skipping probe in debug-daily mode.")
     else:
         print("All tracks already appear done for this stats date.")
         print("Skipping probe and refreshing export/publish anyway.")
 
     print()
     print("=" * 70)
-    print("Full run")
+    print("Run")
     print("=" * 70)
 
     _artist_result: list[dict | None] = [None]
@@ -1473,20 +1962,28 @@ def main():
     def _scrape_artist_bg():
         _artist_result[0] = scrape_artist_metadata()
 
-    artist_thread = threading.Thread(target=_scrape_artist_bg, daemon=True)
-    artist_thread.start()
+    artist_thread = None
+    if not dry_run_mode:
+        artist_thread = threading.Thread(target=_scrape_artist_bg, daemon=True)
+        artist_thread.start()
 
-    summary = run_update(on_progress=live_progress, stats_date_override=stats_date_override, debug_mode=debug_mode)
+    summary = run_update(
+        on_progress=live_progress,
+        stats_date_override=stats_date_override,
+        dry_run_mode=dry_run_mode,
+        only_track_ids=unfinished_ids if debug_daily_mode else None,
+        enable_early_twitter=(not dry_run_mode and not debug_daily_mode),
+    )
     print_summary_block(summary)
 
-    # Accumulate not_found track IDs so retries skip them entirely
     not_found_ids: set[str] = {
         r["track_id"] for r in summary["failed_results"] if r["status"] == "not_found"
     }
 
     retry_round = 0
     while (
-        not debug_mode
+        not dry_run_mode
+        and not debug_daily_mode
         and not summary["all_done"]
         and summary["pending_this_run"] > summary["total_tracks"] // 2
         and retry_round < MAX_PENDING_RETRY_ROUNDS
@@ -1515,22 +2012,27 @@ def main():
         print(f"Retry round {retry_round}")
         print("=" * 70)
 
-        summary = run_update(on_progress=live_progress, skip_track_ids=not_found_ids, stats_date_override=stats_date_override)
+        summary = run_update(
+            on_progress=live_progress,
+            skip_track_ids=not_found_ids,
+            stats_date_override=stats_date_override,
+            dry_run_mode=False,
+            enable_early_twitter=True,
+        )
         not_found_ids.update(
             r["track_id"] for r in summary["failed_results"] if r["status"] == "not_found"
         )
         print_summary_block(summary)
 
     print_remaining_details(summary)
+    update_json_logs_from_summary(summary)
 
-    save_failed_rows(summary["failed_results"])
-
-    # Update per-track not-found streak and auto-delete tracks missing too many days
     all_tracks = load_tracks_from_discography()
     updated_ids: set[str] = {
         r["track_id"] for r in summary.get("results", [])
         if r and r.get("status") == "updated"
     }
+
     streak = load_not_found_streak()
     update_not_found_streak(streak, not_found_ids, updated_ids)
     deleted = purge_stale_tracks(streak, all_tracks)
@@ -1543,10 +2045,10 @@ def main():
         return
 
     if summary["all_done"]:
-        print("All tracks updated.")
+        print("All target tracks updated.")
     else:
-        print("Full scrape finished, but not all tracks are done.")
-        print("Publishing current data anyway.")
+        print("Run finished, but not all target tracks are done.")
+        print("Publishing current data anyway." if not debug_daily_mode else "Keeping local progress only.")
 
     print("Updating streams history CSV...")
     subprocess.run(
@@ -1555,8 +2057,8 @@ def main():
     )
     print("Streams history CSV done.")
 
-    if debug_mode:
-        print("[DEBUG] Skip : Twitter, forecast, images, Billboard, notify.")
+    if debug_daily_mode:
+        print("[DEBUG-DAILY] Skip: Twitter, forecast, images, git, notify.")
     else:
         print("Posting streams image to Twitter...")
         subprocess.run(
@@ -1569,15 +2071,16 @@ def main():
     export_for_web.export_for_web()
     print("Web export done.")
 
-    print("Updating artist metadata...")
-    artist_thread.join(timeout=60)
-    update_artist_metadata(pre_scraped=_artist_result[0])
+    if artist_thread is not None:
+        print("Updating artist metadata...")
+        artist_thread.join(timeout=60)
+        update_artist_metadata(pre_scraped=_artist_result[0])
 
-    print("Re-exporting web data (with artist metadata)...")
-    export_for_web.export_for_web()
-    print("Web export done.")
+        print("Re-exporting web data (with artist metadata)...")
+        export_for_web.export_for_web()
+        print("Web export done.")
 
-    if not debug_mode:
+    if not debug_daily_mode:
         print("Rebuilding expected milestones forecast...")
         subprocess.run(
             [sys.executable, str(_SCRIPT_DIR / "forecast_milestones.py")],
@@ -1599,25 +2102,24 @@ def main():
         )
         print("Track cover images done.")
 
-
-    print("Git commit and push...")
-    git_commit_and_push(f"daily final export {summary['stats_date']}")
+        print("Git commit and push...")
+        git_commit_and_push(f"daily final export {summary['stats_date']}")
 
     elapsed = time.perf_counter() - START_TIME
     print()
     print(f"Finished in {int(elapsed // 60)}m {int(elapsed % 60)}s")
-    print(f"Done: {summary['done_tracks']}/{summary['total_tracks']}")
-    print(f"Remaining: {summary['remaining_tracks']}")
+    print(f"Done: {summary['done_tracks']}")
+    print(f"Updated this run: {summary['updated_this_run']}")
 
-    if not debug_mode:
+    if not debug_daily_mode:
         notify(
             NTFY_TOPIC,
-            f"{summary['done_tracks']}/{summary['total_tracks']} tracks mis à jour ({summary['stats_date']})\n"
+            f"{summary['done_tracks']} track(s) enregistrées ({summary['stats_date']})\n"
             f"Durée : {int(elapsed // 60)}m {int(elapsed % 60)}s",
             title="Taylor Swift - Streams mis à jour",
             tags="white_check_mark,chart_increasing",
         )
-    
+
 
 if __name__ == "__main__":
     try:

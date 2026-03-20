@@ -91,7 +91,7 @@ def page_available(d: date) -> bool:
         context = None
         try:
             browser = p.chromium.launch(
-                headless=True,
+                headless=False,
                 args=[
                     "--disable-blink-features=AutomationControlled",
                     "--disable-dev-shm-usage",
