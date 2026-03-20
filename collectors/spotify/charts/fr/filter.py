@@ -345,12 +345,12 @@ def scrape_chart_rows(chart_date: str) -> list[dict]:
                 )
 
                 page = context.new_page()
-                page.set_default_navigation_timeout(120_000)
-                page.set_default_timeout(120_000)
+                page.set_default_navigation_timeout(60_000)
+                page.set_default_timeout(60_000)
 
                 print(f"  Ouverture {url} (attempt {attempt}/3)...")
-                page.goto(url, wait_until="load", timeout=120_000)
-                page.wait_for_timeout(6000)
+                page.goto(url, wait_until="domcontentloaded", timeout=60_000)
+                page.wait_for_timeout(4000)
 
                 current_url = page.url.lower()
                 if "login" in current_url or "accounts.spotify.com" in current_url:
@@ -364,7 +364,7 @@ def scrape_chart_rows(chart_date: str) -> list[dict]:
                 stable_count = 0
                 while stable_count < 3:
                     page.mouse.wheel(0, 3000)
-                    page.wait_for_timeout(800)
+                    page.wait_for_timeout(500)
                     new_height = page.evaluate("document.body.scrollHeight")
                     if new_height == prev_height:
                         stable_count += 1
@@ -412,7 +412,7 @@ def scrape_chart_rows(chart_date: str) -> list[dict]:
                     try:
                         el = page.get_by_text(track, exact=True).first
                         el.click(timeout=5000)
-                        page.wait_for_timeout(1500)
+                        page.wait_for_timeout(800)
                         td_label = page.get_by_text("Total days on chart", exact=True)
                         if td_label.count() > 0:
                             container_text = td_label.first.locator("xpath=..").inner_text()
@@ -425,7 +425,7 @@ def scrape_chart_rows(chart_date: str) -> list[dict]:
                         else:
                             print(f"  'Total days on chart' non trouvé dans DOM pour {track}")
                         el.click(timeout=3000)
-                        page.wait_for_timeout(400)
+                        page.wait_for_timeout(200)
                     except Exception as td_err:
                         print(f"  total_days ignoré pour {track}: {td_err}")
 

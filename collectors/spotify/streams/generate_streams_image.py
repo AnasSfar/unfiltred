@@ -9,11 +9,14 @@ Usage:
   python generate_streams_image.py               # dernière date dans le CSV
   python generate_streams_image.py 2026-03-15    # date spécifique
 """
+import base64
 import colorsys
+import concurrent.futures
 import csv
 import json
 import re
 import sys
+import urllib.request
 from datetime import date as date_cls, timedelta
 from pathlib import Path
 
@@ -99,20 +102,21 @@ def load_covers() -> dict:
 
 
 def load_track_album_map() -> dict:
-    """Returns {normalized_track_title → album_title} from songs.json."""
-    if not SONGS_JSON.exists():
-        return {}
+    """Returns {normalized_track_title → album_title} from albums.json + songs.json."""
     result = {}
-    try:
-        groups = json.loads(SONGS_JSON.read_text(encoding="utf-8"))
-        for group in groups:
-            album_name = group.get("album", "")
-            for track in group.get("tracks", []):
-                title = track.get("title", "")
-                if title:
-                    result[_norm(title)] = album_name
-    except Exception:
-        pass
+    for path in [DB_DIR / "discography" / "albums.json", SONGS_JSON]:
+        if not path.exists():
+            continue
+        try:
+            groups = json.loads(path.read_text(encoding="utf-8"))
+            for group in groups:
+                album_name = group.get("album", "")
+                for track in group.get("tracks", []):
+                    title = track.get("title", "")
+                    if title:
+                        result[_norm(title)] = album_name
+        except Exception:
+            pass
     return result
 
 
@@ -368,7 +372,44 @@ SPOTIFY_SVG = """<svg class="hdr-logo" viewBox="0 0 24 24" fill="white" xmlns="h
 </svg>"""
 
 
-def build_rows_html(top15: list[dict], cover_map: dict, track_album_map: dict) -> str:
+def _url_to_data_uri(url: str) -> str:
+    """Download an image URL and return a base64 data URI (empty string on failure)."""
+    if not url:
+        return ""
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=8) as r:
+            data = r.read()
+            ct = r.headers.get("Content-Type", "image/jpeg").split(";")[0].strip()
+            return f"data:{ct};base64,{base64.b64encode(data).decode()}"
+    except Exception:
+        return ""
+
+
+def prefetch_images(top15: list[dict], cover_map: dict, track_album_map: dict) -> dict[str, str]:
+    """Resolve cover URLs for all top15 entries and return {url: data_uri}."""
+    urls = set()
+    for entry in top15:
+        img_url = entry.get("image_url", "")
+        album_name = track_album_map.get(_norm(entry["title"]), "")
+        cover_url = cover_map.get(_norm(album_name), "") if album_name else ""
+        if not cover_url:
+            cover_url = img_url
+        if cover_url:
+            urls.add(cover_url)
+
+    result: dict[str, str] = {}
+    with concurrent.futures.ThreadPoolExecutor(max_workers=15) as ex:
+        futures = {ex.submit(_url_to_data_uri, u): u for u in urls}
+        for fut, url in futures.items():
+            data_uri = fut.result()
+            if data_uri:
+                result[url] = data_uri
+    return result
+
+
+def build_rows_html(top15: list[dict], cover_map: dict, track_album_map: dict,
+                    image_cache: dict[str, str] | None = None) -> str:
     html = ""
     for i, entry in enumerate(top15):
         rank    = i + 1
@@ -384,6 +425,10 @@ def build_rows_html(top15: list[dict], cover_map: dict, track_album_map: dict) -
         cover_url  = cover_map.get(_norm(album_name), "") if album_name else ""
         if not cover_url:
             cover_url = img_url
+
+        # Use pre-fetched data URI so Playwright doesn't need network access
+        if image_cache and cover_url:
+            cover_url = image_cache.get(cover_url, cover_url)
 
         art_html = (
             f'<img class="art" src="{cover_url}" />'
@@ -423,10 +468,11 @@ def build_rows_html(top15: list[dict], cover_map: dict, track_album_map: dict) -
     return html
 
 
-def build_html(top15: list[dict], target_date: str, cover_map: dict, track_album_map: dict) -> str:
+def build_html(top15: list[dict], target_date: str, cover_map: dict, track_album_map: dict,
+               image_cache: dict[str, str] | None = None) -> str:
     from datetime import datetime
     date_fmt   = datetime.strptime(target_date, "%Y-%m-%d").strftime("%B %d, %Y")
-    rows_html  = build_rows_html(top15, cover_map, track_album_map)
+    rows_html  = build_rows_html(top15, cover_map, track_album_map, image_cache)
 
     header_img   = _pick_header_image()
     handle_color = "#1db954"
@@ -436,7 +482,7 @@ def build_html(top15: list[dict], target_date: str, cover_map: dict, track_album
         img_url      = header_img.as_posix()
         hdr_style    = (
             f'style="background-image: linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),'
-            f'url(\'file:///{img_url}\'); background-size:100% 100%;"'
+            f'url(\'file:///{img_url}\'); background-size:cover; background-position:center;"'
         )
     else:
         hdr_style = 'style="background:linear-gradient(135deg,#1db954 0%,#17a34a 100%);"'
@@ -492,7 +538,11 @@ def generate(target_date: str | None = None) -> Path:
         daily_fmt = f"{e['daily_streams']:,}"
         print(f"  #{i:2d} {e['title']:<40} {daily_fmt} streams/day")
 
-    html     = build_html(top15, target_date, cover_map, track_album_map)
+    print("Téléchargement des images...")
+    image_cache = prefetch_images(top15, cover_map, track_album_map)
+    print(f"  {len(image_cache)} images téléchargées")
+
+    html     = build_html(top15, target_date, cover_map, track_album_map, image_cache)
     out_path = SCRIPT_DIR / f"streams_image_{target_date}.png"
     tmp_html = SCRIPT_DIR / "_streams_tmp.html"
     tmp_html.write_text(html, encoding="utf-8")
@@ -502,7 +552,7 @@ def generate(target_date: str | None = None) -> Path:
             browser = p.chromium.launch(headless=True)
             page    = browser.new_page(viewport={"width": 800, "height": 200}, device_scale_factor=2)
             page.goto(f"file:///{tmp_html.as_posix()}", wait_until="load")
-            page.wait_for_timeout(1500)
+            page.wait_for_timeout(300)  # images are base64-embedded, no network needed
             page.locator("body").screenshot(path=str(out_path))
             browser.close()
     finally:
