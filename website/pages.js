@@ -918,12 +918,6 @@ function milestoneRow(item) {
 
   const remaining = item.progress?.remaining ?? 0;
 
-  console.log(
-    item.title || song.title,
-    getMilestonePercent(item),
-    item.progress
-  );
-
   return `
     <div class="milestone-highlight-item">
       <img

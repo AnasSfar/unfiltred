@@ -181,7 +181,7 @@ async function loadData() {
     fetchJSON("site/data/albums.json"),
     fetchJSON("site/data/artist.json").catch(() => null),
     fetchJSON("site/data/expected_milestones.json").catch(() => null),
-    fetchJSON("discography/albums/covers.json").catch(() => ({})),
+    fetchJSON("../db/discography/covers.json").catch(() => ({})),
     fetchJSON("site/data/last_run_state.json").catch(() => null),
     fetchJSON("site/data/not_found_streak.json").catch(() => null),
     fetchJSON("site/data/billboard.json").catch(() => null)
