@@ -37,7 +37,7 @@ ARTIST_PATH      = DISCOGRAPHY_DIR / "artist.json"
 ARTIST_URL = "https://open.spotify.com/artist/06HL4z0CvFAxyc27GXpf02"
 
 HEADLESS = False
-MAX_PARALLEL_PAGES = 15
+MAX_PARALLEL_PAGES = 10
 PAGE_GOTO_TIMEOUT_MS = 20_000
 DEBUG_PAGE_PREVIEW = False
 
@@ -206,7 +206,7 @@ def maybe_accept_cookies(page) -> None:
     for pattern in patterns:
         try:
             page.get_by_role("button", name=re.compile(pattern, re.I)).click(timeout=1500)
-            page.wait_for_timeout(800)
+            page.wait_for_timeout(1000)
             return
         except Exception:
             pass
@@ -882,7 +882,7 @@ def scrape_track_total(page, title: str, url: str) -> tuple[int | None, str | No
     for attempt in range(3):
         try:
             page.goto(clean_url, wait_until="commit", timeout=PAGE_GOTO_TIMEOUT_MS)
-            page.wait_for_timeout(500)
+            page.wait_for_timeout(1000)
             maybe_accept_cookies(page)
 
             if DEBUG_PAGE_PREVIEW:
