@@ -330,13 +330,13 @@ const REGIONS = {
     csvUrl:    () => '../db/charts_history_global.csv',
     dayUrl:    d  => { const [y,m]=d.split('-'); return `../collectors/spotify/charts/global/${y}/${m}/${d}/ts_chart_${d}.json`; },
     title:      'Global Spotify',
-    coversUrl:  '../spotify-charts/track_covers.json',
+    coversUrl:  'spotify-charts/track_covers.json',
   },
   fr: {
     csvUrl:    () => '../db/charts_history_fr.csv',
     dayUrl:    d  => { const [y,m]=d.split('-'); return `../collectors/spotify/charts/fr/data/${y}/${m}/${d}/ts_chart_${d}.json`; },
     title:      'France Spotify',
-    coversUrl:  '../spotify-charts/track_covers.json',
+    coversUrl:  'spotify-charts/track_covers.json',
   },
 };
 

@@ -392,11 +392,13 @@ def scrape_chart_rows(chart_date: str) -> list[dict]:
                     (debug_dir / "debug_body.txt").write_text(body_text, encoding="utf-8")
                     raise RuntimeError("Aucune ligne détectée")
 
-                # Extract album art URLs
+                # Extract album art URLs and map to rows by position
+                # Filter to album-art prefix only (ab67616d) to avoid artist
+                # profile photos (ab6761610000e5eb) which would shift positions.
                 try:
                     img_els = page.locator("img[src*='i.scdn.co']").all()
                     img_urls = [el.get_attribute("src") for el in img_els]
-                    img_urls = [u for u in img_urls if u]
+                    img_urls = [u for u in img_urls if u and "ab67616d" in u]
                     for i, row in enumerate(rows):
                         if i < len(img_urls):
                             row["image_url"] = img_urls[i]
