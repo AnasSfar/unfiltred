@@ -34,15 +34,19 @@ ROOT = Path(__file__).parent
 _REPO_ROOT = ROOT.parents[3]
 
 CHART_ID = "regional-global-daily"
-TWITTER_SESSION = ROOT / "twitter_session.json"
-SPOTIFY_SESSION = ROOT / "spotify_session.json"
-FILTER_SCRIPT = ROOT / "filter.py"
-GENERATE_IMAGE_SCRIPT = ROOT / "generate_chart_image.py"
+TWITTER_SESSION = ROOT / "tools/json/twitter_session.json"
+SPOTIFY_SESSION = ROOT / "tools/json/spotify_session.json"
+FILTER_SCRIPT = ROOT / "tools/script/filter.py"
+GENERATE_IMAGE_SCRIPT = ROOT / "tools/script/generate_chart_image.py"
+MIGRATE_SCRIPT = ROOT / "tools/script/migrate_charts_to_csv.py"
 
+sys.path.insert(0, str(ROOT / "tools" / "script"))
 try:
     from config import NTFY_TOPIC
 except Exception:
     NTFY_TOPIC = ""
+
+from git_ops import git_commit_and_push, migrate_archive_csv
 
 RETRY_SECONDS = 60
 CUTOFF_HOUR = 15
@@ -58,19 +62,19 @@ def log(level: str, message: str) -> None:
 
 
 def lock_path(d: date) -> Path:
-    return ROOT / str(d.year) / f"{d.month:02d}" / str(d) / "posted.lock"
+    return ROOT / "history" / str(d.year) / f"{d.month:02d}" / str(d) / "posted.lock"
 
 
 def tweet_path(d: date) -> Path:
-    return ROOT / str(d.year) / f"{d.month:02d}" / str(d) / "tweet.txt"
+    return ROOT / "history" / str(d.year) / f"{d.month:02d}" / str(d) / "tweet.txt"
 
 
 def chart_csv_path(d: date) -> Path:
-    return ROOT / str(d.year) / f"{d.month:02d}" / str(d) / "ts_all_songs.csv"
+    return ROOT / "history" / str(d.year) / f"{d.month:02d}" / str(d) / "ts_all_songs.csv"
 
 
 def no_ts_lock_path(d: date) -> Path:
-    return ROOT / str(d.year) / f"{d.month:02d}" / str(d) / "no_ts.lock"
+    return ROOT / "history" / str(d.year) / f"{d.month:02d}" / str(d) / "no_ts.lock"
 
 
 def already_posted(d: date) -> bool:
@@ -324,7 +328,7 @@ def generate_image(processed: list[date]) -> Path | None:
 
     if len(processed) == 1:
         d = processed[0]
-        image_path = ROOT / str(d.year) / f"{d.month:02d}" / str(d) / "chart_image.png"
+        image_path = ROOT / "history" / str(d.year) / f"{d.month:02d}" / str(d) / "chart_image.png"
         img_args = [sys.executable, str(GENERATE_IMAGE_SCRIPT), str(d)]
     else:
         image_path = ROOT / "chart_image_multi.png"
@@ -351,55 +355,6 @@ def generate_image(processed: list[date]) -> Path | None:
         return None
 
     return image_path
-
-
-def git_commit_and_push() -> None:
-    log("STEP", "Git commit et push")
-    try:
-        subprocess.run(
-            ["git", "add", "collectors/spotify/charts/global/", "db/charts_history_global.csv"],
-            cwd=str(_REPO_ROOT),
-            check=True,
-        )
-        diff = subprocess.run(
-            ["git", "diff", "--cached", "--quiet"],
-            cwd=str(_REPO_ROOT),
-            check=False,
-        )
-        if diff.returncode != 0:
-            today = date.today().isoformat()
-            subprocess.run(
-                ["git", "commit", "-m", f"charts global {today}"],
-                cwd=str(_REPO_ROOT),
-                check=True,
-            )
-            subprocess.run(["git", "push"], cwd=str(_REPO_ROOT), check=True)
-            log("INFO", "Git commit + push done.")
-        else:
-            log("INFO", "Rien à commit.")
-    except subprocess.CalledProcessError as e:
-        log("WARN", f"Git commit/push échoué : {e}")
-
-
-def migrate_archive_csv() -> None:
-    migrate_script = ROOT.parent / "migrate_charts_to_csv.py"
-    log("STEP", "Mise à jour du CSV charts history")
-
-    migrate_result = subprocess.run(
-        [sys.executable, str(migrate_script)],
-        capture_output=True,
-        text=True,
-    )
-
-    if migrate_result.stdout:
-        print(migrate_result.stdout, flush=True)
-    if migrate_result.stderr:
-        print(migrate_result.stderr, flush=True)
-
-    if migrate_result.returncode != 0:
-        log("WARN", f"migrate_charts_to_csv.py a échoué (code {migrate_result.returncode})")
-    else:
-        log("INFO", "CSV charts history mis à jour")
 
 
 def main() -> None:
@@ -473,8 +428,8 @@ def main() -> None:
 
         log("INFO", f"Terminé avec succès ({len(processed)} date(s) postée(s))")
 
-        migrate_archive_csv()
-        git_commit_and_push()
+        migrate_archive_csv(MIGRATE_SCRIPT)
+        git_commit_and_push(_REPO_ROOT)
 
         if NTFY_TOPIC:
             notify(

@@ -125,14 +125,14 @@ def main():
     songs = load_songs(json_path)
 
     targets = [
-    (i, song)
-    for i, song in enumerate(songs)
-    if is_good_url((song.get("url") or "").strip())
+        (i, song)
+        for i, song in enumerate(songs)
+        if should_update(song)
     ]
 
     if not targets:
         print("Aucune chanson à traiter")
-    return
+        return
 
     workers = max(1, min(workers, len(targets)))
     chunks = split_chunks(targets, workers)

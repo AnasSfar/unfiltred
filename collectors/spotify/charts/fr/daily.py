@@ -25,17 +25,20 @@ from playwright.sync_api import sync_playwright
 
 ROOT                  = Path(__file__).parent
 _REPO_ROOT            = ROOT.parents[3]
-DATA_DIR              = ROOT / "data"
+DATA_DIR              = ROOT / "history"
 CHART_ID              = "regional-fr-daily"
-TWITTER_SESSION       = ROOT / "twitter_session.json"
-SPOTIFY_SESSION       = ROOT / "spotify_session.json"
-FILTER_SCRIPT         = ROOT / "filter.py"
-GENERATE_IMAGE_SCRIPT = ROOT / "generate_chart_image.py"
+TWITTER_SESSION       = ROOT / "tools/json/twitter_session.json"
+SPOTIFY_SESSION       = ROOT / "tools/json/spotify_session.json"
+FILTER_SCRIPT         = ROOT / "tools/scripts/filter.py"
+GENERATE_IMAGE_SCRIPT = ROOT / "tools/scripts/generate_chart_image.py"
 
+sys.path.insert(0, str(ROOT / "tools" / "scripts"))
 try:
     from config import NTFY_TOPIC
 except Exception:
     NTFY_TOPIC = ""
+
+from git_ops import git_commit_and_push
 
 RETRY_SECONDS = 60
 CUTOFF_HOUR   = 15  # abandon si page non dispo à 15h le lendemain
@@ -293,41 +296,7 @@ def main():
             mark_posted(d)
         log("INFO", f"Terminé avec succès ({len(processed)} date(s) postée(s))")
 
-        migrate_script = ROOT.parent / "migrate_charts_to_csv.py"
-        log("STEP", "Mise à jour du CSV charts history")
-        migrate_result = subprocess.run(
-            [sys.executable, str(migrate_script)],
-            capture_output=True, text=True,
-        )
-        if migrate_result.stdout:
-            print(migrate_result.stdout, flush=True)
-        if migrate_result.returncode != 0:
-            log("WARN", f"migrate_charts_to_csv.py a échoué (code {migrate_result.returncode})")
-        else:
-            log("INFO", "CSV charts history mis à jour")
-
-        log("STEP", "Git commit et push")
-        try:
-            subprocess.run(
-                ["git", "add", "collectors/spotify/charts/fr/data/", "db/charts_history_fr.csv"],
-                cwd=str(_REPO_ROOT), check=True,
-            )
-            diff = subprocess.run(
-                ["git", "diff", "--cached", "--quiet"],
-                cwd=str(_REPO_ROOT), check=False,
-            )
-            if diff.returncode != 0:
-                today = date.today().isoformat()
-                subprocess.run(
-                    ["git", "commit", "-m", f"charts FR {today}"],
-                    cwd=str(_REPO_ROOT), check=True,
-                )
-                subprocess.run(["git", "push"], cwd=str(_REPO_ROOT), check=True)
-                log("INFO", "Git commit + push done.")
-            else:
-                log("INFO", "Rien à commit.")
-        except subprocess.CalledProcessError as e:
-            log("WARN", f"Git commit/push échoué : {e}")
+        git_commit_and_push(_REPO_ROOT)
 
         notify(
             NTFY_TOPIC,

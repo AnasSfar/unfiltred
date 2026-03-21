@@ -27,12 +27,13 @@ except ImportError:
     _PIL = False
 
 ROOT                = Path(__file__).parent
-DATA_DIR            = ROOT / "data"
-TS_HISTORY_PATH     = ROOT / "ts_history.json"
-POP_HISTORY_PATH    = ROOT / "ts_pop_history.json"
-DISCOGRAPHY_ROOT = ROOT.parent.parent.parent.parent / "db" / "discography"
-COVERS_PATH      = DISCOGRAPHY_ROOT / "covers.json"
-HEADERS_DIR      = ROOT / "headers"
+_TOOLS              = Path(__file__).parent.parent          # = fr/tools/
+DATA_DIR            = _TOOLS.parent / "history"             # = fr/history/
+TS_HISTORY_PATH     = _TOOLS / "json" / "ts_history.json"
+POP_HISTORY_PATH    = _TOOLS / "json" / "ts_pop_history.json"
+DISCOGRAPHY_ROOT    = Path(__file__).parents[6] / "db" / "discography"
+COVERS_PATH         = DISCOGRAPHY_ROOT / "covers.json"
+HEADERS_DIR         = _TOOLS / "headers"
 HANDLE           = "@thefateofanas"
 
 

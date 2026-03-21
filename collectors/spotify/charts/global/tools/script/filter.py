@@ -28,16 +28,20 @@ import pandas as pd
 from playwright.sync_api import TimeoutError as PlaywrightTimeoutError
 from playwright.sync_api import sync_playwright
 
-sys.path.insert(0, str(Path(__file__).parent.parent.parent))
+sys.path.insert(0, str(Path(__file__).parents[4]))
 from core.fmt import fmt_delta, fmt_streams, fmt_streams_delta
 from core.history import load, parse_date, save, update
 from core.logger import Logger
 
 TS_NAME = "Taylor Swift"
 CHART_ID = "regional-global-daily"
-ROOT = Path(__file__).parent
-SESSION_FILE = ROOT / "spotify_session.json"
-ARCHIVE_CSV = Path(__file__).resolve().parents[4] / "db" / "charts_history_global.csv"
+ROOT   = Path(__file__).parent
+_TOOLS = Path(__file__).parent.parent           # = global/tools/
+_DATA  = _TOOLS.parent / "history"              # = global/history/
+SESSION_FILE = _TOOLS / "json" / "spotify_session.json"
+TS_HISTORY_PATH  = _TOOLS / "json" / "ts_history.json"
+TOTAL_DAYS_PATH  = _TOOLS / "json" / "total_days.json"
+ARCHIVE_CSV = Path(__file__).resolve().parents[6] / "db" / "charts_history_global.csv"
 
 PAGE_TIMEOUT_MS = 60_000
 MAX_SCROLL_STABLE = 3
@@ -70,7 +74,7 @@ def norm(s):
 
 
 def get_out_dir(chart_date: str) -> Path:
-    return ROOT / chart_date[:4] / chart_date[5:7] / chart_date
+    return _DATA / chart_date[:4] / chart_date[5:7] / chart_date
 
 
 def chart_already_processed(chart_date: str) -> bool:
@@ -83,7 +87,7 @@ def chart_already_processed(chart_date: str) -> bool:
 
 def get_songs_present_yesterday(chart_date, ts_history):
     yesterday = str(parse_date(chart_date) - timedelta(days=1))
-    csv_path = ROOT / yesterday[:4] / yesterday[5:7] / yesterday / "ts_all_songs.csv"
+    csv_path = _DATA / yesterday[:4] / yesterday[5:7] / yesterday / "ts_all_songs.csv"
     if csv_path.exists():
         try:
             df = pd.read_csv(csv_path)
@@ -94,7 +98,7 @@ def get_songs_present_yesterday(chart_date, ts_history):
 
 
 def update_total_days_file(ts_df) -> None:
-    path = ROOT / "total_days.json"
+    path = TOTAL_DAYS_PATH
     try:
         data = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
     except Exception:
@@ -283,6 +287,11 @@ def extract_image_urls(page, rows: list[dict]) -> None:
         img_els = page.locator("img[src*='i.scdn.co']").all()
         img_urls = [el.get_attribute("src") for el in img_els]
         img_urls = [u for u in img_urls if u and "ab67616d" in u]
+        img_urls = [
+            u.replace("ab67616d00001e02", "ab67616d0000b273")
+             .replace("ab67616d00004851", "ab67616d0000b273")
+            for u in img_urls
+        ]
         for i, row in enumerate(rows):
             if i < len(img_urls):
                 row["image_url"] = img_urls[i]
@@ -672,10 +681,10 @@ def main():
     run_relog = "--relog" in args
     target = None if run_all or run_relog else (args[0] if args else None)
 
-    h = load(ROOT / "ts_history.json")
+    h = load(TS_HISTORY_PATH)
 
     if run_relog:
-        for year_dir in sorted(ROOT.iterdir()):
+        for year_dir in sorted(_DATA.iterdir()):
             if not year_dir.is_dir() or not re.match(r"^\d{4}$", year_dir.name):
                 continue
             for month_dir in sorted(year_dir.iterdir()):
@@ -696,7 +705,7 @@ def main():
 
     if run_all:
         dates = []
-        for year_dir in sorted(ROOT.iterdir()):
+        for year_dir in sorted(_DATA.iterdir()):
             if not year_dir.is_dir() or not re.match(r"^\d{4}$", year_dir.name):
                 continue
             for month_dir in sorted(year_dir.iterdir()):
@@ -715,8 +724,8 @@ def main():
             except Exception as e:
                 print(f"X {d} - {e}")
 
-        history = rebuild_from_ts_csvs(ROOT)
-        save(history, ROOT / "ts_history.json")
+        history = rebuild_from_ts_csvs(_DATA)
+        save(history, TS_HISTORY_PATH)
         print(f"ts_history rebuilt - {len(history)} chansons")
         return
 
@@ -727,7 +736,7 @@ def main():
         raise RuntimeError("Date invalide, format attendu: YYYY-MM-DD")
 
     process_one(target, h)
-    save(h, ROOT / "ts_history.json")
+    save(h, TS_HISTORY_PATH)
     print(f"ts_history updated - {len(h)} chansons")
 
 

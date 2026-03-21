@@ -18,9 +18,9 @@ from playwright.sync_api import sync_playwright
 
 ROOT                  = Path(__file__).parent
 CHART_ID              = "regional-global-daily"
-SPOTIFY_SESSION       = ROOT / "spotify_session.json"
-FILTER_SCRIPT         = ROOT / "filter.py"
-GENERATE_IMAGE_SCRIPT = ROOT / "generate_chart_image.py"
+SPOTIFY_SESSION       = ROOT / "tools/json/spotify_session.json"
+FILTER_SCRIPT         = ROOT / "tools/script/filter.py"
+GENERATE_IMAGE_SCRIPT = ROOT / "tools/script/generate_chart_image.py"
 
 RETRY_SECONDS = 60
 CUTOFF_HOUR   = 15
@@ -34,7 +34,7 @@ def log(level: str, message: str):
 
 
 def has_data(d: date) -> bool:
-    base = ROOT / str(d.year) / f"{d.month:02d}" / str(d)
+    base = ROOT / "history" / str(d.year) / f"{d.month:02d}" / str(d)
     return (base / "ts_all_songs.csv").exists() or (base / "no_ts.lock").exists()
 
 
@@ -154,7 +154,7 @@ def run_filter(d: date) -> str | None:
         log("ERROR", f"filter.py a échoué (code {result.returncode})")
         return None
 
-    tweet_path = ROOT / str(d.year) / f"{d.month:02d}" / str(d) / "tweet.txt"
+    tweet_path = ROOT / "history" / str(d.year) / f"{d.month:02d}" / str(d) / "tweet.txt"
     if not tweet_path.exists():
         log("ERROR", "tweet.txt introuvable après filter.py")
         return None
@@ -234,7 +234,7 @@ def main():
     log("STEP", "Génération de l'image du chart")
     if len(processed) == 1:
         d = processed[0]
-        image_path = ROOT / str(d.year) / f"{d.month:02d}" / str(d) / "chart_image.png"
+        image_path = ROOT / "history" / str(d.year) / f"{d.month:02d}" / str(d) / "chart_image.png"
         img_args = [sys.executable, str(GENERATE_IMAGE_SCRIPT), str(d)]
     else:
         image_path = ROOT / "chart_image_multi.png"

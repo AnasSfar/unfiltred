@@ -88,7 +88,7 @@ export function renderAmbientEffects(){
     <div class="glitter-field">
 
       ${
-        Array.from({length:22}).map((_,i)=>`
+        Array.from({length:0}).map((_,i)=>`
 
           <span class="glitter-particle"
             style="
@@ -307,6 +307,24 @@ export function songRow(song){
 
   const family = getCombineKey(song);
 
+  // Milestone progress: how far is this song toward the next milestone?
+  const msProgress = (() => {
+    if (!song.next_milestone || !song.current_milestone || !(song.streams > 0)) return null;
+    const span = song.next_milestone - song.current_milestone;
+    if (span <= 0) return null;
+    const gained = (song.streams || 0) - song.current_milestone;
+    return Math.min(100, Math.max(0, Math.round(gained / span * 100)));
+  })();
+
+  // Days until next milestone at current daily rate
+  const daysToMs = (() => {
+    if (!song.next_milestone || !(song.daily_streams > 0)) return null;
+    const rem = song.next_milestone - (song.streams || 0);
+    if (rem <= 0) return null;
+    const d = Math.ceil(rem / song.daily_streams);
+    return d <= 180 ? d : null;
+  })();
+
   return `
   <tr>
 
@@ -315,6 +333,7 @@ export function songRow(song){
       <article
         class="song-row-card${gold} js-song-focus"
         data-family="${encodeURIComponent(family)}"
+        data-rank="${song.current_rank || 0}"
       >
 
         <div class="song-row-grid">
@@ -385,6 +404,8 @@ export function songRow(song){
 
           <div class="col-total">
             ${formatFull(song.streams)}
+            ${msProgress !== null ? `<div class="milestone-progress"><div class="milestone-progress-bar" style="width:${msProgress}%"></div></div>` : ""}
+            ${daysToMs !== null ? `<div class="ms-days-lbl">${daysToMs}d → ${formatFull(song.next_milestone)}</div>` : ""}
           </div>
 
           <div class="col-stream-change">
@@ -423,6 +444,9 @@ export function songRow(song){
 
 export function renderStats(rows){
 
+  const totalDaily =
+    rows.reduce((s,r)=>s+(r.daily_streams||0),0);
+
   const totalCombined =
     rows.reduce((s,r)=>s+(r.streams||0),0);
 
@@ -430,28 +454,28 @@ export function renderStats(rows){
     rows.filter(r=>r.crossed_milestone_today).length;
 
   const withDaily =
-    rows.filter(r=>r.daily_streams!=null).length;
+    rows.filter(r=>r.daily_streams!=null&&r.daily_streams>0).length;
 
   return `
   <div class="stats-grid">
 
     <div class="stat-card">
-      <div class="stat-label">Songs shown</div>
-      <div class="stat-value number-update">${rows.length}</div>
+      <div class="stat-label">Daily streams today</div>
+      <div class="stat-value number-update">${formatFull(totalDaily)}</div>
     </div>
 
     <div class="stat-card">
-      <div class="stat-label">Combined streams</div>
+      <div class="stat-label">Total streams</div>
       <div class="stat-value number-update">${formatFull(totalCombined)}</div>
     </div>
 
     <div class="stat-card">
-      <div class="stat-label">Songs with daily data</div>
+      <div class="stat-label">Songs updated today</div>
       <div class="stat-value number-update">${withDaily}</div>
     </div>
 
     <div class="stat-card">
-      <div class="stat-label">Milestones crossed that day</div>
+      <div class="stat-label">Milestones crossed</div>
       <div class="stat-value number-update">${milestonesToday}</div>
     </div>
 
@@ -476,6 +500,11 @@ export function renderNewsSection(rows,date){
     [...rows]
     .filter(s=>s.rank_change!=null)
     .sort((a,b)=>(b.rank_change||0)-(a.rank_change||0))[0];
+
+  const topDaily =
+    [...rows]
+    .filter(s=>s.daily_streams>0)
+    .sort((a,b)=>(b.daily_streams||0)-(a.daily_streams||0))[0];
 
   return `
   <section class="section-card">
@@ -541,6 +570,36 @@ export function renderNewsSection(rows,date){
               </div>
               <div class="news-song-sub">
                 ${formatArtistAlbum(mover)}
+              </div>
+            </div>
+
+          </div>
+
+        </div>`
+        : ""
+      }
+
+      ${
+        topDaily
+        ? `
+        <div class="news-card blue">
+
+          <div class="news-kicker">🎵 Most streamed today</div>
+
+          <div class="news-title">
+            +${formatFull(topDaily.daily_streams)}
+          </div>
+
+          <div class="news-song">
+
+            <img src="${withCacheBuster(topDaily.image_url)}">
+
+            <div class="news-song-meta">
+              <div class="news-song-title">
+                ${topDaily.title_clean||topDaily.title}
+              </div>
+              <div class="news-song-sub">
+                ${formatArtistAlbum(topDaily)}
               </div>
             </div>
 

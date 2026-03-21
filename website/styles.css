@@ -2205,6 +2205,101 @@ body[data-theme="dark"] .milestone-highlight-item{
     animation:none !important;
   }
 }
+/* ============================================================
+   DATA-FIRST ENHANCEMENTS
+   Numbers need to be readable, aligned, and meaningful.
+   ============================================================ */
+
+/* Tabular-nums: every digit takes equal width → columns align perfectly */
+.col-rank,
+.col-daily,
+.col-total,
+.stat-value,
+.tb-daily,
+.delta,
+.news-title,
+.alb-col-num,
+.sparkline-bar{
+  font-variant-numeric:tabular-nums;
+  font-feature-settings:"tnum";
+}
+
+/* Daily streams = "today's news" → accent green, slightly bolder */
+.col-daily{
+  color:var(--accent);
+  font-size:15px;
+  font-weight:900;
+}
+
+/* Total streams: bold dark, slightly muted vs daily */
+.col-total{
+  font-size:14px;
+  font-weight:800;
+  color:var(--text);
+}
+
+/* Top-3 rank tier colors */
+.song-row-card[data-rank="1"] .col-rank{ color:#c99700; }
+.song-row-card[data-rank="2"] .col-rank{ color:#94a3b8; }
+.song-row-card[data-rank="3"] .col-rank{ color:#b07840; }
+
+/* Stat cards: left accent bar via inset shadow */
+.stat-card{
+  box-shadow:var(--shadow),inset 3px 0 0 var(--accent);
+}
+
+.stat-card:hover{
+  box-shadow:var(--shadow-hover),inset 3px 0 0 var(--accent);
+}
+
+body[data-theme="dark"] .stat-card{
+  box-shadow:var(--shadow),inset 3px 0 0 var(--accent);
+}
+
+/* Daily streams label in stat card */
+.stat-label{
+  font-size:11px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.07em;
+}
+
+/* Days-to-next-milestone inline label */
+.ms-days-lbl{
+  font-size:10.5px;
+  font-weight:700;
+  color:var(--muted);
+  margin-top:3px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  font-variant-numeric:tabular-nums;
+  font-feature-settings:"tnum";
+}
+
+/* Section head: title + descriptor closer together */
+.section-head h2{
+  font-size:20px;
+  font-weight:900;
+  letter-spacing:-.02em;
+}
+
+/* Make the "Daily" column header visually match the green value */
+.ranking-table thead th:nth-child(4){
+  color:var(--accent);
+}
+
+/* Dark mode col-daily stays accent green */
+body[data-theme="dark"] .col-daily{
+  color:var(--accent);
+}
+
+/* Topbar daily number tabular */
+.tb-daily{
+  font-variant-numeric:tabular-nums;
+  font-feature-settings:"tnum";
+}
+
 .milestone-extra-stats{
   display:flex;
   gap:16px;

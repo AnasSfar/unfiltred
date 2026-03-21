@@ -9,6 +9,7 @@ Ecrit: {date_dir}/chart_image.png
 
 Usage: python generate_chart_image.py YYYY-MM-DD
 """
+import base64
 import colorsys
 import csv
 import json
@@ -17,6 +18,8 @@ import re
 import sys
 from datetime import datetime, timedelta
 from pathlib import Path
+from urllib.request import urlopen, Request
+from urllib.error import URLError
 
 from playwright.sync_api import sync_playwright
 
@@ -27,10 +30,12 @@ except ImportError:
     _PIL = False
 
 ROOT             = Path(__file__).parent
-TS_HISTORY_PATH  = ROOT / "ts_history.json"
-DISCOGRAPHY_ROOT = ROOT.parent.parent.parent.parent / "db" / "discography"
+_TOOLS           = Path(__file__).parent.parent          # = global/tools/
+_DATA            = _TOOLS.parent / "history"             # = global/history/
+TS_HISTORY_PATH  = _TOOLS / "json" / "ts_history.json"
+DISCOGRAPHY_ROOT = Path(__file__).parents[6] / "db" / "discography"
 COVERS_PATH      = DISCOGRAPHY_ROOT / "covers.json"
-HEADERS_DIR      = ROOT / "headers"
+HEADERS_DIR      = _TOOLS / "headers"
 HANDLE           = "@swiftiescharts"
 
 
@@ -563,7 +568,7 @@ def build_html(
 # ---------------------------------------------------------------------------
 
 def generate(chart_date: str, header_img: Path | None = None) -> Path:
-    date_dir  = ROOT / chart_date[:4] / chart_date[5:7] / chart_date
+    date_dir  = _DATA / chart_date[:4] / chart_date[5:7] / chart_date
     json_path = date_dir / f"ts_chart_{chart_date}.json"
     out_path  = date_dir / "chart_image.png"
 
@@ -612,7 +617,7 @@ def generate_all_headers(chart_date: str) -> list[Path]:
         print("Aucune photo dans headers/")
         return []
 
-    date_dir  = ROOT / chart_date[:4] / chart_date[5:7] / chart_date
+    date_dir  = _DATA / chart_date[:4] / chart_date[5:7] / chart_date
     json_path = date_dir / f"ts_chart_{chart_date}.json"
     if not json_path.exists():
         raise FileNotFoundError(f"ts_chart_{chart_date}.json introuvable: {json_path}")
@@ -658,7 +663,7 @@ def generate_multi(chart_dates: list[str], header_img: Path | None = None) -> Pa
     combined_rows_html = ""
     valid_dates = []
     for chart_date in chart_dates:
-        date_dir  = ROOT / chart_date[:4] / chart_date[5:7] / chart_date
+        date_dir  = _DATA / chart_date[:4] / chart_date[5:7] / chart_date
         json_path = date_dir / f"ts_chart_{chart_date}.json"
         if not json_path.exists():
             print(f"  JSON introuvable pour {chart_date}, ignoré")

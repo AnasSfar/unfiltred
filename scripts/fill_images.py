@@ -37,7 +37,7 @@ ROOT        = Path(__file__).parent.parent
 DISCO_DIR   = ROOT / "db" / "discography"
 SONGS_JSON  = ROOT / "website" / "site" / "data" / "songs.json"
 COVERS_JSON = DISCO_DIR / "covers.json"
-HIST_JSON  = ROOT / "collectors" / "spotify" / "charts" / "global" / "ts_history.json"
+HIST_JSON  = ROOT / "collectors" / "spotify" / "charts" / "global" / "tools" / "json" / "ts_history.json"
 OUT_COVERS = ROOT / "website" / "spotify-charts" / "track_covers.json"
 
 FORCE  = "--force"  in sys.argv
@@ -61,7 +61,9 @@ def oembed_image(track_url: str) -> str | None:
             thumb = data.get("thumbnail_url", "")
             # oEmbed gives a smaller size; upgrade to full 640x640
             # ab67616d00004851 (300px) → ab67616d0000b273 (640px)
-            return thumb.replace("ab67616d00004851", "ab67616d0000b273")
+            return (thumb
+                    .replace("ab67616d00004851", "ab67616d0000b273")
+                    .replace("ab67616d00001e02", "ab67616d0000b273"))
     except Exception as e:
         print(f"    [oEmbed ERROR] {e}")
         return None

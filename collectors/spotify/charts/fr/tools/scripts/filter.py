@@ -30,7 +30,7 @@ import pandas as pd
 import requests
 from playwright.sync_api import sync_playwright
 
-sys.path.insert(0, str(Path(__file__).parent.parent.parent))
+sys.path.insert(0, str(Path(__file__).parents[4]))
 from core.fmt import fmt_delta, fmt_streams, fmt_streams_delta
 from core.history import load, parse_date, save, update
 from core.logger import Logger
@@ -45,10 +45,14 @@ MUSICBRAINZ_HEADERS = {
 }
 
 ROOT        = Path(__file__).parent
-DATA_DIR    = ROOT / "data"
-SESSION_FILE  = ROOT / "spotify_session.json"
-LOCAL_DB_FILE = ROOT / "songs_db.json"
-ARCHIVE_CSV   = Path(__file__).resolve().parents[4] / "db" / "charts_history_fr.csv"
+_TOOLS      = Path(__file__).parent.parent          # = fr/tools/
+DATA_DIR    = _TOOLS.parent / "history"             # = fr/history/
+SESSION_FILE  = _TOOLS / "json" / "spotify_session.json"
+LOCAL_DB_FILE = _TOOLS / "json" / "songs_db.json"
+TS_HISTORY_PATH     = _TOOLS / "json" / "ts_history.json"
+TS_POP_HISTORY_PATH = _TOOLS / "json" / "ts_pop_history.json"
+TOTAL_DAYS_PATH     = _TOOLS / "json" / "total_days.json"
+ARCHIVE_CSV   = Path(__file__).resolve().parents[6] / "db" / "charts_history_fr.csv"
 
 SLEEP_SECONDS = 0.20
 TS_NAME = "Taylor Swift"
@@ -76,7 +80,7 @@ def get_songs_present_yesterday(chart_date, ts_history):
 
 
 def update_total_days_file(ts_df) -> None:
-    path = ROOT / "total_days.json"
+    path = TOTAL_DAYS_PATH
     try:
         data = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
     except Exception:
@@ -399,6 +403,11 @@ def scrape_chart_rows(chart_date: str) -> list[dict]:
                     img_els = page.locator("img[src*='i.scdn.co']").all()
                     img_urls = [el.get_attribute("src") for el in img_els]
                     img_urls = [u for u in img_urls if u and "ab67616d" in u]
+                    img_urls = [
+                        u.replace("ab67616d00001e02", "ab67616d0000b273")
+                         .replace("ab67616d00004851", "ab67616d0000b273")
+                        for u in img_urls
+                    ]
                     for i, row in enumerate(rows):
                         if i < len(img_urls):
                             row["image_url"] = img_urls[i]
@@ -615,9 +624,8 @@ def process_one(chart_date: str, db, ts_history):
     ts_pop = pop_df[pop_df["artist_names"].astype(str).str.contains(TS_NAME, case=False, na=False)].copy()
 
     # Pop history : déterminer NEW vs RE-ENTRY
-    ts_pop_history_path = ROOT / "ts_pop_history.json"
     try:
-        ts_pop_history = json.loads(ts_pop_history_path.read_text(encoding="utf-8")) if ts_pop_history_path.exists() else {}
+        ts_pop_history = json.loads(TS_POP_HISTORY_PATH.read_text(encoding="utf-8")) if TS_POP_HISTORY_PATH.exists() else {}
     except Exception:
         ts_pop_history = {}
 
@@ -637,7 +645,7 @@ def process_one(chart_date: str, db, ts_history):
                 ts_pop_history[track] = []
             if chart_date not in ts_pop_history[track]:
                 ts_pop_history[track].append(chart_date)
-        ts_pop_history_path.write_text(
+        TS_POP_HISTORY_PATH.write_text(
             json.dumps(ts_pop_history, ensure_ascii=False, indent=2), encoding="utf-8"
         )
 
@@ -790,12 +798,11 @@ def main():
     target = None if run_all or run_relog else (args[0] if args else None)
 
     db = load_db()
-    h = load(ROOT / "ts_history.json")
+    h = load(TS_HISTORY_PATH)
 
     if run_relog:
-        ts_pop_history_path = ROOT / "ts_pop_history.json"
         try:
-            ts_pop_history = json.loads(ts_pop_history_path.read_text(encoding="utf-8")) if ts_pop_history_path.exists() else {}
+            ts_pop_history = json.loads(TS_POP_HISTORY_PATH.read_text(encoding="utf-8")) if TS_POP_HISTORY_PATH.exists() else {}
         except Exception:
             ts_pop_history = {}
 
@@ -849,7 +856,7 @@ def main():
                 print(f"  X {d} - {e}")
 
         history = rebuild_from_ts_csvs(DATA_DIR, initial=seed_from_archive_csv())
-        save(history, ROOT / "ts_history.json")
+        save(history, TS_HISTORY_PATH)
         print(f"  ts_history rebuilt - {len(history)} chansons")
         return
 
@@ -859,7 +866,7 @@ def main():
     process_one(target, db, h)
     save_db(db)
     history = rebuild_from_ts_csvs(DATA_DIR, initial=seed_from_archive_csv())
-    save(history, ROOT / "ts_history.json")
+    save(history, TS_HISTORY_PATH)
     print(f"  ts_history rebuilt - {len(history)} chansons")
 
 

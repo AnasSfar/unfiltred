@@ -17,11 +17,11 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 from playwright.sync_api import sync_playwright
 
 ROOT                  = Path(__file__).parent
-DATA_DIR              = ROOT / "data"
+DATA_DIR              = ROOT / "history"
 CHART_ID              = "regional-fr-daily"
-SPOTIFY_SESSION       = ROOT / "spotify_session.json"
-FILTER_SCRIPT         = ROOT / "filter.py"
-GENERATE_IMAGE_SCRIPT = ROOT / "generate_chart_image.py"
+SPOTIFY_SESSION       = ROOT / "tools/json/spotify_session.json"
+FILTER_SCRIPT         = ROOT / "tools/scripts/filter.py"
+GENERATE_IMAGE_SCRIPT = ROOT / "tools/scripts/generate_chart_image.py"
 
 RETRY_SECONDS = 60
 CUTOFF_HOUR   = 15

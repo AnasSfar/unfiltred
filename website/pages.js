@@ -303,6 +303,8 @@ export function renderHome(container) {
       ${renderTopbar()}
       ${renderNewsSection(ranked, state.selectedDate)}
 
+      ${renderStats(ranked)}
+
       <section class="section-card">
         <div class="section-head">
           <div>
