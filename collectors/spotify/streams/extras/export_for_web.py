@@ -9,7 +9,7 @@ from pathlib import Path
 
 
 _SCRIPT_DIR = Path(__file__).resolve().parent
-_REPO_ROOT  = _SCRIPT_DIR.parents[2]
+_REPO_ROOT  = _SCRIPT_DIR.parents[3]
 ROOT        = _REPO_ROOT / "website"
 _DB_ROOT    = _REPO_ROOT / "db"
 
@@ -834,7 +834,7 @@ def export_billboard_from_csv() -> None:
         json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8"
     )
     total = sum(len(data[k]) for k in ("hot_100", "billboard_200", "ts_chart_history"))
-    print(f"  Billboard JSON written ({total} entries) → {BILLBOARD_JSON_PATH}")
+    print(f"  Billboard JSON written ({total} entries) -> {BILLBOARD_JSON_PATH}")
 
 
 def export_for_web() -> None:
