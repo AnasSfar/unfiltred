@@ -2602,7 +2602,7 @@
   {
     "album": "folklore",
     "section": "standard_edition",
-    "track_count": 16,
+    "track_count": 24,
     "tracks": [
       {
         "title": "the 1",
@@ -2910,6 +2910,161 @@
         "song_family": "hoax",
         "version_tag": "standard",
         "image_url": "https://i.scdn.co/image/ab67616d0000b27395f754318336a07e85ec59bc"
+      },
+      {
+        "title": "august",
+        "url": "https://open.spotify.com/intl-fr/track/1UHoF9p75IVsvUt6WdTYhn",
+        "type": "track",
+        "edition": "standard",
+        "display_section": "Standard Edition",
+        "display_order": 1,
+        "base_title": "august",
+        "album": "folklore",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "august",
+        "song_family": "august",
+        "version_tag": "standard",
+        "image_url": "https://i.scdn.co/image/ab67616d0000b27395f754318336a07e85ec59bc"
+      },
+      {
+        "title": "cardigan",
+        "url": "https://open.spotify.com/intl-fr/track/7zcnlq38eqNWyUF6eNaB5Z",
+        "type": "track",
+        "edition": "standard",
+        "display_section": "Standard Edition",
+        "display_order": 4,
+        "base_title": "cardigan",
+        "album": "folklore",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "cardigan",
+        "song_family": "cardigan",
+        "version_tag": "standard",
+        "image_url": "https://i.scdn.co/image/ab67616d0000b273045514e3ed4e1767a7c3ece5"
+      },
+      {
+        "title": "exile (feat. Bon Iver)",
+        "url": "https://open.spotify.com/intl-fr/track/6kz2hkq1xQvDqPcUyBkw8f",
+        "type": "track",
+        "edition": "standard",
+        "display_section": "Standard Edition",
+        "display_order": 6,
+        "base_title": "exile (feat. Bon Iver)",
+        "album": "folklore",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [
+          "Bon Iver"
+        ],
+        "artists": [
+          "Taylor Swift",
+          "Bon Iver"
+        ],
+        "title_clean": "exile",
+        "song_family": "exile",
+        "version_tag": "featured__feature",
+        "image_url": "https://i.scdn.co/image/ab67616d0000b273045514e3ed4e1767a7c3ece5"
+      },
+      {
+        "title": "mirrorball",
+        "url": "https://open.spotify.com/intl-fr/track/5jQyGzcwqAxwT5QUIMivoX",
+        "type": "track",
+        "edition": "standard",
+        "display_section": "Standard Edition",
+        "display_order": 11,
+        "base_title": "mirrorball",
+        "album": "folklore",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "mirrorball",
+        "song_family": "mirrorball",
+        "version_tag": "standalone",
+        "image_url": "https://i.scdn.co/image/ab67616d0000b273045514e3ed4e1767a7c3ece5"
+      },
+      {
+        "title": "my tears ricochet",
+        "url": "https://open.spotify.com/intl-fr/track/0Oju1YcbPCJuUQQWoZNdJK",
+        "type": "track",
+        "edition": "standard",
+        "display_section": "Standard Edition",
+        "display_order": 13,
+        "base_title": "my tears ricochet",
+        "album": "folklore",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "my tears ricochet",
+        "song_family": "my_tears_ricochet",
+        "version_tag": "standalone",
+        "image_url": "https://i.scdn.co/image/ab67616d0000b27395f754318336a07e85ec59bc"
+      },
+      {
+        "title": "seven",
+        "url": "https://open.spotify.com/intl-fr/track/2vJ7QvyCiR4DaHxwO58izA",
+        "type": "track",
+        "edition": "standard",
+        "display_section": "Standard Edition",
+        "display_order": 16,
+        "base_title": "seven",
+        "album": "folklore",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "seven",
+        "song_family": "seven",
+        "version_tag": "standalone",
+        "image_url": "https://i.scdn.co/image/ab67616d0000b27395f754318336a07e85ec59bc"
+      },
+      {
+        "title": "the 1",
+        "url": "https://open.spotify.com/intl-fr/track/0P9wLFurlgumLXuqFEpw52",
+        "type": "track",
+        "edition": "standard",
+        "display_section": "Standard Edition",
+        "display_order": 18,
+        "base_title": "the 1",
+        "album": "folklore",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "the 1",
+        "song_family": "the_1",
+        "version_tag": "standalone",
+        "image_url": "https://i.scdn.co/image/ab67616d0000b273045514e3ed4e1767a7c3ece5"
+      },
+      {
+        "title": "the last great american dynasty",
+        "url": "https://open.spotify.com/intl-fr/track/4ojxSyrEraN7d46BMBPThZ",
+        "type": "track",
+        "edition": "standard",
+        "display_section": "Standard Edition",
+        "display_order": 20,
+        "base_title": "the last great american dynasty",
+        "album": "folklore",
+        "primary_artist": "Taylor Swift",
+        "featured_artists": [],
+        "artists": [
+          "Taylor Swift"
+        ],
+        "title_clean": "the last great american dynasty",
+        "song_family": "the_last_great_american_dynasty",
+        "version_tag": "standalone",
+        "image_url": "https://i.scdn.co/image/ab67616d0000b273045514e3ed4e1767a7c3ece5"
       }
     ]
   },
