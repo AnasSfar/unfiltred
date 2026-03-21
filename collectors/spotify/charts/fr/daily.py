@@ -26,6 +26,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 from core.twitter import post_thread, post_with_image, split_tweets
 from core.notify import send as notify
 from playwright.sync_api import sync_playwright
+from git_ops import git_commit_and_push
 
 ROOT                  = Path(__file__).parent
 _REPO_ROOT            = ROOT.parents[3]
@@ -42,7 +43,7 @@ try:
 except Exception:
     NTFY_TOPIC = ""
 
-from git_ops import git_commit_and_push
+
 
 RETRY_SECONDS = 60
 CUTOFF_HOUR   = 15  # abandon si page non dispo à 15h le lendemain

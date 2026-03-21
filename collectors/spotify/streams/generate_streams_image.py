@@ -38,7 +38,7 @@ DB_DIR       = REPO_ROOT / "db"
 HISTORY_PATH = DB_DIR / "streams_history.csv"
 COVERS_PATH  = DB_DIR / "discography" / "covers.json"
 SONGS_JSON   = DB_DIR / "discography" / "songs.json"
-HEADERS_DIR  = SCRIPT_DIR.parent / "charts" / "global" / "headers"
+HEADERS_DIR  = SCRIPT_DIR.parent / "charts" / "global" / "tools" / "headers"
 HANDLE       = "@swiftiescharts"
 
 TOP_N = 15
@@ -543,7 +543,10 @@ def generate(target_date: str | None = None) -> Path:
     print(f"  {len(image_cache)} images téléchargées")
 
     html     = build_html(top15, target_date, cover_map, track_album_map, image_cache)
-    out_path = SCRIPT_DIR / f"streams_image_{target_date}.png"
+    _d       = date_cls.fromisoformat(target_date)
+    day_dir  = SCRIPT_DIR / "history" / str(_d.year) / f"{_d.month:02d}" / target_date
+    day_dir.mkdir(parents=True, exist_ok=True)
+    out_path = day_dir / f"streams_image_{target_date}.png"
     tmp_html = SCRIPT_DIR / "_streams_tmp.html"
     tmp_html.write_text(html, encoding="utf-8")
 

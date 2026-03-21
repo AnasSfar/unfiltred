@@ -34,6 +34,7 @@ from playwright.sync_api import sync_playwright
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 from core.notify import send as notify
 from core.twitter import post_thread, post_with_image, split_tweets
+from git_ops import git_commit_and_push, migrate_archive_csv
 
 ROOT = Path(__file__).parent
 _REPO_ROOT = ROOT.parents[3]
@@ -51,7 +52,6 @@ try:
 except Exception:
     NTFY_TOPIC = ""
 
-from git_ops import git_commit_and_push, migrate_archive_csv
 
 RETRY_SECONDS = 60
 CUTOFF_HOUR = 15

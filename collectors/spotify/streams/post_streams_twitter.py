@@ -9,15 +9,16 @@ Usage:
 import sys
 from datetime import date, datetime, timedelta
 from pathlib import Path
+from core.twitter import post_with_image
+
+import generate_streams_image
+
 
 SCRIPT_DIR      = Path(__file__).resolve().parent
 REPO_ROOT       = SCRIPT_DIR.parents[2]
 TWITTER_SESSION = SCRIPT_DIR.parent / "charts" / "global" / "twitter_session.json"
 
 sys.path.insert(0, str(SCRIPT_DIR.parent))
-from core.twitter import post_with_image
-
-import generate_streams_image
 
 
 def main():

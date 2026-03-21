@@ -16,6 +16,8 @@ from playwright.sync_api import TimeoutError as PlaywrightTimeoutError
 from playwright.sync_api import sync_playwright
 
 import export_for_web
+from git_ops import git_commit_and_push
+from config import NTFY_TOPIC
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from core.notify import send as notify
@@ -24,8 +26,7 @@ _SCRIPT_DIR = Path(__file__).resolve().parent
 _REPO_ROOT = _SCRIPT_DIR.parents[2]
 
 sys.path.insert(0, str(_SCRIPT_DIR / "tools" / "scripts"))
-from git_ops import git_commit_and_push
-from config import NTFY_TOPIC
+
 ROOT = _REPO_ROOT / "website"
 DATA_DIR = ROOT / "data"
 _DB_ROOT = _REPO_ROOT / "db"
@@ -416,6 +417,33 @@ def update_artist_metadata(pre_scraped: dict | None = None) -> dict:
     )
 
     return merged
+
+
+def load_album_track_ids() -> set[str]:
+    """Returns track IDs from albums.json only (excludes songs.json extras)."""
+    if not DB_ALBUMS_JSON.exists():
+        return set()
+    try:
+        sections = json.loads(DB_ALBUMS_JSON.read_text(encoding="utf-8"))
+    except Exception:
+        return set()
+    ids = set()
+    for section in sections:
+        for track in section.get("tracks", []):
+            url = (track.get("url") or track.get("spotify_url") or "").strip()
+            tid = extract_track_id(url)
+            if tid:
+                ids.add(tid)
+    return ids
+
+
+def all_album_tracks_done(stats_date: str) -> bool:
+    """Returns True when every albums.json track has a history row for stats_date."""
+    album_ids = load_album_track_ids()
+    if not album_ids:
+        return True
+    done_ids = load_history_track_ids_for_date(stats_date)
+    return album_ids.issubset(done_ids)
 
 
 def load_active_track_ids_from_discography() -> set[str]:
@@ -952,7 +980,7 @@ def extract_main_track_playcount_from_lines(lines: list[str]) -> tuple[int | Non
 
     start_idx = None
     for i, line in enumerate(lines):
-        if line.strip().lower() == "titre":
+        if line.strip().lower() in ("titre", "title"):
             start_idx = i
             break
 
@@ -1092,6 +1120,31 @@ def extract_recommended_tracks_from_lines(lines: list[str]) -> list[dict]:
     return deduped
 
 
+def extract_playcount_via_js(page) -> int | None:
+    """
+    Fallback: scan all [data-testid] elements for a single large numeric value
+    that looks like a play count. Returns None if ambiguous or not found.
+    """
+    try:
+        result = page.evaluate("""() => {
+            const candidates = [];
+            document.querySelectorAll('[data-testid]').forEach(el => {
+                const txt = (el.innerText || '').trim();
+                if (txt && /^[\d\u202f\u00a0\s,.']+$/.test(txt)) {
+                    const n = parseInt(txt.replace(/[^\d]/g, ''));
+                    if (!isNaN(n) && n >= 10000) candidates.push(n);
+                }
+            });
+            // Return only if exactly one candidate (unambiguous)
+            return candidates.length === 1 ? candidates[0] : null;
+        }""")
+        if result is not None:
+            return int(result)
+    except Exception:
+        pass
+    return None
+
+
 def extract_page_data(page) -> tuple[int | None, str | None, list[dict]]:
     try:
         body_text = page.locator("body").inner_text(timeout=5000)
@@ -1109,6 +1162,14 @@ def extract_page_data(page) -> tuple[int | None, str | None, list[dict]]:
 
     total, raw = extract_main_track_playcount_from_lines(lines)
     recs = extract_recommended_tracks_from_lines(lines)
+
+    if total is None:
+        # JS fallback: try finding the play count via data-testid attributes
+        js_total = extract_playcount_via_js(page)
+        if js_total is not None:
+            total = js_total
+            raw = str(js_total)
+
     return total, raw, recs
 
 
@@ -1150,7 +1211,7 @@ def scrape_track_total(page, title: str, url: str) -> tuple[int | None, str | No
             if DEBUG_PAGE_PREVIEW:
                 debug_page_preview(page, title, clean_url)
 
-            for wait_ms in (500, 1000, 2000):
+            for wait_ms in (500, 1500, 3000, 5000):
                 total, raw, recs = extract_page_data(page)
                 if total is not None:
                     return total, raw, "ok", recs
@@ -2061,7 +2122,7 @@ def main():
     if not debug_daily_mode:
         print("Rebuilding expected milestones forecast...")
         subprocess.run(
-            [sys.executable, str(_SCRIPT_DIR / "forecast_milestones.py")],
+            [sys.executable, str(_SCRIPT_DIR / "tools" / "scripts" / "forecast_milestones.py")],
             check=True,
         )
         print("Expected milestones forecast done.")
@@ -2075,17 +2136,21 @@ def main():
 
         print("Fetching missing track cover images from Spotify...")
         subprocess.run(
-            [sys.executable, str(_SCRIPT_DIR / "fill_track_images.py")],
+            [sys.executable, str(_SCRIPT_DIR / "extras" / "fill_track_images.py")],
             check=False,
         )
         print("Track cover images done.")
 
-        print("Génération de l'image top 15 et publication Twitter...")
         post_script = _SCRIPT_DIR / "tools" / "scripts" / "post_streams_twitter.py"
-        subprocess.run(
-            [sys.executable, str(post_script), summary["stats_date"]],
-            check=False,
-        )
+        if all_album_tracks_done(summary["stats_date"]):
+            print("100% des tracks albums.json présents → génération image top 15 + post Twitter...")
+            subprocess.run(
+                [sys.executable, str(post_script), summary["stats_date"]],
+                check=False,
+            )
+        else:
+            missing = load_album_track_ids() - load_history_track_ids_for_date(summary["stats_date"])
+            print(f"Image top 15 ignorée : {len(missing)} track(s) albums.json manquant(s) pour {summary['stats_date']}.")
 
         print("Git commit and push...")
         git_commit_and_push(_REPO_ROOT, f"daily final export {summary['stats_date']}")
