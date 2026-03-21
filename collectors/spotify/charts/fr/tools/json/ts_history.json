@@ -5290,6 +5290,12 @@
       "streams": 155224,
       "previous_rank": 36,
       "peak_rank": 2
+    },
+    "2026-03-20": {
+      "rank": 36,
+      "streams": 161280,
+      "previous_rank": 32,
+      "peak_rank": 2
     }
   },
   "Elizabeth Taylor": {
@@ -5684,6 +5690,12 @@
       "rank": 173,
       "streams": 66291,
       "previous_rank": 195,
+      "peak_rank": 8
+    },
+    "2026-03-20": {
+      "rank": 200,
+      "streams": 72257,
+      "previous_rank": 173,
       "peak_rank": 8
     }
   },
