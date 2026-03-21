@@ -35,8 +35,10 @@ DEFAULT_MILESTONES = [
 ]
 
 MAX_FORECAST_DAYS = 5 * 365
-RECENT_WINDOW = 30
+RECENT_WINDOW = 90          # 3 mois d'historique pour une tendance stable
 MIN_REQUIRED_HISTORY_POINTS = 5
+SPIKE_IQR_MULTIPLIER = 2.0  # seuil IQR au-delà duquel un jour est considéré comme pic
+EWMA_ALPHA = 0.10           # lissage exponentiel (poids fort sur les jours récents)
 
 
 def format_milestone_label(value: int) -> str:
@@ -94,40 +96,75 @@ def load_history_bundle() -> dict:
     }
 
 
-def weighted_average(values: list[float], weights: list[float]) -> float:
-    if not values or not weights or len(values) != len(weights):
-        return 0.0
-    total_weight = sum(weights)
-    if total_weight <= 0:
-        return 0.0
-    return sum(v * w for v, w in zip(values, weights)) / total_weight
-
-
-def linear_regression_slope(values: list[float]) -> float:
-    n = len(values)
-    if n < 2:
-        return 0.0
-
-    x_mean = (n - 1) / 2
-    y_mean = sum(values) / n
-
-    num = 0.0
-    den = 0.0
-
-    for i, y in enumerate(values):
-        dx = i - x_mean
-        dy = y - y_mean
-        num += dx * dy
-        den += dx * dx
-
-    if den == 0:
-        return 0.0
-
-    return num / den
-
-
 def clamp(value: float, low: float, high: float) -> float:
     return max(low, min(high, value))
+
+
+def remove_spikes(values: list[float]) -> list[float]:
+    """
+    Supprime les pics statistiques via IQR.
+    Conserve les valeurs <= Q3 + SPIKE_IQR_MULTIPLIER * IQR.
+    Retourne la liste originale si trop peu de points.
+    """
+    if len(values) < 4:
+        return values
+    sorted_vals = sorted(values)
+    n = len(sorted_vals)
+    q1 = sorted_vals[n // 4]
+    q3 = sorted_vals[(3 * n) // 4]
+    iqr = q3 - q1
+    upper = q3 + SPIKE_IQR_MULTIPLIER * iqr
+    cleaned = [v for v in values if v <= upper]
+    return cleaned if cleaned else values
+
+
+def ewma(values: list[float], alpha: float = EWMA_ALPHA) -> float:
+    """
+    Exponential Weighted Moving Average.
+    Les valeurs récentes ont plus de poids.
+    alpha proche de 0 = lissage fort (mémoire longue).
+    """
+    if not values:
+        return 0.0
+    result = values[0]
+    for v in values[1:]:
+        result = alpha * v + (1.0 - alpha) * result
+    return result
+
+
+def estimate_decay_factor(daily_values: list[float]) -> float:
+    """
+    Calcule le facteur de décroissance/croissance quotidien en comparant
+    la moyenne des 7 derniers jours à celle des 7 jours précédents.
+    Retourne un ratio quotidien (ex: 0.993 = -0.7%/jour, 1.002 = +0.2%/jour).
+    Clampé à [0.965, 1.020] pour éviter les extrapolations absurdes.
+    """
+    n = len(daily_values)
+    if n < 7:
+        return 1.0
+
+    if n >= 14:
+        last_7  = daily_values[-7:]
+        prev_7  = daily_values[-14:-7]
+        avg_last = sum(last_7) / len(last_7)
+        avg_prev = sum(prev_7) / len(prev_7)
+        span = 7
+    else:
+        # Moins de 14 jours : comparaison première/deuxième moitié
+        half = n // 2
+        last_7  = daily_values[-half:]
+        prev_7  = daily_values[:-half]
+        avg_last = sum(last_7) / len(last_7)
+        avg_prev = sum(prev_7) / len(prev_7)
+        span = half
+
+    if avg_prev <= 0:
+        return 1.0
+
+    weekly_ratio = avg_last / avg_prev
+    # Convertir le ratio sur `span` jours en ratio quotidien
+    daily_decay = weekly_ratio ** (1.0 / span)
+    return clamp(daily_decay, 0.965, 1.020)
 
 
 def get_track_history_series(track_id: str, history_by_date: dict, dates: list[str]) -> list[dict]:
@@ -165,43 +202,44 @@ def get_track_history_series(track_id: str, history_by_date: dict, dates: list[s
 
 
 def estimate_future_daily_streams(series: list[dict]) -> dict:
+    """
+    Estime les streams quotidiens futurs à partir de l'historique récent.
+
+    Approche :
+    1. Fenêtre glissante de RECENT_WINDOW jours (90 jours par défaut)
+    2. Suppression des pics (IQR) pour isoler la tendance de fond
+    3. EWMA sur les valeurs nettoyées → base quotidienne stable
+    4. Facteur de décroissance multiplicatif calculé sur semaine / semaine précédente
+    5. Projection : daily *= decay_factor à chaque jour (courbe exponentielle)
+       → bien plus réaliste qu'une tendance linéaire sur des horizons longs (>100 jours)
+    """
     if not series:
-        return {
-            "base_daily": 0,
-            "trend_per_day": 0.0,
-            "projected_next_daily": 0,
-        }
+        return {"base_daily": 0, "decay_factor": 1.0, "projected_next_daily": 0}
 
     recent = series[-RECENT_WINDOW:]
-    daily_values = [
+    all_daily = [
         safe_float(row["daily_streams"])
         for row in recent
         if safe_float(row["daily_streams"]) > 0
     ]
 
-    if not daily_values:
-        return {
-            "base_daily": 0,
-            "trend_per_day": 0.0,
-            "projected_next_daily": 0,
-        }
+    if not all_daily:
+        return {"base_daily": 0, "decay_factor": 1.0, "projected_next_daily": 0}
 
-    last_7 = daily_values[-7:] if len(daily_values) >= 7 else daily_values
-    last_14 = daily_values[-14:] if len(daily_values) >= 14 else daily_values
+    # Supprimer les pics pour une baseline propre
+    cleaned = remove_spikes(all_daily)
 
-    avg_7 = sum(last_7) / len(last_7)
-    avg_14 = sum(last_14) / len(last_14)
+    # EWMA sur les valeurs nettoyées (les jours récents ont plus de poids)
+    base = ewma(cleaned)
 
-    slope = linear_regression_slope(last_14)
+    # Facteur de décroissance calculé aussi sur données nettoyées
+    decay = estimate_decay_factor(cleaned)
 
-    projected_next = avg_7 * 0.7 + avg_14 * 0.3 + slope * 1.5
-    projected_next = max(1.0, projected_next)
-
-    trend_per_day = clamp(slope, -avg_7 * 0.03, avg_7 * 0.03)
+    projected_next = max(1.0, base * decay)
 
     return {
-        "base_daily": int(round(avg_7)),
-        "trend_per_day": trend_per_day,
+        "base_daily": int(round(base)),
+        "decay_factor": decay,
         "projected_next_daily": int(round(projected_next)),
     }
 
@@ -217,25 +255,36 @@ def project_milestone_date(
     current_streams: int,
     last_date: str,
     start_daily: int,
-    trend_per_day: float,
+    decay_factor: float,
     milestone: int,
 ) -> dict | None:
+    """
+    Projette la date d'atteinte du milestone avec décroissance multiplicative :
+        daily_j = start_daily * decay_factor^j
+
+    Somme géométrique convergente si decay_factor < 1.
+    Si la somme totale possible < remaining → retourne None (jamais atteint).
+    """
     if current_streams >= milestone:
         return None
 
     remaining = milestone - current_streams
-    if remaining <= 0:
+    if remaining <= 0 or start_daily <= 0:
         return None
+
+    # Vérification rapide : si decay < 1, la somme max est start_daily / (1 - decay_factor)
+    # Si cette somme est inférieure au remaining, le milestone ne sera jamais atteint
+    if decay_factor < 1.0:
+        max_possible = start_daily / (1.0 - decay_factor)
+        if max_possible < remaining:
+            return None
 
     current_date = parse_iso_date(last_date)
     projected_streams = float(current_streams)
-    daily = float(max(start_daily, 0))
-
-    if daily <= 0:
-        return None
+    daily = float(start_daily)
 
     for day_index in range(1, MAX_FORECAST_DAYS + 1):
-        projected_streams += max(daily, 0)
+        projected_streams += daily
 
         if projected_streams >= milestone:
             eta_date = current_date + timedelta(days=day_index)
@@ -245,9 +294,9 @@ def project_milestone_date(
                 "projected_streams_on_hit": int(round(projected_streams)),
             }
 
-        daily = max(0.0, daily + trend_per_day)
+        daily *= decay_factor
 
-        if daily <= 1 and projected_streams < milestone:
+        if daily < 1.0:
             return None
 
     return None
@@ -306,18 +355,18 @@ def build_forecasts() -> dict:
 
         if len(series) < MIN_REQUIRED_HISTORY_POINTS:
             projected_daily = max(safe_int(last_row["daily_streams"]), 1)
-            trend_per_day = 0.0
+            decay_factor = 1.0
             base_daily = projected_daily
         else:
             projected_daily = max(projection_inputs["projected_next_daily"], 1)
-            trend_per_day = projection_inputs["trend_per_day"]
+            decay_factor = projection_inputs["decay_factor"]
             base_daily = max(projection_inputs["base_daily"], 1)
 
         projection = project_milestone_date(
             current_streams=current_streams,
             last_date=latest_history_date,
             start_daily=projected_daily,
-            trend_per_day=trend_per_day,
+            decay_factor=decay_factor,
             milestone=next_target,
         )
 
@@ -336,7 +385,8 @@ def build_forecasts() -> dict:
                 "latest_daily_streams": safe_int(last_row["daily_streams"]),
                 "estimated_base_daily": base_daily,
                 "estimated_next_daily": projected_daily,
-                "estimated_trend_per_day": round(trend_per_day, 2),
+                "estimated_decay_factor": round(decay_factor, 6),
+                "estimated_trend_per_day": round((decay_factor - 1.0) * base_daily, 2),
                 "next_milestone": next_target,
                 "next_milestone_label": format_milestone_label(next_target),
                 "progress": progress,
