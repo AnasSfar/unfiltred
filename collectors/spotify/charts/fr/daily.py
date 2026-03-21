@@ -206,15 +206,32 @@ def build_multi_tweet(dates: list[date]) -> str:
 
 
 def main():
-    # Mode manuel : python daily.py YYYY-MM-DD
-    if len(sys.argv) > 1:
+    force = "--force" in sys.argv
+    date_args = [a for a in sys.argv[1:] if not a.startswith("--")]
+
+    # Mode manuel : python daily.py [--force] [YYYY-MM-DD]
+    if date_args:
         try:
-            unposted = [datetime.strptime(sys.argv[1], "%Y-%m-%d").date()]
+            target = datetime.strptime(date_args[0], "%Y-%m-%d").date()
         except ValueError:
-            log("ERROR", f"Date invalide '{sys.argv[1]}', format attendu : YYYY-MM-DD")
+            log("ERROR", f"Date invalide '{date_args[0]}', format attendu : YYYY-MM-DD")
             sys.exit(1)
+        if force:
+            lp = lock_path(target)
+            if lp.exists():
+                lp.unlink()
+                log("INFO", f"--force: posted.lock supprimé pour {target}")
+        unposted = [target]
     else:
+        if force:
+            yesterday = date.today() - timedelta(days=1)
+            lp = lock_path(yesterday)
+            if lp.exists():
+                lp.unlink()
+                log("INFO", f"--force: posted.lock supprimé pour {yesterday}")
         unposted = get_unposted_dates()
+        if force and not unposted:
+            unposted = [date.today() - timedelta(days=1)]
 
     log("INFO", f"Heure locale: {datetime.now()}")
     log("INFO", f"Script: {Path(__file__).name}")
