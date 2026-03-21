@@ -328,6 +328,21 @@ def extract_total_days_for_ts_rows(page, rows: list[dict]) -> None:
         except Exception as td_err:
             print(f"  total_days ignoré pour {track}: {td_err}")
 
+    # Fallback: use last known total_days from cache for songs where scraping failed
+    if TOTAL_DAYS_PATH.exists():
+        try:
+            cached_td = json.loads(TOTAL_DAYS_PATH.read_text(encoding="utf-8"))
+            for row in rows:
+                if TS_NAME.lower() not in str(row.get("artist_names", "")).lower():
+                    continue
+                if row.get("total_days") is None:
+                    val = cached_td.get(str(row["track_name"]))
+                    if val is not None:
+                        row["total_days"] = val
+                        print(f"  total_days (cache) {row['track_name']}: {val}")
+        except Exception:
+            pass
+
 
 def open_chart_and_parse(page, requested_date: str, route_value: str) -> tuple[list[dict], str, str | None]:
     url = f"https://charts.spotify.com/charts/view/{CHART_ID}/{route_value}"

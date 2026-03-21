@@ -255,10 +255,6 @@ def page_available(target_date: date) -> bool:
                 log("CHECK", "Impossible de détecter la date du chart latest")
                 return False
 
-            if chart_already_processed(detected_date):
-                log("CHECK", f"Latest ({detected_date}) déjà traité localement")
-                return False
-
             if detected_date != target_date:
                 log("CHECK", f"Latest pointe vers {detected_date}, attendu {target_date}")
                 return False
@@ -280,6 +276,11 @@ def page_available(target_date: date) -> bool:
                     browser.close()
             except Exception:
                 pass
+
+
+def data_ready(d: date) -> bool:
+    """Données déjà collectées : CSV + tweet.txt présents."""
+    return chart_csv_path(d).exists() and tweet_path(d).exists()
 
 
 def run_filter(d: date) -> str | None:
@@ -358,11 +359,13 @@ def generate_image(processed: list[date]) -> Path | None:
 
 
 def main() -> None:
-    if len(sys.argv) > 1:
+    date_args = [a for a in sys.argv[1:] if not a.startswith("--")]
+
+    if date_args:
         try:
-            unposted = [datetime.strptime(sys.argv[1], "%Y-%m-%d").date()]
+            unposted = [datetime.strptime(date_args[0], "%Y-%m-%d").date()]
         except ValueError:
-            log("ERROR", f"Date invalide '{sys.argv[1]}', format attendu : YYYY-MM-DD")
+            log("ERROR", f"Date invalide '{date_args[0]}', format attendu : YYYY-MM-DD")
             sys.exit(1)
     else:
         unposted = get_unposted_dates()
@@ -378,30 +381,43 @@ def main() -> None:
         return
 
     log("INFO", f"Dates à poster: {[str(d) for d in unposted]}")
-    target = unposted[-1]
 
-    attempt = 1
-    while True:
-        if past_cutoff():
-            log("WARN", f"{CUTOFF_HOUR}h00 atteint — page {target} toujours indisponible, abandon")
-            return
+    # Dates qui nécessitent encore le scraping
+    needs_scraping = [d for d in unposted if not data_ready(d)]
+    already_ready = [d for d in unposted if data_ready(d)]
 
-        log("WAIT", f"Vérification tentative #{attempt} pour {target}")
-        if page_available(target):
-            log("INFO", f"Page de {target} détectée")
-            break
+    if already_ready:
+        log("INFO", f"Données déjà collectées, skip filter : {[str(d) for d in already_ready]}")
 
-        log("WAIT", f"Page {target} pas encore exploitable, retry #{attempt} dans {RETRY_SECONDS // 60} min")
-        attempt += 1
-        time.sleep(RETRY_SECONDS)
+    if needs_scraping:
+        target = needs_scraping[-1]
+        attempt = 1
+        while True:
+            if past_cutoff():
+                log("WARN", f"{CUTOFF_HOUR}h00 atteint — page {target} toujours indisponible, abandon")
+                return
+
+            log("WAIT", f"Vérification tentative #{attempt} pour {target}")
+            if page_available(target):
+                log("INFO", f"Page de {target} détectée")
+                break
+
+            log("WAIT", f"Page {target} pas encore exploitable, retry #{attempt} dans {RETRY_SECONDS // 60} min")
+            attempt += 1
+            time.sleep(RETRY_SECONDS)
 
     results: dict[date, str] = {}
     for d in unposted:
-        content = run_filter(d)
-        if content:
+        if data_ready(d):
+            content = tweet_path(d).read_text(encoding="utf-8")
+            log("INFO", f"tweet.txt existant chargé pour {d} ({len(content)} caractères)")
             results[d] = content
         else:
-            log("WARN", f"filter.py a échoué pour {d}, date ignorée")
+            content = run_filter(d)
+            if content:
+                results[d] = content
+            else:
+                log("WARN", f"filter.py a échoué pour {d}, date ignorée")
 
     if not results:
         log("ERROR", "Aucun traitement réussi")

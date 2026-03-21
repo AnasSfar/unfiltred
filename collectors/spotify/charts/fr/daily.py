@@ -2,7 +2,7 @@
 """
 daily.py - Fr
 Scrape la page Spotify Charts, filtre TS, met a jour ts_history, et poste le tweet.
-Usage : python daily.py [YYYY-MM-DD]
+Usage : python daily.py [--force] [YYYY-MM-DD]
 
 Logique :
 - cherche toutes les dates non-postées des 7 derniers jours
@@ -10,6 +10,10 @@ Logique :
 - lance filter.py pour chaque date manquante
 - si plusieurs dates : génère une image combinée et un tweet condensé
 - poste sur Twitter
+
+Options :
+  --force   Supprime le posted.lock de la date cible et relance le pipeline complet.
+            Sans date explicite, cible hier.
 """
 import re
 import subprocess
