@@ -6,7 +6,7 @@ from pathlib import Path
 
 
 _SCRIPT_DIR = Path(__file__).resolve().parent
-_REPO_ROOT  = _SCRIPT_DIR.parents[2]
+_REPO_ROOT  = _SCRIPT_DIR.parents[4]
 ROOT        = _REPO_ROOT / "website"
 SITE_DATA_DIR = ROOT / "site" / "data"
 HISTORY_DIR = ROOT / "site" / "history"

@@ -1,21 +1,6 @@
 {
   "generated_at": "2026-03-21",
   "stats_date": "2026-03-20",
-  "track_ids": [
-    "3lXekiVK1ZPZbKconsys73"
-  ],
-  "tracks": [
-    {
-      "track_id": "3lXekiVK1ZPZbKconsys73",
-      "title": "The Story Of Us",
-      "spotify_url": "https://open.spotify.com/track/3lXekiVK1ZPZbKconsys73",
-      "status": "pending",
-      "streams": 52581780,
-      "daily_streams": null,
-      "previous_streams": 166451519,
-      "delta": -113869739,
-      "reason": "lower_than_previous",
-      "raw": "52 581 780"
-    }
-  ]
+  "track_ids": [],
+  "tracks": []
 }

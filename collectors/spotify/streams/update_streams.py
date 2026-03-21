@@ -15,17 +15,17 @@ import sys
 from playwright.sync_api import TimeoutError as PlaywrightTimeoutError
 from playwright.sync_api import sync_playwright
 
-import export_for_web
-from git_ops import git_commit_and_push
-from config import NTFY_TOPIC
-
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from core.notify import send as notify
-
 _SCRIPT_DIR = Path(__file__).resolve().parent
 _REPO_ROOT = _SCRIPT_DIR.parents[2]
 
 sys.path.insert(0, str(_SCRIPT_DIR / "tools" / "scripts"))
+sys.path.insert(0, str(_SCRIPT_DIR / "extras"))
+sys.path.insert(0, str(_SCRIPT_DIR.parents[0]))  # collectors/spotify/ for core.*
+
+import export_for_web
+from git_ops import git_commit_and_push
+from config import NTFY_TOPIC
+from core.notify import send as notify
 
 ROOT = _REPO_ROOT / "website"
 DATA_DIR = ROOT / "data"
@@ -944,7 +944,7 @@ def _run_early_twitter(stats_date: str) -> None:
     try:
         print("\n[Twitter] Posting early top 15 after top-50 priority tracks are validated...")
         export_for_web.export_for_web()
-        subprocess.run([sys.executable, str(_SCRIPT_DIR / "migrate_streams_to_csv.py")], check=False)
+        subprocess.run([sys.executable, str(_SCRIPT_DIR / "tools" / "scripts" / "migrate_streams_to_csv.py")], check=False)
         subprocess.run([sys.executable, str(_SCRIPT_DIR / "tools" / "scripts" / "post_streams_twitter.py"), stats_date], check=False)
         print("[Twitter] Early post done.")
     except Exception as e:
@@ -1130,8 +1130,8 @@ def extract_playcount_via_js(page) -> int | None:
             const candidates = [];
             document.querySelectorAll('[data-testid]').forEach(el => {
                 const txt = (el.innerText || '').trim();
-                if (txt && /^[\d\u202f\u00a0\s,.']+$/.test(txt)) {
-                    const n = parseInt(txt.replace(/[^\d]/g, ''));
+                if (txt && /^[\\d\u202f\u00a0\\s,.']+$/.test(txt)) {
+                    const n = parseInt(txt.replace(/[^\\d]/g, ''));
                     if (!isNaN(n) && n >= 10000) candidates.push(n);
                 }
             });
@@ -1895,7 +1895,7 @@ def main():
 
     print("Checking kworbs for new extra tracks...")
     try:
-        _backfill_cmd = [sys.executable, str(_SCRIPT_DIR / "backfill_from_kworb.py")]
+        _backfill_cmd = [sys.executable, str(_SCRIPT_DIR / "extras" / "backfill_from_kworb.py")]
         if dry_run_mode:
             _backfill_cmd.append("--dry-run")
         subprocess.run(_backfill_cmd, check=False)
@@ -2091,7 +2091,7 @@ def main():
 
     print("Updating streams history CSV...")
     subprocess.run(
-        [sys.executable, str(_SCRIPT_DIR / "migrate_streams_to_csv.py")],
+        [sys.executable, str(_SCRIPT_DIR / "tools" / "scripts" / "migrate_streams_to_csv.py")],
         check=False,
     )
     print("Streams history CSV done.")
