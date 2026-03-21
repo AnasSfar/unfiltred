@@ -591,13 +591,18 @@ export function renderAlbumPage(container) {
 
   const rowsForDate = enrichSongsForDate(state.selectedDate);
 
-  const albumSongs = rowsForDate.filter(song =>
+  let albumSongs = rowsForDate.filter(song =>
     (song.appearances || []).some(app => app.album === albumName)
   );
 
+  // Combine avant le groupement pour fusionner les versions qui sont dans des sections différentes
+  if (state.combineVersions) albumSongs = combineSongVersions(albumSongs);
+
+  // Pour chaque chanson (potentiellement combinée), choisir la section avec le display_order le plus bas
   const groups = new Map();
   for (const song of albumSongs) {
-    const appearance = (song.appearances || []).find(app => app.album === albumName) || null;
+    const allAppearances = (song.appearances || []).filter(app => app.album === albumName);
+    const appearance = allAppearances.sort((a, b) => (a.display_order ?? 9999) - (b.display_order ?? 9999))[0] || null;
     const sectionName = appearance?.display_section || "Other";
     const songOrder = appearance?.display_order ?? 9999;
     if (!groups.has(sectionName)) {
@@ -617,7 +622,6 @@ export function renderAlbumPage(container) {
     })
     .map(block => {
       let songs = [...block.songs];
-      if (state.combineVersions) songs = combineSongVersions(songs);
       songs.sort((a, b) =>
         state.albumSortMode === "daily"
           ? ((b.daily_streams || 0) - (a.daily_streams || 0)) || ((b.streams || 0) - (a.streams || 0)) || a.title.localeCompare(b.title)
