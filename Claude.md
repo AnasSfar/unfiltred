@@ -119,6 +119,10 @@ collectors/spotify/charts/<fr|global>/
 2. **`scripts/fill_images.py`** — fills `image_url` in all `db/discography/*.json` files using: songs.json track-ID lookup → covers.json album fallback → oEmbed API. Also generates `website/spotify-charts/track_covers.json` for the chart tracker.
 3. **`scripts/export_for_web.py`** — regenerates `website/site/data/` (songs.json, albums.json, etc.) from `db/discography/`.
 
+### Chart image rendering (`generate_chart_image.py`) — known fixes applied
+- **Covers priority** : `covers.json` (discography) > URL scrapée depuis Spotify. L'URL scrapée dans `filter.py` est assignée positionellement (rang 1, 2, 3 du chart global) et est donc souvent incorrecte pour les chansons TS.
+- **Base64 encoding** : les covers sont téléchargées en Python et injectées en `data:` URI avant le rendu Playwright, car Chromium bloque les requêtes `https://` depuis une page chargée via `file:///`.
+
 Run order when images are missing:
 ```bash
 python scripts/fix_song_images.py          # fill db/discography/songs.json
