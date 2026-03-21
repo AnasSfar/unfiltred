@@ -20,10 +20,12 @@ import export_for_web
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from core.notify import send as notify
 
-NTFY_TOPIC = "taylormuseum-streams"
-
 _SCRIPT_DIR = Path(__file__).resolve().parent
 _REPO_ROOT = _SCRIPT_DIR.parents[2]
+
+sys.path.insert(0, str(_SCRIPT_DIR / "tools" / "scripts"))
+from git_ops import git_commit_and_push
+from config import NTFY_TOPIC
 ROOT = _REPO_ROOT / "website"
 DATA_DIR = ROOT / "data"
 _DB_ROOT = _REPO_ROOT / "db"
@@ -910,36 +912,12 @@ def purge_stale_tracks(streak: dict, tracks: list[dict]) -> list[str]:
     return deleted
 
 
-def git_commit_and_push(message: str | None = None) -> None:
-    try:
-        subprocess.run(
-            ["git", "add", "db/", "website/site/data/", "website/site/history/"],
-            cwd=str(_REPO_ROOT),
-            check=True,
-        )
-        diff = subprocess.run(
-            ["git", "diff", "--cached", "--quiet"],
-            cwd=str(_REPO_ROOT),
-            check=False,
-        )
-        if diff.returncode == 0:
-            print("No git changes to commit.")
-            return
-
-        msg = message or f"daily update {date.today().isoformat()}"
-        subprocess.run(["git", "commit", "-m", msg], cwd=str(_REPO_ROOT), check=True)
-        subprocess.run(["git", "push"], cwd=str(_REPO_ROOT), check=True)
-        print("Git commit + push done.")
-    except subprocess.CalledProcessError as e:
-        print(f"Git commit/push failed: {e}")
-
-
 def _run_early_twitter(stats_date: str) -> None:
     try:
         print("\n[Twitter] Posting early top 15 after top-50 priority tracks are validated...")
         export_for_web.export_for_web()
         subprocess.run([sys.executable, str(_SCRIPT_DIR / "migrate_streams_to_csv.py")], check=False)
-        subprocess.run([sys.executable, str(_SCRIPT_DIR / "post_streams_twitter.py"), stats_date], check=False)
+        subprocess.run([sys.executable, str(_SCRIPT_DIR / "tools" / "scripts" / "post_streams_twitter.py"), stats_date], check=False)
         print("[Twitter] Early post done.")
     except Exception as e:
         print(f"[Twitter] Early post error: {e}")
@@ -960,7 +938,7 @@ def incremental_publish_update(
                 f"{track['track_id']} | stats_date={stats_date}"
             )
             export_for_web.export_for_web()
-            git_commit_and_push(f"track update {stats_date} {track['track_id']}")
+            git_commit_and_push(_REPO_ROOT, f"track update {stats_date} {track['track_id']}")
         except Exception as e:
             print(
                 f"Incremental publish failed for {track['title']} "
@@ -1999,7 +1977,7 @@ def main():
             print(f"Skipping {len(not_found_ids)} not-found track(s) on this retry.")
 
         print("Committing partial progress before retry...")
-        git_commit_and_push(f"partial export {summary['stats_date']} (before retry {retry_round})")
+        git_commit_and_push(_REPO_ROOT, f"partial export {summary['stats_date']} (before retry {retry_round})")
 
         print(
             f"Waiting {PENDING_RETRY_SLEEP_SECONDS // 60} minutes before retry "
@@ -2062,7 +2040,7 @@ def main():
     else:
         print("Posting streams image to Twitter...")
         subprocess.run(
-            [sys.executable, str(_SCRIPT_DIR / "post_streams_twitter.py"), summary["stats_date"]],
+            [sys.executable, str(_SCRIPT_DIR / "tools" / "scripts" / "post_streams_twitter.py"), summary["stats_date"]],
             check=False,
         )
         print("Twitter post done.")
@@ -2103,7 +2081,7 @@ def main():
         print("Track cover images done.")
 
         print("Git commit and push...")
-        git_commit_and_push(f"daily final export {summary['stats_date']}")
+        git_commit_and_push(_REPO_ROOT, f"daily final export {summary['stats_date']}")
 
     elapsed = time.perf_counter() - START_TIME
     print()

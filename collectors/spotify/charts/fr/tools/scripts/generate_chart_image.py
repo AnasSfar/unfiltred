@@ -9,6 +9,7 @@ Ecrit: {date_dir}/chart_image.png
 
 Usage: python generate_chart_image.py YYYY-MM-DD
 """
+import base64
 import colorsys
 import csv
 import json
@@ -17,6 +18,8 @@ import re
 import sys
 from datetime import datetime, timedelta
 from pathlib import Path
+from urllib.request import urlopen, Request
+from urllib.error import URLError
 
 from playwright.sync_api import sync_playwright
 
@@ -35,6 +38,30 @@ DISCOGRAPHY_ROOT    = Path(__file__).parents[6] / "db" / "discography"
 COVERS_PATH         = DISCOGRAPHY_ROOT / "covers.json"
 HEADERS_DIR         = _TOOLS / "headers"
 HANDLE           = "@thefateofanas"
+
+
+# ---------------------------------------------------------------------------
+# Image URL → base64 data URI (Chromium bloque les URLs externes via file://)
+# ---------------------------------------------------------------------------
+
+_img_cache: dict[str, str] = {}
+
+def url_to_data_uri(url: str) -> str:
+    """Fetches an image URL and returns a base64 data URI, or the original URL on failure."""
+    if not url or not url.startswith("http"):
+        return url
+    if url in _img_cache:
+        return _img_cache[url]
+    try:
+        req = Request(url, headers={"User-Agent": "Mozilla/5.0"})
+        with urlopen(req, timeout=8) as resp:
+            mime = resp.headers.get_content_type() or "image/jpeg"
+            data = base64.b64encode(resp.read()).decode()
+            result = f"data:{mime};base64,{data}"
+    except (URLError, Exception):
+        result = url
+    _img_cache[url] = result
+    return result
 
 
 # ---------------------------------------------------------------------------
@@ -421,7 +448,7 @@ def build_out_rows_html(
         artist     = str(row.get("artist_names") or "")
         rank       = row.get("rank")
         scraped_img = row.get("image_url") or ""
-        cover_url  = get_album_cover(track, track_album_map, cover_map, scraped_img)
+        cover_url  = url_to_data_uri(get_album_cover(track, track_album_map, cover_map, scraped_img))
         art_html   = (
             f'<img class="art" src="{cover_url}" />'
             if cover_url
@@ -472,7 +499,7 @@ def build_rows_html(
         chg_text, chg_css = rank_change(rank, int(prev_rank) if prev_rank else None, total_days)
 
         # Album cover: discography lookup → fallback to scraped CDN URL
-        cover_url = get_album_cover(track, track_album_map, cover_map, scraped_img)
+        cover_url = url_to_data_uri(get_album_cover(track, track_album_map, cover_map, scraped_img))
 
         # Daily / weekly % from ts_history
         track_hist   = history.get(track, {})
@@ -549,7 +576,7 @@ def build_pop_rows_html(
 
         chg_text, chg_css = rank_change(pop_rank, int(prev_pop) if prev_pop else None, pop_total)
 
-        cover_url = get_album_cover(track, track_album_map, cover_map, scraped_img)
+        cover_url = url_to_data_uri(get_album_cover(track, track_album_map, cover_map, scraped_img))
 
         track_hist   = history.get(track, {})
         prev_streams = (track_hist.get(yesterday) or {}).get("streams")

@@ -40,6 +40,30 @@ HANDLE           = "@swiftiescharts"
 
 
 # ---------------------------------------------------------------------------
+# Image URL → base64 data URI (Chromium bloque les URLs externes via file://)
+# ---------------------------------------------------------------------------
+
+_img_cache: dict[str, str] = {}
+
+def url_to_data_uri(url: str) -> str:
+    """Fetches an image URL and returns a base64 data URI, or the original URL on failure."""
+    if not url or not url.startswith("http"):
+        return url
+    if url in _img_cache:
+        return _img_cache[url]
+    try:
+        req = Request(url, headers={"User-Agent": "Mozilla/5.0"})
+        with urlopen(req, timeout=8) as resp:
+            mime = resp.headers.get_content_type() or "image/jpeg"
+            data = base64.b64encode(resp.read()).decode()
+            result = f"data:{mime};base64,{data}"
+    except (URLError, Exception):
+        result = url
+    _img_cache[url] = result
+    return result
+
+
+# ---------------------------------------------------------------------------
 # Header image + dominant colour
 # ---------------------------------------------------------------------------
 
@@ -129,14 +153,16 @@ def get_album_cover(
     cover_map: dict,
     fallback_url: str = "",
 ) -> str:
-    if fallback_url and str(fallback_url).startswith("http"):
-        return fallback_url
-
+    # Priorité 1 : cover de la discographie (fiable)
     album_name = track_album_map.get(_norm(track_name), "")
     if album_name:
         cover = cover_map.get(_norm(album_name), "")
         if cover and str(cover).startswith("http"):
             return cover
+
+    # Priorité 2 : image scrapée depuis Spotify (peut être incorrecte par assignation positionnelle)
+    if fallback_url and str(fallback_url).startswith("http"):
+        return fallback_url
 
     return ""
 
@@ -399,7 +425,7 @@ def build_out_rows_html(
         artist     = str(row.get("artist_names") or "")
         rank       = row.get("rank")
         scraped_img = row.get("image_url") or ""
-        cover_url  = get_album_cover(track, track_album_map, cover_map, scraped_img)
+        cover_url  = url_to_data_uri(get_album_cover(track, track_album_map, cover_map, scraped_img))
         art_html   = (
             f'<img class="art" src="{cover_url}" />'
             if cover_url
@@ -450,7 +476,7 @@ def build_rows_html(
         chg_text, chg_css = rank_change(rank, int(prev_rank) if prev_rank else None, total_days)
 
         # Album cover: discography lookup → fallback to scraped CDN URL
-        cover_url = get_album_cover(track, track_album_map, cover_map, scraped_img)
+        cover_url = url_to_data_uri(get_album_cover(track, track_album_map, cover_map, scraped_img))
 
         # Daily / weekly % from ts_history
         track_hist   = history.get(track, {})
