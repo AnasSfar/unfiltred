@@ -39,7 +39,7 @@ def main():
 
     # Build tweet text
     date_fmt = datetime.strptime(target_date, "%Y-%m-%d").strftime("%B %d, %Y")
-    tweet    = f"Taylor Swift's most streamed songs yesterday ({date_fmt}) :"
+    tweet    = f"📊 | Taylor Swift's most streamed songs yesterday ({date_fmt}) :"
 
     print(f"Tweet: {tweet}")
     print(f"Image: {image_path}")
