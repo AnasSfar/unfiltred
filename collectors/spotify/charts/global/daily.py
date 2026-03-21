@@ -4,7 +4,7 @@ daily.py - Global
 Scrape la page Spotify Charts, filtre TS, met à jour ts_history, et poste le tweet.
 
 Usage :
-    python daily.py [YYYY-MM-DD]
+    python daily.py [--force] [YYYY-MM-DD]
 
 Logique :
 - cherche toutes les dates non postées des 7 derniers jours
@@ -12,6 +12,11 @@ Logique :
 - lance filter.py pour chaque date manquante
 - si plusieurs dates : génère une image combinée
 - poste sur Twitter
+
+Options :
+  --force   Supprime le posted.lock de la date cible et relance le pipeline complet
+            (y compris filter même si les données existent déjà). Sans date explicite,
+            cible hier.
 """
 
 from __future__ import annotations
@@ -197,83 +202,95 @@ def open_chart_page(page, route_value: str) -> tuple[bool, date | None]:
     return available, detected_date
 
 
-def page_available(target_date: date) -> bool:
+def _check_page_once(page, target_date: date) -> bool:
+    """Une tentative de vérification sur un page Playwright déjà ouvert."""
+    try:
+        available, _ = open_chart_page(page, str(target_date))
+        if available:
+            return True
+    except PlaywrightTimeoutError as e:
+        log("CHECK", f"Timeout route datée: {e}")
+    except Exception as e:
+        log("CHECK", f"Route datée échouée: {e}")
+
+    log("CHECK", "Fallback vers latest ...")
+
+    try:
+        available, detected_date = open_chart_page(page, "latest")
+    except PlaywrightTimeoutError as e:
+        log("CHECK", f"Timeout latest: {e}")
+        return False
+    except Exception as e:
+        log("CHECK", f"Erreur latest: {e}")
+        return False
+
+    if not detected_date:
+        log("CHECK", "Impossible de détecter la date du chart latest")
+        return False
+
+    if detected_date != target_date:
+        log("CHECK", f"Latest pointe vers {detected_date}, attendu {target_date}")
+        return False
+
+    return available
+
+
+def wait_for_page(target_date: date) -> bool:
+    """Attend que la page soit disponible, browser gardé ouvert entre les tentatives."""
     if not SPOTIFY_SESSION.exists():
         log("ERROR", f"Session Spotify introuvable: {SPOTIFY_SESSION}")
         return False
 
     with sync_playwright() as p:
-        browser = None
-        context = None
+        browser = p.chromium.launch(
+            headless=False,
+            args=[
+                "--disable-blink-features=AutomationControlled",
+                "--disable-dev-shm-usage",
+                "--no-sandbox",
+            ],
+        )
+        context = browser.new_context(
+            storage_state=str(SPOTIFY_SESSION),
+            viewport={"width": 1400, "height": 2000},
+            user_agent=(
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) "
+                "Chrome/133.0.0.0 Safari/537.36"
+            ),
+            locale="en-US",
+        )
+        page = context.new_page()
+        page.set_default_navigation_timeout(PAGE_TIMEOUT_MS)
+        page.set_default_timeout(PAGE_TIMEOUT_MS)
 
+        attempt = 1
         try:
-            browser = p.chromium.launch(
-                headless=False,
-                args=[
-                    "--disable-blink-features=AutomationControlled",
-                    "--disable-dev-shm-usage",
-                    "--no-sandbox",
-                ],
-            )
+            while True:
+                if past_cutoff():
+                    log("WARN", f"{CUTOFF_HOUR}h00 atteint — page {target_date} toujours indisponible, abandon")
+                    return False
 
-            context = browser.new_context(
-                storage_state=str(SPOTIFY_SESSION),
-                viewport={"width": 1400, "height": 2000},
-                user_agent=(
-                    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-                    "AppleWebKit/537.36 (KHTML, like Gecko) "
-                    "Chrome/133.0.0.0 Safari/537.36"
-                ),
-                locale="en-US",
-            )
-
-            page = context.new_page()
-            page.set_default_navigation_timeout(PAGE_TIMEOUT_MS)
-            page.set_default_timeout(PAGE_TIMEOUT_MS)
-
-            try:
-                available, detected_date = open_chart_page(page, str(target_date))
-                if available:
+                log("WAIT", f"Vérification tentative #{attempt} pour {target_date}")
+                if _check_page_once(page, target_date):
+                    log("INFO", f"Page de {target_date} détectée (tentative #{attempt})")
                     return True
-            except PlaywrightTimeoutError as e:
-                log("CHECK", f"Timeout route datée: {e}")
-            except Exception as e:
-                log("CHECK", f"Route datée échouée: {e}")
 
-            log("CHECK", "Fallback vers latest ...")
-
-            try:
-                available, detected_date = open_chart_page(page, "latest")
-            except PlaywrightTimeoutError as e:
-                log("CHECK", f"Timeout latest: {e}")
-                return False
-            except Exception as e:
-                log("CHECK", f"Erreur latest: {e}")
-                return False
-
-            if not detected_date:
-                log("CHECK", "Impossible de détecter la date du chart latest")
-                return False
-
-            if detected_date != target_date:
-                log("CHECK", f"Latest pointe vers {detected_date}, attendu {target_date}")
-                return False
-
-            return available
+                log("WAIT", f"Page {target_date} pas encore exploitable, retry #{attempt} dans {RETRY_SECONDS // 60} min")
+                attempt += 1
+                time.sleep(RETRY_SECONDS)
+                # Le browser reste ouvert — next iteration fait juste page.goto()
 
         except Exception as e:
             log("CHECK", f"Erreur générale: {e}")
             return False
-
         finally:
             try:
-                if context:
-                    context.close()
+                context.close()
             except Exception:
                 pass
             try:
-                if browser:
-                    browser.close()
+                browser.close()
             except Exception:
                 pass
 
@@ -360,15 +377,30 @@ def generate_image(processed: list[date]) -> Path | None:
 
 def main() -> None:
     date_args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    force = "--force" in sys.argv
 
     if date_args:
         try:
-            unposted = [datetime.strptime(date_args[0], "%Y-%m-%d").date()]
+            target = datetime.strptime(date_args[0], "%Y-%m-%d").date()
         except ValueError:
             log("ERROR", f"Date invalide '{date_args[0]}', format attendu : YYYY-MM-DD")
             sys.exit(1)
+        if force:
+            lp = lock_path(target)
+            if lp.exists():
+                lp.unlink()
+                log("INFO", f"--force: posted.lock supprimé pour {target}")
+        unposted = [target]
     else:
+        if force:
+            yesterday = date.today() - timedelta(days=1)
+            lp = lock_path(yesterday)
+            if lp.exists():
+                lp.unlink()
+                log("INFO", f"--force: posted.lock supprimé pour {yesterday}")
         unposted = get_unposted_dates()
+        if force and not unposted:
+            unposted = [date.today() - timedelta(days=1)]
 
     log("INFO", f"Heure locale: {datetime.now()}")
     log("INFO", f"Script: {Path(__file__).name}")
@@ -383,32 +415,21 @@ def main() -> None:
     log("INFO", f"Dates à poster: {[str(d) for d in unposted]}")
 
     # Dates qui nécessitent encore le scraping
-    needs_scraping = [d for d in unposted if not data_ready(d)]
-    already_ready = [d for d in unposted if data_ready(d)]
+    needs_scraping = [d for d in unposted if not data_ready(d) or force]
+    already_ready = [d for d in unposted if data_ready(d) and not force]
 
     if already_ready:
         log("INFO", f"Données déjà collectées, skip filter : {[str(d) for d in already_ready]}")
 
     if needs_scraping:
         target = needs_scraping[-1]
-        attempt = 1
-        while True:
-            if past_cutoff():
-                log("WARN", f"{CUTOFF_HOUR}h00 atteint — page {target} toujours indisponible, abandon")
-                return
-
-            log("WAIT", f"Vérification tentative #{attempt} pour {target}")
-            if page_available(target):
-                log("INFO", f"Page de {target} détectée")
-                break
-
-            log("WAIT", f"Page {target} pas encore exploitable, retry #{attempt} dans {RETRY_SECONDS // 60} min")
-            attempt += 1
-            time.sleep(RETRY_SECONDS)
+        if not wait_for_page(target):
+            log("ERROR", f"Page {target} jamais devenue disponible, abandon")
+            return
 
     results: dict[date, str] = {}
     for d in unposted:
-        if data_ready(d):
+        if data_ready(d) and not force:
             content = tweet_path(d).read_text(encoding="utf-8")
             log("INFO", f"tweet.txt existant chargé pour {d} ({len(content)} caractères)")
             results[d] = content

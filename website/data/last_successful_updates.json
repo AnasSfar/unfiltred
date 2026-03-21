@@ -1,0 +1,208 @@
+{
+  "generated_at": "2026-03-21",
+  "stats_date": "2026-03-20",
+  "track_ids": [
+    "2y5aJvzXhHPA94U5GFAcXe",
+    "1dGr1c8CrMLDpV6mPbImSI",
+    "5eXgqtg3T8Av0m1FUaGHex",
+    "6lzc0Al0zfZOIFsFvBS1ki",
+    "7eResoqEJJAVTkQYSqvO3P",
+    "1yFjBRQVhRdcdnrTE5LuyD",
+    "4i6cwNY6oIUU2XZxPIw82Y",
+    "77VotUUL79U10TAnYdqwvr",
+    "48A0aShHlovDfTMucMrE66",
+    "4UBWugj5D20ZveyzdGpqvD",
+    "16M9Rxid0nXhVmme7lzVwN",
+    "0RFCHlNuTeUHIB36VuVbOL",
+    "0xvsgzM8AtBtRHZm5rav8A",
+    "42TAweWJJ9YlQ47T5nesu5",
+    "7mFiEij8AXPUZB7aKLbUlQ",
+    "5lA0yK8S5tP3xoaRMCp4Ug",
+    "4VbErhGDMTnvPAnt5z70DL",
+    "4DjevQhsPWULcondN4mRh5",
+    "5a9hUL6ZuiagZhazwrtwHF",
+    "1zz0XSmHCFd57ne04UAp38",
+    "0MtU9ETYyVX8YPBDCYPdMb",
+    "0CD7DzeCsuPJygddqlUVYa",
+    "5l6GqSxplqnZbLg0LTPQeG",
+    "5og4Qzt92jJzVDkOtSEilb",
+    "6RRNNciQGZEXnqk8SQ9yv5"
+  ],
+  "tracks": [
+    {
+      "track_id": "2y5aJvzXhHPA94U5GFAcXe",
+      "title": "I Don't Wanna Live Forever (Fifty Shades Darker)",
+      "spotify_url": "https://open.spotify.com/track/2y5aJvzXhHPA94U5GFAcXe",
+      "streams": 2099685365,
+      "daily_streams": 667189
+    },
+    {
+      "track_id": "1dGr1c8CrMLDpV6mPbImSI",
+      "title": "Lover",
+      "spotify_url": "https://open.spotify.com/track/1dGr1c8CrMLDpV6mPbImSI",
+      "streams": 2003116114,
+      "daily_streams": 692180
+    },
+    {
+      "track_id": "5eXgqtg3T8Av0m1FUaGHex",
+      "title": "The Life of a Showgirl (feat. Sabrina Carpenter)",
+      "spotify_url": "https://open.spotify.com/track/5eXgqtg3T8Av0m1FUaGHex",
+      "streams": 250554400,
+      "daily_streams": 446432
+    },
+    {
+      "track_id": "6lzc0Al0zfZOIFsFvBS1ki",
+      "title": "State Of Grace (Taylor's Version)",
+      "spotify_url": "https://open.spotify.com/track/6lzc0Al0zfZOIFsFvBS1ki",
+      "streams": 161468215,
+      "daily_streams": 43592
+    },
+    {
+      "track_id": "7eResoqEJJAVTkQYSqvO3P",
+      "title": "That's When (feat. Keith Urban) (Taylor's Version) (From The Vault)",
+      "spotify_url": "https://open.spotify.com/track/7eResoqEJJAVTkQYSqvO3P",
+      "streams": 100354628,
+      "daily_streams": 21913
+    },
+    {
+      "track_id": "1yFjBRQVhRdcdnrTE5LuyD",
+      "title": "White Horse",
+      "spotify_url": "https://open.spotify.com/track/1yFjBRQVhRdcdnrTE5LuyD",
+      "streams": 125294250,
+      "daily_streams": 24536
+    },
+    {
+      "track_id": "4i6cwNY6oIUU2XZxPIw82Y",
+      "title": "Karma (feat. Ice Spice)",
+      "spotify_url": "https://open.spotify.com/track/4i6cwNY6oIUU2XZxPIw82Y",
+      "streams": 114019218,
+      "daily_streams": 23252
+    },
+    {
+      "track_id": "77VotUUL79U10TAnYdqwvr",
+      "title": "The Way I Loved You",
+      "spotify_url": "https://open.spotify.com/track/77VotUUL79U10TAnYdqwvr",
+      "streams": 83283590,
+      "daily_streams": 25468
+    },
+    {
+      "track_id": "48A0aShHlovDfTMucMrE66",
+      "title": "Begin Again",
+      "spotify_url": "https://open.spotify.com/track/48A0aShHlovDfTMucMrE66",
+      "streams": 144345375,
+      "daily_streams": 21242
+    },
+    {
+      "track_id": "4UBWugj5D20ZveyzdGpqvD",
+      "title": "Elizabeth Taylor - So Glamorous Cabaret Version",
+      "spotify_url": "https://open.spotify.com/track/4UBWugj5D20ZveyzdGpqvD",
+      "streams": 8337148,
+      "daily_streams": 18441
+    },
+    {
+      "track_id": "16M9Rxid0nXhVmme7lzVwN",
+      "title": "Anti-Hero (feat. Bleachers)",
+      "spotify_url": "https://open.spotify.com/track/16M9Rxid0nXhVmme7lzVwN",
+      "streams": 26924153,
+      "daily_streams": 8930
+    },
+    {
+      "track_id": "0RFCHlNuTeUHIB36VuVbOL",
+      "title": "Sweeter Than Fiction - From \"One Chance\" Soundtrack",
+      "spotify_url": "https://open.spotify.com/track/0RFCHlNuTeUHIB36VuVbOL",
+      "streams": 25576869,
+      "daily_streams": 8160
+    },
+    {
+      "track_id": "0xvsgzM8AtBtRHZm5rav8A",
+      "title": "The Other Side Of The Door",
+      "spotify_url": "https://open.spotify.com/track/0xvsgzM8AtBtRHZm5rav8A",
+      "streams": 17919564,
+      "daily_streams": 5118
+    },
+    {
+      "track_id": "42TAweWJJ9YlQ47T5nesu5",
+      "title": "The Life of a Showgirl - Track by Track",
+      "spotify_url": "https://open.spotify.com/track/42TAweWJJ9YlQ47T5nesu5",
+      "streams": 911416,
+      "daily_streams": 1254
+    },
+    {
+      "track_id": "7mFiEij8AXPUZB7aKLbUlQ",
+      "title": "Mean - Live/2011",
+      "spotify_url": "https://open.spotify.com/track/7mFiEij8AXPUZB7aKLbUlQ",
+      "streams": 7885545,
+      "daily_streams": 1167
+    },
+    {
+      "track_id": "5lA0yK8S5tP3xoaRMCp4Ug",
+      "title": "Love Story - Pop Mix",
+      "spotify_url": "https://open.spotify.com/track/5lA0yK8S5tP3xoaRMCp4Ug",
+      "streams": 4514151,
+      "daily_streams": 611
+    },
+    {
+      "track_id": "4VbErhGDMTnvPAnt5z70DL",
+      "title": "You're Not Sorry - CSI Remix",
+      "spotify_url": "https://open.spotify.com/track/4VbErhGDMTnvPAnt5z70DL",
+      "streams": 2520177,
+      "daily_streams": 637
+    },
+    {
+      "track_id": "4DjevQhsPWULcondN4mRh5",
+      "title": "Teardrops On My Guitar - Live From Clear Channel Stripped 2008",
+      "spotify_url": "https://open.spotify.com/track/4DjevQhsPWULcondN4mRh5",
+      "streams": 1049846,
+      "daily_streams": 355
+    },
+    {
+      "track_id": "5a9hUL6ZuiagZhazwrtwHF",
+      "title": "Should've Said No - Live From Clear Channel Stripped 2008",
+      "spotify_url": "https://open.spotify.com/track/5a9hUL6ZuiagZhazwrtwHF",
+      "streams": 1045265,
+      "daily_streams": 343
+    },
+    {
+      "track_id": "1zz0XSmHCFd57ne04UAp38",
+      "title": "Look What You Made Me Do - Karaoke Version",
+      "spotify_url": "https://open.spotify.com/track/1zz0XSmHCFd57ne04UAp38",
+      "streams": 769464,
+      "daily_streams": 286
+    },
+    {
+      "track_id": "0MtU9ETYyVX8YPBDCYPdMb",
+      "title": "This Is Why We Can't Have Nice Things - Karaoke Version",
+      "spotify_url": "https://open.spotify.com/track/0MtU9ETYyVX8YPBDCYPdMb",
+      "streams": 342486,
+      "daily_streams": 138
+    },
+    {
+      "track_id": "0CD7DzeCsuPJygddqlUVYa",
+      "title": "\"Slut!\" (Taylor's Version) (From The Vault)",
+      "spotify_url": "https://open.spotify.com/track/0CD7DzeCsuPJygddqlUVYa",
+      "streams": 441358336,
+      "daily_streams": 348825
+    },
+    {
+      "track_id": "5l6GqSxplqnZbLg0LTPQeG",
+      "title": "Back To December",
+      "spotify_url": "https://open.spotify.com/track/5l6GqSxplqnZbLg0LTPQeG",
+      "streams": 497318657,
+      "daily_streams": 306851
+    },
+    {
+      "track_id": "5og4Qzt92jJzVDkOtSEilb",
+      "title": "But Daddy I Love Him",
+      "spotify_url": "https://open.spotify.com/track/5og4Qzt92jJzVDkOtSEilb",
+      "streams": 369814791,
+      "daily_streams": 331598
+    },
+    {
+      "track_id": "6RRNNciQGZEXnqk8SQ9yv5",
+      "title": "You Need To Calm Down",
+      "spotify_url": "https://open.spotify.com/track/6RRNNciQGZEXnqk8SQ9yv5",
+      "streams": 1125337691,
+      "daily_streams": 412826
+    }
+  ]
+}

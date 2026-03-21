@@ -2080,6 +2080,13 @@ def main():
         )
         print("Track cover images done.")
 
+        print("Génération de l'image top 15 et publication Twitter...")
+        post_script = _SCRIPT_DIR / "tools" / "scripts" / "post_streams_twitter.py"
+        subprocess.run(
+            [sys.executable, str(post_script), summary["stats_date"]],
+            check=False,
+        )
+
         print("Git commit and push...")
         git_commit_and_push(_REPO_ROOT, f"daily final export {summary['stats_date']}")
 

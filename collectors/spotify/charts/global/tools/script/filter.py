@@ -97,7 +97,7 @@ def get_songs_present_yesterday(chart_date, ts_history):
     return {track for track, entries in ts_history.items() if yesterday in entries}
 
 
-def update_total_days_file(ts_df) -> None:
+def update_total_days_file(ts_df, chart_date: str) -> None:
     path = TOTAL_DAYS_PATH
     try:
         data = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
@@ -108,7 +108,7 @@ def update_total_days_file(ts_df) -> None:
         td = row.get("total_days")
         if track and td is not None and str(td) not in ("", "nan"):
             try:
-                data[track] = int(float(td))
+                data[track] = {"days": int(float(td)), "date": chart_date}
             except (ValueError, TypeError):
                 pass
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -300,7 +300,7 @@ def extract_image_urls(page, rows: list[dict]) -> None:
         print(f"  Extraction images ignoree: {img_err}")
 
 
-def extract_total_days_for_ts_rows(page, rows: list[dict]) -> None:
+def extract_total_days_for_ts_rows(page, rows: list[dict], chart_date: str) -> None:
     for row in rows:
         if TS_NAME.lower() not in str(row.get("artist_names", "")).lower():
             continue
@@ -328,7 +328,7 @@ def extract_total_days_for_ts_rows(page, rows: list[dict]) -> None:
         except Exception as td_err:
             print(f"  total_days ignoré pour {track}: {td_err}")
 
-    # Fallback: use last known total_days from cache for songs where scraping failed
+    # Fallback: use last known total_days from cache + delta for songs where scraping failed
     if TOTAL_DAYS_PATH.exists():
         try:
             cached_td = json.loads(TOTAL_DAYS_PATH.read_text(encoding="utf-8"))
@@ -338,8 +338,18 @@ def extract_total_days_for_ts_rows(page, rows: list[dict]) -> None:
                 if row.get("total_days") is None:
                     val = cached_td.get(str(row["track_name"]))
                     if val is not None:
-                        row["total_days"] = val
-                        print(f"  total_days (cache) {row['track_name']}: {val}")
+                        if isinstance(val, dict):
+                            last_days = val.get("days")
+                            as_of = val.get("date")
+                            if last_days is not None and as_of:
+                                delta = (parse_date(chart_date) - parse_date(as_of)).days
+                                estimated = last_days + max(0, delta)
+                            else:
+                                estimated = last_days
+                        else:
+                            estimated = val  # legacy int format
+                        row["total_days"] = estimated
+                        print(f"  total_days (cache+delta) {row['track_name']}: {estimated}")
         except Exception:
             pass
 
@@ -471,7 +481,7 @@ def scrape_chart_rows(chart_date: str) -> tuple[list[dict], str]:
                     raise RuntimeError(f"Chart {actual_chart_date} déjà traité → skip")
 
                 extract_image_urls(page, rows)
-                extract_total_days_for_ts_rows(page, rows)
+                extract_total_days_for_ts_rows(page, rows, actual_chart_date)
 
                 return rows, actual_chart_date
 
@@ -589,7 +599,7 @@ def process_one(requested_date: str, ts_history):
     out_dir = get_out_dir(actual_chart_date)
     out_dir.mkdir(parents=True, exist_ok=True)
     ts_df.to_csv(out_dir / "ts_all_songs.csv", index=False)
-    update_total_days_file(ts_df)
+    update_total_days_file(ts_df, actual_chart_date)
 
     ts_rows_json = [
         {
